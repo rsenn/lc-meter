@@ -1,0 +1,103 @@
+PACKAGE = LC_meter
+VERSION_MAJOR = 0
+VERSION_MINOR = 9
+VERSION_PATCH = 1
+
+CHIP := 16F876A
+
+chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
+chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
+
+BUILDDIR := build/$(chipl)/
+
+vpath $(BUILDDIR)
+
+VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
+
+CCVER = 9.83
+
+PROGRAMFILES = C:/Program Files (x86)
+
+ifeq ($(shell which picc),)
+ifeq ($(shell uname -o),GNU/Linux)
+CCDIR = /opt/microchip/xc8/v1.34
+else
+CCDIR = "$(PROGRAMFILES)"/HI-TECH\ Software/PICC/$(CCVER)
+endif
+endif
+
+ifneq ($(CCDIR),)
+CC = $(CCDIR)/bin/picc
+else
+CC = picc
+endif
+
+LD = $(CC)
+#RM = del /f  
+DISTFILES = Makefile Makefile.htc Makefile.sdcc 
+
+SOURCES = main.c lcd3310.c display.c delay.c
+P1OBJS = $(SOURCES:%.c=$(BUILDDIR)%.p1)
+ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
+
+_COMMON_FLAGS = -g -N127
+COMMON_FLAGS = -g
+	
+_COMMON_FLAGS += --runtime=default,+clear,+init,-keep,-download,+clib
+COMMON_FLAGS += --opt=default,+asm,-speed,+space,9
+COMMON_FLAGS += --double=32
+	
+COMMON_FLAGS += --warn=-2
+	
+	
+_COMMON_FLAGS += \
+	--errformat="Error   [%n] %f; %l.%c %s" \
+	--msgformat="Advisory[%n] %s" \
+	--warnformat="Warning [%n] %f; %l.%c %s"
+
+CPPFLAGS += -D__$(chipl)=1 -I$(CCDIR)/include
+
+_CPPFLAGS += \
+	-DVERSION_MAJOR=$(VERSION_MAJOR) \
+	-DVERSION_MINOR=$(VERSION_MINOR) \
+	-DVERSION_PATCH=$(VERSION_PATCH)
+
+CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
+
+_LDFLAGS += --summary=default,-psect,-class,+mem,-hex
+
+LDFLAGS += --output=default,-inhx032 --chip=$(chipl)
+  
+  
+  LDFLAGS +=  --asmlist
+
+PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd
+
+all: $(BUILDDIR) LC_meter.hex
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
+
+program: $(PACKAGE).hex
+	picpgm -if JDM -p PIC$(chipu) -e -p "$<"
+
+dist:
+	mkdir -p $(PACKAGE)-$(VERSION)
+	cp -rvf $(DISTFILES) $(PACKAGE)-$(VERSION)
+	tar -cvzf $(PACKAGE)-$(VERSION).tar.gz $(PACKAGE)-$(VERSION)
+
+
+LC_meter.hex: $(P1OBJS)
+
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC_meter.map -o$(BUILDDIR)$@ $^ || { $(RM) $(BUILDDIR)LC_meter.hex; exit 1; }
+
+$(P1OBJS): $(BUILDDIR)%.p1: %.c
+	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< || { $(RM) $@; exit 1; }
+$(ASSRCS): $(BUILDDIR)%.as: %.c
+	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< || { $(RM) $@; exit 1; }
+
+
+clean: 
+	$(RM) $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym
+
+

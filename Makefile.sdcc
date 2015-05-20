@@ -1,0 +1,76 @@
+NAME = LC_meter
+
+target = pic14
+CHIP = 16f876a
+serialport = /dev/ttyS0
+
+prefix ?= /usr
+libdir = ${prefix}/lib
+datadir = ${prefix}/share
+
+chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
+chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
+
+BUILDDIR := build/$(chipl)/
+vpath $(BUILDDIR)
+
+#CC = /usr/bin/sdcc
+CC = sdcc
+AS = gpasm
+LD = gplink
+PICPROG = picprog
+#CFLAGS =  -S -V -m${target} -pp$(CHIP) -D__$(CHIP) 
+CFLAGS =  -m${target} -pp$(CHIP) -D__$(CHIP) 
+#CFLAGS += -DNO_BIT_DEFINES
+
+#LDFLAGS = -m -s ${prefix}/share/gputils/lkr/$(CHIP).lkr
+#LIBS = $(targetlibdir)/pic$(CHIP).lib 
+#LIBS = $(targetlibdir)/pic$(CHIP).lib $(sdcclibdir)/libsdcc.lib
+
+CFLAGS += --opt-code-size
+#CFLAGS += --stack-auto
+
+SOURCES = main.c delay.c display.c
+OBJECTS = $(SOURCES:%.c=$(BUILDDIR)%.o)
+
+ifeq ($(CC),/usr/bin/sdcc)
+ sdcclibdir = $(datadir)/sdcc/lib/pic
+ targetlibdir = $(datadir)/sdcc/lib/pic
+else
+ sdcclibdir = $(datadir)/sdcc/lib/$(target)
+ targetlibdir = $(datadir)/sdcc/non-free/lib/$(target)
+ CFLAGS += --use-non-free
+endif
+
+all: $(BUILDDIR) $(BUILDDIR)$(NAME).hex
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
+
+program: $(BUILDDIR)$(NAME).hex
+	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
+	picpgm -if JDM -p PIC$(chipu) -e -p "$<"
+report: 
+	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
+	picpgm -if JDM -p PIC$(chipu) -blank -r 
+
+
+$(BUILDDIR)%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+$(BUILDDIR)%.e: %.c
+	$(CC) $(CFLAGS) -o $@ -E $<
+$(BUILDDIR)%.asm: %.c
+	$(CC) $(CFLAGS) -o $@ -S $<
+
+$(BUILDDIR)LC_meter.hex: $(OBJECTS)
+	(cd $(BUILDDIR); $(CC) $(CFLAGS) $(^:$(BUILDDIR)%=%))
+
+clean:
+ifeq ($(BUILDDIR),)
+	$(RM) $(NAME).asm $(NAME).cod $(NAME).hex $(NAME).map *.o *.lst *.asm *.as *.obj *.rlf *.dep *.p1 *.pre
+else
+	$(RM) -r $(BUILDDIR)
+endif
+	
+
+
