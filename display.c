@@ -1,4 +1,5 @@
 #include "display.h"
+#include "main.h"
 
 #ifdef WITH_LCD
 

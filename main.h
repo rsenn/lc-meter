@@ -23,7 +23,9 @@
 #define remove_ccal() RC0 = 0    //relay off
 #define relay_tris()  TRISC0 = 0  //as output to drive the relay coil
 
-//#define WITH_LCD 1
+#ifdef HI_TECH_C
+# define WITH_LCD 1
+#endif
 
 double F1, F2, F3;
 
