@@ -1,4 +1,5 @@
 #include "main.h"
+#include "delay.h"
 #include "lcd3310.h"
 #include "display.h"
 
@@ -43,7 +44,7 @@ void initialize(void)
 	//others
 	lc_tris();
 	relay_tris();
-	nRBPU = 1;
+	NOT_RBPU = 1;
 //	RBPU = 0;		// enable portB internal pullup
 }
 unsigned int measure_freq(void)		//16-bit freq

@@ -1,3 +1,8 @@
+#ifndef __LCD3310_H__
+#define __LCD3310_H__
+
+#include "device.h"
+
 #define LCD_CLK		RC5
 #define	LCD_DATA	RC4
 #define	LCD_DC		RC1
@@ -19,7 +24,7 @@
 #define	LCD_TDATA	1
 
 
-unsigned char lcd_str_width(const unsigned char *c);
+unsigned char lcd_str_width(const char *c);
 void lcd_send(unsigned char a, unsigned char cmd);
 void lcd_init(void);
 void lcd_test(void);
@@ -43,3 +48,4 @@ void lcd_symbol(const char *sym);
 
 
 	
+#endif

@@ -1,9 +1,15 @@
-#include <htc.h>	// Required to interface with delay routines
-#ifndef _XTAL_FREQ
-	#define _XTAL_FREQ 20000000
-#endif
+#ifdef HI_TECH_C
+# include <htc.h>	// Required to interface with delay routines
+# ifndef _XTAL_FREQ
+#  define _XTAL_FREQ 20000000
+# endif
 __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
+# define NOT_RBPU nRBPU
+#else
+# include <pic16f876a.h>
+#endif
 
+#include "types.h"
 #include "lcd3310.h"
 
 #define Ccal			1000		//pF
