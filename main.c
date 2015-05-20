@@ -10,7 +10,7 @@ main(void) {
 #ifdef WITH_LCD
   lcd_gotoxy(0,0);
   //show startup logo
-  for(i=0; i<504; i++)  lcd_send(logo_image[i], LCD_TDATA);
+  for(i=0; i<504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40,5);
   lcd_puts("YUS'09");
 #endif // defined(WITH_LCD)
@@ -21,8 +21,8 @@ main(void) {
 #endif // defined(WITH_LCD)
 
   while(1) {
-    if(LC_select)  measure_capacitance();
-    else      measure_inductance();
+    if(LC_select) measure_capacitance();
+    else measure_inductance();
     indicator(1);
     delay10ms(30);
     indicator(0);
@@ -118,7 +118,7 @@ measure_capacitance() {
 #endif // defined(WITH_LCD)
   var = measure_freq();
   F3 = (double)var;
-  if(F3>F1)  F3 = F1;  //max freq is F1;
+  if(F3>F1) F3 = F1;  //max freq is F1;
   Cin = F2*F2*(F1*F1 - F3*F3)*Ccal/(F3*F3*(F1*F1-F2*F2));
   if(Cin>999) {
     if(Cin>(999E3)) {
@@ -133,7 +133,7 @@ measure_capacitance() {
       Cin = Cin/1E3;
       display_unit(6);  //"nF"
     }
-  } else  display_unit(7);  //"pF"
+  } else display_unit(7);  //"pF"
   Cin = Cin*100;    //scale to 2 decimal place
   var = (unsigned int)Cin;
   display_reading(var);
@@ -149,10 +149,10 @@ measure_inductance() {
 #endif // defined(WITH_LCD)
   var = measure_freq();
   F3 = (double)var;
-  if(F3>F1)  F3 = F1;  //max freq is F1;
+  if(F3>F1) F3 = F1;  //max freq is F1;
   numerator = ((F1*F1)-(F3*F3)) * ((F1*F1)-(F2-F2)) * (gate_period*gate_period);
   denominator = 4*pi*pi*F1*F1*F2*F2*F3*F3*Ccal;
-  Lin = (numerator/denominator) * 1E15;  //scale to nH  { pF/1E12 * nH/1E9 * (s/1E3)^2 }
+  Lin = (numerator/denominator) * 1E15;  //scale to nH { pF/1E12 * nH/1E9 * (s/1E3)^2 }
   if(Lin>999) {
     if(Lin>(999E3)) {
       if(Lin>(999E6)) {
@@ -166,7 +166,7 @@ measure_inductance() {
       Lin = Lin/1E3;
       display_unit(2);  //"uH"
     }
-  } else  display_unit(3);  //"nH"
+  } else display_unit(3);  //"nH"
   Lin = Lin*100;    //scale to 2 decimal place
   var = (unsigned int)Lin;
   display_reading(var);

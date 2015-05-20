@@ -58,7 +58,7 @@ display_unit(uint8 unit) {
 #ifdef WITH_LCD
   uint8 i;
   lcd_gotoxy(60,2);
-  for(i=0; i<18; i++)   lcd_send(units[unit*36+i], LCD_TDATA);
+  for(i=0; i<18; i++) lcd_send(units[unit*36+i], LCD_TDATA);
   lcd_gotoxy(60,3);
   for(i=18; i<36; i++) lcd_send(units[unit*36+i], LCD_TDATA);
 #endif // defined(WITH_LCD)
@@ -68,9 +68,9 @@ display_reading(unsigned int measurement) {  //measurement divide by 100
 #ifdef WITH_LCD
   //clear previous measurement
   lcd_gotoxy(0,2);
-  lcd_puts("         ");
+  lcd_puts(" ");
   lcd_gotoxy(0,3);
-  lcd_puts("         ");
+  lcd_puts(" ");
   //decimal point
   lcd_gotoxy(35,3);
   lcd_send(0x70, LCD_TDATA);
@@ -79,7 +79,7 @@ display_reading(unsigned int measurement) {  //measurement divide by 100
   //hundreds digit
   if(measurement/10000 >0) display_digit(3,5,measurement/10000);
   //tens digit
-  if(((measurement/1000)%10 > 0) || (measurement/10000 >0))  display_digit(3,15,(measurement/1000)%10);
+  if(((measurement/1000)%10 > 0) || (measurement/10000 >0)) display_digit(3,15,(measurement/1000)%10);
   //ones digit
   display_digit(3,25,(measurement/100)%10);
   //tenths digit

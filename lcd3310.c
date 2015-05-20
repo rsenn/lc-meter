@@ -180,8 +180,8 @@ lcd_init(void) {
   lcd_send(0x13,LCD_TCMD);    //LCD bias mode 1:48
   lcd_send(0x20,LCD_TCMD);    //LCD standard, Horiz addressing
   lcd_send(0x0C,LCD_TCMD);    //display control LCD normal mode
-//  lcd_send(0b00001101,LCD_TCMD);  //display control LCD invert mode
-//  lcd_send(0b00001001, LCD_TCMD);  //turn on all segments
+// lcd_send(0b00001101,LCD_TCMD);  //display control LCD invert mode
+// lcd_send(0b00001001, LCD_TCMD);  //turn on all segments
 #else
   lcd_send(0xA6,LCD_TCMD);    //normal, 0xA7 negative
   lcd_send(0xA3,LCD_TCMD);    //bias
