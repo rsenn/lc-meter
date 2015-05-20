@@ -3,7 +3,8 @@
 #include "lcd3310.h"
 #include "display.h"
 
-void main(void) {
+void
+main(void) {
   int i;
   initialize();
 #ifdef WITH_LCD
@@ -29,7 +30,8 @@ void main(void) {
   }
 }
 
-void initialize(void) {
+void
+initialize(void) {
   //setup comparator
   CMCON = 0b00000101;
   TRISA = 0b11001111;
@@ -75,7 +77,8 @@ unsigned int measure_freq(void) {  //16-bit freq
   return ((oldTMR0<<8) + (256-prescaler_cntr));
 }
 
-void calibrate(void) {
+void
+calibrate(void) {
   uint8 i;
 #ifdef WITH_LCD
   lcd_clear();
@@ -105,7 +108,8 @@ void calibrate(void) {
   }
 }
 
-void measure_capacitance() {
+void
+measure_capacitance() {
   unsigned int var;
   double Cin;
 #ifdef WITH_LCD
@@ -135,7 +139,8 @@ void measure_capacitance() {
   display_reading(var);
 }
 
-void measure_inductance() {
+void
+measure_inductance() {
   unsigned int var;
   double Lin, numerator, denominator;
 #ifdef WITH_LCD
@@ -167,7 +172,8 @@ void measure_inductance() {
   display_reading(var);
 }
 
-void delay10ms(unsigned int period_10ms) {
+void
+delay10ms(unsigned int period_10ms) {
   do {
     __delay_ms(10);
   } while(--period_10ms);

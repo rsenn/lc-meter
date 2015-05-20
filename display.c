@@ -63,7 +63,8 @@ display_unit(uint8 unit) {
   for(i=18; i<36; i++) lcd_send(units[unit*36+i], LCD_TDATA);
 #endif // defined(WITH_LCD)
 }
-void display_reading(unsigned int measurement) {  //measurement divide by 100
+void
+display_reading(unsigned int measurement) {  //measurement divide by 100
 #ifdef WITH_LCD
   //clear previous measurement
   lcd_gotoxy(0,2);
@@ -87,7 +88,8 @@ void display_reading(unsigned int measurement) {  //measurement divide by 100
   display_digit(3,50,measurement%10);
 #endif // defined(WITH_LCD)
 }
-void indicator(uint8 indicate) {
+void
+indicator(uint8 indicate) {
 #ifdef WITH_LCD
   if(indicate) {
     lcd_gotoxy(70,4);
