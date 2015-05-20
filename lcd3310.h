@@ -47,5 +47,5 @@ void lcd_symbol(const char *sym);
 //void  display_digit(unsigned char line, unsigned char column, unsigned char digit);
 
 
-	
+
 #endif

@@ -73,8 +73,7 @@ Delay100TCYx(uint8 unit) {
 #else
     DELAY_SMALL_TCY(100);
 #endif
-  }
-  while(--unit != 0);
+  } while(--unit != 0);
 }
 
 /*
@@ -89,8 +88,7 @@ Delay10KTCYx(uint8 unit) {
 #else
     DELAY_BIG_TCY(10000);
 #endif
-  }
-  while(--unit != 0);
+  } while(--unit != 0);
 }
 
 /*
@@ -103,12 +101,11 @@ Delay10TCYx(uint8 unit) {
 #ifdef HI_TECH_C
     _delay(10);
 #else
-   SAVE_CYCLES_SMALL(dvar, 11);
-   __asm__("BANKSEL _dvar");
-   __asm__("CALL correction");
+    SAVE_CYCLES_SMALL(dvar, 11);
+    __asm__("BANKSEL _dvar");
+    __asm__("CALL correction");
 #endif
-  }
-  while(--unit != 0);
+  } while(--unit != 0);
 }
 
 /*
@@ -123,6 +120,5 @@ Delay1KTCYx(uint8 unit) {
 #else
     DELAY_BIG_TCY(1000);
 #endif
-  }
-  while(--unit != 0);
+  } while(--unit != 0);
 }

@@ -10,10 +10,10 @@
 #  define __16f876a 1
 # endif
 #else
-# ifdef __16f628a 
+# ifdef __16f628a
 #  include <pic16f628a.h>
 # endif
-# ifdef __16f876a 
+# ifdef __16f876a
 #  include <pic16f876a.h>
 # endif
 # define NOP() __asm__("nop")
