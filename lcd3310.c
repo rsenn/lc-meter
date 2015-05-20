@@ -7,6 +7,9 @@ V1.0 11/23/04   Created.
 
 #include "lcd3310.h"
 #include "delay.h"
+#include "main.h"
+
+#ifdef WITH_LCD
 
 __code const char lcd_font[][5] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
@@ -329,3 +332,6 @@ lcd_symbol(const char *sym) {
     lcd_send(sym[i], LCD_TDATA);
   }
 }
+
+
+#endif // WITH_LCD

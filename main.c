@@ -3,6 +3,14 @@
 #include "lcd3310.h"
 #include "display.h"
 
+#ifdef SDCC
+__code uint16_t __at (_CONFIG) __configword = CONFIG_WORD;
+#endif
+
+#ifdef HI_TECH_C
+__CONFIG(CONFIG_WORD);
+#endif
+
 void
 main(void) {
   int i;
@@ -54,7 +62,8 @@ initialize(void) {
 //  RBPU = 0;    // enable portB internal pullup
 }
 
-unsigned int measure_freq(void) {  //16-bit freq
+unsigned int
+measure_freq(void) {  //16-bit freq
   unsigned int oldTMR0, prescaler_cntr;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TRISA4 = 0;    //Enable RA4 output to T0CKI
