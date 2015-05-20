@@ -9,6 +9,7 @@
 # ifdef __PIC16F876A_H
 #  define __16f876a 1
 # endif
+# define __code
 #else
 # ifdef __16f628a
 #  include <pic16f628a.h>

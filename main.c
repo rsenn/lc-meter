@@ -6,146 +6,167 @@
 void main(void) {
   int i;
   initialize();
+#ifdef WITH_LCD
   lcd_gotoxy(0,0);
   //show startup logo
-  for(i=0; i<504; i++)	lcd_send(logo_image[i], LCD_TDATA);
+  for(i=0; i<504; i++)  lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40,5);
   lcd_puts("YUS'09");
+#endif // defined(WITH_LCD)
   delay10ms(200);
   calibrate();
+#ifdef WITH_LCD
   lcd_clear();
+#endif // defined(WITH_LCD)
 
   while(1) {
-    if(LC_select)	measure_capacitance();
-    else			measure_inductance();
+    if(LC_select)  measure_capacitance();
+    else      measure_inductance();
     indicator(1);
     delay10ms(30);
     indicator(0);
     delay10ms(20);
   }
 }
+
 void initialize(void) {
   //setup comparator
   CMCON = 0b00000101;
   TRISA = 0b11001111;
   //setup timer0 for frequency counter
-  T0CS = 1;	//Transition on T0CKI pin
-  T0SE = 1;	//Increment on high-to-low transition on T0CKI pin
-  PSA = 0;	//Prescaler is assigned to the Timer0 module
-  PS2 = 1;	//PS2:PS0 -> Prescaler Rate = divide by 256
+  T0CS = 1;  //Transition on T0CKI pin
+  T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
+  PSA = 0;  //Prescaler is assigned to the Timer0 module
+  PS2 = 1;  //PS2:PS0 -> Prescaler Rate = divide by 256
   PS1 = 1;
   PS0 = 1;
   //initialize 3310 lcd
+#ifdef WITH_LCD
   lcd_init();
   lcd_clear();
+#endif // defined(WITH_LCD)
   //others
   lc_tris();
   relay_tris();
   NOT_RBPU = 1;
-//	RBPU = 0;		// enable portB internal pullup
+//  RBPU = 0;    // enable portB internal pullup
 }
-unsigned int measure_freq(void) {	//16-bit freq
+
+unsigned int measure_freq(void) {  //16-bit freq
   unsigned int oldTMR0, prescaler_cntr;
-  TMR0IF = 0;		//clear timer0 interrupt flag
-  TRISA4 = 0;		//Enable RA4 output to T0CKI
-  delay10ms(2);			//stablize oscillator
-  TMR0 = 0x00;			//reset timer0 counter (including prescaler)
+  TMR0IF = 0;    //clear timer0 interrupt flag
+  TRISA4 = 0;    //Enable RA4 output to T0CKI
+  delay10ms(2);      //stablize oscillator
+  TMR0 = 0x00;      //reset timer0 counter (including prescaler)
   delay10ms(10);
-  TRISA4 = 1;		//Disable RA4 output to T0CKI
+  TRISA4 = 1;    //Disable RA4 output to T0CKI
   oldTMR0 = TMR0;
   prescaler_cntr=0;
-  do {	//self-clocking
+  do {  //self-clocking
     T0SE = 1;
     NOP();
     NOP();
     T0SE = 0;
     NOP();
     NOP();
-    prescaler_cntr++;	// count until TMR0 incremented
-  } while(oldTMR0==TMR0 && prescaler_cntr<=255);	//test if timer0 has incremented
-  //}while(oldTMR0==TMR0);	//test if timer0 has incremented
+    prescaler_cntr++;  // count until TMR0 incremented
+  } while(oldTMR0==TMR0 && prescaler_cntr<=255);  //test if timer0 has incremented
+  //}while(oldTMR0==TMR0);  //test if timer0 has incremented
   return ((oldTMR0<<8) + (256-prescaler_cntr));
 }
 
 void calibrate(void) {
-  unsigned char i;
+  uint8 i;
+#ifdef WITH_LCD
   lcd_clear();
   lcd_gotoxy(1,1);
   lcd_puts("Calibrating.");
   lcd_gotoxy(1,3);
   lcd_puts("please wait..");
+#endif // defined(WITH_LCD)
   remove_ccal();
-  F1 = (double)measure_freq();	//dummy reading to stabilize oscillator
+  F1 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
   F1 = (double)measure_freq();
   add_ccal();
-  F2 = (double)measure_freq();	//dummy reading to stabilize oscillator
+  F2 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
   F2 = (double)measure_freq();
   remove_ccal();
+#ifdef WITH_LCD
   lcd_gotoxy(0,4);
+#endif // defined(WITH_LCD)
   for(i=0; i<84; i++) {
     //show progress bar
+#ifdef WITH_LCD
     lcd_send(0xfc, LCD_TDATA);
+#endif // defined(WITH_LCD)
     delay10ms(2);
   }
 }
+
 void measure_capacitance() {
   unsigned int var;
   double Cin;
+#ifdef WITH_LCD
   lcd_gotoxy(7,5);
   lcd_puts(" capacitance");
+#endif // defined(WITH_LCD)
   var = measure_freq();
   F3 = (double)var;
-  if(F3>F1)	F3 = F1;	//max freq is F1;
+  if(F3>F1)  F3 = F1;  //max freq is F1;
   Cin = F2*F2*(F1*F1 - F3*F3)*Ccal/(F3*F3*(F1*F1-F2*F2));
   if(Cin>999) {
     if(Cin>(999E3)) {
       if(Cin>(999E6)) {
         Cin = Cin / (1E9);
-        display_unit(4);	//"mF"
+        display_unit(4);  //"mF"
       } else {
         Cin = Cin / (1E6);
-        display_unit(5);	//"uF"
+        display_unit(5);  //"uF"
       }
     } else {
       Cin = Cin/1E3;
-      display_unit(6);	//"nF"
+      display_unit(6);  //"nF"
     }
-  } else	display_unit(7);	//"pF"
-  Cin = Cin*100;		//scale to 2 decimal place
+  } else  display_unit(7);  //"pF"
+  Cin = Cin*100;    //scale to 2 decimal place
   var = (unsigned int)Cin;
   display_reading(var);
 }
+
 void measure_inductance() {
   unsigned int var;
   double Lin, numerator, denominator;
+#ifdef WITH_LCD
   lcd_gotoxy(7,5);
   lcd_puts(" inductance ");
+#endif // defined(WITH_LCD)
   var = measure_freq();
   F3 = (double)var;
-  if(F3>F1)	F3 = F1;	//max freq is F1;
+  if(F3>F1)  F3 = F1;  //max freq is F1;
   numerator = ((F1*F1)-(F3*F3)) * ((F1*F1)-(F2-F2)) * (gate_period*gate_period);
   denominator = 4*pi*pi*F1*F1*F2*F2*F3*F3*Ccal;
-  Lin = (numerator/denominator) * 1E15;	//scale to nH	{ pF/1E12 * nH/1E9 * (s/1E3)^2 }
+  Lin = (numerator/denominator) * 1E15;  //scale to nH  { pF/1E12 * nH/1E9 * (s/1E3)^2 }
   if(Lin>999) {
     if(Lin>(999E3)) {
       if(Lin>(999E6)) {
         Lin = Lin / (1E9);
-        display_unit(0);	//"H"
+        display_unit(0);  //"H"
       } else {
         Lin = Lin / (1E6);
-        display_unit(1);	//"mH"
+        display_unit(1);  //"mH"
       }
     } else {
       Lin = Lin/1E3;
-      display_unit(2);	//"uH"
+      display_unit(2);  //"uH"
     }
-  } else	display_unit(3);	//"nH"
-  Lin = Lin*100;		//scale to 2 decimal place
+  } else  display_unit(3);  //"nH"
+  Lin = Lin*100;    //scale to 2 decimal place
   var = (unsigned int)Lin;
   display_reading(var);
 }
+
 void delay10ms(unsigned int period_10ms) {
   do {
     __delay_ms(10);

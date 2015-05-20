@@ -1,10 +1,9 @@
 #include "oscillator.h"
 #include "tsmdelay.h"
 #include "delay.h"
+#include "types.h"
 
-#ifdef HI_TECH_C
-#include <pic.h>
-#else
+#ifndef HI_TECH_C
 dvars dvar;
 #endif
 
