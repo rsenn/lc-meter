@@ -25,7 +25,7 @@
 #endif
 
 #ifdef HI_TECH_C
-# define CONFIG_WORD (FOSC_HS & CP_ON &  CP_OFF & LVP_OFF & BOREN_OFF & PWRTE_OFF & WDTE_OFF)
+# define CONFIG_WORD (FOSC_HS & CP_OFF & LVP_OFF & BOREN_OFF & PWRTE_ON & WDTE_OFF)
 #endif
 
 #endif /* __DEVICE_H__ */

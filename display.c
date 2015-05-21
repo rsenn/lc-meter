@@ -1,7 +1,7 @@
 #include "display.h"
 #include "main.h"
 
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
 
 __code const char logo_image[504] = {
   0x00, 0x40, 0xC0, 0xC0, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE0, 0xF8, 0xF0, 0xE0, 0x00, 0x00, 0x00, 0x00, 0xE0, 0xE0, 0xE0, 0xC0, 0x80, 0x10, 0x7C, 0xFC, 0xFE, 0xFC, 0xF8, 0xE0, 0xC0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x07, 0x1F, 0x7F, 0xFC, 0xF8, 0xE0, 0x80, 0x00, 0x00, 0x00, 0x00, 0xFC, 0xFE, 0xFC, 0xDC, 0x18, 0x38, 0x70, 0xE0, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80, 0x80, 0x80, 0x00, 0x80, 0xC0, 0xC0, 0xC0, 0x80, 0x80, 0x00, 0x00, 0xF0, 0xF8, 0xF8, 0x78, 0x70, 0xF0, 0xCF, 0x9F, 0x3F, 0x7F, 0xFF, 0xF6, 0xC0, 0x87, 0x7F, 0xFF, 0xFF, 0xE7, 0x9F, 0xFC, 0xFB, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xDF, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -38,11 +38,12 @@ __code const char units[288]= { //8units * (18*2)
   //pF = 7
   0, 0, 0, 0, 224, 224, 96, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 24, 31, 7, 0, 0, 31, 31, 0, 0, 0, 0
 };
+#elif defined(__LCD44780_H__)
 #endif
 
 void
 display_digit(uint8 line, uint8 column, uint8 digit) {
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   uint8 i;
   if (line<1 || line>5) return;
   if (column >74) return;
@@ -52,21 +53,30 @@ display_digit(uint8 line, uint8 column, uint8 digit) {
   for(i=0; i<8; i++) lcd_send(digits_8x16[(digit<<4)+i],LCD_TDATA);
   lcd_gotoxy(column, line);
   for(i=8; i<16; i++) lcd_send(digits_8x16[(digit<<4)+i],LCD_TDATA);
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(column, /*line - 1*/ 0);
+  lcd_write('0' + digit);
+#endif // defined(__LCD3310_H__)
 }
 void
 display_unit(uint8 unit) {
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   uint8 i;
   lcd_gotoxy(60,2);
   for(i=0; i<18; i++) lcd_send(units[unit*36+i], LCD_TDATA);
   lcd_gotoxy(60,3);
   for(i=18; i<36; i++) lcd_send(units[unit*36+i], LCD_TDATA);
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
+  lcd_set_cursor(18, 0);
+  lcd_print(units[unit]);
+  lcd_set_cursor(18, 1);
+  lcd_print(units[unit]);
+#endif // defined(__LCD3310_H__)
 }
 void
 display_reading(unsigned int measurement) {  //measurement divide by 100
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   //clear previous measurement
   lcd_gotoxy(0,2);
   lcd_puts(" ");
@@ -87,11 +97,16 @@ display_reading(unsigned int measurement) {  //measurement divide by 100
   display_digit(3,40,(measurement/10)%10);
   //hundredths digit
   display_digit(3,50,measurement%10);
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(4, 0);
+  lcd_print_number(measurement/100, 10);
+  lcd_write('.');
+  lcd_print_number(measurement%100, 10);
+#endif // defined(__LCD3310_H__)
 }
 void
 indicator(uint8 indicate) {
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   if(indicate) {
     lcd_gotoxy(70,4);
     lcd_send(0x1C, LCD_TDATA);
@@ -103,5 +118,12 @@ indicator(uint8 indicate) {
     lcd_gotoxy(70,4);
     lcd_puts(" ");
   }
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(0, 0);
+  if(indicate) {
+    lcd_print("-*-");  
+  } else {
+    lcd_print("   ");  
+  }
+#endif // defined(__LCD3310_H__)
 }

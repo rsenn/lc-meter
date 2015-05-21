@@ -12,7 +12,10 @@
 #endif
 
 #include "types.h"
-#include "lcd3310.h"
+#include "const.h"
+
+#include "lcd44780.h"
+///#include "lcd3310.h"
 
 #define Ccal          1000    //pF
 #define gate_period   100      //ms
@@ -23,9 +26,9 @@
 #define remove_ccal() RC5 = 0    //relay off
 #define relay_tris()  TRISC5 = 0  //as output to drive the relay coil
 
-#ifdef HI_TECH_C
+//#ifdef HI_TECH_C
 # define WITH_LCD 1
-#endif
+//#endif
 
 
 void initialize(void);

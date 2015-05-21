@@ -5,11 +5,11 @@ by Regulus Berdin
 V1.0 11/23/04   Created.
 */
 
-#include "lcd3310.h"
+//#include "lcd3310.h"
 #include "delay.h"
 #include "main.h"
 
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
 
 __code const char lcd_font[][5] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
@@ -334,4 +334,4 @@ lcd_symbol(const char *sym) {
 }
 
 
-#endif // WITH_LCD
+#endif // __LCD3310_H__

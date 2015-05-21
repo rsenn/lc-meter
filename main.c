@@ -1,6 +1,6 @@
 #include "main.h"
 #include "delay.h"
-#include "lcd3310.h"
+//#include "lcd3310.h"
 #include "display.h"
 
 #ifdef SDCC
@@ -17,18 +17,19 @@ void
 main(void) {
   int i;
   initialize();
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_gotoxy(0,0);
   //show startup logo
   for(i=0; i<504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40,5);
   lcd_puts("YUS'09");
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(0, 0);
+  lcd_print("YUS'09");
+#endif // defined(__LCD3310_H__)
   delay10ms(200);
   calibrate();
-#ifdef WITH_LCD
   lcd_clear();
-#endif // defined(WITH_LCD)
 
   while(1) {
     if(LC_select) measure_capacitance();
@@ -53,15 +54,17 @@ initialize(void) {
   PS1 = 1;
   PS0 = 1;
   //initialize 3310 lcd
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_init();
+#elif defined(__LCD44780_H__)
+  lcd_init(true);
+  lcd_begin(2, 1);
+#endif // defined(__LCD3310_H__)
   lcd_clear();
-#endif // defined(WITH_LCD)
   //others
   lc_tris();
   relay_tris();
-  NOT_RBPU = 1;
-//  RBPU = 0;    // enable portB internal pullup
+//  NOT_RBPU = 1;  // enable portB internal pullup
 }
 
 unsigned int
@@ -91,13 +94,17 @@ measure_freq(void) {  //16-bit freq
 void
 calibrate(void) {
   uint8 i;
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_clear();
   lcd_gotoxy(1,1);
   lcd_puts("Calibrating.");
   lcd_gotoxy(1,3);
   lcd_puts("please wait..");
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_clear();
+  lcd_set_cursor(0, 0);
+  lcd_print("Calibrating. please wait...");
+#endif // defined(__LCD3310_H__)
   remove_ccal();
   F1 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
@@ -107,14 +114,19 @@ calibrate(void) {
   delay10ms(50);
   F2 = (double)measure_freq();
   remove_ccal();
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_gotoxy(0,4);
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(0,1);
+#endif // defined(__LCD3310_H__)
   for(i=0; i<84; i++) {
     //show progress bar
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
     lcd_send(0xfc, LCD_TDATA);
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+    if(i % 5 == 0)
+      lcd_write('=');
+#endif // defined(__LCD3310_H__)
     delay10ms(2);
   }
 }
@@ -123,10 +135,13 @@ void
 measure_capacitance() {
   unsigned int var;
   double Cin;
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_gotoxy(7,5);
   lcd_puts(" capacitance");
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(0,1);
+  lcd_print(" capacitance");
+#endif // defined(__LCD3310_H__)
   var = measure_freq();
   F3 = (double)var;
   if(F3>F1) F3 = F1;  //max freq is F1;
@@ -154,10 +169,13 @@ void
 measure_inductance() {
   unsigned int var;
   double Lin, numerator, denominator;
-#ifdef WITH_LCD
+#ifdef __LCD3310_H__
   lcd_gotoxy(7,5);
   lcd_puts(" inductance ");
-#endif // defined(WITH_LCD)
+#elif defined(__LCD44780_H__)
+  lcd_set_cursor(0,1);
+  lcd_print(" inductance ");
+#endif // defined(__LCD3310_H__)
   var = measure_freq();
   F3 = (double)var;
   if(F3>F1) F3 = F1;  //max freq is F1;

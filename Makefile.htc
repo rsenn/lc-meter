@@ -36,7 +36,7 @@ LD = $(CC)
 #RM = del /f  
 DISTFILES = Makefile Makefile.htc Makefile.sdcc 
 
-SOURCES = main.c lcd3310.c display.c delay.c
+SOURCES = main.c lcd3310.c lcd44780.c display.c delay.c
 P1OBJS = $(SOURCES:%.c=$(BUILDDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
 
