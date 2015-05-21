@@ -24,6 +24,7 @@ main(void) {
   lcd_gotoxy(40,5);
   lcd_puts("YUS'09");
 #elif defined(__LCD44780_H__)
+  lcd_begin(2, 1);
   lcd_set_cursor(0, 0);
   lcd_print("YUS'09");
 #endif // defined(__LCD3310_H__)
@@ -56,15 +57,14 @@ initialize(void) {
   //initialize 3310 lcd
 #ifdef __LCD3310_H__
   lcd_init();
+  lcd_clear();
 #elif defined(__LCD44780_H__)
   lcd_init(true);
-  lcd_begin(2, 1);
 #endif // defined(__LCD3310_H__)
-  lcd_clear();
   //others
   lc_tris();
   relay_tris();
-//  NOT_RBPU = 1;  // enable portB internal pullup
+  NOT_RBPU = 1;  // enable portB internal pullup
 }
 
 unsigned int
