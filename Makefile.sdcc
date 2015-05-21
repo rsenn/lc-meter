@@ -11,7 +11,7 @@ datadir = ${prefix}/share
 chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
 chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
 
-BUILDDIR := build/$(chipl)/
+BUILDDIR := build/sdcc-$(chipl)/
 vpath $(BUILDDIR)
 
 #CC = /usr/bin/sdcc

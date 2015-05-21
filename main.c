@@ -11,6 +11,8 @@ __code uint16_t __at (_CONFIG) __configword = CONFIG_WORD;
 __CONFIG(CONFIG_WORD);
 #endif
 
+double F1, F2, F3;
+
 void
 main(void) {
   int i;

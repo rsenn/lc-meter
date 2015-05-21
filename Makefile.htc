@@ -8,7 +8,7 @@ CHIP := 16F876A
 chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
 chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
 
-BUILDDIR := build/$(chipl)/
+BUILDDIR := build/htc-$(chipl)/
 
 vpath $(BUILDDIR)
 
