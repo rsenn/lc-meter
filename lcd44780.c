@@ -44,11 +44,11 @@ static uint8 LCD_function,LCD_ctrl,LCD_mode
 void
 lcd_pulse_enable(void) {
   //EN_PIN = LOW;
-  //delay_us(4);
+  //__delay_us(4);
   EN_PIN = HIGH;
-  delay_us(4);    // enable pulse must be >450ns
+  __delay_us(4);    // enable pulse must be >450ns
   EN_PIN = LOW;
-  delay_us(100);   // commands need > 37us to settle
+  __delay_us(100);   // commands need > 37us to settle
 }
 
 /** Write using 4bits mode */
@@ -249,7 +249,7 @@ void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
   delay_ms(2);                  // Wait for more than 4.1 ms
-  //delay_us(2000);
+  //__delay_us(2000);
 }
 #endif
 
@@ -259,7 +259,7 @@ void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
   delay_ms(2);                  // Wait for more than 4.1 ms
-  //delay_us(2000);  // this command takes a long time! */
+  //__delay_us(2000);  // this command takes a long time! */
 }
 #endif
 
@@ -394,10 +394,10 @@ lcd_begin(uint8 lines, uint8 dotsize) {
     delay_ms(5);                  // Wait for more than 4.1 ms
     /* second try */
     lcd_write4bits(0x03);
-    delay_us(150);                // Wait more than 100 μs
+    __delay_us(150);                // Wait more than 100 μs
     /* third go! */
     lcd_write4bits(0x03);
-    delay_us(150);                // Wait more than 100 μs
+    __delay_us(150);                // Wait more than 100 μs
     /* finally, set to 8-bit interface */
     lcd_write4bits(0x02);
   }
@@ -412,7 +412,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
     delay_ms(5);                  // Wait for more than 4.1 ms
-    //delay_us(150);
+    //__delay_us(150);
 
     /* third go */
     lcd_command(LCD_FUNCTIONSET | LCD_function);

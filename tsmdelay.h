@@ -78,7 +78,7 @@ void cycle_eater(void);
 #endif
 
 // This is how long cycle_eater takes for values of X, B, and C.
-#define LOOP_CYCLES(X, B, C)  (((long)X * B * 4) + (C * 3) + 13)
+#define LOOP_CYCLES(X, B, C)  (((unsigned long)X * B * 4) + (C * 3) + 13)
 
 /**
  * Sets up the values in dvar without actually doing the delay.
@@ -86,8 +86,8 @@ void cycle_eater(void);
  * they can take way longer than the delay you want, so do them first!
  */
 #define SAVE_CYCLES_BIG(Y, X)  do { \
-    (Y).loop_b = ((long)(X) - 16lu) / 764lu; \
-    (Y).loop_c = ((((long)(X) - 16lu) % 764lu) / 3lu) + 1; \
+    (Y).loop_b = ((unsigned long)(X) - 16lu) / 764lu; \
+    (Y).loop_c = ((((unsigned long)(X) - 16lu) % 764lu) / 3lu) + 1; \
   } while(0)
 
 /**
@@ -115,11 +115,11 @@ void cycle_eater(void);
  * they can take way longer than the delay you want, so do them first!
  */
 #define SAVE_CYCLES_SMALL(Y, X) do { \
-    (Y).loop_c = ((long)(X) - 11lu) / 3lu; \
+    (Y).loop_c = ((unsigned long)(X) - 11lu) / 3lu; \
   } while(0)
 
 #define SAVE_CYCLES_SMALL_U8(Y, X) do { \
-    (Y) = ((long)(X) - 11lu) / 3lu; \
+    (Y) = ((unsigned long)(X) - 11lu) / 3lu; \
   } while(0)
 
 /**

@@ -10,12 +10,12 @@
 #endif
 
 
-#define TCY_PER_SECOND ((long)FOSC / 4)
-#define TCY_PER_MILLISECOND ((long)TCY_PER_SECOND / 1000)
-#define TCY_PER_MICROSECOND ((long)TCY_PER_MILLISECOND / 1000)
+#define TCY_PER_SECOND ((unsigned long)FOSC / 4)
+#define TCY_PER_MILLISECOND ((unsigned long)TCY_PER_SECOND / 1000)
+#define TCY_PER_MICROSECOND ((unsigned long)TCY_PER_MILLISECOND / 1000)
 
-#define KTCY_PER_SECOND ((long)TCY_PER_SECOND / 1000)
-#define KTCY_PER_MILLISECOND ((long)KTCY_PER_SECOND / 1000)
+#define KTCY_PER_SECOND ((unsigned long)TCY_PER_SECOND / 1000)
+#define KTCY_PER_MILLISECOND ((unsigned long)KTCY_PER_SECOND / 1000)
 
 #ifndef HI_TECH_C
 #define _delay(C)  do { if(C < 750) DELAY_SMALL_TCY(C); else DELAY_BIG_TCY(C); } while(0)
