@@ -6,6 +6,13 @@
 
 #ifdef HI_TECH_C
 # include <htc.h>  // Required to interface with delay routines
+# include <pic.h> 
+#ifndef nRBPU
+volatile unsigned char           OPTION_REG          @ 0x081;
+
+volatile bit nRBPU               @ ((unsigned)&OPTION_REG*8)+7;
+//#define nRBPU OPTION_REGbits.nRBPU
+#endif
 # define NOT_RBPU nRBPU
 #else
 # include <pic16f876a.h>
