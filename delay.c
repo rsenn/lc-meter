@@ -15,7 +15,7 @@ delay_ms(uint16 milliseconds) {
 #ifndef HI_TECH_C
   __delay_ms(milliseconds);
 #else
-  Delay100TCYx(US_CYCLES(milliseconds*1000lu)/100);
+  Delay100TCYx(US_CYCLES(milliseconds * 1000lu) / 100);
 #endif
 }
 
@@ -28,7 +28,7 @@ delay_us(uint16 microseconds) {
 
   __delay_us(microseconds);
 #else
-  Delay10TCYx(US_CYCLES(microseconds)/10);
+  Delay10TCYx(US_CYCLES(microseconds) / 10);
 
 #endif
 }

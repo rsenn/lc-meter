@@ -34,11 +34,11 @@ Pins, Schematics and more info:
 #endif
 
 
-static uint8 LCD_function,LCD_ctrl,LCD_mode
+static uint8 LCD_function, LCD_ctrl, LCD_mode
 #ifdef LCDSETCURSOR
-    ,LCD_lines
+, LCD_lines
 #endif
-  ;
+;
 
 /** Positive pulse on E */
 void
@@ -121,7 +121,7 @@ lcd_set_cursor(uint8 col, uint8 row) {
     This means that if an n x 4 display is set to behave as
     a single line display lines 1 and 2 are displayed and
     lines 3 and 4 are 20 characters to the right.*/
-  if(LCD_lines==1) {
+  if(LCD_lines == 1) {
     row_offsets[1] = 0x14;
     row_offsets[2] = 0x28;
     row_offsets[3] = 0x3C;
@@ -140,7 +140,7 @@ lcd_set_cursor(uint8 col, uint8 row) {
 void
 lcd_print(const char *string) {
   uint8 i;
-  for(i=0; string[i]; i++)
+  for(i = 0; string[i]; i++)
     lcd_write(string[i]);
 }
 #endif
@@ -161,7 +161,7 @@ lcd_printf(const char *fmt, ...) {
 /** Print a number on LCD */
 #if defined(LCDPRINTNUMBER) || defined(LCDPRINTFLOAT)
 /*
-static const char digits[] = 
+static const char digits[] =
 { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 */
 static void
@@ -178,10 +178,10 @@ lcd_print_number_internal(uint16 n, uint8 base, int8 pointpos) {
   while(n > 0) {
     if(i == pointpos)
       buf[i++] = '.';
-    
+
     di = n % base;
     buf[i++] = (di < 10 ? '0' + di : 'A' + di - 10);
-    
+
     n /= base;
   }
 
@@ -192,7 +192,7 @@ lcd_print_number_internal(uint16 n, uint8 base, int8 pointpos) {
 
 void
 lcd_print_number(uint16 n, uint8 base) {
-   lcd_print_number_internal(n, base, -1);
+  lcd_print_number_internal(n, base, -1);
 }
 
 #endif
@@ -206,7 +206,7 @@ lcd_print_float(float number, uint8 digits) {
   sprintf(buf, "%f", number);
   lcd_print(buf);
 //  lcd_print_number_internal((long)(number * 1000), 10, 1);
-  
+
   //uint8 i, toPrint;
   //uint16 int_part;
   //float rounding, remainder;

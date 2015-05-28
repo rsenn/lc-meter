@@ -115,13 +115,13 @@ __code const char lcd_font[][5] = {
 uint8
 lcd_str_width(const char *c) {
   uint8 i;
-  i=0;
-  while (*c) {
+  i = 0;
+  while(*c) {
     ++i;
     ++c;
   }
 //  return i;
-  return ((i<<1) + i)<<1;    //return i*6
+  return ((i << 1) + i) << 1; //return i*6
 }
 
 #define CLK_IN(data, bitnum) \
@@ -138,23 +138,23 @@ lcd_str_width(const char *c) {
 void
 lcd_send(uint8 a, uint8 cmd) {
   //set if data or command byte
-  LCD_DC=1;
-  if (cmd==LCD_TCMD) {
-    LCD_DC=0;
+  LCD_DC = 1;
+  if(cmd == LCD_TCMD) {
+    LCD_DC = 0;
   }
   NOP();
-  LCD_CE=0;
+  LCD_CE = 0;
   //clock in data in A
-  CLK_IN(a,BIT7);
-  CLK_IN(a,BIT6);
-  CLK_IN(a,BIT5);
-  CLK_IN(a,BIT4);
-  CLK_IN(a,BIT3);
-  CLK_IN(a,BIT2);
-  CLK_IN(a,BIT1);
-  CLK_IN(a,BIT0);
+  CLK_IN(a, BIT7);
+  CLK_IN(a, BIT6);
+  CLK_IN(a, BIT5);
+  CLK_IN(a, BIT4);
+  CLK_IN(a, BIT3);
+  CLK_IN(a, BIT2);
+  CLK_IN(a, BIT1);
+  CLK_IN(a, BIT0);
   NOP();
-  LCD_CE=1;
+  LCD_CE = 1;
 }
 
 void
@@ -163,49 +163,49 @@ lcd_init(void) {
   __delay_ms(20);
   //delay10ms(20);
   NOP();
-  LCD_CLK=0;
+  LCD_CLK = 0;
   NOP();
-  LCD_DATA=1;
+  LCD_DATA = 1;
   NOP();
-  LCD_DC=0;
+  LCD_DC = 0;
   NOP();
-  LCD_CE=1;
+  LCD_CE = 1;
   NOP();
   //reset LCD
-  LCD_RESET=0;
+  LCD_RESET = 0;
   __delay_ms(20);
   //delay10ms(20);
-  LCD_RESET=1;
+  LCD_RESET = 1;
 #if 1
-  lcd_send(0x21,LCD_TCMD);    //extended commands
-  lcd_send(0xC8,LCD_TCMD);    //Vop (contrast)
-  lcd_send(0x06,LCD_TCMD);    //Temp coefficient
-  lcd_send(0x13,LCD_TCMD);    //LCD bias mode 1:48
-  lcd_send(0x20,LCD_TCMD);    //LCD standard, Horiz addressing
-  lcd_send(0x0C,LCD_TCMD);    //display control LCD normal mode
+  lcd_send(0x21, LCD_TCMD);   //extended commands
+  lcd_send(0xC8, LCD_TCMD);   //Vop (contrast)
+  lcd_send(0x06, LCD_TCMD);   //Temp coefficient
+  lcd_send(0x13, LCD_TCMD);   //LCD bias mode 1:48
+  lcd_send(0x20, LCD_TCMD);   //LCD standard, Horiz addressing
+  lcd_send(0x0C, LCD_TCMD);   //display control LCD normal mode
 // lcd_send(0b00001101,LCD_TCMD);  //display control LCD invert mode
 // lcd_send(0b00001001, LCD_TCMD);  //turn on all segments
 #else
-  lcd_send(0xA6,LCD_TCMD);    //normal, 0xA7 negative
-  lcd_send(0xA3,LCD_TCMD);    //bias
-  lcd_send(0xA1,LCD_TCMD);    //addressing
-  lcd_send(0xC0,LCD_TCMD);    //direct, linear, normal
-  lcd_send(0x22,LCD_TCMD);    //V5 voltage
-  lcd_send(0x81,LCD_TCMD);    //(volume electric)
-  lcd_send(0x2E,LCD_TCMD);    //multiplier+stabilizer voltage
-  lcd_send(0x2F,LCD_TCMD);    //urmarire?
-  lcd_send(0xE3,LCD_TCMD);    //nop
-  lcd_send(0x40,LCD_TCMD);    //linear start address
-  lcd_send(0xAF,LCD_TCMD);    //lcd on, 0xAE lcd off
-  lcd_send(0xA5,LCD_TCMD);    //lcd all on, test?
+  lcd_send(0xA6, LCD_TCMD);   //normal, 0xA7 negative
+  lcd_send(0xA3, LCD_TCMD);   //bias
+  lcd_send(0xA1, LCD_TCMD);   //addressing
+  lcd_send(0xC0, LCD_TCMD);   //direct, linear, normal
+  lcd_send(0x22, LCD_TCMD);   //V5 voltage
+  lcd_send(0x81, LCD_TCMD);   //(volume electric)
+  lcd_send(0x2E, LCD_TCMD);   //multiplier+stabilizer voltage
+  lcd_send(0x2F, LCD_TCMD);   //urmarire?
+  lcd_send(0xE3, LCD_TCMD);   //nop
+  lcd_send(0x40, LCD_TCMD);   //linear start address
+  lcd_send(0xAF, LCD_TCMD);   //lcd on, 0xAE lcd off
+  lcd_send(0xA5, LCD_TCMD);   //lcd all on, test?
 #endif
 }
 
 void
 lcd_test(void) {
   unsigned int i;
-  lcd_gotoxy(0,0);
-  for (i=0; i<504; ++i) {
+  lcd_gotoxy(0, 0);
+  for(i = 0; i < 504; ++i) {
     lcd_send(i, LCD_TDATA);
   }
 }
@@ -213,8 +213,8 @@ lcd_test(void) {
 void
 lcd_clear(void) {
   unsigned int i;
-  lcd_gotoxy(0,0);
-  for (i=0; i<504; ++i) {
+  lcd_gotoxy(0, 0);
+  for(i = 0; i < 504; ++i) {
     lcd_send(0, LCD_TDATA);
   }
 }
@@ -227,21 +227,21 @@ lcd_gotoxy(uint8 x, unsigned y) {
 
 void
 lcd_putch(uint8 c) {
-  if (c>'z' || c<32) {
+  if(c > 'z' || c < 32) {
     return;
   }
-  lcd_send(lcd_font[c-32][0], LCD_TDATA);
-  lcd_send(lcd_font[c-32][1], LCD_TDATA);
-  lcd_send(lcd_font[c-32][2], LCD_TDATA);
-  lcd_send(lcd_font[c-32][3], LCD_TDATA);
-  lcd_send(lcd_font[c-32][4], LCD_TDATA);
+  lcd_send(lcd_font[c - 32][0], LCD_TDATA);
+  lcd_send(lcd_font[c - 32][1], LCD_TDATA);
+  lcd_send(lcd_font[c - 32][2], LCD_TDATA);
+  lcd_send(lcd_font[c - 32][3], LCD_TDATA);
+  lcd_send(lcd_font[c - 32][4], LCD_TDATA);
   lcd_send(0, LCD_TDATA);
 }
 
 #if 1
 void
 lcd_puts(const char *s) {
-  while (*s) {
+  while(*s) {
     lcd_putch(*s);
     ++s;
   }
@@ -250,14 +250,14 @@ lcd_puts(const char *s) {
 
 void
 lcd_center_puts(uint8 y, const char *c) {
-  lcd_gotoxy(41-(lcd_str_width(c)/2),y);
+  lcd_gotoxy(41 - (lcd_str_width(c) / 2), y);
   lcd_puts(c);
 }
 #endif
 
 void
 lcd_puts2(char *s) {
-  while (*s) {
+  while(*s) {
     lcd_putch(*s);
     ++s;
   }
@@ -267,15 +267,15 @@ lcd_puts2(char *s) {
 void
 lcd_clear_line(uint8 y) {
   uint8 k;
-  lcd_gotoxy(0,y);
-  for (k=0; k<83; ++k) {
+  lcd_gotoxy(0, y);
+  for(k = 0; k < 83; ++k) {
     lcd_send(0, LCD_TDATA);
   }
 }
 
 void
 lcd_center_puts2(uint8 y, char *c, uint8 len) {
-  lcd_gotoxy(42-(len<<1)-len,y);
+  lcd_gotoxy(42 - (len << 1) - len, y);
   while(len) {
     lcd_putch(*c);
     ++c;
@@ -302,13 +302,13 @@ __code const char bat_symbol[] = {
 void
 lcd_battery(uint8 chg) {
   uint8 i;
-  chg=12-chg;
-  lcd_gotoxy(71,0);
-  for (i=0; i<13; ++i) {
-    if (i>=chg) {
-      lcd_send(0b11111110,LCD_TDATA);
+  chg = 12 - chg;
+  lcd_gotoxy(71, 0);
+  for(i = 0; i < 13; ++i) {
+    if(i >= chg) {
+      lcd_send(0b11111110, LCD_TDATA);
     } else {
-      lcd_send(bat_symbol[i],LCD_TDATA);
+      lcd_send(bat_symbol[i], LCD_TDATA);
     }
   }
 }
@@ -316,7 +316,7 @@ lcd_battery(uint8 chg) {
 #if 0
 void
 lcd_bluetooth(void) {
-  lcd_gotoxy(0,0);
+  lcd_gotoxy(0, 0);
   lcd_send(0b00101000, LCD_TDATA);
   lcd_send(0b11111110, LCD_TDATA);
   lcd_send(0b10010010, LCD_TDATA);
@@ -326,9 +326,9 @@ lcd_bluetooth(void) {
 
 void
 lcd_symbol(const char *sym) {
-  uint8 i,n;
-  n=sym[0];
-  for (i=1; i<=n; ++i) {
+  uint8 i, n;
+  n = sym[0];
+  for(i = 1; i <= n; ++i) {
     lcd_send(sym[i], LCD_TDATA);
   }
 }

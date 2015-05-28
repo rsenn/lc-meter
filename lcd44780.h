@@ -45,8 +45,8 @@
 #ifdef __16f628a
 # define RS_PIN  RB5
 # define RS_TRIS TRISB5
-# undef RW_PIN 
-# undef RW_TRIS 
+# undef RW_PIN
+# undef RW_TRIS
 # define EN_PIN  RB4
 # define EN_TRIS TRISB4
 
@@ -61,8 +61,8 @@
 #else
 # define RS_PIN  RC1
 # define RS_TRIS TRISC1
-# undef RW_PIN  
-# undef RW_TRIS 
+# undef RW_PIN
+# undef RW_TRIS
 # define EN_PIN  RC2    // activated by a HIGH pulse.
 # define EN_TRIS TRISC2    // activated by a HIGH pulse.
 
