@@ -1,8 +1,3 @@
-/*  ----------------------------------------------------------------------------
-    ---------- const.h
-    ---------- rblanchot@gmail.com
-    --------------------------------------------------------------------------**/
-
 #ifndef CONST_H
 #define CONST_H
 
@@ -23,10 +18,11 @@
 #ifndef FALSE
 # define FALSE  0
 #endif
+#ifndef SDCC
 #ifndef false
 # define false  0
 #endif
-#define False  0
+  //#define False  0
 
 #ifndef TRUE
 #define TRUE   !FALSE
@@ -34,7 +30,9 @@
 #ifndef true
 #define true   !false
 #endif
-#define True   !false
+  //#define True   !false
+
+#endif
 
 #ifndef NULL
 #define NULL   (void *)0
@@ -55,5 +53,7 @@
 #define DEC   10
 #define HEX   16
 #define FLOAT 32
+
+#define ARRAY_SIZE(a) (sizeof(a)/sizeof(a[0]))
 
 #endif

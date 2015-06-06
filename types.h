@@ -1,14 +1,14 @@
 #ifndef TYPES_H
 #define TYPES_H 1
 
+#include "device.h"
+
 #ifdef SDCC
 #include <stdbool.h>
 #include <stdint.h>
-#define double float
 #endif
 
-
-#if defined(MCC18) || defined(HI_TECH_C) || defined(SDCC) || defined(__IAR_SYSTEMS_ICC__)
+#if defined(MCC18) || defined(HI_TECH_C) || defined(MCHP_XC8) || defined(SDCC) || defined(__IAR_SYSTEMS_ICC__)
 typedef signed char int8;
 typedef signed short int16;
 typedef signed long int32;
@@ -30,7 +30,9 @@ typedef unsigned int32 uint32;
 # define uint32 unsigned long
 #endif
 
-#if defined(MCC18) || defined(HI_TECH_C) || defined(SDCC)
+#ifdef SDCC
+
+#elif defined(MCC18) || defined(HI_TECH_C) || defined(MCHP_XC8)
 //typedef enum { FALSE = 0, TRUE = 1 } bool;
 typedef char bool;
 #elif defined(__PCH__)
