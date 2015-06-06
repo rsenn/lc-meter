@@ -38,7 +38,7 @@ __code const char units[288] = { //8units * (18*2)
   //pF = 7
   0, 0, 0, 0, 224, 224, 96, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 24, 31, 7, 0, 0, 31, 31, 0, 0, 0, 0
 };
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
 #endif
 
 void
@@ -53,7 +53,7 @@ display_digit(uint8 line, uint8 column, uint8 digit) {
   for(i = 0; i < 8; i++) lcd_send(digits_8x16[(digit << 4) + i], LCD_TDATA);
   lcd_gotoxy(column, line);
   for(i = 8; i < 16; i++) lcd_send(digits_8x16[(digit << 4) + i], LCD_TDATA);
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(column, /*line - 1*/ 0);
   lcd_write('0' + digit);
 #endif // defined(__LCD3310_H__)
@@ -66,7 +66,7 @@ display_unit(uint8 unit) {
   for(i = 0; i < 18; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
   lcd_gotoxy(60, 3);
   for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
   lcd_set_cursor(18, 0);
   lcd_print(units[unit]);
@@ -97,11 +97,11 @@ display_reading(unsigned int measurement) {  //measurement divide by 100
   display_digit(3, 40, (measurement / 10) % 10);
   //hundredths digit
   display_digit(3, 50, measurement % 10);
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(4, 0);
-  lcd_print_number(measurement / 100, 10);
+  lcd_print_number(measurement / 100, 10, 0);
   lcd_write('.');
-  lcd_print_number(measurement % 100, 10);
+  lcd_print_number(measurement % 100, 10, 0);
 #endif // defined(__LCD3310_H__)
 }
 void
@@ -118,7 +118,7 @@ indicator(uint8 indicate) {
     lcd_gotoxy(70, 4);
     lcd_puts(" ");
   }
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(0, 0);
   if(indicate) {
     lcd_print("-*-");

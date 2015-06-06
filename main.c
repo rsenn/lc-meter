@@ -1,6 +1,6 @@
 #include "main.h"
 #include "delay.h"
-//#include "lcd3310.h"
+#include "lcd44780.h"
 #include "display.h"
 
 #ifdef SDCC
@@ -23,7 +23,7 @@ main(void) {
   for(i = 0; i < 504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40, 5);
   lcd_puts("YUS'09");
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_begin(2, 1);
   lcd_set_cursor(0, 0);
   lcd_print("YUS'09");
@@ -58,7 +58,7 @@ initialize(void) {
 #ifdef __LCD3310_H__
   lcd_init();
   lcd_clear();
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_init(true);
 #endif // defined(__LCD3310_H__)
   //others
@@ -100,7 +100,7 @@ calibrate(void) {
   lcd_puts("Calibrating.");
   lcd_gotoxy(1, 3);
   lcd_puts("please wait..");
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_clear();
   lcd_set_cursor(0, 0);
   lcd_print("Calibrating. please wait...");
@@ -116,14 +116,14 @@ calibrate(void) {
   remove_ccal();
 #ifdef __LCD3310_H__
   lcd_gotoxy(0, 4);
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(0, 1);
 #endif // defined(__LCD3310_H__)
   for(i = 0; i < 84; i++) {
     //show progress bar
 #ifdef __LCD3310_H__
     lcd_send(0xfc, LCD_TDATA);
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
     if(i % 5 == 0)
       lcd_write('=');
 #endif // defined(__LCD3310_H__)
@@ -138,7 +138,7 @@ measure_capacitance() {
 #ifdef __LCD3310_H__
   lcd_gotoxy(7, 5);
   lcd_puts(" capacitance");
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(0, 1);
   lcd_print(" capacitance");
 #endif // defined(__LCD3310_H__)
@@ -172,7 +172,7 @@ measure_inductance() {
 #ifdef __LCD3310_H__
   lcd_gotoxy(7, 5);
   lcd_puts(" inductance ");
-#elif defined(__LCD44780_H__)
+#elif defined(LCD44780_H)
   lcd_set_cursor(0, 1);
   lcd_print(" inductance ");
 #endif // defined(__LCD3310_H__)
