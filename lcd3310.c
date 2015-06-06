@@ -203,7 +203,7 @@ lcd_init(void) {
 
 void
 lcd_test(void) {
-  unsigned int i;
+  uint16 i;
   lcd_gotoxy(0, 0);
   for(i = 0; i < 504; ++i) {
     lcd_send(i, LCD_TDATA);
@@ -212,7 +212,7 @@ lcd_test(void) {
 
 void
 lcd_clear(void) {
-  unsigned int i;
+  uint16 i;
   lcd_gotoxy(0, 0);
   for(i = 0; i < 504; ++i) {
     lcd_send(0, LCD_TDATA);

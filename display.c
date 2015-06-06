@@ -68,14 +68,14 @@ display_unit(uint8 unit) {
   for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
 #elif defined(LCD44780_H)
   static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
-  lcd_set_cursor(18, 0);
+  lcd_set_cursor(16, 0);
   lcd_print(units[unit]);
-  lcd_set_cursor(18, 1);
+  lcd_set_cursor(16, 1);
   lcd_print(units[unit]);
 #endif // defined(__LCD3310_H__)
 }
 void
-display_reading(unsigned int measurement) {  //measurement divide by 100
+display_reading(uint16 measurement) {  //measurement divide by 100
 #ifdef __LCD3310_H__
   //clear previous measurement
   lcd_gotoxy(0, 2);

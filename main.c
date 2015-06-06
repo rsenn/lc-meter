@@ -15,7 +15,7 @@ double F1, F2, F3;
 
 void
 main(void) {
-  int i;
+  int16 i;
   initialize();
 #ifdef __LCD3310_H__
   lcd_gotoxy(0, 0);
@@ -28,13 +28,19 @@ main(void) {
   lcd_set_cursor(0, 0);
   lcd_print("YUS'09");
 #endif // defined(__LCD3310_H__)
-  delay10ms(200);
-  calibrate();
-  lcd_clear();
+ // delay10ms(200);
+ // calibrate();
+  //lcd_clear();
 
   while(1) {
-    if(LC_select) measure_capacitance();
-    else measure_inductance();
+    lcd_set_cursor(19,0);
+    if(LC_select) {
+      lcd_write('C');
+      measure_capacitance();
+    }  else {
+      lcd_write('L');
+     measure_inductance();
+    } 
     indicator(1);
     delay10ms(30);
     indicator(0);
@@ -67,9 +73,9 @@ initialize(void) {
   NOT_RBPU = 1;  // enable portB internal pullup
 }
 
-unsigned int
+uint16
 measure_freq(void) {  //16-bit freq
-  unsigned int oldTMR0, prescaler_cntr;
+  uint16 oldTMR0, prescaler_cntr;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TRISA4 = 0;    //Enable RA4 output to T0CKI
   delay10ms(2);      //stablize oscillator
@@ -133,7 +139,7 @@ calibrate(void) {
 
 void
 measure_capacitance() {
-  unsigned int var;
+  uint16 var;
   double Cin;
 #ifdef __LCD3310_H__
   lcd_gotoxy(7, 5);
@@ -161,13 +167,13 @@ measure_capacitance() {
     }
   } else display_unit(7);  //"pF"
   Cin = Cin * 100;  //scale to 2 decimal place
-  var = (unsigned int)Cin;
+  var = (uint16)Cin;
   display_reading(var);
 }
 
 void
 measure_inductance() {
-  unsigned int var;
+  uint16 var;
   double Lin, numerator, denominator;
 #ifdef __LCD3310_H__
   lcd_gotoxy(7, 5);
@@ -197,12 +203,12 @@ measure_inductance() {
     }
   } else display_unit(3);  //"nH"
   Lin = Lin * 100;  //scale to 2 decimal place
-  var = (unsigned int)Lin;
+  var = (uint16)Lin;
   display_reading(var);
 }
 
 void
-delay10ms(unsigned int period_10ms) {
+delay10ms(uint16 period_10ms) {
   do {
     __delay_ms(10);
   } while(--period_10ms);

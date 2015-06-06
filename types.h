@@ -17,9 +17,9 @@ typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned long uint32;
 #elif defined(__PCH__)
-typedef unsigned int8 uint8;
-typedef unsigned int16 uint16;
-typedef unsigned int32 uint32;
+typedef uin168 uint8;
+typedef uin1616 uint16;
+typedef uin1632 uint32;
 #else
 # define int8 signed char
 # define int16 signed short

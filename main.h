@@ -39,11 +39,11 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 
 void initialize(void);
-unsigned int measure_freq(void);
+uint16 measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(unsigned int period_10ms);
+void delay10ms(uint16 period_10ms);
 
 
 #endif // defined(MAIN_H)

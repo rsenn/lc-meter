@@ -236,7 +236,7 @@ lcd_print_float(float number, uint8 digits) {
   ///* Extract digits from the remainder one at a time */
   //while(digits-- > 0) {
   //  remainder *= 10.0;
-  //  toPrint = (unsigned int)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
+  //  toPrint = (uint16)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
   //  lcd_print_number(toPrint, 10);
   //  remainder -= toPrint;
   //}
