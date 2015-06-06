@@ -29,6 +29,8 @@ main(void) {
   lcd_print("YUS'09");
 #endif // defined(__LCD3310_H__)
  // delay10ms(200);
+ F1 = 65535;
+ F2 = 1;
  // calibrate();
   //lcd_clear();
 
@@ -145,30 +147,34 @@ measure_capacitance() {
   lcd_gotoxy(7, 5);
   lcd_puts(" capacitance");
 #elif defined(LCD44780_H)
-  lcd_set_cursor(0, 1);
-  lcd_print(" capacitance");
+  lcd_set_cursor(0, 1);  lcd_print(" freq");
+//  lcd_print(" capacitance");
+
 #endif // defined(__LCD3310_H__)
   var = measure_freq();
+  lcd_print_number(var, 10, 5);
   F3 = (double)var;
   if(F3 > F1) F3 = F1; //max freq is F1;
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * Ccal / (F3 * F3 * (F1 * F1 - F2 * F2));
   if(Cin > 999) {
-    if(Cin > (999E3)) {
-      if(Cin > (999E6)) {
-        Cin = Cin / (1E9);
+    if(Cin > (999e03)) {
+      if(Cin > (999e06)) {
+        Cin = Cin / (1e09);
         display_unit(4);  //"mF"
       } else {
-        Cin = Cin / (1E6);
+        Cin = Cin / (1e06);
         display_unit(5);  //"uF"
       }
     } else {
-      Cin = Cin / 1E3;
+      Cin = Cin / 1e03;
       display_unit(6);  //"nF"
     }
   } else display_unit(7);  //"pF"
   Cin = Cin * 100;  //scale to 2 decimal place
   var = (uint16)Cin;
-  display_reading(var);
+    lcd_set_cursor(0, 1);  lcd_print(" cap ");
+    lcd_print_number(F3, 10, 5);
+//  display_reading(var);
 }
 
 void
