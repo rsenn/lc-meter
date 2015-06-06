@@ -3,8 +3,8 @@
     ---------- rblanchot@gmail.com
     --------------------------------------------------------------------------**/
 
-#ifndef __CONST_H
-#define __CONST_H
+#ifndef CONST_H
+#define CONST_H
 
 #define PINGUINO_MAJOR_VERSION 11
 #define PINGUINO_MINOR_VERSION 1

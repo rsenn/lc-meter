@@ -23,7 +23,7 @@ Pins, Schematics and more info:
 #include "const.h"         // HIGH, LOW, OUTPUT, ...
 #include "delay.h"
 #include "device.h"
-#include "main.h"
+#include "lcd44780.h"
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -40,9 +40,11 @@ static uint8 LCD_function, LCD_ctrl, LCD_mode
 #endif
 ;
 
+
 /** Positive pulse on E */
 void
 lcd_pulse_enable(void) {
+
   //EN_PIN = LOW;
   //__delay_us(4);
   EN_PIN = HIGH;
@@ -164,35 +166,33 @@ lcd_printf(const char *fmt, ...) {
 static const char digits[] =
 { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 */
-static void
-lcd_print_number_internal(uint16 n, uint8 base, int8 pointpos) {
+void
+lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
   uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8 di;
   uint16 i = 0;
 
-  if(n == 0) {
+/*  if(n == 0) {
     lcd_write('0');
     return;
-  }
+  }*/
 
-  while(n > 0) {
-    if(i == pointpos)
+  do {
+/*    if(i == pointpos)
       buf[i++] = '.';
-
+*/
     di = n % base;
     buf[i++] = (di < 10 ? '0' + di : 'A' + di - 10);
 
     n /= base;
-  }
+  } while(n > 0);
+
+  while(pad-- >= i)
+    lcd_write(' ');
 
   for(; i > 0; i--)
     lcd_write(buf[i - 1]);
 //    lcd_write((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
-}
-
-void
-lcd_print_number(uint16 n, uint8 base) {
-  lcd_print_number_internal(n, base, -1);
 }
 
 #endif
@@ -248,7 +248,7 @@ lcd_print_float(float number, uint8 digits) {
 void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
-  delay_ms(2);                  // Wait for more than 4.1 ms
+  __delay_ms(2);                  // Wait for more than 4.1 ms
   //__delay_us(2000);
 }
 #endif
@@ -258,7 +258,7 @@ lcd_home() {
 void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
-  delay_ms(2);                  // Wait for more than 4.1 ms
+  __delay_ms(2);                  // Wait for more than 4.1 ms
   //__delay_us(2000);  // this command takes a long time! */
 }
 #endif
@@ -281,7 +281,7 @@ lcd_display() {
 #endif
 
 /** Turns the underline cursor on/off */
-#ifndef LCDCURSOR
+#ifdef LCDCURSOR
 void
 lcd_no_cursor() {
   LCD_ctrl &= ~LCD_CURSORON;
@@ -379,7 +379,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
   if((dotsize != 0) && (lines == 1))
     LCD_function |= LCD_5x10DOTS;
 
-  delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
+  __delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
 
   /* Now we pull both RS and R/W low to begin commands */
   RS_PIN = LOW;
@@ -391,7 +391,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
 
     /* we start in 8bit mode, try to set 4 bit mode */
     lcd_write4bits(0x03);
-    delay_ms(5);                  // Wait for more than 4.1 ms
+    __delay_ms(5);                  // Wait for more than 4.1 ms
     /* second try */
     lcd_write4bits(0x03);
     __delay_us(150);                // Wait more than 100 μs
@@ -407,11 +407,11 @@ lcd_begin(uint8 lines, uint8 dotsize) {
 
     /* Send function set command sequence */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
-    delay_ms(5);                  // Wait for more than 4.1 ms
+    __delay_ms(5);                  // Wait for more than 4.1 ms
 
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
-    delay_ms(5);                  // Wait for more than 4.1 ms
+    __delay_ms(5);                  // Wait for more than 4.1 ms
     //__delay_us(150);
 
     /* third go */
@@ -427,7 +427,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
 
   /* clear it off */
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
-  delay_ms(2);
+  __delay_ms(2);
 
   /* Initialize to default text direction (for romance languages) */
   LCD_mode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
@@ -474,3 +474,4 @@ void
 lcd_pins(uint8 rs, uint8 enable, uint8 d0, uint8 d1, uint8 d2, uint8 d3, uint8 d4, uint8 d5, uint8 d6, uint8 d7) {
   lcd_init(((d4 + d5 + d6 + d7)==0), rs, -1, enable, d0, d1, d2, d3, d4, d5, d6, d7);
 }*/
+

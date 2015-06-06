@@ -1,5 +1,5 @@
-#ifndef __OSCILLATOR_H__
-#define __OSCILLATOR_H__ 1
+#ifndef OSCILLATOR_H
+#define OSCILLATOR_H 1
 
 #define FOSC (unsigned long)20*1000*1000  /** CPU clock */
 #define KHZ (unsigned long)(FOSC/1000)
@@ -9,4 +9,4 @@
 # define _XTAL_FREQ FOSC
 #endif
 
-#endif // !defined(__OSCILLATOR_H__)
+#endif // !defined(OSCILLATOR_H)

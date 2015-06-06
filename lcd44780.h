@@ -1,5 +1,5 @@
-#ifndef __LCD44780_H__
-#define __LCD44780_H__
+#ifndef LCD44780_H
+#define LCD44780_H
 
 #include "device.h"
 #include "types.h"
@@ -59,21 +59,21 @@
 #define DATA3_PIN  RB6
 #define DATA3_TRIS TRISB6
 #else
-# define RS_PIN  RC1
-# define RS_TRIS TRISC1
+# define RS_PIN  RB2
+# define RS_TRIS TRISB2
 # undef RW_PIN
 # undef RW_TRIS
-# define EN_PIN  RC2    // activated by a HIGH pulse.
-# define EN_TRIS TRISC2    // activated by a HIGH pulse.
+# define EN_PIN  RB3    // activated by a HIGH pulse.
+# define EN_TRIS TRISB3    // activated by a HIGH pulse.
 
-#define DATA0_PIN  RB0
-#define DATA0_TRIS TRISB0
-#define DATA1_PIN  RB1
-#define DATA1_TRIS TRISB1
-#define DATA2_PIN  RB2
-#define DATA2_TRIS TRISB2
-#define DATA3_PIN  RB3
-#define DATA3_TRIS TRISB3
+#define DATA0_PIN  RB4
+#define DATA0_TRIS TRISB4
+#define DATA1_PIN  RB5
+#define DATA1_TRIS TRISB5
+#define DATA2_PIN  RB6
+#define DATA2_TRIS TRISB6
+#define DATA3_PIN  RB7
+#define DATA3_TRIS TRISB7
 #endif
 
 void lcd_init(bool fourbitmode);
@@ -92,7 +92,7 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(uint16 n, uint8 base);
+void lcd_print_number(uint16 n, uint8 base, int8 pad);
 void lcd_print_float(float number, uint8 digits);
 void lcd_print(const char *string);
 void lcd_printf(const char *fmt, ...);
@@ -108,7 +108,7 @@ void lcd_write(uint8 value);
 #define LCDLEFTTORIGHT
 #define LCDPRINT
 #undef LCDPRINTF
-#undef LCDPRINTFLOAT
+#define LCDPRINTFLOAT
 #define LCDPRINTNUMBER
 #undef LCDRIGHTTOLEFT
 #undef LCDSCROLLDISPLAYLEFT
@@ -116,4 +116,4 @@ void lcd_write(uint8 value);
 #define LCDSETCURSOR
 
 
-#endif /* __LCD44780_H__ */
+#endif /* LCD44780_H */

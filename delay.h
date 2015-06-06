@@ -1,5 +1,5 @@
-#ifndef __DELAY_H__
-#define __DELAY_H__
+#ifndef DELAY_H
+#define DELAY_H
 
 #include "types.h"
 #include "oscillator.h"

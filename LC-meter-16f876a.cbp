@@ -3,34 +3,53 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="LC-meter" />
-		<Option pch_mode="2" />
-		<Option compiler="sdcc" />
+		<Option makefile="L:/Sources/LC-meter-16f876a+n3310display/Makefile.htc" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="0" />
+		<Option compiler="picc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/LC-meter" prefix_auto="1" extension_auto="1" />
+				<Option output="build/htc-876a/Debug/LC-meter" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
-				<Option compiler="sdcc" />
+				<Option compiler="hi-tech_picc_for_pic16f" />
 				<Compiler>
-					<Add option="--out-fmt-ihx" />
-					<Add option="-mpic14" />
-					<Add option="--verbose" />
-					<Add option="--debug" />
-					<Add option="-p16f876a" />
-					<Add option="--use-non-free" />
+					<Add option="--warn=-2" />
+					<Add option="-q" />
+					<Add option="-g" />
+					<Add option="--chip=16F876A" />
+					<Add option="--double=32" />
 					<Add option="-D__16f876a=1" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/LC-meter" prefix_auto="1" extension_auto="1" />
+				<Option output="build/htc-876a/Release/LC-meter" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
-				<Option compiler="sdcc" />
+				<Option compiler="hi-tech_picc_for_pic16f" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Option projectLinkerOptionsRelation="0" />
+				<Option projectIncludeDirsRelation="0" />
+				<Option projectResourceIncludeDirsRelation="0" />
+				<Option projectLibDirsRelation="0" />
 				<Compiler>
-					<Add option="--opt-code-size" />
+					<Add option="--warn=-2" />
+					<Add option="-q" />
+					<Add option="-g" />
+					<Add option="--chip=p16f876a" />
+					<Add option="--double=32" />
+					<Add option="-D__16f876a=1" />
 				</Compiler>
 			</Target>
 		</Build>
+		<Compiler>
+			<Add option="--warn=-2" />
+			<Add option="-q" />
+			<Add option="-g" />
+			<Add option="--chip=16F876A" />
+			<Add option="--double=32" />
+			<Add option="-D__16f876a=1" />
+		</Compiler>
 		<Unit filename="const.h" />
 		<Unit filename="delay.c">
 			<Option compilerVar="CC" />

@@ -1,0 +1,15 @@
+
+
+.PHONY: all 
+all:
+
+
+$(BUILDDIR):
+	mkdir -p $(BUILDDIR)
+
+program: all
+	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$(BUILDDIR)$(PROGRAM).hex"
+	picpgm -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PROGRAM).hex"
+report:
+	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
+	picpgm -if JDM -p PIC$(chipu) -blank -r

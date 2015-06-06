@@ -1,5 +1,5 @@
-#ifndef __MAIN_H__
-#define __MAIN_H__
+#ifndef MAIN_H
+#define MAIN_H
 
 #include "device.h"
 #include "oscillator.h"
@@ -46,4 +46,4 @@ void measure_inductance(void);
 void delay10ms(unsigned int period_10ms);
 
 
-#endif // defined(__MAIN_H__)
+#endif // defined(MAIN_H)

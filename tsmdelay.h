@@ -30,8 +30,8 @@
  *  tsmdelay.h, INSTANTIATE_DELAY should only be defined in one of
  *  them, or your compiler will complain of duplicate symbols.
  */
-#ifndef __TSMDELAY_H__
-#define __TSMDELAY_H__
+#ifndef TSMDELAY_H
+#define TSMDELAY_H
 
 #include "types.h"
 
@@ -152,4 +152,4 @@ void cycle_eater(void);
 //#define CALL_SMALL_US_U8  CALL_CYCLES_SMALL_U8
 
 
-#endif/*__TSMDELAY_H__*/
+#endif/*TSMDELAY_H*/

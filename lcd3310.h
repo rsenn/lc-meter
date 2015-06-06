@@ -1,5 +1,5 @@
-#ifndef __LCD3310_H__
-#define __LCD3310_H__
+#ifndef LCD3310_H
+#define LCD3310_H
 
 #include "device.h"
 #include "types.h"

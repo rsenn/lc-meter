@@ -1,5 +1,5 @@
-#ifndef __DEVICE_H__
-#define __DEVICE_H__
+#ifndef DEVICE_H
+#define DEVICE_H
 
 #ifdef HI_TECH_C
 # include <htc.h>
@@ -28,4 +28,4 @@
 # define CONFIG_WORD (FOSC_HS & CP_OFF & LVP_OFF & BOREN_OFF & PWRTE_ON & WDTE_OFF)
 #endif
 
-#endif /* __DEVICE_H__ */
+#endif /* DEVICE_H */
