@@ -170,7 +170,7 @@ void
 lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
   uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8 di;
-  uint16 i = 0;
+  uint8 i = 0;
 
 /*  if(n == 0) {
     lcd_write('0');
@@ -182,7 +182,7 @@ lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
       buf[i++] = '.';
 */
     di = n % base;
-    buf[i++] = (di < 10 ? '0' + di : 'A' + di - 10);
+    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
 
     n /= base;
   } while(n > 0);
@@ -191,7 +191,7 @@ lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
     lcd_write(' ');
 
   for(; i > 0; i--)
-    lcd_write(buf[i - 1]);
+    lcd_write((uint8)buf[(int16)i - 1]);
 //    lcd_write((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
 }
 

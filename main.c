@@ -15,15 +15,16 @@ double F1, F2, F3;
 
 void
 main(void) {
+#ifdef __LCD3310_H__
   int16 i;
   initialize();
-#ifdef __LCD3310_H__
   lcd_gotoxy(0, 0);
   //show startup logo
   for(i = 0; i < 504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40, 5);
   lcd_puts("YUS'09");
 #elif defined(LCD44780_H)
+  initialize();
   lcd_begin(2, 1);
   lcd_set_cursor(0, 0);
   lcd_print("YUS'09");
@@ -95,6 +96,8 @@ measure_freq(void) {  //16-bit freq
     NOP();
     prescaler_cntr++;  // count until TMR0 incremented
   } while(oldTMR0 == TMR0 && prescaler_cntr <= 255); //test if timer0 has incremented
+  
+  
   //}while(oldTMR0==TMR0);  //test if timer0 has incremented
   return ((oldTMR0 << 8) + (256 - prescaler_cntr));
 }
@@ -157,23 +160,23 @@ measure_capacitance() {
   if(F3 > F1) F3 = F1; //max freq is F1;
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * Ccal / (F3 * F3 * (F1 * F1 - F2 * F2));
   if(Cin > 999) {
-    if(Cin > (999e03)) {
-      if(Cin > (999e06)) {
-        Cin = Cin / (1e09);
+    if(Cin > (999e+03)) {
+      if(Cin > (999e+06)) {
+        Cin = Cin / (1e+09);
         display_unit(4);  //"mF"
       } else {
-        Cin = Cin / (1e06);
+        Cin = Cin / (1e+06);
         display_unit(5);  //"uF"
       }
     } else {
-      Cin = Cin / 1e03;
+      Cin = Cin / 1e+03;
       display_unit(6);  //"nF"
     }
   } else display_unit(7);  //"pF"
   Cin = Cin * 100;  //scale to 2 decimal place
   var = (uint16)Cin;
     lcd_set_cursor(0, 1);  lcd_print(" cap ");
-    lcd_print_number(F3, 10, 5);
+    lcd_print_number((uint16)F3, 10, 5);
 //  display_reading(var);
 }
 
@@ -193,18 +196,18 @@ measure_inductance() {
   if(F3 > F1) F3 = F1; //max freq is F1;
   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (gate_period * gate_period);
   denominator = 4 * pi * pi * F1 * F1 * F2 * F2 * F3 * F3 * Ccal;
-  Lin = (numerator / denominator) * 1E15; //scale to nH { pF/1E12 * nH/1E9 * (s/1E3)^2 }
+  Lin = (numerator / denominator) * 1e+15; //scale to nH { pF/ 1e012 * nH/  1e+09 * (s/  1e+03)^2 }
   if(Lin > 999) {
-    if(Lin > (999E3)) {
-      if(Lin > (999E6)) {
-        Lin = Lin / (1E9);
+    if(Lin > (999e+03)) {
+      if(Lin > (999e+06)) {
+        Lin = Lin / (1e+09);
         display_unit(0);  //"H"
       } else {
-        Lin = Lin / (1E6);
+        Lin = Lin / (1e+06);
         display_unit(1);  //"mH"
       }
     } else {
-      Lin = Lin / 1E3;
+      Lin = Lin / 1e+03;
       display_unit(2);  //"uH"
     }
   } else display_unit(3);  //"nH"

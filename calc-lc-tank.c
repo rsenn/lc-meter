@@ -65,7 +65,7 @@ int main() {
   output_num("Frequency (Hz)", freq);
 */
  double inductance = 82e-06;
- double freq = 15.616e03;
+ double freq = 15.61 6e+03;
  
  double two_pi_f = 2 * M_PI * freq;
  double capacitance = 1 / ((two_pi_f*two_pi_f)*inductance);

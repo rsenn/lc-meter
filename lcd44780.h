@@ -108,7 +108,7 @@ void lcd_write(uint8 value);
 #define LCDLEFTTORIGHT
 #define LCDPRINT
 #undef LCDPRINTF
-#define LCDPRINTFLOAT
+#undef LCDPRINTFLOAT
 #define LCDPRINTNUMBER
 #undef LCDRIGHTTOLEFT
 #undef LCDSCROLLDISPLAYLEFT
