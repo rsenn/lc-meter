@@ -21,6 +21,7 @@ LD = gplink
 PICPROG = picprog
 #CFLAGS =  -S -V -m${target} -pp$(CHIP) -D__$(CHIP) 
 CFLAGS =  -m${target} -pp$(CHIP) -D__$(CHIP) 
+CFLAGS += -DSDCC=1
 #CFLAGS += -DNO_BIT_DEFINES
 
 #LDFLAGS = -m -s ${prefix}/share/gputils/lkr/$(CHIP).lkr

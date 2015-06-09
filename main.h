@@ -18,6 +18,10 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 # include <pic16f876a.h>
 #endif
 
+#ifdef SDCC
+#define NOP() __asm("NOP")
+#endif
+
 #include "types.h"
 #include "const.h"
 

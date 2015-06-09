@@ -58,7 +58,11 @@ _COMMON_FLAGS += \
 	--msgformat="Advisory[%n] %s" \
 	--warnformat="Warning [%n] %f; %l.%c %s"
 
-CPPFLAGS += -D__$(chipl)=1 -I$(CCDIR)/include
+CPPFLAGS += -D__$(chipl)=1
+
+ifneq ($(CCDIR),)
+CPPFLAGS += -I$(CCDIR)/include
+endif
 
 _CPPFLAGS += \
 	-DVERSION_MAJOR=$(VERSION_MAJOR) \

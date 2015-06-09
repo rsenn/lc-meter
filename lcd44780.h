@@ -77,7 +77,7 @@
 #endif
 
 void lcd_init(bool fourbitmode);
-void lcd_begin(uint8 lines, uint8 dotsize);
+void lcd_begin(uint8 l, uint8 ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
 void lcd_right_to_left(void);
