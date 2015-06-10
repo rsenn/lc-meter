@@ -2,6 +2,12 @@
 #define DEVICE_H
 
 
+#ifdef __SDCC
+# ifndef SDCC
+#  define SDCC 1
+# endif
+#endif
+
 #if defined(__XC8)
    #include <xc.h>
 

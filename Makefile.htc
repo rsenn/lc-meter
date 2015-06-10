@@ -8,7 +8,6 @@ CHIP := 16F876A
 chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
 chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
 
-BUILDDIR := build/htc-$(chipl)/
 
 vpath $(BUILDDIR)
 
@@ -30,6 +29,16 @@ ifneq ($(CCDIR),)
 CC = $(CCDIR)/bin/picc
 else
 CC = picc
+endif
+
+COMPILER_TYPE := $(shell picc --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")
+
+#$(warning Compiler type: $(COMPILER_TYPE))
+
+ifeq ($(COMPILER_TYPE),xc8)
+BUILDDIR := build/xc8-$(chipl)/
+else
+BUILDDIR := build/htc-$(chipl)/
 endif
 
 LD = $(CC)
