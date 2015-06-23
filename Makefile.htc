@@ -1,9 +1,4 @@
-PACKAGE = LC_meter
-VERSION_MAJOR = 0
-VERSION_MINOR = 9
-VERSION_PATCH = 1
-
-CHIP := 16F876A
+-include Makefile.vars
 
 chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
 chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
@@ -45,7 +40,6 @@ LD = $(CC)
 #RM = del /f  
 DISTFILES = Makefile Makefile.htc Makefile.sdcc 
 
--include Makefile.vars
 
 SOURCES = $($(PACKAGE)_SOURCES)
 P1OBJS = $(SOURCES:%.c=$(BUILDDIR)%.p1)
@@ -92,17 +86,6 @@ PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3C
 
 all: $(BUILDDIR) LC_meter.hex
 
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
-
-program: $(PACKAGE).hex
-	picpgm -if JDM -p PIC$(chipu) -e -p "$<"
-
-dist:
-	mkdir -p $(PACKAGE)-$(VERSION)
-	cp -rvf $(DISTFILES) $(PACKAGE)-$(VERSION)
-	tar -cvzf $(PACKAGE)-$(VERSION).tar.gz $(PACKAGE)-$(VERSION)
-
 
 LC_meter.hex: $(P1OBJS)
 
@@ -114,7 +97,5 @@ $(ASSRCS): $(BUILDDIR)%.as: %.c
 	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< || { $(RM) $@; exit 1; }
 
 
-clean: 
-	$(RM) $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym
 
-
+-include Makefile.common

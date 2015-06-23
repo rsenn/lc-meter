@@ -8,8 +8,17 @@ $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 program: all
-	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$(BUILDDIR)$(PROGRAM).hex"
-	picpgm -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PROGRAM).hex"
+	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
+	picpgm -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
 report:
 	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
 	picpgm -if JDM -p PIC$(chipu) -blank -r
+
+
+clean: 
+	$(RM) $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym
+
+dist:
+	mkdir -p $(PACKAGE)-$(VERSION)
+	cp -rvf $(DISTFILES) $(PACKAGE)-$(VERSION)
+	tar -cvzf $(PACKAGE)-$(VERSION).tar.gz $(PACKAGE)-$(VERSION)

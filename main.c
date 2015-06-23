@@ -15,8 +15,18 @@ double F1, F2, F3;
 
 void
 main(void) {
-#ifdef __LCD3310_H__
   int16 i;
+    relay_tris();
+
+ 
+ for(i = 0; i < 10; i++) {
+   RC5 = HIGH;
+   __delay_ms(500);
+   RC5 = LOW;
+   __delay_ms(500);
+ }
+ 
+#ifdef __LCD3310_H__
   initialize();
   lcd_gotoxy(0, 0);
   //show startup logo
@@ -32,6 +42,8 @@ main(void) {
  // delay10ms(200);
  F1 = 65535;
  F2 = 1;
+
+ 
  // calibrate();
   //lcd_clear();
 
@@ -72,7 +84,6 @@ initialize(void) {
 #endif // defined(__LCD3310_H__)
   //others
   lc_tris();
-  relay_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
 }
 
