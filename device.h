@@ -1,6 +1,9 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
+#ifdef _BOOSTC
+#include <system.h>
+#endif
 
 #ifdef __SDCC
 # ifndef SDCC
@@ -24,7 +27,7 @@
 # ifdef __PIC16F876A_H
 #  define __16f876a 1
 # endif
-#else
+#elif !defined(_BOOSTC)
 # ifdef __16f628a
 #  include <pic16f628a.h>
 # endif
@@ -54,6 +57,5 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 # endif
 #define NOT_RBPU nRBPU
 #endif
-
 
 #endif /* DEVICE_H */

@@ -14,7 +14,9 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 //#define nRBPU OPTION_REGbits.nRBPU
 #endif
 # define NOT_RBPU nRBPU
-#else
+#endif
+
+#if !defined(HI_TECH_C) && !defined(_BOOSTC) && !defined(__MIKROC_PRO_FOR_PIC__)
 # include <pic16f876a.h>
 #endif
 

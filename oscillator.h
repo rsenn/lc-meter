@@ -1,7 +1,7 @@
 #ifndef OSCILLATOR_H
 #define OSCILLATOR_H 1
 
-#define _XTAL_FREQ 20000000  /** CPU clock */
+#define _XTAL_FREQ 164200000  /** CPU clock */
 #define KHZ        ((_XTAL_FREQ)/1000)
 #define OSC_4      ((_XTAL_FREQ)/4)
 

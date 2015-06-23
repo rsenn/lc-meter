@@ -22,12 +22,12 @@ main(void) {
   //show startup logo
   for(i = 0; i < 504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40, 5);
-  lcd_puts("YUS'09");
+  lcd_puts("RLS'15");
 #elif defined(LCD44780_H)
   initialize();
   lcd_begin(2, 1);
   lcd_set_cursor(0, 0);
-  lcd_print("YUS'09");
+  lcd_print("RLS'15");
 #endif // defined(__LCD3310_H__)
  // delay10ms(200);
  F1 = 65535;
@@ -160,16 +160,16 @@ measure_capacitance() {
   if(F3 > F1) F3 = F1; //max freq is F1;
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * Ccal / (F3 * F3 * (F1 * F1 - F2 * F2));
   if(Cin > 999) {
-    if(Cin > (999e+03)) {
-      if(Cin > (999e+06)) {
-        Cin = Cin / (1e+09);
+    if(Cin > (999000)) {
+      if(Cin > (999000000)) {
+        Cin = Cin / (1000000000);
         display_unit(4);  //"mF"
       } else {
-        Cin = Cin / (1e+06);
+        Cin = Cin / (1000000);
         display_unit(5);  //"uF"
       }
     } else {
-      Cin = Cin / 1e+03;
+      Cin = Cin / 1000;
       display_unit(6);  //"nF"
     }
   } else display_unit(7);  //"pF"
@@ -196,18 +196,18 @@ measure_inductance() {
   if(F3 > F1) F3 = F1; //max freq is F1;
   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (gate_period * gate_period);
   denominator = 4 * pi * pi * F1 * F1 * F2 * F2 * F3 * F3 * Ccal;
-  Lin = (numerator / denominator) * 1e+15; //scale to nH { pF/ 1e012 * nH/  1e+09 * (s/  1e+03)^2 }
+  Lin = (numerator / denominator) * 1000000000000000; //scale to nH { pF/ 1e012 * nH/  1000000000 * (s/  1000)^2 }
   if(Lin > 999) {
-    if(Lin > (999e+03)) {
-      if(Lin > (999e+06)) {
-        Lin = Lin / (1e+09);
+    if(Lin > (999000)) {
+      if(Lin > (999000000)) {
+        Lin = Lin / (1000000000);
         display_unit(0);  //"H"
       } else {
-        Lin = Lin / (1e+06);
+        Lin = Lin / (1000000);
         display_unit(1);  //"mH"
       }
     } else {
-      Lin = Lin / 1e+03;
+      Lin = Lin / 1000;
       display_unit(2);  //"uH"
     }
   } else display_unit(3);  //"nH"
@@ -219,7 +219,7 @@ measure_inductance() {
 void
 delay10ms(uint16 period_10ms) {
   do {
-    __delay_ms(10);
+    delay_ms(10);
   } while(--period_10ms);
   
 }
