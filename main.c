@@ -17,14 +17,14 @@ void
 main(void) {
   int16 i;
     relay_tris();
-
+/*
  
  for(i = 0; i < 10; i++) {
    RC5 = HIGH;
    __delay_ms(500);
    RC5 = LOW;
    __delay_ms(500);
- }
+ }*/
  
 #ifdef __LCD3310_H__
   initialize();

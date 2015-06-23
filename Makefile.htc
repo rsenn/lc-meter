@@ -50,7 +50,13 @@ COMMON_FLAGS = -g -N127
 	
 COMMON_FLAGS += --runtime=default,+clear,+init,-keep,-download,+clib
 #COMMON_FLAGS += --opt=default,+asm,-speed,+space,9
+
+ifeq ($(OPT),size)
 COMMON_FLAGS += --opt=default,+asm,+space,-speed,9
+else
+COMMON_FLAGS += --opt=default,+asm,-space,+speed,9
+endif
+
 COMMON_FLAGS += --double=32
 	
 COMMON_FLAGS += --warn=-2
