@@ -230,7 +230,7 @@ measure_inductance() {
 void
 delay10ms(uint16 period_10ms) {
   do {
-    delay_ms(10);
+    __delay_ms(10);
   } while(--period_10ms);
   
 }
