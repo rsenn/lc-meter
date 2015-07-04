@@ -31,7 +31,7 @@ CFLAGS += -DSDCC=1
 CFLAGS += --opt-code-size
 #CFLAGS += --stack-auto
 
-SOURCES = main.c delay.c display.c  lcd44780.c  lcd3310.c
+SOURCES = LC-meter.c delay.c display.c  lcd44780.c  lcd3310.c
 OBJECTS = $(SOURCES:%.c=$(BUILDDIR)%.o)
 
 ifeq ($(CC),/usr/bin/sdcc)
