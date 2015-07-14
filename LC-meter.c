@@ -57,6 +57,9 @@ initialize(void) {
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
+  
+  PEIE = 1;
+  GIE = 1;
 }
 
 uint16
