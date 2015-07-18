@@ -37,12 +37,12 @@
 #endif
 
 #ifdef SDCC
-# define CONFIG_WORD (_FOSC_HS & _PWRTE_ON & _WDT_OFF & _BODEN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF)
+# define CONFIG_WORD (_FOSC_HS & _PWRTE_ON & _WDT_OFF & _BODEN_ON & _LVP_OFF & _CPD_OFF & _CP_OFF)
   # define double float
 #endif
 
 #ifdef HI_TECH_C
-  # define CONFIG_WORD (FOSC_HS & CP_ON &  CP_OFF & LVP_OFF & BOREN_OFF & PWRTE_OFF & WDTE_OFF)
+  # define CONFIG_WORD (FOSC_HS & CPD_OFF & CP_OFF & LVP_OFF & BOREN_ON & PWRTE_ON & WDTE_OFF)
   #endif
 
 #endif
