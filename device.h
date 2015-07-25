@@ -42,8 +42,17 @@
 #endif
 
 #ifdef HI_TECH_C
-  # define CONFIG_WORD (FOSC_HS & CPD_OFF & CP_OFF & LVP_OFF & BOREN_ON & PWRTE_ON & WDTE_OFF)
-  #endif
+# ifndef HS
+#  define HS FOSC_HS
+# endif
+# ifndef BOREN
+#  define BOREN BOREN_ON
+# endif
+# ifndef PWRTEN
+#  define PWRTEN PWRTE_ON
+# endif
+# define CONFIG_WORD (HS & BOREN & PWRTEN)
+#endif
 
 #endif
 

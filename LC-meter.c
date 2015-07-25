@@ -35,7 +35,9 @@ main(void) {
 void
 initialize(void) {
   //setup comparator
-  CMCONbits.CM = 0b101;
+  /*CMCONbits.*/CM0 = 1;
+  /*CMCONbits.*/CM1 = 0;
+  /*CMCONbits.*/CM2 = 1;
   TRISA = 0b11001111;
   //setup timer0 for frequency counter
   T0CS = 1;  //Transition on T0CKI pin
@@ -44,7 +46,9 @@ initialize(void) {
   
   //PSA = 0;  //Prescaler is assigned to the Timer0 module
   PSA = 1;  //Prescaler isn't assigned to the Timer0 module
-  OPTION_REGbits.PS = 0b111;//PS2:PS0 -> Prescaler Rate = divide by 256
+  /*OPTION_REGbits.*/PS0 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
+  /*OPTION_REGbits.*/PS1 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
+  /*OPTION_REGbits.*/PS2 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
 
   //initialize 3310 lcd
 #ifdef __LCD3310_H__
