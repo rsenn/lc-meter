@@ -43,37 +43,37 @@
 #define LCD_5x8DOTS 0x00
 
 #ifdef __16f628a
-# define RS_PIN  RB5
-# define RS_TRIS TRISB5
+# define RS_PIN  PORTBbits.RB5
+# define RS_TRIS TRISBbits.TRISB5
 # undef RW_PIN
 # undef RW_TRIS
-# define EN_PIN  RB4
-# define EN_TRIS TRISB4
+# define EN_PIN  PORTBbits.RB4
+# define EN_TRIS TRISBbits.TRISB4
 
 #define DATA0_PIN  RA2
 #define DATA0_TRIS TRISA2
 #define DATA1_PIN  RA3
 #define DATA1_TRIS TRISA3
-#define DATA2_PIN  RB3
-#define DATA2_TRIS TRISB3
-#define DATA3_PIN  RB6
-#define DATA3_TRIS TRISB6
+#define DATA2_PIN  PORTBbits.RB3
+#define DATA2_TRIS TRISBbits.TRISB3
+#define DATA3_PIN  PORTBbits.RB6
+#define DATA3_TRIS TRISBbits.TRISB6
 #else
-# define RS_PIN  RB2
-# define RS_TRIS TRISB2
+# define RS_PIN  PORTBbits.RB2
+# define RS_TRIS TRISBbits.TRISB2
 # undef RW_PIN
 # undef RW_TRIS
-# define EN_PIN  RB3    // activated by a HIGH pulse.
-# define EN_TRIS TRISB3    // activated by a HIGH pulse.
+# define EN_PIN  PORTBbits.RB3    // activated by a HIGH pulse.
+# define EN_TRIS TRISBbits.TRISB3    // activated by a HIGH pulse.
 
-#define DATA0_PIN  RB4
-#define DATA0_TRIS TRISB4
-#define DATA1_PIN  RB5
-#define DATA1_TRIS TRISB5
-#define DATA2_PIN  RB6
-#define DATA2_TRIS TRISB6
-#define DATA3_PIN  RB7
-#define DATA3_TRIS TRISB7
+#define DATA0_PIN  PORTBbits.RB4
+#define DATA0_TRIS TRISBbits.TRISB4
+#define DATA1_PIN  PORTBbits.RB5
+#define DATA1_TRIS TRISBbits.TRISB5
+#define DATA2_PIN  PORTBbits.RB6
+#define DATA2_TRIS TRISBbits.TRISB6
+#define DATA3_PIN  PORTBbits.RB7
+#define DATA3_TRIS TRISBbits.TRISB7
 #endif
 
 void lcd_init(bool fourbitmode);

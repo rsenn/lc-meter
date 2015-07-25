@@ -26,9 +26,9 @@ else
 CC = picc
 endif
 
-COMPILER_TYPE := $(shell picc --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")
+COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")
 
-#$(warning Compiler type: $(COMPILER_TYPE))
+$(warning Compiler type: $(COMPILER_TYPE))
 
 ifeq ($(COMPILER_TYPE),xc8)
 BUILDDIR := build/xc8-$(chipl)/

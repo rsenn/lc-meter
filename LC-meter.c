@@ -14,8 +14,7 @@ __CONFIG(CONFIG_WORD);
 double F1, F2, F3;
 static uint32 tmr0_overflow = 0;
 
-void interrupt
-isr() {
+INTERRUPT(void isr()) {
   if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;

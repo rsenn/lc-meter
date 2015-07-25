@@ -1,6 +1,8 @@
 #ifndef INTERRUPT_H
 #define INTERRUPT_H 1
 
+#include "compiler.h"
+
 #if defined(HI_TECH_C) || defined(__XC8)
 # define INTERRUPT(fn) interrupt fn()
 #else

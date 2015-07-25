@@ -36,9 +36,15 @@
 # endif
 #endif
 
-#ifdef SDCC
+#if defined(SDCC) || defined(__SDCC)
 # define CONFIG_WORD (_FOSC_HS & _PWRTE_ON & _WDT_OFF & _BODEN_ON & _LVP_OFF & _CPD_OFF & _CP_OFF)
   # define double float
+#ifndef __SDCC
+#define __SDCC 1
+#endif
+#ifndef SDCC
+#define SDCC 1
+#endif
 #endif
 
 #ifdef HI_TECH_C
