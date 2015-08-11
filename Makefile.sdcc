@@ -1,10 +1,4 @@
-
-prefix ?= /usr
-libdir = ${prefix}/lib
-datadir = ${prefix}/share
-
-chipu := $(shell echo "${CHIP}" | tr "[[:lower:]]" "[[:upper:]]")
-chipl := $(shell echo "${CHIP}" | tr "[[:upper:]]" "[[:lower:]]")
+include Makefile.vars
 
 BUILDDIR := build/sdcc-$(chipl)/
 vpath $(BUILDDIR)

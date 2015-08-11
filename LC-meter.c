@@ -26,8 +26,21 @@ void
 main(void) {
   initialize();
   
+   lcd_set_cursor(0,0);
+  lcd_print("l33t");
+     
+#if 0
+  relay_tris();
+  for(int i = 0; i < 10; i++) {
+    RC5 = HIGH;
+    __delay_ms(500);
+    RC5 = LOW;
+  __delay_ms(500);
+  }
+#endif
+    
   for(;;) {
-    lcd_set_cursor(0,0);
+    lcd_set_cursor(5,0);
     lcd_print_number(measure_freq(), 16, 4);
   }  
 }
