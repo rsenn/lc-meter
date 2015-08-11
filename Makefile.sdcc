@@ -9,9 +9,9 @@ AS = gpasm
 LD = gplink
 PICPROG = picprog
 #CFLAGS =  -S -V -m${target} -pp$(CHIP) -D__$(CHIP) 
-CFLAGS =  -m${target} -pp$(CHIP) -D__$(CHIP) 
-CFLAGS += -DSDCC=1
-#CFLAGS += -DNO_BIT_DEFINES
+CFLAGS =  -m${target} -p$(chipl:p%=%) -D__$(chipl)=1
+#CFLAGS += -DSDCC=1
+CFLAGS += -DNO_BIT_DEFINES=1
 
 #LDFLAGS = -m -s ${prefix}/share/gputils/lkr/$(CHIP).lkr
 #LIBS = $(targetlibdir)/pic$(CHIP).lib 
@@ -34,16 +34,6 @@ endif
 
 all: $(BUILDDIR) $(BUILDDIR)$(NAME).hex
 
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
-
-program: $(BUILDDIR)$(NAME).hex
-	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
-	picpgm -if JDM -p PIC$(chipu) -e -p "$<"
-report: 
-	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
-	picpgm -if JDM -p PIC$(chipu) -blank -r 
-
 
 $(BUILDDIR)%.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
@@ -55,12 +45,5 @@ $(BUILDDIR)%.asm: %.c
 $(BUILDDIR)LC_meter.hex: $(OBJECTS)
 	(cd $(BUILDDIR); $(CC) $(CFLAGS) $(^:$(BUILDDIR)%=%))
 
-clean:
-ifeq ($(BUILDDIR),)
-	$(RM) $(NAME).asm $(NAME).cod $(NAME).hex $(NAME).map *.o *.lst *.asm *.as *.obj *.rlf *.dep *.p1 *.pre
-else
-	$(RM) -r $(BUILDDIR)
-endif
-	
 
-
+-include Makefile.common
