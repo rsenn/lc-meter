@@ -1,16 +1,21 @@
 -include Makefile.vars
 
 
-
 vpath $(BUILDDIR)
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
 
+ifeq ($(COMPILER),)
+COMPILER := htc
+endif
+
 PROGRAMFILES = C:/Program Files (x86)
 
 #ifeq ($(shell which picc),)
-#ifeq ($(shell uname -o),GNU/Linux)
+ifeq ($(shell uname -o),GNU/Linux)
+CC = picc
+else
 ifeq ($(COMPILER),xc8)
 CCVER = 1.34
 CCDIR = /opt/microchip/xc8/v$(CCVER)
@@ -18,7 +23,7 @@ else
 CCVER = 9.83
 CCDIR = "$(PROGRAMFILES)"/HI-TECH\ Software/PICC/$(CCVER)
 endif
-#endif
+endif
 #endif
 
 ifneq ($(CCDIR),)
@@ -29,6 +34,7 @@ endif
 
 COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")
 
+$(warning Compiler: $(CC))
 $(warning Compiler type: $(COMPILER_TYPE))
 
 ifeq ($(COMPILER_TYPE),xc8)
