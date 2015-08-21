@@ -38,8 +38,8 @@ BUILDDIR := build/htc-$(chipl)/
 endif
 
 LD = $(CC)
-#RM = del /f  
-DISTFILES = Makefile Makefile.htc Makefile.sdcc 
+#RM = del /f
+DISTFILES = Makefile Makefile.htc Makefile.sdcc
 
 
 SOURCES = $($(PACKAGE)_SOURCES)
@@ -48,25 +48,23 @@ ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
 
 COMMON_FLAGS = -g -N127
 #COMMON_FLAGS = -g
-	
-COMMON_FLAGS += --runtime=default,+clear,+init,-keep,-download,+clib
-#COMMON_FLAGS += --opt=default,+asm,-speed,+space,9
+
+#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,-download,+clib"
+COMMON_FLAGS +=	--runtime="default,+clear,+init,-keep,+osccal,-download,-resetbits,+stackcall,+clib"
+#COMMON_FLAGS += --opt="default,+asm,-speed,+space,9"
 
 ifeq ($(OPT),size)
-COMMON_FLAGS += --opt=default,+asm,+space,-speed,9
+COMMON_FLAGS += --opt="default,+asm,+space,-speed,9"
 else
-COMMON_FLAGS += --opt=default,+asm,-space,+speed,9
+COMMON_FLAGS += --opt="default,+asm,-space,+speed,9"
 endif
 
-COMMON_FLAGS += --double=32
-	
+COMMON_FLAGS += --double=32 --float=24
 COMMON_FLAGS += --warn=-2
-	
-	
-_COMMON_FLAGS += \
-	--errformat="Error   [%n] %f; %l.%c %s" \
-	--msgformat="Advisory[%n] %s" \
-	--warnformat="Warning [%n] %f; %l.%c %s"
+
+COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s"
+COMMON_FLAGS += --msgformat="Advisory[%n] %s"
+COMMON_FLAGS += --warnformat="Warning [%n] %f; %l.%c %s"
 
 CPPFLAGS += -D__$(chipl)=1
 
@@ -79,14 +77,18 @@ _CPPFLAGS += \
 	-DVERSION_MINOR=$(VERSION_MINOR) \
 	-DVERSION_PATCH=$(VERSION_PATCH)
 
-#CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
-CFLAGS = -q --chip=16F876A -P --runtime=default,+clear,+init,-keep,+osccal,-download,-resetbits,+stackcall,+clib --opt=default,+asm,-debug,-speed,+space,9 --warn=-1 -N127 --double=32 --float=24 --addrqual=ignore -g --asmlist "--errformat=Error   [%n] %f; %l.%c %s" "--msgformat=Advisory[%n] %s" "--warnformat=Warning [%n] %f; %l.%c %s"
+CFLAGS = -q -P \
+	--chip="$(chipu)" \
+	--addrqual=ignore \
+	--asmlist
+
+CFLAGS += $(COMMON_FLAGS)
 
 _LDFLAGS += --summary=default,-psect,-class,+mem,-hex
 
 LDFLAGS += --output=default,-inhx032 --chip=$(chipl)
-  
-  
+
+
   LDFLAGS +=  --asmlist
 
 PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd

@@ -1,9 +1,11 @@
 #ifndef OSCILLATOR_H
 #define OSCILLATOR_H 1
 
-#ifdef _XTAL_FREQ
-#warning External _XTAL_FREQ
-#else
+//#ifdef _XTAL_FREQ
+//#warning External _XTAL_FREQ
+//#endif
+
+#if !defined(_XTAL_FREQ)
 #define _XTAL_FREQ 16420000  /** CPU clock */
 #endif
 
