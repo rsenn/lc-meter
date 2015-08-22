@@ -9,14 +9,14 @@
  *  There are also macros to do so by time period, assuming
  *  KHZ is defined somewhere, but these have limits like
  *  the macros:
- *    Clock  Small Max  Big Max
- *    20MHz  150us    38000us
- *    10MHz  300us    76000us
- *    4MHz  750us    190000us
- *    1MHz  3000us    760000us
- *    100KHz  30000us    7600000us
- *    48KHz  62500us    15833333us
- *    32KHz  93750us    23750000us
+ *    Clock  Small Max   Big Max
+ *    20MHz      150us     38000us
+ *    10MHz      300us     76000us
+ *     4MHz      750us    190000us
+ *     1MHz     3000us    760000us
+ *   100KHz    30000us   7600000us
+ *    48KHz    62500us  15833333us
+ *    32KHz    93750us  23750000us
  *
  *  If you exceed these, your compiler will likely warn you of an
  *  overflow.

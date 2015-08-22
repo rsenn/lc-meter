@@ -1,4 +1,4 @@
-
+CPPFLAGS += -D_XTAL_FREQ=$(_XTAL_FREQ)
 
 .PHONY: all 
 all:
@@ -8,11 +8,16 @@ $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 program: all
-	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
+	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
 	picpgm -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
 report:
-	#$(PICPROG) --device="pic$(CHIP)" --erase --burn --pic-serial-port="$(serialport)" --input-hexfile="$<"
+	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$<"
 	picpgm -if JDM -p PIC$(chipu) -blank -r
+#	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(SERIAL_PORT) --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
+#	picpgm -if JDM -port $(SERIAL_PORT) -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
+#report:
+#	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(SERIAL_PORT) --input-hexfile="$<"
+#	picpgm -if JDM -port $(SERIAL_PORT) -p PIC$(chipu) -blank -r
 
 
 clean: 
