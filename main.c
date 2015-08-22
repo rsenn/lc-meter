@@ -13,6 +13,7 @@ __CONFIG(CONFIG_WORD);
 
 double F1, F2, F3;
 
+// -------------------------------------------------------------------------
 void
 main(void) {
   int16 i;
@@ -63,6 +64,7 @@ main(void) {
   }
 }
 
+// -------------------------------------------------------------------------
 void
 initialize(void) {
   //setup comparator
@@ -113,6 +115,7 @@ measure_freq(void) {  //16-bit freq
   return ((oldTMR0 << 8) + (256 - prescaler_cntr));
 }
 
+// -------------------------------------------------------------------------
 void
 calibrate(void) {
   uint8 i;
@@ -153,6 +156,7 @@ calibrate(void) {
   }
 }
 
+// -------------------------------------------------------------------------
 void
 measure_capacitance() {
   uint16 var;
@@ -191,6 +195,7 @@ measure_capacitance() {
 //  display_reading(var);
 }
 
+// -------------------------------------------------------------------------
 void
 measure_inductance() {
   uint16 var;
@@ -227,6 +232,7 @@ measure_inductance() {
   display_reading(var);
 }
 
+// -------------------------------------------------------------------------
 void
 delay10ms(uint16 period_10ms) {
   do {

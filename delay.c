@@ -1,12 +1,12 @@
 #include "delay.h"
 
-#if (defined(HI_TECH_C) || defined(__XC8))
 
 #include <pic.h>
 #else
 dvars dvar;
 #endif
 
+// -------------------------------------------------------------------------
 void
 delay_ms(uint16 milliseconds) {
   /* dvars msecs;
@@ -19,6 +19,7 @@ delay_ms(uint16 milliseconds) {
 #endif
 }
 
+// -------------------------------------------------------------------------
 void
 delay_us(uint16 microseconds) {
   /*dvars usecs;
@@ -30,8 +31,6 @@ delay_us(uint16 microseconds) {
 #else
   Delay10TCYx(US_CYCLES(microseconds) / 10);
 
-#endif
-}
 
 
 #if !(defined(HI_TECH_C) || defined(__XC8))
@@ -60,6 +59,7 @@ cycle_eater(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /*
  * Delay multiples of 100 Tcy
  * Passing 0 (zero) results in a delay of 25,600 cycles.
@@ -76,6 +76,7 @@ Delay100TCYx(uint8 unit) {
   } while(--unit != 0);
 }
 
+// -------------------------------------------------------------------------
 /*
  * Delay multiples of 10,000 Tcy
  * Passing 0 (zero) results in a delay of 2,560,000 cycles.
@@ -92,6 +93,7 @@ Delay10KTCYx(uint8 unit) {
   } while(--unit != 0);
 }
 
+// -------------------------------------------------------------------------
 /*
  * Delay multiples of 10 Tcy
  * Passing 0 (zero) results in a delay of 2560 cycles.
@@ -110,6 +112,7 @@ Delay10TCYx(uint8 unit) {
   } while(--unit != 0);
 }
 
+// -------------------------------------------------------------------------
 /*
  * Delay multiples of 1000 Tcy
  * Passing 0 (zero) results in a delay of 256,000 cycles.

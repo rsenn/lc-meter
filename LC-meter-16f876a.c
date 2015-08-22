@@ -3,6 +3,7 @@
 
 void main() {
 
+// -------------------------------------------------------------------------
 	//Example blinking LED program
 	while(true){
 		output_low(LED);

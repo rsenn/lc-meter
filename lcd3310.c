@@ -5,11 +5,7 @@ by Regulus Berdin
 V1.0 11/23/04   Created.
 */
 
-//#include "lcd3310.h"
-#include "delay.h"
-#include "main.h"
 
-#ifdef __LCD3310_H__
 
 __code const char lcd_font[][5] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
@@ -112,6 +108,7 @@ __code const char lcd_font[][5] = {
   { 0x44, 0x64, 0x54, 0x4C, 0x44 }   // z
 };
 
+// -------------------------------------------------------------------------
 uint8
 lcd_str_width(const char *c) {
   uint8 i;
@@ -124,17 +121,8 @@ lcd_str_width(const char *c) {
   return ((i << 1) + i) << 1; //return i*6
 }
 
-#define CLK_IN(data, bitnum) \
-  NOP(); \
-  LCD_CLK=0; \
-  NOP(); \
-  LCD_DATA=0; \
-  if ((data) & (bitnum)) { \
-    LCD_DATA=1; \
-  } \
-  NOP(); \
-  LCD_CLK=1
 
+// -------------------------------------------------------------------------
 void
 lcd_send(uint8 a, uint8 cmd) {
   //set if data or command byte
@@ -157,6 +145,7 @@ lcd_send(uint8 a, uint8 cmd) {
   LCD_CE = 1;
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_init(void) {
   LCD_TRIS();
@@ -201,6 +190,7 @@ lcd_init(void) {
 #endif
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_test(void) {
   uint16 i;
@@ -210,6 +200,7 @@ lcd_test(void) {
   }
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_clear(void) {
   uint16 i;
@@ -219,12 +210,14 @@ lcd_clear(void) {
   }
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_gotoxy(uint8 x, unsigned y) {
   lcd_send(x | 0b10000000, LCD_TCMD);
   lcd_send((y & 0b00000111) | 0b01000000, LCD_TCMD);
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_putch(uint8 c) {
   if(c > 'z' || c < 32) {
@@ -238,6 +231,7 @@ lcd_putch(uint8 c) {
   lcd_send(0, LCD_TDATA);
 }
 
+// -------------------------------------------------------------------------
 #if 1
 void
 lcd_puts(const char *s) {
@@ -248,6 +242,7 @@ lcd_puts(const char *s) {
   //while(*s) {lcd_putch(*s++);}
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_center_puts(uint8 y, const char *c) {
   lcd_gotoxy(41 - (lcd_str_width(c) / 2), y);
@@ -255,6 +250,7 @@ lcd_center_puts(uint8 y, const char *c) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 void
 lcd_puts2(char *s) {
   while(*s) {
@@ -264,6 +260,7 @@ lcd_puts2(char *s) {
   //while(*s) {lcd_putch(*s++);}
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_clear_line(uint8 y) {
   uint8 k;
@@ -273,6 +270,7 @@ lcd_clear_line(uint8 y) {
   }
 }
 
+// -------------------------------------------------------------------------
 void
 lcd_center_puts2(uint8 y, char *c, uint8 len) {
   lcd_gotoxy(42 - (len << 1) - len, y);
@@ -299,6 +297,7 @@ __code const char bat_symbol[] = {
   0b11111110
 };
 
+// -------------------------------------------------------------------------
 void
 lcd_battery(uint8 chg) {
   uint8 i;
@@ -313,6 +312,7 @@ lcd_battery(uint8 chg) {
   }
 }
 
+// -------------------------------------------------------------------------
 #if 0
 void
 lcd_bluetooth(void) {
@@ -324,6 +324,7 @@ lcd_bluetooth(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 void
 lcd_symbol(const char *sym) {
   uint8 i, n;

@@ -4,8 +4,6 @@
 //Target PIC16F877 configuration word
 #pragma DATA _CONFIG, _PWRTE_ON & _BODEN_ON & _WDT_OFF & _LVP_OFF & _CPD_OFF & _DEBUG_OFF & _HS_OSC & _CP_OFF
 
-//Set clock frequency
-#pragma CLOCK_FREQ 20000000
 
 
 
@@ -13,7 +11,6 @@
 
 
 
-void interrupt(void) {
 
 
   //Handle timer0 interrupt

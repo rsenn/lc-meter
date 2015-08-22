@@ -14,6 +14,7 @@ __CONFIG(CONFIG_WORD);
 double F1, F2, F3;
 static uint32 tmr0_overflow = 0;
 
+// -------------------------------------------------------------------------
 void interrupt
 isr() {
   if(T0IF) {
@@ -22,6 +23,7 @@ isr() {
   }  
 }  
 
+// -------------------------------------------------------------------------
 void
 main(void) {
   initialize();
@@ -32,6 +34,7 @@ main(void) {
   }  
 }
 
+// -------------------------------------------------------------------------
 void
 initialize(void) {
   //setup comparator
@@ -62,8 +65,6 @@ initialize(void) {
   GIE = 1;
 }
 
-uint16
-measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
  
@@ -80,21 +81,25 @@ measure_freq(void) {  //16-bit freq
   return (tmr0_overflow << 8) | TMR0;
 }
 
+// -------------------------------------------------------------------------
 void
 calibrate(void) {
  
 }
 
+// -------------------------------------------------------------------------
 void
 measure_capacitance() {
 
 }
 
+// -------------------------------------------------------------------------
 void
 measure_inductance() {
 
 }
 
+// -------------------------------------------------------------------------
 void
 delay10ms(uint16 period_10ms) {
   do {
