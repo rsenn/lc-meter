@@ -63,7 +63,11 @@ initialize(void) {
   
   PEIE = 1;
   GIE = 1;
+
 }
+uint16
+measure_freq(void) {  //16-bit freq
+
 
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI

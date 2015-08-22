@@ -1,6 +1,6 @@
 #include "delay.h"
 
-
+#if (defined(HI_TECH_C) || defined(__XC8))
 #include <pic.h>
 #else
 dvars dvar;
@@ -30,6 +30,8 @@ delay_us(uint16 microseconds) {
   __delay_us(microseconds);
 #else
   Delay10TCYx(US_CYCLES(microseconds) / 10);
+#endif
+}
 
 
 
