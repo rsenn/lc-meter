@@ -1,30 +1,31 @@
 -include Makefile.vars
 
-
+COMPILER := xc8
 
 vpath $(BUILDDIR)
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
+OS := $(shell uname -s)
 
-PROGRAMFILES = C:/Program Files (x86)
+PROGRAMFILES = c:/Program\ Files\ \(x86\)
 
 #ifeq ($(shell which picc),)
 #ifeq ($(shell uname -o),GNU/Linux)
-ifeq ($(COMPILER),xc8)
-CCVER = 1.34
+CCVER = 1.35
+
+ifeq ($(OS),Linux)
 CCDIR = /opt/microchip/xc8/v$(CCVER)
 else
-CCVER = 9.83
-CCDIR = "$(PROGRAMFILES)"/HI-TECH\ Software/PICC/$(CCVER)
+CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
 endif
 #endif
 #endif
 
 ifneq ($(CCDIR),)
-CC = $(CCDIR)/bin/picc
+CC = $(CCDIR)/bin/$(COMPILER)
 else
-CC = picc
+CC = $(COMPILER)
 endif
 
 COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")

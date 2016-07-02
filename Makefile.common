@@ -3,13 +3,22 @@ CPPFLAGS += -D_XTAL_FREQ=$(_XTAL_FREQ)
 .PHONY: all 
 all:
 
+PICPGM = picpgm
+PICPROG = picprog
+serialport = /dev/ttyS0
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
 program: all
-	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
-	picpgm -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
+ifneq ($(PICPGM),)
+	$(PICPGM) -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
+else
+  ifneq ($(PICPROG),)
+	$(PICPROG) --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
+  endif
+endif
+
 report:
 	#picprog --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$<"
 	picpgm -if JDM -p PIC$(chipu) -blank -r
