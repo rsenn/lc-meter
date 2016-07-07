@@ -28,13 +28,13 @@ CP=cp
 CND_CONF=default
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
-OUTPUT_SUFFIX=cof
-DEBUGGABLE_SUFFIX=cof
+OUTPUT_SUFFIX=elf
+DEBUGGABLE_SUFFIX=elf
 FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
-DEBUGGABLE_SUFFIX=cof
+DEBUGGABLE_SUFFIX=elf
 FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
@@ -79,79 +79,79 @@ endif
 
 MP_PROCESSOR_OPTION=16F876A
 # ------------------------------------------------------------------------------------
-# Rules for buildStep: assemble
-ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-else
-endif
-
-# ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/1472/delay.p1: ../delay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/delay.p1: > ${OBJECTDIR}/_ext/1472/delay.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/delay.dep >> ${OBJECTDIR}/_ext/1472/delay.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/delay.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/delay.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/delay.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/delay.p1  ../delay.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/delay.d ${OBJECTDIR}/_ext/1472/delay.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/display.p1: ../display.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../display.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../display.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/display.p1: > ${OBJECTDIR}/_ext/1472/display.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/display.dep >> ${OBJECTDIR}/_ext/1472/display.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/display.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/display.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/display.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/display.p1  ../display.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/display.d ${OBJECTDIR}/_ext/1472/display.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/lcd44780.p1: ../lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/lcd44780.p1: > ${OBJECTDIR}/_ext/1472/lcd44780.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/lcd44780.dep >> ${OBJECTDIR}/_ext/1472/lcd44780.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/lcd44780.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/lcd44780.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/lcd44780.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/lcd44780.p1  ../lcd44780.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/lcd44780.d ${OBJECTDIR}/_ext/1472/lcd44780.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/lcd44780.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/LC-meter.p1: ../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../LC-meter.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../LC-meter.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/LC-meter.p1: > ${OBJECTDIR}/_ext/1472/LC-meter.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/LC-meter.dep >> ${OBJECTDIR}/_ext/1472/LC-meter.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/LC-meter.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/LC-meter.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LC-meter.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=icd3  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/LC-meter.p1  ../LC-meter.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/LC-meter.d ${OBJECTDIR}/_ext/1472/LC-meter.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/_ext/1472/delay.p1: ../delay.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/delay.p1: > ${OBJECTDIR}/_ext/1472/delay.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/delay.dep >> ${OBJECTDIR}/_ext/1472/delay.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/delay.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/delay.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/delay.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/delay.p1  ../delay.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/delay.d ${OBJECTDIR}/_ext/1472/delay.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/display.p1: ../display.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../display.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../display.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/display.p1: > ${OBJECTDIR}/_ext/1472/display.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/display.dep >> ${OBJECTDIR}/_ext/1472/display.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/display.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/display.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/display.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/display.p1  ../display.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/display.d ${OBJECTDIR}/_ext/1472/display.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/display.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/lcd44780.p1: ../lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/lcd44780.p1: > ${OBJECTDIR}/_ext/1472/lcd44780.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/lcd44780.dep >> ${OBJECTDIR}/_ext/1472/lcd44780.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/lcd44780.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/lcd44780.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/lcd44780.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/lcd44780.p1  ../lcd44780.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/lcd44780.d ${OBJECTDIR}/_ext/1472/lcd44780.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/lcd44780.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1472/LC-meter.p1: ../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	${MP_CC} --pass1 ../LC-meter.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../LC-meter.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1472" -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2 --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=default,+asm,-asmfile,+speed,-space,-debug,9  --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECTDIR}/_ext/1472/LC-meter.p1: > ${OBJECTDIR}/_ext/1472/LC-meter.p1.d
-	@cat ${OBJECTDIR}/_ext/1472/LC-meter.dep >> ${OBJECTDIR}/_ext/1472/LC-meter.p1.d
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/LC-meter.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/_ext/1472/LC-meter.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/LC-meter.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1472/LC-meter.p1  ../LC-meter.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/LC-meter.d ${OBJECTDIR}/_ext/1472/LC-meter.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+endif
+
+# ------------------------------------------------------------------------------------
+# Rules for buildStep: assemble
+ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+else
 endif
 
 # ------------------------------------------------------------------------------------
@@ -159,12 +159,14 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE) -odist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  -mdist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.map --summary=default,-psect,-class,+mem,-hex --chip=$(MP_PROCESSOR_OPTION) -P --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -D__DEBUG --debugger=icd3 -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2  --double=32 --float=24 --addrqual=ignore --mode=pro --output=default,-inhx032 -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s" ${OBJECTFILES_QUOTED_IF_SPACED}  
-	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.hex
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=icd3  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     --rom=default,-1f00-1fff --ram=default,-70-70,-80-80,-f0-f0,-100-100,-170-170,-180-180,-1e5-1f0 --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.hex 
+	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE) -odist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  -mdist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.map --summary=default,-psect,-class,+mem,-hex --chip=$(MP_PROCESSOR_OPTION) -P --runtime=default,+clear,+init,-keep,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,+speed,-space,-debug,9 -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -v --warn=-2  --double=32 --float=24 --addrqual=ignore --mode=pro --output=default,-inhx032 -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s" ${OBJECTFILES_QUOTED_IF_SPACED}  
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.map  --double=32 --float=24 --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -P -N31 -I".." -I"C:/Program Files (x86)/HI-TECH Software/PICC/9.83/include" -I"." -V --warn=-2 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,+osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	
 	@echo Normalizing hex file
 	@"C:/Program Files (x86)/Microchip/MPLABX/v3.26/mplab_ide/mplab_ide/modules/../../bin/hexmate" --edf="C:/Program Files (x86)/Microchip/MPLABX/v3.26/mplab_ide/mplab_ide/modules/../../dat/en_msgs.txt" dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.hex -odist/${CND_CONF}/${IMAGE_TYPE}/LC-meter.X.${IMAGE_TYPE}.hex
 
