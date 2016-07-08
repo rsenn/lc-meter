@@ -1,9 +1,9 @@
 #ifndef INTERRUPT_H
 #define INTERRUPT_H 1
 
-#include "compiler.h"
+//#include "compiler.h"
 
-#if defined(HI_TECH_C) || defined(__XC8)
+#if defined(HI_TECH_C) || defined(__XC8__)
 # define INTERRUPT(fn) interrupt fn()
 #else
 # ifdef __SDCC

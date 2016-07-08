@@ -12,11 +12,12 @@ PROGRAMFILES = c:/Program\ Files\ \(x86\)
 
 #ifeq ($(shell which picc),)
 #ifeq ($(shell uname -o),GNU/Linux)
-CCVER = 1.35
 
 ifeq ($(OS),Linux)
+CCVER = 1.35
 CCDIR = /opt/microchip/xc8/v$(CCVER)
 else
+CCVER = v1.34
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
 endif
 #endif
