@@ -15,15 +15,16 @@ endif
 
 PROGRAMFILES = C:/Program Files (x86)
 
-CCVER = 9.83
 #ifeq ($(shell which picc),)
 ifeq ($(OS),Linux)
+CCVER = 9.83
 #CC = picc
 #else
 #ifeq ($(COMPILER),picc)
 CCDIR = /opt/hitech/picc/$(CCVER)
 else
-CCDIR = "$(PROGRAMFILES)"/HI-TECH\ Software/PICC/$(CCVER)
+CCVER = 9.83
+CCDIR = "$(PROGRAMFILES)/HI-TECH Software/PICC/$(CCVER)"
 endif
 #endif
 #endif
