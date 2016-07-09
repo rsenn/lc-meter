@@ -11,7 +11,7 @@ PICPROG = picprog
 #CFLAGS =  -S -V -m${target} -pp$(CHIP) -D__$(CHIP) 
 CFLAGS =  -m${target} -p$(chipl:p%=%) -D__$(chipl)=1
 #CFLAGS += -DSDCC=1
-CFLAGS += -DNO_BIT_DEFINES=1
+#CFLAGS += -DNO_BIT_DEFINES=1
 
 #LDFLAGS = -m -s ${prefix}/share/gputils/lkr/$(CHIP).lkr
 #LIBS = $(targetlibdir)/pic$(CHIP).lib 

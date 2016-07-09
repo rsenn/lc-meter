@@ -8,24 +8,23 @@ VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
 OS := $(shell uname -s)
 
-PROGRAMFILES = C:\Progra~2
+PROGRAMFILES = c:/Program\ Files\ \(x86\)
 
 #ifeq ($(shell which picc),)
 #ifeq ($(shell uname -o),GNU/Linux)
-S = $(NONE) $(NONE)
+
 ifeq ($(OS),Linux)
 CCVER = 1.35
-
 CCDIR = /opt/microchip/xc8/v$(CCVER)
 else
-CCVER = v1.37
+CCVER = v1.34
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
 endif
 #endif
 #endif
 
 ifneq ($(CCDIR),)
-CC = "$(CCDIR)/bin/$(COMPILER)"
+CC = $(CCDIR)/bin/$(COMPILER)
 else
 CC = $(COMPILER)
 endif
