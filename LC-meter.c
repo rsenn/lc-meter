@@ -39,7 +39,6 @@ INTERRUPT(void isr()) {
 		bres -= 5000000;	// subtract 1 second, retain error
 		seconds++;	// update clock, etc
 		  	
-		  	  	SET_LED(seconds & 1);
 	//	SET_LED(led = !led);
 	}
 	//TMR1L =  0x00;
@@ -52,6 +51,8 @@ INTERRUPT(void isr()) {
 
 void
 main(void) {
+bool led;
+
   initialize();
   
    lcd_set_cursor(0,0);
@@ -68,8 +69,11 @@ main(void) {
 #endif
     
   for(;;) {
-    lcd_set_cursor(5,0);
+   	  	SET_LED((led = !led));
+  		  	  	    lcd_set_cursor(5,0);
     lcd_print_number(measure_freq(), 16, 4);
+  
+    __delay_ms(500);
   }  
 }
 
