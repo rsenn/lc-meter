@@ -55,6 +55,9 @@ bool led;
 
   initialize();
   
+  LED_TRIS = OUTPUT;
+     	  	LED_PIN = HIGH;
+
    lcd_set_cursor(0,0);
   lcd_print("l33t");
      
@@ -69,7 +72,6 @@ bool led;
 #endif
     
   for(;;) {
-   	  	SET_LED((led = !led));
   		  	  	    lcd_set_cursor(5,0);
     lcd_print_number(measure_freq(), 16, 4);
   
