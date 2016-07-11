@@ -1,4 +1,3 @@
-//#include "LC-meter.h"
 #include "main.h"
 #include "delay.h"
 #include "lcd44780.h"
@@ -29,35 +28,12 @@ INTERRUPT(void isr()) {
     tmr0_overflow++;
     T0IF = 0;
   }  
-
-  if(TMR1IF) {
-   // TMR1 = ~ticks;
-
-    bres += 256;
-  if(bres >= 5000000)	// if reached 1 second!
-	{
-		bres -= 5000000;	// subtract 1 second, retain error
-		seconds++;	// update clock, etc
-		  	
-	//	SET_LED(led = !led);
-	}
-	//TMR1L =  0x00;
-	TMR1H = 0xff;
-
-    // Clear timer interrupt bit
-    TMR1IF = 0;
-  }
 }  
 
 void
 main(void) {
-bool led;
-
   initialize();
   
-  LED_TRIS = OUTPUT;
-     	  	LED_PIN = HIGH;
-
    lcd_set_cursor(0,0);
   lcd_print("l33t");
      
@@ -72,34 +48,9 @@ bool led;
 #endif
     
   for(;;) {
-  		  	  	    lcd_set_cursor(5,0);
+    lcd_set_cursor(5,0);
     lcd_print_number(measure_freq(), 16, 4);
-  
-    __delay_ms(500);
   }  
-}
-
-void
-setup_timer1() {
-	
-  T1SYNC = 0;
-
-  T1CKPS0 = 0;
-  T1CKPS1 = 0; // 1:1 prescaler
-  
-  // Set up timer0 interrupt
-  T1OSCEN = 1;
-  TMR1CS = 0; // Internal clock source
-  TMR1ON = 1;
-  //PSA = 0;  // Enable TMR1 prescaler
-  
-  //tmr0_set_psbit(0);
-  
-
-
-  //TMR1 = ~ticks;
-  TMR1IF = 0;
-  TMR1IE = 1;
 }
 
 void
@@ -120,12 +71,6 @@ initialize(void) {
   /*OPTION_REGbits.*/PS1 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
   /*OPTION_REGbits.*/PS2 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
 
- 
-  LED_PIN = LOW;
-  LED_TRIS = OUTPUT;
-
-  setup_timer1();
-  
   //initialize 3310 lcd
 #ifdef __LCD3310_H__
   lcd_init();
