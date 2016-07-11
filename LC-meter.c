@@ -12,7 +12,6 @@ __code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 # pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
 #endif
 
-
 #ifdef  HI_TECH_C
 __CONFIG(CONFIG_WORD);
 #endif

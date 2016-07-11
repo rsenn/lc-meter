@@ -6,7 +6,8 @@
 //#endif
 
 #if !defined(_XTAL_FREQ)
-#define _XTAL_FREQ 16420000  /** CPU clock */
+//#define _XTAL_FREQ 16420000  /** CPU clock */
+#define _XTAL_FREQ 18432000  /** CPU clock */
 #endif
 
 #define KHZ        ((_XTAL_FREQ)/1000)
