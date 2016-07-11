@@ -39,7 +39,7 @@ main(void) {
   LED_TRIS = OUTPUT;
   
    lcd_set_cursor(0,0);
-  lcd_print("l33t");
+  lcd_print("LC-meter");
      
 #if 0
   relay_tris();
@@ -54,7 +54,7 @@ main(void) {
   for(;;) {
    LED_PIN = led; led ^= 1;
 
-    lcd_set_cursor(5,0);
+    lcd_set_cursor(10,0);
     lcd_print_number(measure_freq(), 16, 4);
     
     __delay_ms(100);

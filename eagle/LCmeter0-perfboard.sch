@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -19155,11 +19155,11 @@ Source: 008-0260-0_E.pdf</description>
 </classes>
 <parts>
 <part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP" device=""/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
 <part name="R4" library="resistor" deviceset="R-EU_" device="0204/2V" value="47kΩ"/>
-<part name="R10" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
+<part name="R10" library="resistor" deviceset="R-EU_" device="0207/10" value="4.7kΩ"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="E5-4" value="10μF"/>
@@ -19184,7 +19184,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="R5" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
+<part name="R5" library="resistor" deviceset="R-EU_" device="0207/10" value="4.7kΩ"/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="SW2" library="lc-meter" deviceset="S-DPDT" device="" value="DPDT"/>
@@ -19193,7 +19193,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R6" library="rcl" deviceset="R-EU_" device="0207/10" value="10kΩ"/>
+<part name="R6" library="resistor" deviceset="R-EU_" device="0204/2V" value="10kΩ"/>
 <part name="LCD1" library="con-lstb" deviceset="MA08-1" device="" value="HD44780"/>
 <part name="P+7" library="supply1" deviceset="VCC" device=""/>
 </parts>
