@@ -32,7 +32,11 @@ INTERRUPT(void isr()) {
 
 void
 main(void) {
+  int led = 0;
+  
   initialize();
+  
+  LED_TRIS = OUTPUT;
   
    lcd_set_cursor(0,0);
   lcd_print("l33t");
@@ -48,8 +52,12 @@ main(void) {
 #endif
     
   for(;;) {
+   LED_PIN = led; led ^= 1;
+
     lcd_set_cursor(5,0);
     lcd_print_number(measure_freq(), 16, 4);
+    
+    __delay_ms(100);
   }  
 }
 
