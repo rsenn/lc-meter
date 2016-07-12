@@ -42,7 +42,7 @@ $(BUILDDIR)%.e: %.c
 $(BUILDDIR)%.asm: %.c
 	$(CC) $(CFLAGS) -o $@ -S $<
 
-$(BUILDDIR)LC_meter.hex: $(OBJECTS)
+$(BUILDDIR)$(PROGRAM).hex: $(OBJECTS)
 	(cd $(BUILDDIR); $(CC) $(CFLAGS) $(^:$(BUILDDIR)%=%))
 
 
