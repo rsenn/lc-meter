@@ -1,7 +1,7 @@
 #include "LC-meter-HD44780.h"
 #include "delay.h"
 #include "lcd44780.h"
-#include "display.h"
+//#include "display.h"
 
 #ifdef SDCC
 __code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
