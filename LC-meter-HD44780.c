@@ -1,4 +1,6 @@
 #include "LC-meter-HD44780.h"
+#include "uart.h"
+#include "softser.h"
 #include "delay.h"
 #include "lcd44780.h"
 //#include "display.h"
@@ -34,6 +36,8 @@ void
 main(void) {
   int led = 0;
   
+     uart_putch('I');
+
   initialize();
   
   LED_TRIS = OUTPUT;
@@ -41,6 +45,7 @@ main(void) {
    lcd_set_cursor(0,0);
   lcd_print("LC-meter");
      
+     uart_putch('\n');
 #if 0
   relay_tris();
   for(int i = 0; i < 10; i++) {
@@ -53,6 +58,7 @@ main(void) {
     
   for(;;) {
    LED_PIN = led; led ^= 1;
+   uart_putch('.');
 
     lcd_set_cursor(10,0);
     lcd_print_number(measure_freq(), 16, 4);
@@ -90,6 +96,9 @@ initialize(void) {
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
+  
+  uart_init();
+  softser_init();
   
   PEIE = 1;
   GIE = 1;
