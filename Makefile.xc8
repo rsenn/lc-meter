@@ -101,9 +101,9 @@ $(PACKAGE).hex: $(P1OBJS)
 	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC-meter-HD44780.map -o$(BUILDDIR)$@ $^ || { $(RM) $(BUILDDIR)$(PACKAGE).hex; exit 1; }
 
 $(P1OBJS): $(BUILDDIR)%.p1: %.c
-	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< || { $(RM) $@; exit 1; }
+	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $<
 $(ASSRCS): $(BUILDDIR)%.as: %.c
-	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< || { $(RM) $@; exit 1; }
+	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $<
 
 
 
