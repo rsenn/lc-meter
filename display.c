@@ -1,5 +1,5 @@
 #include "display.h"
-#include "main.h"
+#include "LC-meter-HD44780.h"
 
 #ifdef __LCD3310_H__
 __code const char logo_image[504] = {

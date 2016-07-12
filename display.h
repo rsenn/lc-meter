@@ -1,4 +1,4 @@
-#include "main.h"
+#include "LC-meter-HD44780.h"
 
 extern const char logo_image[504];
 

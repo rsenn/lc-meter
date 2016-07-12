@@ -1,4 +1,4 @@
-#include "main.h"
+#include "LC-meter-HD44780.h"
 
 
 //Target PIC16F877 configuration word
