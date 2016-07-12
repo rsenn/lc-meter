@@ -29,6 +29,9 @@ INTERRUPT(void isr()) {
     tmr0_overflow++;
     T0IF = 0;
   }  
+  
+    ser_int();
+
 }  
 
 void
