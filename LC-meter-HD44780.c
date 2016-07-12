@@ -1,5 +1,5 @@
 #include "LC-meter-HD44780.h"
-#include "ser.h"
+#include "uart.h"
 #include "delay.h"
 #include "lcd44780.h"
 //#include "display.h"
@@ -30,7 +30,7 @@ INTERRUPT(void isr()) {
     T0IF = 0;
   }  
   
-    //ser_int();
+//    uart_int();
 
 }  
 
@@ -38,8 +38,8 @@ void
 main(void) {
   int led = 0;
 
-  //ser_init();
-  //ser_putch('I');
+  uart_init();
+  uart_putch('I');
   
   initialize();
   
@@ -48,7 +48,7 @@ main(void) {
    lcd_set_cursor(0,0);
   lcd_print("LC-meter");
      
-     //ser_putch('\n');
+     uart_puts("\r\n");
 #if 0
   relay_tris();
   for(int i = 0; i < 10; i++) {
@@ -61,7 +61,7 @@ main(void) {
     
   for(;;) {
    LED_PIN = led; led ^= 1;
-   //ser_puts(".\n");
+   uart_puts(".\r\n");
 
     lcd_set_cursor(10,0);
     lcd_print_number(measure_freq(), 16, 4);

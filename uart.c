@@ -103,3 +103,12 @@ uart_init(void) {
 
   uart_enable();
 }
+void uart_puts(const unsigned char * s) {
+  while(*s)
+    uart_putch(*s++);
+}
+
+void uart_puts2(unsigned char * s) {
+  while(*s)
+    uart_putch(*s++);
+}

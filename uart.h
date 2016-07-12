@@ -36,6 +36,8 @@
 #endif
 
 void uart_putch(unsigned char byte);
+void uart_puts(const unsigned char * s);
+void uart_puts2(unsigned char *s);
 
 int uart_getch(uint16 timeout);
 bit uart_poll(unsigned char bauds);
