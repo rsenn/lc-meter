@@ -38,9 +38,10 @@ void
 main(void) {
   int led = 0;
 
-  initialize();
+  ser_init();
+  ser_putch('I');
   
-     ser_putch('I');
+  initialize();
   
   LED_TRIS = OUTPUT;
   
@@ -98,8 +99,6 @@ initialize(void) {
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
-  
-  ser_init();
   
   PEIE = 1;
   GIE = 1;

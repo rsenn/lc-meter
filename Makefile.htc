@@ -39,11 +39,7 @@ COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\
 $(warning Compiler: $(CC))
 $(warning Compiler type: $(COMPILER_TYPE))
 
-ifeq ($(COMPILER_TYPE),xc8)
-BUILDDIR := build/xc8-$(chipl)/
-else
-BUILDDIR := build/htc-$(chipl)/
-endif
+BUILDDIR := build/htc-$(chipl)-$(word 3,$(subst _, ,$(PROGRAM)))/
 
 LD = $(CC)
 #RM = del /f
