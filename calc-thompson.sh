@@ -1,16 +1,15 @@
 #!/bin/bash
 
 bce() {
-  (
-  BC="${scale:+scale=$scale; }pi=4*a(1); $*"
-
+ (BC="${scale:+scale=$scale; }pi=4*a(1); $*"
  [ "$DEBUG" = : ] && echo "$*" 1>&2
-  EXPR="/\\./ { s,^\\.,0.0, ; s,0*\$,, ; /^-\?\\./ s|^\(-\)\?|\10|; s,\\.\$,, }"
+  EXPR="/\\./ { s,^\\.,0., ; s,0*\$,, ; /^-\?\\./ s|^\(-\)\?|\10|; s,\\.\$,, }"
   
     CMD='echo "$BC" | bc -l  | sed "$EXPR"'
   [ "${ROUND+set}" = set ] && EXPR="$EXPR; /\\./ { s|\(.*\)\.\($(str_repeat $ROUND .)\).*|\1.\2|; s|\\.$|| }"
   eval "$CMD")
 }
+
 log10() {
   ROUND=0 bce "l($1)/l(10)"
 }
@@ -27,18 +26,18 @@ str_repeat() {
 }
 
 parse_num() {
-  N=${1%%[!.0-9]*}
+  (N=${1%%[!.0-9]*}
   case "$1" in
     *G*) bce "$N * 1000000000" ;;
     *M*) bce "$N * 1000000" ;;
     *k*) bce "$N * 1000" ;;
-    *m*) bce "$N * 0.001" ;;
-    *u*) bce "$N * 0.000001" ;;
+    *m*) bce "$N * 10^-3" ;;
+    *u*) bce "$N * 10^-6" ;;
     *n*) bce "$N * 0.000000001" ;;
     *p*) bce "$N * 0.000000000001" ;;
     *f*) bce "$N * 0.000000000000001" ;;
     *) echo "$N" ;;
-  esac
+  esac)
 }
 
 exp_num() {
@@ -55,40 +54,39 @@ exp_num() {
     *) echo "$N" ;;
   esac
 }
+
 format_num() {
  (N=${1%%[!.0-9]*}
   U=${1#$N}
   ROUND=6
   case "$N" in
-    0.000000000000*) echo "$(bce "$N * 1000000000000000")f$U" ;;
-    0.000000000*) echo "$(bce "$N * 1000000000000")p$U" ;;
-    0.000000*) echo "$(bce "$N * 1000000000")n$U" ;;
-    0.000*) echo "$(bce "$N * 1000000")u$U" ;;
-    0.*) echo "$(bce "$N * 1000")m$U" ;;
-    *??????????.*) echo "$(bce "$N / 1000000000")G$U" ;;
-    *???????.*) echo "$(bce "$N / 1000000")M$U" ;;
-    *????.*) echo "$(bce "$N / 1000")k$U" ;;
+    0.000000000000*) echo "$(bce "$N * 10^15")f$U" ;;
+    0.000000000*) echo "$(bce "$N * 10^12")p$U" ;;
+    0.000000*) echo "$(bce "$N * 10^9")n$U" ;;
+    0.000*) echo "$(bce "$N * 10^6")u$U" ;;
+    0.*) echo "$(bce "$N * 10^3")m$U" ;;
+    *??????????.*) echo "$(bce "$N / 10^9")G$U" ;;
+    *???????.*) echo "$(bce "$N / 10^6")M$U" ;;
+    *????.*) echo "$(bce "$N / 10^3")k$U" ;;
     *.*) echo "$N$U" ;;
-    *??????????) echo "$(bce "$N / 1000000")G$U" ;;
-    *???????) echo "$(bce "$N / 1000000")M$U" ;;
-    *????) echo "$(bce "$N / 1000000")k$U" ;;
+    *??????????) echo "$(bce "$N / 10^9")G$U" ;;
+    *???????) echo "$(bce "$N / 10^6")M$U" ;;
+    *????) echo "$(bce "$N / 10^3")k$U" ;;
     *) echo "$N$U" ;;
   esac)
 }
 
-exp10_num() {
- (N=${1%%[!.0-9]*}
-  L=$(ROUND=0 log10 "$N")
- while F=$(bce "$N / 10^$L"); do
- case "$F" in
-  *[0-9][0-9].*) L=$((L + 1)) ;;
-  0.0*) L=$((L - 1)) ;;
-   *) break ;;
-   esac
- done
- [ $((L)) -eq 0 ] && unset L
-  echo "$F${L:+*10^$L}"
-  )
+  exp10_num() {
+   (N=${1%%[!.0-9]*}
+	L=$(ROUND=0 log10 "$N")
+	#[ $((L)) -lt 0 ] && L=$((L - 1))
+   while F=$(bce "$N / ( 10 ^ ($L) )"); : ; do
+   case "$F" in
+	 *) break ;;
+	 esac
+   done
+   [ $((L)) -eq 0 ] && unset L
+	echo "$F${L:+*10^$L}")
 }
 
 var_for() {
@@ -148,14 +146,13 @@ calc_thompson() {
   
   IFS="
 "
-  
   [ $# -gt 0 ] && { exec <<<"$*"; NO_PROMPT=:; }
   
   until [ $(( $(var_isset L) + $(var_isset C) + $(var_isset f) )) -ge 2 ]; do
     get_any
   done
   if [ $(var_isset f) -eq 0 ]; then
-	R=$(DEBUG=: bce "l=$l; c=$c; 1 / (2 * pi * sqrt(l * c))")
+	R=$(DEBUG=: bce "l=$L; c=$C; 1 / (2 * pi * sqrt(l * c))")
 	O=f
   else
     V=$(other_var $O)
