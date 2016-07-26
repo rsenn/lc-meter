@@ -8,19 +8,11 @@ bce() {
   EXPR="/\\./ { s,^\\.,0.0, ; s,0*\$,, ; /^-\?\\./ s|^\(-\)\?|\10|; s,\\.\$,, }"
   
     CMD='echo "$BC" | bc -l  | sed "$EXPR"'
-  [ "${ROUND+set}" = set ] && #CMD="$CMD | round $ROUND"
-  EXPR="$EXPR; /\\./ { s|\(.*\)\.\($(str_repeat $ROUND .)\).*|\1.\2|; s|\\.$|| }"
+  [ "${ROUND+set}" = set ] && EXPR="$EXPR; /\\./ { s|\(.*\)\.\($(str_repeat $ROUND .)\).*|\1.\2|; s|\\.$|| }"
   eval "$CMD")
 }
 log10() {
   ROUND=0 bce "l($1)/l(10)"
-}
-
-round() {
- (N="$1"
- shift 
- [ $# -gt 0 ] && exec <<<"$*"
-  sed "/\\./ { s|\(.*\)\.\($(str_repeat $N .)\).*|\1.\2| }")
 }
 
 str_repeat() {
