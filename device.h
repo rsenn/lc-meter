@@ -57,7 +57,7 @@
 # ifndef PWRTEN
 #  define PWRTEN PWRTE_ON
 # endif
-# define CONFIG_WORD (HS & BOREN & PWRTEN)
+# define CONFIG_WORD (HS & BOREN & PWRTEN & WDTE_OFF & LVP_OFF)
 #endif
 
 #endif

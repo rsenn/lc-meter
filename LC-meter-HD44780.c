@@ -9,7 +9,8 @@ __code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #ifdef __XC8__
-# pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
+__PROG_CONFIG(1, 0x3f72);
+//#pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
 #endif
 
 #ifdef  HI_TECH_C
