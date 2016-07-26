@@ -24,11 +24,25 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define NOP() __asm("NOP")
 #endif
 
+#ifndef SDCC
+#define float double
+#endif
+
 #include "types.h"
 #include "const.h"
 
 #include "lcd44780.h"
 ///#include "lcd3310.h"
+
+#define M_4_PI_PI 39.47841760435743447527
+#define L_H 0.000082
+#define L_MH 0.082
+#define L_UH 82.0
+#define L_NH 82000.0
+#define L_PH 82000000.0
+#define C_FARAD 0.000000001
+#define C_PF 1000.0
+
 
 #define Ccal          1000    //pF
 #define gate_period   100      //ms
@@ -47,8 +61,10 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define LED_TRIS TRISC0 = TRISC1 = TRISC2
 
 void initialize(void);
-uint16 measure_freq(void);
+uint32 measure_freq(void);
 void calibrate(void);
+float calc_capacitance(void);
+float calc_inductance(void);
 void measure_capacitance(void);
 void measure_inductance(void);
 void delay10ms(uint16 period_10ms);

@@ -24,6 +24,7 @@ volatile  unsigned int seconds;
 
 float F1, F2, F3;
 static uint32 tmr0_overflow = 0;
+float calc_freq();
 
 INTERRUPT(void isr()) {
   if(T0IF) {
@@ -65,7 +66,8 @@ main(void) {
    uart_puts(".\r\n");
 
     lcd_set_cursor(10,0);
-    lcd_print_number(measure_freq(), 16, 4);
+    lcd_print_float(calc_capacitance(), 10);
+//    lcd_print_number(calc_capacitance(), 10, 6);
     
     __delay_ms(100);
   }  
@@ -105,7 +107,7 @@ initialize(void) {
   GIE = 1;
 }
 
-uint16
+uint32
 measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
@@ -128,14 +130,23 @@ calibrate(void) {
  
 }
 
-void
-measure_capacitance() {
+float
+calc_freq() {
+   uint32 t = measure_freq();
 
+   return t / 1000.0;
 }
 
-void
-measure_inductance() {
+float
+calc_capacitance() {
+   float f = measure_freq();
+   return 1.0 / (M_4_PI_PI * f * f * L_PH);
+}
 
+float
+calc_inductance() {
+  float f = measure_freq();
+  return 1 / (M_4_PI_PI * f * f * C_PF);
 }
 
 void
