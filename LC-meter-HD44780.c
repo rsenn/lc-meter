@@ -24,12 +24,18 @@ volatile  unsigned int seconds;
 
 float F1, F2, F3;
 static uint32 tmr0_overflow = 0;
+uint16 tmr1_overflow = 0;
 float calc_freq();
 
 INTERRUPT(void isr()) {
   if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;
+  }  
+
+  if(TMR1IF) {
+    tmr1_overflow++;
+    TMR1IF = 0;
   }  
   
 //    uart_int();
@@ -40,13 +46,15 @@ void
 main(void) {
   int led = 0;
 
+  
+  LED_TRIS = OUTPUT;
+  LED_PIN = 1;
+
   uart_init();
   uart_putch('I');
   
   initialize();
-  
-  LED_TRIS = OUTPUT;
-  
+
    lcd_set_cursor(0,0);
   lcd_print("LC-meter");
      
@@ -60,13 +68,26 @@ main(void) {
   __delay_ms(500);
   }
 #endif
-    
+add_ccal();
+
   for(;;) {
+
+	float f = measure_freq();
    LED_PIN = led; led ^= 1;
    uart_puts(".\r\n");
 
-    lcd_set_cursor(10,0);
-    lcd_print_float(calc_capacitance(), 10);
+lcd_clear();
+    lcd_set_cursor(0,0);
+    lcd_print("f2=");
+//    lcd_print_float(f, 2);
+lcd_print_number(measure_freq_tmr1(), 10, 2);
+    lcd_set_cursor(7,0);
+	lcd_print("Hz ");
+    lcd_print("C=");
+    lcd_print_float(calc_capacitance(f) * 10E+09, 4);
+	lcd_set_cursor(18,0);
+    lcd_print("nF");
+
 //    lcd_print_number(calc_capacitance(), 10, 6);
     
     __delay_ms(100);
@@ -101,13 +122,15 @@ initialize(void) {
 #endif // defined(__LCD3310_H__)
   //others
   lc_tris();
+  relay_tris();
+
   NOT_RBPU = 1;  // enable portB internal pullup
   
   PEIE = 1;
   GIE = 1;
 }
 
-uint32
+float
 measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
@@ -117,36 +140,64 @@ measure_freq(void) {  //16-bit freq
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
 
-  delay_ms(1000);
+  delay_ms(2500);
   
   TRISA4 = 1;    //Disable RA4 output to T0CKI
    TMR0IE = 0;
   
-  return (tmr0_overflow << 8) | TMR0;
+  uint32 r = (tmr0_overflow << 8) | TMR0;
+  return (float)r * 102.40000000000000000000;
+}
+
+
+float
+measure_freq_tmr1(void) {  //16-bit freq
+	TRISC0 = INPUT;
+	  TRISA4 = 0;    //Enable RA4 output to T0CKI
+
+	T1CONbits.T1CKPS = 0b11;
+	T1CONbits.T1OSCEN = 1;
+	T1CONbits.T1SYNC = 1;
+	T1CONbits.TMR1CS = 1;
+	TMR1 = 0;
+
+	T1CONbits.TMR1ON = 1;
+	TMR1IF = 0;
+	TMR1IE = 1;
+
+	delay_ms(1000);
+
+	TMR1ON = 0;
+	TMR1IE = 0;
+
+   TRISA4 = 1;    //Disable RA4 output to T0CKI
+
+  uint32 r = (tmr1_overflow << 16) | TMR1;
+  return (float)r * 8;
 }
 
 void
-calibrate(void) {
+calibrate(void) {	
  
 }
 
 float
 calc_freq() {
-   uint32 t = measure_freq();
+   float t = measure_freq();
 
-   return t / 1000.0;
+   return t;
 }
 
 float
-calc_capacitance() {
-   float f = measure_freq();
-   return 1.0 / (M_4_PI_PI * f * f * L_PH);
+calc_capacitance(float f) {
+	f *= f;
+	f *= M_4_PI_PI;
+   return L_H_1 / f;
 }
 
 float
-calc_inductance() {
-  float f = measure_freq();
-  return 1 / (M_4_PI_PI * f * f * C_PF);
+calc_inductance(float f) {
+  return 1.0l / (M_4_PI_PI * f * f * C_F);
 }
 
 void

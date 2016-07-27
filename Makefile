@@ -29,3 +29,7 @@ dist:
 	cp -f $(DISTFILES) $(distdir)/
 	tar -cvJf $(distdir).txz --exclude="build" $(distdir)/
 	$(RM) -r $(distdir)
+	
+	
+calc-lc-tank: calc-lc-tank.c
+	$(CC) -g -O2 -Wall -o $@ $^

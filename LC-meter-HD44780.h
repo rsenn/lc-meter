@@ -34,14 +34,14 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #include "lcd44780.h"
 ///#include "lcd3310.h"
 
-#define M_4_PI_PI 39.47841760435743447527
-#define L_H 0.000082
-#define L_MH 0.082
-#define L_UH 82.0
-#define L_NH 82000.0
-#define L_PH 82000000.0
-#define C_FARAD 0.000000001
-#define C_PF 1000.0
+#define M_4_PI_PI 39.47841760435743447527l
+#define L_H 0.000330l
+#define L_H_1 (1.0/L_H)
+#define C_F  0.000000001l
+#define C_MF 0.000001l
+#define C_UF 0.001l
+#define C_NF 1.0l
+#define C_PF 1000.0l
 
 
 #define Ccal          1000    //pF
@@ -57,14 +57,15 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 # define WITH_LCD 1
 //#endif
 
-#define LED_PIN RC0 = RC1 = RC2
-#define LED_TRIS TRISC0 = TRISC1 = TRISC2
+#define LED_PIN RA2 = RC3
+#define LED_TRIS TRISA2 = TRISC3
 
 void initialize(void);
-uint32 measure_freq(void);
+float measure_freq(void);
+float measure_freq_tmr1(void) ;
 void calibrate(void);
-float calc_capacitance(void);
-float calc_inductance(void);
+float calc_capacitance(float);
+float calc_inductance(float);
 void measure_capacitance(void);
 void measure_inductance(void);
 void delay10ms(uint16 period_10ms);
