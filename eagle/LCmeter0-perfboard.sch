@@ -19163,9 +19163,9 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C1" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="E5-4" value="10μF"/>
-<part name="C4" library="rcl" deviceset="CPOL-EU" device="E5-4" value="10μF"/>
-<part name="C5" library="rcl" deviceset="C-EU" device="050-024X044" value="33pF"/>
-<part name="C6" library="rcl" deviceset="C-EU" device="050-024X044" value="33pF"/>
+<part name="C4" library="rcl" deviceset="CPOL-EU" device="E2.5-5" value="10μF"/>
+<part name="C5" library="rcl" deviceset="C-EU" device="025-024X044" value="33pF"/>
+<part name="C6" library="rcl" deviceset="C-EU" device="025-024X044" value="33pF"/>
 <part name="C7" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="100μF"/>
 <part name="C8" library="rcl" deviceset="CPOL-EU" device="E2.5-5" value="10μF"/>
 <part name="C9" library="rcl" deviceset="C-EU" device="025-024X044" value="100nF"/>
@@ -19193,7 +19193,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R6" library="resistor" deviceset="R-EU_" device="0204/2V" value="10kΩ"/>
+<part name="R6" library="resistor" deviceset="R-EU_" device="0204/5" value="10kΩ"/>
 <part name="LCD1" library="con-lstb" deviceset="MA08-1" device="" value="HD44780"/>
 <part name="P+7" library="supply1" deviceset="VCC" device=""/>
 </parts>
