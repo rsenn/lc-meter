@@ -11,9 +11,9 @@
       <itemPath>../display.h</itemPath>
       <itemPath>../interrupt.h</itemPath>
       <itemPath>../lcd44780.h</itemPath>
-      <itemPath>../LC-meter-HD44780.h</itemPath>
       <itemPath>../oscillator.h</itemPath>
       <itemPath>../tsmdelay.h</itemPath>
+      <itemPath>../LC-meter.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,9 +24,10 @@
                    projectFiles="true">
       <itemPath>../delay.c</itemPath>
       <itemPath>../lcd44780.c</itemPath>
-      <itemPath>../LC-meter-HD44780.c</itemPath>
       <itemPath>../ser.c</itemPath>
       <itemPath>../uart.c</itemPath>
+      <itemPath>../LC-meter.c</itemPath>
+      <itemPath>../display.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -74,7 +75,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
-        <property key="define-macros" value=""/>
+        <property key="define-macros" value="USE_HD44780_LCD=1;__16f876a=1"/>
         <property key="extra-include-directories" value="..;."/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="pro"/>
@@ -87,14 +88,15 @@
         <property key="optimization-invariant-value" value="16"/>
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
-        <property key="optimization-speed" value="false"/>
+        <property key="optimization-speed" value="true"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
         <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
+        <appendMe value="--double=32"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
         <property key="additional-options-checksum" value=""/>
@@ -179,7 +181,7 @@
       </ICD3PlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="false"/>
-        <property key="output-file-format" value="-mcof,+elf"/>
+        <property key="output-file-format" value="+mcof,-elf"/>
         <property key="stack-size-high" value=""/>
         <property key="stack-size-low" value=""/>
         <property key="stack-size-main" value=""/>

@@ -1,3 +1,8 @@
+#ifndef LCD3310_H
+#define LCD3310_H
+
+#if USE_NOKIA3310_LCD
+
 #define LCD_CLK		RC5
 #define	LCD_DATA	RC4
 #define	LCD_DC		RC1
@@ -43,3 +48,6 @@ void lcd_symbol(const char *sym);
 
 
 	
+#endif // USE_NOKIA3310_LCD
+
+#endif // LCD3310_H

@@ -9,9 +9,9 @@ __code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #ifdef __XC8__
-__PROG_CONFIG(1, 0x3f72);
-//#pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
-#endif
+  __PROG_CONFIG(1, 0x3f72);
+  //#pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
+  #endif
 
 #ifdef  HI_TECH_C
 __CONFIG(CONFIG_WORD);
@@ -56,7 +56,7 @@ main(void) {
   initialize();
 
    lcd_set_cursor(0,0);
-  lcd_print("LC-meter");
+  lcd_puts("LC-meter");
      
      uart_puts("\r\n");
 #if 0
@@ -78,15 +78,15 @@ add_ccal();
 
 lcd_clear();
     lcd_set_cursor(0,0);
-    lcd_print("f2=");
+    lcd_puts("f2=");
 //    lcd_print_float(f, 2);
 lcd_print_number(measure_freq_tmr1(), 10, 2);
     lcd_set_cursor(7,0);
-	lcd_print("Hz ");
-    lcd_print("C=");
+	lcd_puts("Hz ");
+    lcd_puts("C=");
     lcd_print_float(calc_capacitance(f) * 10E+09, 4);
 	lcd_set_cursor(18,0);
-    lcd_print("nF");
+    lcd_puts("nF");
 
 //    lcd_print_number(calc_capacitance(), 10, 6);
     

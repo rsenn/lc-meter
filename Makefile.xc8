@@ -72,6 +72,8 @@ _COMMON_FLAGS += \
 
 CPPFLAGS += -D__$(chipl)=1
 
+CPPFLAGS += $($(PROGRAM)_DEFS)
+
 ifneq ($(CCDIR),)
 CPPFLAGS += -I$(CCDIR)/include
 endif

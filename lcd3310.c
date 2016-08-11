@@ -1,3 +1,4 @@
+#if USE_NOKIA3310_LCD
 /*
 NOKIA 3310 LCD driver library
 84x48 lcd display PCD8544
@@ -367,3 +368,5 @@ void lcd_symbol(const char *sym)
 		lcd_send(sym[i], LCD_TDATA);
 	}
 }
+
+#endif // USE_NOKIA3310_LCD

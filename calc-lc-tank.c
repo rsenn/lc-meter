@@ -76,14 +76,14 @@ ask(const char* prompt, int *typeptr) {
  fflush(stderr);
  if(fgets(linebuf, sizeof(linebuf), stdin))  {
    r = parse_num(linebuf, &endptr);
-   if(!stricmp(endptr, "Hz")) {
+   if(!strcasecmp(endptr, "Hz")) {
      type = FREQUENCY;
-     } else if(!stricmp(endptr, "F")) {
+     } else if(!strcasecmp(endptr, "F")) {
      type = CAPACITANCE;
-     } else if(!stricmp(endptr, "H")) {
+     } else if(!strcasecmp(endptr, "H")) {
      type = INDUCTANCE;
      }
-     *typeptr = type   
+     *typeptr = type   ;
  }
  return r;
 }
