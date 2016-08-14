@@ -35,7 +35,18 @@
 #define RX_TRIS TRISC7
 #endif
 
-void uart_putch(unsigned char byte);
+
+#ifndef UART_BRG_FN
+# if HIGH_SPEED == 1
+#  define UART_BRG_FN(baud) ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(baud))) - 1)
+# else
+#  define UART_BRG_FN(baud) ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(baud))) - 1)
+# endif
+#endif
+
+//#define UART_BRG_FN(baud) ( (OSC_4/(16*(baud))) - 1 )
+
+void	 uart_putch(unsigned char byte);
 void uart_puts(const unsigned char * s);
 void uart_puts2(unsigned char *s);
 

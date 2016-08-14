@@ -41,10 +41,10 @@ uart_getch(uint16 timeout) {
 bit
 uart_poll(unsigned char bauds) {
 
-    // TMR0 -= SOFTSER_BRG;            // load corrected baud value
+    // TMR0 -= UART_BRG;            // load corrected baud value
 
 
-    TMR0 = (256 - SOFTSER_BRG_FN(UART_BAUD));
+    TMR0 = (256 - UART_BRG_FN(UART_BAUD));
     while( TMR0&(1<<7) ) {
       if(RCIF)
         return 1;
