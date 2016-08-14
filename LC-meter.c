@@ -1,4 +1,4 @@
-#include "main.h"
+#include "LC-meter.h"
 #include "lcd3310.h"
 #include "lcd44780.h"
 #include "display.h"
