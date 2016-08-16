@@ -16,10 +16,10 @@ __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 #define relay_tris()	TRISC0 = 0	//as output to drive the relay coil
 
 #ifndef LED_PIN
-# define LED_PIN         RA5 = RA4 = RC3 = RC0
+# define LED_PIN         RA2 = RC1 = RC2
 #endif
 #ifndef LED_TRIS
-# define LED_TRIS        TRISA5 = TRISA4 = TRISC3 = TRISC0
+# define LED_TRIS()        TRISA2 = TRISC1 = TRISC2 = 0
 #endif
 
 double F1, F2, F3;

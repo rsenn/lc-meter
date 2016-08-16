@@ -5,9 +5,9 @@
 #include "interrupt.h"
 
 
-volatile unsigned long bres;
-volatile  unsigned long seconds;
-volatile unsigned char led_state = 0;
+volatile uint16 bres;
+volatile  uint32 seconds;
+volatile bit led_state = 0;
 static uint16 tmr1_reload;
 
 
@@ -44,18 +44,16 @@ void main(void)
 void
 start_timer1(unsigned char prescale,  uint16 ticks)
 {
-  uint16 tval;
-
   bres = 0;
 
-  tval = 65535 - ticks;
-  tmr1_reload = tval;
-  TMR1H = tmr1_reload >> 8;
-  TMR1L = tmr1_reload & 0xff;
+  tmr1_reload = 65535 - ticks;
+  //TMR1H = tmr1_reload >> 8;
+  //TMR1L = tmr1_reload & 0xff;
+  TMR1 = tmr1_reload;
   T1CONbits.T1CKPS = prescale;
-  T1SYNC = 0;
+#  T1SYNC = 0;
   TMR1CS = 0;
-  T1OSCEN	= 1;
+  T1OSCEN= 0;
   TMR1ON = 1;
   TMR1IE = 1;
   TMR1IF = 0;
@@ -75,7 +73,8 @@ void initialize(void)
 	PS1 = 1;
 	PS0 = 1;
 
-    start_timer1(2, 2500);
+	LED_TRIS();
+    start_timer1(0, 0xff);
 
 	//initialize 3310 lcd
 	lcd_init();
@@ -215,18 +214,10 @@ void delay10ms(unsigned int period_10ms)
 	do{ __delay_ms(10); }while(--period_10ms);
 }
 
-
 INTERRUPT(void isr)
 {
-
-  if (TMR1IF) {
-    TMR1IF = 0;
-    //    TMR1IE = 0;
-    //)    T1OSCEN = TMR1ON = 0;
-
-    TMR1H = tmr1_reload >> 8;
-    TMR1L = tmr1_reload & 0xff;
-
+  if(TMR1IF) {
+    TMR1 = tmr1_reload;
 
     bres++;
 
@@ -235,5 +226,6 @@ INTERRUPT(void isr)
   seconds++;
 		LED_PIN = led_state = !led_state;
     }
+    TMR1IF = 0;
   }
 }
