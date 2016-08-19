@@ -2,6 +2,14 @@
 #include "lcd3310.h"
 #include "lcd44780.h"
 #include "display.h"
+#include "interrupt.h"
+
+
+volatile uint16 bres;
+volatile  uint32 seconds;
+volatile bit led_state = 0;
+static uint16 tmr1_reload;
+
 
 void main(void)
 {
@@ -32,6 +40,26 @@ void main(void)
 		delay10ms(20);
 	}
 }
+
+void
+start_timer1(unsigned char prescale,  uint16 ticks)
+{
+  bres = 0;
+
+  tmr1_reload = 65535 - ticks;
+  //TMR1H = tmr1_reload >> 8;
+  //TMR1L = tmr1_reload & 0xff;
+  TMR1 = tmr1_reload;
+  T1CONbits.T1CKPS = prescale;
+#  T1SYNC = 0;
+  TMR1CS = 0;
+  T1OSCEN= 0;
+  TMR1ON = 1;
+  TMR1IE = 1;
+  TMR1IF = 0;
+}
+
+
 void initialize(void)
 {
 	//setup comparator
@@ -44,6 +72,10 @@ void initialize(void)
 	PS2 = 1;	//PS2:PS0 -> Prescaler Rate = divide by 256
 	PS1 = 1;
 	PS0 = 1;
+
+	LED_TRIS();
+    start_timer1(0, 0xff);
+
 	//initialize 3310 lcd
 	lcd_init();
 	lcd_clear();
@@ -51,7 +83,11 @@ void initialize(void)
 	lc_tris();
 	relay_tris();
 	nRBPU = 1;		// enable portB internal pullup
+
+	PEIE = 1;
+	GIE = 1;
 }
+
 unsigned int measure_freq(void)		//16-bit freq
 {
 	unsigned int oldTMR0, prescaler_cntr;
@@ -176,4 +212,20 @@ void measure_inductance()
 void delay10ms(unsigned int period_10ms)
 {
 	do{ __delay_ms(10); }while(--period_10ms);
+}
+
+INTERRUPT(void isr)
+{
+  if(TMR1IF) {
+    TMR1 = tmr1_reload;
+
+    bres++;
+
+    if (bres >= 500) {
+      bres -= 500;
+  seconds++;
+		LED_PIN = led_state = !led_state;
+    }
+    TMR1IF = 0;
+  }
 }
