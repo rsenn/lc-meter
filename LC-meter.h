@@ -4,12 +4,7 @@
 #endif
 __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 
-#if USE_NOKIA3310_LCD
 #include "lcd3310.h"
-#endif
-#if USE_HD44780_LCD
-#include "lcd44780.h"
-#endif
 
 #define Ccal			1000		//pF
 #define gate_period		100			//ms
@@ -19,6 +14,13 @@ __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 #define add_ccal()		RC0 = 1		//relay on
 #define remove_ccal()	RC0 = 0		//relay off
 #define relay_tris()	TRISC0 = 0	//as output to drive the relay coil
+
+#ifndef LED_PIN
+# define LED_PIN         RA2 = RC1 = RC2
+#endif
+#ifndef LED_TRIS
+# define LED_TRIS()        TRISA2 = TRISC1 = TRISC2 = 0
+#endif
 
 double F1, F2, F3;
 
