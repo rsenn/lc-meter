@@ -51,7 +51,7 @@ start_timer1(unsigned char prescale,  uint16 ticks)
   //TMR1L = tmr1_reload & 0xff;
   TMR1 = tmr1_reload;
   T1CONbits.T1CKPS = prescale;
-#  T1SYNC = 0;
+//  T1SYNC = 0;
   TMR1CS = 0;
   T1OSCEN= 0;
   TMR1ON = 1;
@@ -73,7 +73,8 @@ void initialize(void)
 	PS1 = 1;
 	PS0 = 1;
 
-	LED_TRIS();
+	INIT_LED();
+    INIT_LED2();
     start_timer1(0, 0xff);
 
 	//initialize 3310 lcd
@@ -224,7 +225,9 @@ INTERRUPT(void isr)
     if (bres >= 500) {
       bres -= 500;
   seconds++;
-		LED_PIN = led_state = !led_state;
+  led_state = !led_state;
+		SET_LED(led_state);
+		SET_LED2(led_state);
     }
     TMR1IF = 0;
   }
