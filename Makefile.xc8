@@ -71,7 +71,7 @@ _COMMON_FLAGS += \
 	--warnformat="Warning [%n] %f; %l.%c %s"
 
 CPPFLAGS += -D__$(chipl)=1
-
+CPPFLAGS += $(DEFINES:%=-D%)
 CPPFLAGS += $($(PROGRAM)_DEFS)
 
 ifneq ($(CCDIR),)
