@@ -24,13 +24,13 @@ volatile uint32 bres;
 volatile  unsigned int seconds;
 
 float F1, F2, F3;
-static uint32 tmr_overflow[0] = 0;
+static uint32 tmr0_overflow = 0;
 uint16 tmr1_overflow = 0;
 float calc_freq();
 
 INTERRUPT() {
   if(T0IF) {
-    tmr_overflow[0]++;
+    tmr0_overflow++;
     T0IF = 0;
   }  
 
@@ -183,7 +183,7 @@ measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
  
-  tmr_overflow[0] = 0;
+  tmr0_overflow = 0;
   TMR0 = 0x00;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
@@ -193,7 +193,7 @@ measure_freq(void) {  //16-bit freq
   TRISA4 = 1;    //Disable RA4 output to T0CKI
    TMR0IE = 0;
   
-  uint32 r = (tmr_overflow[0] << 8) | TMR0;
+  uint32 r = (tmr0_overflow << 8) | TMR0;
   return (float)r * 102.40000000000000000000;
 }
 

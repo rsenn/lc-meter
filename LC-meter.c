@@ -34,14 +34,14 @@ volatile  unsigned int seconds;
 volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
-volatile uint16 tmr_overflow[3];
+volatile uint16 tmr0_overflow, tmr1_overflow, tmr2_overflow;
 
 static  void initialize(void);
 
 INTERRUPT() {
 
   if(TMR1IF) {
-    tmr_overflow[1]++;
+    tmr1_overflow++;
 
 /*    bres++;
     if(bres >= 5000000) // if reached 1 second!
@@ -62,7 +62,7 @@ INTERRUPT() {
     if(CCP1_EDGE() == RISING) {
       ccp1t_lr = ccp1t[RISING];
     }
-    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr_overflow[1] << 16);
+    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr1_overflow << 16);
     CCP1IE = 0;
     CCP1_EDGE() = !CCP1_EDGE();    
     CCP1IE = 1;
@@ -71,13 +71,13 @@ INTERRUPT() {
 
 
   if(T0IF) {
-    tmr_overflow[0]++;
+    tmr0_overflow++;
     T0IF = 0;
   }  
 
 
   if(TMR2IF) {
-    tmr_overflow[2]++;
+    tmr2_overflow++;
 
     // Clear timer interrupt bit
     TMR2IF = 0;
@@ -115,7 +115,7 @@ main(void) {
 void
 setup_timer1() {
   
-  tmr_overflow[1] = 0;
+  tmr1_overflow = 0;
 
   T1CONbits.T1CKPS = 0b00; // 1:1 prescaler
   T1CONbits.T1OSCEN = 0;
@@ -134,7 +134,7 @@ setup_timer1() {
 void
 setup_timer2() {
   
-  tmr_overflow[2] = 0;
+  tmr2_overflow = 0;
 
     // set up TMR2
   T2CONbits.TOUTPS = 0b0000;    // Set timer 2 prescaler to 1:1
@@ -209,7 +209,7 @@ measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
  
-  tmr_overflow[0] = 0;
+  tmr0_overflow = 0;
   TMR0 = 0x00;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
@@ -219,7 +219,7 @@ measure_freq(void) {  //16-bit freq
   TRISA4 = 1;    //Disable RA4 output to T0CKI
    TMR0IE = 0;
   
-  return (tmr_overflow[0] << 8) | TMR0;
+  return (tmr0_overflow << 8) | TMR0;
 }
 
 void
