@@ -28,7 +28,7 @@ static uint32 tmr0_overflow = 0;
 uint16 tmr1_overflow = 0;
 float calc_freq();
 
-INTERRUPT(void isr) {
+INTERRUPT() {
   if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;

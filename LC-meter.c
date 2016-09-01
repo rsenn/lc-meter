@@ -1,6 +1,7 @@
-//#include "LC-meter.h"
-#include "main.h"
+#include "LC-meter.h"
+//#include "main.h"
 #include "delay.h"
+#include "interrupt.h"
 #include "lcd44780.h"
 #include "display.h"
 
@@ -18,13 +19,32 @@ __CONFIG(CONFIG_WORD);
 
 #define SET_LED(b) do { LED_PIN = !(b); } while(0);
 
+#define FALLING 0
+#define RISING 1
+
+#define CCP1_EDGE() (CCP1M0)
+
 volatile uint32 bres;
 volatile  unsigned int seconds;
+volatile uint16 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 static uint32 tmr0_overflow = 0;
 
-INTERRUPT(void isr()) {
+INTERRUPT() {
+
+  if(CCP1IF) {
+    if(CCP1_EDGE() == RISING) {
+      ccp1t_lr = ccp1t[RISING];
+    }
+    ccp1t[CCP1_EDGE()] = CCPR1;
+    CCP1IE = 0;
+    CCP1_EDGE() = !CCP1_EDGE();    
+    CCP1IE = 1;
+    CCP1IF = 0;
+  }
+
+
   if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;
@@ -34,26 +54,21 @@ INTERRUPT(void isr()) {
    // TMR1 = ~ticks;
 
     bres += 256;
-  if(bres >= 5000000)	// if reached 1 second!
-	{
-		bres -= 5000000;	// subtract 1 second, retain error
-		seconds++;	// update clock, etc
-		  	
-		  	  	SET_LED(seconds & 1);
-	//	SET_LED(led = !led);
-	}
-	//TMR1L =  0x00;
-	TMR1H = 0xff;
+    if(bres >= 5000000)	// if reached 1 second!
+  	{
+  		bres -= 5000000;	// subtract 1 second, retain error
+  		seconds++;	// update clock, etc
+  		  	
+	  	SET_LED(seconds & 1);
+  	//	SET_LED(led = !led);
+  	}
+  	//TMR1L =  0x00;
+  	TMR1H = 0xff;
 
     // Clear timer interrupt bit
     TMR1IF = 0;
   }
 
-  if(CCP1IF) {
-
-    
-    CCP1IF = 0;
-  }
 }  
 
 void
@@ -103,6 +118,17 @@ setup_timer1() {
 }
 
 void
+setup_ccp1() {
+
+ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+
+  TRISC2 = INPUT;
+  CCP1CONbits.CCP1M = 0b0100;
+  CCP1IE = 1;
+  CCP1IF = 0;
+}
+
+void
 initialize(void) {
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
@@ -112,10 +138,6 @@ initialize(void) {
   TRISA = 0b11001111;
 
 
-  TRISC2 = INPUT;
-  CCP1CONbits.CCP1M = 0b0100;
-  CCP1IE = 1;
-  CCP1IF = 0;
   
   //setup timer0 for frequency counter
   T0CS = 1;  //Transition on T0CKI pin
@@ -133,6 +155,7 @@ initialize(void) {
   LED_TRIS = OUTPUT;
 
   setup_timer1();
+  setup_ccp1();
   
   //initialize 3310 lcd
 #ifdef __LCD3310_H__

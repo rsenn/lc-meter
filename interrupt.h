@@ -1,15 +1,13 @@
 #ifndef INTERRUPT_H
 #define INTERRUPT_H 1
 
-#include "device.h"
-
-#if defined(HI_TECH_C) || defined(__XC8__)
-# define INTERRUPT(fn) interrupt fn()
+#if defined(HI_TECH_C) || defined(__XC8)
+# define INTERRUPT() interrupt isr()
 #else
 # ifdef __SDCC
-#  define INTERRUPT(fn) fn() __interrupt 0
+#  define INTERRUPT() isr() __interrupt 0
 # else
-#  define INTERRUPT(fn) fn(); interrupt() { fn(); }; fn()
+#  define INTERRUPT() void isr(); interrupt() { void isr(); }; isr()
 # endif
 #endif // !defined(HI_TECH_C)
 
