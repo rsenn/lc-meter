@@ -66,9 +66,9 @@ endif
 COMMON_FLAGS += --double=32 --float=24
 COMMON_FLAGS += --warn=-2
 
-COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s"
-COMMON_FLAGS += --msgformat="Advisory[%n] %s"
-COMMON_FLAGS += --warnformat="Warning [%n] %f; %l.%c %s"
+_COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s" \
+  --msgformat="Advisory[%n] %s" \
+  --warnformat="Warning [%n] %f; %l.%c %s"
 
 CPPFLAGS += -D__$(chipl)=1
 CPPFLAGS += $($(PROGRAM)_DEFS)

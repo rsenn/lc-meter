@@ -31,7 +31,7 @@ __CONFIG(CONFIG_WORD);
 
 volatile uint32 bres;
 volatile  unsigned int seconds;
-volatile uint16 ccp1t_lr, ccp1t[2];
+volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 volatile uint16 tmr_overflow[3];
@@ -40,12 +40,29 @@ static  void initialize(void);
 
 INTERRUPT() {
 
+  if(TMR1IF) {
+    tmr_overflow[1]++;
+
+/*    bres++;
+    if(bres >= 5000000) // if reached 1 second!
+    {
+      bres -= 5000000;  // subtract 1 second, retain error
+      seconds++;  // update clock, etc
+          
+      SET_LED(seconds & 1);
+    }*/
+     // TMR1H = 0xff;
+
+    // Clear timer interrupt bit
+    TMR1IF = 0;
+  }
+
   if(CCP1IF) {
 
     if(CCP1_EDGE() == RISING) {
       ccp1t_lr = ccp1t[RISING];
     }
-    ccp1t[CCP1_EDGE()] = CCPR1;
+    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr_overflow[1] << 16);
     CCP1IE = 0;
     CCP1_EDGE() = !CCP1_EDGE();    
     CCP1IE = 1;
@@ -58,24 +75,6 @@ INTERRUPT() {
     T0IF = 0;
   }  
 
-  if(TMR1IF) {
-    tmr_overflow[1]++;
-
-    bres++;
-    if(bres >= 5000000) // if reached 1 second!
-    {
-      bres -= 5000000;  // subtract 1 second, retain error
-      seconds++;  // update clock, etc
-          
-      SET_LED(seconds & 1);
-    //  SET_LED(led = !led);
-    }
-    //TMR1L =  0x00;
-    //TMR1H = 0xff;
-
-    // Clear timer interrupt bit
-    TMR1IF = 0;
-  }
 
   if(TMR2IF) {
     tmr_overflow[2]++;
@@ -118,25 +117,20 @@ setup_timer1() {
   
   tmr_overflow[1] = 0;
 
-  //T1SYNC = 0;
-
-  T1CKPS0 = 0;
-  T1CKPS1 = 0; // 1:1 prescaler
+  T1CONbits.T1CKPS = 0b00; // 1:1 prescaler
+  T1CONbits.T1OSCEN = 0;
+//  T1CONbits.TMR1CS = 0; // Internal clock source
+//  T1CONbits.T1SYNC = 1;
   
-  // Set up timer0 interrupt
-  T1OSCEN = 1;
-  TMR1CS = 0; // Internal clock source
-  TMR1ON = 1;
-  //PSA = 0;  // Enable TMR1 prescaler
-  
-  //tmr0_set_psbit(0);
-  
-
-
-  //TMR1 = ~ticks;
-  TMR1IF = 0;
   TMR1IE = 1;
+  TMR1IF = 0;
+
+  TMR1 = 0;
+//  TMR1H = 0xff;
+
+  T1CONbits.TMR1ON = 1;
 }
+
 void
 setup_timer2() {
   
@@ -146,10 +140,10 @@ setup_timer2() {
   T2CONbits.TOUTPS = 0b0000;    // Set timer 2 prescaler to 1:1
   T2CONbits.T2CKPS = 0b00;      // Set timer 2 prescaler to 1:1.
 
-  TMR2ON = 1;       // Enable timer 2.
   TMR2IE = 1;
   TMR2IF = 0;
 
+  T2CONbits.TMR2ON = 1;       // Enable timer 2.
 }
 
 void
@@ -191,7 +185,6 @@ static void initialize(void) {
   setup_timer1();
   setup_timer2();
 
-  TMR1 = TMR2 = 0;
 
   setup_ccp1();
   
