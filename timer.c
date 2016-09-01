@@ -56,7 +56,7 @@ setup_timer2() {
 
     // set up TMR2
   T2CONbits.TOUTPS = TMR2_POSTSCALER;    // Set timer 2 postscaler to 1:1
-  T2CONbits.T2CKPS = TMR2_PRESCALER;      // Set timer 2 prescaler to 1:1.
+  T2CONbits.T2CKPS = TMR2_PRESCALER>>1;      // Set timer 2 prescaler to 1:1.
 
   TMR2IE = 1;
   TMR2IF = 0;
