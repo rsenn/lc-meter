@@ -1,6 +1,6 @@
 #include "delay.h"
 
-#if (defined(HI_TECH_C) || defined(__XC8__))
+#if (defined(HI_TECH_C) || defined(__XC8))
 #include <pic.h>
 #else
 dvars dvar;
@@ -12,7 +12,7 @@ delay_ms(uint16 milliseconds) {
   /* dvars msecs;
    SAVE_CYCLES_BIG(msecs, US_CYCLES(milliseconds*1000lu));
    CALL_CYCLES_BIG(msecs);*/
-#if !(defined(HI_TECH_C) || defined(__XC8__))
+#if !(defined(HI_TECH_C) || defined(__XC8))
   __delay_ms(milliseconds);
 #else
   Delay100TCYx(US_CYCLES(milliseconds * 1000lu) / 100);
@@ -25,7 +25,7 @@ delay_us(uint16 microseconds) {
   /*dvars usecs;
   SAVE_CYCLES_BIG(usecs, US_CYCLES(microseconds));
   CALL_CYCLES_BIG(usecs);*/
-#if !(defined(HI_TECH_C) || defined(__XC8__))
+#if !(defined(HI_TECH_C) || defined(__XC8))
 
   __delay_us(microseconds);
 #else
@@ -35,7 +35,7 @@ delay_us(uint16 microseconds) {
 
 
 
-#if !(defined(HI_TECH_C) || defined(__XC8__))
+#if !(defined(HI_TECH_C) || defined(__XC8))
 /**
  *  Fixing x at 191 so b is essentially multiples of cmax
  */
@@ -69,7 +69,7 @@ cycle_eater(void) {
 void
 Delay100TCYx(uint8 unit) {
   do {
-#if (defined(HI_TECH_C) || defined(__XC8__))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(100);
 #else
@@ -86,7 +86,7 @@ Delay100TCYx(uint8 unit) {
 void
 Delay10KTCYx(uint8 unit) {
   do {
-#if (defined(HI_TECH_C) || defined(__XC8__))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10000);
 #else
@@ -103,7 +103,7 @@ Delay10KTCYx(uint8 unit) {
 void
 Delay10TCYx(uint8 unit) {
   do {
-#if (defined(HI_TECH_C) || defined(__XC8__))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10);
 #else
@@ -122,7 +122,7 @@ Delay10TCYx(uint8 unit) {
 void
 Delay1KTCYx(uint8 unit) {
   do {
-#if (defined(HI_TECH_C) || defined(__XC8__))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(1000);
 #else

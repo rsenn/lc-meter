@@ -1,37 +1,57 @@
-#include <htc.h>	// Required to interface with delay routines
-#ifndef _XTAL_FREQ
-	#define _XTAL_FREQ 20000000
+#ifndef LC_METER_H
+#define LC_METER_H
+
+#include "device.h"
+#include "oscillator.h"
+
+#ifdef HI_TECH_C
+# include <htc.h>  // Required to interface with delay routines
+# include <pic.h>
+#ifndef nRBPU
+volatile unsigned char           OPTION_REG          @ 0x081;
+
+volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
+//#define nRBPU OPTION_REGbits.nRBPU
 #endif
-__CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
+# define NOT_RBPU nRBPU
+#endif
 
-#include "lcd3310.h"
+#if !defined(HI_TECH_C) && !defined(_BOOSTC) && !defined(__MIKROC_PRO_FOR_PIC__)
+# include <pic16f876a.h>
+#endif
 
-#define Ccal			1000		//pF
-#define gate_period		100			//ms
-#define pi				3.14159
-#define LC_select		RB0			//L or C select (from DPDT switch)
-#define lc_tris()		TRISB0 = 1	//as input
-#define add_ccal()		RC0 = 1		//relay on
-#define remove_ccal()	RC0 = 0		//relay off
-#define relay_tris()	TRISC0 = 0	//as output to drive the relay coil
+#ifdef SDCC
+#define NOP() __asm("NOP")
+#endif
 
-#define LED_PIN         RA2
-#define LED_TRIS        TRISA2
-#define LED2_PIN         RC3
-#define LED2_TRIS        TRISC3
+#include "types.h"
+#include "const.h"
 
-#define INIT_LED() LED_TRIS=0
-#define INIT_LED2() LED2_TRIS=0
-#define SET_LED(b) LED_PIN=((b)==0)
-#define SET_LED2(b) LED2_PIN=((b)==0)
+#include "lcd44780.h"
+///#include "lcd3310.h"
 
-double F1, F2, F3;
+#define Ccal          1000    //pF
+#define gate_period   100      //ms
+#define pi            3.14159
+#define LC_select     RC4      //L or C select (from DPDT switch)
+#define lc_tris()     TRISC4 = INPUT  //as input
+#define add_ccal()    RC5 = HIGH    //relay on
+#define remove_ccal() RC5 = LOW    //relay off
+#define relay_tris()  TRISC5 = OUTPUT  //as output to drive the relay coil
+
+//#ifdef HI_TECH_C
+# define WITH_LCD 1
+//#endif
+
+#define LED_PIN RA2
+#define LED_TRIS TRISA2
 
 void initialize(void);
-unsigned int measure_freq(void);
+uint16 measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(unsigned int period_10ms);
+void delay10ms(uint16 period_10ms);
 
 
+#endif // defined(LC_METER_H)

@@ -1,8 +1,6 @@
 #ifndef LCD44780_H
 #define LCD44780_H
 
-#if USE_HD44780_LCD
-
 #include "device.h"
 #include "types.h"
 
@@ -78,7 +76,7 @@
 #define DATA3_TRIS TRISB7
 #endif
 
-void lcd_init(/*bool fourbitmode*/);
+void lcd_init(bool fourbitmode);
 void lcd_begin(uint8 l, uint8 ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
@@ -96,9 +94,9 @@ void lcd_clear();
 void lcd_home();
 void lcd_print_number(uint16 n, uint8 base, int8 pad);
 void lcd_print_float(float number, uint8 digits);
-void lcd_puts(const char *string);
+void lcd_print(const char *string);
 //void lcd_printf(const char *fmt, ...);
-void lcd_gotoxy(uint8 col, uint8 row);
+void lcd_set_cursor(uint8 col, uint8 row);
 void lcd_write(uint8 value);
 
 #define LCDAUTOSCROLL
@@ -110,14 +108,12 @@ void lcd_write(uint8 value);
 #define LCDLEFTTORIGHT
 #define LCDPRINT
 #undef LCDPRINTF
-#define LCDPRINTFLOAT
+#undef LCDPRINTFLOAT
 #define LCDPRINTNUMBER
 #undef LCDRIGHTTOLEFT
 #undef LCDSCROLLDISPLAYLEFT
 #undef LCDSCROLLDISPLAYRIGHT
 #define LCDSETCURSOR
-
-#endif // USE_HD44780_LCD
 
 
 #endif /* LCD44780_H */

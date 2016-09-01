@@ -19,7 +19,6 @@ Pins, Schematics and more info:
     http://pinguino.koocotte.org/index.php/LCD_Example
       http://www.fazzi.eng.br
 */
-#if USE_HD44780_LCD
 
 #include "const.h"         // HIGH, LOW, OUTPUT, ...
 #include "delay.h"
@@ -113,12 +112,11 @@ lcd_command(uint8 value) {
 /** Setup line x column on LCD */
 #ifdef LCDSETCURSOR
 void
-lcd_gotoxy(uint8 col, uint8 row) {
+lcd_set_cursor(uint8 col, uint8 row) {
 //  uint8 row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
   uint8 row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
 
-  row %= LCD_lines;
-
+//  row %= LCD_lines;
   /* Added 26 May 2012 by MFH
     sets row_offsets for a single line display so that
     80 column space divided in 4 equal 20 column sections.
@@ -142,7 +140,7 @@ lcd_gotoxy(uint8 col, uint8 row) {
 /** Print a string on LCD */
 #ifdef LCDPRINT
 void
-lcd_puts(const char *string) {
+lcd_print(const char *string) {
   uint8 i;
   for(i = 0; string[i]; i++)
     lcd_write(string[i]);
@@ -206,7 +204,7 @@ lcd_print_float(float number, uint8 digits) {
 
   char buf[16];
   sprintf(buf, "%f", number);
-  lcd_puts(buf);
+  lcd_print(buf);
 //  lcd_print_number_internal((long)(number * 1000), 10, 1);
 
   //uint8 i, toPrint;
@@ -441,8 +439,8 @@ lcd_begin(uint8 lines, uint8 dotsize) {
  * @param flags one of LCD_8BITMODE|LCD_4BITMODE, LCD_2LINE|LCD_1LINE, LCD_5x10DOTS|LCD_5x8DOTS
  */
 void
-lcd_init() {
-const bool fourbitmode =true;
+lcd_init(bool fourbitmode) {
+
   LCD_ctrl = 0;
   LCD_function = (fourbitmode ? LCD_4BITMODE : LCD_8BITMODE);
 #ifdef LCDSETCURSOR
@@ -477,4 +475,3 @@ lcd_pins(uint8 rs, uint8 enable, uint8 d0, uint8 d1, uint8 d2, uint8 d3, uint8 d
   lcd_init(((d4 + d5 + d6 + d7)==0), rs, -1, enable, d0, d1, d2, d3, d4, d5, d6, d7);
 }*/
 
-#endif // USE_HD44780_LCD

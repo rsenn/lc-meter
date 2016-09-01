@@ -39,14 +39,18 @@ COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\
 $(warning Compiler: $(CC))
 $(warning Compiler type: $(COMPILER_TYPE))
 
-BUILDDIR := build/htc-$(chipl)-$(word 3,$(subst _, ,$(PROGRAM)))/
+ifeq ($(COMPILER_TYPE),xc8)
+BUILDDIR := build/xc8-$(chipl)/
+else
+BUILDDIR := build/htc-$(chipl)/
+endif
 
 LD = $(CC)
 #RM = del /f
 DISTFILES = Makefile Makefile.htc Makefile.sdcc
 
 
-SOURCES = $($(PROGRAM)_SOURCES)
+SOURCES = $($(PACKAGE)_SOURCES)
 P1OBJS = $(SOURCES:%.c=$(BUILDDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
 
@@ -71,7 +75,6 @@ COMMON_FLAGS += --msgformat="Advisory[%n] %s"
 COMMON_FLAGS += --warnformat="Warning [%n] %f; %l.%c %s"
 
 CPPFLAGS += -D__$(chipl)=1
-CPPFLAGS += $($(PROGRAM)_DEFS)
 
 ifneq ($(CCDIR),)
 CPPFLAGS += -I$(CCDIR)/include
@@ -98,17 +101,17 @@ LDFLAGS += --output=default,-inhx032 --chip=$(chipl)
 
 PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd
 
-all: $(BUILDDIR) $(PACKAGE).hex
+all: $(BUILDDIR) LC_meter.hex
 
 
-$(PACKAGE).hex: $(P1OBJS)
+LC_meter.hex: $(P1OBJS)
 
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC-meter-HD44780.map -o$(BUILDDIR)$@ $^ || { $(RM) $(BUILDDIR)$(PACKAGE).hex; exit 1; }
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC_meter.map -o$(BUILDDIR)$@ $^ || { $(RM) $(BUILDDIR)LC_meter.hex; exit 1; }
 
 $(P1OBJS): $(BUILDDIR)%.p1: %.c
-	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< # || { $(RM) $@; exit 1; }
+	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< || { $(RM) $@; exit 1; }
 $(ASSRCS): $(BUILDDIR)%.as: %.c
-	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< # || { $(RM) $@; exit 1; }
+	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< || { $(RM) $@; exit 1; }
 
 COMPILER := xc8
 

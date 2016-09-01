@@ -1,34 +1,57 @@
-#include <htc.h>	// Required to interface with delay routines
-#ifndef _XTAL_FREQ
-	#define _XTAL_FREQ 20000000
+#ifndef MAIN_H
+#define MAIN_H
+
+#include "device.h"
+#include "oscillator.h"
+
+#ifdef HI_TECH_C
+# include <htc.h>  // Required to interface with delay routines
+# include <pic.h>
+#ifndef nRBPU
+volatile unsigned char           OPTION_REG          @ 0x081;
+
+volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
+//#define nRBPU OPTION_REGbits.nRBPU
 #endif
-__CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
-
-#include "lcd3310.h"
-
-#define Ccal			1000		//pF
-#define gate_period		100			//ms
-#define pi				3.14159
-#define LC_select		RB0			//L or C select (from DPDT switch)
-#define lc_tris()		TRISB0 = 1	//as input
-#define add_ccal()		RC0 = 1		//relay on
-#define remove_ccal()	RC0 = 0		//relay off
-#define relay_tris()	TRISC0 = 0	//as output to drive the relay coil
-
-#ifndef LED_PIN
-# define LED_PIN         RA2 = RC1 = RC2
-#endif
-#ifndef LED_TRIS
-# define LED_TRIS()        TRISA2 = TRISC1 = TRISC2 = 0
+# define NOT_RBPU nRBPU
 #endif
 
-double F1, F2, F3;
+#if !defined(HI_TECH_C) && !defined(_BOOSTC) && !defined(__MIKROC_PRO_FOR_PIC__)
+# include <pic16f876a.h>
+#endif
+
+#ifdef SDCC
+#define NOP() __asm("NOP")
+#endif
+
+#include "types.h"
+#include "const.h"
+
+#include "lcd44780.h"
+///#include "lcd3310.h"
+
+#define Ccal          1000    //pF
+#define gate_period   100      //ms
+#define pi            3.14159
+#define LC_select     RC4      //L or C select (from DPDT switch)
+#define lc_tris()     TRISC4 = INPUT  //as input
+#define add_ccal()    RC5 = HIGH    //relay on
+#define remove_ccal() RC5 = LOW    //relay off
+#define relay_tris()  TRISC5 = OUTPUT  //as output to drive the relay coil
+
+//#ifdef HI_TECH_C
+# define WITH_LCD 1
+//#endif
+
+#define LED_PIN RA2
+#define LED_TRIS TRISA2
 
 void initialize(void);
-unsigned int measure_freq(void);
+uint16 measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(unsigned int period_10ms);
+void delay10ms(uint16 period_10ms);
 
 
+#endif // defined(MAIN_H)

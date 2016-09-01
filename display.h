@@ -1,12 +1,8 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#include "main.h"
 
-#include "lcd3310.h"
-#include "lcd44780.h"
+extern const char logo_image[504];
 
-void  display_digit(unsigned char line, unsigned char column, unsigned char digit);
-void display_unit(unsigned char unit);
-void display_reading(unsigned int measurement);	//measurement divide by 100
-void indicator(unsigned char indicate);
-
-#endif // defined DISPLAY_H
+void  display_digit(uint8 line, uint8 column, uint8 digit);
+void display_unit(uint8 unit);
+void display_reading(uint16 measurement);  //measurement divide by 100
+void indicator(uint8 indicate);

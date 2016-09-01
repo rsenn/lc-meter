@@ -1,7 +1,6 @@
 #include <math.h>
 #include <stdio.h>      /* printf, NULL */
 #include <stdlib.h>     /* strtod */
-#include <string.h>     /* strtod */
 
 #define PICO 1.0E-12
 #define NANO 1.0E-9
@@ -11,33 +10,26 @@
 #define MEGA 1.0E+6
 #define GIGA 1.0E+12
 
-#define FREQUENCY 0
-#define INDUCTANCE 1
-#define CAPACITANCE 2
-
-static double values[3] = { 0, 0, 0 };
-
 double
-parse_num(const char* num, char **endptr) {
+parse_num(const char* num) {
   char* end;
   double mul = 1;
   double ret = strtod(num, &end);
   switch(*end) {
-    case 'p': mul = PICO; ++end; break;
-    case 'n': mul = NANO; ++end; break;
-    case 'u': mul = MICRO; ++end; break;
-    case 'm': mul = MILLI; ++end; break;
+    case 'p': mul = PICO; break;
+    case 'n': mul = NANO; break;
+    case 'u': mul = MICRO; break;
+    case 'm': mul = MILLI; break;
     default:
       break;
   }
-  *endptr = end;
   return ret * mul;
 }
 
 // --------------------------------------------------------------------------
 void
-output_num(const char* varname, const char* unit, double num) {
-  char buffer[1024];
+output_num(const char* varname, double num) {
+  
   char suffix[2] = {0,0};
   double mul = 1;
   
@@ -49,50 +41,22 @@ output_num(const char* varname, const char* unit, double num) {
   else if(num >= MEGA) { mul = MEGA; suffix[0] = 'M'; }
   else if(num >= KILO) { mul = KILO; suffix[0] = 'k'; }
   
-  snprintf(buffer, sizeof(buffer)-1, "%s: %lf", varname, num / mul);
-  
-  int i = strlen(buffer);
-  
-  while(--i >= 0) {
-    if(buffer[i] == '0')
-      buffer[i] = '\0';
-    else if(buffer[i] == '.')  {
-      buffer[i] = '\0';
-      break;
-    } else break;
-  }
-  
-  fprintf(stderr, "%s%s%s\n", buffer, suffix[0] ? suffix : "", unit);
+  fprintf(stderr, "%s: %lf%s\n", varname, num / mul, suffix[0] ? suffix : "");
 }
 
 // --------------------------------------------------------------------------
 double
-ask(const char* prompt, int *typeptr) {
+ask(const char* prompt) {
  char linebuf[256];
- char *endptr;
- int type = 0;
- double r = NAN;
  fprintf(stderr, "%s: ", prompt);
  fflush(stderr);
- if(fgets(linebuf, sizeof(linebuf), stdin))  {
-   r = parse_num(linebuf, &endptr);
-   if(!strcasecmp(endptr, "Hz")) {
-     type = FREQUENCY;
-     } else if(!strcasecmp(endptr, "F")) {
-     type = CAPACITANCE;
-     } else if(!strcasecmp(endptr, "H")) {
-     type = INDUCTANCE;
-     }
-     *typeptr = type   ;
- }
- return r;
+ if(fgets(linebuf, sizeof(linebuf), stdin)) 
+   return parse_num(linebuf);
+ return NAN;
 }
 
 // --------------------------------------------------------------------------
 int main() {
-  int type;
-  double value = ask("Enter value", &type);
-  
 /*  double inductance = ask("Inductance (H)");
   double capacitance = ask("Capactiance (F)");
 
@@ -100,15 +64,13 @@ int main() {
   
   output_num("Frequency (Hz)", freq);
 */
- double inductance = 330e-06;
- double freq = 15.616e+03;
+ double inductance = 82e-06;
+ double freq = 15.61 6e+03;
  
  double two_pi_f = 2 * M_PI * freq;
  double capacitance = 1 / ((two_pi_f*two_pi_f)*inductance);
  
- output_num("Frequency", "Hz", freq);
- output_num("Inductance", "H", inductance);
- output_num("Capacitance" ,"F", capacitance);
+ output_num("Capacitance (F)", capacitance);
 
   return 0;
 }
