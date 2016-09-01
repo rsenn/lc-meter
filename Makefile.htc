@@ -23,13 +23,13 @@ ifeq ($(OS),Linux)
 #ifeq ($(COMPILER),picc)
 CCDIR = /opt/hitech/picc/$(CCVER)
 else
-CCDIR = "$(PROGRAMFILES)"/HI-TECH\ Software/PICC/$(CCVER)
+CCDIR = $(PROGRAMFILES)/HI-TECH Software/PICC/$(CCVER)
 endif
 #endif
 #endif
 
 ifneq ($(CCDIR),)
-CC = $(CCDIR)/bin/picc
+CC = "$(CCDIR)/bin/picc"
 else
 CC = picc
 endif
@@ -53,8 +53,8 @@ ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
 COMMON_FLAGS = -g -N127
 #COMMON_FLAGS = -g
 
-#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,-download,+clib"
-COMMON_FLAGS +=	--runtime="default,+clear,+init,-keep,+osccal,-download,-resetbits,+stackcall,+clib"
+#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+download,+clib"
+COMMON_FLAGS +=	--runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+stackcall,+clib"
 #COMMON_FLAGS += --opt="default,+asm,-speed,+space,9"
 
 ifeq ($(OPT),size)
@@ -74,7 +74,7 @@ CPPFLAGS += -D__$(chipl)=1
 CPPFLAGS += $($(PROGRAM)_DEFS)
 
 ifneq ($(CCDIR),)
-CPPFLAGS += -I$(CCDIR)/include
+CPPFLAGS += -I"$(CCDIR)/include"
 endif
 
 _CPPFLAGS += \
@@ -103,12 +103,12 @@ all: $(BUILDDIR) $(PACKAGE).hex
 
 $(PACKAGE).hex: $(P1OBJS)
 
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC-meter-HD44780.map -o$(BUILDDIR)$@ $^ || { $(RM) $(BUILDDIR)$(PACKAGE).hex; exit 1; }
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC-meter-HD44780.map -o$(BUILDDIR)$@ $^ $(OR_CMD)
 
 $(P1OBJS): $(BUILDDIR)%.p1: %.c
-	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< # || { $(RM) $@; exit 1; }
+	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $< $(OR_CMD)
 $(ASSRCS): $(BUILDDIR)%.as: %.c
-	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< # || { $(RM) $@; exit 1; }
+	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $< $(OR_CMD)
 
 COMPILER := xc8
 

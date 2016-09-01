@@ -4,6 +4,8 @@
 #include "device.h"
 #include "types.h"
 
+#if USE_HD44780_LCD
+
 // commands
 #define LCD_CLEARDISPLAY 0x01
 #define LCD_RETURNHOME 0x02
@@ -115,5 +117,6 @@ void lcd_write(uint8 value);
 #undef LCDSCROLLDISPLAYRIGHT
 #define LCDSETCURSOR
 
+#endif // USE_HD44780_LCD
 
 #endif /* LCD44780_H */

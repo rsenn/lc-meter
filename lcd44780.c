@@ -25,6 +25,8 @@ Pins, Schematics and more info:
 #include "device.h"
 #include "lcd44780.h"
 
+#if USE_HD44780_LCD
+
 #include <stdarg.h>
 #include <stdio.h>
 
@@ -46,7 +48,7 @@ void
 lcd_pulse_enable(void) {
 
   //EN_PIN = LOW;
-  //__delay_us(4);
+  //delay_us(4);
   EN_PIN = HIGH;
   __delay_us(4);    // enable pulse must be >450ns
   EN_PIN = LOW;
@@ -249,7 +251,7 @@ void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
   __delay_ms(2);                  // Wait for more than 4.1 ms
-  //__delay_us(2000);
+  //delay_us(2000);
 }
 #endif
 
@@ -259,7 +261,7 @@ void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
   __delay_ms(2);                  // Wait for more than 4.1 ms
-  //__delay_us(2000);  // this command takes a long time! */
+  //delay_us(2000);  // this command takes a long time! */
 }
 #endif
 
@@ -412,7 +414,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
     __delay_ms(5);                  // Wait for more than 4.1 ms
-    //__delay_us(150);
+    //delay_us(150);
 
     /* third go */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
@@ -475,3 +477,4 @@ lcd_pins(uint8 rs, uint8 enable, uint8 d0, uint8 d1, uint8 d2, uint8 d3, uint8 d
   lcd_init(((d4 + d5 + d6 + d7)==0), rs, -1, enable, d0, d1, d2, d3, d4, d5, d6, d7);
 }*/
 
+#endif // USE_HD44780_LCD

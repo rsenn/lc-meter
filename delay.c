@@ -45,15 +45,15 @@ cycle_eater(void) {
   global correction
   banksel _dvar  // mumblegrumble
   nop
-  delay_big:
+  __delay_big:
   movlw   191      // Calibrated for b*764 cycles
   movwf   _dvar+0  // Load W into reg
-  delay_inner:
+  __delay_inner:
   nop  // To make the inner loop take 4 cycles per
   decfsz  _dvar+0, 1
-  goto    delay_inner
+  goto    __delay_inner
   decfsz  _dvar+1, 1
-  goto    delay_big
+  goto    __delay_big
   correction:
   decfsz  _dvar+2, 1
   goto    correction

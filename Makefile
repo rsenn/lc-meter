@@ -4,7 +4,8 @@
 #	@echo "Please specify build system:"
 #	@echo " sdcc htc"
 #
-BUILD_TYPES = sdcc htc xc8
+#BUILD_TYPES = sdcc htc xc8
+BUILD_TYPES = htc xc8
 
 include Makefile.vars
 

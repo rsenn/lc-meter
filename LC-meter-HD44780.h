@@ -60,7 +60,6 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define LED_PIN RA2 = RC3
 #define LED_TRIS TRISA2 = TRISC3
 
-void initialize(void);
 float measure_freq(void);
 float measure_freq_tmr1(void) ;
 void calibrate(void);

@@ -46,7 +46,6 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define LED_PIN RA2
 #define LED_TRIS TRISA2
 
-void initialize(void);
 uint16 measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);

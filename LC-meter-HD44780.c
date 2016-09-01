@@ -24,13 +24,13 @@ volatile uint32 bres;
 volatile  unsigned int seconds;
 
 float F1, F2, F3;
-static uint32 tmr0_overflow = 0;
+static uint32 tmr_overflow[0] = 0;
 uint16 tmr1_overflow = 0;
 float calc_freq();
 
 INTERRUPT() {
   if(T0IF) {
-    tmr0_overflow++;
+    tmr_overflow[0]++;
     T0IF = 0;
   }  
 
@@ -40,9 +40,53 @@ INTERRUPT() {
   }  
   
 //    uart_int();
+  if(CCP1IF) {
+
+    if(CCP1_EDGE() == RISING) {
+      ccp1t_lr = ccp1t[RISING];
+    }
+    ccp1t[CCP1_EDGE()] = CCPR1;
+    CCP1IE = 0;
+    CCP1_EDGE() = !CCP1_EDGE();    
+    CCP1IE = 1;
+    CCP1IF = 0;
+  }
 
 }  
 
+void
+setup_timer1() {
+  
+  T1SYNC = 0;
+
+  T1CKPS0 = 0;
+  T1CKPS1 = 0; // 1:1 prescaler
+  
+  // Set up timer0 interrupt
+  T1OSCEN = 1;
+  TMR1CS = 0; // Internal clock source
+  TMR1ON = 1;
+  //PSA = 0;  // Enable TMR1 prescaler
+  
+  //tmr0_set_psbit(0);
+  
+
+
+  //TMR1 = ~ticks;
+  TMR1IF = 0;
+  TMR1IE = 1;
+}
+
+void
+setup_ccp1() {
+
+ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+
+  TRISC2 = INPUT;
+  CCP1CONbits.CCP1M = 0b0100;
+  CCP1IE = 1;
+  CCP1IF = 0;
+}
 void
 main(void) {
   int led = 0;
@@ -125,6 +169,9 @@ initialize(void) {
   lc_tris();
   relay_tris();
 
+setup_timer1();
+setup_ccp1();
+
   NOT_RBPU = 1;  // enable portB internal pullup
   
   PEIE = 1;
@@ -136,17 +183,17 @@ measure_freq(void) {  //16-bit freq
   
   TRISA4 = 0;    //Enable RA4 output to T0CKI
  
-  tmr0_overflow = 0;
+  tmr_overflow[0] = 0;
   TMR0 = 0x00;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
 
-  delay_ms(2500);
+  __delay_ms(2500);
   
   TRISA4 = 1;    //Disable RA4 output to T0CKI
    TMR0IE = 0;
   
-  uint32 r = (tmr0_overflow << 8) | TMR0;
+  uint32 r = (tmr_overflow[0] << 8) | TMR0;
   return (float)r * 102.40000000000000000000;
 }
 
