@@ -48,6 +48,12 @@ INTERRUPT(void isr()) {
     // Clear timer interrupt bit
     TMR1IF = 0;
   }
+
+  if(CCP1IF) {
+
+    
+    CCP1IF = 0;
+  }
 }  
 
 void
@@ -102,7 +108,15 @@ initialize(void) {
   /*CMCONbits.*/CM0 = 1;
   /*CMCONbits.*/CM1 = 0;
   /*CMCONbits.*/CM2 = 1;
+  
   TRISA = 0b11001111;
+
+
+  TRISC2 = INPUT;
+  CCP1CONbits.CCP1M = 0b0100;
+  CCP1IE = 1;
+  CCP1IF = 0;
+  
   //setup timer0 for frequency counter
   T0CS = 1;  //Transition on T0CKI pin
   T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
