@@ -1,7 +1,7 @@
 #include "LC-meter.h"
 //#include "main.h"
 #include "delay.h"
-#include "interrupt.h"  
+#include "interrupt.h"
 #if USE_HD44780_LCD
 #include "lcd44780.h"
 #endif
@@ -9,6 +9,7 @@
 #include "lcd3310.h"
 #endif
 #include "display.h"
+#include "timer.h"
 
 #ifdef SDCC
 __code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
@@ -28,111 +29,114 @@ __CONFIG(CONFIG_WORD);
 #define RISING 1
 
 #define CCP1_EDGE() (CCP1M0)
+/*
 volatile uint32 tcy_per_s = TCY_PER_SECOND;
 volatile uint32 tcy_per_ms = TCY_PER_MILLISECOND;
 volatile uint32 tcy_per_us = TCY_PER_MICROSECOND;
 volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
 volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
-
+*/
 
 volatile uint32 bres;
 volatile  unsigned int seconds;
 volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
-volatile uint16 tmr0_overflow, tmr1_overflow, tmr2_overflow;
 
 static  void initialize(void);
 
-INTERRUPT() {
+INTERRUPT()
+{
 
-  if(TMR1IF) {
+  if (TMR1IF) {
     tmr1_overflow++;
 
-/*    bres++;
-    if(bres >= 5000000) // if reached 1 second!
-    {
-      bres -= 5000000;  // subtract 1 second, retain error
-      seconds++;  // update clock, etc
-          
-      SET_LED(seconds & 1);
-    }*/
-     // TMR1H = 0xff;
+    /*    bres++;
+        if(bres >= 5000000) // if reached 1 second!
+        {
+          bres -= 5000000;  // subtract 1 second, retain error
+          seconds++;  // update clock, etc
+
+          SET_LED(seconds & 1);
+        }*/
+    // TMR1H = 0xff;
 
     // Clear timer interrupt bit
     TMR1IF = 0;
   }
 
-  if(CCP1IF) {
+  if (CCP1IF) {
 
-    if(CCP1_EDGE() == RISING) {
+    if (CCP1_EDGE() == RISING) {
       ccp1t_lr = ccp1t[RISING];
     }
     ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr1_overflow << 16);
     CCP1IE = 0;
-    CCP1_EDGE() = !CCP1_EDGE();    
+    CCP1_EDGE() = !CCP1_EDGE();
     CCP1IE = 1;
     CCP1IF = 0;
   }
 
 
-  if(T0IF) {
+  if (T0IF) {
     tmr0_overflow++;
     T0IF = 0;
-  }  
+  }
 
 
-  if(TMR2IF) {
+  if (TMR2IF) {
     tmr2_overflow++;
 
     // Clear timer interrupt bit
     TMR2IF = 0;
   }
 
-}  
+}
 
 void
-main(void) {
-
-  tcy_per_s = TCY_PER_SECOND;
-tcy_per_ms = TCY_PER_MILLISECOND;
-tcy_per_us = TCY_PER_MICROSECOND;
-ktcy_per_s = KTCY_PER_SECOND;
-ktcy_per_ms = KTCY_PER_MILLISECOND;
-
+main(void)
+{
+  /*
+    tcy_per_s = TCY_PER_SECOND;
+  tcy_per_ms = TCY_PER_MILLISECOND;
+  tcy_per_us = TCY_PER_MICROSECOND;
+  ktcy_per_s = KTCY_PER_SECOND;
+  ktcy_per_ms = KTCY_PER_MILLISECOND;
+  */
   initialize();
-  
-#if USE_HD44780_LCD     || USE_NOKIA3310_LCD
-   lcd_set_cursor(0,0);
 
-lcd_print("LC-meter");
+#if USE_HD44780_LCD     || USE_NOKIA3310_LCD
+  lcd_set_cursor(0,0);
+
+  lcd_print("LC-meter");
 
 #endif
-     
+
 #if 0
   relay_tris();
-  for(int i = 0; i < 10; i++) {
+  for (int i = 0; i < 10; i++) {
     RC5 = HIGH;
     __delay_ms(500);
     RC5 = LOW;
-  __delay_ms(500);
+    __delay_ms(500);
   }
 #endif
-    
-  for(;;) {
+
+  for (;;) {
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
 
     lcd_set_cursor(5,0);
     lcd_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
-//    lcd_print_number(measure_freq(), 16, 4);
+    //    lcd_print_number(measure_freq(), 16, 4);
 #endif
-  }  
+  }
 }
 
 void
-setup_ccp1() {
+setup_ccp1()
+{
 
-ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
 
   TRISC2 = INPUT;
   CCP1CONbits.CCP1M = 0b0100;
@@ -140,37 +144,27 @@ ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
   CCP1IF = 0;
 }
 
-static void initialize(void) {
+static void initialize(void)
+{
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
   /*CMCONbits.*/CM1 = 0;
   /*CMCONbits.*/CM2 = 1;
-  
+
   TRISA = 0b11001111;
 
 
-  
-  //setup timer0 for frequency counter
-  T0CS = 1;  //Transition on T0CKI pin
-  T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
-  
-  
-  //PSA = 0;  //Prescaler is assigned to the Timer0 module
-  PSA = 1;  //Prescaler isn't assigned to the Timer0 module
-  /*OPTION_REGbits.*/PS0 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
-  /*OPTION_REGbits.*/PS1 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
-  /*OPTION_REGbits.*/PS2 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
 
- 
   LED_PIN = LOW;
   LED_TRIS = OUTPUT;
 
+  setup_timer0();
   setup_timer1();
   setup_timer2();
 
 
   setup_ccp1();
-  
+
   //initialize 3310 lcd
 #if USE_NOKIA3310_LCD
   lcd_init();
@@ -183,48 +177,53 @@ static void initialize(void) {
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
-  
+
   PEIE = 1;
   GIE = 1;
 }
 
 uint16
-measure_freq(void) {  //16-bit freq
-  
+measure_freq(void)    //16-bit freq
+{
+
   TRISA4 = 0;    //Enable RA4 output to T0CKI
- 
+
   tmr0_overflow = 0;
   TMR0 = 0x00;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
 
   __delay_ms(1000);
-  
+
   TRISA4 = 1;    //Disable RA4 output to T0CKI
-   TMR0IE = 0;
-  
+  TMR0IE = 0;
+
   return (tmr0_overflow << 8) | TMR0;
 }
 
 void
-calibrate(void) {
- 
-}
-
-void
-measure_capacitance() {
+calibrate(void)
+{
 
 }
 
 void
-measure_inductance() {
+measure_capacitance()
+{
 
 }
 
 void
-delay10ms(uint16 period_10ms) {
+measure_inductance()
+{
+
+}
+
+void
+delay10ms(uint16 period_10ms)
+{
   do {
     __delay_ms(10);
-  } while(--period_10ms);
+  } while (--period_10ms);
 }
 
