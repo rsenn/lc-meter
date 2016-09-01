@@ -1,4 +1,4 @@
-#include "display.h"
+﻿#include "display.h"
 #include "main.h"
 
 #ifdef __LCD3310_H__
