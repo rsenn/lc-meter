@@ -54,8 +54,8 @@ extern volatile uint16 tmr1_overflow;
 
 #define TMR1_FREQ (OSC_4/(1<<(TMR1_PRESCALER)))
 #define TMR1_TICK_US (1000000/TMR1_FREQ)
-#define TMR1_INTERVAL_US (1000000*256/TMR1_FREQ)
-#define TMR1_INTERVAL_MS (1000*256/TMR1_FREQ)
+#define TMR1_INTERVAL_US (1000000*65536/TMR1_FREQ)
+#define TMR1_INTERVAL_MS (1000*65536/TMR1_FREQ)
 
 void setup_timer1();
 #endif // USE_TIMER_1
