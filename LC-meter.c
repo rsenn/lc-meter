@@ -28,6 +28,12 @@ __CONFIG(CONFIG_WORD);
 #define RISING 1
 
 #define CCP1_EDGE() (CCP1M0)
+volatile uint32 tcy_per_s = TCY_PER_SECOND;
+volatile uint32 tcy_per_ms = TCY_PER_MILLISECOND;
+volatile uint32 tcy_per_us = TCY_PER_MICROSECOND;
+volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
+volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
+
 
 volatile uint32 bres;
 volatile  unsigned int seconds;
@@ -87,11 +93,20 @@ INTERRUPT() {
 
 void
 main(void) {
+
+  tcy_per_s = TCY_PER_SECOND;
+tcy_per_ms = TCY_PER_MILLISECOND;
+tcy_per_us = TCY_PER_MICROSECOND;
+ktcy_per_s = KTCY_PER_SECOND;
+ktcy_per_ms = KTCY_PER_MILLISECOND;
+
   initialize();
   
 #if USE_HD44780_LCD     || USE_NOKIA3310_LCD
    lcd_set_cursor(0,0);
-  lcd_print("l33t");
+
+lcd_print("LC-meter");
+
 #endif
      
 #if 0
@@ -106,44 +121,12 @@ main(void) {
     
   for(;;) {
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
+
     lcd_set_cursor(5,0);
-    lcd_print_number(measure_freq(), 16, 4);
+    lcd_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
+//    lcd_print_number(measure_freq(), 16, 4);
 #endif
   }  
-}
-
-void
-setup_timer1() {
-  
-  tmr1_overflow = 0;
-
-  T1CONbits.T1CKPS = 0b00; // 1:1 prescaler
-  T1CONbits.T1OSCEN = 0;
-//  T1CONbits.TMR1CS = 0; // Internal clock source
-//  T1CONbits.T1SYNC = 1;
-  
-  TMR1IE = 1;
-  TMR1IF = 0;
-
-  TMR1 = 0;
-//  TMR1H = 0xff;
-
-  T1CONbits.TMR1ON = 1;
-}
-
-void
-setup_timer2() {
-  
-  tmr2_overflow = 0;
-
-    // set up TMR2
-  T2CONbits.TOUTPS = 0b0000;    // Set timer 2 prescaler to 1:1
-  T2CONbits.T2CKPS = 0b00;      // Set timer 2 prescaler to 1:1.
-
-  TMR2IE = 1;
-  TMR2IF = 0;
-
-  T2CONbits.TMR2ON = 1;       // Enable timer 2.
 }
 
 void
@@ -196,6 +179,7 @@ static void initialize(void) {
   lcd_init(true);
   lcd_begin(2, 1);
 #endif
+
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup

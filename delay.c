@@ -5,7 +5,7 @@
 #else
 dvars dvar;
 #endif
-
+#if 0
 // -------------------------------------------------------------------------
 void
 delay_ms(uint16 milliseconds) {
@@ -32,7 +32,7 @@ delay_us(uint16 microseconds) {
   Delay10TCYx(US_CYCLES(microseconds) / 10);
 #endif
 }
-
+#endif
 
 
 #if !(defined(HI_TECH_C) || defined(__XC8))

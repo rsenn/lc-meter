@@ -8,8 +8,8 @@
 #define TCY_PER_MILLISECOND ((long)TCY_PER_SECOND / 1000)
 #define TCY_PER_MICROSECOND ((long)TCY_PER_MILLISECOND / 1000)
 
-#define KTCY_PER_SECOND ((double)TCY_PER_SECOND / 1000)
-#define KTCY_PER_MILLISECOND ((double)KTCY_PER_SECOND / 1000)
+#define KTCY_PER_SECOND ((long)TCY_PER_SECOND / 1000)
+#define KTCY_PER_MILLISECOND ((long)KTCY_PER_SECOND / 1000)
 
 #if !(defined(HI_TECH_C) || defined(MCHP_XC8))
 #define _delay(C)  do { if(C < 750) DELAY_SMALL_TCY(C); else DELAY_BIG_TCY(C); } while(0)
@@ -18,9 +18,12 @@
 #else
 #endif
 
+#define delay_ms(n) _delay(TCY_PER_MILLISECOND*(n))
+#define delay_us(n) _delay(TCY_PER_MICROSECOND*(n))
+/*
 void delay_ms(uint16 milliseconds);
 void delay_us(uint16 microseconds);
-
+*/
 void Delay100TCYx(uint8);
 void Delay10KTCYx(uint8);
 void Delay10TCYx(uint8);

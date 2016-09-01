@@ -48,7 +48,7 @@ void
 lcd_pulse_enable(void) {
 
   //EN_PIN = LOW;
-  //delay_us(4);
+  //__delay_us(4);
   EN_PIN = HIGH;
   __delay_us(4);    // enable pulse must be >450ns
   EN_PIN = LOW;
@@ -251,7 +251,7 @@ void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
   __delay_ms(2);                  // Wait for more than 4.1 ms
-  //delay_us(2000);
+  //__delay_us(2000);
 }
 #endif
 
@@ -261,7 +261,7 @@ void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
   __delay_ms(2);                  // Wait for more than 4.1 ms
-  //delay_us(2000);  // this command takes a long time! */
+  //__delay_us(2000);  // this command takes a long time! */
 }
 #endif
 
@@ -381,7 +381,10 @@ lcd_begin(uint8 lines, uint8 dotsize) {
   if((dotsize != 0) && (lines == 1))
     LCD_function |= LCD_5x10DOTS;
 
-  __delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
+//for(uint8 i = 0; i < 100; i++)   __delay_us(150);   
+delay_ms(15);             // Wait more than 15 ms after VDD rises to 4.5V
+
+//Delay1KTCYx(KTCY_PER_MILLISECOND*15);
 
   /* Now we pull both RS and R/W low to begin commands */
   RS_PIN = LOW;
@@ -414,7 +417,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
     __delay_ms(5);                  // Wait for more than 4.1 ms
-    //delay_us(150);
+    //__delay_us(150);
 
     /* third go */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
