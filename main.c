@@ -31,19 +31,19 @@ main(void) {
    __delay_ms(500);
  }*/
  
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   initialize();
   lcd_gotoxy(0, 0);
   //show startup logo
   for(i = 0; i < 504; i++) lcd_send(logo_image[i], LCD_TDATA);
   lcd_gotoxy(40, 5);
   lcd_puts("RLS'15");
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   initialize();
   lcd_begin(2, 1);
   lcd_set_cursor(0, 0);
   lcd_print("RLS'15");
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
  // delay10ms(200);
  F1 = 65535;
  F2 = 1;
@@ -82,12 +82,12 @@ initialize(void) {
   PS1 = 1;
   PS0 = 1;
   //initialize 3310 lcd
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_init();
   lcd_clear();
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_init(true);
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
@@ -123,17 +123,17 @@ measure_freq(void) {  //16-bit freq
 void
 calibrate(void) {
   uint8 i;
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_clear();
   lcd_gotoxy(1, 1);
   lcd_puts("Calibrating.");
   lcd_gotoxy(1, 3);
   lcd_puts("please wait..");
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_clear();
   lcd_set_cursor(0, 0);
   lcd_print("Calibrating. please wait...");
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   remove_ccal();
   F1 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
@@ -143,19 +143,19 @@ calibrate(void) {
   delay10ms(50);
   F2 = (double)measure_freq();
   remove_ccal();
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_gotoxy(0, 4);
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_set_cursor(0, 1);
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   for(i = 0; i < 84; i++) {
     //show progress bar
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
     lcd_send(0xfc, LCD_TDATA);
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
     if(i % 5 == 0)
       lcd_write('=');
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
     delay10ms(2);
   }
 }
@@ -165,14 +165,14 @@ void
 measure_capacitance() {
   uint16 var;
   double Cin;
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_gotoxy(7, 5);
   lcd_puts(" capacitance");
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_set_cursor(0, 1);  lcd_print(" freq");
 //  lcd_print(" capacitance");
 
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   var = measure_freq();
   lcd_print_number(var, 10, 5);
   F3 = (double)var;
@@ -204,13 +204,13 @@ void
 measure_inductance() {
   uint16 var;
   double Lin, numerator, denominator;
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_gotoxy(7, 5);
   lcd_puts(" inductance ");
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_set_cursor(0, 1);
   lcd_print(" inductance ");
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   var = measure_freq();
   F3 = (double)var;
   if(F3 > F1) F3 = F1; //max freq is F1;

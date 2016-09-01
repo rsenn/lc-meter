@@ -335,4 +335,4 @@ lcd_symbol(const char *sym) {
 }
 
 
-#endif // __LCD3310_H__
+#endif // USE_NOKIA3310_LCD

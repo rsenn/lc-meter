@@ -158,13 +158,13 @@ initialize(void) {
   /*OPTION_REGbits.*/PS2 = 1;//PS2:PS0 -> Prescaler Rate = divide by 256
 
   //initialize 3310 lcd
-#ifdef __LCD3310_H__
+#if USE_NOKIA3310_LCD
   lcd_init();
   lcd_clear();
-#elif defined(LCD44780_H)
+#elif defined(USE_HD44780_LCD)
   lcd_init(true);
   lcd_begin(2, 1);
-#endif // defined(__LCD3310_H__)
+#endif // defined(USE_NOKIA3310_LCD)
   //others
   lc_tris();
   relay_tris();
