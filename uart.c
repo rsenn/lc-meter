@@ -38,7 +38,7 @@ uart_getch(uint16 timeout) {
 
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
-bit
+bool
 uart_poll(unsigned char bauds) {
 
     // TMR0 -= UART_BRG;            // load corrected baud value

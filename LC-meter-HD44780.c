@@ -1,5 +1,6 @@
 #include "LC-meter-HD44780.h"
 #include "uart.h"
+#include "interrupt.h"
 #include "delay.h"
 #include "lcd44780.h"
 //#include "display.h"
@@ -27,7 +28,7 @@ static uint32 tmr0_overflow = 0;
 uint16 tmr1_overflow = 0;
 float calc_freq();
 
-INTERRUPT(void isr()) {
+INTERRUPT(void isr) {
   if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;
@@ -55,7 +56,7 @@ main(void) {
   
   initialize();
 
-   lcd_set_cursor(0,0);
+   lcd_gotoxy(0,0);
   lcd_puts("LC-meter");
      
      uart_puts("\r\n");
@@ -77,15 +78,15 @@ add_ccal();
    uart_puts(".\r\n");
 
 lcd_clear();
-    lcd_set_cursor(0,0);
+    lcd_gotoxy(0,0);
     lcd_puts("f2=");
 //    lcd_print_float(f, 2);
 lcd_print_number(measure_freq_tmr1(), 10, 2);
-    lcd_set_cursor(7,0);
+    lcd_gotoxy(7,0);
 	lcd_puts("Hz ");
     lcd_puts("C=");
     lcd_print_float(calc_capacitance(f) * 10E+09, 4);
-	lcd_set_cursor(18,0);
+	lcd_gotoxy(18,0);
     lcd_puts("nF");
 
 //    lcd_print_number(calc_capacitance(), 10, 6);

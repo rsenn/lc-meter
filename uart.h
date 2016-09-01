@@ -51,7 +51,7 @@ void uart_puts(const unsigned char * s);
 void uart_puts2(unsigned char *s);
 
 int uart_getch(uint16 timeout);
-bit uart_poll(unsigned char bauds);
+bool uart_poll(unsigned char bauds);
 /**
  * Initialize UART module
  */

@@ -20,7 +20,7 @@ CFLAGS =  -m${target} -p$(chipl:p%=%) -D__$(chipl)=1
 CFLAGS += --opt-code-size
 #CFLAGS += --stack-auto
 
-SOURCES = LC-meter.c delay.c display.c  lcd44780.c  lcd3310.c
+SOURCES = LC-meter-HD44780.c delay.c display.c  lcd44780.c  lcd3310.c
 OBJECTS = $(SOURCES:%.c=$(BUILDDIR)%.o)
 
 ifeq ($(CC),/usr/bin/sdcc)
@@ -42,7 +42,7 @@ $(BUILDDIR)%.e: %.c
 $(BUILDDIR)%.asm: %.c
 	$(CC) $(CFLAGS) -o $@ -S $<
 
-$(BUILDDIR)LC_meter.hex: $(OBJECTS)
+$(BUILDDIR)$(PACKAGE).hex: $(OBJECTS)
 	(cd $(BUILDDIR); $(CC) $(CFLAGS) $(^:$(BUILDDIR)%=%))
 
 
