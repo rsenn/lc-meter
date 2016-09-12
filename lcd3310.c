@@ -9,6 +9,17 @@ V1.0 11/23/04   Created.
 
 #if USE_NOKIA3310_LCD
 
+#define CLK_IN(data, bitnum)	\
+	NOP();						\
+	LCD_CLK=0;					\
+	NOP();						\
+	LCD_DATA=0;					\
+	if ((data) & (bitnum)) {	\
+		LCD_DATA=1;				\
+	}							\
+	NOP();						\
+	LCD_CLK=1
+	
 const char lcd_font[][5] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
   { 0x00, 0x00, 0x2f, 0x00, 0x00 },  // !
