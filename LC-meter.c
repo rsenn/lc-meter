@@ -12,7 +12,7 @@
 #include "timer.h"
 
 #ifdef SDCC
-__code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
+uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #ifdef __XC__
@@ -126,8 +126,8 @@ main(void)
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
 
     lcd_set_cursor(5,0);
-    lcd_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
-    //    lcd_print_number(measure_freq(), 16, 4);
+    display_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
+    //    display_print_number(measure_freq(), 16, 4);
 #endif
   }
 }

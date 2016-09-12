@@ -6,7 +6,7 @@
 //#include "display.h"
 
 #ifdef SDCC
-__code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
+uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #ifdef __XC8__
@@ -125,7 +125,7 @@ lcd_clear();
     lcd_gotoxy(0,0);
     lcd_puts("f2=");
 //    lcd_print_float(f, 2);
-lcd_print_number(measure_freq_tmr1(), 10, 2);
+display_print_number(measure_freq_tmr1(), 10, 2);
     lcd_gotoxy(7,0);
 	lcd_puts("Hz ");
     lcd_puts("C=");
@@ -133,7 +133,7 @@ lcd_print_number(measure_freq_tmr1(), 10, 2);
 	lcd_gotoxy(18,0);
     lcd_puts("nF");
 
-//    lcd_print_number(calc_capacitance(), 10, 6);
+//    display_print_number(calc_capacitance(), 10, 6);
     
     __delay_ms(100);
   }  

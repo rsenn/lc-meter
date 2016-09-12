@@ -162,42 +162,6 @@ lcd_printf(const char *fmt, ...) {
 }
 #endif
 
-/** Print a number on LCD */
-#if defined(LCDPRINTNUMBER) || defined(LCDPRINTFLOAT)
-/*
-static const char digits[] =
-{ '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
-*/
-void
-lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
-  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
-  uint8 di;
-  uint8 i = 0;
-
-/*  if(n == 0) {
-    lcd_write('0');
-    return;
-  }*/
-
-  do {
-/*    if(i == pointpos)
-      buf[i++] = '.';
-*/
-    di = n % base;
-    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
-
-    n /= base;
-  } while(n > 0);
-
-  while(pad-- >= i)
-    lcd_write(' ');
-
-  for(; i > 0; i--)
-    lcd_write((uint8)buf[(int16)i - 1]);
-//    lcd_write((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
-}
-
-#endif
 
 /** Print a float number to LCD */
 #ifdef LCDPRINTFLOAT
@@ -229,7 +193,7 @@ lcd_print_float(float number, uint8 digits) {
   ///* Extract the integer part of the number and print it */
   //int_part = (uint16)number;
   //remainder = number - (float)int_part;
-  //lcd_print_number(int_part, 10);
+  //display_print_number(int_part, 10);
 
   ///* Print the decimal point, but only if there are digits beyond */
   //if(digits > 0)
@@ -239,7 +203,7 @@ lcd_print_float(float number, uint8 digits) {
   //while(digits-- > 0) {
   //  remainder *= 10.0;
   //  toPrint = (uint16)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
-  //  lcd_print_number(toPrint, 10);
+  //  display_print_number(toPrint, 10);
   //  remainder -= toPrint;
   //}
 }

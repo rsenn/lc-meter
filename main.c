@@ -4,7 +4,7 @@
 #include "display.h"
 
 #ifdef SDCC
-__code uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
+uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #ifdef __XC__
@@ -174,7 +174,7 @@ measure_capacitance() {
 
 #endif // defined(USE_NOKIA3310_LCD)
   var = measure_freq();
-  lcd_print_number(var, 10, 5);
+  display_print_number(var, 10, 5);
   F3 = (double)var;
   if(F3 > F1) F3 = F1; //max freq is F1;
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * Ccal / (F3 * F3 * (F1 * F1 - F2 * F2));
@@ -195,7 +195,7 @@ measure_capacitance() {
   Cin = Cin * 100;  //scale to 2 decimal place
   var = (uint16)Cin;
     lcd_set_cursor(0, 1);  lcd_print(" cap ");
-    lcd_print_number((uint16)F3, 10, 5);
+    display_print_number((uint16)F3, 10, 5);
 //  display_reading(var);
 }
 

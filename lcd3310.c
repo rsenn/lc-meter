@@ -5,9 +5,11 @@ by Regulus Berdin
 V1.0 11/23/04   Created.
 */
 
+  #include "lcd3310.h"
 
+#if USE_NOKIA3310_LCD
 
-__code const char lcd_font[][5] = {
+const char lcd_font[][5] = {
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
   { 0x00, 0x00, 0x2f, 0x00, 0x00 },  // !
   { 0x00, 0x07, 0x00, 0x07, 0x00 },  // "
@@ -281,7 +283,7 @@ lcd_center_puts2(uint8 y, char *c, uint8 len) {
   }
 }
 
-__code const char bat_symbol[] = {
+const char bat_symbol[] = {
   0b00111000,
   0b11111110,
   0b10000010,

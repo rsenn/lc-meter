@@ -94,7 +94,7 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(uint16 n, uint8 base, int8 pad);
+void display_print_number(uint16 n, uint8 base, int8 pad);
 void lcd_print_float(float number, uint8 digits);
 void lcd_print(const char *string);
 //void lcd_printf(const char *fmt, ...);
