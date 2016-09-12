@@ -1,114 +1,161 @@
+VERSION_MAJOR = 0
+VERSION_MINOR = 9
+VERSION_PATCH = 1
+
+COMPILER = xc8
+
 -include Makefile.vars
 
-COMPILER := xc8
+ifeq ($(PROGRAM),)
+PROGRAM := pictest
+endif
+
+#BUILDDIR = build/xc8-$(chipl)/
+#OBJDIR = $(BUILDDIR)$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps/
 
 vpath $(BUILDDIR)
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
-OS := $(shell uname -s)
-
-PROGRAMFILES = c:/Program Files (x86)
-
-#ifeq ($(shell which picc),)
-#ifeq ($(shell uname -o),GNU/Linux)
-
-ifeq ($(OS),Linux)
-CCVER = 1.35
-CCDIR = /opt/microchip/xc8/v$(CCVER)
-else
 CCVER = v1.34
+
+PROGRAMFILES = C:/Program Files (x86)
+
+OS = $(shell uname -o)
+
+#PICC = $(shell which picc 2>/dev/null)
+
+ifeq ($(PICC),)
+ifeq ($(OS),GNU/Linux)
+CCDIR = /opt/microchip/xc8/v1.34
+else
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
 endif
-#endif
-#endif
+endif
+
+ifeq ($(COMPILER),xc8)
+COMPILER_NAME = xc8
+else
+COMPILER_NAME = picc
+endif
 
 ifneq ($(CCDIR),)
-CC = "$(CCDIR)/bin/$(COMPILER)"
+PICC = "$(CCDIR)/bin/$(COMPILER_NAME)"
 else
-CC = $(COMPILER)
+PICC = $(COMPILER_NAME)
 endif
 
-COMPILER_TYPE := $(shell $(CC) --ver 2>&1 |sed -n '{ s,.* MPLAB ,, ; s,\([^ ]\+\) C Compiler.*,\1,p }' |  tr "[[:upper:]]" "[[:lower:]]")
-
-$(warning Compiler type: $(COMPILER_TYPE))
-
-ifeq ($(COMPILER_TYPE),xc8)
-BUILDDIR := build/xc8-$(chipl)-$(word 3,$(subst _, ,$(PROGRAM)))/
-else
-BUILDDIR := build/htc-$(chipl)-$(word 3,$(subst _, ,$(PROGRAM)))/
+ifeq ($(strip $(PICC)),)
+PICC = picc
 endif
 
-LD = $(CC)
-#RM = del /f  
-DISTFILES = Makefile Makefile.htc Makefile.sdcc 
+CPP = $(CCDIR)/bin/cpp
+INCDIR = $(CCDIR)/include
+#INCDIR := $(dir $(dir $(shell which picc)))/include
 
+LD = $(PICC)
+#RM = del /f
+DISTFILES = Makefile Makefile.xc8 Makefile.sdcc
+
+OPT = space
+
+#DEFINES += HI_TECH_C=1
 
 SOURCES = $($(PROGRAM)_SOURCES)
-P1OBJS = $(SOURCES:%.c=$(BUILDDIR)%.p1)
-ASSRCS = $(SOURCES:%.c=$(BUILDDIR)%.as)
+COMMON_FLAGS += $($(PROGRAM)_DEFS)
+P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
+ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 
-COMMON_FLAGS = -g -N127
-#COMMON_FLAGS = -g
-	
-COMMON_FLAGS += --runtime=default,+clear,+init,-keep,+download,+clib
-#COMMON_FLAGS += --opt=default,+asm,-speed,+space,9
+COMMON_FLAGS += -g
+COMMON_FLAGS += -N127
 
-ifeq ($(OPT),size)
-COMMON_FLAGS += --opt=default,+asm,+space,-speed,9
+#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,-stackcall,+clib"
+#COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,-stackcall,+clib"
+COMMON_FLAGS += --runtime="default,+init,+osccal,+download,-stackcall,+clib"
+
+ifneq ($(CODEOFFSET),0)
+ifneq ($(CODEOFFSET),)
+LDFLAGS += --codeoffset=$(CODEOFFSET)
+endif
+endif
+
+ifeq ($(OPT),speed)
+OPT_SPEED = ,+speed,-space,9
+endif
+ifeq ($(OPT),space)
+OPT_SPEED = ,+speed,-space,9
+endif
+
+ifneq ($(DEBUG),1)
+COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
+#COMMON_FLAGS += -D__DEBUG=1 
 else
-COMMON_FLAGS += --opt=default,+asm,-space,+speed,9
+COMMON_FLAGS += --opt="default,+asm,+debug$(OPT_SPEED)"
+COMMON_FLAGS +=  -DNDEBUG=1
 endif
 
-COMMON_FLAGS += --double=32
-	
-COMMON_FLAGS += --warn=-2
-	
-	
-_COMMON_FLAGS += \
-	--errformat="Error   [%n] %f; %l.%c %s" \
-	--msgformat="Advisory[%n] %s" \
-	--warnformat="Warning [%n] %f; %l.%c %s"
+COMMON_FLAGS += --double=32 --float=24
 
-CPPFLAGS += -D__$(chipl)=1
+COMMON_FLAGS += --warn=3
 
-CPPFLAGS += $($(PROGRAM)_DEFS)
+COMMON_FLAGS += --mode=PRO
 
-ifneq ($(CCDIR),)
-CPPFLAGS += -I"$(CCDIR)/include"
-endif
+COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s"
+#COMMON_FLAGS += --msgformat="Advisory[%n] %s"
+#COMMON_FLAGS += --warnformat="Warning [%n] %f; %l.%c %s"
+
+CPPFLAGS += $(DEFINES:%=-D%)
 
 _CPPFLAGS += \
 	-DVERSION_MAJOR=$(VERSION_MAJOR) \
 	-DVERSION_MINOR=$(VERSION_MINOR) \
 	-DVERSION_PATCH=$(VERSION_PATCH)
 
-#CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
-CFLAGS = -q --chip=16F876A -P --runtime=default,+clear,+init,-keep,+osccal,+download,-resetbits,+stackcall,+clib --opt=default,+asm,-debug,-speed,+space,9 --warn=-1 -N127 --double=32 --float=24 --addrqual=ignore -g --asmlist 
+CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
 
-_CFLAGS += --errformat="Error   [%n] %f; %l.%c %s" --msgformat="Advisory[%n] %s" --warnformat="Warning [%n] %f; %l.%c %s"
+_LDFLAGS += --summary="default,-psect,-class,+mem,-hex"
 
-_LDFLAGS += --summary=default,-psect,-class,+mem,-hex
-
-LDFLAGS += --output=default,-inhx032 --chip=$(chipl)
-  
-  
-  LDFLAGS +=  --asmlist
+#LDFLAGS += --output="default,-inhx032"
+LDFLAGS += --chip=$(chipl)
+LDFLAGS +=  --asmlist
 
 PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd
 
-all: $(BUILDDIR) $(PACKAGE).hex
+COFFILE = $(subst .hex,.cof,$(HEXFILE))
+
+#-include Makefile.vars
+
+.PHONY: all clean dist prototypes
+
+all: $(BUILDDIR) $(OBJDIR) output 
 
 
-$(PACKAGE).hex: $(P1OBJS)
+output: $(HEXFILE) #$(COFFILE)
+	@for F in $(HEXFILE) $(COFFILE); do \
+	  echo "Output file '$(C_RED)$$F$(C_OFF)' built..." 1>&2; \
+	 done
 
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)LC-meter-HD44780.map -o$(BUILDDIR)$@ $^ $(OR_CMD)
 
-$(P1OBJS): $(BUILDDIR)%.p1: %.c
-	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(BUILDDIR:%/=%) $<
-$(ASSRCS): $(BUILDDIR)%.as: %.c
-	$(CC) -S $(CFLAGS) $(CPPFLAGS) -o$(BUILDDIR)$@ $<
+$(HEXFILE): $(P1OBJS)
+	$(RM) $(HEXFILE) $(COFFILE)
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^ 
+	sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
+	-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
+	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
+$(P1OBJS): $(OBJDIR)%.p1: %.c
+	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+#	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
+
+$(ASSRCS): $(OBJDIR)%.as: %.c
+	$(PICC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+
+
+prototypes:
+	cproto -DHI_TECH_C=1 -E '$(CPP)' $(CPPFLAGS) $(SOURCES) 2>/dev/null
+ifneq ($(CCDIR),)
+prototypes: CPPFLAGS += -I'$(CCDIR)/include'
+endif
 
 
 -include Makefile.common
