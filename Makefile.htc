@@ -119,7 +119,7 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 .PHONY: all clean dist prototypes
 
-all: $(BUILDDIR) $(OBJDIR) output 
+all: $(BUILDDIR) $(OBJDIR) output
 
 output: $(HEXFILE) #$(COFFILE)
 	@for F in $(HEXFILE) $(COFFILE); do \
@@ -128,16 +128,16 @@ output: $(HEXFILE) #$(COFFILE)
 
 $(HEXFILE): $(P1OBJS)
 	$(RM) $(HEXFILE) $(COFFILE)
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^ 
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
 	-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
-	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
 #	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
-	$(CC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+	$(CC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
 
 
 

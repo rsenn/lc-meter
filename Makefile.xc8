@@ -88,7 +88,7 @@ endif
 
 ifneq ($(DEBUG),1)
 COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
-#COMMON_FLAGS += -D__DEBUG=1 
+#COMMON_FLAGS += -D__DEBUG=1
 else
 COMMON_FLAGS += --opt="default,+asm,+debug$(OPT_SPEED)"
 COMMON_FLAGS +=  -DNDEBUG=1
@@ -127,7 +127,7 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 .PHONY: all clean dist prototypes
 
-all: $(BUILDDIR) $(OBJDIR) output 
+all: $(BUILDDIR) $(OBJDIR) output
 
 
 output: $(HEXFILE) #$(COFFILE)
@@ -138,17 +138,17 @@ output: $(HEXFILE) #$(COFFILE)
 
 $(HEXFILE): $(P1OBJS)
 	$(RM) $(HEXFILE) $(COFFILE)
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^ 
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
 	sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
 	-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
-	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
 #	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
-	$(PICC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $< 
+	$(PICC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
 
 
 prototypes:

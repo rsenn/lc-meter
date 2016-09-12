@@ -1,6 +1,6 @@
 CPPFLAGS += -D_XTAL_FREQ=$(_XTAL_FREQ)
 
-.PHONY: all 
+.PHONY: all
 all:
 
 PICPGM = picpgm
@@ -29,7 +29,7 @@ report:
 #	picpgm -if JDM -port $(SERIAL_PORT) -p PIC$(chipu) -blank -r
 
 
-clean: 
+clean:
 	$(RM) $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym
 
 dist:

@@ -11,7 +11,7 @@ COMPILER = htc
 endif
 
 ifeq ($(BUILD_TYPES)$(BUILD_TYPE),)
-BUILD_TYPE := release	
+BUILD_TYPE := release
 endif
 
 ifeq ($(XTAL_FREQS)$(XTAL),)
@@ -106,10 +106,10 @@ fword = $(word 1,$(subst -, ,$1))
 remove-fword = $(subst $(call fword,$1)-,,$1)
 
 $(PROGRAMS:%=clean-%):
-	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$(call remove-fword,$@) $(call fword,$@),$(MAKE_LOOP)) 
+	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$(call remove-fword,$@) $(call fword,$@),$(MAKE_LOOP))
 
 $(PROGRAMS:%=program-%): $(@:program-%=%)
-	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$(call remove-fword,$@) all $(call fword,$@),$(MAKE_LOOP)) 
+	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$(call remove-fword,$@) all $(call fword,$@),$(MAKE_LOOP))
 #	@for T in all $(call fword,$@); do \
 #	  cmd="$(MAKE) -f Makefile.$(COMPILER) DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$(call remove-fword,$@) $$T"; echo "Building $$T-$(call remove-fword,$@): $$cmd" 1>&2; \
 #	  eval "$$cmd"; \
