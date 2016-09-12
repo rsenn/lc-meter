@@ -4915,6 +4915,40 @@ package type P</description>
 </package>
 </packages>
 </library>
+<library name="led">
+<description>&lt;b&gt;LEDs&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;br&gt;
+Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternational.com&amp;gt;&lt;/author&gt; with DUOLED</description>
+<packages>
+<package name="LED3MM">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+3 mm, round</description>
+<wire x1="1.5748" y1="-1.27" x2="1.5748" y2="1.27" width="0.254" layer="51"/>
+<wire x1="-1.524" y1="0" x2="-1.1708" y2="0.9756" width="0.1524" layer="51" curve="-39.80361"/>
+<wire x1="-1.524" y1="0" x2="-1.1391" y2="-1.0125" width="0.1524" layer="51" curve="41.633208"/>
+<wire x1="1.1571" y1="0.9918" x2="1.524" y2="0" width="0.1524" layer="51" curve="-40.601165"/>
+<wire x1="1.1708" y1="-0.9756" x2="1.524" y2="0" width="0.1524" layer="51" curve="39.80361"/>
+<wire x1="0" y1="1.524" x2="1.2401" y2="0.8858" width="0.1524" layer="21" curve="-54.461337"/>
+<wire x1="-1.2192" y1="0.9144" x2="0" y2="1.524" width="0.1524" layer="21" curve="-53.130102"/>
+<wire x1="0" y1="-1.524" x2="1.203" y2="-0.9356" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-1.203" y1="-0.9356" x2="0" y2="-1.524" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-0.635" y1="0" x2="0" y2="0.635" width="0.1524" layer="51" curve="-90"/>
+<wire x1="-1.016" y1="0" x2="0" y2="1.016" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="-1.016" x2="1.016" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="2.032" x2="1.561" y2="1.3009" width="0.254" layer="21" curve="-50.193108"/>
+<wire x1="-1.7929" y1="0.9562" x2="0" y2="2.032" width="0.254" layer="21" curve="-61.926949"/>
+<wire x1="0" y1="-2.032" x2="1.5512" y2="-1.3126" width="0.254" layer="21" curve="49.763022"/>
+<wire x1="-1.7643" y1="-1.0082" x2="0" y2="-2.032" width="0.254" layer="21" curve="60.255215"/>
+<wire x1="-2.032" y1="0" x2="-1.7891" y2="0.9634" width="0.254" layer="51" curve="-28.301701"/>
+<wire x1="-2.032" y1="0" x2="-1.7306" y2="-1.065" width="0.254" layer="51" curve="31.60822"/>
+<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="1.905" y="0.381" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="1.905" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5153,6 +5187,13 @@ design rules under a new name.</description>
 <element name="R8" library="r" package="0202/5" value="100" x="48.26" y="45.72" rot="R270"/>
 <element name="R9" library="r" package="0202/5" value="100" x="48.26" y="40.64" rot="R180"/>
 <element name="J1" library="pinconn" package="CONN-8P" value="HD44780-4BIT-8PIN" x="53.34" y="22.86" rot="R90"/>
+<element name="R11" library="r" package="0202/5" value="1k" x="35.56" y="10.16"/>
+<element name="LED1" library="led" package="LED3MM" value="TLLG4400" x="27.94" y="13.97" smashed="yes" rot="R90">
+<attribute name="MF" value="VISHAY SEMICONDUCTOR" x="27.94" y="13.97" size="0.8128" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value="1612435" x="27.94" y="13.97" size="0.8128" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="27.94" y="11.557" size="0.8128" layer="25" ratio="10" rot="R180" align="bottom-center"/>
+<attribute name="VALUE" x="27.94" y="10.541" size="0.8128" layer="27" ratio="10" rot="R180" align="bottom-center"/>
+</element>
 </elements>
 <signals>
 <signal name="A3">
@@ -5239,6 +5280,9 @@ design rules under a new name.</description>
 <wire x1="20.32" y1="48.26" x2="25.4" y2="48.26" width="0.4064" layer="16"/>
 <wire x1="25.4" y1="25.4" x2="25.4" y2="35.56" width="0.4064" layer="16"/>
 <contactref element="J1" pad="1"/>
+<contactref element="LED1" pad="K"/>
+<wire x1="27.94" y1="15.24" x2="25.4" y2="15.24" width="0.4064" layer="16"/>
+<wire x1="25.4" y1="15.24" x2="25.4" y2="17.78" width="0.4064" layer="16"/>
 </signal>
 <signal name="N$7">
 <contactref element="L1" pad="1"/>
@@ -5443,6 +5487,16 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="5"/>
 <wire x1="45.72" y1="48.26" x2="48.26" y2="48.26" width="0.4064" layer="16"/>
 <wire x1="48.26" y1="48.26" x2="48.26" y2="43.18" width="0.4064" layer="16"/>
+</signal>
+<signal name="N$4">
+<contactref element="R11" pad="1"/>
+<contactref element="IC1" pad="14"/>
+<wire x1="35.56" y1="7.62" x2="38.1" y2="7.62" width="0.4064" layer="16"/>
+</signal>
+<signal name="N$6">
+<contactref element="R11" pad="2"/>
+<contactref element="LED1" pad="A"/>
+<wire x1="27.94" y1="12.7" x2="35.56" y2="12.7" width="0.4064" layer="16"/>
 </signal>
 </signals>
 </board>

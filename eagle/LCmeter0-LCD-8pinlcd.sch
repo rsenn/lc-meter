@@ -12013,6 +12013,90 @@ wire to board 2.54 mm (0.100") pitch header</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="led">
+<description>&lt;b&gt;LEDs&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;&lt;br&gt;
+Extended by Federico Battaglin &lt;author&gt;&amp;lt;federico.rd@fdpinternational.com&amp;gt;&lt;/author&gt; with DUOLED</description>
+<packages>
+<package name="LED3MM">
+<description>&lt;B&gt;LED&lt;/B&gt;&lt;p&gt;
+3 mm, round</description>
+<wire x1="1.5748" y1="-1.27" x2="1.5748" y2="1.27" width="0.254" layer="51"/>
+<wire x1="-1.524" y1="0" x2="-1.1708" y2="0.9756" width="0.1524" layer="51" curve="-39.80361"/>
+<wire x1="-1.524" y1="0" x2="-1.1391" y2="-1.0125" width="0.1524" layer="51" curve="41.633208"/>
+<wire x1="1.1571" y1="0.9918" x2="1.524" y2="0" width="0.1524" layer="51" curve="-40.601165"/>
+<wire x1="1.1708" y1="-0.9756" x2="1.524" y2="0" width="0.1524" layer="51" curve="39.80361"/>
+<wire x1="0" y1="1.524" x2="1.2401" y2="0.8858" width="0.1524" layer="21" curve="-54.461337"/>
+<wire x1="-1.2192" y1="0.9144" x2="0" y2="1.524" width="0.1524" layer="21" curve="-53.130102"/>
+<wire x1="0" y1="-1.524" x2="1.203" y2="-0.9356" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-1.203" y1="-0.9356" x2="0" y2="-1.524" width="0.1524" layer="21" curve="52.126876"/>
+<wire x1="-0.635" y1="0" x2="0" y2="0.635" width="0.1524" layer="51" curve="-90"/>
+<wire x1="-1.016" y1="0" x2="0" y2="1.016" width="0.1524" layer="51" curve="-90"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="-1.016" x2="1.016" y2="0" width="0.1524" layer="51" curve="90"/>
+<wire x1="0" y1="2.032" x2="1.561" y2="1.3009" width="0.254" layer="21" curve="-50.193108"/>
+<wire x1="-1.7929" y1="0.9562" x2="0" y2="2.032" width="0.254" layer="21" curve="-61.926949"/>
+<wire x1="0" y1="-2.032" x2="1.5512" y2="-1.3126" width="0.254" layer="21" curve="49.763022"/>
+<wire x1="-1.7643" y1="-1.0082" x2="0" y2="-2.032" width="0.254" layer="21" curve="60.255215"/>
+<wire x1="-2.032" y1="0" x2="-1.7891" y2="0.9634" width="0.254" layer="51" curve="-28.301701"/>
+<wire x1="-2.032" y1="0" x2="-1.7306" y2="-1.065" width="0.254" layer="51" curve="31.60822"/>
+<pad name="A" x="-1.27" y="0" drill="0.8128" shape="octagon"/>
+<pad name="K" x="1.27" y="0" drill="0.8128" shape="octagon"/>
+<text x="1.905" y="0.381" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="1.905" y="-1.651" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="LED">
+<wire x1="-1.27" y1="1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="0" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.27" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="0" y2="-1.27" width="0.1524" layer="94"/>
+<wire x1="2.032" y1="0.508" x2="3.429" y2="-0.889" width="0.1524" layer="94"/>
+<wire x1="1.905" y1="-0.635" x2="3.302" y2="-2.032" width="0.1524" layer="94"/>
+<text x="-1.27" y="2.54" size="1.778" layer="95" rot="R180">&gt;NAME</text>
+<text x="-1.27" y="-2.54" size="1.778" layer="96" rot="MR0">&gt;VALUE</text>
+<pin name="C" x="0" y="-3.81" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="A" x="0" y="3.81" visible="off" length="short" direction="pas" rot="R270"/>
+<polygon width="0.1524" layer="94">
+<vertex x="3.429" y="-0.889"/>
+<vertex x="3.048" y="0"/>
+<vertex x="2.54" y="-0.508"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="3.302" y="-2.032"/>
+<vertex x="2.921" y="-1.143"/>
+<vertex x="2.413" y="-1.651"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TLLG4400" prefix="LED">
+<description>&lt;b&gt;Low Current (2mA) LED 3 mm Tinted Diffused Package&lt;/b&gt; color &lt;b&gt;&lt;font color="green"&gt;GREEN&lt;/font&gt;&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="LED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="LED3MM">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="K"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="VISHAY SEMICONDUCTOR" constant="no"/>
+<attribute name="OC_FARNELL" value="1612435" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12073,6 +12157,9 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <part name="R8" library="r" deviceset="R" device="0202/5" value="100"/>
 <part name="R9" library="r" deviceset="R" device="0202/5" value="100"/>
 <part name="J1" library="pinconn" deviceset="HD44780-4BIT" device="-8PIN"/>
+<part name="R11" library="r" deviceset="R" device="0202/5" value="1k"/>
+<part name="LED1" library="led" deviceset="TLLG4400" device=""/>
+<part name="GND10" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12127,8 +12214,8 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <instance part="GND11" gate="1" x="50.8" y="-2.54" smashed="yes">
 <attribute name="VALUE" x="50.8" y="-5.08" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="P+2" gate="VCC" x="175.26" y="58.42" smashed="yes">
-<attribute name="VALUE" x="175.26" y="59.69" size="1.778" layer="96" align="bottom-center"/>
+<instance part="P+2" gate="VCC" x="175.26" y="48.26" smashed="yes">
+<attribute name="VALUE" x="175.26" y="49.53" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="P+3" gate="VCC" x="160.02" y="0" smashed="yes">
 <attribute name="VALUE" x="160.02" y="1.27" size="1.778" layer="96" align="bottom-center"/>
@@ -12177,6 +12264,9 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <instance part="R8" gate="G$1" x="154.94" y="66.04" rot="R90"/>
 <instance part="R9" gate="G$1" x="154.94" y="63.5" rot="R90"/>
 <instance part="J1" gate="G$1" x="154.94" y="25.4"/>
+<instance part="R11" gate="G$1" x="58.42" y="0" rot="MR180"/>
+<instance part="LED1" gate="G$1" x="58.42" y="-13.97"/>
+<instance part="GND10" gate="1" x="58.42" y="-27.94"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -12339,6 +12429,11 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <pinref part="SW1" gate="G$1" pin="S"/>
 <wire x1="175.26" y1="-22.86" x2="175.26" y2="-15.24" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="GND10" gate="1" pin="GND"/>
+<wire x1="58.42" y1="-17.78" x2="58.42" y2="-25.4" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$7" class="0">
 <segment>
@@ -12380,7 +12475,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <segment>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
 <pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="175.26" y1="55.88" x2="175.26" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="45.72" x2="175.26" y2="35.56" width="0.1524" layer="91"/>
 <label x="149.86" y="20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
@@ -12494,16 +12589,16 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <label x="-40.64" y="15.24" size="1.778" layer="95"/>
 <pinref part="S1" gate="G$1" pin="S1"/>
 <wire x1="-35.56" y1="15.24" x2="-35.56" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="-35.56" y1="-33.02" x2="124.46" y2="-33.02" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="-33.02" x2="124.46" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="-35.56" y1="-33.02" x2="121.92" y2="-33.02" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="-33.02" x2="121.92" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="A" pin="RC4/SDI/SDA"/>
-<wire x1="114.3" y1="7.62" x2="124.46" y2="7.62" width="0.1524" layer="91"/>
-<wire x1="124.46" y1="7.62" x2="124.46" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="7.62" x2="121.92" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="7.62" x2="121.92" y2="2.54" width="0.1524" layer="91"/>
 <label x="119.38" y="7.62" size="1.778" layer="95" rot="R180"/>
 <label x="30.48" y="-33.02" size="1.778" layer="95" rot="MR180"/>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="124.46" y1="2.54" x2="139.7" y2="2.54" width="0.1524" layer="91"/>
-<junction x="124.46" y="2.54"/>
+<wire x1="121.92" y1="2.54" x2="139.7" y2="2.54" width="0.1524" layer="91"/>
+<junction x="121.92" y="2.54"/>
 </segment>
 </net>
 <net name="/RELAY" class="0">
@@ -12657,6 +12752,21 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <pinref part="R9" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="PGD"/>
 <wire x1="160.02" y1="63.5" x2="162.56" y2="63.5" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="58.42" y1="5.08" x2="58.42" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="RC3/SCK/SCL"/>
+<wire x1="58.42" y1="7.62" x2="60.96" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="R11" gate="G$1" pin="2"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+<wire x1="58.42" y1="-5.08" x2="58.42" y2="-10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
