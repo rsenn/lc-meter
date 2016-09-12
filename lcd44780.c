@@ -346,7 +346,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
     LCD_function |= LCD_5x10DOTS;
 
 //for(uint8 i = 0; i < 100; i++)   __delay_us(150);   
-delay_ms(15);             // Wait more than 15 ms after VDD rises to 4.5V
+  __delay_ms(15);             // Wait more than 15 ms after VDD rises to 4.5V
 
 //Delay1KTCYx(KTCY_PER_MILLISECOND*15);
 
