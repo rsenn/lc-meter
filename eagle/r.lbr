@@ -1740,6 +1740,12 @@
 <wire x1="-1.27" y1="-1.524" x2="-1.27" y2="-3.81" width="0.127" layer="21"/>
 <wire x1="1.27" y1="3.048" x2="1.27" y2="3.81" width="0.127" layer="21"/>
 </package>
+<package name="L-09R">
+<pad name="P$1" x="-2.54" y="0" drill="1" shape="octagon"/>
+<pad name="P$2" x="2.54" y="0" drill="1" shape="octagon"/>
+<circle x="0" y="0" radius="3.8608" width="0.127" layer="21"/>
+<circle x="0" y="0" radius="4.064" width="0.127" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="R">
@@ -1995,6 +2001,15 @@
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-09R" package="L-09R">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
+<connect gate="G$1" pin="2" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
