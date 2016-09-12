@@ -10,6 +10,9 @@ serialport = /dev/ttyS0
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
 
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
 program: all
 ifneq ($(PICPGM),)
 	$(PICPGM) -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
