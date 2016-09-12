@@ -19,8 +19,8 @@ CCVER = 9.83
 PROGRAMFILES = C:/Program Files (x86)
 
 OS = $(shell uname -o)
-$(info OS: $(OS))
-$(info OBJDIR: $(OBJDIR))
+#$(info OS: $(OS))
+#$(info OBJDIR: $(OBJDIR))
 #CC = $(shell which picc 2>/dev/null)
 
 ifeq ($(CCDIR),)
@@ -121,20 +121,16 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 all: $(BUILDDIR) $(OBJDIR) output
 
-output: $(HEXFILE) #$(COFFILE)
-	@for F in $(HEXFILE) $(COFFILE); do \
-	  echo "Output file '$(C_RED)$$F$(C_OFF)' built..." 1>&2; \
-	 done
 
 $(HEXFILE): $(P1OBJS)
 	$(RM) $(HEXFILE) $(COFFILE)
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
-	-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE).map -o$@ $^
+	@-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
 	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
-#	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
+#	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE).p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
 	$(CC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<

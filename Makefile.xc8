@@ -11,7 +11,7 @@ PROGRAM := pictest
 endif
 
 #BUILDDIR = build/xc8-$(chipl)/
-#OBJDIR = $(BUILDDIR)$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps/
+#OBJDIR = $(BUILDDIR)$(BUILD_TYPE)/
 
 vpath $(BUILDDIR)
 
@@ -129,23 +129,16 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 all: $(BUILDDIR) $(OBJDIR) output
 
-
-output: $(HEXFILE) #$(COFFILE)
-	@for F in $(HEXFILE) $(COFFILE); do \
-	  echo "Output file '$(C_RED)$$F$(C_OFF)' built..." 1>&2; \
-	 done
-
-
 $(HEXFILE): $(P1OBJS)
 	$(RM) $(HEXFILE) $(COFFILE)
-	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
+	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE).map -o$@ $^
 	sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
-	-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
+	@-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
 	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
-#	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
+#	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE).p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
 	$(PICC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<

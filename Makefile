@@ -90,15 +90,7 @@ all clean program verify:
 	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(PROGRAM) $@),$(MAKE_LOOP))
 endif
 
-#	$(MAKE) -f Makefile.$(COMPILER) $@
-#	for P in $(PROGRAMS); do (set -x; $(MAKE) -f Makefile.$(COMPILER) DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) XTAL_FREQS="$(XTAL_FREQS)" BAUD_RATES="$(BAUD_RATES)" PROGRAM=$$P $@); done
-
-
-#	for T in $(BUILD_TYPES); do $(MAKE) -f Makefile.$$T $@; done
-#BUILD_TYPES = sdcc htc
 $(PROGRAMS):
-#	$(MAKE) -f Makefile.$(COMPILER) DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) XTAL_FREQS="$(XTAL_FREQS)" BAUD_RATES="$(BAUD_RATES)" PROGRAM=$@
-#	$(MAKE) -f Makefile.rates COMPILER=$(COMPILER) BAUD_RATES="$(BAUD_RATES)" XTAL_FREQS="$(XTAL_FREQS)" DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) $$P
 	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$@,$(MAKE_LOOP))
 
 
