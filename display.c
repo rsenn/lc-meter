@@ -1,4 +1,4 @@
-﻿#include "display.h"
+#include "display.h"
 #include "main.h"
 
 #if USE_NOKIA3310_LCD
