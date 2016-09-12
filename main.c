@@ -55,10 +55,10 @@ main(void) {
   while(1) {
     lcd_set_cursor(19,0);
     if(LC_select) {
-      lcd_write('C');
+      lcd_putch('C');
       measure_capacitance();
     }  else {
-      lcd_write('L');
+      lcd_putch('L');
      measure_inductance();
     } 
     indicator(1);
@@ -154,7 +154,7 @@ calibrate(void) {
     lcd_send(0xfc, LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
     if(i % 5 == 0)
-      lcd_write('=');
+      lcd_putch('=');
 #endif // defined(USE_NOKIA3310_LCD)
     delay10ms(2);
   }

@@ -25,7 +25,7 @@ Pins, Schematics and more info:
 #include "device.h"
 #include "lcd44780.h"
 
-#ifdef USE_LCD
+#ifdef USE_HD44780_LCD
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -541,4 +541,4 @@ lcd_init(char fourbitmode) {
 }
 
 
-#endif // USE_LCD
+#endif // USE_HD44780_LCD

@@ -60,7 +60,7 @@ display_digit(uint8 line, uint8 column, uint8 digit) {
   for(i = 8; i < 16; i++) lcd_send(digits_8x16[(digit << 4) + i], LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
   lcd_set_cursor(column, /*line - 1*/ 0);
-  lcd_write('0' + digit);
+  lcd_putch('0' + digit);
 #endif // defined(USE_NOKIA3310_LCD)
 }
 
@@ -109,7 +109,7 @@ display_reading(uint16 measurement) {
 #elif defined(USE_HD44780_LCD)
   lcd_set_cursor(4, 0);
   display_print_number(measurement / 100, 10, 0);
-  lcd_write('.');
+  lcd_putch('.');
   display_print_number(measurement % 100, 10, 0);
 #endif // defined(USE_NOKIA3310_LCD)
 }
@@ -152,7 +152,7 @@ display_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
   uint8 i = 0;
 
 /*  if(n == 0) {
-    lcd_write('0');
+    lcd_putch('0');
     return;
   }*/
 
@@ -167,11 +167,11 @@ display_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
   } while(n > 0);
 
   while(pad-- >= i)
-    lcd_write(' ');
+    lcd_putch(' ');
 
   for(; i > 0; i--)
-    lcd_write((uint8)buf[(int16)i - 1]);
-//    lcd_write((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
+    lcd_putch((uint8)buf[(int16)i - 1]);
+//    lcd_putch((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
 }
 
 #endif

@@ -42,7 +42,7 @@ MAKE_LOOP := @MAKE@
 
 ifneq ($(XTAL_FREQS),)
 MAKE_CMD +=  XTAL=$$XTAL_FREQ
-MAKE_LOOP := for XTAL_FREQ in $(XTAL_FREQS); do $(MAKE_LOOP); done
+MAKE_LOOP := for XTAL_FREQ in $(XTAL_FREQS); do $(MAKE_LOOP) || exit $?; done
 else
 ifneq ($(XTAL),)
 MAKE_CMD += XTAL=$(XTAL)
@@ -51,7 +51,7 @@ endif
 
 ifneq ($(BAUD_RATES),)
 MAKE_CMD +=  BAUD=$$BAUD_RATE
-MAKE_LOOP := for BAUD_RATE in $(BAUD_RATES); do $(MAKE_LOOP); done
+MAKE_LOOP := for BAUD_RATE in $(BAUD_RATES); do $(MAKE_LOOP) || exit $?; done
 else
 ifneq ($(BAUD),)
 MAKE_CMD += BAUD=$(BAUD)
@@ -60,7 +60,7 @@ endif
 
 ifneq ($(COMPILERS),)
 MAKE_CMD +=  COMPILER=$$COMPILER
-MAKE_LOOP := for COMPILER in $(COMPILERS); do $(MAKE_LOOP); done
+MAKE_LOOP := for COMPILER in $(COMPILERS); do $(MAKE_LOOP) || exit $?; done
 else
 ifneq ($(COMPILER),)
 MAKE_CMD := $(subst $$COMPILER,$(COMPILER),$(MAKE_CMD))
@@ -69,7 +69,7 @@ endif
 
 ifneq ($(BUILD_TYPES),)
 MAKE_CMD +=  BUILD_TYPE=$$BUILD_TYPE
-MAKE_LOOP := for BUILD_TYPE in $(BUILD_TYPES); do $(MAKE_LOOP); done
+MAKE_LOOP := for BUILD_TYPE in $(BUILD_TYPES); do $(MAKE_LOOP) || exit $?; done
 else
 ifneq ($(BUILD_TYPE),)
 MAKE_CMD += BUILD_TYPE=$(BUILD_TYPE)
@@ -79,7 +79,7 @@ endif
 
 ifneq ($(PROGRAMS),)
 P_MAKE_CMD :=  $(MAKE_CMD) PROGRAM=$$P
-P_MAKE_LOOP := for P in $(PROGRAMS); do $(MAKE_LOOP); done
+P_MAKE_LOOP := for P in $(PROGRAMS); do $(MAKE_LOOP) || exit $?; done
 
 .PHONY: all clean program verify
 all clean program verify:
