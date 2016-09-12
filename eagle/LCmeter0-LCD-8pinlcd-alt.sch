@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
@@ -12270,11 +12270,11 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </classes>
 <parts>
 <part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP" device=""/>
-<part name="R1" library="r" deviceset="R" device="0202/2V" value="100kΩ"/>
+<part name="R1" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
 <part name="R2" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
-<part name="R3" library="r" deviceset="R" device="0202/2V" value="100kΩ"/>
-<part name="R4" library="r" deviceset="R" device="0202/2V" value="47kΩ"/>
-<part name="R10" library="r" deviceset="R" device="0202/2V" value="4.7kΩ"/>
+<part name="R3" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
+<part name="R4" library="r" deviceset="R" device="0202/7" value="47kΩ"/>
+<part name="R10" library="r" deviceset="R" device="0202/7" value="4.7kΩ"/>
 <part name="C1" library="c" deviceset="C" device="050-020X036" value="1nF"/>
 <part name="C2" library="c" deviceset="C" device="050-020X036" value="1nF"/>
 <part name="C3" library="c" deviceset="CPOL" device="E5-4" value="10μF"/>
