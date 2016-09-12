@@ -11910,13 +11910,13 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <pad name="3" x="5.08" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
 <pad name="2" x="2.54" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
 <pad name="1" x="0" y="0" drill="0.9" diameter="1.778" shape="square" rot="R180"/>
-<wire x1="-1.905" y1="1.905" x2="-1.905" y2="-1.905" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="-1.905" x2="12.065" y2="-1.905" width="0.127" layer="21"/>
-<wire x1="12.065" y1="-1.905" x2="12.065" y2="1.905" width="0.127" layer="21"/>
-<wire x1="12.065" y1="1.905" x2="-1.905" y2="1.905" width="0.127" layer="21"/>
-<text x="-2.54" y="-1.27" size="1.27" layer="20" rot="R180">1</text>
-<text x="-1.905" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-1.905" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-1.397" y1="1.397" x2="-1.397" y2="-1.397" width="0.127" layer="21"/>
+<wire x1="-1.397" y1="-1.397" x2="11.557" y2="-1.397" width="0.127" layer="21"/>
+<wire x1="11.557" y1="-1.397" x2="11.557" y2="1.397" width="0.127" layer="21"/>
+<wire x1="11.557" y1="1.397" x2="-1.397" y2="1.397" width="0.127" layer="21"/>
+<text x="-1.524" y="-1.524" size="1.27" layer="20" rot="R180">1</text>
+<text x="-1.397" y="1.778" size="1.27" layer="25">&gt;NAME</text>
+<text x="11.557" y="-1.778" size="1.27" layer="27" rot="R180">&gt;VALUE</text>
 </package>
 <package name="CONN-8P">
 <pad name="6" x="12.7" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
@@ -12312,7 +12312,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="X1" library="con-molex" deviceset="C-GRID-02" device="-70543" value="FREQ"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="R7" library="r" deviceset="R" device="0202/10" value="10kΩ"/>
-<part name="U$1" library="pinconn" deviceset="PIC-ICSP" device=""/>
+<part name="J3" library="pinconn" deviceset="PIC-ICSP" device=""/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="R8" library="r" deviceset="R" device="0202/5" value="100"/>
@@ -12418,7 +12418,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <instance part="X1" gate="-1" x="-63.5" y="-1.27" rot="R180"/>
 <instance part="GND1" gate="1" x="-58.42" y="-7.62"/>
 <instance part="R7" gate="G$1" x="142.24" y="7.62" rot="MR180"/>
-<instance part="U$1" gate="G$1" x="172.72" y="68.58"/>
+<instance part="J3" gate="G$1" x="172.72" y="68.58"/>
 <instance part="P+1" gate="VCC" x="152.4" y="81.28" smashed="yes">
 <attribute name="VALUE" x="152.4" y="82.55" size="1.778" layer="96" align="bottom-center"/>
 </instance>
@@ -12589,7 +12589,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <wire x1="-58.42" y1="-1.27" x2="-58.42" y2="-5.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="VSS"/>
+<pinref part="J3" gate="G$1" pin="VSS"/>
 <pinref part="GND9" gate="1" pin="GND"/>
 <wire x1="165.1" y1="71.12" x2="147.32" y2="71.12" width="0.1524" layer="91"/>
 </segment>
@@ -12704,7 +12704,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </segment>
 <segment>
 <pinref part="P+1" gate="VCC" pin="VCC"/>
-<pinref part="U$1" gate="G$1" pin="VDD"/>
+<pinref part="J3" gate="G$1" pin="VDD"/>
 <wire x1="152.4" y1="78.74" x2="152.4" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="152.4" y1="73.66" x2="165.1" y2="73.66" width="0.1524" layer="91"/>
 </segment>
@@ -12819,7 +12819,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <label x="41.91" y="40.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="MCLR"/>
+<pinref part="J3" gate="G$1" pin="MCLR"/>
 <wire x1="165.1" y1="68.58" x2="147.32" y2="68.58" width="0.1524" layer="91"/>
 <label x="147.32" y="68.58" size="1.778" layer="95"/>
 </segment>
@@ -12929,7 +12929,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="PGC"/>
+<pinref part="J3" gate="G$1" pin="PGC"/>
 <pinref part="R8" gate="G$1" pin="1"/>
 <wire x1="162.56" y1="66.04" x2="165.1" y2="66.04" width="0.1524" layer="91"/>
 </segment>
@@ -12937,7 +12937,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <net name="N$3" class="0">
 <segment>
 <pinref part="R9" gate="G$1" pin="1"/>
-<pinref part="U$1" gate="G$1" pin="PGD"/>
+<pinref part="J3" gate="G$1" pin="PGD"/>
 <wire x1="162.56" y1="63.5" x2="165.1" y2="63.5" width="0.1524" layer="91"/>
 </segment>
 </net>
