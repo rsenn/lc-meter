@@ -25,7 +25,7 @@ Pins, Schematics and more info:
 #include "device.h"
 #include "lcd44780.h"
 
-#if USE_HD44780_LCD
+#ifdef USE_LCD
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -55,34 +55,74 @@ lcd_pulse_enable(void) {
   __delay_us(100);   // commands need > 37us to settle
 }
 
+// -------------------------------------------------------------------------
 /** Write using 4bits mode */
 static void
 lcd_write4bits(uint8 value) {
-  DATA0_PIN = value & 1; value >>= 1;
-  DATA1_PIN = value & 1; value >>= 1;
-  DATA2_PIN = value & 1; value >>= 1;
+#if DATABUS_MUX
+  DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS = OUTPUT;
+#endif
+
+  DATA0_PIN = value & 1;
+  value >>= 1;
+  DATA1_PIN = value & 1;
+  value >>= 1;
+  DATA2_PIN = value & 1;
+  value >>= 1;
   DATA3_PIN = value & 1;
 
+#if DATABUS_MUX
+//  __delay_us(DATABUS_MUXDELAY);
+#endif
+
   lcd_pulse_enable();
+
+#if DATABUS_MUX
+  DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS = INPUT;
+#endif
 }
 
+// -------------------------------------------------------------------------
 #ifdef LCD_HAVE_8BIT_MODE
 /** Write using 8bits mode */
 static void
 lcd_write8bits(uint8 value) {
-  DATA0_PIN = value & 1; value >>= 1;
-  DATA1_PIN = value & 1; value >>= 1;
-  DATA2_PIN = value & 1; value >>= 1;
-  DATA3_PIN = value & 1; value >>= 1;
-  DATA4_PIN = value & 1; value >>= 1;
-  DATA5_PIN = value & 1; value >>= 1;
-  DATA6_PIN = value & 1; value >>= 1;
+
+#if DATABUS_MUX
+  DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS =
+      DATA4_TRIS = DATA5_TRIS = DATA6_TRIS = DATA7_TRIS = OUTPUT;
+#endif
+
+  DATA0_PIN = value & 1;
+  value >>= 1;
+  DATA1_PIN = value & 1;
+  value >>= 1;
+  DATA2_PIN = value & 1;
+  value >>= 1;
+  DATA3_PIN = value & 1;
+  value >>= 1;
+  DATA4_PIN = value & 1;
+  value >>= 1;
+  DATA5_PIN = value & 1;
+  value >>= 1;
+  DATA6_PIN = value & 1;
+  value >>= 1;
   DATA7_PIN = value & 1;
 
+#if DATABUS_MUX
+//  __delay_us(DATABUS_MUXDELAY);
+#endif
+
   lcd_pulse_enable();
+
+#if DATABUS_MUX
+  DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS =
+      DATA4_TRIS = DATA5_TRIS = DATA6_TRIS = DATA7_TRIS = INPUT;
+#endif
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Send data to LCD 8 or 4 bits */
 static void
 lcd_send(uint8 value, uint8 mode) {
@@ -99,18 +139,21 @@ lcd_send(uint8 value, uint8 mode) {
   }
 }
 
+// -------------------------------------------------------------------------
 /** Write a data character on LCD */
 void
-lcd_write(uint8 value) {
-  lcd_send(value, HIGH);
+lcd_putch(char value) {
+  lcd_send((unsigned)value, HIGH);
 }
 
+// -------------------------------------------------------------------------
 /** Write a control command on LCD */
 static void
 lcd_command(uint8 value) {
   lcd_send(value, LOW);
 }
 
+// -------------------------------------------------------------------------
 /** Setup line x column on LCD */
 #ifdef LCDSETCURSOR
 void
@@ -145,10 +188,11 @@ void
 lcd_print(const char *string) {
   uint8 i;
   for(i = 0; string[i]; i++)
-    lcd_write(string[i]);
+    lcd_putch(string[i]);
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Write formated string on LCD **/
 #ifdef LCDPRINTF
 /* added 28/01/2011 rblanchot@gmail.com */
@@ -157,11 +201,53 @@ lcd_printf(const char *fmt, ...) {
   va_list args;
 
   va_start(args, fmt);
-  pprintf(lcd_write, fmt, args);
+  pprintf(lcd_putch, fmt, args);
   va_end(args);
 }
 #endif
 
+/** Print a number on LCD */
+#if defined(LCDPRINTNUMBER) || defined(LCDPRINTFLOAT)
+/*
+static const char digits[] =
+{ '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
+*/
+void
+lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/) {
+  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  uint8 di;
+  uint8 i = 0;
+  char padchar = ' ';
+
+  if(pad < 0) {
+    pad = -pad;
+    padchar = '0';
+  }
+
+  /*  if(n == 0) {
+      lcd_putch('0');
+      return;
+    }*/
+
+  do {
+    /*    if(i == pointpos)
+          buf[i++] = '.';
+    */
+    di = n % base;
+    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
+
+    n /= base;
+  } while(n > 0);
+
+  while(pad-- >= i)
+    lcd_putch(padchar);
+
+  for(; i > 0; i--)
+    lcd_putch((char)buf[(int16)i - 1]);
+//    lcd_putch((buf[i - 1] < 10 ? (char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
+}
+
+#endif
 
 /** Print a float number to LCD */
 #ifdef LCDPRINTFLOAT
@@ -179,7 +265,7 @@ lcd_print_float(float number, uint8 digits) {
 
   ///* Handle negative numbers */
   //if(number < 0.0) {
-  //  lcd_write('-');
+  //  lcd_putch('-');
   //  number = -number;
   //}
 
@@ -193,22 +279,23 @@ lcd_print_float(float number, uint8 digits) {
   ///* Extract the integer part of the number and print it */
   //int_part = (uint16)number;
   //remainder = number - (float)int_part;
-  //display_print_number(int_part, 10);
+  //lcd_print_number(int_part, 10);
 
   ///* Print the decimal point, but only if there are digits beyond */
   //if(digits > 0)
-  //  lcd_write('.');
+  //  lcd_putch('.');
 
   ///* Extract digits from the remainder one at a time */
   //while(digits-- > 0) {
   //  remainder *= 10.0;
   //  toPrint = (uint16)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
-  //  display_print_number(toPrint, 10);
+  //  lcd_print_number(toPrint, 10);
   //  remainder -= toPrint;
   //}
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Move cursor to Home position */
 #ifdef LCDHOME
 void
@@ -219,6 +306,7 @@ lcd_home() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Clear LCD */
 #ifdef LCDCLEAR
 void
@@ -229,6 +317,7 @@ lcd_clear() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Turn the display on/off (quickly) */
 #ifndef LCDDISPLAY
 void
@@ -238,6 +327,7 @@ lcd_no_display() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 #ifdef LCDDISPLAY
 void
 lcd_display() {
@@ -246,6 +336,7 @@ lcd_display() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Turns the underline cursor on/off */
 #ifdef LCDCURSOR
 void
@@ -255,6 +346,7 @@ lcd_no_cursor() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 #ifdef LCDCURSOR
 void
 lcd_cursor() {
@@ -263,6 +355,7 @@ lcd_cursor() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Turn on and off the blinking cursor */
 #ifndef LCDBLINK
 void
@@ -272,6 +365,7 @@ lcd_no_blink() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 #ifdef LCDBLINK
 void
 lcd_blink() {
@@ -280,6 +374,7 @@ lcd_blink() {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** These commands scroll the display without changing the RAM */
 #ifdef LCDSCROLLDISPLAYLEFT
 void
@@ -288,6 +383,7 @@ lcd_scroll_display_left(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 #ifdef LCDSCROLLDISPLAYRIGHT
 void
 lcd_scroll_display_right(void) {
@@ -295,6 +391,7 @@ lcd_scroll_display_right(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** This is for text that flows Left to Right */
 #ifdef LCDLEFTTORIGHT
 void
@@ -304,6 +401,7 @@ lcd_left_to_right(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** This is for text that flows Right to Left */
 #ifdef LCDRIGHTTOLEFT
 void
@@ -313,6 +411,7 @@ lcd_right_to_left(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** This will 'right justify' text from the cursor */
 #ifdef LCDAUTOSCROLL
 void
@@ -322,6 +421,7 @@ lcd_autoscroll(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** This will 'left justify' text from the cursor */
 #ifndef LCDAUTOSCROLL
 void
@@ -331,6 +431,7 @@ lcd_no_autoscroll(void) {
 }
 #endif
 
+// -------------------------------------------------------------------------
 /** Initial Display settings! */
 void
 lcd_begin(uint8 lines, uint8 dotsize) {
@@ -345,10 +446,7 @@ lcd_begin(uint8 lines, uint8 dotsize) {
   if((dotsize != 0) && (lines == 1))
     LCD_function |= LCD_5x10DOTS;
 
-//for(uint8 i = 0; i < 100; i++)   __delay_us(150);   
-  __delay_ms(15);             // Wait more than 15 ms after VDD rises to 4.5V
-
-//Delay1KTCYx(KTCY_PER_MILLISECOND*15);
+  __delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
 
   /* Now we pull both RS and R/W low to begin commands */
   RS_PIN = LOW;
@@ -404,11 +502,12 @@ lcd_begin(uint8 lines, uint8 dotsize) {
   lcd_command(LCD_ENTRYMODESET | LCD_mode);
 }
 
+// -------------------------------------------------------------------------
 /** Init LCD
  * @param flags one of LCD_8BITMODE|LCD_4BITMODE, LCD_2LINE|LCD_1LINE, LCD_5x10DOTS|LCD_5x8DOTS
  */
 void
-lcd_init(bool fourbitmode) {
+lcd_init(char fourbitmode) {
 
   LCD_ctrl = 0;
   LCD_function = (fourbitmode ? LCD_4BITMODE : LCD_8BITMODE);
@@ -417,31 +516,29 @@ lcd_init(bool fourbitmode) {
 #endif
   LCD_mode = 0;
 
-  RS_TRIS = OUTPUT; RS_PIN = LOW;
+  RS_TRIS = OUTPUT;
+  RS_PIN = LOW;
 #if defined(RW_TRIS) && defined(RW_PIN)
-  RW_TRIS = OUTPUT; RW_PIN = LOW;
+  RW_TRIS = OUTPUT;
+  RW_PIN = LOW;
 #endif
-  EN_TRIS = OUTPUT; EN_PIN = LOW;
+  EN_TRIS = OUTPUT;
+  EN_PIN = LOW;
 
-  DATA0_TRIS = OUTPUT; //DATA0_PIN = LOW;
-  DATA1_TRIS = OUTPUT; //DATA1_PIN = LOW;
-  DATA2_TRIS = OUTPUT; //DATA2_PIN = LOW;
-  DATA3_TRIS = OUTPUT; //DATA3_PIN = LOW;
+  DATA0_TRIS = DATABUS_INIT; //DATA0_PIN = LOW;
+  DATA1_TRIS = DATABUS_INIT; //DATA1_PIN = LOW;
+  DATA2_TRIS = DATABUS_INIT; //DATA2_PIN = LOW;
+  DATA3_TRIS = DATABUS_INIT; //DATA3_PIN = LOW;
 
 #if defined(DATA4_TRIS) && defined(DATA5_TRIS) && defined(DATA6_TRIS) && defined(DATA7_TRIS)
   if((LCD_function & LCD_8BITMODE)) {
-    DATA4_TRIS = OUTPUT; //DATA4_PIN = LOW;
-    DATA5_TRIS = OUTPUT; //DATA5_PIN = LOW;
-    DATA6_TRIS = OUTPUT; //DATA6_PIN = LOW;
-    DATA7_TRIS = OUTPUT; //DATA7_PIN = LOW;
+    DATA4_TRIS = DATABUS_INIT; //DATA4_PIN = LOW;
+    DATA5_TRIS = DATABUS_INIT; //DATA5_PIN = LOW;
+    DATA6_TRIS = DATABUS_INIT; //DATA6_PIN = LOW;
+    DATA7_TRIS = DATABUS_INIT; //DATA7_PIN = LOW;
   }
 #endif
 }
 
-/** LCD 8 bits mode
-void
-lcd_pins(uint8 rs, uint8 enable, uint8 d0, uint8 d1, uint8 d2, uint8 d3, uint8 d4, uint8 d5, uint8 d6, uint8 d7) {
-  lcd_init(((d4 + d5 + d6 + d7)==0), rs, -1, enable, d0, d1, d2, d3, d4, d5, d6, d7);
-}*/
 
-#endif // USE_HD44780_LCD
+#endif // USE_LCD

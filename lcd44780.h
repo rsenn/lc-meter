@@ -4,8 +4,6 @@
 #include "device.h"
 #include "types.h"
 
-#if USE_HD44780_LCD
-
 // commands
 #define LCD_CLEARDISPLAY 0x01
 #define LCD_RETURNHOME 0x02
@@ -44,41 +42,9 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
-#ifdef __16f628a
-# define RS_PIN  RB5
-# define RS_TRIS TRISB5
-# undef RW_PIN
-# undef RW_TRIS
-# define EN_PIN  RB4
-# define EN_TRIS TRISB4
+#include "lcd44780-config.h"
 
-#define DATA0_PIN  RA2
-#define DATA0_TRIS TRISA2
-#define DATA1_PIN  RA3
-#define DATA1_TRIS TRISA3
-#define DATA2_PIN  RB3
-#define DATA2_TRIS TRISB3
-#define DATA3_PIN  RB6
-#define DATA3_TRIS TRISB6
-#else
-# define RS_PIN  RB2
-# define RS_TRIS TRISB2
-# undef RW_PIN
-# undef RW_TRIS
-# define EN_PIN  RB3    // activated by a HIGH pulse.
-# define EN_TRIS TRISB3    // activated by a HIGH pulse.
-
-#define DATA0_PIN  RB4
-#define DATA0_TRIS TRISB4
-#define DATA1_PIN  RB5
-#define DATA1_TRIS TRISB5
-#define DATA2_PIN  RB6
-#define DATA2_TRIS TRISB6
-#define DATA3_PIN  RB7
-#define DATA3_TRIS TRISB7
-#endif
-
-void lcd_init(bool fourbitmode);
+void lcd_init(char fourbitmode);
 void lcd_begin(uint8 l, uint8 ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
@@ -94,12 +60,12 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void display_print_number(uint16 n, uint8 base, int8 pad);
+void lcd_print_number(uint16 n, uint8 base, int8 pad);
 void lcd_print_float(float number, uint8 digits);
 void lcd_print(const char *string);
 //void lcd_printf(const char *fmt, ...);
 void lcd_set_cursor(uint8 col, uint8 row);
-void lcd_write(uint8 value);
+void lcd_putch(char value);
 
 #define LCDAUTOSCROLL
 #define LCDBLINK
@@ -117,6 +83,5 @@ void lcd_write(uint8 value);
 #undef LCDSCROLLDISPLAYRIGHT
 #define LCDSETCURSOR
 
-#endif // USE_HD44780_LCD
 
 #endif /* LCD44780_H */
