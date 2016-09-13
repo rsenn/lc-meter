@@ -15,7 +15,9 @@ void setup_timer0() {
 
   PSA = (TMR0_PRESCALER == 0);  //Prescaler isn't assigned to the Timer0 module
 
+#if TMR0_PRESCALER != 0
   OPTION_REGbits.PS = TMR0_PRESCALER-1;
+#endif
 }
 #endif // USE_TIMER_0
 

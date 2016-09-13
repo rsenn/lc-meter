@@ -4,7 +4,7 @@
 #include "types.h"
 #include "device.h"
 
-#define PRESCALE_1_1  0b000
+#define PRESCALE_1_1  0
 #define PRESCALE_1_2  0b001
 #define PRESCALE_1_4  0b010
 #define PRESCALE_1_8  0b011

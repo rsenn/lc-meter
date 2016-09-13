@@ -15,10 +15,10 @@ $(OBJDIR):
 
 program: all
 ifneq ($(PICPGM),)
-	$(PICPGM) -if JDM -p PIC$(chipu) -e -p "$(BUILDDIR)$(PACKAGE).hex"
+	$(PICPGM) -if JDM -p PIC$(chipu) -e -p "$(HEXFILE)"
 else
   ifneq ($(PICPROG),)
-	$(PICPROG) --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$(BUILDDIR)$(PACKAGE).hex"
+	$(PICPROG) --nordtsc --jdm --device=pic$(chip) --erase --burn --pic-serial-port=$(serialport) --input-hexfile="$(HEXFILE)"
   endif
 endif
 
