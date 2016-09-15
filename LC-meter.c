@@ -52,14 +52,7 @@ INTERRUPT()
   if (TMR2IF) {
     tmr2_overflow++;
 
-        bres++;
-        if(bres >= 5000000) // if reached 1 second!
-        {
-          bres -= 5000000;  // subtract 1 second, retain error
-          seconds++;  // update clock, etc
-
-          SET_LED(seconds & 1);
-        }
+     
      
 
     // Clear timer interrupt bit
@@ -81,15 +74,17 @@ INTERRUPT()
 
   if (T0IF) {
     tmr0_overflow++;
+
+       bres++;
+        if(bres >= TMR0_INTERVAL) // if reached 1 second!
+        {
+          bres -= TMR0_INTERVAL;  // subtract 1 second, retain error
+          seconds++;  // update clock, etc
+
+          SET_LED(seconds & 1);
+        }
+
     T0IF = 0;
-  }
-
-
-  if (TMR2IF) {
-    tmr2_overflow++;
-
-    // Clear timer interrupt bit
-    TMR2IF = 0;
   }
 
 }
@@ -165,15 +160,6 @@ static void initialize(void)
 
   setup_ccp1();
 
-  //initialize 3310 lcd
-#if USE_NOKIA3310_LCD
-  lcd_init();
-  lcd_clear();
-#elif USE_HD44780_LCD
-  lcd_init(true);
-  lcd_begin(2, 1);
-#endif
-
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
@@ -185,6 +171,15 @@ static void initialize(void)
 
   PEIE = 1;
   GIE = 1;
+
+  //initialize 3310 lcd
+#if USE_NOKIA3310_LCD
+  lcd_init();
+  lcd_clear();
+#elif USE_HD44780_LCD
+  lcd_init(true);
+  lcd_begin(2, 1);
+#endif
 }
 
 uint16
