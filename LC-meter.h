@@ -43,8 +43,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 # define WITH_LCD 1
 //#endif
 
-#define LED_PIN RC0 = RC1 = RC3
-#define LED_TRIS TRISC0 = TRISC1 = TRISC3
+#define LED_PIN RA2 = RC3
+#define LED_TRIS TRISA2 = TRISC3
 
 uint16 measure_freq(void);
 void calibrate(void);
