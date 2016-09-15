@@ -39,7 +39,7 @@ volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
 */
 
 volatile uint32 bres;
-volatile  unsigned int seconds;
+volatile  uint16 seconds;
 volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
@@ -49,21 +49,21 @@ static  void initialize(void);
 INTERRUPT()
 {
 
-  if (TMR1IF) {
-    tmr1_overflow++;
+  if (TMR2IF) {
+    tmr2_overflow++;
 
-    /*    bres++;
+        bres++;
         if(bres >= 5000000) // if reached 1 second!
         {
           bres -= 5000000;  // subtract 1 second, retain error
           seconds++;  // update clock, etc
 
           SET_LED(seconds & 1);
-        }*/
-    // TMR1H = 0xff;
+        }
+     
 
     // Clear timer interrupt bit
-    TMR1IF = 0;
+    TMR2IF = 0;
   }
 
   if (CCP1IF) {
@@ -131,7 +131,7 @@ main(void)
     display_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
-    SET_LED(led_value = !led_value);
+  //  SET_LED(led_value = !led_value);
   }
 }
 
@@ -158,6 +158,8 @@ static void initialize(void)
 
   setup_timer0();
   setup_timer1();
+  TMR1H = 0xff;
+
   setup_timer2();
 
 

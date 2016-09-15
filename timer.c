@@ -39,7 +39,6 @@ setup_timer1() {
   TMR1IF = 0;
 
   TMR1 = 0;
-//  TMR1H = 0xff;
 
   T1CONbits.TMR1ON = 1;
 }
@@ -63,6 +62,9 @@ setup_timer2() {
   TMR2IE = 1;
   TMR2IF = 0;
 
+  TMR2 = 0;
+
   T2CONbits.TMR2ON = 1;       // Enable timer 2.
+
 }
 #endif // USE_TIMER_2
