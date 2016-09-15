@@ -10,8 +10,12 @@ ifeq ($(COMPILERS)$(COMPILER),)
 COMPILER = htc
 endif
 
-ifeq ($(BUILD_TYPES)$(BUILD_TYPE),)
+ifeq ($(BUILD_TYPE),)
 BUILD_TYPE := release
+endif
+
+ifneq ($(BUILD_TYPE),)
+BUILD_TYPES := $(BUILD_TYPE)
 endif
 
 ifeq ($(XTAL_FREQS)$(XTAL),)

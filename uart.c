@@ -1,6 +1,7 @@
 #include "delay.h"
 #include "uart.h"
 #include "types.h"
+#include "device.h"
 
 #ifndef UART_BRG
 # if HIGH_SPEED == 1
@@ -72,8 +73,8 @@ uart_enable(void) {
   TXEN = 1;
   SPEN = 1;
   RCIE = 0;
-  RX_TRIS = 1;
-  TX_TRIS = 1;
+  RX_TRIS = INPUT;
+  TX_TRIS = INPUT;
 }
 
 void
@@ -81,8 +82,8 @@ uart_disable(void) {
   TXEN = 0;
   SPEN = 0;
   RCIE = 0;
-  RX_TRIS = 0;
-  TX_TRIS = 0;
+  RX_TRIS = OUTPUT;
+  TX_TRIS = OUTPUT;
   TX_PIN = 0;
   RX_PIN = 0;
 }
@@ -91,8 +92,8 @@ void
 uart_init(void) {
   /* Initilize baudrate generator and pins */
 
-  RX_TRIS = 1;
-  TX_TRIS = 1;
+  RX_TRIS = INPUT;
+  TX_TRIS = INPUT;
   SPBRG = UART_BRG; //UART_BRG;
 
   CREN = 1;

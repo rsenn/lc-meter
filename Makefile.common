@@ -33,7 +33,7 @@ report:
 
 
 clean:
-	$(RM) output.log $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym
+	$(RM) output.log $(BUILDDIR)*.as $(BUILDDIR)*.cof $(BUILDDIR)*.hex $(BUILDDIR)*.hxl $(BUILDDIR)*.lst $(BUILDDIR)*.map $(BUILDDIR)*.obj $(BUILDDIR)*.p1 $(BUILDDIR)*.pre $(BUILDDIR)*.rlf $(BUILDDIR)*.sdb $(BUILDDIR)*.sym build/*/*/*.p1
 
 dist:
 	mkdir -p $(PACKAGE)-$(VERSION)

@@ -10,6 +10,7 @@
 #endif
 #include "display.h"
 #include "timer.h"
+#include "uart.h"
 
 #ifdef SDCC
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
@@ -155,11 +156,6 @@ static void initialize(void)
 
   TRISA = 0b11001111;
 
-
-
-  LED_PIN = LOW;
-  LED_TRIS = OUTPUT;
-
   setup_timer0();
   setup_timer1();
   setup_timer2();
@@ -179,6 +175,11 @@ static void initialize(void)
   //others
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
+
+  LED_PIN = LOW;
+  LED_TRIS = OUTPUT;
+
+  uart_init();
 
   PEIE = 1;
   GIE = 1;

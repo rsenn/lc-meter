@@ -73,4 +73,12 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define NOT_RBPU nRBPU
 #endif
 
+#ifndef INPUT
+#define INPUT 1
+#endif
+
+#ifndef OUTPUT
+#define OUTPUT 0
+#endif
+
 #endif /* DEVICE_H */
