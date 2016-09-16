@@ -11,8 +11,8 @@
 //#define SQR_PI    9.8696044010893586188344909998761
 #define DEG_TO_RAD  0.0174532925199432957692369076848  // PI/180
 #define RAD_TO_DEG  57.295779513082320876798154814105  // 180/PI
-#define rad(x)      (x * DEG_TO_RAD)
-#define deg(x)      (x * RAD_TO_DEG)
+#define RAD(x)      (x * DEG_TO_RAD)
+#define DEG(x)      (x * RAD_TO_DEG)
 
 // already defined in common_types.h
 #ifndef FALSE

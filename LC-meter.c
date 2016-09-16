@@ -38,18 +38,18 @@ volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
 volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
 */
 
-volatile uint32 bres;
+volatile uint16 bres;
 volatile  uint16 seconds;
 volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 
-static  void initialize(void);
+static void initialize(void);
 
 INTERRUPT()
 {
 
-  if (TMR2IF) {
+/*  if (TMR2IF) {
     tmr2_overflow++;
 
 
@@ -57,8 +57,23 @@ INTERRUPT()
 
     // Clear timer interrupt bit
     TMR2IF = 0;
+  }*/
+
+  if (T0IF) {
+    tmr0_overflow++;
+
+    bres++;
+    if (bres >= 500) { // if reached 1 second!
+      bres -= 500;  // subtract 1 second, retain error
+      seconds++;  // update clock, etc
+
+      SET_LED(seconds & 1);
+    }
+    TMR0 = -64;
+    T0IF = 0;
   }
 
+#ifdef USE_TIMER_1
   if (CCP1IF) {
 
     if (CCP1_EDGE() == RISING) {
@@ -70,22 +85,7 @@ INTERRUPT()
     CCP1IE = 1;
     CCP1IF = 0;
   }
-
-
-  if (T0IF) {
-    tmr0_overflow++;
-
-    bres++;
-    if (bres >= TMR0_FREQ/64) { // if reached 1 second!
-      bres -= TMR0_FREQ/64;  // subtract 1 second, retain error
-      seconds++;  // update clock, etc
-
-      SET_LED(seconds & 1);
-    }
-    TMR0 = -64;
-    T0IF = 0;
-  }
-
+#endif
 }
 
 void
@@ -108,7 +108,7 @@ main(void)
 #endif
 
 #if 0
-  relay_tris();
+  RELAY_TRIS();
   for (int i = 0; i < 10; i++) {
     RC5 = HIGH;
     __delay_ms(500);
@@ -121,8 +121,8 @@ main(void)
     bool led_value = 0;
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
 
-    lcd_set_cursor(5,0);
-    display_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
+    lcd_set_cursor(0,1);
+    display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
     //  SET_LED(led_value = !led_value);
@@ -141,7 +141,8 @@ setup_ccp1()
   CCP1IF = 0;
 }
 
-static void initialize(void)
+static void
+initialize(void)
 {
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
@@ -151,22 +152,27 @@ static void initialize(void)
   TRISA = 0b11001111;
 
   setup_timer0();
- // setup_timer1();
- // TMR1H = 0xff;
+  T0IE = 1;
+  T0IF = 0;
+  // setup_timer1();
+  // TMR1H = 0xff;
 
- // setup_timer2();
+  // setup_timer2();
 
 
- // setup_ccp1();
+  // setup_ccp1();
 
   //others
-  lc_tris();
+  LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
 
   LED_TRIS = OUTPUT;
-LED_PIN = HIGH;
-  
+  LED_PIN = HIGH;
+
   uart_init();
+
+  RELAY_TRIS();
+  ADD_CCAL();
 
   PEIE = 1;
   GIE = 1;

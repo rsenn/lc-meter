@@ -71,7 +71,8 @@ MAKE_CMD := $(subst $$COMPILER,$(COMPILER),$(MAKE_CMD))
 endif
 endif
 
-ifneq ($(BUILD_TYPES),)
+
+ifneq ($(word 2,$(BUILD_TYPES)),)
 MAKE_CMD +=  BUILD_TYPE=$$BUILD_TYPE
 MAKE_LOOP := for BUILD_TYPE in $(BUILD_TYPES); do $(MAKE_LOOP) || exit $?; done
 else
@@ -81,11 +82,12 @@ endif
 endif
 
 
-ifneq ($(PROGRAMS),)
+ifneq ($(word 2,$(PROGRAMS)),)
 P_MAKE_CMD :=  $(MAKE_CMD) PROGRAM=$$P
 P_MAKE_LOOP := for P in $(PROGRAMS); do $(MAKE_LOOP) || exit $?; done
 
 .PHONY: all clean program verify
+
 all clean program verify:
 	$(subst @MAKE@,(set -x; $(P_MAKE_CMD) $@),$(P_MAKE_LOOP))
 else
@@ -93,6 +95,7 @@ else
 all clean program verify:
 	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(PROGRAM) $@),$(MAKE_LOOP))
 endif
+
 
 $(PROGRAMS):
 	$(subst @MAKE@,$(MAKE_CMD) PROGRAM=$@,$(MAKE_LOOP))

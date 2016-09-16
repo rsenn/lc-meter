@@ -21,7 +21,7 @@ double F1, F2, F3;
 void
 main(void) {
   int16 i;
-    relay_tris();
+    RELAY_TRIS();
 /*
  
  for(i = 0; i < 10; i++) {
@@ -54,7 +54,7 @@ main(void) {
 
   while(1) {
     lcd_set_cursor(19,0);
-    if(LC_select) {
+    if(LC_SELECT) {
       lcd_putch('C');
       measure_capacitance();
     }  else {
@@ -89,7 +89,7 @@ initialize(void) {
   lcd_init(true);
 #endif // defined(USE_NOKIA3310_LCD)
   //others
-  lc_tris();
+  LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
 }
 
@@ -134,15 +134,15 @@ calibrate(void) {
   lcd_set_cursor(0, 0);
   lcd_print("Calibrating. please wait...");
 #endif // defined(USE_NOKIA3310_LCD)
-  remove_ccal();
+  REMOVE_CCAL();
   F1 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
   F1 = (double)measure_freq();
-  add_ccal();
+  ADD_CCAL();
   F2 = (double)measure_freq();  //dummy reading to stabilize oscillator
   delay10ms(50);
   F2 = (double)measure_freq();
-  remove_ccal();
+  REMOVE_CCAL();
 #if USE_NOKIA3310_LCD
   lcd_gotoxy(0, 4);
 #elif defined(USE_HD44780_LCD)
@@ -177,7 +177,7 @@ measure_capacitance() {
   display_print_number(var, 10, 5);
   F3 = (double)var;
   if(F3 > F1) F3 = F1; //max freq is F1;
-  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * Ccal / (F3 * F3 * (F1 * F1 - F2 * F2));
+  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * C_CAL / (F3 * F3 * (F1 * F1 - F2 * F2));
   if(Cin > 999) {
     if(Cin > (999000)) {
       if(Cin > (999000000)) {
@@ -214,8 +214,8 @@ measure_inductance() {
   var = measure_freq();
   F3 = (double)var;
   if(F3 > F1) F3 = F1; //max freq is F1;
-  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (gate_period * gate_period);
-  denominator = 4 * pi * pi * F1 * F1 * F2 * F2 * F3 * F3 * Ccal;
+  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (GATE_PERIOD * GATE_PERIOD);
+  denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * C_CAL;
   Lin = (numerator / denominator) * 1000000000000000; //scale to nH { pF/ 1e012 * nH/  1000000000 * (s/  1000)^2 }
   if(Lin > 999) {
     if(Lin > (999000)) {

@@ -30,14 +30,14 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #include "lcd44780.h"
 ///#include "lcd3310.h"
 
-#define Ccal          1000    //pF
-#define gate_period   100      //ms
-#define pi            3.14159
-#define LC_select     RC4      //L or C select (from DPDT switch)
-#define lc_tris()     TRISC4 = INPUT  //as input
-#define add_ccal()    RC5 = HIGH    //relay on
-#define remove_ccal() RC5 = LOW    //relay off
-#define relay_tris()  TRISC5 = OUTPUT  //as output to drive the relay coil
+#define C_CAL          1000    //pF
+#define GATE_PERIOD   100      //ms
+#define PI            3.14159
+#define LC_SELECT     RC4      //L or C select (from DPDT switch)
+#define LC_TRIS()     TRISC4 = INPUT  //as input
+#define ADD_CCAL()    RC5 = HIGH    //relay on
+#define REMOVE_CCAL() RC5 = LOW    //relay off
+#define RELAY_TRIS()  TRISC5 = OUTPUT  //as output to drive the relay coil
 
 //#ifdef HI_TECH_C
 # define WITH_LCD 1

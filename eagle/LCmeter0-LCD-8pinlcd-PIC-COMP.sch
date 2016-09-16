@@ -12160,8 +12160,8 @@ package type P</description>
 <part name="R10" library="r" deviceset="R" device="0202/7" value="4.7kΩ"/>
 <part name="C1" library="c" deviceset="C" device="025-025X060" value="1nF"/>
 <part name="C2" library="c" deviceset="C" device="025-025X060" value="1nF"/>
-<part name="C3" library="c" deviceset="CPOL" device="E2.5-5" value="10μF"/>
-<part name="C4" library="c" deviceset="CPOL" device="E2.5-5" value="10μF"/>
+<part name="C3" library="c" deviceset="CPOL" device="E2,5-4" value="10μF"/>
+<part name="C4" library="c" deviceset="CPOL" device="E2,5-4" value="10μF"/>
 <part name="C5" library="c" deviceset="C" device="025-020X036" value="33pF"/>
 <part name="C6" library="c" deviceset="C" device="025-020X036" value="33pF"/>
 <part name="C7" library="c" deviceset="CPOL" device="E2.5-5" value="100μF"/>
@@ -12243,7 +12243,7 @@ package type P</description>
 <instance part="GND5" gate="1" x="22.86" y="-2.54"/>
 <instance part="GND6" gate="1" x="35.56" y="-2.54"/>
 <instance part="GND7" gate="1" x="43.18" y="12.7" rot="MR0"/>
-<instance part="D1" gate="G$1" x="50.8" y="0" rot="R180"/>
+<instance part="D1" gate="G$1" x="50.8" y="0" rot="MR0"/>
 <instance part="L1" gate="G$1" x="12.7" y="25.4" rot="R90"/>
 <instance part="Q1" gate="G$1" x="172.72" y="5.08"/>
 <instance part="P+3" gate="VCC" x="200.66" y="-12.7" smashed="yes">
@@ -12365,7 +12365,6 @@ package type P</description>
 <wire x1="58.42" y1="45.72" x2="55.88" y2="45.72" width="0.1524" layer="91"/>
 <junction x="58.42" y="45.72"/>
 <label x="88.9" y="45.72" size="1.778" layer="95"/>
-<label x="58.42" y="35.56" size="1.778" layer="95"/>
 <wire x1="58.42" y1="45.72" x2="93.98" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="93.98" y1="45.72" x2="104.14" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="45.72" x2="104.14" y2="43.18" width="0.1524" layer="91"/>
@@ -12542,13 +12541,13 @@ package type P</description>
 </segment>
 <segment>
 <wire x1="50.8" y1="10.16" x2="50.8" y2="7.62" width="0.1524" layer="91"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="50.8" y1="7.62" x2="50.8" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="5.08" x2="43.18" y2="7.62" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="7.62" x2="50.8" y2="7.62" width="0.1524" layer="91"/>
-<junction x="50.8" y="7.62"/>
 <pinref part="K2" gate="1" pin="-"/>
 <pinref part="P+7" gate="VCC" pin="VCC"/>
+<pinref part="D1" gate="G$1" pin="C"/>
+<wire x1="50.8" y1="2.54" x2="50.8" y2="7.62" width="0.1524" layer="91"/>
+<junction x="50.8" y="7.62"/>
 </segment>
 <segment>
 <pinref part="J2" gate="1" pin="VDD"/>
@@ -12643,12 +12642,12 @@ package type P</description>
 <segment>
 <pinref part="T1" gate="G$1" pin="C"/>
 <label x="52.07" y="-15.24" size="1.778" layer="95" rot="MR0"/>
-<pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="50.8" y1="-2.54" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-10.16" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="-7.62" x2="43.18" y2="-7.62" width="0.1524" layer="91"/>
 <wire x1="43.18" y1="-5.08" x2="43.18" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="K2" gate="1" pin="+"/>
+<pinref part="D1" gate="G$1" pin="A"/>
+<wire x1="50.8" y1="-2.54" x2="50.8" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="50.8" y="-7.62"/>
 </segment>
 </net>

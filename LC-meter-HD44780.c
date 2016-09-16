@@ -105,7 +105,7 @@ main(void) {
      
      uart_puts("\r\n");
 #if 0
-  relay_tris();
+  RELAY_TRIS();
   for(int i = 0; i < 10; i++) {
     RC5 = HIGH;
     __delay_ms(500);
@@ -113,7 +113,7 @@ main(void) {
   __delay_ms(500);
   }
 #endif
-add_ccal();
+ADD_CCAL();
 
   for(;;) {
 
@@ -166,8 +166,8 @@ initialize(void) {
   lcd_begin(2, 1);
 #endif // defined(USE_NOKIA3310_LCD)
   //others
-  lc_tris();
-  relay_tris();
+  LC_TRIS();
+  RELAY_TRIS();
 
 setup_timer1();
 setup_ccp1();

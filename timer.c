@@ -18,6 +18,7 @@ void setup_timer0() {
 #if TMR0_PRESCALER != 0
   OPTION_REGbits.PS = TMR0_PRESCALER-1;
 #endif
+
 }
 #endif // USE_TIMER_0
 
@@ -35,12 +36,12 @@ setup_timer1() {
 //  T1CONbits.TMR1CS = 0; // Internal clock source
 //  T1CONbits.T1SYNC = 1;
   
-  TMR1IE = 1;
-  TMR1IF = 0;
-
   TMR1 = 0;
 
   T1CONbits.TMR1ON = 1;
+
+  TMR1IE = 1;
+  TMR1IF = 0;
 }
 
 #endif // USE_TIMER_1
