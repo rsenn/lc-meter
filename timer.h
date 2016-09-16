@@ -37,7 +37,7 @@ extern volatile uint16 tmr0_overflow;
 #endif
 
 #define TMR0_FREQ (OSC_4/(1<<(TMR0_PRESCALER)))
-#define TMR0_INTERVAL (TMR0_FREQ>>8)
+#define TMR0_INTERVAL (TMR0_FREQ/256)
 #define TMR0_TICK_US (1000000/TMR0_FREQ)
 #define TMR0_INTERVAL_US (1000000*256/TMR0_FREQ)
 #define TMR0_INTERVAL_MS (1000*256/TMR0_FREQ)

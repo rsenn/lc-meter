@@ -52,8 +52,8 @@ INTERRUPT()
   if (TMR2IF) {
     tmr2_overflow++;
 
-     
-     
+
+
 
     // Clear timer interrupt bit
     TMR2IF = 0;
@@ -75,15 +75,14 @@ INTERRUPT()
   if (T0IF) {
     tmr0_overflow++;
 
-       bres++;
-        if(bres >= TMR0_INTERVAL) // if reached 1 second!
-        {
-          bres -= TMR0_INTERVAL;  // subtract 1 second, retain error
-          seconds++;  // update clock, etc
+    bres++;
+    if (bres >= TMR0_FREQ/64) { // if reached 1 second!
+      bres -= TMR0_FREQ/64;  // subtract 1 second, retain error
+      seconds++;  // update clock, etc
 
-          SET_LED(seconds & 1);
-        }
-
+      SET_LED(seconds & 1);
+    }
+    TMR0 = -64;
     T0IF = 0;
   }
 
@@ -119,14 +118,14 @@ main(void)
 #endif
 
   for (;;) {
-  bool led_value = 0;
+    bool led_value = 0;
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
 
     lcd_set_cursor(5,0);
     display_print_number(ccp1t[1] - ccp1t_lr, 16, 4);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
-  //  SET_LED(led_value = !led_value);
+    //  SET_LED(led_value = !led_value);
   }
 }
 
@@ -152,13 +151,13 @@ static void initialize(void)
   TRISA = 0b11001111;
 
   setup_timer0();
-  setup_timer1();
-  TMR1H = 0xff;
+ // setup_timer1();
+ // TMR1H = 0xff;
 
-  setup_timer2();
+ // setup_timer2();
 
 
-  setup_ccp1();
+ // setup_ccp1();
 
   //others
   lc_tris();
