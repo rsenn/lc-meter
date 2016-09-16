@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.0025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -1231,24 +1231,24 @@
 <package name="C050-025X075">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
  grid 5 mm, outline 2.5 x 7.5 mm</description>
-<wire x1="-0.3048" y1="0.635" x2="-0.3048" y2="0" width="0.3048" layer="21"/>
-<wire x1="-0.3048" y1="0" x2="-0.3048" y2="-0.635" width="0.3048" layer="21"/>
-<wire x1="-0.3048" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.3302" y1="0.635" x2="0.3302" y2="0" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="0" x2="0.3302" y2="-0.635" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="-3.683" y1="1.016" x2="-3.683" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-3.429" y1="-1.27" x2="3.429" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="-0.635" x2="0.3048" y2="0" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="0.3048" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.3302" y1="-0.635" x2="-0.3302" y2="0" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-0.3302" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
 <wire x1="3.683" y1="-1.016" x2="3.683" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="3.429" y1="1.27" x2="-3.429" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="3.429" y1="1.27" x2="3.683" y2="1.016" width="0.1524" layer="21" curve="-90"/>
-<wire x1="3.429" y1="-1.27" x2="3.683" y2="-1.016" width="0.1524" layer="21" curve="90"/>
-<wire x1="-3.683" y1="-1.016" x2="-3.429" y2="-1.27" width="0.1524" layer="21" curve="90"/>
-<wire x1="-3.683" y1="1.016" x2="-3.429" y2="1.27" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
-<text x="-3.429" y="1.651" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.429" y="-2.794" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-3.683" y1="1.016" x2="-3.683" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.429" y1="-1.27" x2="3.429" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.429" y1="-1.27" x2="-3.683" y2="-1.016" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.429" y1="1.27" x2="-3.683" y2="1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.683" y1="1.016" x2="3.429" y2="1.27" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.683" y1="-1.016" x2="3.429" y2="-1.27" width="0.1524" layer="21" curve="-90"/>
+<pad name="1" x="2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<text x="4.064" y="1.27" size="1.016" layer="25" rot="R270">&gt;NAME</text>
+<text x="-4.064" y="-1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 </package>
 <package name="C050-035X075">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -3464,6 +3464,26 @@
 <rectangle x1="-0.381" y1="0.0635" x2="0.381" y2="0.254" layer="21"/>
 <rectangle x1="-0.381" y1="-0.254" x2="0.381" y2="-0.0635" layer="21" rot="R180"/>
 </package>
+<package name="C050-025X060">
+<wire x1="0.3048" y1="-0.635" x2="0.3048" y2="0" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="0.3048" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.3302" y1="-0.635" x2="-0.3302" y2="0" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-0.3302" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="3.556" y1="-0.762" x2="3.556" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="3.302" y1="1.016" x2="-3.302" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-3.556" y1="0.762" x2="-3.556" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="3.302" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="-3.556" y2="-0.762" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.302" y1="1.016" x2="-3.556" y2="0.762" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="0.762" x2="3.302" y2="1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="-0.762" x2="3.302" y2="-1.016" width="0.1524" layer="21" curve="-90"/>
+<pad name="1" x="2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<text x="3.8735" y="1.016" size="1.016" layer="25" rot="R270">&gt;NAME</text>
+<text x="-3.8735" y="-1.016" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="C">
@@ -4099,6 +4119,15 @@
 </technologies>
 </device>
 <device name="025-015X024" package="C025-015X024">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="025-025X060" package="C050-025X060">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>

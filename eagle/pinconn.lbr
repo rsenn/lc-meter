@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.0025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -94,21 +94,21 @@
 <text x="-6.35" y="2.54" size="0.6096" layer="21" font="vector" align="center">DTR</text>
 </package>
 <package name="PIC-UART">
-<pad name="20" x="7.62" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="19" x="5.08" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
-<pad name="18" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<wire x1="8.89" y1="1.143" x2="8.89" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="8.89" y1="-1.143" x2="-1.27" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.143" x2="-1.27" y2="1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="1.143" x2="8.89" y2="1.143" width="0.127" layer="22"/>
-<text x="-1.397" y="-1.143" size="0.6096" layer="23" align="bottom-right">17</text>
-<text x="-1.27" y="-1.397" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
-<text x="0" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">TX</text>
-<text x="2.54" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">RX</text>
-<text x="5.08" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VSS</text>
-<text x="7.62" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VDD</text>
-<text x="8.89" y="-1.397" size="0.8128" layer="25" align="top-right">&gt;NAME</text>
+<pad name="20" x="-7.62" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="19" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square"/>
+<pad name="18" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<wire x1="1.27" y1="1.143" x2="1.27" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.143" x2="-8.89" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="-1.143" x2="-8.89" y2="1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="1.143" x2="1.27" y2="1.143" width="0.127" layer="22"/>
+<text x="1.397" y="-1.143" size="0.6096" layer="23">17</text>
+<text x="1.27" y="-2.413" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
+<text x="0" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">TX</text>
+<text x="-2.54" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">RX</text>
+<text x="-5.08" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VSS</text>
+<text x="-7.62" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VDD</text>
+<text x="-8.89" y="-2.413" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
 </package>
 <package name="PIC-UART-NOVDD">
 <pad name="19" x="1.27" y="1.27" drill="0.8" diameter="1.778" shape="square"/>

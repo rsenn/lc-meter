@@ -6586,25 +6586,6 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
  &lt;/tr&gt;
  &lt;/table&gt;</description>
 <packages>
-<package name="C050-020X036">
-<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-0.889" x2="0" y2="-1.524" width="0.127" layer="21" curve="-90"/>
-<pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
-<text x="1.016" y="0.635" size="0.6096" layer="25" rot="R180" align="center-right">&gt;NAME</text>
-<text x="1.016" y="-0.635" size="0.6096" layer="27" align="center-left">&gt;VALUE</text>
-<pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R90"/>
-<wire x1="0" y1="-1.524" x2="-0.635" y2="-0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="-0.635" y1="0.889" x2="-0.635" y2="-0.889" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="0.889" x2="0" y2="1.524" width="0.127" layer="21" curve="-90"/>
-<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-1.5367" width="0.127" layer="51"/>
-<rectangle x1="-0.381" y1="0.0762" x2="0.381" y2="0.2032" layer="21"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.524" width="0.127" layer="51"/>
-<rectangle x1="-0.0254" y1="0.2032" x2="0.0254" y2="1.016" layer="21"/>
-<rectangle x1="-0.381" y1="-0.2032" x2="0.381" y2="-0.0762" layer="21" rot="R180"/>
-<rectangle x1="-0.0254" y1="-1.016" x2="0.0254" y2="-0.2032" layer="21" rot="R180"/>
-</package>
 <package name="C025-024X044">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
  grid 2.5 mm, outline 2.4 x 4.4 mm</description>
@@ -6772,24 +6753,24 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <package name="C050-025X075">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
  grid 5 mm, outline 2.5 x 7.5 mm</description>
-<wire x1="-0.3048" y1="0.635" x2="-0.3048" y2="0" width="0.3048" layer="21"/>
-<wire x1="-0.3048" y1="0" x2="-0.3048" y2="-0.635" width="0.3048" layer="21"/>
-<wire x1="-0.3048" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.3302" y1="0.635" x2="0.3302" y2="0" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="0" x2="0.3302" y2="-0.635" width="0.3048" layer="21"/>
-<wire x1="0.3302" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="-3.683" y1="1.016" x2="-3.683" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-3.429" y1="-1.27" x2="3.429" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.3048" y1="-0.635" x2="0.3048" y2="0" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="0.3048" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.3302" y1="-0.635" x2="-0.3302" y2="0" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-0.3302" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
 <wire x1="3.683" y1="-1.016" x2="3.683" y2="1.016" width="0.1524" layer="21"/>
 <wire x1="3.429" y1="1.27" x2="-3.429" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="3.429" y1="1.27" x2="3.683" y2="1.016" width="0.1524" layer="21" curve="-90"/>
-<wire x1="3.429" y1="-1.27" x2="3.683" y2="-1.016" width="0.1524" layer="21" curve="90"/>
-<wire x1="-3.683" y1="-1.016" x2="-3.429" y2="-1.27" width="0.1524" layer="21" curve="90"/>
-<wire x1="-3.683" y1="1.016" x2="-3.429" y2="1.27" width="0.1524" layer="21" curve="-90"/>
-<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
-<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
-<text x="-3.429" y="1.651" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.429" y="-2.794" size="1.27" layer="27">&gt;VALUE</text>
+<wire x1="-3.683" y1="1.016" x2="-3.683" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.429" y1="-1.27" x2="3.429" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.429" y1="-1.27" x2="-3.683" y2="-1.016" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.429" y1="1.27" x2="-3.683" y2="1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.683" y1="1.016" x2="3.429" y2="1.27" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.683" y1="-1.016" x2="3.429" y2="-1.27" width="0.1524" layer="21" curve="-90"/>
+<pad name="1" x="2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<text x="4.064" y="1.27" size="1.016" layer="25" rot="R270">&gt;NAME</text>
+<text x="-4.064" y="-1.27" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 </package>
 <package name="C050-045X075">
 <description>&lt;b&gt;CAPACITOR&lt;/b&gt;&lt;p&gt;
@@ -8453,28 +8434,6 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <text x="-4.572" y="-3.937" size="1.778" layer="27">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.889" y2="1.27" layer="21"/>
 </package>
-<package name="E5-4">
-<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
- grid 5.05 mm, diameter 4 mm</description>
-<wire x1="-1.6985" y1="1.1153" x2="1.6985" y2="1.1153" width="0.1524" layer="21" curve="-113.419"/>
-<wire x1="-1.6985" y1="-1.1153" x2="1.6985" y2="-1.1153" width="0.1524" layer="21" curve="113.419"/>
-<wire x1="-1.6985" y1="1.1153" x2="-1.6985" y2="-1.1153" width="0.1524" layer="51" curve="66.5809"/>
-<wire x1="1.6985" y1="-1.1153" x2="1.6985" y2="1.1153" width="0.1524" layer="51" curve="66.5809"/>
-<wire x1="-1.397" y1="0" x2="-0.762" y2="0" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="-1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="21"/>
-<wire x1="-0.254" y1="-1.016" x2="-0.254" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-0.254" y1="1.016" x2="-0.762" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="1.016" x2="-0.762" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="0" x2="1.397" y2="0" width="0.1524" layer="21"/>
-<wire x1="-1.524" y1="0.635" x2="-1.016" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="0.381" x2="-1.27" y2="0.889" width="0.1524" layer="21"/>
-<pad name="+" x="-2.54" y="0" drill="0.8128" diameter="1.905"/>
-<pad name="-" x="2.54" y="0" drill="0.8128" diameter="1.905" shape="octagon"/>
-<text x="2.159" y="1.27" size="1.27" layer="25">&gt;NAME</text>
-<text x="2.159" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="0.254" y1="-1.016" x2="0.762" y2="1.016" layer="21"/>
-</package>
 <package name="E5-6">
 <description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
  grid 5.08 mm, diameter 6 mm</description>
@@ -8894,24 +8853,60 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="-0.5842" y1="0.889" x2="-0.5842" y2="0" width="0.1524" layer="51"/>
 <rectangle x1="-0.508" y1="-0.8128" x2="-0.254" y2="0.8128" layer="21"/>
 </package>
-<package name="C050-020X036-M">
+<package name="C050-020X036">
 <wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
 <wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.127" layer="21"/>
 <wire x1="0.635" y1="-0.889" x2="0" y2="-1.524" width="0.127" layer="21" curve="-90"/>
 <pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
-<text x="-1.016" y="0.635" size="0.6096" layer="25" align="center-right">&gt;NAME</text>
-<text x="-1.016" y="-0.635" size="0.6096" layer="27" rot="R180" align="center-left">&gt;VALUE</text>
+<text x="-1.27" y="0" size="1.016" layer="25" align="center-right">&gt;NAME</text>
+<text x="1.27" y="0" size="1.016" layer="27" align="center-left">&gt;VALUE</text>
 <pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R90"/>
 <wire x1="0" y1="-1.524" x2="-0.635" y2="-0.889" width="0.127" layer="21" curve="-90"/>
 <wire x1="-0.635" y1="0.889" x2="-0.635" y2="-0.889" width="0.127" layer="21"/>
 <wire x1="-0.635" y1="0.889" x2="0" y2="1.524" width="0.127" layer="21" curve="-90"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-1.5367" width="0.127" layer="51"/>
-<rectangle x1="-0.381" y1="0.0762" x2="0.381" y2="0.2032" layer="21"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.524" width="0.127" layer="51"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-0.3937" width="0.0762" layer="51"/>
+<rectangle x1="-0.508" y1="0.127" x2="0.508" y2="0.381" layer="21"/>
+<rectangle x1="-0.508" y1="-0.381" x2="0.508" y2="-0.127" layer="21" rot="R180"/>
+<wire x1="0" y1="2.54" x2="0" y2="0.381" width="0.0762" layer="51"/>
 <wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
-<rectangle x1="-0.0254" y1="0.2032" x2="0.0254" y2="1.016" layer="21"/>
-<rectangle x1="-0.381" y1="-0.2032" x2="0.381" y2="-0.0762" layer="21" rot="R180"/>
-<rectangle x1="-0.0254" y1="-1.016" x2="0.0254" y2="-0.2032" layer="21" rot="R180"/>
+</package>
+<package name="C025-015X024">
+<wire x1="0" y1="1.397" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
+<wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-0.889" x2="0" y2="-1.397" width="0.127" layer="21" curve="-90"/>
+<wire x1="0" y1="-1.016" x2="0" y2="-0.3937" width="0.0762" layer="51"/>
+<wire x1="0" y1="1.016" x2="0" y2="0.381" width="0.0762" layer="51"/>
+<pad name="2" x="0" y="-1.27" drill="0.8128" shape="octagon" rot="R270" stop="no"/>
+<text x="-1.016" y="0" size="1.016" layer="25" align="center-right">&gt;NAME</text>
+<text x="0.508" y="-2.413" size="0.8128" layer="27" rot="R180">&gt;VALUE</text>
+<pad name="1" x="0" y="1.27" drill="0.8128" shape="octagon" rot="R90" stop="no"/>
+<wire x1="0" y1="-1.397" x2="-0.635" y2="-0.889" width="0.127" layer="21" curve="-90"/>
+<wire x1="-0.635" y1="0.889" x2="-0.635" y2="-0.889" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="0.889" x2="0" y2="1.397" width="0.127" layer="21" curve="-90"/>
+<rectangle x1="-0.381" y1="0.0635" x2="0.381" y2="0.254" layer="21"/>
+<rectangle x1="-0.381" y1="-0.254" x2="0.381" y2="-0.0635" layer="21" rot="R180"/>
+</package>
+<package name="E5-4">
+<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
+ grid 5.05 mm, diameter 4 mm</description>
+<wire x1="-1.6985" y1="1.1153" x2="1.6985" y2="1.1153" width="0.1524" layer="21" curve="-113.419"/>
+<wire x1="-1.6985" y1="-1.1153" x2="1.6985" y2="-1.1153" width="0.1524" layer="21" curve="113.419"/>
+<wire x1="-1.6985" y1="1.1153" x2="-1.6985" y2="-1.1153" width="0.1524" layer="51" curve="66.5809"/>
+<wire x1="1.6985" y1="-1.1153" x2="1.6985" y2="1.1153" width="0.1524" layer="51" curve="66.5809"/>
+<wire x1="-1.397" y1="0" x2="-0.762" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="-1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-0.254" y1="-1.016" x2="-0.254" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-0.254" y1="1.016" x2="-0.762" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-0.762" y1="1.016" x2="-0.762" y2="0" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="0" x2="1.397" y2="0" width="0.1524" layer="21"/>
+<wire x1="-1.524" y1="0.635" x2="-1.016" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="0.381" x2="-1.27" y2="0.889" width="0.1524" layer="21"/>
+<pad name="+" x="-2.54" y="0" drill="0.8128" shape="octagon" stop="no"/>
+<pad name="-" x="2.54" y="0" drill="0.8128" shape="octagon" stop="no"/>
+<text x="2.159" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="2.159" y="-2.54" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="0.254" y1="-1.016" x2="0.762" y2="1.016" layer="21"/>
 </package>
 <package name="E2,5-3">
 <wire x1="0.762" y1="-0.9525" x2="0.635" y2="-0.9525" width="0.0762" layer="21"/>
@@ -8925,10 +8920,10 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="0.1397" y1="-0.6985" x2="0.4445" y2="-0.6985" width="0.0762" layer="51"/>
 <wire x1="0.4445" y1="-0.6985" x2="0.4445" y2="0" width="0.0762" layer="51"/>
 <circle x="0" y="0" radius="1.524" width="0.127" layer="21"/>
-<pad name="-" x="-1.27" y="0" drill="0.8128" shape="octagon" rot="R180" stop="no"/>
-<pad name="+" x="1.27" y="0" drill="0.8128" rot="R180" stop="no"/>
-<text x="1.27" y="1.778" size="0.6096" layer="25" align="bottom-right">&gt;NAME</text>
-<text x="1.27" y="-1.778" size="0.6096" layer="27" align="top-right">&gt;VALUE</text>
+<pad name="-" x="-1.27" y="0" drill="0.8128" diameter="1.6002" shape="octagon" rot="R180"/>
+<pad name="+" x="1.27" y="0" drill="0.8128" diameter="1.6002" rot="R180"/>
+<text x="-1.2065" y="0.8255" size="1.016" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="1.2065" y="1.016" size="0.8128" layer="27">&gt;VALUE</text>
 <wire x1="-1.27" y1="0" x2="-0.4445" y2="0" width="0.0762" layer="51"/>
 <wire x1="-0.4445" y1="0" x2="-0.4445" y2="-0.6985" width="0.0762" layer="51"/>
 <wire x1="-0.4445" y1="-0.6985" x2="-0.1397" y2="-0.6985" width="0.0762" layer="51"/>
@@ -8936,6 +8931,26 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="-0.1397" y1="0.6985" x2="-0.4445" y2="0.6985" width="0.0762" layer="51"/>
 <wire x1="-0.4445" y1="0.6985" x2="-0.4445" y2="0" width="0.0762" layer="51"/>
 <rectangle x1="-0.4064" y1="-0.6858" x2="-0.1778" y2="0.6858" layer="21"/>
+</package>
+<package name="C050-025X060">
+<wire x1="0.3048" y1="-0.635" x2="0.3048" y2="0" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="0.3048" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.3302" y1="-0.635" x2="-0.3302" y2="0" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-0.3302" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="3.556" y1="-0.762" x2="3.556" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="3.302" y1="1.016" x2="-3.302" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-3.556" y1="0.762" x2="-3.556" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="3.302" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="-3.556" y2="-0.762" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.302" y1="1.016" x2="-3.556" y2="0.762" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="0.762" x2="3.302" y2="1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="-0.762" x2="3.302" y2="-1.016" width="0.1524" layer="21" curve="-90"/>
+<pad name="1" x="2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<text x="3.8735" y="1.016" size="1.016" layer="25" rot="R270">&gt;NAME</text>
+<text x="-3.8735" y="-1.016" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -9221,7 +9236,16 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="050-020X036-M" package="C050-020X036-M">
+<device name="025-015X024" package="C025-015X024">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="025-025X060" package="C050-025X060">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -11605,21 +11629,21 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <pad name="8" x="17.78" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
 </package>
 <package name="PIC-UART">
-<pad name="20" x="7.62" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="19" x="5.08" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
-<pad name="18" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<wire x1="8.89" y1="1.143" x2="8.89" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="8.89" y1="-1.143" x2="-1.27" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.143" x2="-1.27" y2="1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="1.143" x2="8.89" y2="1.143" width="0.127" layer="22"/>
-<text x="-1.397" y="-1.143" size="0.6096" layer="23" align="bottom-right">17</text>
-<text x="-1.27" y="-1.397" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
-<text x="0" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">TX</text>
-<text x="2.54" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">RX</text>
-<text x="5.08" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VSS</text>
-<text x="7.62" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VDD</text>
-<text x="8.89" y="-1.397" size="0.8128" layer="25" align="top-right">&gt;NAME</text>
+<pad name="20" x="-7.62" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="19" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square"/>
+<pad name="18" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<wire x1="1.27" y1="1.143" x2="1.27" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.143" x2="-8.89" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="-1.143" x2="-8.89" y2="1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="1.143" x2="1.27" y2="1.143" width="0.127" layer="22"/>
+<text x="1.397" y="-1.143" size="0.6096" layer="23">17</text>
+<text x="1.27" y="-2.413" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
+<text x="0" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">TX</text>
+<text x="-2.54" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">RX</text>
+<text x="-5.08" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VSS</text>
+<text x="-7.62" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VDD</text>
+<text x="-8.89" y="-2.413" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
 </package>
 <package name="CONN-2P">
 <pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
@@ -12100,10 +12124,10 @@ package type P</description>
 <part name="R3" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
 <part name="R4" library="r" deviceset="R" device="0202/7" value="47kΩ"/>
 <part name="R10" library="r" deviceset="R" device="0202/7" value="4.7kΩ"/>
-<part name="C1" library="c" deviceset="C" device="050-020X036" value="1nF"/>
-<part name="C2" library="c" deviceset="C" device="050-020X036" value="1nF"/>
-<part name="C3" library="c" deviceset="CPOL" device="E2,5-4" value="10μF"/>
-<part name="C4" library="c" deviceset="CPOL" device="E2,5-4" value="10μF"/>
+<part name="C1" library="c" deviceset="C" device="025-025X060" value="1nF"/>
+<part name="C2" library="c" deviceset="C" device="025-025X060" value="1nF"/>
+<part name="C3" library="c" deviceset="CPOL" device="E2.5-5" value="10μF"/>
+<part name="C4" library="c" deviceset="CPOL" device="E2.5-5" value="10μF"/>
 <part name="C5" library="c" deviceset="C" device="025-020X036" value="33pF"/>
 <part name="C6" library="c" deviceset="C" device="025-020X036" value="33pF"/>
 <part name="C7" library="c" deviceset="CPOL" device="E2.5-6" value="100μF"/>

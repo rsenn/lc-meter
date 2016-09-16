@@ -36,23 +36,23 @@
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
@@ -69,7 +69,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="99" name="SpiceOrder" color="5" fill="1" visible="no" active="no"/>
-<layer number="250" name="trash" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="250" name="trash" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -3429,48 +3429,46 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
  &lt;/tr&gt;
  &lt;/table&gt;</description>
 <packages>
-<package name="C050-020X036">
-<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-0.889" x2="0" y2="-1.524" width="0.127" layer="21" curve="-90"/>
-<pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
-<text x="1.016" y="0.635" size="0.6096" layer="25" rot="R180" align="center-right">&gt;NAME</text>
-<text x="1.016" y="-0.635" size="0.6096" layer="27" align="center-left">&gt;VALUE</text>
-<pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R90"/>
-<wire x1="0" y1="-1.524" x2="-0.635" y2="-0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="-0.635" y1="0.889" x2="-0.635" y2="-0.889" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="0.889" x2="0" y2="1.524" width="0.127" layer="21" curve="-90"/>
-<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
-<wire x1="0" y1="-2.54" x2="0" y2="-1.5367" width="0.127" layer="51"/>
-<rectangle x1="-0.381" y1="0.0762" x2="0.381" y2="0.2032" layer="21"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.524" width="0.127" layer="51"/>
-<rectangle x1="-0.0254" y1="0.2032" x2="0.0254" y2="1.016" layer="21"/>
-<rectangle x1="-0.381" y1="-0.2032" x2="0.381" y2="-0.0762" layer="21" rot="R180"/>
-<rectangle x1="-0.0254" y1="-1.016" x2="0.0254" y2="-0.2032" layer="21" rot="R180"/>
+<package name="C050-025X060">
+<wire x1="0.3048" y1="-0.635" x2="0.3048" y2="0" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="0.3048" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="0.3048" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.3302" y1="-0.635" x2="-0.3302" y2="0" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-0.3302" y2="0.635" width="0.3048" layer="21"/>
+<wire x1="-0.3302" y1="0" x2="-1.524" y2="0" width="0.1524" layer="21"/>
+<wire x1="3.556" y1="-0.762" x2="3.556" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="3.302" y1="1.016" x2="-3.302" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-3.556" y1="0.762" x2="-3.556" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="3.302" y2="-1.016" width="0.1524" layer="21"/>
+<wire x1="-3.302" y1="-1.016" x2="-3.556" y2="-0.762" width="0.1524" layer="21" curve="-90"/>
+<wire x1="-3.302" y1="1.016" x2="-3.556" y2="0.762" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="0.762" x2="3.302" y2="1.016" width="0.1524" layer="21" curve="90"/>
+<wire x1="3.556" y1="-0.762" x2="3.302" y2="-1.016" width="0.1524" layer="21" curve="-90"/>
+<pad name="1" x="2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8128" shape="octagon" rot="R180"/>
+<text x="3.8735" y="1.016" size="1.016" layer="25" rot="R270">&gt;NAME</text>
+<text x="-3.8735" y="-1.016" size="1.016" layer="27" rot="R90">&gt;VALUE</text>
 </package>
-<package name="E2,5-4">
-<wire x1="1.2065" y1="-1.27" x2="1.016" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-1.0795" x2="1.016" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-1.27" x2="0.8255" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-1.27" x2="1.016" y2="-1.4605" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="0" x2="0.5842" y2="0" width="0.1524" layer="51"/>
-<wire x1="0.5842" y1="0" x2="0.5842" y2="0.889" width="0.1524" layer="51"/>
-<wire x1="0.5842" y1="0.889" x2="0.2032" y2="0.889" width="0.1524" layer="51"/>
-<wire x1="0.2032" y1="0.889" x2="0.2032" y2="-0.889" width="0.1524" layer="51"/>
-<wire x1="0.2032" y1="-0.889" x2="0.5842" y2="-0.889" width="0.1524" layer="51"/>
-<wire x1="0.5842" y1="-0.889" x2="0.5842" y2="0" width="0.1524" layer="51"/>
-<circle x="0" y="0" radius="2.032" width="0.1524" layer="21"/>
-<pad name="-" x="-1.27" y="0" drill="0.8128" diameter="1.6002" shape="octagon" rot="R180"/>
-<pad name="+" x="1.27" y="0" drill="0.8128" diameter="1.6002" rot="R180"/>
-<text x="-1.397" y="-1.524" size="1.016" layer="25" rot="R180">&gt;NAME</text>
-<text x="1.651" y="1.143" size="1.016" layer="27">&gt;VALUE</text>
-<wire x1="-1.27" y1="0" x2="-0.5842" y2="0" width="0.1524" layer="51"/>
-<wire x1="-0.5842" y1="0" x2="-0.5842" y2="-0.889" width="0.1524" layer="51"/>
-<wire x1="-0.5842" y1="-0.889" x2="-0.2032" y2="-0.889" width="0.1524" layer="51"/>
-<wire x1="-0.2032" y1="-0.889" x2="-0.2032" y2="0.889" width="0.1524" layer="51"/>
-<wire x1="-0.2032" y1="0.889" x2="-0.5842" y2="0.889" width="0.1524" layer="51"/>
-<wire x1="-0.5842" y1="0.889" x2="-0.5842" y2="0" width="0.1524" layer="51"/>
-<rectangle x1="-0.508" y1="-0.8128" x2="-0.254" y2="0.8128" layer="21"/>
+<package name="E2,5-5">
+<description>&lt;b&gt;ELECTROLYTIC CAPACITOR&lt;/b&gt;&lt;p&gt;
+ grid 2.54 mm, diameter 5 mm</description>
+<wire x1="-1.651" y1="1.27" x2="-1.397" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.397" y1="1.016" x2="-1.397" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.397" y1="1.27" x2="-1.143" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-1.397" y1="1.27" x2="-1.397" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-1.651" y1="0" x2="-0.762" y2="0" width="0.1524" layer="51"/>
+<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.27" width="0.1524" layer="51"/>
+<wire x1="-0.762" y1="-1.27" x2="-0.254" y2="-1.27" width="0.1524" layer="51"/>
+<wire x1="-0.254" y1="-1.27" x2="-0.254" y2="1.27" width="0.1524" layer="51"/>
+<wire x1="-0.254" y1="1.27" x2="-0.762" y2="1.27" width="0.1524" layer="51"/>
+<wire x1="-0.762" y1="1.27" x2="-0.762" y2="0" width="0.1524" layer="51"/>
+<wire x1="0.635" y1="0" x2="1.651" y2="0" width="0.1524" layer="51"/>
+<circle x="0" y="0" radius="2.54" width="0.1524" layer="21"/>
+<pad name="-" x="1.27" y="0" drill="0.8128" diameter="1.6002" shape="octagon"/>
+<pad name="+" x="-1.27" y="0" drill="0.8128" diameter="1.6002"/>
+<text x="2.413" y="1.27" size="1.27" layer="25">&gt;NAME</text>
+<text x="2.413" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
 </package>
 <package name="C025-020X036">
 <wire x1="0" y1="2.159" x2="0.889" y2="1.397" width="0.127" layer="21" curve="-90"/>
@@ -4780,21 +4778,21 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <pad name="8" x="17.78" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
 </package>
 <package name="PIC-UART">
-<pad name="20" x="7.62" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="19" x="5.08" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
-<pad name="18" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<wire x1="8.89" y1="1.143" x2="8.89" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="8.89" y1="-1.143" x2="-1.27" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.143" x2="-1.27" y2="1.143" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="1.143" x2="8.89" y2="1.143" width="0.127" layer="22"/>
-<text x="-1.397" y="-1.143" size="0.6096" layer="23" align="bottom-right">17</text>
-<text x="-1.27" y="-1.397" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
-<text x="0" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">TX</text>
-<text x="2.54" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">RX</text>
-<text x="5.08" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VSS</text>
-<text x="7.62" y="1.397" size="0.6096" layer="21" font="vector" align="bottom-center">VDD</text>
-<text x="8.89" y="-1.397" size="0.8128" layer="25" align="top-right">&gt;NAME</text>
+<pad name="20" x="-7.62" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="19" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square"/>
+<pad name="18" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
+<wire x1="1.27" y1="1.143" x2="1.27" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.143" x2="-8.89" y2="-1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="-1.143" x2="-8.89" y2="1.143" width="0.127" layer="22"/>
+<wire x1="-8.89" y1="1.143" x2="1.27" y2="1.143" width="0.127" layer="22"/>
+<text x="1.397" y="-1.143" size="0.6096" layer="23">17</text>
+<text x="1.27" y="-2.413" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
+<text x="0" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">TX</text>
+<text x="-2.54" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">RX</text>
+<text x="-5.08" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VSS</text>
+<text x="-7.62" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VDD</text>
+<text x="-8.89" y="-2.413" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
 </package>
 <package name="CONN-2P">
 <pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
@@ -5075,16 +5073,22 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="c" package="C050-020X036" value="1nF" x="15.24" y="35.56"/>
-<element name="C2" library="c" package="C050-020X036" value="1nF" x="12.7" y="35.56"/>
-<element name="C3" library="c" package="E2,5-4" value="10μF" x="21.59" y="38.1"/>
-<element name="C4" library="c" package="E2,5-4" value="10μF" x="21.59" y="33.02"/>
+<element name="C1" library="c" package="C050-025X060" value="1nF" x="15.24" y="35.56" rot="R90"/>
+<element name="C2" library="c" package="C050-025X060" value="1nF" x="12.7" y="35.56" rot="R90"/>
+<element name="C3" library="c" package="E2,5-5" value="10μF" x="21.59" y="38.1" smashed="yes">
+<attribute name="NAME" x="21.59" y="41.148" size="1.27" layer="25" align="bottom-center"/>
+<attribute name="VALUE" x="24.003" y="35.687" size="1.27" layer="27"/>
+</element>
+<element name="C4" library="c" package="E2,5-5" value="10μF" x="21.59" y="33.02" smashed="yes" rot="R180">
+<attribute name="NAME" x="21.59" y="29.972" size="1.27" layer="25" align="top-center"/>
+<attribute name="VALUE" x="24.003" y="30.607" size="1.27" layer="27"/>
+</element>
 <element name="C5" library="c" package="C025-020X036" value="33pF" x="26.67" y="17.78" rot="R90"/>
 <element name="C6" library="c" package="C025-020X036" value="33pF" x="26.67" y="20.32" rot="R90"/>
 <element name="C7" library="c" package="E2,5-6" value="100μF" x="52.07" y="7.62" rot="R180"/>
 <element name="C9" library="rcl" package="C025-024X044" value="100nF" x="50.8" y="19.05" smashed="yes" rot="R270">
-<attribute name="NAME" x="49.53" y="16.51" size="1.27" layer="25" ratio="10" rot="R270"/>
-<attribute name="VALUE" x="48.133" y="20.828" size="1.27" layer="27" ratio="10" rot="R270"/>
+<attribute name="NAME" x="49.784" y="21.844" size="1.016" layer="25" ratio="10" rot="R90" align="top-left"/>
+<attribute name="VALUE" x="48.641" y="17.526" size="0.8128" layer="27" ratio="10" rot="R270" align="bottom-right"/>
 </element>
 <element name="D1" library="d" package="DO34-7" value="1N4148" x="19.05" y="2.54" rot="R180"/>
 <element name="L1" library="r" package="L-09R" value="68μH" x="10.16" y="43.18"/>
@@ -5115,7 +5119,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="27.94" y="10.541" size="0.8128" layer="27" ratio="10" rot="R180" align="bottom-center"/>
 </element>
 <element name="J4" library="pinconn" package="CONN-2P" value="J4" x="50.8" y="2.54" rot="R180"/>
-<element name="J2" library="pinconn" package="PIC-UART" value="PIC-UART" x="53.34" y="12.7" rot="R90"/>
+<element name="J2" library="pinconn" package="PIC-UART" value="PIC-UART" x="53.34" y="12.7" rot="R270"/>
 <element name="U$1" library="sw" package="PB-1P1T" value="PB-1P-1T" x="22.86" y="45.72" rot="R180"/>
 <element name="U$2" library="lc-meter" package="DIL28-3" value="PIC16F876A-X/SP-COMP-B-A" x="41.91" y="24.13" rot="R270"/>
 <element name="R6" library="r" package="0202/7" value="10k" x="48.26" y="6.35" rot="R180"/>
@@ -5140,7 +5144,7 @@ design rules under a new name.</description>
 <wire x1="25.4" y1="38.1" x2="25.4" y2="25.4" width="0.6096" layer="1"/>
 <via x="25.4" y="25.4" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="25.4" y1="43.18" x2="25.4" y2="38.1" width="0.6096" layer="16"/>
-<wire x1="25.4" y1="38.1" x2="22.86" y2="38.1" width="0.6096" layer="16"/>
+<wire x1="25.4" y1="38.1" x2="20.32" y2="38.1" width="0.6096" layer="16"/>
 <contactref element="U$2" pad="5"/>
 </signal>
 <signal name="N$2">
@@ -5149,7 +5153,7 @@ design rules under a new name.</description>
 <contactref element="C2" pad="1"/>
 <contactref element="C3" pad="-"/>
 <contactref element="S1" pad="1"/>
-<wire x1="15.24" y1="38.1" x2="20.32" y2="38.1" width="0.6096" layer="16"/>
+<wire x1="15.24" y1="38.1" x2="22.86" y2="38.1" width="0.6096" layer="16"/>
 <wire x1="2.54" y1="35.56" x2="2.54" y2="45.72" width="0.6096" layer="16"/>
 <wire x1="2.54" y1="45.72" x2="12.7" y2="45.72" width="0.6096" layer="16"/>
 <wire x1="12.7" y1="45.72" x2="12.7" y2="43.18" width="0.6096" layer="16"/>
@@ -5276,7 +5280,6 @@ design rules under a new name.</description>
 <contactref element="R7" pad="1"/>
 <wire x1="10.16" y1="5.08" x2="12.7" y2="5.08" width="0.6096" layer="16"/>
 <wire x1="12.7" y1="5.08" x2="15.24" y2="5.08" width="0.6096" layer="16"/>
-<via x="50.8" y="20.32" extent="1-16" drill="0.6" shape="square"/>
 <via x="55.88" y="20.32" extent="1-16" drill="0.5"/>
 <via x="55.88" y="7.62" extent="1-16" drill="0.6" shape="square"/>
 <via x="12.7" y="15.24" extent="1-16" drill="0.6" shape="square"/>
