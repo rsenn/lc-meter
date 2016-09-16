@@ -163,9 +163,9 @@ static void initialize(void)
   lc_tris();
   NOT_RBPU = 1;  // enable portB internal pullup
 
-  LED_PIN = LOW;
   LED_TRIS = OUTPUT;
-
+LED_PIN = HIGH;
+  
   uart_init();
 
   PEIE = 1;
