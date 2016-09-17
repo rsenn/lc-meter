@@ -9940,6 +9940,35 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <pad name="2" x="-2.54" y="0" drill="0.7" diameter="1.6764" rot="R180"/>
 <text x="-4.1275" y="1.8415" size="1.27" layer="21">&gt;NAME</text>
 </package>
+<package name="SLSW-2P2T-H">
+<wire x1="-2.54" y1="-8.89" x2="2.54" y2="-8.89" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="8.89" x2="-2.54" y2="8.89" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="0" x2="-5.08" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="1.016" x2="-5.08" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="1.016" x2="-5.08" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="1.016" x2="-2.54" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="1.524" x2="-5.08" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="1.524" x2="-5.08" y2="2.032" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="2.032" x2="-5.08" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="2.032" x2="-5.08" y2="2.032" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="0.508" x2="-2.54" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="0.508" x2="-5.08" y2="1.016" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="2.54" x2="-2.54" y2="2.032" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="2.032" x2="-2.54" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="1.016" x2="-2.54" y2="1.524" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="0.508" x2="-2.54" y2="0" width="0.1524" layer="21"/>
+<pad name="1" x="-1.27" y="2.54" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<pad name="2" x="-1.27" y="0" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<pad name="3" x="-1.27" y="-2.54" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<wire x1="-5.08" y1="0" x2="-2.54" y2="0" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="2.54" x2="-5.08" y2="2.54" width="0.1524" layer="21"/>
+<pad name="4" x="1.27" y="2.54" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<pad name="5" x="1.27" y="0" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<pad name="6" x="1.27" y="-2.54" drill="1.1176" diameter="1.524" shape="octagon" stop="no"/>
+<text x="-2.54" y="10.16" size="1.016" layer="25">&gt;NAME</text>
+<wire x1="2.54" y1="-8.89" x2="2.54" y2="8.89" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="-8.89" x2="-2.54" y2="8.89" width="0.1524" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SW-2P2T">
@@ -10026,6 +10055,19 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </technologies>
 </device>
 <device name="" package="SLSW-2P2T">
+<connects>
+<connect gate="G$1" pin="O" pad="1"/>
+<connect gate="G$1" pin="O1" pad="4"/>
+<connect gate="G$1" pin="P" pad="2"/>
+<connect gate="G$1" pin="P1" pad="5"/>
+<connect gate="G$1" pin="S" pad="3"/>
+<connect gate="G$1" pin="S1" pad="6"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-H" package="SLSW-2P2T-H">
 <connects>
 <connect gate="G$1" pin="O" pad="1"/>
 <connect gate="G$1" pin="O1" pad="4"/>
@@ -12184,7 +12226,7 @@ package type P</description>
 <part name="T1" library="t" deviceset="BC547" device="CBE-A" value="BC547CBE-A"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="VCC" device=""/>
-<part name="S1" library="sw" deviceset="SL-SW-2P-2T" device=""/>
+<part name="S1" library="sw" deviceset="SL-SW-2P-2T" device="-H" value="SL-SW-2P-2T-H"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="R7" library="r" deviceset="R" device="0202/10" value="10kΩ"/>
 <part name="J3" library="pinconn" deviceset="PIC-ICSP" device=""/>

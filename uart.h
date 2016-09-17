@@ -46,7 +46,7 @@
 
 //#define UART_BRG_FN(baud) ( (OSC_4/(16*(baud))) - 1 )
 
-void	 uart_putch(unsigned char byte);
+void uart_putch(unsigned char byte);
 void uart_puts(const unsigned char * s);
 void uart_puts2(unsigned char *s);
 
