@@ -106,7 +106,6 @@ main(void)
   lcd_print("LC-meter");
 
 #endif
-  uart_puts("LC-meter\r\n");
 
 #if 0
   RELAY_TRIS();
@@ -126,6 +125,8 @@ main(void)
     display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
+      uart_puts(".\r\n");
+
     //  SET_LED(led_value = !led_value);
   }
 }
