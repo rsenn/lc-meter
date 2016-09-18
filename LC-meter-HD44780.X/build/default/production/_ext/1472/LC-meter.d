@@ -1,0 +1,1 @@
+ build/default/production/_ext/1472/LC-meter.d  build/default/production/_ext/1472/LC-meter.p1:  ../LC-meter.c ../lcd44780.h ../LC-meter.h ../timer.h ../tsmdelay.h ../display.h ../interrupt.h ../device.h ../types.h ../delay.h ../oscillator.h ../const.h

@@ -1,0 +1,71 @@
+     1: #include "timer.h"
+     2: 
+     3: /* ----------------------- Timer 0 ----------------------- */
+     4: #if USE_TIMER_0
+     5: volatile uint16 tmr0_overflow;
+     6: 
+     7: void setup_timer0() {
+     8: 
+     9:   //setup timer0 for frequency counter
+    10:   T0CS = 1;  //Transition on T0CKI pin
+    11:   T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
+    12: 
+    13: 
+    14:   //PSA = 0;  //Prescaler is assigned to the Timer0 module
+    15: 
+    16:   PSA = (TMR0_PRESCALER == 0);  //Prescaler isn't assigned to the Timer0 module
+    17: 
+    18: #if TMR0_PRESCALER != 0
+    19:   OPTION_REGbits.PS = TMR0_PRESCALER-1;
+    20: #endif
+    21: 
+    22: }
+    23: #endif // USE_TIMER_0
+    24: 
+    25: /* ----------------------- Timer 1 ----------------------- */
+    26: #if USE_TIMER_1
+    27: volatile uint16 tmr1_overflow;
+    28: 
+    29: void
+    30: setup_timer1() {
+    31:   
+    32:   tmr1_overflow = 0;
+    33: 
+    34:   T1CONbits.T1CKPS = TMR1_PRESCALER; // 1:1 prescaler
+    35:   T1CONbits.T1OSCEN = 0;
+    36: //  T1CONbits.TMR1CS = 0; // Internal clock source
+    37: //  T1CONbits.T1SYNC = 1;
+    38:   
+    39:   TMR1 = 0;
+    40: 
+    41:   T1CONbits.TMR1ON = 1;
+    42: 
+    43:   TMR1IE = 1;
+    44:   TMR1IF = 0;
+    45: }
+    46: 
+    47: #endif // USE_TIMER_1
+    48: 
+    49: 
+    50: /* ----------------------- Timer 2 ----------------------- */
+    51: #if USE_TIMER_2
+    52: volatile uint16 tmr2_overflow;
+    53: 
+    54: void
+    55: setup_timer2() {
+    56:   
+    57:   tmr2_overflow = 0;
+    58: 
+    59:     // set up TMR2
+    60:   T2CONbits.TOUTPS = TMR2_POSTSCALER;    // Set timer 2 postscaler to 1:1
+    61:   T2CONbits.T2CKPS = TMR2_PRESCALER>>1;      // Set timer 2 prescaler to 1:1.
+    62: 
+    63:   TMR2IE = 1;
+    64:   TMR2IF = 0;
+    65: 
+    66:   TMR2 = 0;
+    67: 
+    68:   T2CONbits.TMR2ON = 1;       // Enable timer 2.
+    69: 
+    70: }
+    71: #endif // USE_TIMER_2

@@ -1,0 +1,234 @@
+     1: #include "LC-meter.h"
+     2: //#include "main.h"
+     3: #include "delay.h"
+     4: #include "interrupt.h"
+     5: #if USE_HD44780_LCD
+     6: #include "lcd44780.h"
+     7: #endif
+     8: #if USE_NOKIA3310_LCD
+     9: #include "lcd3310.h"
+    10: #endif
+    11: #include "display.h"
+    12: #include "timer.h"
+    13: #include "uart.h"
+    14: 
+    15: #ifdef SDCC
+    16: uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
+    17: #endif
+    18: 
+    19: #ifdef __XC__
+    20: # pragma config WDTE = OFF, PWRTE = ON, CP = OFF, BOREN = ON, DEBUG = OFF, LVP = OFF, CPD = OFF, WRT = OFF, FOSC = HS
+    21: #endif
+    22: 
+    23: #ifdef  HI_TECH_C
+    24: __CONFIG(CONFIG_WORD);
+    25: #endif
+    26: 
+    27: #define SET_LED(b) do { LED_PIN = !(b); } while(0);
+    28: 
+    29: #define FALLING 0
+    30: #define RISING 1
+    31: 
+    32: #define CCP1_EDGE() (CCP1M0)
+    33: /*
+    34: volatile uint32 tcy_per_s = TCY_PER_SECOND;
+    35: volatile uint32 tcy_per_ms = TCY_PER_MILLISECOND;
+    36: volatile uint32 tcy_per_us = TCY_PER_MICROSECOND;
+    37: volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
+    38: volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
+    39: */
+    40: 
+    41: volatile uint16 bres;
+    42: volatile  uint16 seconds;
+    43: volatile uint32 ccp1t_lr, ccp1t[2];
+    44: 
+    45: float F1, F2, F3;
+    46: 
+    47: static void initialize(void);
+    48: 
+    49: INTERRUPT()
+    50: {
+    51: 
+    52: /*  if (TMR2IF) {
+    53:     tmr2_overflow++;
+    54: 
+    55: 
+    56: 
+    57: 
+    58:     // Clear timer interrupt bit
+    59:     TMR2IF = 0;
+    60:   }*/
+    61: 
+    62:   if (T0IF) {
+    63:     tmr0_overflow++;
+    64: 
+    65:     bres++;
+    66:     if (bres >= 500) { // if reached 1 second!
+    67:       bres -= 500;  // subtract 1 second, retain error
+    68:       seconds++;  // update clock, etc
+    69: 
+    70:       SET_LED(seconds & 1);
+    71:     }
+    72:     TMR0 = -64;
+    73:     T0IF = 0;
+    74:   }
+    75: 
+    76: #ifdef USE_TIMER_1
+    77:   if (CCP1IF) {
+    78: 
+    79:     if (CCP1_EDGE() == RISING) {
+    80:       ccp1t_lr = ccp1t[RISING];
+    81:     }
+    82:     ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr1_overflow << 16);
+    83:     CCP1IE = 0;
+    84:     CCP1_EDGE() = !CCP1_EDGE();
+    85:     CCP1IE = 1;
+    86:     CCP1IF = 0;
+    87:   }
+    88: #endif
+    89: }
+    90: 
+    91: void
+    92: main(void)
+    93: {
+    94:   /*
+    95:     tcy_per_s = TCY_PER_SECOND;
+    96:   tcy_per_ms = TCY_PER_MILLISECOND;
+    97:   tcy_per_us = TCY_PER_MICROSECOND;
+    98:   ktcy_per_s = KTCY_PER_SECOND;
+    99:   ktcy_per_ms = KTCY_PER_MILLISECOND;
+   100:   */
+   101:   initialize();
+   102: 
+   103: #if USE_HD44780_LCD     || USE_NOKIA3310_LCD
+   104:   lcd_set_cursor(0,0);
+   105: 
+   106:   lcd_print("LC-meter");
+   107: 
+   108: #endif
+   109: 
+   110: #if 0
+   111:   RELAY_TRIS();
+   112:   for (int i = 0; i < 10; i++) {
+   113:     RC5 = HIGH;
+   114:     __delay_ms(500);
+   115:     RC5 = LOW;
+   116:     __delay_ms(500);
+   117:   }
+   118: #endif
+   119: 
+   120:   for (;;) {
+   121:     bool led_value = 0;
+   122: #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
+   123: 
+   124:     lcd_set_cursor(0,1);
+   125:     display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
+   126:     //    display_print_number(measure_freq(), 16, 4);
+   127: #endif
+   128:     //  SET_LED(led_value = !led_value);
+   129:   }
+   130: }
+   131: 
+   132: void
+   133: setup_ccp1()
+   134: {
+   135: 
+   136:   ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+   137: 
+   138:   TRISC2 = INPUT;
+   139:   CCP1CONbits.CCP1M = 0b0100;
+   140:   CCP1IE = 1;
+   141:   CCP1IF = 0;
+   142: }
+   143: 
+   144: static void
+   145: initialize(void)
+   146: {
+   147:   //setup comparator
+   148:   /*CMCONbits.*/CM0 = 1;
+   149:   /*CMCONbits.*/CM1 = 0;
+   150:   /*CMCONbits.*/CM2 = 1;
+   151: 
+   152:   TRISA = 0b11001111;
+   153: 
+   154:   setup_timer0();
+   155:   T0IE = 1;
+   156:   T0IF = 0;
+   157:   // setup_timer1();
+   158:   // TMR1H = 0xff;
+   159: 
+   160:   // setup_timer2();
+   161: 
+   162: 
+   163:   // setup_ccp1();
+   164: 
+   165:   //others
+   166:   LC_TRIS();
+   167:   NOT_RBPU = 1;  // enable portB internal pullup
+   168: 
+   169:   LED_TRIS = OUTPUT;
+   170:   LED_PIN = HIGH;
+   171: 
+   172:   uart_init();
+   173: 
+   174:   RELAY_TRIS();
+   175:   ADD_CCAL();
+   176: 
+   177:   PEIE = 1;
+   178:   GIE = 1;
+   179: 
+   180:   //initialize 3310 lcd
+   181: #if USE_NOKIA3310_LCD
+   182:   lcd_init();
+   183:   lcd_clear();
+   184: #elif USE_HD44780_LCD
+   185:   lcd_init(true);
+   186:   lcd_begin(2, 1);
+   187: #endif
+   188: }
+   189: 
+   190: uint16
+   191: measure_freq(void)    //16-bit freq
+   192: {
+   193: 
+   194:   TRISA4 = 0;    //Enable RA4 output to T0CKI
+   195: 
+   196:   tmr0_overflow = 0;
+   197:   TMR0 = 0x00;
+   198:   TMR0IF = 0;    //clear timer0 interrupt flag
+   199:   TMR0IE = 1;
+   200: 
+   201:   __delay_ms(1000);
+   202: 
+   203:   TRISA4 = 1;    //Disable RA4 output to T0CKI
+   204:   TMR0IE = 0;
+   205: 
+   206:   return (tmr0_overflow << 8) | TMR0;
+   207: }
+   208: 
+   209: void
+   210: calibrate(void)
+   211: {
+   212: 
+   213: }
+   214: 
+   215: void
+   216: measure_capacitance()
+   217: {
+   218: 
+   219: }
+   220: 
+   221: void
+   222: measure_inductance()
+   223: {
+   224: 
+   225: }
+   226: 
+   227: void
+   228: delay10ms(uint16 period_10ms)
+   229: {
+   230:   do {
+   231:     __delay_ms(10);
+   232:   } while (--period_10ms);
+   233: }
+   234: 

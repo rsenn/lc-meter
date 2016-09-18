@@ -1,0 +1,87 @@
+
+
+HI-TECH Software PIC Macro Assembler V9.83 build 10920 
+                                                                                                           Fri Sep 16 13:07:28 2016
+
+
+     1                           
+     2                           	; HI-TECH C Compiler for PIC10/12/16 MCUs V9.83
+     3                           	; Copyright (C) 1984-2011 HI-TECH Software
+     4                           	;Serial no. HCPICP-36668
+     5                           
+     6                           	; Auto-generated runtime startup code for final link stage.
+     7                           
+     8                           	;
+     9                           	; Compiler options:
+    10                           	;
+    11                           	; --codeoffset=0 --chip=16f876a --asmlist \
+    12                           	; -mbuild/htc-16f876a/LC_meter_HD44780_release.map \
+    13                           	; -obuild/htc-16f876a/LC_meter_HD44780_release.hex \
+    14                           	; build/htc-16f876a/release/LC-meter.p1 \
+    15                           	; build/htc-16f876a/release/delay.p1 \
+    16                           	; build/htc-16f876a/release/lcd44780.p1 \
+    17                           	; build/htc-16f876a/release/display.p1 \
+    18                           	; build/htc-16f876a/release/uart.p1 build/htc-16f876a/release/timer.p1
+    19                           	;
+    20                           
+    21                           
+    22                           	processor	16F876A
+    23                           
+    24                           	global	_main,start,_exit,reset_vec
+    25                           	fnroot	_main
+    26                           	psect	config,class=CONFIG,delta=2
+    27                           	psect	idloc,class=IDLOC,delta=2
+    28                           	psect	code,class=CODE,delta=2
+    29                           	psect	powerup,class=CODE,delta=2
+    30                           	psect	reset_vec,class=CODE,delta=2
+    31                           	psect	maintext,class=CODE,delta=2
+    32  0000                     	C	set	0
+    33  0002                     	Z	set	2
+    34  0002                     	PCL	set	2
+    35  0000                     	INDF	set	0
+    36                           
+    37  0003                     	STATUS	equ	3
+    38  000A                     	PCLATH	equ	0Ah
+    39                           
+    40                           	psect	eeprom_data,class=EEDATA,delta=2,space=2
+    41                           	psect	intentry,class=CODE,delta=2
+    42                           	psect	functab,class=CODE,delta=2
+    43                           	global	intlevel0,intlevel1,intlevel2, intlevel3, intlevel4, intlevel5
+    44  0000                     intlevel0:
+    45  0000                     intlevel1:
+    46  0000                     intlevel2:
+    47  0000                     intlevel3:
+    48  0000                     intlevel4:
+    49  0000                     intlevel5:
+    50                           	psect	init,class=CODE,delta=2
+    51                           	psect	cinit,class=CODE,delta=2
+    52                           	psect	text,class=CODE,delta=2
+    53                           	psect	end_init,class=CODE,delta=2
+    54                           	psect	clrtext,class=CODE,delta=2
+    55  0004                     	FSR	set	4
+    56                           	psect	strings,class=CODE,delta=2,reloc=256
+    57                           
+    58                           	psect	reset_vec
+    59  0000                     reset_vec:
+    60                           	; No powerup routine
+    61                           	global start
+    62                           
+    63                           ; jump to start
+    64  0000  120A  118A  280C   	goto	start & 0x7FF | (reset_vec & not 0x7FF)
+    65                           
+    66                           
+    67                           
+    68                           	psect	init
+    69  000C                     start
+    70  000C                     _exit
+    71                           	psect	end_init
+    72                           	global start_initialization
+    73  000C  120A  118A  2AA0   	ljmp start_initialization	;jump to C runtime clear & initialization
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                               Fri Sep 16 13:07:28 2016
+
+               _main 0244                 _exit 000C                 start 000C  start_initialization 02A0  
+           intlevel0 0000             intlevel1 0000             intlevel2 0000             intlevel3 0000  
+           intlevel4 0000             intlevel5 0000             reset_vec 0000  
