@@ -1079,25 +1079,29 @@ extern volatile uint16 tmr0_overflow;
 # 45
 void setup_timer0();
 
-# 49 "uart.h"
+# 46 "uart.h"
+extern const uint8 uart_brg;
+
+
 void uart_putch(unsigned char byte);
-void uart_puts(const unsigned char * s);
-void uart_puts2(unsigned char *s);
 
-int uart_getch(uint16 timeout);
-bool uart_poll(unsigned char bauds);
+int uart_getch(void);
+bit uart_poll(unsigned char bauds);
 
-# 58
+# 56
 void uart_init(void);
 
-# 65
+# 63
 uint8 uart_isr(void);
 
-# 70
+# 68
 void uart_enable(void);
 
-# 75
+# 73
 void uart_disable(void);
+
+void uart_puts(const char *s);
+void uart_puts2(unsigned char *s);
 
 # 24 "LC-meter.c"
 asm("\tpsect config,class=CONFIG,delta=2"); asm("\tdw ""(0xFFFE & 0xFFFF & 0xFFF7)");
@@ -1144,7 +1148,10 @@ lcd_set_cursor(0,0);
 
 lcd_print("LC-meter");
 
-# 120
+
+uart_puts("LC-meter\r\n");
+
+# 121
 for (;;) {
 bool led_value = 0;
 
@@ -1183,7 +1190,7 @@ setup_timer0();
 T0IE = 1;
 T0IF = 0;
 
-# 166
+# 167
 TRISC4 = 1;
 nRBPU = 1;
 
@@ -1198,7 +1205,7 @@ RC5 = 1;
 PEIE = 1;
 GIE = 1;
 
-# 185
+# 186
 lcd_init(!0);
 lcd_begin(2, 1);
 

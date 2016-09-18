@@ -49,15 +49,15 @@
     49: INTERRUPT()
     50: {
     51: 
-    52: /*  if (TMR2IF) {
-    53:     tmr2_overflow++;
+    52:   /*  if (TMR2IF) {
+    53:       tmr2_overflow++;
     54: 
     55: 
     56: 
     57: 
-    58:     // Clear timer interrupt bit
-    59:     TMR2IF = 0;
-    60:   }*/
+    58:       // Clear timer interrupt bit
+    59:       TMR2IF = 0;
+    60:     }*/
     61: 
     62:   if (T0IF) {
     63:     tmr0_overflow++;
@@ -106,129 +106,130 @@
    106:   lcd_print("LC-meter");
    107: 
    108: #endif
-   109: 
-   110: #if 0
-   111:   RELAY_TRIS();
-   112:   for (int i = 0; i < 10; i++) {
-   113:     RC5 = HIGH;
-   114:     __delay_ms(500);
-   115:     RC5 = LOW;
-   116:     __delay_ms(500);
-   117:   }
-   118: #endif
-   119: 
-   120:   for (;;) {
-   121:     bool led_value = 0;
-   122: #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
-   123: 
-   124:     lcd_set_cursor(0,1);
-   125:     display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
-   126:     //    display_print_number(measure_freq(), 16, 4);
-   127: #endif
-   128:     //  SET_LED(led_value = !led_value);
-   129:   }
-   130: }
-   131: 
-   132: void
-   133: setup_ccp1()
-   134: {
-   135: 
-   136:   ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
-   137: 
-   138:   TRISC2 = INPUT;
-   139:   CCP1CONbits.CCP1M = 0b0100;
-   140:   CCP1IE = 1;
-   141:   CCP1IF = 0;
-   142: }
-   143: 
-   144: static void
-   145: initialize(void)
-   146: {
-   147:   //setup comparator
-   148:   /*CMCONbits.*/CM0 = 1;
-   149:   /*CMCONbits.*/CM1 = 0;
-   150:   /*CMCONbits.*/CM2 = 1;
-   151: 
-   152:   TRISA = 0b11001111;
-   153: 
-   154:   setup_timer0();
-   155:   T0IE = 1;
-   156:   T0IF = 0;
-   157:   // setup_timer1();
-   158:   // TMR1H = 0xff;
-   159: 
-   160:   // setup_timer2();
-   161: 
+   109:   uart_puts("LC-meter\r\n");
+   110: 
+   111: #if 0
+   112:   RELAY_TRIS();
+   113:   for (int i = 0; i < 10; i++) {
+   114:     RC5 = HIGH;
+   115:     __delay_ms(500);
+   116:     RC5 = LOW;
+   117:     __delay_ms(500);
+   118:   }
+   119: #endif
+   120: 
+   121:   for (;;) {
+   122:     bool led_value = 0;
+   123: #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
+   124: 
+   125:     lcd_set_cursor(0,1);
+   126:     display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
+   127:     //    display_print_number(measure_freq(), 16, 4);
+   128: #endif
+   129:     //  SET_LED(led_value = !led_value);
+   130:   }
+   131: }
+   132: 
+   133: void
+   134: setup_ccp1()
+   135: {
+   136: 
+   137:   ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+   138: 
+   139:   TRISC2 = INPUT;
+   140:   CCP1CONbits.CCP1M = 0b0100;
+   141:   CCP1IE = 1;
+   142:   CCP1IF = 0;
+   143: }
+   144: 
+   145: static void
+   146: initialize(void)
+   147: {
+   148:   //setup comparator
+   149:   /*CMCONbits.*/CM0 = 1;
+   150:   /*CMCONbits.*/CM1 = 0;
+   151:   /*CMCONbits.*/CM2 = 1;
+   152: 
+   153:   TRISA = 0b11001111;
+   154: 
+   155:   setup_timer0();
+   156:   T0IE = 1;
+   157:   T0IF = 0;
+   158:   // setup_timer1();
+   159:   // TMR1H = 0xff;
+   160: 
+   161:   // setup_timer2();
    162: 
-   163:   // setup_ccp1();
-   164: 
-   165:   //others
-   166:   LC_TRIS();
-   167:   NOT_RBPU = 1;  // enable portB internal pullup
-   168: 
-   169:   LED_TRIS = OUTPUT;
-   170:   LED_PIN = HIGH;
-   171: 
-   172:   uart_init();
-   173: 
-   174:   RELAY_TRIS();
-   175:   ADD_CCAL();
-   176: 
-   177:   PEIE = 1;
-   178:   GIE = 1;
-   179: 
-   180:   //initialize 3310 lcd
-   181: #if USE_NOKIA3310_LCD
-   182:   lcd_init();
-   183:   lcd_clear();
-   184: #elif USE_HD44780_LCD
-   185:   lcd_init(true);
-   186:   lcd_begin(2, 1);
-   187: #endif
-   188: }
-   189: 
-   190: uint16
-   191: measure_freq(void)    //16-bit freq
-   192: {
-   193: 
-   194:   TRISA4 = 0;    //Enable RA4 output to T0CKI
-   195: 
-   196:   tmr0_overflow = 0;
-   197:   TMR0 = 0x00;
-   198:   TMR0IF = 0;    //clear timer0 interrupt flag
-   199:   TMR0IE = 1;
-   200: 
-   201:   __delay_ms(1000);
-   202: 
-   203:   TRISA4 = 1;    //Disable RA4 output to T0CKI
-   204:   TMR0IE = 0;
-   205: 
-   206:   return (tmr0_overflow << 8) | TMR0;
-   207: }
-   208: 
-   209: void
-   210: calibrate(void)
-   211: {
-   212: 
-   213: }
-   214: 
-   215: void
-   216: measure_capacitance()
-   217: {
-   218: 
-   219: }
-   220: 
-   221: void
-   222: measure_inductance()
-   223: {
-   224: 
-   225: }
-   226: 
-   227: void
-   228: delay10ms(uint16 period_10ms)
-   229: {
-   230:   do {
-   231:     __delay_ms(10);
-   232:   } while (--period_10ms);
-   233: }
-   234: 
+   163: 
+   164:   // setup_ccp1();
+   165: 
+   166:   //others
+   167:   LC_TRIS();
+   168:   NOT_RBPU = 1;  // enable portB internal pullup
+   169: 
+   170:   LED_TRIS = OUTPUT;
+   171:   LED_PIN = HIGH;
+   172: 
+   173:   uart_init();
+   174: 
+   175:   RELAY_TRIS();
+   176:   ADD_CCAL();
+   177: 
+   178:   PEIE = 1;
+   179:   GIE = 1;
+   180: 
+   181:   //initialize 3310 lcd
+   182: #if USE_NOKIA3310_LCD
+   183:   lcd_init();
+   184:   lcd_clear();
+   185: #elif USE_HD44780_LCD
+   186:   lcd_init(true);
+   187:   lcd_begin(2, 1);
+   188: #endif
+   189: }
+   190: 
+   191: uint16
+   192: measure_freq(void)    //16-bit freq
+   193: {
+   194: 
+   195:   TRISA4 = 0;    //Enable RA4 output to T0CKI
+   196: 
+   197:   tmr0_overflow = 0;
+   198:   TMR0 = 0x00;
+   199:   TMR0IF = 0;    //clear timer0 interrupt flag
+   200:   TMR0IE = 1;
+   201: 
+   202:   __delay_ms(1000);
+   203: 
+   204:   TRISA4 = 1;    //Disable RA4 output to T0CKI
+   205:   TMR0IE = 0;
+   206: 
+   207:   return (tmr0_overflow << 8) | TMR0;
+   208: }
+   209: 
+   210: void
+   211: calibrate(void)
+   212: {
+   213: 
+   214: }
+   215: 
+   216: void
+   217: measure_capacitance()
+   218: {
+   219: 
+   220: }
+   221: 
+   222: void
+   223: measure_inductance()
+   224: {
+   225: 
+   226: }
+   227: 
+   228: void
+   229: delay10ms(uint16 period_10ms)
+   230: {
+   231:   do {
+   232:     __delay_ms(10);
+   233:   } while (--period_10ms);
+   234: }
+   235: 

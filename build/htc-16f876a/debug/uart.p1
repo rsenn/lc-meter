@@ -793,207 +793,212 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS91  1 e@396 ]
 "1069 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f876a.h
 [v _EECON2 `Vuc  1 e@397 ]
-"54 uart.h
-[v _uart_poll `(uc  0 ef1`uc ]
 "18 uart.c
+[v _uart_brg `Cuc  1 e ]
+"53 uart.h
+[v _uart_poll `(b  0 ef1`uc ]
+"18 uart.c
+[i _uart_brg
+-> -> 32 `i `uc
+]
+"24
 [v _uart_putch `(v  1 ef1`uc ]
 {
 [e :U _uart_putch ]
 [v _byte `uc  1 r1 ]
 [f ]
-"20
+"26
 [e $U 95  ]
 [e :U 96 ]
 {
-"22
+"28
 [e $U 95  ]
-"23
+"29
 }
 [e :U 95 ]
-"20
+"26
 [e $ ! _TXIF 96  ]
 [e :U 97 ]
-"24
+"30
 [e = _TXREG _byte ]
-"25
+"31
 [e :UE 94 ]
 }
-"28
-[v _uart_getch `(i  1 ef1`us ]
+"34
+[v _uart_getch `(i  1 ef ]
 {
 [e :U _uart_getch ]
-[v _timeout `us  1 r1 ]
 [f ]
-"30
-[e $ ! != -> ( _uart_poll (1 -> _timeout `uc `i -> -> -> 0 `i `uc `i 99  ]
+"36
+[e $ ! ( _uart_poll (1 -> -> 38400 `l `uc 99  ]
 {
-"31
+"37
 [v _ch `uc  1 a ]
-"32
+"38
 [e = _ch _RCREG ]
-"33
+"39
 [e = _RCIF -> -> 0 `i `b ]
-"34
+"40
 [e ) -> _ch `i ]
 [e $UE 98  ]
-"35
+"41
 }
 [e :U 99 ]
-"36
+"42
 [e ) -U -> 1 `i ]
 [e $UE 98  ]
-"37
+"43
 [e :UE 98 ]
 }
-"43
-[v _uart_poll `(uc  1 ef1`uc ]
+"49
+[v _uart_poll `(b  1 ef1`uc ]
 {
 [e :U _uart_poll ]
 [v _bauds `uc  1 r1 ]
 [f ]
-"48
-[e = _TMR0 -> - -> -> 256 `i `ui - -> -> / -> -> 20000000 `l `d * -> -> 16 `i `d -> -> 38400 `l `d `us `ui -> -> 1 `i `ui `uc ]
-"49
+"54
+[e = _TMR0 -> - -> -> 256 `i `l - / / / -> 20000000 `l -> -> 4 `i `l -> << -> 1 `i + -> 0 `i -> 1 `i `l -> _bauds `l -> -> 1 `i `l `uc ]
+"55
 [e $U 101  ]
 [e :U 102 ]
 {
-"50
+"56
 [e $ ! _RCIF 104  ]
-"51
-[e ) -> -> 1 `i `uc ]
+"57
+[e ) -> -> 1 `i `b ]
 [e $UE 100  ]
 [e :U 104 ]
-"52
+"58
 }
 [e :U 101 ]
-"49
+"55
 [e $ != & -> _TMR0 `i << -> 1 `i -> 7 `i -> 0 `i 102  ]
 [e :U 103 ]
-"54
-[e ) -> -> 0 `i `uc ]
+"60
+[e ) -> -> 0 `i `b ]
 [e $UE 100  ]
-"55
+"61
 [e :UE 100 ]
 }
-"63
+"69
 [v _uart_isr `(uc  1 ef ]
 {
 [e :U _uart_isr ]
 [f ]
-"64
+"70
 [e $ ! _RCIF 106  ]
 {
-"65
+"71
 [e = _RCIF -> -> 0 `i `b ]
-"66
+"72
 [e ) _RCREG ]
 [e $UE 105  ]
-"67
+"73
 }
 [e :U 106 ]
-"68
+"74
 [e ) -> -> 0 `i `uc ]
 [e $UE 105  ]
-"69
+"75
 [e :UE 105 ]
 }
-"72
+"78
 [v _uart_enable `(v  1 ef ]
 {
 [e :U _uart_enable ]
 [f ]
-"73
+"79
 [e = _TXEN -> -> 1 `i `b ]
-"74
+"80
 [e = _SPEN -> -> 1 `i `b ]
-"75
+"81
 [e = _RCIE -> -> 0 `i `b ]
-"76
+"82
 [e = _TRISC7 -> -> 1 `i `b ]
-"77
+"83
 [e = _TRISC6 -> -> 1 `i `b ]
-"78
+"84
 [e :UE 107 ]
 }
-"81
+"87
 [v _uart_disable `(v  1 ef ]
 {
 [e :U _uart_disable ]
 [f ]
-"82
-[e = _TXEN -> -> 0 `i `b ]
-"83
-[e = _SPEN -> -> 0 `i `b ]
-"84
-[e = _RCIE -> -> 0 `i `b ]
-"85
-[e = _TRISC7 -> -> 0 `i `b ]
-"86
-[e = _TRISC6 -> -> 0 `i `b ]
-"87
-[e = _RC6 -> -> 0 `i `b ]
 "88
-[e = _RC7 -> -> 0 `i `b ]
+[e = _TXEN -> -> 0 `i `b ]
 "89
+[e = _SPEN -> -> 0 `i `b ]
+"90
+[e = _RCIE -> -> 0 `i `b ]
+"91
+[e = _TRISC7 -> -> 0 `i `b ]
+"92
+[e = _TRISC6 -> -> 0 `i `b ]
+"93
+[e = _RC6 -> -> 0 `i `b ]
+"94
+[e = _RC7 -> -> 0 `i `b ]
+"95
 [e :UE 108 ]
 }
-"92
+"98
 [v _uart_init `(v  1 ef ]
 {
 [e :U _uart_init ]
 [f ]
-"95
+"101
 [e = _TRISC7 -> -> 1 `i `b ]
-"96
-[e = _TRISC6 -> -> 1 `i `b ]
-"97
-[e = _SPBRG -> -> 31 `i `uc ]
-"99
-[e = _CREN -> -> 1 `i `b ]
-"100
-[e = _RX9D == -> 0 `i -> 1 `i ]
 "102
-[e = _BRGH == -> 1 `i -> 1 `i ]
+[e = _TRISC6 -> -> 1 `i `b ]
 "103
-[e = _TX9 == -> 0 `i -> 1 `i ]
+[e = _SPBRG -> -> 32 `i `uc ]
 "105
-[e ( _uart_enable ..  ]
+[e = _CREN -> -> 1 `i `b ]
 "106
+[e = _RX9D == -> 0 `i -> 1 `i ]
+"108
+[e = _BRGH == -> 1 `i -> 1 `i ]
+"109
+[e = _TX9 == -> 0 `i -> 1 `i ]
+"111
+[e ( _uart_enable ..  ]
+"112
 [e :UE 109 ]
 }
-"107
+"114
 [v _uart_puts `(v  1 ef1`*Cuc ]
 {
 [e :U _uart_puts ]
 [v _s `*Cuc  1 r1 ]
 [f ]
-"108
+"115
 [e $U 111  ]
 [e :U 112 ]
-"109
+"116
 [e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
 [e :U 111 ]
-"108
+"115
 [e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 112  ]
 [e :U 113 ]
-"110
+"117
 [e :UE 110 ]
 }
-"112
+"119
 [v _uart_puts2 `(v  1 ef1`*uc ]
 {
 [e :U _uart_puts2 ]
 [v _s `*uc  1 r1 ]
 [f ]
-"113
+"120
 [e $U 115  ]
 [e :U 116 ]
-"114
+"121
 [e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
 [e :U 115 ]
-"113
+"120
 [e $ != -> *U _s `i -> -> -> 0 `i `uc `i 116  ]
 [e :U 117 ]
-"115
+"122
 [e :UE 114 ]
 }

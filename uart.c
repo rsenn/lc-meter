@@ -1,7 +1,10 @@
 #include "delay.h"
 #include "uart.h"
+#include "softser.h"
 #include "types.h"
-#include "device.h"
+
+
+#ifdef USE_UART
 
 #ifndef UART_BRG
 # if HIGH_SPEED == 1
@@ -10,6 +13,9 @@
 #  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
 # endif
 #endif
+#define UART_TIMEOUT UART_BAUD
+
+const uint8 uart_brg = UART_BRG;
 
 /**
  * Re-target POSIX function uart_putch
@@ -25,32 +31,32 @@ uart_putch(unsigned char byte) {
 }
 
 int
-uart_getch(uint16 timeout) {
-    
-	if(uart_poll(timeout)) {
+uart_getch(void) {
+
+	if(uart_poll(UART_TIMEOUT)) {
       uint8 ch;
 	  ch = RCREG;
 	  RCIF = 0;
 	  return (int)ch;
-  } 
+  }
  return -1;
-} 
+}
 
 
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
-bool
+bit
 uart_poll(unsigned char bauds) {
 
-    // TMR0 -= UART_BRG;            // load corrected baud value
+    // TMR0 -= SOFTSER_BRG;            // load corrected baud value
 
 
-    TMR0 = (256 - UART_BRG_FN(UART_BAUD));
+    TMR0 = (256 - SOFTSER_BRG_FN(bauds));
     while( TMR0&(1<<7) ) {
       if(RCIF)
         return 1;
     }
-  
+
   return 0;
 }
 
@@ -73,8 +79,8 @@ uart_enable(void) {
   TXEN = 1;
   SPEN = 1;
   RCIE = 0;
-  RX_TRIS = INPUT;
-  TX_TRIS = INPUT;
+  RX_TRIS = 1;
+  TX_TRIS = 1;
 }
 
 void
@@ -82,8 +88,8 @@ uart_disable(void) {
   TXEN = 0;
   SPEN = 0;
   RCIE = 0;
-  RX_TRIS = OUTPUT;
-  TX_TRIS = OUTPUT;
+  RX_TRIS = 0;
+  TX_TRIS = 0;
   TX_PIN = 0;
   RX_PIN = 0;
 }
@@ -92,8 +98,8 @@ void
 uart_init(void) {
   /* Initilize baudrate generator and pins */
 
-  RX_TRIS = INPUT;
-  TX_TRIS = INPUT;
+  RX_TRIS = 1;
+  TX_TRIS = 1;
   SPBRG = UART_BRG; //UART_BRG;
 
   CREN = 1;
@@ -104,14 +110,14 @@ uart_init(void) {
 
   uart_enable();
 }
-void
-uart_puts(const unsigned char * s) {
+
+void uart_puts(const char * s) {
   while(*s)
     uart_putch(*s++);
 }
 
-void
-uart_puts2(unsigned char * s) {
+void uart_puts2(unsigned char * s) {
   while(*s)
     uart_putch(*s++);
 }
+#endif // USE_UART

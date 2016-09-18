@@ -30,6 +30,8 @@
 #ifndef _SER_H_
 #define _SER_H_
 
+#ifdef USE_SER
+
 #include "types.h"
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */
@@ -38,21 +40,8 @@
 #define SER_FIFO_MASK 		(SER_BUFFER_SIZE-1)
 
 /* Insert this macro inside the interrupt routine */
-#define ser_int() 							\
-	if (RCIF) {								\
-		rxfifo[rxiptr]=RCREG;				\
-		ser_tmp=(rxiptr+1) & SER_FIFO_MASK;	\
-		if (ser_tmp!=rxoptr)				\
-			rxiptr=ser_tmp;					\
-	}										\
-	if (TXIF && TXIE) {						\
-		TXREG = txfifo[txoptr];				\
-		++txoptr;							\
-		txoptr &= SER_FIFO_MASK;			\
-		if (txoptr==txiptr) {				\
-			TXIE = 0;						\
-		}									\
-	}
+#define ser_int() if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & SER_FIFO_MASK; if (ser_tmp!=rxoptr) rxiptr=ser_tmp; } if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= SER_FIFO_MASK; if (txoptr==txiptr) { TXIE = 0; } }
+
 
 bit ser_isrx(void);
 unsigned char ser_getch(void);
@@ -68,6 +57,8 @@ extern volatile unsigned char rxiptr, rxoptr;
 extern /*bank1*/ unsigned char txfifo[SER_BUFFER_SIZE];
 extern volatile unsigned char txiptr, txoptr;
 extern unsigned char ser_tmp;
+#endif
+extern unsigned char ser_brg;
 #endif
 
 #endif

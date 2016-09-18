@@ -1026,27 +1026,47 @@ void Delay10KTCYx(uint8);
 void Delay10TCYx(uint8);
 void Delay1KTCYx(uint8);
 
-# 49 "uart.h"
+# 46 "uart.h"
+extern const uint8 uart_brg;
+
+
 void uart_putch(unsigned char byte);
-void uart_puts(const unsigned char * s);
-void uart_puts2(unsigned char *s);
 
-int uart_getch(uint16 timeout);
-bool uart_poll(unsigned char bauds);
+int uart_getch(void);
+bit uart_poll(unsigned char bauds);
 
-# 58
+# 56
 void uart_init(void);
 
-# 65
+# 63
 uint8 uart_isr(void);
 
-# 70
+# 68
 void uart_enable(void);
 
-# 75
+# 73
 void uart_disable(void);
 
-# 17 "uart.c"
+void uart_puts(const char *s);
+void uart_puts2(unsigned char *s);
+
+# 117 "softser.h"
+bit softser_poll(unsigned char ticks);
+void softser_recv(void);
+
+unsigned char softser_getch(void);
+void softser_putch(unsigned char byte);
+void softser_puts(const char * s);
+void softser_puts2(unsigned char * s);
+void softser_puthex(unsigned char v);
+void softser_init(void);
+
+extern unsigned char softser_rdata;
+
+# 18 "uart.c"
+const uint8 uart_brg = 30;
+
+# 23
 void
 uart_putch(unsigned char byte) {
 
@@ -1058,9 +1078,9 @@ TXREG = (unsigned char)byte;
 }
 
 int
-uart_getch(uint16 timeout) {
+uart_getch(void) {
 
-if(uart_poll(timeout)) {
+if(uart_poll(38400)) {
 uint8 ch;
 ch = RCREG;
 RCIF = 0;
@@ -1072,13 +1092,13 @@ return -1;
 
 
 
-bool
+bit
 uart_poll(unsigned char bauds) {
 
 
 
 
-TMR0 = (256 - ((uint16)((double)(20000000) / (16 * (double)(38400))) - 1));
+TMR0 = (256 - ((((20000000)/4)/(1<<(0b000+1))/(bauds)) - 1));
 while( TMR0&(1<<7) ) {
 if(RCIF)
 return 1;
@@ -1087,7 +1107,7 @@ return 1;
 return 0;
 }
 
-# 62
+# 68
 unsigned char
 uart_isr(void) {
 if(RCIF) {
@@ -1123,7 +1143,7 @@ uart_init(void) {
 
 TRISC7 = 1;
 TRISC6 = 1;
-SPBRG = 31;
+SPBRG = 30;
 
 CREN = 1;
 RX9D = (0 == 1);
@@ -1133,14 +1153,14 @@ TX9 = (0 == 1);
 
 uart_enable();
 }
-void
-uart_puts(const unsigned char * s) {
+
+void uart_puts(const char * s) {
 while(*s)
 uart_putch(*s++);
 }
 
-void
-uart_puts2(unsigned char * s) {
+void uart_puts2(unsigned char * s) {
 while(*s)
 uart_putch(*s++);
 }
+

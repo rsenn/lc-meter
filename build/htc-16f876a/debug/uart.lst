@@ -1,115 +1,123 @@
      1: #include "delay.h"
      2: #include "uart.h"
-     3: #include "types.h"
-     4: #include "device.h"
+     3: #include "softser.h"
+     4: #include "types.h"
      5: 
-     6: #ifndef UART_BRG
-     7: # if HIGH_SPEED == 1
-     8: #  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
-     9: # else
-    10: #  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
-    11: # endif
-    12: #endif
-    13: 
-    14: /**
-    15:  * Re-target POSIX function uart_putch
-    16:  */
-    17: void
-    18: uart_putch(unsigned char byte) {
-    19:   /* output one byte */
-    20:   while(!TXIF) {
-    21:     /* set when register is empty */
-    22:     continue;
-    23:   }
-    24:   TXREG = (unsigned char)byte;
-    25: }
-    26: 
-    27: int
-    28: uart_getch(uint16 timeout) {
-    29:     
-    30:         if(uart_poll(timeout)) {
-    31:       uint8 ch;
-    32:           ch = RCREG;
-    33:           RCIF = 0;
-    34:           return (int)ch;
-    35:   } 
-    36:  return -1;
-    37: } 
-    38: 
-    39: 
-    40: // returns 1 when start bit received or 0 when timeout
-    41: //---------------------------------------------------------
-    42: bool
-    43: uart_poll(unsigned char bauds) {
+     6: 
+     7: #ifdef USE_UART
+     8: 
+     9: #ifndef UART_BRG
+    10: # if HIGH_SPEED == 1
+    11: #  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+    12: # else
+    13: #  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
+    14: # endif
+    15: #endif
+    16: #define UART_TIMEOUT UART_BAUD
+    17: 
+    18: const uint8 uart_brg = UART_BRG;
+    19: 
+    20: /**
+    21:  * Re-target POSIX function uart_putch
+    22:  */
+    23: void
+    24: uart_putch(unsigned char byte) {
+    25:   /* output one byte */
+    26:   while(!TXIF) {
+    27:     /* set when register is empty */
+    28:     continue;
+    29:   }
+    30:   TXREG = (unsigned char)byte;
+    31: }
+    32: 
+    33: int
+    34: uart_getch(void) {
+    35: 
+    36:         if(uart_poll(UART_TIMEOUT)) {
+    37:       uint8 ch;
+    38:           ch = RCREG;
+    39:           RCIF = 0;
+    40:           return (int)ch;
+    41:   }
+    42:  return -1;
+    43: }
     44: 
-    45:     // TMR0 -= UART_BRG;            // load corrected baud value
-    46: 
-    47: 
-    48:     TMR0 = (256 - UART_BRG_FN(UART_BAUD));
-    49:     while( TMR0&(1<<7) ) {
-    50:       if(RCIF)
-    51:         return 1;
-    52:     }
-    53:   
-    54:   return 0;
-    55: }
-    56: 
-    57: /**
-    58:  * ISR for UART receive
-    59:  *
-    60:  * @return received character or 0 if it's not UART interrupt
-    61:  */
-    62: unsigned char
-    63: uart_isr(void) {
-    64:   if(RCIF) {
-    65:     RCIF = 0;
-    66:     return RCREG;
-    67:   }
-    68:   return 0;
-    69: }
-    70: 
-    71: void
-    72: uart_enable(void) {
-    73:   TXEN = 1;
-    74:   SPEN = 1;
-    75:   RCIE = 0;
-    76:   RX_TRIS = INPUT;
-    77:   TX_TRIS = INPUT;
-    78: }
-    79: 
-    80: void
-    81: uart_disable(void) {
-    82:   TXEN = 0;
-    83:   SPEN = 0;
-    84:   RCIE = 0;
-    85:   RX_TRIS = OUTPUT;
-    86:   TX_TRIS = OUTPUT;
-    87:   TX_PIN = 0;
-    88:   RX_PIN = 0;
-    89: }
-    90: 
-    91: void
-    92: uart_init(void) {
-    93:   /* Initilize baudrate generator and pins */
-    94: 
-    95:   RX_TRIS = INPUT;
-    96:   TX_TRIS = INPUT;
-    97:   SPBRG = UART_BRG; //UART_BRG;
-    98: 
-    99:   CREN = 1;
-   100:   RX9D = (NINE == 1);
-   101: 
-   102:   BRGH = (HIGH_SPEED == 1);
-   103:   TX9 = (NINE == 1);
+    45: 
+    46: // returns 1 when start bit received or 0 when timeout
+    47: //---------------------------------------------------------
+    48: bit
+    49: uart_poll(unsigned char bauds) {
+    50: 
+    51:     // TMR0 -= SOFTSER_BRG;            // load corrected baud value
+    52: 
+    53: 
+    54:     TMR0 = (256 - SOFTSER_BRG_FN(bauds));
+    55:     while( TMR0&(1<<7) ) {
+    56:       if(RCIF)
+    57:         return 1;
+    58:     }
+    59: 
+    60:   return 0;
+    61: }
+    62: 
+    63: /**
+    64:  * ISR for UART receive
+    65:  *
+    66:  * @return received character or 0 if it's not UART interrupt
+    67:  */
+    68: unsigned char
+    69: uart_isr(void) {
+    70:   if(RCIF) {
+    71:     RCIF = 0;
+    72:     return RCREG;
+    73:   }
+    74:   return 0;
+    75: }
+    76: 
+    77: void
+    78: uart_enable(void) {
+    79:   TXEN = 1;
+    80:   SPEN = 1;
+    81:   RCIE = 0;
+    82:   RX_TRIS = 1;
+    83:   TX_TRIS = 1;
+    84: }
+    85: 
+    86: void
+    87: uart_disable(void) {
+    88:   TXEN = 0;
+    89:   SPEN = 0;
+    90:   RCIE = 0;
+    91:   RX_TRIS = 0;
+    92:   TX_TRIS = 0;
+    93:   TX_PIN = 0;
+    94:   RX_PIN = 0;
+    95: }
+    96: 
+    97: void
+    98: uart_init(void) {
+    99:   /* Initilize baudrate generator and pins */
+   100: 
+   101:   RX_TRIS = 1;
+   102:   TX_TRIS = 1;
+   103:   SPBRG = UART_BRG; //UART_BRG;
    104: 
-   105:   uart_enable();
-   106: }
-   107: void uart_puts(const unsigned char * s) {
-   108:   while(*s)
-   109:     uart_putch(*s++);
-   110: }
-   111: 
-   112: void uart_puts2(unsigned char * s) {
-   113:   while(*s)
-   114:     uart_putch(*s++);
-   115: }
+   105:   CREN = 1;
+   106:   RX9D = (NINE == 1);
+   107: 
+   108:   BRGH = (HIGH_SPEED == 1);
+   109:   TX9 = (NINE == 1);
+   110: 
+   111:   uart_enable();
+   112: }
+   113: 
+   114: void uart_puts(const char * s) {
+   115:   while(*s)
+   116:     uart_putch(*s++);
+   117: }
+   118: 
+   119: void uart_puts2(unsigned char * s) {
+   120:   while(*s)
+   121:     uart_putch(*s++);
+   122: }
+   123: #endif // USE_UART

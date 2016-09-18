@@ -49,15 +49,15 @@ static void initialize(void);
 INTERRUPT()
 {
 
-/*  if (TMR2IF) {
-    tmr2_overflow++;
+  /*  if (TMR2IF) {
+      tmr2_overflow++;
 
 
 
 
-    // Clear timer interrupt bit
-    TMR2IF = 0;
-  }*/
+      // Clear timer interrupt bit
+      TMR2IF = 0;
+    }*/
 
   if (T0IF) {
     tmr0_overflow++;
@@ -106,6 +106,7 @@ main(void)
   lcd_print("LC-meter");
 
 #endif
+  uart_puts("LC-meter\r\n");
 
 #if 0
   RELAY_TRIS();

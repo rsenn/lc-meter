@@ -30,19 +30,31 @@
  * SOFTWARE.
  *
 */
-
+#ifdef USE_SER
 #define _SER_C_
 #include "device.h"
 #include "ser.h"
 
+
+#ifndef SER_BRG
+//# if HIGH_SPEED == 1
+#  define SER_BRG ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+//# else
+//#  define SER_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
+//# endif
+#endif
+
+
+unsigned char ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
+
+
 unsigned char rxfifo[SER_BUFFER_SIZE];
 volatile unsigned char rxiptr, rxoptr;
-bank1 unsigned char txfifo[SER_BUFFER_SIZE];
+/*bank1*/ unsigned char txfifo[SER_BUFFER_SIZE];
 volatile unsigned char txiptr, txoptr;
 unsigned char ser_tmp;
 
-bit
-ser_isrx(void) {
+bit ser_isrx(void) {
   if(OERR) {
     CREN = 0;
     CREN = 1;
@@ -51,8 +63,7 @@ ser_isrx(void) {
   return (rxiptr != rxoptr);
 }
 
-unsigned char
-ser_getch(void) {
+unsigned char ser_getch(void) {
   unsigned char c;
 
   while(ser_isrx() == 0)
@@ -66,8 +77,7 @@ ser_getch(void) {
   return c;
 }
 
-void
-ser_putch(unsigned char c) {
+void ser_putch(unsigned char c) {
   while(((txiptr + 1) & SER_FIFO_MASK) == txoptr)
     continue;
   GIE = 0;
@@ -77,20 +87,17 @@ ser_putch(unsigned char c) {
   GIE = 1;
 }
 
-void
-ser_puts(const unsigned char * s) {
+void ser_puts(const char * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void
-ser_puts2(unsigned char * s) {
+void ser_puts2(unsigned char * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void
-ser_puthex(unsigned char v) {
+void ser_puthex(unsigned char v) {
   unsigned char c;
 
   c = v >> 4;
@@ -109,14 +116,13 @@ ser_puthex(unsigned char v) {
 }
 
 
-void
-ser_init(void) {
+void ser_init(void) {
   BRGH = 1;					//high speed
 //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
 //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
 //	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
 //	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-  SPBRG = 21;				//56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  SPBRG = ser_brg;				//56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
 //	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
 
   TX9 = 0;					//8 bits
@@ -133,3 +139,4 @@ ser_init(void) {
   rxiptr = rxoptr = txiptr = txoptr = 0;
 }
 
+#endif // USE_SER

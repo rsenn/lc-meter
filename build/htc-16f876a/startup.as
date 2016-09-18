@@ -9,13 +9,12 @@
 	; Compiler options:
 	;
 	; --codeoffset=0 --chip=16f876a --asmlist \
-	; -mbuild/htc-16f876a/LC_meter_HD44780_release.map \
-	; -obuild/htc-16f876a/LC_meter_HD44780_release.hex \
-	; build/htc-16f876a/release/LC-meter.p1 \
-	; build/htc-16f876a/release/delay.p1 \
-	; build/htc-16f876a/release/lcd44780.p1 \
-	; build/htc-16f876a/release/display.p1 \
-	; build/htc-16f876a/release/uart.p1 build/htc-16f876a/release/timer.p1
+	; -mbuild/htc-16f876a/LC_meter_HD44780_debug.map \
+	; -obuild/htc-16f876a/LC_meter_HD44780_debug.hex \
+	; build/htc-16f876a/debug/LC-meter.p1 build/htc-16f876a/debug/delay.p1 \
+	; build/htc-16f876a/debug/lcd44780.p1 \
+	; build/htc-16f876a/debug/display.p1 build/htc-16f876a/debug/uart.p1 \
+	; build/htc-16f876a/debug/timer.p1
 	;
 
 
