@@ -45,7 +45,7 @@
 #endif
 
 
-unsigned char ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
+unsigned char ser_brg = SER_BRG; //((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
 
 
 unsigned char rxfifo[SER_BUFFER_SIZE];

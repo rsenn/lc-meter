@@ -11,6 +11,7 @@
 #include "display.h"
 #include "timer.h"
 #include "uart.h"
+#include "ser.h"
 
 #ifdef SDCC
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
@@ -86,6 +87,10 @@ INTERRUPT()
     CCP1IF = 0;
   }
 #endif
+
+#if USE_SER
+  ser_int();
+#endif
 }
 
 void
@@ -125,7 +130,7 @@ main(void)
     display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
-      uart_puts(".\r\n");
+      ser_puts(".\r\n");
 
     //  SET_LED(led_value = !led_value);
   }
@@ -171,7 +176,7 @@ initialize(void)
   LED_TRIS = OUTPUT;
   LED_PIN = HIGH;
 
-  uart_init();
+  ser_init();
 
   RELAY_TRIS();
   ADD_CCAL();

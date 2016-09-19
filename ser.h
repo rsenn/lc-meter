@@ -33,11 +33,24 @@
 #ifdef USE_SER
 
 #include "types.h"
+#include "oscillator.h"
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */
 #define SER_BUFFER_SIZE		16
 
 #define SER_FIFO_MASK 		(SER_BUFFER_SIZE-1)
+
+
+#if (OSC_4 == 5000000) || _XTAL_FREQ == 20000000
+# if UART_BAUD == 38400
+
+#  define SER_BRG  33
+#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
+#elif UART_BAUD = 19200
+#  define SER_BRG  66
+#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
+# endif
+#endif
 
 /* Insert this macro inside the interrupt routine */
 #define ser_int() if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & SER_FIFO_MASK; if (ser_tmp!=rxoptr) rxiptr=ser_tmp; } if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= SER_FIFO_MASK; if (txoptr==txiptr) { TXIE = 0; } }
