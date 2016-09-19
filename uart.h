@@ -6,8 +6,8 @@
 #include "types.h"
 
 #ifndef UART_BAUD
-#define UART_BAUD 38400      /** Baudrate */
-//#define UART_BAUD 19200      /** Baudrate */
+//#define UART_BAUD 38400      /** Baudrate */
+#define UART_BAUD 19200      /** Baudrate */
 //#define UART_BAUD 31250      /** Baudrate */
 #endif
 

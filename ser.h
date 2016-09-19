@@ -43,11 +43,10 @@
 
 #if (OSC_4 == 5000000) || _XTAL_FREQ == 20000000
 # if UART_BAUD == 38400
-
 #  define SER_BRG  33
 #  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
-#elif UART_BAUD = 19200
-#  define SER_BRG  66
+#elif UART_BAUD == 19200
+#  define SER_BRG  64
 #  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
 # endif
 #endif

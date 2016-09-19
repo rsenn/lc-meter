@@ -39,6 +39,10 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define LED_PIN RA2 = RC3
 #define LED_TRIS TRISA2 = TRISC3
 
+
+//#define TMR0_PRESCALER PRESCALE_1_32
+
+
 uint16 measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);

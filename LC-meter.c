@@ -39,18 +39,21 @@ volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
 volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
 */
 
-volatile uint16 bres;
+volatile uint32 bres;
 volatile  uint16 seconds;
+
 volatile uint32 ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 
 static void initialize(void);
+void
+put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos*/);
 
 INTERRUPT()
 {
 
-  /*  if (TMR2IF) {
+  /*  if(TMR2IF) {
       tmr2_overflow++;
 
 
@@ -60,24 +63,28 @@ INTERRUPT()
       TMR2IF = 0;
     }*/
 
-  if (T0IF) {
-    tmr0_overflow++;
+  if(T0IF)
+  {
+    //  tmr0_overflow++;
 
-    bres++;
-    if (bres >= 500) { // if reached 1 second!
-      bres -= 500;  // subtract 1 second, retain error
+    bres += 256;
+    if(bres >= 5000000)   // if reached 1 second!
+    {
+      bres -= 5000000;  // subtract 1 second, retain error
       seconds++;  // update clock, etc
 
       SET_LED(seconds & 1);
     }
-    TMR0 = -64;
+    // TMR0 = -64;
     T0IF = 0;
   }
 
 #ifdef USE_TIMER_1
-  if (CCP1IF) {
+  if(CCP1IF)
+  {
 
-    if (CCP1_EDGE() == RISING) {
+    if(CCP1_EDGE() == RISING)
+    {
       ccp1t_lr = ccp1t[RISING];
     }
     ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr1_overflow << 16);
@@ -106,7 +113,7 @@ main(void)
   initialize();
 
 #if USE_HD44780_LCD     || USE_NOKIA3310_LCD
-  lcd_set_cursor(0,0);
+  lcd_set_cursor(0, 0);
 
   lcd_print("LC-meter");
 
@@ -114,25 +121,37 @@ main(void)
 
 #if 0
   RELAY_TRIS();
-  for (int i = 0; i < 10; i++) {
+  for(int i = 0; i < 10; i++)
+  {
     RC5 = HIGH;
     __delay_ms(500);
     RC5 = LOW;
     __delay_ms(500);
   }
 #endif
+  {
+    uint16 prev_seconds = 0xffff;
 
-  for (;;) {
-    bool led_value = 0;
+    for(;;)
+    {
+      bool led_value = 0;
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
 
-    lcd_set_cursor(0,1);
-    display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
-    //    display_print_number(measure_freq(), 16, 4);
+      lcd_set_cursor(0, 1);
+      display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
+      //    display_print_number(measure_freq(), 16, 4);
 #endif
-      ser_puts(".\r\n");
 
-    //  SET_LED(led_value = !led_value);
+      if(seconds != prev_seconds)
+      {
+        put_number(ser_putch, seconds, 10, 0);
+        //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
+        ser_puts("\r\n");
+
+        prev_seconds = seconds;
+      }
+      //  SET_LED(led_value = !led_value);
+    }
   }
 }
 
@@ -140,7 +159,7 @@ void
 setup_ccp1()
 {
 
-  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16)-1;
+  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16) - 1;
 
   TRISC2 = INPUT;
   CCP1CONbits.CCP1M = 0b0100;
@@ -210,7 +229,7 @@ measure_freq(void)    //16-bit freq
   TRISA4 = 1;    //Disable RA4 output to T0CKI
   TMR0IE = 0;
 
-  return (tmr0_overflow << 8) | TMR0;
+  return(tmr0_overflow << 8) | TMR0;
 }
 
 void
@@ -234,8 +253,50 @@ measure_inductance()
 void
 delay10ms(uint16 period_10ms)
 {
-  do {
+  do
+  {
     __delay_ms(10);
-  } while (--period_10ms);
+  }
+  while(--period_10ms);
 }
 
+
+// -------------------------------------------------------------------------
+void
+put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
+{
+  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  uint8 di;
+  int8 i = 0;
+  char padchar = ' ';
+
+  if(pad < 0)
+  {
+    pad = -pad;
+    padchar = '0';
+  }
+
+  /*  if(n == 0) {
+      lcd_putch('0');
+      return;
+    }*/
+
+  do
+  {
+    /*    if(i == pointpos)
+          buf[i++] = '.';
+    */
+    di = n % base;
+    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
+
+    n /= base;
+  }
+  while(n > 0);
+
+  while(pad-- >= i)
+    putchar(padchar);
+
+  for(; i > 0; i--)
+    putchar((char)buf[(int16)i - 1]);
+  //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
+}

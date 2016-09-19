@@ -21,9 +21,11 @@ const uint8 uart_brg = UART_BRG;
  * Re-target POSIX function uart_putch
  */
 void
-uart_putch(unsigned char byte) {
+uart_putch(unsigned char byte)
+{
   /* output one byte */
-  while(!TXIF) {
+  while(!TXIF)
+  {
     /* set when register is empty */
     continue;
   }
@@ -31,31 +33,35 @@ uart_putch(unsigned char byte) {
 }
 
 int
-uart_getch(void) {
+uart_getch(void)
+{
 
-	if(uart_poll(UART_TIMEOUT)) {
-      uint8 ch;
-	  ch = RCREG;
-	  RCIF = 0;
-	  return (int)ch;
+  if(uart_poll(UART_TIMEOUT))
+  {
+    uint8 ch;
+    ch = RCREG;
+    RCIF = 0;
+    return(int)ch;
   }
- return -1;
+  return -1;
 }
 
 
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
 bit
-uart_poll(unsigned char bauds) {
+uart_poll(unsigned char bauds)
+{
 
-    // TMR0 -= SOFTSER_BRG;            // load corrected baud value
+  // TMR0 -= SOFTSER_BRG;            // load corrected baud value
 
 
-    TMR0 = (256 - SOFTSER_BRG_FN(bauds));
-    while( TMR0&(1<<7) ) {
-      if(RCIF)
-        return 1;
-    }
+  TMR0 = (256 - SOFTSER_BRG_FN(bauds));
+  while(TMR0 & (1 << 7))
+  {
+    if(RCIF)
+      return 1;
+  }
 
   return 0;
 }
@@ -66,8 +72,10 @@ uart_poll(unsigned char bauds) {
  * @return received character or 0 if it's not UART interrupt
  */
 unsigned char
-uart_isr(void) {
-  if(RCIF) {
+uart_isr(void)
+{
+  if(RCIF)
+  {
     RCIF = 0;
     return RCREG;
   }
@@ -75,7 +83,8 @@ uart_isr(void) {
 }
 
 void
-uart_enable(void) {
+uart_enable(void)
+{
   TXEN = 1;
   SPEN = 1;
   RCIE = 0;
@@ -84,7 +93,8 @@ uart_enable(void) {
 }
 
 void
-uart_disable(void) {
+uart_disable(void)
+{
   TXEN = 0;
   SPEN = 0;
   RCIE = 0;
@@ -95,7 +105,8 @@ uart_disable(void) {
 }
 
 void
-uart_init(void) {
+uart_init(void)
+{
   /* Initilize baudrate generator and pins */
 
   RX_TRIS = 1;
@@ -111,12 +122,16 @@ uart_init(void) {
   uart_enable();
 }
 
-void uart_puts(const char * s) {
+void
+uart_puts(const char* s)
+{
   while(*s)
     uart_putch(*s++);
 }
 
-void uart_puts2(unsigned char * s) {
+void
+uart_puts2(unsigned char* s)
+{
   while(*s)
     uart_putch(*s++);
 }

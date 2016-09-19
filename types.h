@@ -3,16 +3,24 @@
 
 #include "device.h"
 
-#if defined(SDCC) || defined(__MIKROC_PRO_FOR_PIC__)
-#include <stdbool.h>
-#include <stdint.h>
+#if defined(SDCC) || defined(__MIKROC_PRO_FOR_PIC__) || defined(__XC__) || defined(HI_TECH_C) || defined(__PCH__)
+# define HAVE_STDINT_H 1
+# include <stdbool.h>
+# include <stdint.h>
 #endif
 
 #if 0 // defined(_BOOSTC)
 #include <float.h>
 #endif
 
-#if defined(MCC18) || defined(HI_TECH_C) || defined(MCHP_XC8) || defined(__IAR_SYSTEMS_ICC__)
+#if defined(HAVE_STDINT_H)
+typedef uint8_t uint8;
+typedef uint16_t uint16;
+typedef uint32_t uint32;
+typedef int8_t int8;
+typedef int16_t int16;
+typedef int32_t int32;
+#elif defined(MCC18) || defined(HI_TECH_C) || defined(__XC8) || defined(__XC__ ) || defined(__IAR_SYSTEMS_ICC__)
 typedef signed char int8;
 typedef signed short int16;
 typedef signed long int32;
@@ -20,13 +28,6 @@ typedef signed long int32;
 typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef unsigned long uint32;
-#elif defined(__PCH__)     || defined(SDCC)        || defined(__MIKROC_PRO_FOR_PIC__)
-typedef uint8_t uint8;
-typedef uint16_t uint16;
-typedef uint32_t uint32;
-typedef int8_t int8;
-typedef int16_t int16;
-typedef int32_t int32;
 #elif defined(_BOOSTC)
 # define int8 signed char
 # define int16 signed short

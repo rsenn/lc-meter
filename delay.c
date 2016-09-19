@@ -1,6 +1,6 @@
 #include "delay.h"
 
-#if (defined(HI_TECH_C) || defined(__XC8))
+#if(defined(HI_TECH_C) || defined(__XC8))
 #include <pic.h>
 #else
 dvars dvar;
@@ -8,7 +8,8 @@ dvars dvar;
 #if 0
 // -------------------------------------------------------------------------
 void
-delay_ms(uint16 milliseconds) {
+delay_ms(uint16 milliseconds)
+{
   /* dvars msecs;
    SAVE_CYCLES_BIG(msecs, US_CYCLES(milliseconds*1000lu));
    CALL_CYCLES_BIG(msecs);*/
@@ -21,7 +22,8 @@ delay_ms(uint16 milliseconds) {
 
 // -------------------------------------------------------------------------
 void
-delay_us(uint16 microseconds) {
+delay_us(uint16 microseconds)
+{
   /*dvars usecs;
   SAVE_CYCLES_BIG(usecs, US_CYCLES(microseconds));
   CALL_CYCLES_BIG(usecs);*/
@@ -40,7 +42,8 @@ delay_us(uint16 microseconds) {
  *  Fixing x at 191 so b is essentially multiples of cmax
  */
 void
-cycle_eater(void) {
+cycle_eater(void)
+{
   __asm
   global correction
   banksel _dvar  // mumblegrumble
@@ -67,15 +70,18 @@ cycle_eater(void) {
  * Passing 0 (zero) results in a delay of 25,600 cycles.
  */
 void
-Delay100TCYx(uint8 unit) {
-  do {
-#if (defined(HI_TECH_C) || defined(__XC8))
+Delay100TCYx(uint8 unit)
+{
+  do
+  {
+#if(defined(HI_TECH_C) || defined(__XC8))
 
     _delay(100);
 #else
     DELAY_SMALL_TCY(100);
 #endif
-  } while(--unit != 0);
+  }
+  while(--unit != 0);
 }
 
 // -------------------------------------------------------------------------
@@ -84,15 +90,18 @@ Delay100TCYx(uint8 unit) {
  * Passing 0 (zero) results in a delay of 2,560,000 cycles.
  */
 void
-Delay10KTCYx(uint8 unit) {
-  do {
-#if (defined(HI_TECH_C) || defined(__XC8))
+Delay10KTCYx(uint8 unit)
+{
+  do
+  {
+#if(defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10000);
 #else
     DELAY_BIG_TCY(10000);
 #endif
-  } while(--unit != 0);
+  }
+  while(--unit != 0);
 }
 
 // -------------------------------------------------------------------------
@@ -101,9 +110,11 @@ Delay10KTCYx(uint8 unit) {
  * Passing 0 (zero) results in a delay of 2560 cycles.
  */
 void
-Delay10TCYx(uint8 unit) {
-  do {
-#if (defined(HI_TECH_C) || defined(__XC8))
+Delay10TCYx(uint8 unit)
+{
+  do
+  {
+#if(defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10);
 #else
@@ -111,7 +122,8 @@ Delay10TCYx(uint8 unit) {
     __asm__("BANKSEL _dvar");
     __asm__("CALL correction");
 #endif
-  } while(--unit != 0);
+  }
+  while(--unit != 0);
 }
 
 // -------------------------------------------------------------------------
@@ -120,13 +132,16 @@ Delay10TCYx(uint8 unit) {
  * Passing 0 (zero) results in a delay of 256,000 cycles.
  */
 void
-Delay1KTCYx(uint8 unit) {
-  do {
-#if (defined(HI_TECH_C) || defined(__XC8))
+Delay1KTCYx(uint8 unit)
+{
+  do
+  {
+#if(defined(HI_TECH_C) || defined(__XC8))
 
     _delay(1000);
 #else
     DELAY_BIG_TCY(1000);
 #endif
-  } while(--unit != 0);
+  }
+  while(--unit != 0);
 }

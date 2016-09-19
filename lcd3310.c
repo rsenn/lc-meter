@@ -5,28 +5,29 @@ by Regulus Berdin
 V1.0 11/23/04   Created.
 */
 
-  #include "lcd3310.h"
+#include "lcd3310.h"
 
 #if USE_NOKIA3310_LCD
 
 #define CLK_IN(data, bitnum)	\
-	NOP();						\
-	LCD_CLK=0;					\
-	NOP();						\
-	LCD_DATA=0;					\
-	if ((data) & (bitnum)) {	\
-		LCD_DATA=1;				\
-	}							\
-	NOP();						\
-	LCD_CLK=1
-	
-const char lcd_font[][5] = {
+  NOP();						\
+  LCD_CLK=0;					\
+  NOP();						\
+  LCD_DATA=0;					\
+  if((data) & (bitnum)) {	\
+    LCD_DATA=1;				\
+  }							\
+  NOP();						\
+  LCD_CLK=1
+
+const char lcd_font[][5] =
+{
   { 0x00, 0x00, 0x00, 0x00, 0x00 },  // sp
   { 0x00, 0x00, 0x2f, 0x00, 0x00 },  // !
   { 0x00, 0x07, 0x00, 0x07, 0x00 },  // "
   { 0x14, 0x7f, 0x14, 0x7f, 0x14 },  // #
   { 0x24, 0x2a, 0x7f, 0x2a, 0x12 },  // $
-//  { 0xc4, 0xc8, 0x10, 0x26, 0x46 },  // %
+  //  { 0xc4, 0xc8, 0x10, 0x26, 0x46 },  // %
   {
     0b00100011,            //%
     0b00010011,
@@ -123,24 +124,28 @@ const char lcd_font[][5] = {
 
 // -------------------------------------------------------------------------
 uint8
-lcd_str_width(const char *c) {
+lcd_str_width(const char* c)
+{
   uint8 i;
   i = 0;
-  while(*c) {
+  while(*c)
+  {
     ++i;
     ++c;
   }
-//  return i;
-  return ((i << 1) + i) << 1; //return i*6
+  //  return i;
+  return((i << 1) + i) << 1; //return i*6
 }
 
 
 // -------------------------------------------------------------------------
 void
-lcd_send(uint8 a, uint8 cmd) {
+lcd_send(uint8 a, uint8 cmd)
+{
   //set if data or command byte
   LCD_DC = 1;
-  if(cmd == LCD_TCMD) {
+  if(cmd == LCD_TCMD)
+  {
     LCD_DC = 0;
   }
   NOP();
@@ -160,7 +165,8 @@ lcd_send(uint8 a, uint8 cmd) {
 
 // -------------------------------------------------------------------------
 void
-lcd_init(void) {
+lcd_init(void)
+{
   LCD_TRIS();
   __delay_ms(20);
   //delay10ms(20);
@@ -185,8 +191,8 @@ lcd_init(void) {
   lcd_send(0x13, LCD_TCMD);   //LCD bias mode 1:48
   lcd_send(0x20, LCD_TCMD);   //LCD standard, Horiz addressing
   lcd_send(0x0C, LCD_TCMD);   //display control LCD normal mode
-// lcd_send(0b00001101,LCD_TCMD);  //display control LCD invert mode
-// lcd_send(0b00001001, LCD_TCMD);  //turn on all segments
+  // lcd_send(0b00001101,LCD_TCMD);  //display control LCD invert mode
+  // lcd_send(0b00001001, LCD_TCMD);  //turn on all segments
 #else
   lcd_send(0xA6, LCD_TCMD);   //normal, 0xA7 negative
   lcd_send(0xA3, LCD_TCMD);   //bias
@@ -205,35 +211,42 @@ lcd_init(void) {
 
 // -------------------------------------------------------------------------
 void
-lcd_test(void) {
+lcd_test(void)
+{
   uint16 i;
   lcd_gotoxy(0, 0);
-  for(i = 0; i < 504; ++i) {
+  for(i = 0; i < 504; ++i)
+  {
     lcd_send(i, LCD_TDATA);
   }
 }
 
 // -------------------------------------------------------------------------
 void
-lcd_clear(void) {
+lcd_clear(void)
+{
   uint16 i;
   lcd_gotoxy(0, 0);
-  for(i = 0; i < 504; ++i) {
+  for(i = 0; i < 504; ++i)
+  {
     lcd_send(0, LCD_TDATA);
   }
 }
 
 // -------------------------------------------------------------------------
 void
-lcd_gotoxy(uint8 x, unsigned y) {
+lcd_gotoxy(uint8 x, unsigned y)
+{
   lcd_send(x | 0b10000000, LCD_TCMD);
   lcd_send((y & 0b00000111) | 0b01000000, LCD_TCMD);
 }
 
 // -------------------------------------------------------------------------
 void
-lcd_putch(uint8 c) {
-  if(c > 'z' || c < 32) {
+lcd_putch(uint8 c)
+{
+  if(c > 'z' || c < 32)
+  {
     return;
   }
   lcd_send(lcd_font[c - 32][0], LCD_TDATA);
@@ -247,8 +260,10 @@ lcd_putch(uint8 c) {
 // -------------------------------------------------------------------------
 #if 1
 void
-lcd_puts(const char *s) {
-  while(*s) {
+lcd_puts(const char* s)
+{
+  while(*s)
+  {
     lcd_putch(*s);
     ++s;
   }
@@ -257,7 +272,8 @@ lcd_puts(const char *s) {
 
 // -------------------------------------------------------------------------
 void
-lcd_center_puts(uint8 y, const char *c) {
+lcd_center_puts(uint8 y, const char* c)
+{
   lcd_gotoxy(41 - (lcd_str_width(c) / 2), y);
   lcd_puts(c);
 }
@@ -265,8 +281,10 @@ lcd_center_puts(uint8 y, const char *c) {
 
 // -------------------------------------------------------------------------
 void
-lcd_puts2(char *s) {
-  while(*s) {
+lcd_puts2(char* s)
+{
+  while(*s)
+  {
     lcd_putch(*s);
     ++s;
   }
@@ -275,26 +293,31 @@ lcd_puts2(char *s) {
 
 // -------------------------------------------------------------------------
 void
-lcd_clear_line(uint8 y) {
+lcd_clear_line(uint8 y)
+{
   uint8 k;
   lcd_gotoxy(0, y);
-  for(k = 0; k < 83; ++k) {
+  for(k = 0; k < 83; ++k)
+  {
     lcd_send(0, LCD_TDATA);
   }
 }
 
 // -------------------------------------------------------------------------
 void
-lcd_center_puts2(uint8 y, char *c, uint8 len) {
+lcd_center_puts2(uint8 y, char* c, uint8 len)
+{
   lcd_gotoxy(42 - (len << 1) - len, y);
-  while(len) {
+  while(len)
+  {
     lcd_putch(*c);
     ++c;
     --len;
   }
 }
 
-const char bat_symbol[] = {
+const char bat_symbol[] =
+{
   0b00111000,
   0b11111110,
   0b10000010,
@@ -312,14 +335,19 @@ const char bat_symbol[] = {
 
 // -------------------------------------------------------------------------
 void
-lcd_battery(uint8 chg) {
+lcd_battery(uint8 chg)
+{
   uint8 i;
   chg = 12 - chg;
   lcd_gotoxy(71, 0);
-  for(i = 0; i < 13; ++i) {
-    if(i >= chg) {
+  for(i = 0; i < 13; ++i)
+  {
+    if(i >= chg)
+    {
       lcd_send(0b11111110, LCD_TDATA);
-    } else {
+    }
+    else
+    {
       lcd_send(bat_symbol[i], LCD_TDATA);
     }
   }
@@ -328,7 +356,8 @@ lcd_battery(uint8 chg) {
 // -------------------------------------------------------------------------
 #if 0
 void
-lcd_bluetooth(void) {
+lcd_bluetooth(void)
+{
   lcd_gotoxy(0, 0);
   lcd_send(0b00101000, LCD_TDATA);
   lcd_send(0b11111110, LCD_TDATA);
@@ -339,10 +368,12 @@ lcd_bluetooth(void) {
 
 // -------------------------------------------------------------------------
 void
-lcd_symbol(const char *sym) {
+lcd_symbol(const char* sym)
+{
   uint8 i, n;
   n = sym[0];
-  for(i = 1; i <= n; ++i) {
+  for(i = 1; i <= n; ++i)
+  {
     lcd_send(sym[i], LCD_TDATA);
   }
 }
