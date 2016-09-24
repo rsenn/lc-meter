@@ -3470,6 +3470,23 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <text x="2.413" y="-2.413" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="51"/>
 </package>
+<package name="C050-020X036">
+<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
+<wire x1="0.635" y1="-0.889" x2="0.635" y2="0.889" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-0.889" x2="0" y2="-1.524" width="0.127" layer="21" curve="-90"/>
+<pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
+<text x="-1.27" y="0" size="1.016" layer="25" align="center-right">&gt;NAME</text>
+<text x="1.27" y="0" size="1.016" layer="27" align="center-left">&gt;VALUE</text>
+<pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R90"/>
+<wire x1="0" y1="-1.524" x2="-0.635" y2="-0.889" width="0.127" layer="21" curve="-90"/>
+<wire x1="-0.635" y1="0.889" x2="-0.635" y2="-0.889" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="0.889" x2="0" y2="1.524" width="0.127" layer="21" curve="-90"/>
+<wire x1="0" y1="-2.54" x2="0" y2="-0.3937" width="0.0762" layer="51"/>
+<rectangle x1="-0.508" y1="0.127" x2="0.508" y2="0.381" layer="21"/>
+<rectangle x1="-0.508" y1="-0.381" x2="0.508" y2="-0.127" layer="21" rot="R180"/>
+<wire x1="0" y1="2.54" x2="0" y2="0.381" width="0.0762" layer="51"/>
+<wire x1="0" y1="1.524" x2="0.635" y2="0.889" width="0.127" layer="21" curve="-90"/>
+</package>
 <package name="C025-020X036">
 <wire x1="0" y1="2.159" x2="0.889" y2="1.397" width="0.127" layer="21" curve="-90"/>
 <wire x1="0.889" y1="-1.397" x2="0.889" y2="1.397" width="0.127" layer="21"/>
@@ -5123,7 +5140,7 @@ design rules under a new name.</description>
 <element name="R7" library="r" package="0202/10" value="10kΩ" x="10.16" y="10.16"/>
 <element name="J3" library="pinconn" package="CONN-5P" value="PIC-ICSP" x="35.56" y="48.26"/>
 <element name="R8" library="r" package="0202/7" value="100" x="48.26" y="41.91" rot="R180"/>
-<element name="R9" library="r" package="0202/5" value="100" x="53.34" y="45.72" rot="R180"/>
+<element name="R9" library="r" package="0202/5" value="100" x="55.88" y="43.18" rot="R180"/>
 <element name="J1" library="pinconn" package="CONN-8P" value="HD44780-4BIT-8PIN" x="53.34" y="22.86" rot="R90"/>
 <element name="LED1" library="led" package="LED3MM" value="TLLG4400" x="27.94" y="13.97" smashed="yes" rot="R90">
 <attribute name="MF" value="VISHAY SEMICONDUCTOR" x="27.94" y="13.97" size="0.8128" layer="27" rot="R90" display="off"/>
@@ -5140,7 +5157,7 @@ design rules under a new name.</description>
 <element name="J7" library="pinconn" package="CONN-2P" value="CONN-2P-2P" x="5.08" y="17.78" rot="R270"/>
 <element name="J5" library="pinconn" package="CONN-2P" value="CONN-2P-2P" x="5.08" y="5.08" rot="R270"/>
 <element name="D2" library="d" package="DO34-12" value="1N4148-12" x="55.88" y="13.97" rot="R270"/>
-<element name="C8" library="c" package="C025-020X036" value="27pF" x="50.8" y="46.99" rot="R180"/>
+<element name="C8" library="c" package="C050-020X036" value="22pF" x="53.34" y="45.72" rot="R180"/>
 </elements>
 <signals>
 <signal name="A3">
@@ -5256,11 +5273,11 @@ design rules under a new name.</description>
 <wire x1="50.8" y1="17.78" x2="48.26" y2="17.78" width="0.6096" layer="16"/>
 <wire x1="50.8" y1="0" x2="50.8" y2="2.54" width="0.6096" layer="16"/>
 <contactref element="C8" pad="1"/>
-<wire x1="50.8" y1="45.72" x2="50.8" y2="43.18" width="0.6096" layer="16"/>
 <via x="50.8" y="43.18" extent="1-16" drill="0.6" shape="square"/>
 <wire x1="50.8" y1="43.18" x2="50.8" y2="22.86" width="0.6096" layer="1"/>
 <via x="50.8" y="22.86" extent="1-16" drill="0.6" shape="square"/>
-<wire x1="50.8" y1="10.16" x2="50.8" y2="7.62" width="0" layer="19" extent="16-16"/>
+<wire x1="50.8" y1="7.62" x2="50.8" y2="10.16" width="0" layer="19" extent="16-16"/>
+<wire x1="53.34" y1="43.18" x2="50.8" y2="43.18" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$7">
 <contactref element="L1" pad="P$1"/>
@@ -5399,7 +5416,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="D7">
 <contactref element="J1" pad="8"/>
-<wire x1="53.34" y1="43.18" x2="53.34" y2="40.64" width="0.6096" layer="16"/>
+<wire x1="55.88" y1="40.64" x2="53.34" y2="40.64" width="0.6096" layer="16"/>
 <wire x1="53.34" y1="40.64" x2="45.72" y2="40.64" width="0.6096" layer="16"/>
 <contactref element="U$2" pad="28"/>
 <contactref element="R9" pad="2"/>
@@ -5451,7 +5468,8 @@ design rules under a new name.</description>
 <contactref element="J3" pad="5"/>
 <wire x1="45.72" y1="48.26" x2="53.34" y2="48.26" width="0.6096" layer="16"/>
 <contactref element="C8" pad="2"/>
-<wire x1="53.34" y1="48.26" x2="50.8" y2="48.26" width="0" layer="19" extent="1-1"/>
+<wire x1="53.34" y1="48.26" x2="53.34" y2="45.72" width="0.6096" layer="16"/>
+<wire x1="53.34" y1="45.72" x2="55.88" y2="45.72" width="0.6096" layer="16"/>
 </signal>
 <signal name="N$5">
 <contactref element="U$2" pad="14"/>

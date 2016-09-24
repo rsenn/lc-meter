@@ -11445,6 +11445,40 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <circle x="-0.4445" y="0" radius="1.016" width="0.1524" layer="21"/>
 <wire x1="0.6985" y1="0" x2="1.27" y2="0" width="0.3048" layer="21"/>
 </package>
+<package name="DO34-10">
+<wire x1="-0.8255" y1="-0.762" x2="0.5715" y2="-0.762" width="0.1524" layer="21"/>
+<wire x1="0.5715" y1="0.762" x2="-0.889" y2="0.762" width="0.1524" layer="21"/>
+<wire x1="-0.889" y1="0.762" x2="-1.2065" y2="0.6985" width="0.1524" layer="21"/>
+<wire x1="-1.2065" y1="0.6985" x2="-1.4605" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="-1.4605" y1="0.508" x2="-1.524" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.2065" y1="-0.1905" x2="1.2065" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-1.524" y1="0.254" x2="-1.524" y2="-0.1905" width="0.1524" layer="21"/>
+<wire x1="3.81" y1="0" x2="2.921" y2="0" width="0.4064" layer="51"/>
+<wire x1="-3.81" y1="0" x2="-2.921" y2="0" width="0.4064" layer="51"/>
+<wire x1="-0.508" y1="0" x2="-0.127" y2="0" width="0.1524" layer="21"/>
+<wire x1="0.5715" y1="0.381" x2="0.5715" y2="-0.381" width="0.1524" layer="21"/>
+<wire x1="0.5715" y1="-0.381" x2="-0.127" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.127" y1="0" x2="0.9525" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.127" y1="0" x2="0.5715" y2="0.381" width="0.1524" layer="21"/>
+<wire x1="-0.127" y1="0.381" x2="-0.127" y2="0" width="0.1524" layer="21"/>
+<wire x1="-0.127" y1="0" x2="-0.127" y2="-0.381" width="0.1524" layer="21"/>
+<pad name="C" x="-3.81" y="0" drill="0.8128" shape="octagon"/>
+<pad name="A" x="3.81" y="0" drill="0.8128" shape="octagon"/>
+<text x="0" y="1.143" size="0.8128" layer="25" ratio="10" rot="R180" align="top-center">&gt;NAME</text>
+<text x="0" y="-1.143" size="0.8128" layer="27" ratio="10" align="top-center">&gt;VALUE</text>
+<rectangle x1="-1.143" y1="-0.6985" x2="-0.762" y2="0.6985" layer="21"/>
+<rectangle x1="1.143" y1="-0.2032" x2="3.175" y2="0.2032" layer="21"/>
+<rectangle x1="-3.175" y1="-0.2032" x2="-1.524" y2="0.2032" layer="21"/>
+<wire x1="0.5715" y1="-0.762" x2="0.889" y2="-0.6985" width="0.1524" layer="21"/>
+<wire x1="0.889" y1="-0.6985" x2="1.143" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="-0.508" x2="1.2065" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="-0.889" y1="-0.762" x2="-1.2065" y2="-0.6985" width="0.1524" layer="21"/>
+<wire x1="-1.2065" y1="-0.6985" x2="-1.4605" y2="-0.508" width="0.1524" layer="21"/>
+<wire x1="-1.4605" y1="-0.508" x2="-1.524" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="0.5715" y1="0.762" x2="0.889" y2="0.6985" width="0.1524" layer="21"/>
+<wire x1="0.889" y1="0.6985" x2="1.143" y2="0.508" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.508" x2="1.2065" y2="0.254" width="0.1524" layer="21"/>
+</package>
 </packages>
 <symbols>
 <symbol name="D">
@@ -11475,15 +11509,6 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </technologies>
 </device>
 <device name="35-10" package="DO35-10">
-<connects>
-<connect gate="G$1" pin="A" pad="A"/>
-<connect gate="G$1" pin="C" pad="C"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="34-10" package="DO35-10">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -11583,6 +11608,15 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </technologies>
 </device>
 <device name="34-2,5-A" package="DO34-2,5-A">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="34-10" package="DO34-10">
 <connects>
 <connect gate="G$1" pin="A" pad="A"/>
 <connect gate="G$1" pin="C" pad="C"/>
@@ -12130,7 +12164,7 @@ package type P</description>
 <part name="C4" library="c" deviceset="CPOL" device="E2.5-5" value="10μF"/>
 <part name="C5" library="c" deviceset="C" device="025-020X036" value="33pF"/>
 <part name="C6" library="c" deviceset="C" device="025-020X036" value="33pF"/>
-<part name="C7" library="c" deviceset="CPOL" device="E2.5-6" value="100μF"/>
+<part name="C7" library="c" deviceset="CPOL" device="E2.5-5" value="100μF"/>
 <part name="C9" library="rcl" deviceset="C-EU" device="025-024X044" value="100nF"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
@@ -12154,7 +12188,7 @@ package type P</description>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="R7" library="r" deviceset="R" device="0202/10" value="10kΩ"/>
 <part name="J3" library="pinconn" deviceset="PIC-ICSP" device=""/>
-<part name="R8" library="r" deviceset="R" device="0202/5" value="100"/>
+<part name="R8" library="r" deviceset="R" device="0202/7" value="100"/>
 <part name="R9" library="r" deviceset="R" device="0202/5" value="100"/>
 <part name="J1" library="pinconn" deviceset="HD44780-4BIT" device="-8PIN"/>
 <part name="LED1" library="led" deviceset="TLLG4400" device=""/>
