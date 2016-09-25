@@ -3623,7 +3623,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="lc-meter">
+<library name="mcu">
 <description>&lt;b&gt;Switches&lt;/b&gt;&lt;p&gt;
 Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -12416,7 +12416,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="U$1" library="sw" deviceset="PB-1P-1T" device=""/>
-<part name="U$2" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP-B-A" device=""/>
+<part name="U$2" library="mcu" deviceset="PIC16F876A-X/SP-COMP-B-A" device=""/>
 </parts>
 <sheets>
 <sheet>

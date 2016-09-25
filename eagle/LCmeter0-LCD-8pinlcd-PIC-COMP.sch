@@ -12216,7 +12216,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </deviceset>
 </devicesets>
 </library>
-<library name="lc-meter">
+<library name="mcu">
 <packages>
 <package name="DIL28-3">
 <description>&lt;B&gt;Dual In Line&lt;/B&gt;&lt;p&gt;
@@ -12482,7 +12482,7 @@ package type P</description>
 <part name="SW1" library="sw" deviceset="PB-1P-1T" device=""/>
 <part name="P+10" library="supply1" deviceset="VCC" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC" device=""/>
-<part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP-B-A" device="" value="PIC16F876A"/>
+<part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP-COMP-B-A" device="" value="PIC16F876A"/>
 <part name="R6" library="r" deviceset="R" device="0202/7-V" value="10k"/>
 <part name="R11" library="r" deviceset="R" device="0202/5-V" value="1k"/>
 <part name="J7" library="pinconn" deviceset="CONN-2P" device="2P/V" value="CONN-2P2P/V"/>

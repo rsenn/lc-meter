@@ -17348,7 +17348,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="lc-meter">
+<library name="mcu">
 <description>&lt;b&gt;Switches&lt;/b&gt;&lt;p&gt;
 Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -19272,7 +19272,7 @@ Source: 008-0260-0_E.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP" device=""/>
+<part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
@@ -19301,8 +19301,8 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="R5" library="resistor" deviceset="R-EU_" device="0204/7" value="4.7kΩ"/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
-<part name="SW2" library="lc-meter" deviceset="S-DPDT" device="" value="DPDT"/>
-<part name="SW1" library="lc-meter" deviceset="PB-5-2" device="" value="SPST"/>
+<part name="SW2" library="mcu" deviceset="S-DPDT" device="" value="DPDT"/>
+<part name="SW1" library="mcu" deviceset="PB-5-2" device="" value="SPST"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>

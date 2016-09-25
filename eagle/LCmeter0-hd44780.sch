@@ -73,7 +73,7 @@
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
-<library name="lc-meter">
+<library name="mcu">
 <packages>
 <package name="DIL28-3">
 <description>&lt;B&gt;Dual In Line&lt;/B&gt;&lt;p&gt;
@@ -22626,7 +22626,7 @@ Marquardt, RAFI, ITT, and others&lt;p&gt;
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="LCD" library="con-lsta" deviceset="FE08-1" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP-B" device=""/>
+<part name="U$3" library="mcu" deviceset="PIC16F876A-X/SP-COMP-B" device=""/>
 <part name="ICSP" library="con-lsta" deviceset="FE05-1" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="P+6" library="supply1" deviceset="+5V" device=""/>
@@ -22635,7 +22635,7 @@ Marquardt, RAFI, ITT, and others&lt;p&gt;
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 <part name="C4" library="resistor" deviceset="C-EU" device="025-024X044"/>
 <part name="C5" library="rcl" deviceset="CPOL-US" device="E2,5-6E"/>
-<part name="U$2" library="lc-meter" deviceset="PB-5-2" device=""/>
+<part name="U$2" library="mcu" deviceset="PB-5-2" device=""/>
 <part name="J1" library="con-molex" deviceset="22-?-02" device="27-2021"/>
 <part name="S1" library="switch-misc" deviceset="9450-2" device=""/>
 </parts>

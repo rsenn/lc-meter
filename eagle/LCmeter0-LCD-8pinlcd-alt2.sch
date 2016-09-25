@@ -3623,7 +3623,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="lc-meter">
+<library name="mcu">
 <description>&lt;b&gt;Switches&lt;/b&gt;&lt;p&gt;
 Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -12277,7 +12277,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </class>
 </classes>
 <parts>
-<part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP" device=""/>
+<part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP" device=""/>
 <part name="R1" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
 <part name="R2" library="r" deviceset="R" device="0202/7" value="100kΩ"/>
 <part name="R3" library="r" deviceset="R" device="0202/7" value="100kΩ"/>

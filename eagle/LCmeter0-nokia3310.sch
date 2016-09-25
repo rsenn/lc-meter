@@ -73,7 +73,7 @@
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
-<library name="lc-meter">
+<library name="mcu">
 <packages>
 <package name="DIL28-3">
 <description>&lt;B&gt;Dual In Line&lt;/B&gt;&lt;p&gt;
@@ -17154,7 +17154,7 @@ Source: 008-0260-0_E.pdf</description>
 </class>
 </classes>
 <parts>
-<part name="U$2" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP" device=""/>
+<part name="U$2" library="mcu" deviceset="PIC16F876A-X/SP-COMP" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="100k"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="0204/2V" value="100k"/>
 <part name="R3" library="rcl" deviceset="R-EU_" device="0204/7" value="100k"/>
@@ -17174,11 +17174,11 @@ Source: 008-0260-0_E.pdf</description>
 <part name="C6" library="rcl" deviceset="C-EU" device="050-025X075" value="22pF"/>
 <part name="C7" library="rcl" deviceset="C-EU" device="050-025X075" value="22pF"/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="0204/2V" value="4.7k"/>
-<part name="U$1" library="lc-meter" deviceset="PB-SPST" device=""/>
+<part name="U$1" library="mcu" deviceset="PB-SPST" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="U$3" library="lc-meter" deviceset="NOKIA-3310-64X64" device=""/>
+<part name="U$3" library="mcu" deviceset="NOKIA-3310-64X64" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
 <part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S"/>
@@ -17197,7 +17197,7 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="L2" library="rcl" deviceset="L-US" device="IR-2" value="100uH"/>
-<part name="U$4" library="lc-meter" deviceset="S-DPDT" device=""/>
+<part name="U$4" library="mcu" deviceset="S-DPDT" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 </parts>

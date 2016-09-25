@@ -18741,7 +18741,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="lc-meter">
+<library name="mcu">
 <description>&lt;b&gt;Switches&lt;/b&gt;&lt;p&gt;
 Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
@@ -19200,7 +19200,7 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 </class>
 </classes>
 <parts>
-<part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP" device=""/>
+<part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP" device=""/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
 <part name="R2" library="resistor" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
 <part name="R3" library="resistor" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
@@ -19234,7 +19234,7 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 <part name="R5" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="SW1" library="lc-meter" deviceset="PB-SPST" device="" value="SPST"/>
+<part name="SW1" library="mcu" deviceset="PB-SPST" device="" value="SPST"/>
 <part name="K2" library="relay" deviceset="DS2Y-S-DC*" device="" technology="5V" value="DS2Y"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
