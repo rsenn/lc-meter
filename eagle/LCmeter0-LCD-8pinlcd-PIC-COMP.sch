@@ -11858,10 +11858,10 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <pad name="19" x="0" y="5.08" drill="1" shape="square" rot="R270"/>
 <pad name="18" x="0" y="2.54" drill="1" shape="octagon" rot="R270"/>
 <pad name="17" x="0" y="0" drill="1" shape="octagon" rot="R270"/>
-<wire x1="1.27" y1="-1.397" x2="-1.27" y2="-1.397" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.397" x2="-1.27" y2="9.017" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="9.017" x2="1.27" y2="9.017" width="0.127" layer="22"/>
-<wire x1="1.27" y1="9.017" x2="1.27" y2="-1.397" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="8.89" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="8.89" x2="1.27" y2="8.89" width="0.127" layer="22"/>
+<wire x1="1.27" y1="8.89" x2="1.27" y2="-1.27" width="0.127" layer="22"/>
 <text x="0.6985" y="-0.635" size="0.3048" layer="23" rot="R270">17</text>
 <text x="-1.651" y="-1.016" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
 <text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">TX</text>

@@ -5145,22 +5145,22 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="0" y1="-0.889" x2="-0.635" y2="-1.651" width="0.127" layer="21" curve="90"/>
 </package>
 <package name="0202/5">
-<pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R270"/>
-<pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
-<text x="0" y="0" size="0.6096" layer="27" ratio="10" rot="R270" align="center">&gt;VALUE</text>
-<wire x1="0" y1="-2.54" x2="0" y2="-1.651" width="0.254" layer="51"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.651" width="0.254" layer="51"/>
-<wire x1="-0.381" y1="1.27" x2="-0.635" y2="1.016" width="0.127" layer="21" curve="90"/>
-<wire x1="-0.635" y1="-1.016" x2="-0.381" y2="-1.27" width="0.127" layer="21" curve="90"/>
-<text x="-0.5715" y="1.143" size="0.6096" layer="25" ratio="10" align="bottom-right">&gt;NAME</text>
-<wire x1="0.381" y1="1.27" x2="0.635" y2="1.016" width="0.127" layer="21" curve="-90"/>
-<wire x1="0.635" y1="-1.016" x2="0.381" y2="-1.27" width="0.127" layer="21" curve="-90"/>
-<wire x1="-0.381" y1="1.27" x2="0.381" y2="1.27" width="0.127" layer="21"/>
-<wire x1="0.635" y1="-1.016" x2="0.635" y2="1.016" width="0.127" layer="21"/>
-<wire x1="-0.635" y1="-1.016" x2="-0.635" y2="1.016" width="0.127" layer="21"/>
-<wire x1="-0.381" y1="-1.27" x2="0.381" y2="-1.27" width="0.127" layer="21"/>
-<rectangle x1="-0.1905" y1="-1.5875" x2="0.1905" y2="-1.3335" layer="21" rot="R270"/>
-<rectangle x1="-0.1905" y1="1.3335" x2="0.1905" y2="1.5875" layer="21" rot="R270"/>
+<pad name="1" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="2" x="2.54" y="0" drill="0.8128" shape="octagon"/>
+<text x="0" y="0" size="0.6096" layer="27" ratio="10" align="center">&gt;VALUE</text>
+<wire x1="2.54" y1="0" x2="1.651" y2="0" width="0.254" layer="51"/>
+<wire x1="-2.54" y1="0" x2="-1.651" y2="0" width="0.254" layer="51"/>
+<wire x1="-1.27" y1="-0.381" x2="-1.016" y2="-0.635" width="0.127" layer="21" curve="90"/>
+<wire x1="1.016" y1="-0.635" x2="1.27" y2="-0.381" width="0.127" layer="21" curve="90"/>
+<text x="-1.27" y="0.635" size="0.6096" layer="25" ratio="10" align="bottom-right">&gt;NAME</text>
+<wire x1="-1.27" y1="0.381" x2="-1.016" y2="0.635" width="0.127" layer="21" curve="-90"/>
+<wire x1="1.016" y1="0.635" x2="1.27" y2="0.381" width="0.127" layer="21" curve="-90"/>
+<wire x1="-1.27" y1="-0.381" x2="-1.27" y2="0.381" width="0.127" layer="21"/>
+<wire x1="1.016" y1="0.635" x2="-1.016" y2="0.635" width="0.127" layer="21"/>
+<wire x1="1.016" y1="-0.635" x2="-1.016" y2="-0.635" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-0.381" x2="1.27" y2="0.381" width="0.127" layer="21"/>
+<rectangle x1="1.27" y1="-0.127" x2="1.651" y2="0.127" layer="21"/>
+<rectangle x1="-1.651" y1="-0.127" x2="-1.27" y2="0.127" layer="21"/>
 </package>
 <package name="L-02/5">
 <pad name="2" x="0" y="-2.54" drill="0.8" shape="octagon" rot="R180"/>
@@ -5341,6 +5341,24 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="0.381" y1="1.27" x2="-0.381" y2="1.27" width="0.1524" layer="21"/>
 <rectangle x1="-0.1905" y1="1.3335" x2="0.1905" y2="1.5875" layer="21" rot="R90"/>
 <rectangle x1="-0.1905" y1="-1.5875" x2="0.1905" y2="-1.3335" layer="21" rot="R90"/>
+</package>
+<package name="0202/5-V">
+<pad name="1" x="0" y="2.54" drill="0.8128" shape="octagon" rot="R270"/>
+<pad name="2" x="0" y="-2.54" drill="0.8128" shape="octagon" rot="R270"/>
+<text x="0" y="0" size="0.4064" layer="27" ratio="10" align="center">&gt;VALUE</text>
+<wire x1="0" y1="-2.54" x2="0" y2="-1.651" width="0.254" layer="51"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.651" width="0.254" layer="51"/>
+<wire x1="-0.381" y1="1.27" x2="-0.635" y2="1.016" width="0.127" layer="21" curve="90"/>
+<wire x1="-0.635" y1="-1.016" x2="-0.381" y2="-1.27" width="0.127" layer="21" curve="90"/>
+<text x="-0.5715" y="1.143" size="0.6096" layer="25" ratio="10" align="bottom-right">&gt;NAME</text>
+<wire x1="0.381" y1="1.27" x2="0.635" y2="1.016" width="0.127" layer="21" curve="-90"/>
+<wire x1="0.635" y1="-1.016" x2="0.381" y2="-1.27" width="0.127" layer="21" curve="-90"/>
+<wire x1="-0.381" y1="1.27" x2="0.381" y2="1.27" width="0.127" layer="21"/>
+<wire x1="0.635" y1="-1.016" x2="0.635" y2="1.016" width="0.127" layer="21"/>
+<wire x1="-0.635" y1="-1.016" x2="-0.635" y2="1.016" width="0.127" layer="21"/>
+<wire x1="-0.381" y1="-1.27" x2="0.381" y2="-1.27" width="0.127" layer="21"/>
+<rectangle x1="-0.1905" y1="-1.5875" x2="0.1905" y2="-1.3335" layer="21" rot="R270"/>
+<rectangle x1="-0.1905" y1="1.3335" x2="0.1905" y2="1.5875" layer="21" rot="R270"/>
 </package>
 </packages>
 <symbols>
@@ -5618,6 +5636,15 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 </technologies>
 </device>
 <device name="0202/7-V" package="0202/7-V">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="0202/5-V" package="0202/5-V">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -11794,21 +11821,21 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <pad name="8" x="17.78" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
 </package>
 <package name="PIC-UART">
-<pad name="20" x="-7.62" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<pad name="19" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square"/>
-<pad name="18" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<wire x1="1.27" y1="1.143" x2="1.27" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="1.27" y1="-1.143" x2="-8.89" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="-8.89" y1="-1.143" x2="-8.89" y2="1.143" width="0.127" layer="22"/>
-<wire x1="-8.89" y1="1.143" x2="1.27" y2="1.143" width="0.127" layer="22"/>
-<text x="1.397" y="-1.143" size="0.6096" layer="23">17</text>
-<text x="1.27" y="-2.413" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
-<text x="0" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">TX</text>
-<text x="-2.54" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">RX</text>
-<text x="-5.08" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VSS</text>
-<text x="-7.62" y="2.54" size="0.6096" layer="21" font="vector" rot="R180" align="center">VDD</text>
-<text x="-8.89" y="-2.413" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
+<pad name="20" x="0" y="7.62" drill="1" shape="octagon" rot="R270"/>
+<pad name="19" x="0" y="5.08" drill="1" shape="square" rot="R270"/>
+<pad name="18" x="0" y="2.54" drill="1" shape="octagon" rot="R270"/>
+<pad name="17" x="0" y="0" drill="1" shape="octagon" rot="R270"/>
+<wire x1="1.27" y1="-1.397" x2="-1.27" y2="-1.397" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.397" x2="-1.27" y2="9.017" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="9.017" x2="1.27" y2="9.017" width="0.127" layer="22"/>
+<wire x1="1.27" y1="9.017" x2="1.27" y2="-1.397" width="0.127" layer="22"/>
+<text x="0.6985" y="-0.635" size="0.3048" layer="23" rot="R270">17</text>
+<text x="-1.651" y="-1.016" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
+<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">TX</text>
+<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">RX</text>
+<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">VSS</text>
+<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">VDD</text>
+<text x="-2.54" y="-1.016" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
 </package>
 <package name="CONN-2P">
 <pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
@@ -12176,8 +12203,8 @@ package type P</description>
 <pad name="26" x="-11.43" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <pad name="27" x="-13.97" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <pad name="28" x="-16.51" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<text x="-17.907" y="-2.54" size="1.778" layer="25" rot="R90">&gt;NAME</text>
-<text x="-15.748" y="-0.9398" size="1.778" layer="27">&gt;VALUE</text>
+<text x="16.891" y="0" size="1.016" layer="25" rot="R90" align="bottom-center">&gt;NAME</text>
+<text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -12391,7 +12418,7 @@ package type P</description>
 <part name="R7" library="r" deviceset="R" device="0202/10" value="10kΩ"/>
 <part name="J3" library="pinconn" deviceset="PIC-ICSP" device="ICSP" value="PIC-ICSPICSP"/>
 <part name="R8" library="r" deviceset="R" device="0202/7" value="100"/>
-<part name="R9" library="r" deviceset="R" device="0202/5" value="100"/>
+<part name="R9" library="r" deviceset="R" device="0202/5-V" value="100"/>
 <part name="J1" library="pinconn" deviceset="HD44780-4BIT" device="LCD44780-8P" value="HD44780-4BITLCD44780-8P"/>
 <part name="LED1" library="led" deviceset="TLLG4400" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
@@ -12404,11 +12431,11 @@ package type P</description>
 <part name="P+10" library="supply1" deviceset="VCC" device=""/>
 <part name="P+11" library="supply1" deviceset="VCC" device=""/>
 <part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP-B-A" device="" value="PIC16F876A"/>
-<part name="R6" library="r" deviceset="R" device="0202/7" value="10k"/>
-<part name="R11" library="r" deviceset="R" device="0202/5" value="1k"/>
+<part name="R6" library="r" deviceset="R" device="0202/7-V" value="10k"/>
+<part name="R11" library="r" deviceset="R" device="0202/5-V" value="1k"/>
 <part name="J7" library="pinconn" deviceset="CONN-2P" device="-2P"/>
 <part name="J5" library="pinconn" deviceset="CONN-2P" device="-2P"/>
-<part name="D2" library="d" deviceset="1N4148" device="34-12V" value="1N414834-12V"/>
+<part name="D2" library="d" deviceset="1N4148" device="34-12V" value="1N4148"/>
 <part name="C8" library="c" deviceset="C" device="050-020X036" value="22pF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 </parts>

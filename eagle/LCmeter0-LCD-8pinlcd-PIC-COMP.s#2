@@ -11871,14 +11871,14 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <text x="-2.54" y="-1.016" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
 </package>
 <package name="CONN-2P">
-<pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
-<pad name="1" x="0" y="0" drill="0.9" diameter="1.778" shape="square"/>
-<wire x1="1.27" y1="-1.905" x2="1.27" y2="1.905" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.905" x2="-3.81" y2="1.905" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="1.905" x2="-3.81" y2="-1.905" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-1.905" x2="1.27" y2="-1.905" width="0.127" layer="21"/>
-<text x="2.54" y="-1.2065" size="1.27" layer="23" rot="R270">1</text>
-<text x="-4.445" y="-1.905" size="1.016" layer="25" rot="R90">&gt;NAME</text>
+<pad name="2" x="-2.54" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="1" x="0" y="0" drill="1.2" diameter="1.9304" shape="square"/>
+<wire x1="1.778" y1="-2.032" x2="1.778" y2="2.032" width="0.127" layer="21"/>
+<wire x1="1.778" y1="2.032" x2="-4.318" y2="2.032" width="0.127" layer="21"/>
+<wire x1="-4.318" y1="2.032" x2="-4.318" y2="-2.032" width="0.127" layer="21"/>
+<wire x1="-4.318" y1="-2.032" x2="1.778" y2="-2.032" width="0.127" layer="21"/>
+<text x="1.143" y="-1.143" size="0.508" layer="23" font="fixed" align="top-left">1</text>
+<text x="-4.064" y="2.286" size="0.8128" layer="25">&gt;NAME</text>
 </package>
 <package name="CONN-4P">
 <pad name="4" x="7.62" y="0" drill="0.9" diameter="1.6764" shape="octagon" rot="R180"/>
@@ -11936,6 +11936,16 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <text x="1.778" y="12.7" size="0.6096" layer="21" font="fixed" align="center-left">D5</text>
 <text x="1.778" y="15.24" size="0.6096" layer="21" font="fixed" align="center-left">D6</text>
 <text x="1.778" y="17.78" size="0.6096" layer="21" font="fixed" align="center-left">D7</text>
+</package>
+<package name="CONN-2P-V">
+<pad name="2" x="0" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R270"/>
+<pad name="1" x="0" y="0" drill="1.2" diameter="1.778" shape="square" rot="R270"/>
+<wire x1="-1.905" y1="-2.032" x2="1.905" y2="-2.032" width="0.127" layer="21"/>
+<wire x1="1.905" y1="-2.032" x2="1.905" y2="4.572" width="0.127" layer="21"/>
+<wire x1="1.905" y1="4.572" x2="-1.905" y2="4.572" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="4.572" x2="-1.905" y2="-2.032" width="0.127" layer="21"/>
+<text x="1.143" y="-1.143" size="0.508" layer="23" font="fixed" align="top-left">1</text>
+<text x="-1.778" y="4.953" size="0.8128" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -12100,7 +12110,16 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <gate name="G$1" symbol="PINCONN-2P" x="0" y="1.27"/>
 </gates>
 <devices>
-<device name="-2P" package="CONN-2P">
+<device name="2P/H" package="CONN-2P">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2P/V" package="CONN-2P-V">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -12456,7 +12475,7 @@ package type P</description>
 <part name="LED1" library="led" deviceset="TLLG4400" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="J4" library="pinconn" deviceset="CONN-2P" device="-2P" value="J4"/>
+<part name="J4" library="pinconn" deviceset="CONN-2P" device="2P/H" value="J4"/>
 <part name="J2" library="pinconn" deviceset="PIC-UART" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
@@ -12466,8 +12485,8 @@ package type P</description>
 <part name="IC1" library="lc-meter" deviceset="PIC16F876A-X/SP-COMP-B-A" device="" value="PIC16F876A"/>
 <part name="R6" library="r" deviceset="R" device="0202/7-V" value="10k"/>
 <part name="R11" library="r" deviceset="R" device="0202/5-V" value="1k"/>
-<part name="J7" library="pinconn" deviceset="CONN-2P" device="-2P"/>
-<part name="J5" library="pinconn" deviceset="CONN-2P" device="-2P"/>
+<part name="J7" library="pinconn" deviceset="CONN-2P" device="2P/V" value="CONN-2P2P/V"/>
+<part name="J5" library="pinconn" deviceset="CONN-2P" device="2P/V" value="CONN-2P2P/V"/>
 <part name="D2" library="d" deviceset="1N4148" device="34-12V" value="1N4148"/>
 <part name="C8" library="c" deviceset="C" device="050-020X036" value="22pF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
