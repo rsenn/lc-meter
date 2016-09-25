@@ -17181,15 +17181,15 @@ Source: 008-0260-0_E.pdf</description>
 <part name="U$3" library="mcu" deviceset="NOKIA-3310-64X64" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S"/>
+<part name="Q1" library="q" deviceset="CRYSTAL" device="HC49S"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="D1" library="diode" deviceset="1N4148" device="DO35-7" value="1N4148"/>
-<part name="T1" library="transistor" deviceset="*-NPN-" device="TO92-CBE" technology="BC548"/>
+<part name="D1" library="d" deviceset="1N4148" device="DO35-7" value="1N4148"/>
+<part name="T1" library="t" deviceset="*-NPN-" device="TO92-CBE" technology="BC548"/>
 <part name="K1" library="relay" deviceset="DS2Y-S-DC*" device="" technology="5V" value="DS2Y"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>

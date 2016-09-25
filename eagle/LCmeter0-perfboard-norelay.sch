@@ -19274,10 +19274,10 @@ Source: 008-0260-0_E.pdf</description>
 <parts>
 <part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
-<part name="R2" library="resistor" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
-<part name="R4" library="resistor" deviceset="R-EU_" device="0204/2V" value="47kΩ"/>
-<part name="R10" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
+<part name="R2" library="r" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
+<part name="R3" library="r" deviceset="R-EU_" device="0204/7" value="100kΩ"/>
+<part name="R4" library="r" deviceset="R-EU_" device="0204/2V" value="47kΩ"/>
+<part name="R10" library="r" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="050-024X044" value="1nF"/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="E5-4" value="10μF"/>
@@ -19292,21 +19292,21 @@ Source: 008-0260-0_E.pdf</description>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="L1" library="rcl" deviceset="L-US" device="0204/5" value="860u"/>
-<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S" value="20MHz"/>
+<part name="Q1" library="q" deviceset="CRYSTAL" device="HC49S" value="20MHz"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="R5" library="resistor" deviceset="R-EU_" device="0204/7" value="4.7kΩ"/>
+<part name="R5" library="r" deviceset="R-EU_" device="0204/7" value="4.7kΩ"/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="SW2" library="mcu" deviceset="S-DPDT" device="" value="DPDT"/>
 <part name="SW1" library="mcu" deviceset="PB-5-2" device="" value="SPST"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
-<part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
+<part name="Q2" library="t" deviceset="BC548*" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
-<part name="R6" library="resistor" deviceset="R-EU_" device="0207/10" value="10kΩ"/>
+<part name="R6" library="r" deviceset="R-EU_" device="0207/10" value="10kΩ"/>
 <part name="LCD1" library="con-lstb" deviceset="MA08-1" device="" value="HD44780"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X5" device=""/>

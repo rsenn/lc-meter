@@ -22607,14 +22607,14 @@ Marquardt, RAFI, ITT, and others&lt;p&gt;
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" deviceset="+5V" device=""/>
-<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49S"/>
+<part name="Q1" library="q" deviceset="CRYSTAL" device="HC49S"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="D1" library="diode" deviceset="1N4148" device="DO35-7" value="1N4148"/>
-<part name="T1" library="transistor" deviceset="*-NPN-" device="TO92-CBE" technology="BC548"/>
+<part name="D1" library="d" deviceset="1N4148" device="DO35-7" value="1N4148"/>
+<part name="T1" library="t" deviceset="*-NPN-" device="TO92-CBE" technology="BC548"/>
 <part name="K1" library="relay" deviceset="DS2Y-S-DC*" device="" technology="5V" value="DS2Y"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
@@ -22633,7 +22633,7 @@ Marquardt, RAFI, ITT, and others&lt;p&gt;
 <part name="P+7" library="supply1" deviceset="+5V" device=""/>
 <part name="P+8" library="supply1" deviceset="+5V" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="C4" library="resistor" deviceset="C-EU" device="025-024X044"/>
+<part name="C4" library="r" deviceset="C-EU" device="025-024X044"/>
 <part name="C5" library="rcl" deviceset="CPOL-US" device="E2,5-6E"/>
 <part name="U$2" library="mcu" deviceset="PB-5-2" device=""/>
 <part name="J1" library="con-molex" deviceset="22-?-02" device="27-2021"/>

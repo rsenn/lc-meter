@@ -19201,11 +19201,11 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 </classes>
 <parts>
 <part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP" device=""/>
-<part name="R1" library="resistor" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
-<part name="R2" library="resistor" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
-<part name="R4" library="resistor" deviceset="R-EU_" device="0207/10" value="47kΩ"/>
-<part name="R10" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
+<part name="R1" library="r" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
+<part name="R2" library="r" deviceset="R-EU_" device="0207/10" value="100kΩ"/>
+<part name="R3" library="r" deviceset="R-EU_" device="0204/2V" value="100kΩ"/>
+<part name="R4" library="r" deviceset="R-EU_" device="0207/10" value="47kΩ"/>
+<part name="R10" library="r" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="050-025X075" value="1nF"/>
 <part name="C2" library="rcl" deviceset="C-EU" device="050-025X075" value="1nF"/>
 <part name="C3" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="10μF"/>
@@ -19222,22 +19222,22 @@ Source: http://www2.produktinfo.conrad.com/datenblaetter/700000-724999/705152-da
 <part name="GND5" library="supply1" deviceset="GND" device=""/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
-<part name="D1" library="diode" deviceset="1N4148" device="DO35-7" value="1N4148"/>
+<part name="D1" library="d" deviceset="1N4148" device="DO35-7" value="1N4148"/>
 <part name="L1" library="rcl" deviceset="L-US" device="0207/10" value="100μH"/>
-<part name="Q1" library="crystal" deviceset="CRYSTAL" device="HC49U70" value="20MHz"/>
+<part name="Q1" library="q" deviceset="CRYSTAL" device="HC49U70" value="20MHz"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="R5" library="resistor" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
+<part name="R5" library="r" deviceset="R-EU_" device="0204/2V" value="4.7kΩ"/>
 <part name="P+5" library="supply1" deviceset="VCC" device=""/>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="SW1" library="mcu" deviceset="PB-SPST" device="" value="SPST"/>
 <part name="K2" library="relay" deviceset="DS2Y-S-DC*" device="" technology="5V" value="DS2Y"/>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
-<part name="Q2" library="transistor-npn" deviceset="BC548*" device=""/>
+<part name="Q2" library="t" deviceset="BC548*" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0207/10"/>
 <part name="CON1" library="con-lstb" deviceset="MA07-2" device=""/>
