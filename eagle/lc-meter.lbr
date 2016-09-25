@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -111,18 +111,6 @@ package type P</description>
 <pad name="28" x="-16.51" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <text x="16.891" y="0" size="1.016" layer="25" rot="R90" align="bottom-center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" align="center">&gt;VALUE</text>
-</package>
-<package name="DPDT">
-<wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-2.54" x2="3.81" y2="-2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="-2.54" x2="3.81" y2="2.54" width="0.127" layer="21"/>
-<wire x1="3.81" y1="2.54" x2="-3.81" y2="2.54" width="0.127" layer="21"/>
-<pad name="1-1" x="0" y="1.27" drill="0.8"/>
-<pad name="1-2" x="-2.54" y="1.27" drill="0.8"/>
-<pad name="1-3" x="2.54" y="1.27" drill="0.8"/>
-<pad name="2-1" x="0" y="-1.27" drill="0.8"/>
-<pad name="2-2" x="-2.54" y="-1.27" drill="0.8"/>
-<pad name="2-3" x="2.54" y="-1.27" drill="0.8"/>
 </package>
 <package name="PB-5">
 <circle x="0" y="0" radius="1.27" width="0.127" layer="21"/>
@@ -770,26 +758,6 @@ package type P</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="S-DPDT">
-<gates>
-<gate name="G$1" symbol="U_2" x="-5.08" y="0"/>
-</gates>
-<devices>
-<device name="" package="DPDT">
-<connects>
-<connect gate="G$1" pin="1-1" pad="1-1"/>
-<connect gate="G$1" pin="1-2" pad="1-2"/>
-<connect gate="G$1" pin="1-3" pad="1-3"/>
-<connect gate="G$1" pin="2-1" pad="2-1"/>
-<connect gate="G$1" pin="2-2" pad="2-2"/>
-<connect gate="G$1" pin="2-3" pad="2-3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="PIC16F876A-X/SP-COMP">
 <gates>
 <gate name="G$1" symbol="PIC16F876A-X/SP-H" x="0" y="0"/>
@@ -822,7 +790,7 @@ package type P</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="NOKIA-3310-64X64">
+<deviceset name="NOKIA-3310-64X64" prefix="LCD">
 <gates>
 <gate name="G$1" symbol="NOKIA3310-48X48" x="0" y="0"/>
 </gates>

@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -109,8 +109,8 @@ package type P</description>
 <pad name="26" x="-11.43" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <pad name="27" x="-13.97" y="3.81" drill="0.8128" shape="long" rot="R90"/>
 <pad name="28" x="-16.51" y="3.81" drill="0.8128" shape="long" rot="R90"/>
-<text x="-17.907" y="-2.54" size="1.778" layer="25" rot="R90">&gt;NAME</text>
-<text x="-15.748" y="-0.9398" size="1.778" layer="27">&gt;VALUE</text>
+<text x="16.891" y="0" size="1.016" layer="25" rot="R90" align="bottom-center">&gt;NAME</text>
+<text x="0" y="0" size="0.8128" layer="27" align="center">&gt;VALUE</text>
 </package>
 <package name="DPDT">
 <wire x1="-3.81" y1="2.54" x2="-3.81" y2="-2.54" width="0.127" layer="21"/>
