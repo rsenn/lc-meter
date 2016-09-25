@@ -94,21 +94,21 @@
 <text x="-6.35" y="2.54" size="0.6096" layer="21" font="vector" align="center">DTR</text>
 </package>
 <package name="PIC-UART">
-<pad name="20" x="-7.62" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<pad name="19" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square"/>
-<pad name="18" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<pad name="17" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon"/>
-<wire x1="1.27" y1="1.143" x2="1.27" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="1.27" y1="-1.143" x2="-8.89" y2="-1.143" width="0.127" layer="22"/>
-<wire x1="-8.89" y1="-1.143" x2="-8.89" y2="1.143" width="0.127" layer="22"/>
-<wire x1="-8.89" y1="1.143" x2="1.27" y2="1.143" width="0.127" layer="22"/>
-<text x="1.397" y="-0.635" size="0.6096" layer="23" rot="R180" align="bottom-right">17</text>
-<text x="1.27" y="1.397" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
-<text x="0" y="-1.397" size="0.6096" layer="21" font="vector" rot="R180" align="bottom-center">TX</text>
-<text x="-2.54" y="-1.397" size="0.6096" layer="21" font="vector" rot="R180" align="bottom-center">RX</text>
-<text x="-5.08" y="-1.397" size="0.6096" layer="21" font="vector" rot="R180" align="bottom-center">VSS</text>
-<text x="-7.62" y="-1.397" size="0.6096" layer="21" font="vector" rot="R180" align="bottom-center">VDD</text>
-<text x="-8.89" y="1.397" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
+<pad name="20" x="0" y="7.62" drill="1" shape="octagon" rot="R270"/>
+<pad name="19" x="0" y="5.08" drill="1" shape="square" rot="R270"/>
+<pad name="18" x="0" y="2.54" drill="1" shape="octagon" rot="R270"/>
+<pad name="17" x="0" y="0" drill="1" shape="octagon" rot="R270"/>
+<wire x1="1.27" y1="-1.397" x2="-1.27" y2="-1.397" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.397" x2="-1.27" y2="9.017" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="9.017" x2="1.27" y2="9.017" width="0.127" layer="22"/>
+<wire x1="1.27" y1="9.017" x2="1.27" y2="-1.397" width="0.127" layer="22"/>
+<text x="0.6985" y="-0.635" size="0.3048" layer="23" rot="R270">17</text>
+<text x="-1.651" y="-1.016" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
+<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">TX</text>
+<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">RX</text>
+<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">VSS</text>
+<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">VDD</text>
+<text x="-2.54" y="-1.016" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
 </package>
 <package name="PIC-UART-NOVDD">
 <pad name="19" x="1.27" y="1.27" drill="0.8" diameter="1.778" shape="square"/>
@@ -124,26 +124,26 @@
 <text x="0" y="-1.27" size="1.016" layer="27">&gt;VALUE</text>
 </package>
 <package name="RS232-6PIN">
-<pad name="2" x="2.54" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="6" x="12.7" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="1" x="0" y="0" drill="0.9" diameter="1.778" shape="square" rot="R180"/>
-<pad name="4" x="7.62" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="5" x="10.16" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="3" x="5.08" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
-<wire x1="13.97" y1="1.27" x2="13.97" y2="-1.27" width="0.127" layer="22"/>
-<wire x1="13.97" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="1.27" x2="13.97" y2="1.27" width="0.127" layer="22"/>
-<text x="-1.905" y="0" size="0.8128" layer="23" rot="R180" align="bottom-center">1</text>
-<text x="-1.27" y="2.54" size="1.016" layer="25" align="top-left">&gt;NAME</text>
-<text x="13.97" y="2.54" size="1.016" layer="27" rot="R180">&gt;VALUE</text>
-<text x="14.605" y="0" size="0.8128" layer="23" align="bottom-center">6</text>
-<text x="0" y="-1.905" size="0.6096" layer="48" font="vector" align="center">TXD</text>
-<text x="5.08" y="-1.905" size="0.6096" layer="48" font="vector" rot="R180" align="center">GND</text>
-<text x="7.62" y="-1.905" size="0.6096" layer="48" font="vector" rot="R180" align="center">RTS</text>
-<text x="10.16" y="-1.905" size="0.6096" layer="48" font="vector" rot="R180" align="center">CTS</text>
-<text x="12.7" y="-1.905" size="0.6096" layer="48" font="vector" rot="R180" align="center">RXD</text>
-<text x="2.54" y="-1.905" size="0.6096" layer="48" font="vector" align="center">DTR</text>
+<pad name="2" x="0" y="2.54" drill="0.9" diameter="1.778" shape="octagon" rot="R270"/>
+<pad name="6" x="0" y="12.7" drill="0.9" diameter="1.778" shape="octagon" rot="R270"/>
+<pad name="1" x="0" y="0" drill="0.9" diameter="1.778" shape="square" rot="R270"/>
+<pad name="4" x="0" y="7.62" drill="0.9" diameter="1.778" shape="octagon" rot="R270"/>
+<pad name="5" x="0" y="10.16" drill="0.9" diameter="1.778" shape="octagon" rot="R270"/>
+<pad name="3" x="0" y="5.08" drill="0.9" diameter="1.778" shape="octagon" rot="R270"/>
+<wire x1="-1.27" y1="13.97" x2="1.27" y2="13.97" width="0.127" layer="22"/>
+<wire x1="1.27" y1="13.97" x2="1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="13.97" width="0.127" layer="22"/>
+<text x="0" y="-1.905" size="0.8128" layer="23" rot="R270" align="bottom-center">1</text>
+<text x="-1.524" y="13.97" size="1.016" layer="25" align="top-right">&gt;NAME</text>
+<text x="-1.524" y="-1.27" size="1.016" layer="27" align="bottom-right">&gt;VALUE</text>
+<text x="-0.127" y="14.732" size="0.8128" layer="23" align="bottom-center">6</text>
+<text x="2.54" y="0" size="0.6096" layer="48" font="vector" rot="R180" align="center">TXD</text>
+<text x="2.54" y="5.08" size="0.6096" layer="48" font="vector" align="center">GND</text>
+<text x="2.54" y="7.62" size="0.6096" layer="48" font="vector" align="center">RTS</text>
+<text x="2.54" y="10.16" size="0.6096" layer="48" font="vector" rot="R180" align="center">CTS</text>
+<text x="2.54" y="12.7" size="0.6096" layer="48" font="vector" rot="R180" align="center">RXD</text>
+<text x="2.54" y="2.54" size="0.6096" layer="48" font="vector" rot="R180" align="center">DTR</text>
 </package>
 <package name="CONN-6P">
 <pad name="6" x="12.7" y="0" drill="0.9" diameter="1.778" shape="octagon" rot="R180"/>
@@ -202,11 +202,11 @@
 <package name="CONN-2P">
 <pad name="2" x="-2.54" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
 <pad name="1" x="0" y="0" drill="0.9" diameter="1.778" shape="square"/>
-<wire x1="1.27" y1="-1.905" x2="1.27" y2="1.905" width="0.127" layer="21"/>
-<wire x1="1.27" y1="1.905" x2="-3.81" y2="1.905" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="1.905" x2="-3.81" y2="-1.905" width="0.127" layer="21"/>
-<wire x1="-3.81" y1="-1.905" x2="1.27" y2="-1.905" width="0.127" layer="21"/>
-<text x="2.54" y="-1.2065" size="1.27" layer="23" rot="R270">1</text>
+<wire x1="1.524" y1="-1.905" x2="1.524" y2="1.905" width="0.127" layer="21"/>
+<wire x1="1.524" y1="1.905" x2="-4.064" y2="1.905" width="0.127" layer="21"/>
+<wire x1="-4.064" y1="1.905" x2="-4.064" y2="-1.905" width="0.127" layer="21"/>
+<wire x1="-4.064" y1="-1.905" x2="1.524" y2="-1.905" width="0.127" layer="21"/>
+<text x="0.9525" y="-1.0795" size="0.4064" layer="23" font="fixed" align="top-left">1</text>
 <text x="-4.445" y="-1.905" size="1.016" layer="25" rot="R90">&gt;NAME</text>
 </package>
 <package name="PIC-UART-MCLR">
@@ -244,6 +244,60 @@
 <text x="18.796" y="1.524" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
 <pad name="7" x="15.24" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
 <pad name="8" x="17.78" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
+</package>
+<package name="PIC-ICSP">
+<pad name="4" x="7.62" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<pad name="1" x="0" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
+<pad name="2" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<pad name="3" x="5.08" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<wire x1="11.43" y1="1.27" x2="11.43" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="11.43" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="1.27" x2="11.43" y2="1.27" width="0.127" layer="22"/>
+<text x="-2.54" y="0" size="0.6096" layer="23" align="top-left">1</text>
+<text x="11.43" y="-1.905" size="0.8128" layer="27" rot="R180">&gt;VALUE</text>
+<text x="10.16" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGD</text>
+<text x="7.62" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGC</text>
+<text x="0" y="1.905" size="0.6096" layer="51" font="vector" align="center">VSS</text>
+<text x="2.54" y="1.905" size="0.6096" layer="51" font="vector" align="center">VDD</text>
+<pad name="5" x="10.16" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<text x="5.08" y="1.905" size="0.6096" layer="51" font="vector" align="center">VPP</text>
+<text x="-1.27" y="-1.905" size="0.8128" layer="25" align="top-left">&gt;NAME</text>
+</package>
+<package name="CONN-LCD44780">
+<pad name="D5" x="0" y="12.7" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="D4" x="0" y="10.16" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="E" x="0" y="7.62" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="RS" x="0" y="5.08" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="VCC" x="0" y="2.54" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="GND" x="0" y="0" drill="0.9" diameter="1.4224" shape="square" rot="R270"/>
+<wire x1="-1.27" y1="-1.524" x2="1.27" y2="-1.524" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-1.524" x2="1.27" y2="19.304" width="0.127" layer="21"/>
+<wire x1="1.27" y1="19.304" x2="-1.27" y2="19.304" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="19.304" x2="-1.27" y2="-1.524" width="0.127" layer="21"/>
+<text x="0.6985" y="-0.9144" size="0.4064" layer="20" font="fixed" rot="R270">1</text>
+<text x="-2.54" y="-0.508" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
+<text x="-1.524" y="-0.508" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
+<pad name="D6" x="0" y="15.24" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="D7" x="0" y="17.78" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">GND</text>
+<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">VCC</text>
+<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">RS</text>
+<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">E</text>
+<text x="1.778" y="10.16" size="0.6096" layer="21" font="fixed" align="center-left">D4</text>
+<text x="1.778" y="12.7" size="0.6096" layer="21" font="fixed" align="center-left">D5</text>
+<text x="1.778" y="15.24" size="0.6096" layer="21" font="fixed" align="center-left">D6</text>
+<text x="1.778" y="17.78" size="0.6096" layer="21" font="fixed" align="center-left">D7</text>
+</package>
+<package name="CONN-2P-V">
+<pad name="2" x="0" y="2.54" drill="1" diameter="1.778" shape="octagon" rot="R270"/>
+<pad name="1" x="0" y="0" drill="1" diameter="1.778" shape="square" rot="R270"/>
+<wire x1="-1.905" y1="-2.032" x2="1.905" y2="-2.032" width="0.127" layer="21"/>
+<wire x1="1.905" y1="-2.032" x2="1.905" y2="4.572" width="0.127" layer="21"/>
+<wire x1="1.905" y1="4.572" x2="-1.905" y2="4.572" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="4.572" x2="-1.905" y2="-2.032" width="0.127" layer="21"/>
+<text x="1.143" y="-1.143" size="0.508" layer="23" font="fixed" align="top-left">1</text>
+<text x="-1.778" y="4.953" size="0.8128" layer="25">&gt;NAME</text>
 </package>
 </packages>
 <symbols>
@@ -321,8 +375,8 @@ Red</text>
 <pin name="MCLR" x="-7.62" y="6.35" length="short" direction="pas"/>
 </symbol>
 <symbol name="PIC-ICSP">
-<pin name="VDD" x="-7.62" y="5.08" length="short" direction="pas"/>
-<pin name="VSS" x="-7.62" y="2.54" length="short" direction="pas"/>
+<pin name="VDD" x="-7.62" y="2.54" length="short" direction="pas"/>
+<pin name="VSS" x="-7.62" y="5.08" length="short" direction="pas"/>
 <pin name="PGC" x="-7.62" y="-2.54" length="short" direction="pas"/>
 <pin name="PGD" x="-7.62" y="-5.08" length="short" direction="pas"/>
 <wire x1="5.08" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
@@ -591,6 +645,18 @@ Red</text>
 <technology name=""/>
 </technologies>
 </device>
+<device name="ICSP" package="PIC-ICSP">
+<connects>
+<connect gate="G$1" pin="MCLR" pad="3"/>
+<connect gate="G$1" pin="PGC" pad="4"/>
+<connect gate="G$1" pin="PGD" pad="5"/>
+<connect gate="G$1" pin="VDD" pad="2"/>
+<connect gate="G$1" pin="VSS" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 <deviceset name="HD44780-4BIT" prefix="J">
@@ -608,6 +674,21 @@ Red</text>
 <connect gate="G$1" pin="GND" pad="1"/>
 <connect gate="G$1" pin="RS" pad="3"/>
 <connect gate="G$1" pin="VCC" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="LCD44780-8P" package="CONN-LCD44780">
+<connects>
+<connect gate="G$1" pin="D4" pad="D4"/>
+<connect gate="G$1" pin="D5" pad="D5"/>
+<connect gate="G$1" pin="D6" pad="D6"/>
+<connect gate="G$1" pin="D7" pad="D7"/>
+<connect gate="G$1" pin="E" pad="E"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="RS" pad="RS"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
 </connects>
 <technologies>
 <technology name=""/>
