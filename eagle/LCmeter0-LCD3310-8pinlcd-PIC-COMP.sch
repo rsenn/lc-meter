@@ -12120,167 +12120,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </deviceset>
 </devicesets>
 </library>
-<library name="lcd">
-<packages>
-<package name="1X8">
-<wire x1="-9.525" y1="1.27" x2="-8.255" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-8.255" y1="1.27" x2="-7.62" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-7.62" y1="-0.635" x2="-8.255" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-7.62" y1="0.635" x2="-6.985" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-6.985" y1="1.27" x2="-5.715" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-5.715" y1="1.27" x2="-5.08" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="-0.635" x2="-5.715" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-5.715" y1="-1.27" x2="-6.985" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-6.985" y1="-1.27" x2="-7.62" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-10.16" y1="0.635" x2="-10.16" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-9.525" y1="1.27" x2="-10.16" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-10.16" y1="-0.635" x2="-9.525" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-8.255" y1="-1.27" x2="-9.525" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-5.08" y1="0.635" x2="-4.445" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-4.445" y1="1.27" x2="-3.175" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-3.175" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="-0.635" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-3.175" y1="-1.27" x2="-4.445" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-4.445" y1="-1.27" x2="-5.08" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-1.905" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="-1.27" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-0.635" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="0.635" x2="3.175" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="3.175" y1="1.27" x2="4.445" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="4.445" y1="1.27" x2="5.08" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="-0.635" x2="4.445" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="4.445" y1="-1.27" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="3.175" y1="-1.27" x2="2.54" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.905" y1="-1.27" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="0.635" x2="5.715" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="5.715" y1="1.27" x2="6.985" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="6.985" y1="1.27" x2="7.62" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="7.62" y1="-0.635" x2="6.985" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="6.985" y1="-1.27" x2="5.715" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="5.715" y1="-1.27" x2="5.08" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="8.255" y1="1.27" x2="9.525" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="1.27" x2="10.16" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="10.16" y1="0.635" x2="10.16" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="10.16" y1="-0.635" x2="9.525" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="8.255" y1="1.27" x2="7.62" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="7.62" y1="-0.635" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="9.525" y1="-1.27" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
-<pad name="1" x="-8.89" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="2" x="-6.35" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="3" x="-3.81" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="4" x="-1.27" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="5" x="1.27" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="6" x="3.81" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="7" x="6.35" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<pad name="8" x="8.89" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
-<text x="-10.16" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-9.398" y="-2.921" size="1.27" layer="21" ratio="10">1</text>
-<text x="8.255" y="1.651" size="1.27" layer="21" ratio="10">8</text>
-<text x="-1.27" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
-<rectangle x1="-9.144" y1="-0.254" x2="-8.636" y2="0.254" layer="51"/>
-<rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
-<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
-<rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
-<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
-<rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
-<rectangle x1="8.636" y1="-0.254" x2="9.144" y2="0.254" layer="51"/>
-</package>
-<package name="CONN-LCD3310">
-<pad name="GND" x="0" y="12.7" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="SCE" x="0" y="10.16" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="D_C" x="0" y="7.62" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="SDIN" x="0" y="5.08" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="SCK" x="0" y="2.54" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="VDD" x="0" y="0" drill="0.9" diameter="1.4224" shape="square" rot="R270"/>
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
-<wire x1="1.27" y1="-1.27" x2="1.27" y2="19.05" width="0.127" layer="21"/>
-<wire x1="1.27" y1="19.05" x2="-1.27" y2="19.05" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="19.05" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
-<text x="0.6985" y="-0.9144" size="0.4064" layer="20" font="fixed" rot="R270">1</text>
-<text x="-2.54" y="-0.508" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
-<text x="-1.524" y="-0.508" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
-<pad name="VOUT" x="0" y="15.24" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<pad name="RES" x="0" y="17.78" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
-<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">VDD</text>
-<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">SCK</text>
-<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">SDIN</text>
-<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">D_C</text>
-<text x="1.778" y="10.16" size="0.6096" layer="21" font="fixed" align="center-left">SCE</text>
-<text x="1.778" y="12.7" size="0.6096" layer="21" font="fixed" align="center-left">GND</text>
-<text x="1.778" y="15.24" size="0.6096" layer="21" font="fixed" align="center-left">VOUT</text>
-<text x="1.778" y="17.78" size="0.6096" layer="21" font="fixed" align="center-left">RES</text>
-</package>
-</packages>
-<symbols>
-<symbol name="NOKIA3310-48X48">
-<wire x1="-11.43" y1="8.89" x2="-11.43" y2="-8.89" width="0.254" layer="94"/>
-<wire x1="-11.43" y1="-8.89" x2="-11.43" y2="-16.51" width="0.254" layer="94"/>
-<wire x1="-11.43" y1="-16.51" x2="11.43" y2="-16.51" width="0.254" layer="94"/>
-<wire x1="11.43" y1="-16.51" x2="11.43" y2="-8.89" width="0.254" layer="94"/>
-<wire x1="11.43" y1="-8.89" x2="11.43" y2="8.89" width="0.254" layer="94"/>
-<wire x1="11.43" y1="8.89" x2="-11.43" y2="8.89" width="0.254" layer="94"/>
-<wire x1="-11.43" y1="-8.89" x2="11.43" y2="-8.89" width="0.254" layer="94"/>
-<pin name="VDD" x="8.89" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="SCK" x="6.35" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="SDIN" x="3.81" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="D_C" x="1.27" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="SCE" x="-1.27" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="GND" x="-3.81" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="VOUT" x="-6.35" y="-19.05" length="short" direction="pas" rot="R90"/>
-<pin name="RES" x="-8.89" y="-19.05" length="short" direction="pas" rot="R90"/>
-<text x="0" y="0" size="1.27" layer="97" align="center">NOKIA 3310 64x64</text>
-<rectangle x1="-10.16" y1="-7.62" x2="10.16" y2="7.62" layer="90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="NOKIA-3310-64X64">
-<gates>
-<gate name="1" symbol="NOKIA3310-48X48" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X8">
-<connects>
-<connect gate="1" pin="D_C" pad="4"/>
-<connect gate="1" pin="GND" pad="6"/>
-<connect gate="1" pin="RES" pad="8"/>
-<connect gate="1" pin="SCE" pad="5"/>
-<connect gate="1" pin="SCK" pad="2"/>
-<connect gate="1" pin="SDIN" pad="3"/>
-<connect gate="1" pin="VDD" pad="1"/>
-<connect gate="1" pin="VOUT" pad="7"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SPARKFUN" package="CONN-LCD3310">
-<connects>
-<connect gate="1" pin="D_C" pad="D_C"/>
-<connect gate="1" pin="GND" pad="GND"/>
-<connect gate="1" pin="RES" pad="RES"/>
-<connect gate="1" pin="SCE" pad="SCE"/>
-<connect gate="1" pin="SCK" pad="SCK"/>
-<connect gate="1" pin="SDIN" pad="SDIN"/>
-<connect gate="1" pin="VDD" pad="VDD"/>
-<connect gate="1" pin="VOUT" pad="VOUT"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="mcu">
 <packages>
 <package name="DIL28-3">
@@ -12559,6 +12398,167 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </deviceset>
 </devicesets>
 </library>
+<library name="lcd">
+<packages>
+<package name="1X8">
+<wire x1="-9.525" y1="1.27" x2="-8.255" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-8.255" y1="1.27" x2="-7.62" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-7.62" y1="-0.635" x2="-8.255" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-7.62" y1="0.635" x2="-6.985" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-6.985" y1="1.27" x2="-5.715" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-5.715" y1="1.27" x2="-5.08" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="-0.635" x2="-5.715" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-5.715" y1="-1.27" x2="-6.985" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-6.985" y1="-1.27" x2="-7.62" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-10.16" y1="0.635" x2="-10.16" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-9.525" y1="1.27" x2="-10.16" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-10.16" y1="-0.635" x2="-9.525" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-8.255" y1="-1.27" x2="-9.525" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-5.08" y1="0.635" x2="-4.445" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="1.27" x2="-3.175" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="-0.635" x2="-3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-3.175" y1="-1.27" x2="-4.445" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-4.445" y1="-1.27" x2="-5.08" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-1.905" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-2.54" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="-1.27" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="-0.635" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="2.54" y1="0.635" x2="3.175" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="1.27" x2="4.445" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="4.445" y1="1.27" x2="5.08" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="-0.635" x2="4.445" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="4.445" y1="-1.27" x2="3.175" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="3.175" y1="-1.27" x2="2.54" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="1.905" y1="-1.27" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="5.08" y1="0.635" x2="5.715" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="5.715" y1="1.27" x2="6.985" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="6.985" y1="1.27" x2="7.62" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="7.62" y1="-0.635" x2="6.985" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="6.985" y1="-1.27" x2="5.715" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="5.715" y1="-1.27" x2="5.08" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="8.255" y1="1.27" x2="9.525" y2="1.27" width="0.1524" layer="21"/>
+<wire x1="9.525" y1="1.27" x2="10.16" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="10.16" y1="0.635" x2="10.16" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="10.16" y1="-0.635" x2="9.525" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="8.255" y1="1.27" x2="7.62" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="7.62" y1="-0.635" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
+<wire x1="9.525" y1="-1.27" x2="8.255" y2="-1.27" width="0.1524" layer="21"/>
+<pad name="1" x="-8.89" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="2" x="-6.35" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="3" x="-3.81" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="4" x="-1.27" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="5" x="1.27" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="6" x="3.81" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="7" x="6.35" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<pad name="8" x="8.89" y="0" drill="0.8128" diameter="1.905" rot="R90"/>
+<text x="-10.16" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-9.398" y="-2.921" size="1.27" layer="21" ratio="10">1</text>
+<text x="8.255" y="1.651" size="1.27" layer="21" ratio="10">8</text>
+<text x="-1.27" y="-2.921" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-6.604" y1="-0.254" x2="-6.096" y2="0.254" layer="51"/>
+<rectangle x1="-9.144" y1="-0.254" x2="-8.636" y2="0.254" layer="51"/>
+<rectangle x1="-4.064" y1="-0.254" x2="-3.556" y2="0.254" layer="51"/>
+<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
+<rectangle x1="3.556" y1="-0.254" x2="4.064" y2="0.254" layer="51"/>
+<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
+<rectangle x1="6.096" y1="-0.254" x2="6.604" y2="0.254" layer="51"/>
+<rectangle x1="8.636" y1="-0.254" x2="9.144" y2="0.254" layer="51"/>
+</package>
+<package name="CONN-LCD3310">
+<pad name="GND" x="0" y="12.7" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="SCE" x="0" y="10.16" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="D_C" x="0" y="7.62" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="SDIN" x="0" y="5.08" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="SCK" x="0" y="2.54" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="VDD" x="0" y="0" drill="0.9" diameter="1.4224" shape="square" rot="R270"/>
+<wire x1="-1.27" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-1.27" x2="1.27" y2="19.05" width="0.127" layer="21"/>
+<wire x1="1.27" y1="19.05" x2="-1.27" y2="19.05" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="19.05" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<text x="0.6985" y="-0.9144" size="0.4064" layer="20" font="fixed" rot="R270">1</text>
+<text x="-2.54" y="-0.508" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
+<text x="-1.524" y="-0.508" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
+<pad name="VOUT" x="0" y="15.24" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<pad name="RES" x="0" y="17.78" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
+<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">VDD</text>
+<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">SCK</text>
+<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">SDIN</text>
+<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">D_C</text>
+<text x="1.778" y="10.16" size="0.6096" layer="21" font="fixed" align="center-left">SCE</text>
+<text x="1.778" y="12.7" size="0.6096" layer="21" font="fixed" align="center-left">GND</text>
+<text x="1.778" y="15.24" size="0.6096" layer="21" font="fixed" align="center-left">VOUT</text>
+<text x="1.778" y="17.78" size="0.6096" layer="21" font="fixed" align="center-left">RES</text>
+</package>
+</packages>
+<symbols>
+<symbol name="NOKIA3310-48X48">
+<wire x1="-11.43" y1="8.89" x2="-11.43" y2="-8.89" width="0.254" layer="94"/>
+<wire x1="-11.43" y1="-8.89" x2="-11.43" y2="-16.51" width="0.254" layer="94"/>
+<wire x1="-11.43" y1="-16.51" x2="11.43" y2="-16.51" width="0.254" layer="94"/>
+<wire x1="11.43" y1="-16.51" x2="11.43" y2="-8.89" width="0.254" layer="94"/>
+<wire x1="11.43" y1="-8.89" x2="11.43" y2="8.89" width="0.254" layer="94"/>
+<wire x1="11.43" y1="8.89" x2="-11.43" y2="8.89" width="0.254" layer="94"/>
+<wire x1="-11.43" y1="-8.89" x2="11.43" y2="-8.89" width="0.254" layer="94"/>
+<pin name="VDD" x="8.89" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="SCK" x="6.35" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="SDIN" x="3.81" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="D_C" x="1.27" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="SCE" x="-1.27" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="GND" x="-3.81" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="VOUT" x="-6.35" y="-19.05" length="short" direction="pas" rot="R90"/>
+<pin name="RES" x="-8.89" y="-19.05" length="short" direction="pas" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="97" align="center">NOKIA 3310 64x64</text>
+<rectangle x1="-10.16" y1="-7.62" x2="10.16" y2="7.62" layer="90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="NOKIA-3310-64X64" prefix="LCD">
+<gates>
+<gate name="1" symbol="NOKIA3310-48X48" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="1X8">
+<connects>
+<connect gate="1" pin="D_C" pad="4"/>
+<connect gate="1" pin="GND" pad="6"/>
+<connect gate="1" pin="RES" pad="8"/>
+<connect gate="1" pin="SCE" pad="5"/>
+<connect gate="1" pin="SCK" pad="2"/>
+<connect gate="1" pin="SDIN" pad="3"/>
+<connect gate="1" pin="VDD" pad="1"/>
+<connect gate="1" pin="VOUT" pad="7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="SPARKFUN" package="CONN-LCD3310">
+<connects>
+<connect gate="1" pin="D_C" pad="D_C"/>
+<connect gate="1" pin="GND" pad="GND"/>
+<connect gate="1" pin="RES" pad="RES"/>
+<connect gate="1" pin="SCE" pad="SCE"/>
+<connect gate="1" pin="SCK" pad="SCK"/>
+<connect gate="1" pin="SDIN" pad="SDIN"/>
+<connect gate="1" pin="VDD" pad="VDD"/>
+<connect gate="1" pin="VOUT" pad="VOUT"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12623,8 +12623,8 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="D2" library="d" deviceset="1N4148" device="34-12V" value="1N4148"/>
 <part name="C8" library="c" deviceset="C" device="050-020X036" value="22pF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="J1" library="lcd" deviceset="NOKIA-3310-64X64" device="SPARKFUN" value="SPI-LCD3310"/>
 <part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP-COMP" device="DIL28-3/V" value="PIC16F876A-X/SP"/>
+<part name="J1" library="lcd" deviceset="NOKIA-3310-64X64" device="SPARKFUN"/>
 </parts>
 <sheets>
 <sheet>
@@ -12725,8 +12725,8 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <instance part="D2" gate="G$1" x="205.74" y="-17.78" rot="R270"/>
 <instance part="C8" gate="G$1" x="261.62" y="45.72"/>
 <instance part="GND3" gate="1" x="269.24" y="12.7"/>
-<instance part="J1" gate="1" x="252.73" y="-31.75" rot="R180"/>
 <instance part="IC1" gate="1" x="137.16" y="25.4"/>
+<instance part="J1" gate="1" x="252.73" y="-31.75" rot="R180"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -12840,9 +12840,9 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <wire x1="180.34" y1="-5.08" x2="180.34" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="180.34" y="-7.62"/>
 <junction x="236.22" y="-7.62"/>
-<pinref part="J1" gate="1" pin="VDD"/>
 <pinref part="IC1" gate="1" pin="VSS"/>
 <pinref part="IC1" gate="1" pin="VSS_2"/>
+<pinref part="J1" gate="1" pin="VDD"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="E"/>
