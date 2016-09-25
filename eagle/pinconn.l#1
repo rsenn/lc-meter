@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="dots" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -71,6 +71,8 @@
 <layer number="99" name="SpiceOrder" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <library>
+<description>&lt;b&gt;Pin connectors&lt;/b&gt;&lt;p&gt;
+</description>
 <packages>
 <package name="FTDI232-BO">
 <pad name="DTR" x="-6.35" y="0" drill="0.9" diameter="1.778" shape="octagon"/>
@@ -701,7 +703,16 @@ Red</text>
 <gate name="G$1" symbol="PINCONN-2P" x="0" y="1.27"/>
 </gates>
 <devices>
-<device name="-2P" package="CONN-2P">
+<device name="2P/H" package="CONN-2P">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2P/V" package="CONN-2P-V">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
