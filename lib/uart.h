@@ -1,26 +1,20 @@
 #ifndef UART_H
 #define UART_H
 
-#include "oscillator.h"
 #include "device.h"
-#include "types.h"
+#include "typedef.h"
 
 #ifndef UART_BAUD
-//#define UART_BAUD 38400      /** Baudrate */
-#define UART_BAUD 19200      /** Baudrate */
+#define UART_BAUD 38400      /** Baudrate */
+//#define UART_BAUD 19200      /** Baudrate */
 //#define UART_BAUD 31250      /** Baudrate */
 #endif
 
 #define NINE 0          /** Use 9bit communication? 0=8bit */
 
-
-
-#if (OSC_4 == 5000000) || (_XTAL_FREQ == 20000000)
+#if 0 //OSC_4 == 5000000
 # if UART_BAUD == 38400
-#  define UART_BRG  32
-#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
-# elif UART_BAUD == 19200
-#  define UART_BRG  66
+#  define UART_BRG  31
 #  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
 # endif
 #endif
@@ -29,7 +23,12 @@
 #define HIGH_SPEED 1    /** Set for high speed communicatin (see BRGH bit) */
 #endif
 
-#ifdef __16f628a
+#ifdef __12f1840
+#define TX_PIN RA0
+#define TX_TRIS TRISA0
+#define RX_PIN RA1
+#define RX_TRIS TRISA1
+#elif defined(__16f628a)
 #define TX_PIN RB2
 #define TX_TRIS TRISB2
 #define RX_PIN RB1
@@ -44,10 +43,11 @@
 extern const uint8_t uart_brg;
 
 
-void uart_putch(unsigned char byte);
+void uart_putch(uint8_t byte);
 
 int uart_getch(void);
-bit uart_poll(unsigned char bauds);
+BOOL uart_poll(uint8_t bauds);
+
 /**
  * Initialize UART module
  */
@@ -71,7 +71,8 @@ void uart_enable(void);
 void uart_disable(void);
 
 void uart_puts(const char *s);
-void uart_puts2(unsigned char *s);
+void uart_puts2(uint8_t *s);
 
 
 #endif /* UART_H */
+ 

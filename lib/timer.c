@@ -1,4 +1,4 @@
-#include "timer.h"
+  #include "timer.h"
 
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER_0
@@ -8,7 +8,8 @@ void setup_timer0()
 {
 
   //setup timer0 for internal clock
-  T0CS = 0;  //Transition on T0CKI pin
+  T0CS = 0;  // Internal instruction cycle clock (CLKO)
+
 
 
   //setup timer0 for frequency counter
@@ -20,9 +21,9 @@ void setup_timer0()
 
   PSA = (TMR0_PRESCALER == 0);  //Prescaler isn't assigned to the Timer0 module
 
-#if TMR0_PRESCALER != 0
-  OPTION_REGbits.PS = TMR0_PRESCALER - 1;
-#endif
+//#if TMR0_PRESCALER != 0
+  T0PS = TMR0_PRESCALER - 1;
+//#endif
 
 }
 #endif // USE_TIMER_0
@@ -38,16 +39,16 @@ setup_timer1()
   tmr1_overflow = 0;
 
   T1CONbits.T1CKPS = TMR1_PRESCALER; // 1:1 prescaler
-  T1CONbits.T1OSCEN = 0;
-  //  T1CONbits.TMR1CS = 0; // Internal clock source
+  TMR1CS = 0; // Internal clock source
+  T1OSCEN = 1;
   //  T1CONbits.T1SYNC = 1;
 
   TMR1 = 0;
 
   T1CONbits.TMR1ON = 1;
 
-  TMR1IE = 1;
-  TMR1IF = 0;
+//  TMR1IE = 1;
+//  TMR1IF = 0;
 }
 
 #endif // USE_TIMER_1
@@ -76,3 +77,4 @@ setup_timer2()
 
 }
 #endif // USE_TIMER_2
+ 

@@ -9,14 +9,14 @@
  *  There are also macros to do so by time period, assuming
  *  KHZ is defined somewhere, but these have limits like
  *  the macros:
- *    Clock  Small Max   Big Max
- *    20MHz      150us     38000us
- *    10MHz      300us     76000us
- *     4MHz      750us    190000us
- *     1MHz     3000us    760000us
- *   100KHz    30000us   7600000us
- *    48KHz    62500us  15833333us
- *    32KHz    93750us  23750000us
+ *    Clock  Small Max  Big Max
+ *    20MHz  150us    38000us
+ *    10MHz  300us    76000us
+ *    4MHz  750us    190000us
+ *    1MHz  3000us    760000us
+ *    100KHz  30000us    7600000us
+ *    48KHz  62500us    15833333us
+ *    32KHz  93750us    23750000us
  *
  *  If you exceed these, your compiler will likely warn you of an
  *  overflow.
@@ -33,7 +33,7 @@
 #ifndef TSMDELAY_H
 #define TSMDELAY_H
 
-#include "types.h"
+#include "typedef.h"
 #include "oscillator.h"
 
 #ifdef __16f628a
@@ -43,7 +43,7 @@
 #endif
 
 #ifndef KHZ
-#error "Can't calculate delays when KHZ not defined"
+#warning "Can't calculate delays when KHZ not defined"
 #endif
 
 typedef struct dvars {
@@ -78,17 +78,17 @@ void cycle_eater(void);
 
 #endif
 
-// This is how unsigned long cycle_eater takes for values of X, B, and C.
-#define LOOP_CYCLES(X, B, C)  (((unsigned long)X * B * 4) + (C * 3) + 13)
+// This is how long cycle_eater takes for values of X, B, and C.
+#define LOOP_CYCLES(X, B, C)  (((long)X * B * 4) + (C * 3) + 13)
 
 /**
  * Sets up the values in dvar without actually doing the delay.
  * If these calculations aren't happening at compile-time,
- * they can take way unsigned longer than the delay you want, so do them first!
+ * they can take way longer than the delay you want, so do them first!
  */
 #define SAVE_CYCLES_BIG(Y, X)  do { \
-    (Y).loop_b = ((unsigned long)(X) - 16lu) / 764lu; \
-    (Y).loop_c = ((((unsigned long)(X) - 16lu) % 764lu) / 3lu) + 1; \
+    (Y).loop_b = ((long)(X) - 16lu) / 764lu; \
+    (Y).loop_c = ((((long)(X) - 16lu) % 764lu) / 3lu) + 1; \
   } while(0)
 
 /**
@@ -113,14 +113,14 @@ void cycle_eater(void);
 /**
  * Sets up the values in dvar without actually doing the delay.
  * If these calculations aren't happening at compile-time,
- * they can take way unsigned longer than the delay you want, so do them first!
+ * they can take way longer than the delay you want, so do them first!
  */
 #define SAVE_CYCLES_SMALL(Y, X) do { \
-    (Y).loop_c = ((unsigned long)(X) - 11lu) / 3lu; \
+    (Y).loop_c = ((long)(X) - 11lu) / 3lu; \
   } while(0)
 
 #define SAVE_CYCLES_SMALL_U8(Y, X) do { \
-    (Y) = ((unsigned long)(X) - 11lu) / 3lu; \
+    (Y) = ((long)(X) - 11lu) / 3lu; \
   } while(0)
 
 /**
@@ -138,8 +138,8 @@ void cycle_eater(void);
  *  Calculates cycles from microseconds based on clock speed relative
  *  to 4MHz.
  */
-#define US_CYCLES(N)    ((((unsigned long)N)*(KHZ))/4000LU)
-#define MS_CYCLES(N)    ((((unsigned long)N)*(_XTAL_FREQ))/4000LU)
+#define US_CYCLES(N)    (((N)*(KHZ))/4000LU)
+#define MS_CYCLES(N)    (((N)*(_XTAL_FREQ))/4000LU)
 
 #define DELAY_SMALL_US(X)  DELAY_SMALL_TCY (US_CYCLES(X))
 #define DELAY_BIG_US(X)    DELAY_BIG_TCY   (US_CYCLES(X))
@@ -155,3 +155,4 @@ void cycle_eater(void);
 
 
 #endif/*TSMDELAY_H*/
+ 

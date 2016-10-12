@@ -1,7 +1,7 @@
 #ifndef TIMER_H
 #define TIMER_H 1
 
-#include "types.h"
+#include "typedef.h"
 #include "device.h"
 
 #define PRESCALE_1_1  0
@@ -82,3 +82,4 @@ void setup_timer2();
 #endif // USE_TIMER_2
 
 #endif // defined TIMER_H
+ 

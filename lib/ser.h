@@ -32,45 +32,34 @@
 
 #ifdef USE_SER
 
-#include "types.h"
-#include "oscillator.h"
+#include "typedef.h"
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */
 #define SER_BUFFER_SIZE		16
 
 #define SER_FIFO_MASK 		(SER_BUFFER_SIZE-1)
 
-
-#if (OSC_4 == 5000000) || _XTAL_FREQ == 20000000
-# if UART_BAUD == 38400
-#  define SER_BRG  33
-#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
-#elif UART_BAUD == 19200
-#  define SER_BRG  64
-#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
-# endif
-#endif
-
 /* Insert this macro inside the interrupt routine */
 #define ser_int() if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & SER_FIFO_MASK; if (ser_tmp!=rxoptr) rxiptr=ser_tmp; } if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= SER_FIFO_MASK; if (txoptr==txiptr) { TXIE = 0; } }
 
 
 bit ser_isrx(void);
-unsigned char ser_getch(void);
-void ser_putch(unsigned char byte);
+uint8_t ser_getch(void);
+void ser_putch(uint8_t byte);
 void ser_puts(const char * s);
-void ser_puts2(unsigned char * s);
-void ser_puthex(unsigned char v);
+void ser_puts2(uint8_t * s);
+void ser_puthex(uint8_t v);
 void ser_init(void);
 
 #ifndef _SER_C_
-extern unsigned char rxfifo[SER_BUFFER_SIZE];
-extern volatile unsigned char rxiptr, rxoptr;
-extern /*bank1*/ unsigned char txfifo[SER_BUFFER_SIZE];
-extern volatile unsigned char txiptr, txoptr;
-extern unsigned char ser_tmp;
+extern uint8_t rxfifo[SER_BUFFER_SIZE];
+extern volatile uint8_t rxiptr, rxoptr;
+extern /*bank1*/ uint8_t txfifo[SER_BUFFER_SIZE];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
 #endif
-extern unsigned char ser_brg;
+extern uint8_t ser_brg;
 #endif
 
 #endif
+ 

@@ -11,26 +11,29 @@
 //#define SQR_PI    9.8696044010893586188344909998761
 #define DEG_TO_RAD  0.0174532925199432957692369076848  // PI/180
 #define RAD_TO_DEG  57.295779513082320876798154814105  // 180/PI
-#define RAD(x)      (x * DEG_TO_RAD)
-#define DEG(x)      (x * RAD_TO_DEG)
+#define rad(x)      (x * DEG_TO_RAD)
+#define deg(x)      (x * RAD_TO_DEG)
 
 // already defined in common_types.h
+#ifndef __XC__
 #ifndef FALSE
 # define FALSE  0
 #endif
-#ifndef SDCC
-#ifndef false
-# define false  0
-#endif
-  //#define False  0
-
 #ifndef TRUE
 #define TRUE   !FALSE
 #endif
+#endif
+
+#if 0 //ndef SDCC
+#ifndef false
+# define false  0
+#endif
+//#define False  0
+
 #ifndef true
 #define true   !false
 #endif
-  //#define True   !false
+//#define True   !false
 
 #endif
 
@@ -44,16 +47,17 @@
 #define HIGH   1
 #define LOW    0
 
-#define ON     1
+/*#define ON     1
 #define OFF    0
-
-#define BYTE   1
+*/
+/*#define BYTE   1
 #define BIN    2
 #define OCT    8
 #define DEC   10
 #define HEX   16
 #define FLOAT 32
-
+*/
 #define ARRAY_SIZE(a) (sizeof(a)/sizeof(a[0]))
 
 #endif
+ 

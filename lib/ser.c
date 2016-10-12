@@ -45,31 +45,26 @@
 #endif
 
 
-unsigned char ser_brg = SER_BRG; //((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
+uint8_t ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
 
 
-unsigned char rxfifo[SER_BUFFER_SIZE];
-volatile unsigned char rxiptr, rxoptr;
-/*bank1*/ unsigned char txfifo[SER_BUFFER_SIZE];
-volatile unsigned char txiptr, txoptr;
-unsigned char ser_tmp;
+uint8_t rxfifo[SER_BUFFER_SIZE];
+volatile uint8_t rxiptr, rxoptr;
+/*bank1*/ uint8_t txfifo[SER_BUFFER_SIZE];
+volatile uint8_t txiptr, txoptr;
+uint8_t ser_tmp;
 
-bit
-ser_isrx(void)
-{
-  if(OERR)
-  {
+bit ser_isrx(void) {
+  if(OERR) {
     CREN = 0;
     CREN = 1;
     return 0;
   }
-  return(rxiptr != rxoptr);
+  return (rxiptr != rxoptr);
 }
 
-unsigned char
-ser_getch(void)
-{
-  unsigned char c;
+uint8_t ser_getch(void) {
+  uint8_t c;
 
   while(ser_isrx() == 0)
     continue;
@@ -82,9 +77,7 @@ ser_getch(void)
   return c;
 }
 
-void
-ser_putch(unsigned char c)
-{
+void ser_putch(uint8_t c) {
   while(((txiptr + 1) & SER_FIFO_MASK) == txoptr)
     continue;
   GIE = 0;
@@ -94,57 +87,43 @@ ser_putch(unsigned char c)
   GIE = 1;
 }
 
-void
-ser_puts(const char* s)
-{
+void ser_puts(const char * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void
-ser_puts2(unsigned char* s)
-{
+void ser_puts2(uint8_t * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void
-ser_puthex(unsigned char v)
-{
-  unsigned char c;
+void ser_puthex(uint8_t v) {
+  uint8_t c;
 
   c = v >> 4;
-  if(c > 9)
-  {
+  if(c > 9) {
     ser_putch('A' - 10 + c);
-  }
-  else
-  {
+  } else {
     ser_putch('0' + c);
   }
 
   c = v & 0x0F;
-  if(c > 9)
-  {
+  if(c > 9) {
     ser_putch('A' - 10 + c);
-  }
-  else
-  {
+  } else {
     ser_putch('0' + c);
   }
 }
 
 
-void
-ser_init(void)
-{
+void ser_init(void) {
   BRGH = 1;					//high speed
-  //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+//	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
+//	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
+//	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+//	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   SPBRG = ser_brg;				//56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+//	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
 
   TX9 = 0;					//8 bits
   RX9 = 0;					//
@@ -161,3 +140,4 @@ ser_init(void)
 }
 
 #endif // USE_SER
+ 

@@ -2,7 +2,7 @@
 #define LCD44780_H
 
 #include "device.h"
-#include "types.h"
+#include "typedef.h"
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
@@ -85,3 +85,4 @@ void lcd_putch(char value);
 
 
 #endif /* LCD44780_H */
+ 
