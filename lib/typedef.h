@@ -38,6 +38,8 @@ typedef unsigned int32_t uint32_t;
 typedef char BOOL;
 typedef BOOL bit;
 //#define BOOL __bit
+#elif defined(__XC__)
+#define BOOL bit
 #elif defined(MCC18) || defined(HI_TECH_C) || defined(MCHP_XC8)
 //typedef enum { FALSE = 0, TRUE = 1 } BOOL;
 typedef char BOOL;

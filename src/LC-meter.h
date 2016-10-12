@@ -24,7 +24,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define NOP() __asm("NOP")
 #endif
 
-#include "types.h"
+#include "typedef.h"
 #include "const.h"
 
 #define C_CAL          1000    //pF
