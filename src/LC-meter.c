@@ -26,17 +26,17 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 #define CCP1_EDGE() (CCP1M0)
 /*
-volatile uint32 tcy_per_s = TCY_PER_SECOND;
-volatile uint32 tcy_per_ms = TCY_PER_MILLISECOND;
-volatile uint32 tcy_per_us = TCY_PER_MICROSECOND;
-volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
-volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
+volatile uint32_t tcy_per_s = TCY_PER_SECOND;
+volatile uint32_t tcy_per_ms = TCY_PER_MILLISECOND;
+volatile uint32_t tcy_per_us = TCY_PER_MICROSECOND;
+volatile uint32_t ktcy_per_s = KTCY_PER_SECOND;
+volatile uint32_t ktcy_per_ms = KTCY_PER_MILLISECOND;
 */
 
 volatile uint16_t bres;
 volatile  uint16_t seconds;
 
-volatile uint32 ccp1t_lr, ccp1t[2];
+volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 
@@ -81,7 +81,7 @@ INTERRUPT()
     {
       ccp1t_lr = ccp1t[RISING];
     }
-    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32)tmr1_overflow << 16);
+    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32_t)tmr1_overflow << 16);
     CCP1IE = 0;
     CCP1_EDGE() = !CCP1_EDGE();
     CCP1IE = 1;
