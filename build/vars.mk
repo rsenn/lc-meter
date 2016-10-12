@@ -33,8 +33,11 @@ chipl = $(subst A,a,$(subst B,b,$(subst C,c,$(subst D,d,$(subst E,e,$(subst F,f,
 MHZ := $(shell echo "$(XTAL) / 1000000" | bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\.|,|g")
 KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\..*||g")
 
-ifeq ($(PROGRAM)$(PROGRAMS),)
+ifeq ($(PROGRAMS),)
 PROGRAMS := LC_meter_HD44780
+endif
+ifeq ($(PROGRAM),)
+PROGRAM := LC_meter_HD44780
 endif
 
 ifneq ($(CODEOFFSET),0)

@@ -1,29 +1,23 @@
 COMPILER ?= htc
 DEBUG ?= 0
 
+-include build/vars.mk
 
-
-
--include Makefile.vars
-
-ifeq ($(COMPILERS)$(COMPILER),)
-COMPILER = htc
+ifeq ($(COMPILERS),)
+COMPILERS = htc xc8
 endif
 
-ifeq ($(BUILD_TYPE),)
-BUILD_TYPE := release
+ifeq ($(BUILD_TYPES),)
+BUILD_TYPES := debug release
+#BUILD_TYPE := release
 endif
 
-ifneq ($(BUILD_TYPE),)
-BUILD_TYPES := $(BUILD_TYPE)
+ifeq ($(XTAL_FREQS),)
+XTAL_FREQS := 20000000
 endif
 
-ifeq ($(XTAL_FREQS)$(XTAL),)
-XTAL_FREQ := 20000000
-endif
-
-ifeq ($(BAUD_RATES)$(BAUD),)
-BAUD := 38400
+ifeq ($(BAUD_RATES),)
+BAUD_RATES := 38400
 endif
 
 ifeq ($(BUILD_TYPE),debug)
@@ -32,10 +26,8 @@ else
 DEBUG = 0
 endif
 
-
 MAKE_CMD := $(MAKE) -f build/$$COMPILER.mk
-MAKE_LOOP := @MAKE@
-
+MAKE_LOOP := @MAKE@ || exit $$?
 
 #default:
 #	@echo "Please specify build system:"
