@@ -1,5 +1,5 @@
 #include "display.h"
-#include "main.h"
+#include "LC-meter.h"
 
 #if USE_NOKIA3310_LCD
 #include "lcd3310.h"
@@ -45,6 +45,7 @@ const char units[288] =   //8units * (18*2)
   0, 0, 0, 0, 224, 224, 96, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 24, 31, 7, 0, 0, 31, 31, 0, 0, 0, 0
 };
 #elif defined(USE_HD44780_LCD)
+#include "lcd44780.h"
 #endif
 
 // -------------------------------------------------------------------------
