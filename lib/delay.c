@@ -1,6 +1,6 @@
 #include "delay.h"
 
-#if(defined(HI_TECH_C) || defined(__XC8))
+#if (defined(HI_TECH_C) || defined(__XC8))
 #include <pic.h>
 #else
 dvars dvar;
@@ -74,7 +74,7 @@ Delay100TCYx(uint8_t unit)
 {
   do
   {
-#if(defined(HI_TECH_C) || defined(__XC8))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(100);
 #else
@@ -94,7 +94,7 @@ Delay10KTCYx(uint8_t unit)
 {
   do
   {
-#if(defined(HI_TECH_C) || defined(__XC8))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10000);
 #else
@@ -114,7 +114,7 @@ Delay10TCYx(uint8_t unit)
 {
   do
   {
-#if(defined(HI_TECH_C) || defined(__XC8))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(10);
 #else
@@ -136,7 +136,7 @@ Delay1KTCYx(uint8_t unit)
 {
   do
   {
-#if(defined(HI_TECH_C) || defined(__XC8))
+#if (defined(HI_TECH_C) || defined(__XC8))
 
     _delay(1000);
 #else

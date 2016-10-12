@@ -12,27 +12,65 @@
 	"buffers":
 	[
 		{
-			"file": "src/display.h",
+			"file": "lc-meter.sublime-project",
 			"settings":
 			{
-				"buffer_size": 495,
+				"buffer_size": 45,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "This list shows how much time each plugin has taken to respond to each event:\n\non_activated:\n    Default.pane: 0.002s total, mean: 0.000s, max: 0.001s\n\non_close:\n    Default.settings: 0.001s total, mean: 0.000s, max: 0.001s\n    Default.pane: 0.001s total, mean: 0.000s, max: 0.001s\n\non_deactivated:\n    Default.history_list: 0.014s total, mean: 0.000s, max: 0.004s\n\non_hover:\n    Default.symbol: 0.000s total, mean: 0.000s, max: 0.000s\n\non_load:\n    Default.detect_indentation: 0.017s total, mean: 0.001s, max: 0.003s\n    Default.exec: 0.006s total, mean: 0.000s, max: 0.002s\n\non_modified:\n    Default.settings: 0.001s total, mean: 0.000s, max: 0.001s\n\non_pre_close:\n    Default.settings: 0.000s total, mean: 0.000s, max: 0.000s\n    Default.history_list: 0.001s total, mean: 0.000s, max: 0.001s\n\n",
+			"settings":
+			{
+				"buffer_size": 796,
+				"line_ending": "Windows",
+				"name": "Plugin Event Profile",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "import sublime\nimport sublime_plugin\n\n\nclass ExampleCommand(sublime_plugin.TextCommand):\n\tdef run(self, edit):\n\t\tself.view.insert(edit, 0, \"Hello, World!\")\n",
+			"settings":
+			{
+				"buffer_size": 156,
+				"line_ending": "Windows"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/Makefile/Make.sublime-build",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Packages/Makefile/Make.sublime-build",
+					""
+				],
+				[
+					"Packages/Makefile/Make.sublime-build",
+					"Clean"
+				]
+			],
+			[
+				"Packages/Makefile/Make.sublime-build",
+				""
+			]
+		]
 	],
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"About"
+			]
 		],
-		"width": 0.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -52,8 +90,7 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Users/roman/Documents/lc-meter",
-		"/C/Users/roman/Documents/lc-meter/src"
+		"/C/Users/roman/Documents/lc-meter"
 	],
 	"file_history":
 	[
@@ -217,35 +254,90 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/display.h",
-					"semi_transient": true,
+					"file": "lc-meter.sublime-project",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 495,
+						"buffer_size": 45,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								45,
+								45
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 796,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								796,
+								796
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"default_dir": "C:\\Program Files (x86)\\Sublime Text 3\\Data\\Packages\\User",
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -282,11 +374,15 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 283.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
 	"project": "lc-meter.sublime-project",
 	"replace":
 	{
