@@ -38,9 +38,9 @@
 
 #ifndef SER_BRG
 //# if HIGH_SPEED == 1
-#  define SER_BRG ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
 //# else
-//#  define SER_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
+//#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
 //# endif
 #endif
 

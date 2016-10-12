@@ -50,10 +50,10 @@ const char units[288] =   //8units * (18*2)
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
 void
-display_digit(uint8 line, uint8 column, uint8 digit)
+display_digit(uint8_t line, uint8_t column, uint8_t digit)
 {
 #if USE_NOKIA3310_LCD
-  uint8 i;
+  uint8_t i;
   if(line < 1 || line > 5) return;
   if(column > 74) return;
   if(digit > 9) return;
@@ -70,10 +70,10 @@ display_digit(uint8 line, uint8 column, uint8 digit)
 
 // -------------------------------------------------------------------------
 void
-display_unit(uint8 unit)
+display_unit(uint8_t unit)
 {
 #if USE_NOKIA3310_LCD
-  uint8 i;
+  uint8_t i;
   lcd_gotoxy(60, 2);
   for(i = 0; i < 18; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
   lcd_gotoxy(60, 3);
@@ -88,7 +88,7 @@ display_unit(uint8 unit)
 }
 
 void
-display_reading(uint16 measurement)
+display_reading(uint16_t measurement)
 {
   //measurement divide by 100
 #if USE_NOKIA3310_LCD
@@ -122,7 +122,7 @@ display_reading(uint16 measurement)
 
 // -------------------------------------------------------------------------
 void
-indicator(uint8 indicate)
+indicator(uint8_t indicate)
 {
 #if USE_NOKIA3310_LCD
   if(indicate)
@@ -159,11 +159,11 @@ static const char digits[] =
 { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 */
 void
-display_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
+display_print_number(uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
 {
-  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
-  uint8 di;
-  uint8 i = 0;
+  uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  uint8_t di;
+  uint8_t i = 0;
 
   /*  if(n == 0) {
       lcd_putch('0');
@@ -176,7 +176,7 @@ display_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
           buf[i++] = '.';
     */
     di = n % base;
-    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
+    buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
     n /= base;
   }
@@ -186,8 +186,8 @@ display_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
     lcd_putch(' ');
 
   for(; i > 0; i--)
-    lcd_write((uint8)buf[(int16)i - 1]);
-  //    lcd_write((buf[i - 1] < 10 ? (uint8)'0' + buf[i - 1] : (uint8)'A' + buf[i - 1] - 10));
+    lcd_write((uint8_t)buf[(int16_t)i - 1]);
+  //    lcd_write((buf[i - 1] < 10 ? (uint8_t)'0' + buf[i - 1] : (uint8_t)'A' + buf[i - 1] - 10));
 }
 
 #endif

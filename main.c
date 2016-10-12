@@ -21,7 +21,7 @@ double F1, F2, F3;
 void
 main(void)
 {
-  int16 i;
+  int16_t i;
   RELAY_TRIS();
   /*
 
@@ -99,10 +99,10 @@ initialize(void)
   NOT_RBPU = 1;  // enable portB internal pullup
 }
 
-uint16
+uint16_t
 measure_freq(void)    //16-bit freq
 {
-  uint16 oldTMR0, prescaler_cntr;
+  uint16_t oldTMR0, prescaler_cntr;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TRISA4 = 0;    //Enable RA4 output to T0CKI
   delay10ms(2);      //stablize oscillator
@@ -132,7 +132,7 @@ measure_freq(void)    //16-bit freq
 void
 calibrate(void)
 {
-  uint8 i;
+  uint8_t i;
 #if USE_NOKIA3310_LCD
   lcd_clear();
   lcd_gotoxy(1, 1);
@@ -175,7 +175,7 @@ calibrate(void)
 void
 measure_capacitance()
 {
-  uint16 var;
+  uint16_t var;
   double Cin;
 #if USE_NOKIA3310_LCD
   lcd_gotoxy(7, 5);
@@ -214,10 +214,10 @@ measure_capacitance()
   }
   else display_unit(7);    //"pF"
   Cin = Cin * 100;  //scale to 2 decimal place
-  var = (uint16)Cin;
+  var = (uint16_t)Cin;
   lcd_set_cursor(0, 1);
   lcd_print(" cap ");
-  display_print_number((uint16)F3, 10, 5);
+  display_print_number((uint16_t)F3, 10, 5);
   //  display_reading(var);
 }
 
@@ -225,7 +225,7 @@ measure_capacitance()
 void
 measure_inductance()
 {
-  uint16 var;
+  uint16_t var;
   double Lin, numerator, denominator;
 #if USE_NOKIA3310_LCD
   lcd_gotoxy(7, 5);
@@ -263,13 +263,13 @@ measure_inductance()
   }
   else display_unit(3);    //"nH"
   Lin = Lin * 100;  //scale to 2 decimal place
-  var = (uint16)Lin;
+  var = (uint16_t)Lin;
   display_reading(var);
 }
 
 // -------------------------------------------------------------------------
 void
-delay10ms(uint16 period_10ms)
+delay10ms(uint16_t period_10ms)
 {
   do
   {

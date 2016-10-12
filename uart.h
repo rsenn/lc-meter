@@ -17,16 +17,13 @@
 
 #if (OSC_4 == 5000000) || (_XTAL_FREQ == 20000000)
 # if UART_BAUD == 38400
-#advisory UART_BAUD=38400
 #  define UART_BRG  32
 #  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
 # elif UART_BAUD == 19200
-#advisory UART_BAUD 19200
 #  define UART_BRG  66
 #  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
 # endif
 #endif
-#advisory UART_BAUD ?=
 
 #ifndef HIGH_SPEED
 #define HIGH_SPEED 1    /** Set for high speed communicatin (see BRGH bit) */
@@ -44,7 +41,7 @@
 #define RX_TRIS TRISC7
 #endif
 
-extern const uint8 uart_brg;
+extern const uint8_t uart_brg;
 
 
 void uart_putch(unsigned char byte);
@@ -61,7 +58,7 @@ void uart_init(void);
  *
  * @return 1 if there was UART receive interrupt, 0 otherwise
  */
-uint8 uart_isr(void);
+uint8_t uart_isr(void);
 
 /**
  * Enable UART (used for power managed mode)

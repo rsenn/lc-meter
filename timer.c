@@ -2,7 +2,7 @@
 
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER_0
-volatile uint16 tmr0_overflow;
+volatile uint16_t tmr0_overflow;
 
 void setup_timer0()
 {
@@ -29,7 +29,7 @@ void setup_timer0()
 
 /* ----------------------- Timer 1 ----------------------- */
 #if USE_TIMER_1
-volatile uint16 tmr1_overflow;
+volatile uint16_t tmr1_overflow;
 
 void
 setup_timer1()
@@ -55,7 +55,7 @@ setup_timer1()
 
 /* ----------------------- Timer 2 ----------------------- */
 #if USE_TIMER_2
-volatile uint16 tmr2_overflow;
+volatile uint16_t tmr2_overflow;
 
 void
 setup_timer2()

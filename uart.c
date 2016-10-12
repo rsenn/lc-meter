@@ -8,14 +8,14 @@
 
 #ifndef UART_BRG
 # if HIGH_SPEED == 1
-#  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+#  define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
 # else
-#  define UART_BRG ((uint16)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
+#  define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
 # endif
 #endif
 #define UART_TIMEOUT UART_BAUD
 
-const uint8 uart_brg = UART_BRG;
+const uint8_t uart_brg = UART_BRG;
 
 /**
  * Re-target POSIX function uart_putch
@@ -38,7 +38,7 @@ uart_getch(void)
 
   if(uart_poll(UART_TIMEOUT))
   {
-    uint8 ch;
+    uint8_t ch;
     ch = RCREG;
     RCIF = 0;
     return(int)ch;

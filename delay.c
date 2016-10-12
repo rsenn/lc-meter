@@ -8,7 +8,7 @@ dvars dvar;
 #if 0
 // -------------------------------------------------------------------------
 void
-delay_ms(uint16 milliseconds)
+delay_ms(uint16_t milliseconds)
 {
   /* dvars msecs;
    SAVE_CYCLES_BIG(msecs, US_CYCLES(milliseconds*1000lu));
@@ -22,7 +22,7 @@ delay_ms(uint16 milliseconds)
 
 // -------------------------------------------------------------------------
 void
-delay_us(uint16 microseconds)
+delay_us(uint16_t microseconds)
 {
   /*dvars usecs;
   SAVE_CYCLES_BIG(usecs, US_CYCLES(microseconds));
@@ -70,7 +70,7 @@ cycle_eater(void)
  * Passing 0 (zero) results in a delay of 25,600 cycles.
  */
 void
-Delay100TCYx(uint8 unit)
+Delay100TCYx(uint8_t unit)
 {
   do
   {
@@ -90,7 +90,7 @@ Delay100TCYx(uint8 unit)
  * Passing 0 (zero) results in a delay of 2,560,000 cycles.
  */
 void
-Delay10KTCYx(uint8 unit)
+Delay10KTCYx(uint8_t unit)
 {
   do
   {
@@ -110,7 +110,7 @@ Delay10KTCYx(uint8 unit)
  * Passing 0 (zero) results in a delay of 2560 cycles.
  */
 void
-Delay10TCYx(uint8 unit)
+Delay10TCYx(uint8_t unit)
 {
   do
   {
@@ -132,7 +132,7 @@ Delay10TCYx(uint8 unit)
  * Passing 0 (zero) results in a delay of 256,000 cycles.
  */
 void
-Delay1KTCYx(uint8 unit)
+Delay1KTCYx(uint8_t unit)
 {
   do
   {

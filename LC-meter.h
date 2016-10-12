@@ -43,11 +43,11 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 //#define TMR0_PRESCALER PRESCALE_1_32
 
 
-uint16 measure_freq(void);
+uint16_t measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(uint16 period_10ms);
+void delay10ms(uint16_t period_10ms);
 
 
 #endif // defined(LC_METER_H)

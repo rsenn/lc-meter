@@ -123,10 +123,10 @@ const char lcd_font[][5] =
 };
 
 // -------------------------------------------------------------------------
-uint8
+uint8_t
 lcd_str_width(const char* c)
 {
-  uint8 i;
+  uint8_t i;
   i = 0;
   while(*c)
   {
@@ -140,7 +140,7 @@ lcd_str_width(const char* c)
 
 // -------------------------------------------------------------------------
 void
-lcd_send(uint8 a, uint8 cmd)
+lcd_send(uint8_t a, uint8_t cmd)
 {
   //set if data or command byte
   LCD_DC = 1;
@@ -213,7 +213,7 @@ lcd_init(void)
 void
 lcd_test(void)
 {
-  uint16 i;
+  uint16_t i;
   lcd_gotoxy(0, 0);
   for(i = 0; i < 504; ++i)
   {
@@ -225,7 +225,7 @@ lcd_test(void)
 void
 lcd_clear(void)
 {
-  uint16 i;
+  uint16_t i;
   lcd_gotoxy(0, 0);
   for(i = 0; i < 504; ++i)
   {
@@ -235,7 +235,7 @@ lcd_clear(void)
 
 // -------------------------------------------------------------------------
 void
-lcd_gotoxy(uint8 x, unsigned y)
+lcd_gotoxy(uint8_t x, unsigned y)
 {
   lcd_send(x | 0b10000000, LCD_TCMD);
   lcd_send((y & 0b00000111) | 0b01000000, LCD_TCMD);
@@ -243,7 +243,7 @@ lcd_gotoxy(uint8 x, unsigned y)
 
 // -------------------------------------------------------------------------
 void
-lcd_putch(uint8 c)
+lcd_putch(uint8_t c)
 {
   if(c > 'z' || c < 32)
   {
@@ -272,7 +272,7 @@ lcd_puts(const char* s)
 
 // -------------------------------------------------------------------------
 void
-lcd_center_puts(uint8 y, const char* c)
+lcd_center_puts(uint8_t y, const char* c)
 {
   lcd_gotoxy(41 - (lcd_str_width(c) / 2), y);
   lcd_puts(c);
@@ -293,9 +293,9 @@ lcd_puts2(char* s)
 
 // -------------------------------------------------------------------------
 void
-lcd_clear_line(uint8 y)
+lcd_clear_line(uint8_t y)
 {
-  uint8 k;
+  uint8_t k;
   lcd_gotoxy(0, y);
   for(k = 0; k < 83; ++k)
   {
@@ -305,7 +305,7 @@ lcd_clear_line(uint8 y)
 
 // -------------------------------------------------------------------------
 void
-lcd_center_puts2(uint8 y, char* c, uint8 len)
+lcd_center_puts2(uint8_t y, char* c, uint8_t len)
 {
   lcd_gotoxy(42 - (len << 1) - len, y);
   while(len)
@@ -335,9 +335,9 @@ const char bat_symbol[] =
 
 // -------------------------------------------------------------------------
 void
-lcd_battery(uint8 chg)
+lcd_battery(uint8_t chg)
 {
-  uint8 i;
+  uint8_t i;
   chg = 12 - chg;
   lcd_gotoxy(71, 0);
   for(i = 0; i < 13; ++i)
@@ -370,7 +370,7 @@ lcd_bluetooth(void)
 void
 lcd_symbol(const char* sym)
 {
-  uint8 i, n;
+  uint8_t i, n;
   n = sym[0];
   for(i = 1; i <= n; ++i)
   {

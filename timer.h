@@ -30,7 +30,7 @@
 
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER_0
-extern volatile uint16 tmr0_overflow;
+extern volatile uint16_t tmr0_overflow;
 
 #ifndef TMR0_PRESCALER 
 #define TMR0_PRESCALER PRESCALE_1_1
@@ -47,7 +47,7 @@ void setup_timer0();
 
 /* ----------------------- Timer 1 ----------------------- */
 #if USE_TIMER_1
-extern volatile uint16 tmr1_overflow;
+extern volatile uint16_t tmr1_overflow;
 
 #ifndef TMR1_PRESCALER 
 #define TMR1_PRESCALER PRESCALE_1_1
@@ -63,7 +63,7 @@ void setup_timer1();
 
 /* ----------------------- Timer 2 ----------------------- */
 #if USE_TIMER_2
-extern volatile uint16 tmr2_overflow;
+extern volatile uint16_t tmr2_overflow;
 
 #ifndef TMR2_PRESCALER 
 #define TMR2_PRESCALER PRESCALE_1_1

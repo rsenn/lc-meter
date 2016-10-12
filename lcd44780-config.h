@@ -1,4 +1,3 @@
-
 #ifdef __16f628a
 # define RS_PIN  RB5
 # define RS_TRIS TRISB5

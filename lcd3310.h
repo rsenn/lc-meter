@@ -25,27 +25,27 @@
 #define  LCD_TDATA  1
 
 
-uint8 lcd_str_width(const char *c);
-void lcd_send(uint8 a, uint8 cmd);
+uint8_t lcd_str_width(const char *c);
+void lcd_send(uint8_t a, uint8_t cmd);
 void lcd_init(void);
 void lcd_test(void);
 void lcd_clear(void);
-void lcd_gotoxy(uint8 x, unsigned y);
-void lcd_putch(uint8 c);
+void lcd_gotoxy(uint8_t x, unsigned y);
+void lcd_putch(uint8_t c);
 void lcd_puts(const char *s);
 void lcd_puts2(char *s);
-void lcd_clear_line(uint8 y);
-void lcd_center_puts(uint8 y, const char *c);
-void lcd_center_puts2(uint8 y, char *c, uint8 len);
+void lcd_clear_line(uint8_t y);
+void lcd_center_puts(uint8_t y, const char *c);
+void lcd_center_puts2(uint8_t y, char *c, uint8_t len);
 
 
-void lcd_battery(uint8 chg);
+void lcd_battery(uint8_t chg);
 //void lcd_bluetooth(void);
 
 //first element array is the length
 void lcd_symbol(const char *sym);
 
-//void  display_digit(uint8 line, uint8 column, uint8 digit);
+//void  display_digit(uint8_t line, uint8_t column, uint8_t digit);
 
 
 

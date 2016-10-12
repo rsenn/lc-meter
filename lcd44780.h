@@ -45,7 +45,7 @@
 #include "lcd44780-config.h"
 
 void lcd_init(char fourbitmode);
-void lcd_begin(uint8 l, uint8 ds);
+void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
 void lcd_right_to_left(void);
@@ -60,11 +60,11 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(uint16 n, uint8 base, int8 pad);
-void lcd_print_float(float number, uint8 digits);
+void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+void lcd_print_float(float number, uint8_t digits);
 void lcd_print(const char *string);
 //void lcd_printf(const char *fmt, ...);
-void lcd_set_cursor(uint8 col, uint8 row);
+void lcd_set_cursor(uint8_t col, uint8_t row);
 void lcd_putch(char value);
 
 #define LCDAUTOSCROLL

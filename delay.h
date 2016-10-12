@@ -21,13 +21,13 @@
 #define delay_ms(n) _delay(TCY_PER_MILLISECOND*(n))
 #define delay_us(n) _delay(TCY_PER_MICROSECOND*(n))
 /*
-void delay_ms(uint16 milliseconds);
-void delay_us(uint16 microseconds);
+void delay_ms(uint16_t milliseconds);
+void delay_us(uint16_t microseconds);
 */
-void Delay100TCYx(uint8);
-void Delay10KTCYx(uint8);
-void Delay10TCYx(uint8);
-void Delay1KTCYx(uint8);
+void Delay100TCYx(uint8_t);
+void Delay10KTCYx(uint8_t);
+void Delay10TCYx(uint8_t);
+void Delay1KTCYx(uint8_t);
 
 #endif
 /* delay.c */

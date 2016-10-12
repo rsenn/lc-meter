@@ -25,7 +25,7 @@ volatile  unsigned int seconds;
 
 float F1, F2, F3;
 static uint32 tmr0_overflow = 0;
-uint16 tmr1_overflow = 0;
+uint16_t tmr1_overflow = 0;
 float calc_freq();
 
 INTERRUPT()
@@ -87,7 +87,7 @@ void
 setup_ccp1()
 {
 
-  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16) - 1;
+  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16_t) - 1;
 
   TRISC2 = INPUT;
   CCP1CONbits.CCP1M = 0b0100;
@@ -267,7 +267,7 @@ calc_inductance(float f)
 }
 
 void
-delay10ms(uint16 period_10ms)
+delay10ms(uint16_t period_10ms)
 {
   do
   {

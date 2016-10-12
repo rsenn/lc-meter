@@ -47,7 +47,7 @@
 #endif
 
 typedef struct dvars {
-  uint8 loop_x, loop_b, loop_c;
+  uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
 /**
@@ -65,9 +65,9 @@ typedef struct dvars {
 // Therefore these variables must all be in the same bank, or
 // accessible from all banks.
 extern dvars dvar;
-//extern volatile uint8 loop_x;
-//extern volatile uint8 loop_b;
-//extern volatile uint8 loop_c;
+//extern volatile uint8_t loop_x;
+//extern volatile uint8_t loop_b;
+//extern volatile uint8_t loop_c;
 
 /**
  * Delays a given number of cycles based on values in

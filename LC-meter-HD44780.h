@@ -67,7 +67,7 @@ float calc_capacitance(float);
 float calc_inductance(float);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(uint16 period_10ms);
+void delay10ms(uint16_t period_10ms);
 
 
 #endif // defined(MAIN_H)

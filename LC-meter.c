@@ -48,7 +48,7 @@ float F1, F2, F3;
 
 static void initialize(void);
 void
-put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos*/);
+put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/);
 
 INTERRUPT()
 {
@@ -130,7 +130,7 @@ main(void)
   }
 #endif
   {
-    uint16 prev_seconds = 0xffff;
+    uint16_t prev_seconds = 0xffff;
 
     for(;;)
     {
@@ -159,7 +159,7 @@ void
 setup_ccp1()
 {
 
-  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16) - 1;
+  ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16_t) - 1;
 
   TRISC2 = INPUT;
   CCP1CONbits.CCP1M = 0b0100;
@@ -213,7 +213,7 @@ initialize(void)
 #endif
 }
 
-uint16
+uint16_t
 measure_freq(void)    //16-bit freq
 {
 
@@ -251,7 +251,7 @@ measure_inductance()
 }
 
 void
-delay10ms(uint16 period_10ms)
+delay10ms(uint16_t period_10ms)
 {
   do
   {
@@ -263,11 +263,11 @@ delay10ms(uint16 period_10ms)
 
 // -------------------------------------------------------------------------
 void
-put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
+put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
 {
-  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
-  uint8 di;
-  int8 i = 0;
+  uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  uint8_t di;
+  int8_t i = 0;
   char padchar = ' ';
 
   if(pad < 0)
@@ -287,7 +287,7 @@ put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos
           buf[i++] = '.';
     */
     di = n % base;
-    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
+    buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
     n /= base;
   }
@@ -297,6 +297,6 @@ put_number(void(*putchar)(char), uint16 n, uint8 base, int8 pad/*, int8 pointpos
     putchar(padchar);
 
   for(; i > 0; i--)
-    putchar((char)buf[(int16)i - 1]);
+    putchar((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
 }

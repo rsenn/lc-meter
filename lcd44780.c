@@ -36,7 +36,7 @@ Pins, Schematics and more info:
 #endif
 
 
-static uint8 LCD_function, LCD_ctrl, LCD_mode
+static uint8_t LCD_function, LCD_ctrl, LCD_mode
 #ifdef LCDSETCURSOR
 , LCD_lines
 #endif
@@ -59,7 +59,7 @@ lcd_pulse_enable(void)
 // -------------------------------------------------------------------------
 /** Write using 4bits mode */
 static void
-lcd_write4bits(uint8 value)
+lcd_write4bits(uint8_t value)
 {
 #if DATABUS_MUX
   DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS = OUTPUT;
@@ -88,7 +88,7 @@ lcd_write4bits(uint8 value)
 #ifdef LCD_HAVE_8BIT_MODE
 /** Write using 8bits mode */
 static void
-lcd_write8bits(uint8 value)
+lcd_write8bits(uint8_t value)
 {
 
 #if DATABUS_MUX
@@ -128,7 +128,7 @@ lcd_write8bits(uint8 value)
 // -------------------------------------------------------------------------
 /** Send data to LCD 8 or 4 bits */
 static void
-lcd_send(uint8 value, uint8 mode)
+lcd_send(uint8_t value, uint8_t mode)
 {
   RS_PIN = mode;
 
@@ -156,7 +156,7 @@ lcd_putch(char value)
 // -------------------------------------------------------------------------
 /** Write a control command on LCD */
 static void
-lcd_command(uint8 value)
+lcd_command(uint8_t value)
 {
   lcd_send(value, LOW);
 }
@@ -165,10 +165,10 @@ lcd_command(uint8 value)
 /** Setup line x column on LCD */
 #ifdef LCDSETCURSOR
 void
-lcd_set_cursor(uint8 col, uint8 row)
+lcd_set_cursor(uint8_t col, uint8_t row)
 {
-  //  uint8 row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
-  uint8 row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
+  //  uint8_t row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
+  uint8_t row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
 
   //  row %= LCD_lines;
   /* Added 26 May 2012 by MFH
@@ -197,7 +197,7 @@ lcd_set_cursor(uint8 col, uint8 row)
 void
 lcd_print(const char* string)
 {
-  uint8 i;
+  uint8_t i;
   for(i = 0; string[i]; i++)
     lcd_putch(string[i]);
 }
@@ -225,11 +225,11 @@ static const char digits[] =
 { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' };
 */
 void
-lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
+lcd_print_number(uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
 {
-  uint8 buf[8 * sizeof(long)]; // Assumes 8-bit chars.
-  uint8 di;
-  uint8 i = 0;
+  uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  uint8_t di;
+  uint8_t i = 0;
   char padchar = ' ';
 
   if(pad < 0)
@@ -249,7 +249,7 @@ lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
           buf[i++] = '.';
     */
     di = n % base;
-    buf[i++] = (di < 10 ? (uint8)'0' + di : (uint8)'A' + di - 10);
+    buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
     n /= base;
   }
@@ -259,7 +259,7 @@ lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
     lcd_putch(padchar);
 
   for(; i > 0; i--)
-    lcd_putch((char)buf[(int16)i - 1]);
+    lcd_putch((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ? (char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
 }
 
@@ -268,7 +268,7 @@ lcd_print_number(uint16 n, uint8 base, int8 pad/*, int8 pointpos*/)
 /** Print a float number to LCD */
 #ifdef LCDPRINTFLOAT
 void
-lcd_print_float(float number, uint8 digits)
+lcd_print_float(float number, uint8_t digits)
 {
 
   char buf[16];
@@ -276,8 +276,8 @@ lcd_print_float(float number, uint8 digits)
   lcd_print(buf);
   //  lcd_print_number_internal((long)(number * 1000), 10, 1);
 
-  //uint8 i, toPrint;
-  //uint16 int_part;
+  //uint8_t i, toPrint;
+  //uint16_t int_part;
   //float rounding, remainder;
 
   ///* Handle negative numbers */
@@ -294,7 +294,7 @@ lcd_print_float(float number, uint8 digits)
   //number += rounding;
 
   ///* Extract the integer part of the number and print it */
-  //int_part = (uint16)number;
+  //int_part = (uint16_t)number;
   //remainder = number - (float)int_part;
   //lcd_print_number(int_part, 10);
 
@@ -305,7 +305,7 @@ lcd_print_float(float number, uint8 digits)
   ///* Extract digits from the remainder one at a time */
   //while(digits-- > 0) {
   //  remainder *= 10.0;
-  //  toPrint = (uint16)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
+  //  toPrint = (uint16_t)remainder; //Integer part without use of math.h lib, I think better! (Fazzi)
   //  lcd_print_number(toPrint, 10);
   //  remainder -= toPrint;
   //}
@@ -465,7 +465,7 @@ lcd_no_autoscroll(void)
 // -------------------------------------------------------------------------
 /** Initial Display settings! */
 void
-lcd_begin(uint8 lines, uint8 dotsize)
+lcd_begin(uint8_t lines, uint8_t dotsize)
 {
   if(lines > 1)
     LCD_function |= LCD_2LINE;
@@ -575,6 +575,5 @@ lcd_init(char fourbitmode)
   }
 #endif
 }
-
 
 #endif // USE_HD44780_LCD
