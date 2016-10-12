@@ -4,16 +4,15 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../types.h</itemPath>
-      <itemPath>../const.h</itemPath>
-      <itemPath>../delay.h</itemPath>
-      <itemPath>../device.h</itemPath>
-      <itemPath>../display.h</itemPath>
-      <itemPath>../interrupt.h</itemPath>
-      <itemPath>../lcd44780.h</itemPath>
-      <itemPath>../oscillator.h</itemPath>
-      <itemPath>../tsmdelay.h</itemPath>
-      <itemPath>../LC-meter.h</itemPath>
+      <itemPath>../../../src/types.h</itemPath>
+      <itemPath>../../../lib/const.h</itemPath>
+      <itemPath>../../../lib/delay.h</itemPath>
+      <itemPath>../../../src/device.h</itemPath>
+      <itemPath>../../../src/display.h</itemPath>
+      <itemPath>../../../lib/interrupt.h</itemPath>
+      <itemPath>../../../lib/lcd44780.h</itemPath>
+      <itemPath>../../../lib/oscillator.h</itemPath>
+      <itemPath>../../../lib/tsmdelay.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -22,12 +21,12 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../delay.c</itemPath>
-      <itemPath>../lcd44780.c</itemPath>
-      <itemPath>../ser.c</itemPath>
-      <itemPath>../uart.c</itemPath>
-      <itemPath>../LC-meter.c</itemPath>
-      <itemPath>../display.c</itemPath>
+      <itemPath>../../../lib/delay.c</itemPath>
+      <itemPath>../../../lib/lcd44780.c</itemPath>
+      <itemPath>../../../lib/ser.c</itemPath>
+      <itemPath>../../../lib/uart.c</itemPath>
+      <itemPath>../../../src/display.c</itemPath>
+      <itemPath>../../../src/LC-meter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -37,6 +36,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
+    <Elem>../../../src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -75,7 +75,8 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
-        <property key="define-macros" value="USE_HD44780_LCD=1;__16f876a=1"/>
+        <property key="define-macros"
+                  value="USE_HD44780_LCD=1;__16f876a=1;_XTAL_FREQ=20000000;USE_TIMER_0=1;USE_SER=1;UART_BAUD=38400"/>
         <property key="extra-include-directories" value="..;."/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="pro"/>

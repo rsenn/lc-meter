@@ -26,6 +26,8 @@ else
 DEBUG = 0
 endif
 
+
+
 MAKE_CMD := $(MAKE) -f build/$$COMPILER.mk
 MAKE_LOOP := @MAKE@ || exit $$?
 
@@ -33,60 +35,74 @@ MAKE_LOOP := @MAKE@ || exit $$?
 #	@echo "Please specify build system:"
 #	@echo " sdcc htc"
 #
+ifneq ($(subst program,,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+BUILD_TYPES := $(lastword $(strip $(BUILD_TYPES)))
+COMPILERS := $(firstword $(strip $(COMPILERS)))
+XTAL_FREQS := $(firstword $(strip $(XTAL_FREQS)))
+BAUD_RATES := $(firstword $(strip $(BAUD_RATES)))
+CHIPS := $(firstword $(strip $(CHIPS)))
+#$(info BUILD_TYPES="$(BUILD_TYPES)" COMPILERS="$(COMPILERS)" XTAL_FREQS="$(XTAL_FREQS)" BAUD_RATES="$(BAUD_RATES)" CHIPS="$(CHIPS)" BUILD_TYPES="$(BUILD_TYPES)")
+endif
 
 
-
-ifneq ($(XTAL_FREQS),)
+ifneq ($(call is-list,XTAL_FREQ),)
 MAKE_CMD +=  XTAL=$$XTAL_FREQ
-MAKE_LOOP := for XTAL_FREQ in $(XTAL_FREQS); do $(MAKE_LOOP) || exit $?; done
+MAKE_LOOP := for XTAL_FREQ in $(call get-list,XTAL_FREQ); do $(MAKE_LOOP); done
 else
-ifneq ($(XTAL),)
-MAKE_CMD += XTAL=$(XTAL)
+ifneq ($(call get-list,XTAL_FREQ),)
+MAKE_CMD += XTAL=$(call get-list,XTAL_FREQ)
 endif
 endif
 
-ifneq ($(BAUD_RATES),)
+ifneq ($(call is-list,CHIP),)
+MAKE_CMD +=  CHIP=$$CHIP
+MAKE_LOOP := for CHIP in $(call get-list,CHIP); do $(MAKE_LOOP); done
+else
+ifneq ($(call get-list,CHIP),)
+MAKE_CMD += CHIP=$(call get-list,CHIP)
+endif
+endif
+
+ifneq ($(call is-list,BAUD_RATE),)
 MAKE_CMD +=  BAUD=$$BAUD_RATE
-MAKE_LOOP := for BAUD_RATE in $(BAUD_RATES); do $(MAKE_LOOP) || exit $?; done
+MAKE_LOOP := for BAUD_RATE in $(call get-list,BAUD_RATES); do $(MAKE_LOOP); done
 else
-ifneq ($(BAUD),)
-MAKE_CMD += BAUD=$(BAUD)
+ifneq ($(call get-list,BAUD_RATE),)
+MAKE_CMD += BAUD=$(call get-list,BAUD_RATE)
 endif
 endif
 
-ifneq ($(COMPILERS),)
+ifneq ($(call is-list,COMPILER),)
 MAKE_CMD +=  COMPILER=$$COMPILER
-MAKE_LOOP := for COMPILER in $(COMPILERS); do $(MAKE_LOOP) || exit $?; done
+MAKE_LOOP := for COMPILER in $(call get-list,COMPILER); do $(MAKE_LOOP); done
 else
-ifneq ($(COMPILER),)
-MAKE_CMD := $(subst $$COMPILER,$(COMPILER),$(MAKE_CMD))
+ifneq ($(call get-list,COMPILER),)
+MAKE_CMD := $(subst $$COMPILER,$(call get-list,COMPILER),$(MAKE_CMD))
 endif
 endif
 
-
-ifneq ($(word 2,$(BUILD_TYPES)),)
+ifneq ($(call is-list,BUILD_TYPE),)
 MAKE_CMD +=  BUILD_TYPE=$$BUILD_TYPE
-MAKE_LOOP := for BUILD_TYPE in $(BUILD_TYPES); do $(MAKE_LOOP) || exit $?; done
+MAKE_LOOP := for BUILD_TYPE in $(call get-list,BUILD_TYPE); do $(MAKE_LOOP); done
 else
-ifneq ($(BUILD_TYPE),)
-MAKE_CMD += BUILD_TYPE=$(BUILD_TYPE)
+ifneq ($(call get-list,BUILD_TYPE),)
+MAKE_CMD += BUILD_TYPE=$(call get-list,BUILD_TYPE)
 endif
 endif
 
-
-ifneq ($(word 2,$(PROGRAMS)),)
+ifneq ($(call is-list,PROGRAM),)
 P_MAKE_CMD :=  $(MAKE_CMD) PROGRAM=$$P
-P_MAKE_LOOP := for P in $(PROGRAMS); do $(MAKE_LOOP) || exit $?; done
+P_MAKE_LOOP := for P in $(call get-list,PROGRAM) ; do $(MAKE_LOOP); done
 
 .PHONY: all clean program verify
-
 all clean program verify:
 	$(subst @MAKE@,(set -x; $(P_MAKE_CMD) $@),$(P_MAKE_LOOP))
 else
 .PHONY: all clean program verify
 all clean program verify:
-	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(PROGRAM) $@),$(MAKE_LOOP))
+	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(call get-list,PROGRAM) $@),$(MAKE_LOOP))
 endif
+
 
 
 $(PROGRAMS):
