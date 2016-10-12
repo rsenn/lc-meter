@@ -39,8 +39,8 @@ volatile uint32 ktcy_per_s = KTCY_PER_SECOND;
 volatile uint32 ktcy_per_ms = KTCY_PER_MILLISECOND;
 */
 
-volatile uint32 bres;
-volatile  uint16 seconds;
+volatile uint16_t bres;
+volatile  uint16_t seconds;
 
 volatile uint32 ccp1t_lr, ccp1t[2];
 
@@ -68,9 +68,9 @@ INTERRUPT()
     //  tmr0_overflow++;
 
     bres += 256;
-    if(bres >= 5000000)   // if reached 1 second!
+    if(bres >= 5000)   // if reached 1 second!
     {
-      bres -= 5000000;  // subtract 1 second, retain error
+      bres -= 5000;  // subtract 1 second, retain error
       seconds++;  // update clock, etc
 
       SET_LED(seconds & 1);

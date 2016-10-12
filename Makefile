@@ -33,7 +33,7 @@ DEBUG = 0
 endif
 
 
-MAKE_CMD := $(MAKE) -f Makefile.$$COMPILER
+MAKE_CMD := $(MAKE) -f build/$$COMPILER.mk
 MAKE_LOOP := @MAKE@
 
 
