@@ -21,6 +21,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="lib" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/lcd3310.c</itemPath>
+        <itemPath>../../../lib/timer.c</itemPath>
+      </logicalFolder>
       <itemPath>../../../lib/delay.c</itemPath>
       <itemPath>../../../lib/lcd44780.c</itemPath>
       <itemPath>../../../lib/ser.c</itemPath>
@@ -37,6 +41,7 @@
   <sourceRootList>
     <Elem>..</Elem>
     <Elem>../../../src</Elem>
+    <Elem>../../../lib</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -77,7 +82,8 @@
         <property key="asmlist" value="true"/>
         <property key="define-macros"
                   value="USE_HD44780_LCD=1;__16f876a=1;_XTAL_FREQ=20000000;USE_TIMER_0=1;USE_SER=1;UART_BAUD=38400"/>
-        <property key="extra-include-directories" value="..;."/>
+        <property key="extra-include-directories"
+                  value="..;.;../../../lib;../../../src"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="pro"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
