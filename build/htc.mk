@@ -90,12 +90,12 @@ OPT_DEBUG :=
 else
 OPT_DEBUG := ,+debug
 endif
-DEBUG := 1
+_DEBUG := 1
 endif
 
 #COMMON_FLAGS +=  -V
 
-ifeq ($(DEBUG),1)
+ifeq ($(_DEBUG),1)
 COMMON_FLAGS += -G --debugger=pickit2
 COMMON_FLAGS += --opt=default$(OPT_DEBUG)
 else

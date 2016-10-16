@@ -1,4 +1,6 @@
 #include "LC-meter.h"
+#include "config-bits.h"
+
 //#include "main.h"
 #include "delay.h"
 #include "interrupt.h"
@@ -16,8 +18,6 @@
 #ifdef SDCC
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
-
-#include "config-bits.h"
 
 #define SET_LED(b) do { LED_PIN = !(b); } while(0);
 

@@ -1,5 +1,5 @@
 COMPILER ?= htc
-DEBUG ?= 0
+_DEBUG ?= 0
 
 ifeq ($(XTAL_FREQS),)
 XTAL_FREQS = 20000000 24000000
@@ -21,9 +21,9 @@ ifeq ($(BUILD_TYPE),)
 endif
 
 ifeq ($(BUILD_TYPE),debug)
-	DEBUG = 1
+	_DEBUG = 1
 else
-	DEBUG = 0
+	_DEBUG = 0
 endif
 
 #default:
@@ -33,7 +33,7 @@ endif
 all clean program verifys:
 #	$(MAKE) -f Makefile.$(COMPILER) $@
 #	for P in $(PROGRAMS); do (set -x; $(MAKE) -f Makefile.$(COMPILER) BUILD_TYPE=$(BUILD_TYPE) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$$P $@) || exit $$?; done
-	for P in $(PROGRAMS); do (set -x; $(MAKE) -f build/rates.mk COMPILER=$(COMPILER) BUILD_TYPE=$(BUILD_TYPE) BAUD_RATES="$(BAUD_RATES)" XTAL_FREQS="$(XTAL_FREQS)"  DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) $$P ) || exit $$?; done
+	for P in $(PROGRAMS); do (set -x; $(MAKE) -f build/rates.mk COMPILER=$(COMPILER) BUILD_TYPE=$(BUILD_TYPE) BAUD_RATES="$(BAUD_RATES)" XTAL_FREQS="$(XTAL_FREQS)"  _DEBUG=$(_DEBUG) BUILD_TYPE=$(BUILD_TYPE) $$P ) || exit $$?; done
 
 #	for T in $(BUILD_TYPES); do $(MAKE) -f Makefile.$$T $@; done
 #BUILD_TYPES = sdcc htc
@@ -49,11 +49,11 @@ fword = $(word 1,$(subst -, ,$1))
 remove-fword = $(subst $(call fword,$1)-,,$1)
 
 $(PROGRAMS:%=clean-%):
-	$(MAKE) -f Makefile.$(COMPILER) DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$(call remove-fword,$@) $(call fword,$@)
+	$(MAKE) -f Makefile.$(COMPILER) _DEBUG=$(_DEBUG) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$(call remove-fword,$@) $(call fword,$@)
 
 $(PROGRAMS:%=program-%): $(@:program-%=%)
 	@for T in all $(call fword,$@); do \
-	  cmd="$(MAKE) -f Makefile.$(COMPILER) DEBUG=$(DEBUG) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$(call remove-fword,$@) $$T"; echo "Building $$T-$(call remove-fword,$@): $$cmd" 1>&2; \
+	  cmd="$(MAKE) -f Makefile.$(COMPILER) _DEBUG=$(_DEBUG) BUILD_TYPE=$(BUILD_TYPE) PROGRAM=$(call remove-fword,$@) $$T"; echo "Building $$T-$(call remove-fword,$@): $$cmd" 1>&2; \
 	  eval "$$cmd"; \
 	done
 

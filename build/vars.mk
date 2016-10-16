@@ -47,7 +47,7 @@ BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
 
-ifeq ($(DEBUG),1)
+ifeq ($(_DEBUG),1)
 BUILD_TYPE = debug
 else
 BUILD_TYPE = release
@@ -70,7 +70,7 @@ DEFINES = PIC$(chipu)=1 __$(chipl)=1
 
 
 ifeq ($(BUILD_TYPE),debug)
-DEFINES += __DEBUG=1 DEBUG=1
+DEFINES += __DEBUG=1 _DEBUG=1
 else
 DEFINES += NDEBUG=1 __NDEBUG=1
 endif
@@ -98,7 +98,7 @@ TIMER_DEFS += -DUSE_TIMER_0=1
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c delay.c lcd44780.c uart.c ser.c
 LC_meter_HD44780_SOURCES = LC-meter.c delay.c lcd44780.c display.c uart.c ser.c timer.c
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0 -DUSE_TIMER_1 -DUSE_TIMER_2 
+LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
 #LC_meter_HD44780_DEFS += -DUSE_UART=1
 
 ifneq ($(BAUD),)
