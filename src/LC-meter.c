@@ -44,7 +44,7 @@ static void initialize(void);
 void
 put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/);
 
-INTERRUPT()
+INTERRUPT_HANDLER()
 {
 
   /*  if(TMR2IF) {

@@ -42,6 +42,9 @@ extern volatile uint16_t tmr0_overflow;
 #define TMR0_INTERVAL_US (1000000*256/TMR0_FREQ)
 #define TMR0_INTERVAL_MS (1000*256/TMR0_FREQ)
 
+#define TMR0_INTERRUPT_FLAG T0IF
+#define TMR0_INTERRUPT_ENABLE T0IE
+
 void setup_timer0();
 #endif // USE_TIMER_0
 
@@ -58,7 +61,10 @@ extern volatile uint16_t tmr1_overflow;
 #define TMR1_INTERVAL_US (1000000*65536/TMR1_FREQ)
 #define TMR1_INTERVAL_MS (1000*65536/TMR1_FREQ)
 
-void setup_timer1();
+#define TMR1_INTERRUPT_FLAG TMR1IF
+#define TMR1_INTERRUPT_ENABLE TMR1IE
+
+void setup_timer1(uint8_t ps);
 #endif // USE_TIMER_1
 
 /* ----------------------- Timer 2 ----------------------- */
@@ -77,6 +83,9 @@ extern volatile uint16_t tmr2_overflow;
 #define TMR2_TICK_US (1000000/TMR2_FREQ)
 #define TMR2_INTERVAL_US (1000000*256/TMR2_FREQ)
 #define TMR2_INTERVAL_MS (1000*256/TMR2_FREQ)
+
+#define TMR2_INTERRUPT_FLAG TMR2IF
+#define TMR2_INTERRUPT_ENABLE TMR2IE
 
 void setup_timer2();
 #endif // USE_TIMER_2
