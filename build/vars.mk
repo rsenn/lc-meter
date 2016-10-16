@@ -93,18 +93,19 @@ is-list = $(if $(subst 1,,$(subst 0,,$(words $(call get-list,$(1))))),$(call get
 
 HEXFILE = $(BUILDDIR)$(PROGRAM)_$(BUILD_ID).hex
 
-TIMER_DEFS += -DUSE_TIMER_0=1
+#TIMER_DEFS += -DUSE_TIMER_0=1
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c delay.c lcd44780.c uart.c ser.c
 LC_meter_HD44780_SOURCES = LC-meter.c delay.c lcd44780.c display.c uart.c ser.c timer.c
-LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
+#LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
+#LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
+LC_meter_HD44780_DEFS += -DUSE_TIMER_0=1
 #LC_meter_HD44780_DEFS += -DUSE_UART=1
 
 ifneq ($(BAUD),)
 LC_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 endif
-LC_meter_HD44780_DEFS += $(TIMER_DEFS)
+#LC_meter_HD44780_DEFS += $(TIMER_DEFS)
 
 
 LC_meter_NOKIA3310_SOURCES = LC-meter.c delay.c lcd3310.c display.c uart.c timer.c

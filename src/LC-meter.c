@@ -13,7 +13,9 @@
 #include "display.h"
 #include "timer.h"
 #include "uart.h"
+#if USE_SER
 #include "ser.h"
+#endif
 
 #ifdef SDCC
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
@@ -138,10 +140,11 @@ main(void)
 
       if(seconds != prev_seconds)
       {
+#if USE_SER
         put_number(ser_putch, seconds, 10, 0);
         //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
         ser_puts("\r\n");
-
+#endif
         prev_seconds = seconds;
       }
       //  SET_LED(led_value = !led_value);
@@ -189,10 +192,12 @@ initialize(void)
   LED_TRIS = OUTPUT;
   LED_PIN = HIGH;
 
+#if USE_SER
   ser_init();
+#endif
 
   RELAY_TRIS();
-  ADD_CCAL();
+//  ADD_CCAL();
 
   PEIE = 1;
   GIE = 1;
