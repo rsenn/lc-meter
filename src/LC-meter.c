@@ -183,11 +183,16 @@ initialize(void)
   // setup_timer2();
 
 
+  SSPEN = 0;
+
   // setup_ccp1();
 
   //others
   LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
+
+  
+
 
   LED_TRIS = OUTPUT;
   LED_PIN = HIGH;
