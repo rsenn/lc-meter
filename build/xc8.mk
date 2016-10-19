@@ -70,8 +70,8 @@ OPT = space
 
 #DEFINES += HI_TECH_C=1
 
-SOURCES = $($(PROGRAM)_SOURCES)
-COMMON_FLAGS += $($(PROGRAM)_DEFS)
+SOURCES = $($(subst -,_,$(PROGRAM))_SOURCES)
+COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 

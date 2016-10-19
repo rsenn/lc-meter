@@ -1,3 +1,4 @@
+
 CHIPS = 16f876a #16f628a 18f252 18f2550 18f25k22   #18f25k50
 #CHIPS += 10f206
 #CHIPS += 12f1840
@@ -34,7 +35,7 @@ MHZ := $(shell echo "$(XTAL) / 1000000" | bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s
 KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\..*||g")
 
 ifeq ($(PROGRAMS),)
-PROGRAMS := LC_meter_HD44780
+PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780
 endif
 ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
@@ -110,3 +111,14 @@ LC_meter_HD44780_DEFS += $(TIMER_DEFS)
 LC_meter_NOKIA3310_SOURCES = LC-meter.c delay.c lcd3310.c display.c uart.c timer.c
 LC_meter_NOKIA3310_DEFS = -DUSE_NOKIA3310_LCD=1
 LC_meter_NOKIA3310_DEFS += $(TIMER_DEFS)
+
+
+Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c display.c ser.c timer.c
+Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
+Freq_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
+
+Freq_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
+Freq_meter_HD44780_DEFS += $(TIMER_DEFS)
+Freq_meter_NOKIA3310_SOURCES = Freq-meter.c lcd3310.c display.c ser.c timer.c
+Freq_meter_NOKIA3310_DEFS += -DUSE_NOKIA3310_LCD=1
+Freq_meter_NOKIA3310_DEFS += $(TIMER_DEFS)

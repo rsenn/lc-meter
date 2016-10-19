@@ -4,21 +4,18 @@
 // Y.Erol
 //---------------------------------------------
 
-
-
 #include <pic.h>
-#include <delay.c>
 
 #include "config-bits.h"
 
 //__CONFIG(WDTDIS& PWRTEN& LVPDIS& XT);
 
-unsigned char kontrol;
+unsigned char control;
 
 //---------------------------------------------
 //	     CCP1 INTERRUPT
 //---------------------------------------------
-void interrupt interrupt(void)
+INTERRUPT_HANDLER()
 {
   TMR1H = 0; TMR1L = 0;
   GIE = 0;
@@ -32,24 +29,24 @@ void interrupt interrupt(void)
 //---------------------------------------------
 //		MAIN PROGRAM
 //---------------------------------------------
-main(void)
+int main()
 {
   unsigned const char number[10] = {0x3F, 0x06, 0x5B,
                                     0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
                                    };
   unsigned char select[4] = {1, 2, 4, 8};
   unsigned int counter, value, remainder1, remainder2;
-  float frekans;
+  float frequency;
   unsigned char a, i, display[5], data;
 
   TRISA = 0x00;
   TRISB = 0x08;
   CMCON = 0x07;
 
-  cont = 0;
-  PORTA = 0; PORTB = 0
+  control = 0;
+  PORTA = 0; PORTB = 0;
 
-                     CCP1IE = 1;
+  CCP1IE = 1;
 
   CCP1CON = 0b00000110;
 
@@ -58,19 +55,19 @@ main(void)
   GIE = 1;
   PEIE = 1;
 
-  for (;;) {
+  for(;;) {
 
 
     counter = 256 * CCPR1H + CCPR1L;
 
-    if (control == 1)frequency = 100000000 / counter;
-    if (kontrol == 0)frequency = 0;
+    if(control == 1)frequency = 100000000 / counter;
+    if(control == 0)frequency = 0;
 
-    if (counter < 10000)frequency = 0;
+    if(counter < 10000)frequency = 0;
 
     control = 0;
 
-    for (a = 0; a < 25; a++) {
+    for(a = 0; a < 25; a++) {
 
       value = (int)frequency;
 
@@ -84,7 +81,7 @@ main(void)
       display[4] = remainder2 - display[3] * 10;
 
 
-      for (i = 0; i < 4; i++) {
+      for(i = 0; i < 4; i++) {
         PORTB = 0;
         PORTA = 0;
 
@@ -94,7 +91,7 @@ main(void)
         PORTB = PORTB | (data & 0xF0);
 
         PORTA = select[i];
-        DelayMs(3);
+        __delay_ms(3);
       }
     }
   }
