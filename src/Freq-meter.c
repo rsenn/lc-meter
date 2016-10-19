@@ -4,13 +4,17 @@
 // Y.Erol
 //---------------------------------------------
 
-#include <pic.h>
+#include "Freq-meter.h"
+
+#if USE_LCD44780
+#include "lcd44780.h"
+#endif
 
 #include "config-bits.h"
 
 //__CONFIG(WDTDIS& PWRTEN& LVPDIS& XT);
 
-unsigned char control;
+uint8_t control;
 
 //---------------------------------------------
 //	     CCP1 INTERRUPT
@@ -34,10 +38,10 @@ int main()
   unsigned const char number[10] = {0x3F, 0x06, 0x5B,
                                     0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
                                    };
-  unsigned char select[4] = {1, 2, 4, 8};
-  unsigned int counter, value, remainder1, remainder2;
+  uint8_t select[4] = {1, 2, 4, 8};
+  uint32_t counter, value, remainder1, remainder2;
   float frequency;
-  unsigned char a, i, display[5], data;
+  uint8_t a, i, display[5], data;
 
   TRISA = 0x00;
   TRISB = 0x08;
