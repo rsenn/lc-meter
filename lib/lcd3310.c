@@ -378,5 +378,4 @@ lcd_symbol(const char* sym)
   }
 }
 
-
 #endif // USE_NOKIA3310_LCD

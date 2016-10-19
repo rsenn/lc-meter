@@ -14,7 +14,7 @@
 #define rad(x)      (x * DEG_TO_RAD)
 #define deg(x)      (x * RAD_TO_DEG)
 
-// already defined in common_types.h
+// already defined in common_typedef.h
 #ifndef __XC__
 #ifndef FALSE
 # define FALSE  0

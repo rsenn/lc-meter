@@ -2,7 +2,7 @@
 #define LCD3310_H
 
 #include "device.h"
-#include "types.h"
+#include "typedef.h"
 
 #define LCD_CLK    RC5
 #define  LCD_DATA  RC4
