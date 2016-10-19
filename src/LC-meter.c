@@ -24,9 +24,6 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 #define SET_LED(b) do { LED_PIN = !(b); } while(0);
 
-#define FALLING 0
-#define RISING 1
-
 #define CCP1_EDGE() (CCP1M0)
 /*
 volatile uint32_t tcy_per_s = TCY_PER_SECOND;

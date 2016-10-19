@@ -47,6 +47,9 @@
 #define HIGH   1
 #define LOW    0
 
+#define FALLING 0
+#define RISING 1
+
 /*#define ON     1
 #define OFF    0
 */
