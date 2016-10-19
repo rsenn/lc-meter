@@ -6,8 +6,14 @@
 
 #include "Freq-meter.h"
 
-#if USE_LCD44780
+#if USE_HD44780_LCD
 #include "lcd44780.h"
+#endif
+#if USE_NOKIA3310_LCD
+#include "lcd3310.h"
+#endif
+#if USE_SER
+#include "ser.h"
 #endif
 
 #include "config-bits.h"
@@ -30,20 +36,10 @@ INTERRUPT_HANDLER()
   GIE = 1;
 }
 
-//---------------------------------------------
-//		MAIN PROGRAM
-//---------------------------------------------
-int main()
+//-----------------------------------------------------------------------------
+int initialize()
 {
-  unsigned const char number[10] = {0x3F, 0x06, 0x5B,
-                                    0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F
-                                   };
-  uint8_t select[4] = {1, 2, 4, 8};
-  uint32_t counter, value, remainder1, remainder2;
-  float frequency;
-  uint8_t a, i, display[5], data;
-
-  TRISA = 0x00;
+    TRISA = 0x00;
   TRISB = 0x08;
   CMCON = 0x07;
 
@@ -56,18 +52,42 @@ int main()
 
   T1CON = 0b00100001;
 
+#if USE_SER
+  ser_init();
+#endif
+
   GIE = 1;
   PEIE = 1;
 
-  for(;;) {
+  //initialize 3310 lcd
+#if USE_NOKIA3310_LCD
+  lcd_init();
+  lcd_clear();
+#elif USE_HD44780_LCD
+  lcd_init(true);
+  lcd_begin(2, 1);
+#endif
+}
 
+//-----------------------------------------------------------------------------
+int main()
+{
+  const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
+  uint8_t select[4] = {1, 2, 4, 8};
+  uint32_t counter, value, remainder1, remainder2;
+  float frequency;
+  uint8_t a, i, display[5], data;
+
+  initialize();
+
+  for(;;) {
 
     counter = 256 * CCPR1H + CCPR1L;
 
-    if(control == 1)frequency = 100000000 / counter;
-    if(control == 0)frequency = 0;
+    if(control == 1) frequency = 100000000 / counter;
+    if(control == 0) frequency = 0;
 
-    if(counter < 10000)frequency = 0;
+    if(counter < 10000) frequency = 0;
 
     control = 0;
 
