@@ -113,7 +113,7 @@ LC_meter_NOKIA3310_DEFS = -DUSE_NOKIA3310_LCD=1
 LC_meter_NOKIA3310_DEFS += $(TIMER_DEFS)
 
 
-Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c display.c ser.c timer.c
+Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c display.c ser.c timer.c format.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 Freq_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
 

@@ -5,6 +5,7 @@
 //---------------------------------------------
 
 #include "Freq-meter.h"
+#include "format.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"
@@ -27,19 +28,25 @@ uint8_t control;
 //---------------------------------------------
 INTERRUPT_HANDLER()
 {
-  TMR1H = 0; TMR1L = 0;
-  GIE = 0;
+#if USE_SER
+  ser_int();
+#endif
 
-  control = 1;
+  if(CCP1IF) {
+    TMR1H = 0; TMR1L = 0;
+    GIE = 0;
 
-  CCP1IF = 0;
-  GIE = 1;
+    control = 1;
+
+    CCP1IF = 0;
+    GIE = 1;
+  }
 }
 
 //-----------------------------------------------------------------------------
 int initialize()
 {
-    TRISA = 0x00;
+  TRISA = 0x00;
   TRISB = 0x08;
   CMCON = 0x07;
 
@@ -79,8 +86,10 @@ int main()
   uint8_t a, i, display[5], data;
 
   initialize();
+  ser_puts("Freq-meter READY.\r\n")
 
   for(;;) {
+    static uint32_t prev_frequency = 0;
 
     counter = 256 * CCPR1H + CCPR1L;
 
@@ -91,6 +100,18 @@ int main()
 
     control = 0;
 
+
+    if(frequency != prev_frequency) {
+
+      format_number(ser_putch, frequency, 10, 0);
+      ser_putch('\r');
+      ser_putch('\n');
+
+        __delay_ms(3);
+     
+     prev_frequency = frequency; 
+    }
+/*
     for(a = 0; a < 25; a++) {
 
       value = (int)frequency;
@@ -117,6 +138,6 @@ int main()
         PORTA = select[i];
         __delay_ms(3);
       }
-    }
+    }*/
   }
 }
