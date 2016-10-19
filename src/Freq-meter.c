@@ -86,7 +86,7 @@ int main()
   uint8_t a, i, display[5], data;
 
   initialize();
-  ser_puts("Freq-meter READY.\r\n")
+  ser_puts("Freq-meter READY.\r\n");
 
   for(;;) {
     static uint32_t prev_frequency = 0;

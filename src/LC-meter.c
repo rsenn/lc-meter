@@ -139,7 +139,7 @@ main(void)
       if(seconds != prev_seconds)
       {
 #if USE_SER
-        put_number(ser_putch, seconds, 10, 0);
+        format_number(ser_putch, seconds, 10, 0);
         //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
         ser_puts("\r\n");
 #endif
