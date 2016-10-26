@@ -46,14 +46,16 @@ put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t 
 
 INTERRUPT_HANDLER() {
 
-  if(T0IF)
-  {
+  if(T0IF) {
     //  tmr0_overflow++;
     bres += 256;
     if(bres >= 5000)   // if reached 1 second!
     {
       bres -= 5000;  // subtract 1 second, retain error
       seconds++;  // update clock, etc
+
+      SET_LED(seconds & 1);
+
     }
     // TMR0 = -64;
     T0IF = 0;
@@ -111,26 +113,23 @@ void
 loop() {
   static uint16_t prev_seconds = 0xffff;
   
-  for(;;) {
 #if USE_HD44780_LCD || USE_NOKIA3310_LCD
 #if USE_NOKIA3310_LCD
-   lcd_gotoxy(0,0);
+  lcd_gotoxy(0,0);
 #else
-    lcd_set_cursor(0, 1);
+  lcd_set_cursor(0, 1);
 #endif
-    format_number(lcd_putch, seconds, 10, 0);
-    //    display_print_number(measure_freq(), 16, 4);
+  format_number(lcd_putch, seconds, 10, 0);
+  //    display_print_number(measure_freq(), 16, 4);
 #endif
-    if(seconds != prev_seconds) {
+  if(seconds != prev_seconds) {
 #if USE_SER
-      format_number(ser_putch, seconds, 10, 0);
-      //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
-      ser_puts("\r\n");
+    format_number(ser_putch, seconds, 10, 0);
+    //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
+    ser_puts("\r\n");
 #endif
-      SET_LED(seconds & 1);
-
-      prev_seconds = seconds;
-    }
+ 
+    prev_seconds = seconds;
   }
 }
 /*
@@ -145,6 +144,8 @@ setup_ccp1() {
 
 void
 initialize() {
+  bres = 0;
+  seconds = 0;
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
   /*CMCONbits.*/CM1 = 0;
@@ -174,10 +175,10 @@ initialize() {
   lcd_begin(2, 1);
 #endif
 
+  //setup_timer0();
   OPTION_REGbits.PS = 0b000;
   T0CS = 0;
-
-  //setup_timer0();
+  TMR0 = 0;
   T0IE = 1;
   T0IF = 0;
   
