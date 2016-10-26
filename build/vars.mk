@@ -88,7 +88,7 @@ INCLUDE_DIRS += . lib src
 #CPPFLAGS += $(addprefix -I../,$(INCLUDE_DIRS))
 CPPFLAGS += $(addprefix -I,$(INCLUDE_DIRS))
 
-get-list = $(sort $(if $(value $(1)S),$(value $(1)S),$(value $(1))))
+get-list = $(if $(value $(1)S),$(value $(1)S),$(value $(1)))
 is-list = $(if $(subst 1,,$(subst 0,,$(words $(call get-list,$(1))))),$(call get-list,$(1)),)
 
 
