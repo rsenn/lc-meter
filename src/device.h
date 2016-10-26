@@ -76,12 +76,26 @@
 #endif
 
 #if defined(__10f206) || defined(__12f1840)
+#if defined(__10f206)
+#define NO_PORTA 1
+#endif
 #define NO_PORTB 1
 #define NO_PORTC 1
+#define NO_SSP 1
 #elif defined(__16f628a)
 #define NO_PORTC 1
+#define NO_SSP 1
 #endif
 
+#ifndef NO_PORTA
+#define NO_PORTA 0
+#endif
+#ifndef NO_PORTB
+#define NO_PORTB 0
+#endif
+#ifndef NO_PORTC
+#define NO_PORTC 0
+#endif
 
 #if defined(HI_TECH_C) || defined(__XC__)
 # if 0 //ndef nRBPU
@@ -119,11 +133,14 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define HAVE_TIMER_0 1
 #endif
 
-
-#if defined(__18f25k22) || defined(__18f25k50)
-#define SPEN SPEN1
+#if HAVE_COMPARATOR && defined(__18f25k50)
 #define CMCON CM1CON0
 #define CMCONbits CM1CON0bits
+#endif
+
+#if defined(__18f25k22) // || defined(__18f25k50)
+#define SPEN SPEN1
+
 #define TXEN TXEN1
 #define CREN CREN1
 #define RX9D RX9D1
@@ -132,6 +149,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define TX9 TX91
 #define OERR OERR1
 #define SYNC SYNC1
+
+#define SSPEN SSPEN1
 #endif
 
 #if defined(PIC18) || defined(PIC12)
@@ -144,7 +163,11 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define T0PS  T0CONbits.T0PS
 //#define T1CS 
 #define INTEDG INTEDG0
+#ifndef CMCON
 #define CMCON CMCONbits.CM
+#endif
+#define SSPCONbits SSPCON1bits
+
 #define RA0 LATA0
 #define RA1 LATA1
 #define RA2 LATA2

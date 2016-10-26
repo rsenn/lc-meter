@@ -3,7 +3,7 @@
 
 #ifdef __XC
 
-# pragma config FOSC=HS, WDTE=OFF, PWRTE=ON, BOREN=ON, LVP=OFF, CPD=OFF, WRT=OFF, CP=OFF, DEBUG=OFF
+# pragma config FOSC=HS, WDTE=OFF, PWRTE=ON, BOREN=ON, LVP=OFF, CPD=OFF, WRT=OFF, CP=OFF
 
 #elif defined(HI_TECH_C)
 

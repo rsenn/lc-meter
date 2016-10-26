@@ -4,7 +4,7 @@
 #include "typedef.h"
 
 
-#ifdef USE_UART
+#if USE_UART
 
 #ifndef UART_BRG
 # if HIGH_SPEED == 1

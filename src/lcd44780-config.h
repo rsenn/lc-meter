@@ -1,3 +1,4 @@
+
 #ifdef __16f628a
 # define RS_PIN  RB5
 # define RS_TRIS TRISB5
@@ -42,3 +43,4 @@
 #else
 #define DATABUS_INIT OUTPUT
 #endif
+ 

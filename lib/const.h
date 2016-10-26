@@ -14,7 +14,7 @@
 #define rad(x)      (x * DEG_TO_RAD)
 #define deg(x)      (x * RAD_TO_DEG)
 
-// already defined in common_typedef.h
+// already defined in common_types.h
 #ifndef __XC__
 #ifndef FALSE
 # define FALSE  0
@@ -46,9 +46,6 @@
 
 #define HIGH   1
 #define LOW    0
-
-#define FALLING 0
-#define RISING 1
 
 /*#define ON     1
 #define OFF    0

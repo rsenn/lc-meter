@@ -51,7 +51,7 @@ void ser_puts2(uint8_t * s);
 void ser_puthex(uint8_t v);
 void ser_init(void);
 
-#ifndef _SER_C_
+#if 1 //ndef _SER_C_
 extern uint8_t rxfifo[SER_BUFFER_SIZE];
 extern volatile uint8_t rxiptr, rxoptr;
 extern /*bank1*/ uint8_t txfifo[SER_BUFFER_SIZE];
