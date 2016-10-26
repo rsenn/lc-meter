@@ -32,8 +32,8 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #define CCP1_EDGE() (CCP1M0)
 
 
-volatile uint16_t bres;
-volatile  uint16_t seconds;
+volatile uint16_t bres = 0;
+volatile  uint16_t seconds = 0;
 //volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
@@ -111,7 +111,13 @@ main() {
 
 void
 loop() {
-  static uint16_t prev_seconds = 0xffff;
+  static BOOL led = 0;
+
+  __delay_ms(100);
+
+   led = !led;
+   RC1 = led;
+ /* static uint16_t prev_seconds = 0xffff;
   
 #if USE_HD44780_LCD || USE_NOKIA3310_LCD
 #if USE_NOKIA3310_LCD
@@ -130,7 +136,7 @@ loop() {
 #endif
  
     prev_seconds = seconds;
-  }
+  }*/
 }
 /*
 void

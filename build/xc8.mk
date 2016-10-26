@@ -78,9 +78,9 @@ ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 COMMON_FLAGS += -g
 COMMON_FLAGS += -N127
 
-#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,-stackcall,+clib"
-#COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,-stackcall,+clib"
-COMMON_FLAGS += --runtime="default,+init,+osccal,+download,-stackcall,+clib"
+#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+clib"
+#COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
+COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib"
 
 ifneq ($(CODEOFFSET),0)
 ifneq ($(CODEOFFSET),)
@@ -131,7 +131,7 @@ CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
 
 LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file
 
-LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib
+LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib
 LDFLAGS += --output=-mcof,+elf
 LDFLAGS += --stack=compiled
 

@@ -70,8 +70,8 @@ ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 COMMON_FLAGS += -N127
 #COMMON_FLAGS += --scandep
 
-#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,-stackcall,+clib"
-#COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,-stackcall,+clib"
+#COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+clib"
+#COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
 COMMON_FLAGS += --runtime="default,+init,+download,+clib"
 
 
