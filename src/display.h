@@ -11,7 +11,6 @@ void display_unit(uint8_t unit);
 void display_reading(uint16_t measurement);  //measurement divide by 100
 void indicator(uint8_t indicate);
 
-void display_print_number(uint16_t n, uint8_t base, int8_t pad);
 void display_print_float(float number, uint8_t digits);
 
 #undef DISPLAYPRINTFLOAT

@@ -97,8 +97,8 @@ HEXFILE = $(BUILDDIR)$(PROGRAM)_$(BUILD_ID).hex
 TIMER_DEFS += -DUSE_TIMER_0=1
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c delay.c lcd44780.c uart.c ser.c
-LC_meter_HD44780_SOURCES = LC-meter.c delay.c lcd44780.c display.c uart.c ser.c timer.c format.c
-LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
+LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c ser.c format.c
+#LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
 #LC_meter_HD44780_DEFS += -DUSE_UART=1
 

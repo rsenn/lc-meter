@@ -3,17 +3,21 @@
 //#include "main.h"
 #include "delay.h"
 #include "interrupt.h"
+
 #if USE_HD44780_LCD
 #include "lcd44780.h"
 #endif
+
 #if USE_NOKIA3310_LCD
 #include "lcd3310.h"
 #endif
-#include "display.h"
+
 #include "timer.h"
+
 #ifdef USE_UART
 #include "uart.h"
 #endif
+
 #if USE_SER
 #include "ser.h"
 #endif
@@ -24,28 +28,24 @@
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
-#define SET_LED(b) do { LED_PIN = !(b); } while(0);
+#define SET_LED(b) do { LED_PIN = !!(b); } while(0);
 #define CCP1_EDGE() (CCP1M0)
 
 
 volatile uint16_t bres;
 volatile  uint16_t seconds;
-volatile uint32_t ccp1t_lr, ccp1t[2];
+//volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 
-static void initialize();
-static void loop();
+void initialize();
+void loop();
 
 void
 put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/);
 
 INTERRUPT_HANDLER() {
-  /*  if(TMR2IF) {
-      tmr2_overflow++;
-      // Clear timer interrupt bit
-      TMR2IF = 0;
-    }*/
+
   if(T0IF)
   {
     //  tmr0_overflow++;
@@ -54,11 +54,11 @@ INTERRUPT_HANDLER() {
     {
       bres -= 5000;  // subtract 1 second, retain error
       seconds++;  // update clock, etc
-      SET_LED(seconds & 1);
     }
     // TMR0 = -64;
     T0IF = 0;
   }
+
 #if 0 //def USE_TIMER_1
   if(CCP1IF) {
     if(CCP1_EDGE() == RISING) {
@@ -71,6 +71,7 @@ INTERRUPT_HANDLER() {
     CCP1IF = 0;
   }
 #endif
+
 #if USE_SER
   ser_int();
 #endif
@@ -82,9 +83,9 @@ main() {
 
 #if USE_HD44780_LCD     || USE_NOKIA3310_LCD
 #if USE_NOKIA3310_LCD
-     lcd_gotoxy(0,0);
+  lcd_gotoxy(0,0);
 #else
-      lcd_set_cursor(0, 0);
+  lcd_set_cursor(0, 0);
 #endif
   lcd_print("LC-meter");
 #endif
@@ -99,24 +100,25 @@ main() {
     __delay_ms(500);
   }
 #endif
+  PEIE = 1;
+  GIE = 1;
 
   for(;;)
     loop();
 }
 
-static void
+void
 loop() {
   static uint16_t prev_seconds = 0xffff;
   
   for(;;) {
-    bool led_value = 0;
-#if USE_HD44780_LCD    || USE_NOKIA3310_LCD
+#if USE_HD44780_LCD || USE_NOKIA3310_LCD
 #if USE_NOKIA3310_LCD
    lcd_gotoxy(0,0);
 #else
     lcd_set_cursor(0, 1);
 #endif
-    display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
+    format_number(lcd_putch, seconds, 10, 0);
     //    display_print_number(measure_freq(), 16, 4);
 #endif
     if(seconds != prev_seconds) {
@@ -125,12 +127,13 @@ loop() {
       //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
       ser_puts("\r\n");
 #endif
+      SET_LED(seconds & 1);
+
       prev_seconds = seconds;
     }
-    //  SET_LED(led_value = !led_value);
   }
 }
-
+/*
 void
 setup_ccp1() {
   ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16_t) - 1;
@@ -138,9 +141,9 @@ setup_ccp1() {
   CCP1CONbits.CCP1M = 0b0100;
   CCP1IE = 1;
   CCP1IF = 0;
-}
+}*/
 
-static void
+void
 initialize() {
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
@@ -149,11 +152,6 @@ initialize() {
 
   TRISA = 0b11001111;
 
-  setup_timer0();
-
-  T0IE = 1;
-  T0IF = 0;
-  
   //others
   LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
@@ -166,11 +164,6 @@ initialize() {
 //  ADD_CCAL();
 
   SSPEN = 0;
-  LED_TRIS = 0;
-  LED_PIN = 1;
-
-  PEIE = 1;
-  GIE = 1;
 
   //initialize 3310 lcd
 #if USE_NOKIA3310_LCD
@@ -180,9 +173,19 @@ initialize() {
   lcd_init(true);
   lcd_begin(2, 1);
 #endif
+
+  OPTION_REGbits.PS = 0b000;
+  T0CS = 0;
+
+  //setup_timer0();
+  T0IE = 1;
+  T0IF = 0;
+  
+  LED_TRIS = 0;
+  LED_PIN = 1;
 }
 
-uint16_t
+/*uint16_t
 measure_freq() {   //16-bit freq 
   TRISA4 = 0;    //Enable RA4 output to T0CKI
   tmr0_overflow = 0;
@@ -194,7 +197,7 @@ measure_freq() {   //16-bit freq
   TMR0IE = 0;
   return(tmr0_overflow << 8) | TMR0;
 }
-
+*/
 void
 calibrate() {
 }
@@ -207,10 +210,11 @@ void
 measure_inductance() {
 }
 
-void
+/*void
 delay10ms(uint16_t period_10ms) {
   do {
     __delay_ms(10);
   }
   while(--period_10ms);
 }
+*/

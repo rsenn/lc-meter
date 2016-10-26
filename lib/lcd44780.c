@@ -25,7 +25,7 @@ Pins, Schematics and more info:
 #include "device.h"
 #include "lcd44780.h"
 
-#ifdef USE_HD44780_LCD
+#if USE_HD44780_LCD
 
 #include <stdarg.h>
 #include <stdio.h>
