@@ -28,12 +28,13 @@
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
-#define SET_LED(b) do { LED_PIN = !!(b); } while(0);
 #define CCP1_EDGE() (CCP1M0)
 
 
-volatile uint16_t bres = 0;
-volatile  uint16_t seconds = 0;
+volatile uint16_t bres;
+volatile  uint16_t msecs;
+volatile  uint32_t seconds;
+
 //volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
@@ -44,39 +45,38 @@ void loop();
 void
 put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/);
 
-INTERRUPT_HANDLER() {
-
-  if(T0IF) {
-    //  tmr0_overflow++;
-    bres += 256;
-    if(bres >= 5000)   // if reached 1 second!
-    {
-      bres -= 5000;  // subtract 1 second, retain error
-      seconds++;  // update clock, etc
-
-      SET_LED(seconds & 1);
-
-    }
-    // TMR0 = -64;
-    T0IF = 0;
-  }
-
-#if 0 //def USE_TIMER_1
-  if(CCP1IF) {
-    if(CCP1_EDGE() == RISING) {
-      ccp1t_lr = ccp1t[RISING];
-    }
-    ccp1t[CCP1_EDGE()] = CCPR1 + ((uint32_t)tmr1_overflow << 16);
-    CCP1IE = 0;
-    CCP1_EDGE() = !CCP1_EDGE();
-    CCP1IE = 1;
-    CCP1IF = 0;
-  }
-#endif
-
-#if USE_SER
+INTERRUPT_HANDLER()
+{
+#ifdef USE_SER
   ser_int();
 #endif
+#if USE_UART
+  uart_isr();
+#endif
+  if(T0IF) {
+
+    bres += 256;
+
+    if(bres >= 5000) {
+      bres -= 5000;
+      msecs++;
+
+      SET_LED(msecs < 500);
+    }
+    if(msecs >= 1000) { // if reached 1 second!
+      seconds++;  // update clock, etc
+      msecs -= 1000;
+
+          SET_LED2(seconds&1);
+
+    }
+
+    //TMR1H = 0xff;
+    
+  
+    // Clear timer interrupt bit
+    T0IF = 0;
+  }
 }
 
 void
@@ -150,8 +150,8 @@ setup_ccp1() {
 
 void
 initialize() {
-  bres = 0;
-  seconds = 0;
+   bres = msecs = seconds  = 0;
+
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
   /*CMCONbits.*/CM1 = 0;
@@ -187,9 +187,18 @@ initialize() {
   TMR0 = 0;
   T0IE = 1;
   T0IF = 0;
-  
-  LED_TRIS = 0;
-  LED_PIN = 1;
+
+
+  INIT_LED();
+  INIT_LED2();
+#if !NO_PORTC
+  TRISC &= ~0b1100;
+#endif
+  SET_LED(1);
+  SET_LED2(1);
+
+  PEIE = 1;
+  GIE = 1;
 }
 
 /*uint16_t
