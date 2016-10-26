@@ -36,6 +36,7 @@ MAKE_LOOP := @MAKE@ || exit $$?
 #	@echo " sdcc htc"
 #
 ifneq ($(subst program,,$(MAKECMDGOALS)),$(MAKECMDGOALS))
+PROGRAMS := $(firstword $(strip $(PROGRAMS)))
 BUILD_TYPES := $(lastword $(strip $(BUILD_TYPES)))
 COMPILERS := $(firstword $(strip $(COMPILERS)))
 XTAL_FREQS := $(firstword $(strip $(XTAL_FREQS)))

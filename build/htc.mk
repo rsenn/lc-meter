@@ -154,7 +154,7 @@ dist:
 	cp -rvf $(DISTFILES) $(PROGRAM)-$(VERSION)
 	tar -cvzf $(PROGRAM)-$(VERSION).tar.gz $(PROGRAM)-$(VERSION)
 
-$(HEXFILE): $(P1OBJS)
+$(HEXFILE): $(P1OBJS) | $(BUILDDIR) $(OBJDIR)
 	$(RM) $(HEXFILE) $(COFFILE)
 	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
 	#(cd bin; $(LD) $(LDFLAGS) -m$(BUILDDIR:bin/%=%)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$(@:bin/%=%) $(^:%=../%))
