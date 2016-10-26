@@ -35,9 +35,6 @@ $(OBJDIR): $(BUILDDIR)
 	@-mkdir -p $(dir $(OBJDIR)) || md $(dir $(subst /,\,$(OBJDIR))) || true
 	@-mkdir -p $(OBJDIR) || md $(subst /,\,$(OBJDIR)) || true
 
-#$(HEXFILE):
-#	echo $(patsubst %-*,%,$(HEXFILE)) 1>&2
-
 program: $(BUILDDIR) $(OBJDIR) $(HEXFILE)
 ifneq ($(PICPGM),)
 	$(PICPGM) $(PICPGM_FLAGS) -p PIC$(chipu) -e -p $(HEXFILE)
