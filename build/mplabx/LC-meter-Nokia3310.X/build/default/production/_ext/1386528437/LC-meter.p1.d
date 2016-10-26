@@ -6,6 +6,7 @@ build/default/production/_ext/1386528437/LC-meter.p1:	\
 	../../../src/config-16f876a.h	\
 	../../../src/LC-meter.h	\
 	../../../lib\oscillator.h	\
+	../../../lib\lcd3310.h	\
 	../../../lib\timer.h	\
 	../../../src/config-bits.h	\
 	../../../lib\interrupt.h	\
@@ -13,6 +14,4 @@ build/default/production/_ext/1386528437/LC-meter.p1:	\
 	../../../lib\ser.h	\
 	../../../src/display.h	\
 	../../../src\device.h	\
-	../../../lib\lcd44780.h	\
 	../../../lib\delay.h	\
-	../../../src\lcd44780-config.h	\

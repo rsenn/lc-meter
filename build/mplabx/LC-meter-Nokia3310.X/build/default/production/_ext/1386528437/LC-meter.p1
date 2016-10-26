@@ -824,16 +824,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "45 ../../../src/LC-meter.c
 [v _initialize `(v  0 sf ]
-"67 ../../../lib\lcd44780.h
-[v _lcd_set_cursor `(v  0 ef2`uc`uc ]
-"65 ../../../lib\lcd44780.h
-[v _lcd_print `(v  0 ef1`*Cuc ]
+"112 ../../../src/LC-meter.c
+[v _lcd_set_cursor `(i  0 ef ]
+"114 ../../../src/LC-meter.c
+[v _lcd_print `(i  0 ef ]
 "13 ../../../src/display.h
 [v _display_print_number `(v  0 ef3`ui`uc`c ]
 "7 ../../../lib\format.h
-[v F1128 `(v  0 tf1`uc ]
+[v F1122 `(v  0 tf1`uc ]
 "7 ../../../lib\format.h
-[v _format_number `(v  0 ef4`*F1128`ui`uc`c ]
+[v _format_number `(v  0 ef4`*F1122`ui`uc`c ]
 "48 ../../../lib\ser.h
 [v _ser_putch `(v  0 ef1`uc ]
 "49 ../../../lib\ser.h
@@ -842,10 +842,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _setup_timer0 `(v  0 ef ]
 "52 ../../../lib\ser.h
 [v _ser_init `(v  0 ef ]
-"47 ../../../lib\lcd44780.h
-[v _lcd_init `(v  0 ef1`uc ]
-"48 ../../../lib\lcd44780.h
-[v _lcd_begin `(v  0 ef2`uc`uc ]
+"30 ../../../lib\lcd3310.h
+[v _lcd_init `(v  0 ef ]
+"32 ../../../lib\lcd3310.h
+[v _lcd_clear `(v  0 ef ]
 "33 ../../../lib\timer.h
 [v _tmr0_overflow `Vui  0 e ]
 "154 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h
@@ -1656,27 +1656,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lib\delay.h: 26: void Delay10KTCYx(uint8_t);
 [; ;lib\delay.h: 27: void Delay10TCYx(uint8_t);
 [; ;lib\delay.h: 28: void Delay1KTCYx(uint8_t);
-[; ;lib\lcd44780.h: 47: void lcd_init(char fourbitmode);
-[; ;lib\lcd44780.h: 48: void lcd_begin(uint8_t l, uint8_t ds);
-[; ;lib\lcd44780.h: 49: void lcd_no_autoscroll(void);
-[; ;lib\lcd44780.h: 50: void lcd_autoscroll(void);
-[; ;lib\lcd44780.h: 51: void lcd_right_to_left(void);
-[; ;lib\lcd44780.h: 52: void lcd_left_to_right(void);
-[; ;lib\lcd44780.h: 53: void lcd_scroll_display_right(void);
-[; ;lib\lcd44780.h: 54: void lcd_scroll_display_left(void);
-[; ;lib\lcd44780.h: 55: void lcd_blink();
-[; ;lib\lcd44780.h: 56: void lcd_no_blink();
-[; ;lib\lcd44780.h: 57: void lcd_cursor();
-[; ;lib\lcd44780.h: 58: void lcd_no_cursor();
-[; ;lib\lcd44780.h: 59: void lcd_display();
-[; ;lib\lcd44780.h: 60: void lcd_no_display();
-[; ;lib\lcd44780.h: 61: void lcd_clear();
-[; ;lib\lcd44780.h: 62: void lcd_home();
-[; ;lib\lcd44780.h: 63: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-[; ;lib\lcd44780.h: 64: void lcd_print_float(float number, uint8_t digits);
-[; ;lib\lcd44780.h: 65: void lcd_print(const char *string);
-[; ;lib\lcd44780.h: 67: void lcd_set_cursor(uint8_t col, uint8_t row);
-[; ;lib\lcd44780.h: 68: void lcd_putch(char value);
+[; ;lib\lcd3310.h: 28: uint8_t lcd_str_width(const char *c);
+[; ;lib\lcd3310.h: 29: void lcd_send(uint8_t a, uint8_t cmd);
+[; ;lib\lcd3310.h: 30: void lcd_init(void);
+[; ;lib\lcd3310.h: 31: void lcd_test(void);
+[; ;lib\lcd3310.h: 32: void lcd_clear(void);
+[; ;lib\lcd3310.h: 33: void lcd_gotoxy(uint8_t x, unsigned y);
+[; ;lib\lcd3310.h: 34: void lcd_putch(uint8_t c);
+[; ;lib\lcd3310.h: 35: void lcd_puts(const char *s);
+[; ;lib\lcd3310.h: 36: void lcd_puts2(char *s);
+[; ;lib\lcd3310.h: 37: void lcd_clear_line(uint8_t y);
+[; ;lib\lcd3310.h: 38: void lcd_center_puts(uint8_t y, const char *c);
+[; ;lib\lcd3310.h: 39: void lcd_center_puts2(uint8_t y, char *c, uint8_t len);
+[; ;lib\lcd3310.h: 42: void lcd_battery(uint8_t chg);
+[; ;lib\lcd3310.h: 46: void lcd_symbol(const char *sym);
 [; ;display.h: 6: extern const char logo_image[504];
 [; ;display.h: 8: void display_digit(uint8_t line, uint8_t column, uint8_t digit);
 [; ;display.h: 9: void display_unit(uint8_t unit);
@@ -1709,8 +1702,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 46: void
 [; ;LC-meter.c: 47: put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
 "50 ../../../src/LC-meter.c
-[v F1150 `(i  1 tf ]
-[v _isr `IF1150  1 e ]
+[v F1144 `(i  1 tf ]
+[v _isr `IF1144  1 e ]
 {
 [; ;LC-meter.c: 49: interrupt isr()
 [; ;LC-meter.c: 50: {
@@ -1795,10 +1788,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _initialize ..  ]
 [; ;LC-meter.c: 112: lcd_set_cursor(0, 0);
 "112
-[e ( _lcd_set_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[e ( _lcd_set_cursor , -> 0 `i -> 0 `i ]
 [; ;LC-meter.c: 114: lcd_print("LC-meter");
 "114
-[e ( _lcd_print (1 :s 1C ]
+[e ( _lcd_print :s 1C ]
 [; ;LC-meter.c: 128: {
 "128
 {
@@ -1819,7 +1812,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _led_value -> -> 0 `i `uc ]
 [; ;LC-meter.c: 136: lcd_set_cursor(0, 1);
 "136
-[e ( _lcd_set_cursor (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[e ( _lcd_set_cursor , -> 0 `i -> 1 `i ]
 [; ;LC-meter.c: 137: display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
 "137
 [e ( _display_print_number (3 , , -> - *U + &U _ccp1t * -> -> -> 1 `i `ui `ux -> -> # *U &U _ccp1t `ui `ux _ccp1t_lr `ui -> -> 16 `i `uc -> -U -> 4 `i `c ]
@@ -1938,12 +1931,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 208: GIE = 1;
 "208
 [e = _GIE -> -> 1 `i `b ]
-[; ;LC-meter.c: 215: lcd_init(1);
-"215
-[e ( _lcd_init (1 -> -> 1 `i `uc ]
-[; ;LC-meter.c: 216: lcd_begin(2, 1);
-"216
-[e ( _lcd_begin (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+[; ;LC-meter.c: 212: lcd_init();
+"212
+[e ( _lcd_init ..  ]
+[; ;LC-meter.c: 213: lcd_clear();
+"213
+[e ( _lcd_clear ..  ]
 [; ;LC-meter.c: 218: }
 "218
 [e :UE 110 ]

@@ -3,7 +3,7 @@
 	; Copyright (C) 1984-2011 HI-TECH Software
 	;Serial no. HCPICP-36668
 
-	; Auto-generated runtime startup code for final link stage.
+	; Auto-generated runtime startup code for prelink stage.
 
 	;
 	; Compiler options:
@@ -14,19 +14,20 @@
 	; --runtime=default,+clear,+init,+keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib \
 	; --summary=default,-psect,-class,+mem,-hex \
 	; --opt=default,+asm,+asmfile,+speed,-space,-debug,9 \
-	; -D_XTAL_FREQ=20000000 -DUSE_TIMER_0=1 -DUSE_SER=1 -DUSE_Nokia3310_LCD=1 \
-	; -DUART_BAUD=38400 -P -N127 -I.. -I. -I../../../lib -I../../../src -v \
-	; --warn=3 --double=32 --float=24 --addrqual=ignore --mode=pro \
-	; --output=default,-inhx032 -g --asmlist --errformat=%f:%l: error: %s \
-	; --msgformat=%f:%l: advisory: %s --warnformat=%f:%l warning: %s \
+	; -D_XTAL_FREQ=20000000 -DUSE_TIMER_0=1 -DUSE_SER=1 \
+	; -DUSE_NOKIA3310_LCD=1 -DUART_BAUD=38400 -P -N127 -I.. -I. \
+	; -I../../../lib -I../../../src -v --warn=3 --double=32 --float=24 \
+	; --addrqual=ignore --mode=pro --output=default,-inhx032 -g --asmlist \
+	; --errformat=%f:%l: error: %s --msgformat=%f:%l: advisory: %s \
+	; --warnformat=%f:%l warning: %s \
 	; build/default/production/_ext/1386521430/delay.p1 \
 	; build/default/production/_ext/1386521430/format.p1 \
-	; build/default/production/_ext/1386521430/lcd44780.p1 \
 	; build/default/production/_ext/1386521430/ser.p1 \
 	; build/default/production/_ext/1386521430/timer.p1 \
 	; build/default/production/_ext/1386521430/uart.p1 \
 	; build/default/production/_ext/1386528437/display.p1 \
-	; build/default/production/_ext/1386528437/LC-meter.p1
+	; build/default/production/_ext/1386528437/LC-meter.p1 \
+	; build/default/production/_ext/1386521430/lcd3310.p1
 	;
 
 
@@ -74,6 +75,7 @@ reset_vec:
 ; jump to start
 	goto	start & 0x7FF | (reset_vec & not 0x7FF)
 
+	; No interrupt routine
 
 
 	psect	init

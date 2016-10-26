@@ -10,7 +10,6 @@
         <itemPath>../../../lib/format.h</itemPath>
         <itemPath>../../../lib/interrupt.h</itemPath>
         <itemPath>../../../lib/lcd3310.h</itemPath>
-        <itemPath>../../../lib/lcd44780.h</itemPath>
         <itemPath>../../../lib/oscillator.h</itemPath>
         <itemPath>../../../lib/ser.h</itemPath>
         <itemPath>../../../lib/softser.h</itemPath>
@@ -25,9 +24,7 @@
         <itemPath>../../../src/config-bits.h</itemPath>
         <itemPath>../../../src/device.h</itemPath>
         <itemPath>../../../src/display.h</itemPath>
-        <itemPath>../../../src/Freq-meter.h</itemPath>
         <itemPath>../../../src/LC-meter.h</itemPath>
-        <itemPath>../../../src/lcd44780-config.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -40,10 +37,10 @@
       <logicalFolder name="lib" displayName="lib" projectFiles="true">
         <itemPath>../../../lib/delay.c</itemPath>
         <itemPath>../../../lib/format.c</itemPath>
-        <itemPath>../../../lib/lcd44780.c</itemPath>
         <itemPath>../../../lib/ser.c</itemPath>
         <itemPath>../../../lib/timer.c</itemPath>
         <itemPath>../../../lib/uart.c</itemPath>
+        <itemPath>../../../lib/lcd3310.c</itemPath>
       </logicalFolder>
       <logicalFolder name="src" displayName="src" projectFiles="true">
         <itemPath>../../../src/display.c</itemPath>
@@ -98,7 +95,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="define-macros"
-                  value="_XTAL_FREQ=20000000;USE_TIMER_0=1;USE_SER=1;USE_Nokia3310_LCD=1;UART_BAUD=38400"/>
+                  value="_XTAL_FREQ=20000000;USE_TIMER_0=1;USE_SER=1;USE_NOKIA3310_LCD=1;UART_BAUD=38400"/>
         <property key="extra-include-directories"
                   value="..;.;../../../lib;../../../src"/>
         <property key="identifier-length" value="127"/>

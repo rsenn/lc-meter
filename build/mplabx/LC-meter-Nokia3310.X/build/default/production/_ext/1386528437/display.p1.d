@@ -3,8 +3,7 @@ build/default/production/_ext/1386528437/display.p1:	\
 	../../../src/device.h	\
 	../../../src/LC-meter.h	\
 	../../../lib\oscillator.h	\
+	../../../lib\lcd3310.h	\
 	../../../lib\typedef.h	\
 	../../../src/display.h	\
 	../../../src\device.h	\
-	../../../lib\lcd44780.h	\
-	../../../src\lcd44780-config.h	\

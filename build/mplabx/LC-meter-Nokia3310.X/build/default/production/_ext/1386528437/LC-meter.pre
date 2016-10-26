@@ -1123,29 +1123,26 @@ void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
 
-# 47 "../../../lib\lcd44780.h"
-void lcd_init(char fourbitmode);
-void lcd_begin(uint8_t l, uint8_t ds);
-void lcd_no_autoscroll(void);
-void lcd_autoscroll(void);
-void lcd_right_to_left(void);
-void lcd_left_to_right(void);
-void lcd_scroll_display_right(void);
-void lcd_scroll_display_left(void);
-void lcd_blink();
-void lcd_no_blink();
-void lcd_cursor();
-void lcd_no_cursor();
-void lcd_display();
-void lcd_no_display();
-void lcd_clear();
-void lcd_home();
-void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-void lcd_print_float(float number, uint8_t digits);
-void lcd_print(const char *string);
+# 28 "../../../lib\lcd3310.h"
+uint8_t lcd_str_width(const char *c);
+void lcd_send(uint8_t a, uint8_t cmd);
+void lcd_init(void);
+void lcd_test(void);
+void lcd_clear(void);
+void lcd_gotoxy(uint8_t x, unsigned y);
+void lcd_putch(uint8_t c);
+void lcd_puts(const char *s);
+void lcd_puts2(char *s);
+void lcd_clear_line(uint8_t y);
+void lcd_center_puts(uint8_t y, const char *c);
+void lcd_center_puts2(uint8_t y, char *c, uint8_t len);
 
-void lcd_set_cursor(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+
+void lcd_battery(uint8_t chg);
+
+
+
+void lcd_symbol(const char *sym);
 
 # 6 "../../../src/display.h"
 extern const char logo_image[504];
@@ -1314,10 +1311,12 @@ TRISC5 = 0;
 PEIE = 1;
 GIE = 1;
 
-# 215
-lcd_init(1);
-lcd_begin(2, 1);
 
+
+lcd_init();
+lcd_clear();
+
+# 218
 }
 
 uint16_t

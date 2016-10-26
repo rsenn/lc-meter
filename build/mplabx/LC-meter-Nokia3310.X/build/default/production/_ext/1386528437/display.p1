@@ -793,14 +793,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS91  1 e@396 ]
 "1069 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f876a.h
 [v _EECON2 `Vuc  1 e@397 ]
-"67 ../../../lib\lcd44780.h
-[v _lcd_set_cursor `(v  0 ef2`uc`uc ]
-"68 ../../../lib\lcd44780.h
+"7 ../../../src/display.c
+[v _logo_image `Cuc  -> 504 `i e ]
+"14 ../../../src/display.c
+[v _digits_8x16 `Cuc  -> 160 `i e ]
+"28 ../../../src/display.c
+[v _units `Cuc  -> 288 `i e ]
+"33 ../../../lib\lcd3310.h
+[v _lcd_gotoxy `(v  0 ef2`uc`ui ]
+"29 ../../../lib\lcd3310.h
+[v _lcd_send `(v  0 ef2`uc`uc ]
+"35 ../../../lib\lcd3310.h
+[v _lcd_puts `(v  0 ef1`*Cuc ]
+"34 ../../../lib\lcd3310.h
 [v _lcd_putch `(v  0 ef1`uc ]
-"65 ../../../lib\lcd44780.h
-[v _lcd_print `(v  0 ef1`*Cuc ]
-"13 ../../../src/display.h
-[v _display_print_number `(v  0 ef3`ui`uc`c ]
 [; ;pic16f876a.h: 82: volatile unsigned char INDF @ 0x000;
 [; ;pic16f876a.h: 86: volatile unsigned char TMR0 @ 0x001;
 [; ;pic16f876a.h: 90: volatile unsigned char PCL @ 0x002;
@@ -1598,28 +1604,1042 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.h: 48: void measure_capacitance(void);
 [; ;LC-meter.h: 49: void measure_inductance(void);
 [; ;LC-meter.h: 50: void delay10ms(uint16_t period_10ms);
-[; ;lib\lcd44780.h: 47: void lcd_init(char fourbitmode);
-[; ;lib\lcd44780.h: 48: void lcd_begin(uint8_t l, uint8_t ds);
-[; ;lib\lcd44780.h: 49: void lcd_no_autoscroll(void);
-[; ;lib\lcd44780.h: 50: void lcd_autoscroll(void);
-[; ;lib\lcd44780.h: 51: void lcd_right_to_left(void);
-[; ;lib\lcd44780.h: 52: void lcd_left_to_right(void);
-[; ;lib\lcd44780.h: 53: void lcd_scroll_display_right(void);
-[; ;lib\lcd44780.h: 54: void lcd_scroll_display_left(void);
-[; ;lib\lcd44780.h: 55: void lcd_blink();
-[; ;lib\lcd44780.h: 56: void lcd_no_blink();
-[; ;lib\lcd44780.h: 57: void lcd_cursor();
-[; ;lib\lcd44780.h: 58: void lcd_no_cursor();
-[; ;lib\lcd44780.h: 59: void lcd_display();
-[; ;lib\lcd44780.h: 60: void lcd_no_display();
-[; ;lib\lcd44780.h: 61: void lcd_clear();
-[; ;lib\lcd44780.h: 62: void lcd_home();
-[; ;lib\lcd44780.h: 63: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-[; ;lib\lcd44780.h: 64: void lcd_print_float(float number, uint8_t digits);
-[; ;lib\lcd44780.h: 65: void lcd_print(const char *string);
-[; ;lib\lcd44780.h: 67: void lcd_set_cursor(uint8_t col, uint8_t row);
-[; ;lib\lcd44780.h: 68: void lcd_putch(char value);
-"55 ../../../src/display.c
+[; ;lib\lcd3310.h: 28: uint8_t lcd_str_width(const char *c);
+[; ;lib\lcd3310.h: 29: void lcd_send(uint8_t a, uint8_t cmd);
+[; ;lib\lcd3310.h: 30: void lcd_init(void);
+[; ;lib\lcd3310.h: 31: void lcd_test(void);
+[; ;lib\lcd3310.h: 32: void lcd_clear(void);
+[; ;lib\lcd3310.h: 33: void lcd_gotoxy(uint8_t x, unsigned y);
+[; ;lib\lcd3310.h: 34: void lcd_putch(uint8_t c);
+[; ;lib\lcd3310.h: 35: void lcd_puts(const char *s);
+[; ;lib\lcd3310.h: 36: void lcd_puts2(char *s);
+[; ;lib\lcd3310.h: 37: void lcd_clear_line(uint8_t y);
+[; ;lib\lcd3310.h: 38: void lcd_center_puts(uint8_t y, const char *c);
+[; ;lib\lcd3310.h: 39: void lcd_center_puts2(uint8_t y, char *c, uint8_t len);
+[; ;lib\lcd3310.h: 42: void lcd_battery(uint8_t chg);
+[; ;lib\lcd3310.h: 46: void lcd_symbol(const char *sym);
+"7 ../../../src/display.c
+[i _logo_image
+:U ..
+"9
+-> -> 0 `i `uc
+-> -> 64 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 248 `i `uc
+-> -> 240 `i `uc
+-> -> 224 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 128 `i `uc
+-> -> 16 `i `uc
+-> -> 124 `i `uc
+-> -> 252 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 248 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 7 `i `uc
+-> -> 31 `i `uc
+-> -> 127 `i `uc
+-> -> 252 `i `uc
+-> -> 248 `i `uc
+-> -> 224 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 220 `i `uc
+-> -> 24 `i `uc
+-> -> 56 `i `uc
+-> -> 112 `i `uc
+-> -> 224 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 128 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 128 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 240 `i `uc
+-> -> 248 `i `uc
+-> -> 248 `i `uc
+-> -> 120 `i `uc
+-> -> 112 `i `uc
+-> -> 240 `i `uc
+-> -> 207 `i `uc
+-> -> 159 `i `uc
+-> -> 63 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 246 `i `uc
+-> -> 192 `i `uc
+-> -> 135 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 231 `i `uc
+-> -> 159 `i `uc
+-> -> 252 `i `uc
+-> -> 251 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 223 `i `uc
+-> -> 24 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"10
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 127 `i `uc
+-> -> 254 `i `uc
+-> -> 248 `i `uc
+-> -> 224 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 7 `i `uc
+-> -> 63 `i `uc
+-> -> 255 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 224 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 63 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 231 `i `uc
+-> -> 31 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 243 `i `uc
+-> -> 207 `i `uc
+-> -> 63 `i `uc
+-> -> 255 `i `uc
+-> -> 254 `i `uc
+-> -> 248 `i `uc
+-> -> 227 `i `uc
+-> -> 159 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 252 `i `uc
+-> -> 255 `i `uc
+-> -> 223 `i `uc
+-> -> 31 `i `uc
+-> -> 15 `i `uc
+-> -> 14 `i `uc
+-> -> 195 `i `uc
+-> -> 207 `i `uc
+-> -> 63 `i `uc
+-> -> 255 `i `uc
+-> -> 254 `i `uc
+-> -> 249 `i `uc
+-> -> 199 `i `uc
+-> -> 31 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 243 `i `uc
+-> -> 131 `i `uc
+-> -> 3 `i `uc
+-> -> 33 `i `uc
+-> -> 231 `i `uc
+-> -> 223 `i `uc
+-> -> 255 `i `uc
+-> -> 252 `i `uc
+-> -> 240 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 63 `i `uc
+-> -> 254 `i `uc
+-> -> 248 `i `uc
+-> -> 224 `i `uc
+-> -> 128 `i `uc
+-> -> 1 `i `uc
+-> -> 7 `i `uc
+-> -> 31 `i `uc
+-> -> 255 `i `uc
+-> -> 254 `i `uc
+-> -> 248 `i `uc
+-> -> 224 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 4 `i `uc
+-> -> 28 `i `uc
+-> -> 248 `i `uc
+-> -> 240 `i `uc
+-> -> 128 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 63 `i `uc
+-> -> 255 `i `uc
+-> -> 254 `i `uc
+-> -> 249 `i `uc
+-> -> 231 `i `uc
+-> -> 159 `i `uc
+-> -> 127 `i `uc
+-> -> 127 `i `uc
+-> -> 124 `i `uc
+-> -> 113 `i `uc
+-> -> 7 `i `uc
+-> -> 63 `i `uc
+-> -> 63 `i `uc
+-> -> 30 `i `uc
+-> -> 29 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 7 `i `uc
+-> -> 15 `i `uc
+-> -> 14 `i `uc
+-> -> 14 `i `uc
+-> -> 12 `i `uc
+-> -> 15 `i `uc
+-> -> 15 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 3 `i `uc
+-> -> 7 `i `uc
+-> -> 15 `i `uc
+-> -> 14 `i `uc
+-> -> 15 `i `uc
+-> -> 7 `i `uc
+-> -> 3 `i `uc
+-> -> 7 `i `uc
+-> -> 14 `i `uc
+-> -> 30 `i `uc
+-> -> 61 `i `uc
+-> -> 63 `i `uc
+-> -> 63 `i `uc
+-> -> 25 `i `uc
+-> -> 7 `i `uc
+-> -> 31 `i `uc
+-> -> 127 `i `uc
+-> -> 126 `i `uc
+-> -> 120 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"11
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 63 `i `uc
+-> -> 254 `i `uc
+-> -> 248 `i `uc
+-> -> 240 `i `uc
+-> -> 128 `i `uc
+-> -> 1 `i `uc
+-> -> 7 `i `uc
+-> -> 15 `i `uc
+-> -> 159 `i `uc
+-> -> 255 `i `uc
+-> -> 124 `i `uc
+-> -> 248 `i `uc
+-> -> 240 `i `uc
+-> -> 247 `i `uc
+-> -> 255 `i `uc
+-> -> 126 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 3 `i `uc
+-> -> 15 `i `uc
+-> -> 63 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 127 `i `uc
+-> -> 63 `i `uc
+-> -> 31 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"12
+-> -> 0 `i `uc
+..
+]
+[; ;display.c: 7: const char logo_image[504] =
+[; ;display.c: 8: {
+[; ;display.c: 9: 0x00, 0x40, 0xC0, 0xC0, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+[; ;display.c: 10: 0x00, 0x00, 0x00, 0x00, 0x01, 0x03, 0x0F, 0x7F, 0xFE, 0xF8, 0xE0, 0x80, 0x00, 0x07, 0x3F, 0xFF, 0xFE, 0xFC, 0xE0, 0x01, 0x03, 0x0F, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x0F, 0x3F, 0xFF, 0xFF, 0xFF, 0xE7, 0x1F, 0x7F, 0xFF, 0xFF, 0xF3, 0xCF
+[; ;display.c: 11: 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x03, 0x0F, 0x3F, 0xFE, 0xF8, 0xF0, 0x80, 0x01, 0x07, 0x0F, 0x9F, 0xFF, 0x7C, 0xF8, 0xF0, 0xF7, 0xFF, 0x7E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00
+[; ;display.c: 12: };
+"14
+[i _digits_8x16
+:U ..
+"16
+-> -> 252 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 6 `i `uc
+-> -> 6 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"17
+-> -> 0 `i `uc
+-> -> 24 `i `uc
+-> -> 28 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 192 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+"18
+-> -> 60 `i `uc
+-> -> 62 `i `uc
+-> -> 62 `i `uc
+-> -> 6 `i `uc
+-> -> 134 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 124 `i `uc
+-> -> 224 `i `uc
+-> -> 240 `i `uc
+-> -> 252 `i `uc
+-> -> 255 `i `uc
+-> -> 207 `i `uc
+-> -> 199 `i `uc
+-> -> 193 `i `uc
+-> -> 192 `i `uc
+"19
+-> -> 28 `i `uc
+-> -> 30 `i `uc
+-> -> 158 `i `uc
+-> -> 134 `i `uc
+-> -> 134 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 120 `i `uc
+-> -> 248 `i `uc
+-> -> 249 `i `uc
+-> -> 193 `i `uc
+-> -> 193 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 126 `i `uc
+"20
+-> -> 0 `i `uc
+-> -> 240 `i `uc
+-> -> 254 `i `uc
+-> -> 126 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 0 `i `uc
+-> -> 63 `i `uc
+-> -> 63 `i `uc
+-> -> 55 `i `uc
+-> -> 48 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 48 `i `uc
+"21
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 198 `i `uc
+-> -> 198 `i `uc
+-> -> 198 `i `uc
+-> -> 198 `i `uc
+-> -> 134 `i `uc
+-> -> 113 `i `uc
+-> -> 241 `i `uc
+-> -> 241 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"22
+-> -> 252 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 198 `i `uc
+-> -> 198 `i `uc
+-> -> 222 `i `uc
+-> -> 222 `i `uc
+-> -> 156 `i `uc
+-> -> 127 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 127 `i `uc
+"23
+-> -> 6 `i `uc
+-> -> 6 `i `uc
+-> -> 6 `i `uc
+-> -> 134 `i `uc
+-> -> 230 `i `uc
+-> -> 254 `i `uc
+-> -> 126 `i `uc
+-> -> 30 `i `uc
+-> -> 128 `i `uc
+-> -> 240 `i `uc
+-> -> 254 `i `uc
+-> -> 63 `i `uc
+-> -> 7 `i `uc
+-> -> 1 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"24
+-> -> 124 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 134 `i `uc
+-> -> 134 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 124 `i `uc
+-> -> 126 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 193 `i `uc
+-> -> 193 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 126 `i `uc
+"25
+-> -> 252 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 134 `i `uc
+-> -> 134 `i `uc
+-> -> 254 `i `uc
+-> -> 254 `i `uc
+-> -> 252 `i `uc
+-> -> 120 `i `uc
+-> -> 249 `i `uc
+-> -> 249 `i `uc
+-> -> 193 `i `uc
+-> -> 193 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+"26
+-> -> 127 `i `uc
+..
+]
+[; ;display.c: 14: const char digits_8x16[160] =
+[; ;display.c: 15: {
+[; ;display.c: 16: 0xfc, 0xfe, 0xfe, 0x06, 0x06, 0xfe, 0xfe, 0xfc, 0x7f, 0xff, 0xff, 0xc0, 0xc0, 0xff, 0xff, 0x7f,
+[; ;display.c: 17: 0x00, 0x18, 0x1c, 0xfe, 0xfe, 0xfe, 0x00, 0x00, 0x00, 0x00, 0xc0, 0xff, 0xff, 0xff, 0xc0, 0x00,
+[; ;display.c: 18: 0x3c, 0x3e, 0x3e, 0x06, 0x86, 0xfe, 0xfe, 0x7c, 0xe0, 0xf0, 0xfc, 0xff, 0xcf, 0xc7, 0xc1, 0xc0,
+[; ;display.c: 19: 0x1c, 0x1e, 0x9e, 0x86, 0x86, 0xfe, 0xfe, 0xfc, 0x78, 0xf8, 0xf9, 0xc1, 0xc1, 0xff, 0xff, 0x7e,
+[; ;display.c: 20: 0x00, 0xf0, 0xfe, 0x7e, 0xfe, 0xfe, 0xfe, 0x00, 0x3f, 0x3f, 0x37, 0x30, 0xff, 0xff, 0xff, 0x30,
+[; ;display.c: 21: 0xfe, 0xfe, 0xfe, 0xc6, 0xc6, 0xc6, 0xc6, 0x86, 0x71, 0xf1, 0xf1, 0xc0, 0xc0, 0xff, 0xff, 0x7f,
+[; ;display.c: 22: 0xfc, 0xfe, 0xfe, 0xc6, 0xc6, 0xde, 0xde, 0x9c, 0x7f, 0xff, 0xff, 0xc0, 0xc0, 0xff, 0xff, 0x7f,
+[; ;display.c: 23: 0x06, 0x06, 0x06, 0x86, 0xe6, 0xfe, 0x7e, 0x1e, 0x80, 0xf0, 0xfe, 0x3f, 0x07, 0x01, 0x00, 0x00,
+[; ;display.c: 24: 0x7c, 0xfe, 0xfe, 0x86, 0x86, 0xfe, 0xfe, 0x7c, 0x7e, 0xff, 0xff, 0xc1, 0xc1, 0xff, 0xff, 0x7e,
+[; ;display.c: 25: 0xfc, 0xfe, 0xfe, 0x86, 0x86, 0xfe, 0xfe, 0xfc, 0x78, 0xf9, 0xf9, 0xc1, 0xc1, 0xff, 0xff, 0x7f
+[; ;display.c: 26: };
+"28
+[i _units
+:U ..
+"31
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+"33
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+"35
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 24 `i `uc
+-> -> 8 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+"37
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+"39
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 12 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"41
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 24 `i `uc
+-> -> 8 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"43
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"45
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 224 `i `uc
+-> -> 224 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 224 `i `uc
+-> -> 192 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 252 `i `uc
+-> -> 252 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 204 `i `uc
+-> -> 12 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 24 `i `uc
+-> -> 24 `i `uc
+-> -> 31 `i `uc
+-> -> 7 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+"46
+-> -> 0 `i `uc
+..
+]
+[; ;display.c: 28: const char units[288] =
+[; ;display.c: 29: {
+[; ;display.c: 31: 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 252, 252, 192, 192, 192, 252, 252, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 31, 0, 0, 0, 31, 31,
+[; ;display.c: 33: 224, 224, 192, 96, 224, 224, 192, 96, 224, 192, 0, 252, 252, 192, 192, 192, 252, 252, 31, 31, 0, 0, 31, 31, 0, 0, 31, 31, 0, 31, 31, 0, 0, 0, 31, 31,
+[; ;display.c: 35: 0, 0, 0, 224, 224, 0, 0, 224, 224, 0, 0, 252, 252, 192, 192, 192, 252, 252, 0, 0, 0, 255, 255, 24, 8, 31, 31, 0, 0, 31, 31, 0, 0, 0, 31, 31,
+[; ;display.c: 37: 0, 0, 0, 224, 224, 192, 96, 224, 192, 0, 0, 252, 252, 192, 192, 192, 252, 252, 0, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 0, 31, 31,
+[; ;display.c: 39: 224, 224, 192, 96, 224, 224, 192, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 31, 31, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 0, 0,
+[; ;display.c: 41: 0, 0, 0, 0, 224, 224, 0, 0, 224, 224, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 8, 31, 31, 0, 0, 31, 31, 0, 0, 0, 0,
+[; ;display.c: 43: 0, 0, 0, 0, 224, 224, 192, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 31, 31, 0, 0, 0, 0,
+[; ;display.c: 45: 0, 0, 0, 0, 224, 224, 96, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 24, 31, 7, 0, 0, 31, 31, 0, 0, 0, 0
+[; ;display.c: 46: };
+"55
 [v _display_digit `(v  1 ef3`uc`uc`uc ]
 {
 [; ;display.c: 53: void
@@ -1630,12 +2650,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _column `uc  1 r2 ]
 [v _digit `uc  1 r3 ]
 [f ]
-[; ;display.c: 67: lcd_set_cursor(column, 0);
-"67
-[e ( _lcd_set_cursor (2 , _column -> -> 0 `i `uc ]
-[; ;display.c: 68: lcd_putch('0' + digit);
-"68
-[e ( _lcd_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+"57
+[v _i `uc  1 a ]
+[; ;display.c: 57: uint8_t i;
+[; ;display.c: 58: if(line < 1 || line > 5) return;
+"58
+[e $ ! || < -> _line `i -> 1 `i > -> _line `i -> 5 `i 94  ]
+[e $UE 93  ]
+[e :U 94 ]
+[; ;display.c: 59: if(column > 74) return;
+"59
+[e $ ! > -> _column `i -> 74 `i 95  ]
+[e $UE 93  ]
+[e :U 95 ]
+[; ;display.c: 60: if(digit > 9) return;
+"60
+[e $ ! > -> _digit `i -> 9 `i 96  ]
+[e $UE 93  ]
+[e :U 96 ]
+[; ;display.c: 62: lcd_gotoxy(column, line - 1);
+"62
+[e ( _lcd_gotoxy (2 , _column -> - -> _line `i -> 1 `i `ui ]
+[; ;display.c: 63: for(i = 0; i < 8; i++) lcd_send(digits_8x16[(digit << 4) + i], 1);
+"63
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 97  ]
+[e $U 98  ]
+[e :U 97 ]
+[e ( _lcd_send (2 , *U + &U _digits_8x16 * -> -> + << -> _digit `i -> 4 `i -> _i `i `ui `ux -> -> # *U &U _digits_8x16 `ui `ux -> -> 1 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 97  ]
+[e :U 98 ]
+}
+[; ;display.c: 64: lcd_gotoxy(column, line);
+"64
+[e ( _lcd_gotoxy (2 , _column -> _line `ui ]
+[; ;display.c: 65: for(i = 8; i < 16; i++) lcd_send(digits_8x16[(digit << 4) + i], 1);
+"65
+{
+[e = _i -> -> 8 `i `uc ]
+[e $ < -> _i `i -> 16 `i 100  ]
+[e $U 101  ]
+[e :U 100 ]
+[e ( _lcd_send (2 , *U + &U _digits_8x16 * -> -> + << -> _digit `i -> 4 `i -> _i `i `ui `ux -> -> # *U &U _digits_8x16 `ui `ux -> -> 1 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 16 `i 100  ]
+[e :U 101 ]
+}
 [; ;display.c: 70: }
 "70
 [e :UE 93 ]
@@ -1649,36 +2711,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _display_unit ]
 [v _unit `uc  1 r1 ]
 [f ]
-"83
-[v F1086 `*Cuc  -> 8 `i s units ]
-[i F1086
-:U ..
-:s 1C
-:s 2C
-:s 3C
-:s 4C
-:s 5C
-:s 6C
-:s 7C
-:s 8C
-..
-]
-[; ;display.c: 83: static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
-[; ;display.c: 84: lcd_set_cursor(16, 0);
-"84
-[e ( _lcd_set_cursor (2 , -> -> 16 `i `uc -> -> 0 `i `uc ]
-[; ;display.c: 85: lcd_print(units[unit]);
-"85
-[e ( _lcd_print (1 *U + &U F1086 * -> _unit `ux -> -> # *U &U F1086 `ui `ux ]
-[; ;display.c: 86: lcd_set_cursor(16, 1);
-"86
-[e ( _lcd_set_cursor (2 , -> -> 16 `i `uc -> -> 1 `i `uc ]
-[; ;display.c: 87: lcd_print(units[unit]);
-"87
-[e ( _lcd_print (1 *U + &U F1086 * -> _unit `ux -> -> # *U &U F1086 `ui `ux ]
+"77
+[v _i `uc  1 a ]
+[; ;display.c: 77: uint8_t i;
+[; ;display.c: 78: lcd_gotoxy(60, 2);
+"78
+[e ( _lcd_gotoxy (2 , -> -> 60 `i `uc -> -> 2 `i `ui ]
+[; ;display.c: 79: for(i = 0; i < 18; i++) lcd_send(units[unit * 36 + i], 1);
+"79
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 18 `i 104  ]
+[e $U 105  ]
+[e :U 104 ]
+[e ( _lcd_send (2 , *U + &U _units * -> -> + * -> _unit `i -> 36 `i -> _i `i `ui `ux -> -> # *U &U _units `ui `ux -> -> 1 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 18 `i 104  ]
+[e :U 105 ]
+}
+[; ;display.c: 80: lcd_gotoxy(60, 3);
+"80
+[e ( _lcd_gotoxy (2 , -> -> 60 `i `uc -> -> 3 `i `ui ]
+[; ;display.c: 81: for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], 1);
+"81
+{
+[e = _i -> -> 18 `i `uc ]
+[e $ < -> _i `i -> 36 `i 107  ]
+[e $U 108  ]
+[e :U 107 ]
+[e ( _lcd_send (2 , *U + &U _units * -> -> + * -> _unit `i -> 36 `i -> _i `i `ui `ux -> -> # *U &U _units `ui `ux -> -> 1 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 36 `i 107  ]
+[e :U 108 ]
+}
 [; ;display.c: 89: }
 "89
-[e :UE 94 ]
+[e :UE 103 ]
 }
 "93
 [v _display_reading `(v  1 ef1`ui ]
@@ -1689,21 +2757,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _display_reading ]
 [v _measurement `ui  1 r1 ]
 [f ]
-[; ;display.c: 117: lcd_set_cursor(4, 0);
-"117
-[e ( _lcd_set_cursor (2 , -> -> 4 `i `uc -> -> 0 `i `uc ]
-[; ;display.c: 118: display_print_number(measurement / 100, 10, 0);
-"118
-[e ( _display_print_number (3 , , / _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;display.c: 119: lcd_putch('.');
-"119
-[e ( _lcd_putch (1 -> -> 46 `ui `uc ]
-[; ;display.c: 120: display_print_number(measurement % 100, 10, 0);
-"120
-[e ( _display_print_number (3 , , % _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
+[; ;display.c: 97: lcd_gotoxy(0, 2);
+"97
+[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 2 `i `ui ]
+[; ;display.c: 98: lcd_puts(" ");
+"98
+[e ( _lcd_puts (1 :s 1C ]
+[; ;display.c: 99: lcd_gotoxy(0, 3);
+"99
+[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 3 `i `ui ]
+[; ;display.c: 100: lcd_puts(" ");
+"100
+[e ( _lcd_puts (1 :s 2C ]
+[; ;display.c: 102: lcd_gotoxy(35, 3);
+"102
+[e ( _lcd_gotoxy (2 , -> -> 35 `i `uc -> -> 3 `i `ui ]
+[; ;display.c: 103: lcd_send(0x70, 1);
+"103
+[e ( _lcd_send (2 , -> -> 112 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 104: lcd_send(0x70, 1);
+"104
+[e ( _lcd_send (2 , -> -> 112 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 105: lcd_send(0x70, 1);
+"105
+[e ( _lcd_send (2 , -> -> 112 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 107: if(measurement / 10000 > 0) display_digit(3, 5, measurement / 10000);
+"107
+[e $ ! > / _measurement -> -> 10000 `i `ui -> -> 0 `i `ui 111  ]
+[e ( _display_digit (3 , , -> -> 3 `i `uc -> -> 5 `i `uc -> / _measurement -> -> 10000 `i `ui `uc ]
+[e :U 111 ]
+[; ;display.c: 109: if(((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0)) display_digit(3, 15, (measurement / 1000) % 10);
+"109
+[e $ ! || > % / _measurement -> -> 1000 `i `ui -> -> 10 `i `ui -> -> 0 `i `ui > / _measurement -> -> 10000 `i `ui -> -> 0 `i `ui 112  ]
+[e ( _display_digit (3 , , -> -> 3 `i `uc -> -> 15 `i `uc -> % / _measurement -> -> 1000 `i `ui -> -> 10 `i `ui `uc ]
+[e :U 112 ]
+[; ;display.c: 111: display_digit(3, 25, (measurement / 100) % 10);
+"111
+[e ( _display_digit (3 , , -> -> 3 `i `uc -> -> 25 `i `uc -> % / _measurement -> -> 100 `i `ui -> -> 10 `i `ui `uc ]
+[; ;display.c: 113: display_digit(3, 40, (measurement / 10) % 10);
+"113
+[e ( _display_digit (3 , , -> -> 3 `i `uc -> -> 40 `i `uc -> % / _measurement -> -> 10 `i `ui -> -> 10 `i `ui `uc ]
+[; ;display.c: 115: display_digit(3, 50, measurement % 10);
+"115
+[e ( _display_digit (3 , , -> -> 3 `i `uc -> -> 50 `i `uc -> % _measurement -> -> 10 `i `ui `uc ]
 [; ;display.c: 122: }
 "122
-[e :UE 95 ]
+[e :UE 110 ]
 }
 "127
 [v _indicator `(v  1 ef1`uc ]
@@ -1714,38 +2813,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _indicator ]
 [v _indicate `uc  1 r1 ]
 [f ]
-[; ;display.c: 144: lcd_set_cursor(0, 0);
-"144
-[e ( _lcd_set_cursor (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;display.c: 145: if(indicate)
-"145
-[e $ ! != -> _indicate `i -> -> -> 0 `i `uc `i 97  ]
-[; ;display.c: 146: {
-"146
+[; ;display.c: 129: if(indicate)
+"129
+[e $ ! != -> _indicate `i -> -> -> 0 `i `uc `i 114  ]
+[; ;display.c: 130: {
+"130
 {
-[; ;display.c: 147: lcd_print("-*-");
-"147
-[e ( _lcd_print (1 :s 9C ]
-"148
+[; ;display.c: 131: lcd_gotoxy(70, 4);
+"131
+[e ( _lcd_gotoxy (2 , -> -> 70 `i `uc -> -> 4 `i `ui ]
+[; ;display.c: 132: lcd_send(0x1C, 1);
+"132
+[e ( _lcd_send (2 , -> -> 28 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 133: lcd_send(0x3E, 1);
+"133
+[e ( _lcd_send (2 , -> -> 62 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 134: lcd_send(0x36, 1);
+"134
+[e ( _lcd_send (2 , -> -> 54 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 135: lcd_send(0x3E, 1);
+"135
+[e ( _lcd_send (2 , -> -> 62 `i `uc -> -> 1 `i `uc ]
+[; ;display.c: 136: lcd_send(0x1C, 1);
+"136
+[e ( _lcd_send (2 , -> -> 28 `i `uc -> -> 1 `i `uc ]
+"137
 }
-[; ;display.c: 148: }
-[e $U 98  ]
-"149
-[e :U 97 ]
-[; ;display.c: 149: else
-[; ;display.c: 150: {
-"150
+[; ;display.c: 137: }
+[e $U 115  ]
+"138
+[e :U 114 ]
+[; ;display.c: 138: else
+[; ;display.c: 139: {
+"139
 {
-[; ;display.c: 151: lcd_print("   ");
-"151
-[e ( _lcd_print (1 :s 10C ]
-"152
+[; ;display.c: 140: lcd_gotoxy(70, 4);
+"140
+[e ( _lcd_gotoxy (2 , -> -> 70 `i `uc -> -> 4 `i `ui ]
+[; ;display.c: 141: lcd_puts(" ");
+"141
+[e ( _lcd_puts (1 :s 3C ]
+"142
 }
-[e :U 98 ]
-[; ;display.c: 152: }
+[e :U 115 ]
+[; ;display.c: 142: }
 [; ;display.c: 154: }
 "154
-[e :UE 96 ]
+[e :UE 113 ]
 }
 "164
 [v _display_print_number `(v  1 ef3`ui`uc`c ]
@@ -1770,7 +2884,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _i -> -> 0 `i `uc ]
 [; ;display.c: 174: do
 "174
-[e :U 102 ]
+[e :U 119 ]
 [; ;display.c: 175: {
 "175
 {
@@ -1788,45 +2902,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;display.c: 183: }
 [; ;display.c: 184: while(n > 0);
 "184
-[e $ > _n -> -> 0 `i `ui 102  ]
-[e :U 101 ]
+[e $ > _n -> -> 0 `i `ui 119  ]
+[e :U 118 ]
 [; ;display.c: 186: while(pad-- >= i)
 "186
-[e $U 103  ]
-[e :U 104 ]
+[e $U 120  ]
+[e :U 121 ]
 [; ;display.c: 187: lcd_putch(' ');
 "187
 [e ( _lcd_putch (1 -> -> 32 `ui `uc ]
-[e :U 103 ]
+[e :U 120 ]
 "186
-[e $ >= -> -- _pad -> -> 1 `i `c `i -> _i `i 104  ]
-[e :U 105 ]
+[e $ >= -> -- _pad -> -> 1 `i `c `i -> _i `i 121  ]
+[e :U 122 ]
 [; ;display.c: 189: for(; i > 0; i--)
 "189
 {
-[e $ > -> _i `i -> 0 `i 106  ]
-[e $U 107  ]
+[e $ > -> _i `i -> 0 `i 123  ]
+[e $U 124  ]
 "190
-[e :U 106 ]
+[e :U 123 ]
 [; ;display.c: 190: lcd_putch((uint8_t)buf[(int16_t)i - 1]);
 [e ( _lcd_putch (1 *U + &U _buf * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
 "189
 [e -- _i -> -> 1 `i `uc ]
-[e $ > -> _i `i -> 0 `i 106  ]
-[e :U 107 ]
+[e $ > -> _i `i -> 0 `i 123  ]
+[e :U 124 ]
 "190
 }
 [; ;display.c: 192: }
 "192
-[e :UE 99 ]
+[e :UE 116 ]
 }
-[a 3C 117 72 0 ]
-[a 4C 110 72 0 ]
-[a 2C 109 72 0 ]
-[a 1C 72 0 ]
-[a 6C 117 70 0 ]
-[a 8C 112 70 0 ]
-[a 7C 110 70 0 ]
-[a 5C 109 70 0 ]
-[a 9C 45 42 45 0 ]
-[a 10C 32 32 32 0 ]
+[a 1C 32 0 ]
+[a 2C 32 0 ]
+[a 3C 32 0 ]

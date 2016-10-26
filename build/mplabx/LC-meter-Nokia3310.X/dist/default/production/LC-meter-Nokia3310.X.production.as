@@ -52,18 +52,16 @@ pclath	equ	10
 	FNCALL	_initialize,_setup_timer0
 	FNCALL	_initialize,_ser_init
 	FNCALL	_initialize,_lcd_init
-	FNCALL	_initialize,_lcd_begin
+	FNCALL	_initialize,_lcd_clear
+	FNCALL	_lcd_clear,_lcd_gotoxy
+	FNCALL	_lcd_clear,_lcd_send
 	FNCALL	_display_print_number,___lwmod
 	FNCALL	_display_print_number,___lwdiv
 	FNCALL	_display_print_number,_lcd_putch
-	FNCALL	_lcd_begin,_lcd_write4bits
-	FNCALL	_lcd_begin,_lcd_command
-	FNCALL	_lcd_print,_lcd_putch
-	FNCALL	_lcd_set_cursor,_lcd_command
-	FNCALL	_lcd_command,_lcd_send
+	FNCALL	_lcd_init,_lcd_send
+	FNCALL	_lcd_putch,___wmul
 	FNCALL	_lcd_putch,_lcd_send
-	FNCALL	_lcd_send,_lcd_write4bits
-	FNCALL	_lcd_write4bits,_lcd_pulse_enable
+	FNCALL	_lcd_gotoxy,_lcd_send
 	FNCALL	_ser_puts,_ser_putch
 	FNCALL	_format_number,___lwmod
 	FNCALL	_format_number,___lwdiv
@@ -72,30 +70,500 @@ pclath	equ	10
 	FNCALL	intlevel1,_isr
 	global	intlevel1
 	FNROOT	intlevel1
-	global	lcd_set_cursor@F1157
-psect	idataBANK0,class=CODE,space=0,delta=2
-global __pidataBANK0
-__pidataBANK0:
-	file	"../../../lib/lcd44780.c"
-	line	162
-
-;initializer for lcd_set_cursor@F1157
+	global	_lcd_font
+psect	stringtext,class=STRCODE,delta=2,reloc=256
+global __pstringtext
+__pstringtext:
+;	global	stringtab,__stringbase
+stringtab:
+;	String table - string pointers are 2 bytes each
+	btfsc	(btemp+1),7
+	ljmp	stringcode
+	bcf	status,7
+	btfsc	(btemp+1),0
+	bsf	status,7
+	movf	indf,w
+	incf fsr
+skipnz
+incf btemp+1
+	return
+stringcode:
+	movf btemp+1,w
+andlw 7Fh
+movwf	pclath
+	movf	fsr,w
+incf fsr
+skipnz
+incf btemp+1
+	movwf pc
+__stringbase:
+	file	"../../../lib/lcd3310.c"
+	line	23
+_lcd_font:
 	retlw	0
-	retlw	040h
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	02Fh
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	07h
+	retlw	0
+	retlw	07h
+	retlw	0
 	retlw	014h
+	retlw	07Fh
+	retlw	014h
+	retlw	07Fh
+	retlw	014h
+	retlw	024h
+	retlw	02Ah
+	retlw	07Fh
+	retlw	02Ah
+	retlw	012h
+	retlw	023h
+	retlw	013h
+	retlw	08h
+	retlw	064h
+	retlw	062h
+	retlw	036h
+	retlw	049h
+	retlw	055h
+	retlw	022h
+	retlw	050h
+	retlw	0
+	retlw	05h
+	retlw	03h
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	01Ch
+	retlw	022h
+	retlw	041h
+	retlw	0
+	retlw	0
+	retlw	041h
+	retlw	022h
+	retlw	01Ch
+	retlw	0
+	retlw	014h
+	retlw	08h
+	retlw	03Eh
+	retlw	08h
+	retlw	014h
+	retlw	08h
+	retlw	08h
+	retlw	03Eh
+	retlw	08h
+	retlw	08h
+	retlw	0
+	retlw	0
+	retlw	050h
+	retlw	030h
+	retlw	0
+	retlw	010h
+	retlw	010h
+	retlw	010h
+	retlw	010h
+	retlw	010h
+	retlw	0
+	retlw	060h
+	retlw	060h
+	retlw	0
+	retlw	0
+	retlw	020h
+	retlw	010h
+	retlw	08h
+	retlw	04h
+	retlw	02h
+	retlw	03Eh
+	retlw	051h
+	retlw	049h
+	retlw	045h
+	retlw	03Eh
+	retlw	0
+	retlw	042h
+	retlw	07Fh
+	retlw	040h
+	retlw	0
+	retlw	042h
+	retlw	061h
+	retlw	051h
+	retlw	049h
+	retlw	046h
+	retlw	021h
+	retlw	041h
+	retlw	045h
+	retlw	04Bh
+	retlw	031h
+	retlw	018h
+	retlw	014h
+	retlw	012h
+	retlw	07Fh
+	retlw	010h
+	retlw	027h
+	retlw	045h
+	retlw	045h
+	retlw	045h
+	retlw	039h
+	retlw	03Ch
+	retlw	04Ah
+	retlw	049h
+	retlw	049h
+	retlw	030h
+	retlw	01h
+	retlw	071h
+	retlw	09h
+	retlw	05h
+	retlw	03h
+	retlw	036h
+	retlw	049h
+	retlw	049h
+	retlw	049h
+	retlw	036h
+	retlw	06h
+	retlw	049h
+	retlw	049h
+	retlw	029h
+	retlw	01Eh
+	retlw	0
+	retlw	036h
+	retlw	036h
+	retlw	0
+	retlw	0
+	retlw	0
+	retlw	056h
+	retlw	036h
+	retlw	0
+	retlw	0
+	retlw	08h
+	retlw	014h
+	retlw	022h
+	retlw	041h
+	retlw	0
+	retlw	014h
+	retlw	014h
+	retlw	014h
+	retlw	014h
+	retlw	014h
+	retlw	0
+	retlw	041h
+	retlw	022h
+	retlw	014h
+	retlw	08h
+	retlw	02h
+	retlw	01h
+	retlw	051h
+	retlw	09h
+	retlw	06h
+	retlw	032h
+	retlw	049h
+	retlw	059h
+	retlw	051h
+	retlw	03Eh
+	retlw	07Eh
+	retlw	011h
+	retlw	011h
+	retlw	011h
+	retlw	07Eh
+	retlw	07Fh
+	retlw	049h
+	retlw	049h
+	retlw	049h
+	retlw	036h
+	retlw	03Eh
+	retlw	041h
+	retlw	041h
+	retlw	041h
+	retlw	022h
+	retlw	07Fh
+	retlw	041h
+	retlw	041h
+	retlw	022h
+	retlw	01Ch
+	retlw	07Fh
+	retlw	049h
+	retlw	049h
+	retlw	049h
+	retlw	041h
+	retlw	07Fh
+	retlw	09h
+	retlw	09h
+	retlw	09h
+	retlw	01h
+	retlw	03Eh
+	retlw	041h
+	retlw	049h
+	retlw	049h
+	retlw	07Ah
+	retlw	07Fh
+	retlw	08h
+	retlw	08h
+	retlw	08h
+	retlw	07Fh
+	retlw	0
+	retlw	041h
+	retlw	07Fh
+	retlw	041h
+	retlw	0
+	retlw	020h
+	retlw	040h
+	retlw	041h
+	retlw	03Fh
+	retlw	01h
+	retlw	07Fh
+	retlw	08h
+	retlw	014h
+	retlw	022h
+	retlw	041h
+	retlw	07Fh
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	07Fh
+	retlw	02h
+	retlw	0Ch
+	retlw	02h
+	retlw	07Fh
+	retlw	07Fh
+	retlw	04h
+	retlw	08h
+	retlw	010h
+	retlw	07Fh
+	retlw	03Eh
+	retlw	041h
+	retlw	041h
+	retlw	041h
+	retlw	03Eh
+	retlw	07Fh
+	retlw	09h
+	retlw	09h
+	retlw	09h
+	retlw	06h
+	retlw	03Eh
+	retlw	041h
+	retlw	051h
+	retlw	021h
+	retlw	05Eh
+	retlw	07Fh
+	retlw	09h
+	retlw	019h
+	retlw	029h
+	retlw	046h
+	retlw	046h
+	retlw	049h
+	retlw	049h
+	retlw	049h
+	retlw	031h
+	retlw	01h
+	retlw	01h
+	retlw	07Fh
+	retlw	01h
+	retlw	01h
+	retlw	03Fh
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	03Fh
+	retlw	01Fh
+	retlw	020h
+	retlw	040h
+	retlw	020h
+	retlw	01Fh
+	retlw	03Fh
+	retlw	040h
+	retlw	038h
+	retlw	040h
+	retlw	03Fh
+	retlw	063h
+	retlw	014h
+	retlw	08h
+	retlw	014h
+	retlw	063h
+	retlw	07h
+	retlw	08h
+	retlw	070h
+	retlw	08h
+	retlw	07h
+	retlw	061h
+	retlw	051h
+	retlw	049h
+	retlw	045h
+	retlw	043h
+	retlw	0
+	retlw	07Fh
+	retlw	041h
+	retlw	041h
+	retlw	0
+	retlw	055h
+	retlw	02Ah
+	retlw	055h
+	retlw	02Ah
+	retlw	055h
+	retlw	0
+	retlw	041h
+	retlw	041h
+	retlw	07Fh
+	retlw	0
+	retlw	04h
+	retlw	02h
+	retlw	01h
+	retlw	02h
+	retlw	04h
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	040h
+	retlw	0
+	retlw	01h
+	retlw	02h
+	retlw	04h
+	retlw	0
+	retlw	020h
 	retlw	054h
+	retlw	054h
+	retlw	054h
+	retlw	078h
+	retlw	07Fh
+	retlw	048h
+	retlw	044h
+	retlw	044h
+	retlw	038h
+	retlw	038h
+	retlw	044h
+	retlw	044h
+	retlw	044h
+	retlw	020h
+	retlw	038h
+	retlw	044h
+	retlw	044h
+	retlw	048h
+	retlw	07Fh
+	retlw	038h
+	retlw	054h
+	retlw	054h
+	retlw	054h
+	retlw	018h
+	retlw	08h
+	retlw	07Eh
+	retlw	09h
+	retlw	01h
+	retlw	02h
+	retlw	0Ch
+	retlw	052h
+	retlw	052h
+	retlw	052h
+	retlw	03Eh
+	retlw	07Fh
+	retlw	08h
+	retlw	04h
+	retlw	04h
+	retlw	078h
+	retlw	0
+	retlw	044h
+	retlw	07Dh
+	retlw	040h
+	retlw	0
+	retlw	020h
+	retlw	040h
+	retlw	044h
+	retlw	03Dh
+	retlw	0
+	retlw	07Fh
+	retlw	010h
+	retlw	028h
+	retlw	044h
+	retlw	0
+	retlw	0
+	retlw	041h
+	retlw	07Fh
+	retlw	040h
+	retlw	0
+	retlw	07Ch
+	retlw	04h
+	retlw	018h
+	retlw	04h
+	retlw	078h
+	retlw	07Ch
+	retlw	08h
+	retlw	04h
+	retlw	04h
+	retlw	078h
+	retlw	038h
+	retlw	044h
+	retlw	044h
+	retlw	044h
+	retlw	038h
+	retlw	07Ch
+	retlw	014h
+	retlw	014h
+	retlw	014h
+	retlw	08h
+	retlw	08h
+	retlw	014h
+	retlw	014h
+	retlw	018h
+	retlw	07Ch
+	retlw	07Ch
+	retlw	08h
+	retlw	04h
+	retlw	04h
+	retlw	08h
+	retlw	048h
+	retlw	054h
+	retlw	054h
+	retlw	054h
+	retlw	020h
+	retlw	04h
+	retlw	03Fh
+	retlw	044h
+	retlw	040h
+	retlw	020h
+	retlw	03Ch
+	retlw	040h
+	retlw	040h
+	retlw	020h
+	retlw	07Ch
+	retlw	01Ch
+	retlw	020h
+	retlw	040h
+	retlw	020h
+	retlw	01Ch
+	retlw	03Ch
+	retlw	040h
+	retlw	030h
+	retlw	040h
+	retlw	03Ch
+	retlw	044h
+	retlw	028h
+	retlw	010h
+	retlw	028h
+	retlw	044h
+	retlw	0Ch
+	retlw	050h
+	retlw	050h
+	retlw	050h
+	retlw	03Ch
+	retlw	044h
+	retlw	064h
+	retlw	054h
+	retlw	04Ch
+	retlw	044h
+	global	_lcd_font
 	global	_ccp1t
 	global	_ccp1t_lr
 	global	_bres
 	global	_seconds
 	global	_tmr0_overflow
-	global	_LCD_ctrl
-	global	_LCD_lines
-	global	_LCD_mode
-	global	_rxiptr
 	global	_rxoptr
 	global	_ser_tmp
-	global	_LCD_function
+	global	_rxiptr
 	global	_txiptr
 	global	_txoptr
 	global	_rxfifo
@@ -112,20 +580,16 @@ _GIE	set	95
 _PEIE	set	94
 	global	_RA2
 _RA2	set	42
-	global	_RB2
-_RB2	set	50
-	global	_RB3
-_RB3	set	51
-	global	_RB4
-_RB4	set	52
-	global	_RB5
-_RB5	set	53
-	global	_RB6
-_RB6	set	54
-	global	_RB7
-_RB7	set	55
+	global	_RC1
+_RC1	set	57
+	global	_RC2
+_RC2	set	58
 	global	_RC3
 _RC3	set	59
+	global	_RC4
+_RC4	set	60
+	global	_RC5
+_RC5	set	61
 	global	_RCIF
 _RCIF	set	101
 	global	_RX9
@@ -146,6 +610,8 @@ _OPTION_REGbits	set	129
 _SPBRG	set	153
 	global	_TRISA
 _TRISA	set	133
+	global	_TRISC
+_TRISC	set	135
 	global	_BRGH
 _BRGH	set	1218
 	global	_CM0
@@ -164,18 +630,6 @@ _SYNC	set	1220
 _T0CS	set	1037
 	global	_TRISA2
 _TRISA2	set	1066
-	global	_TRISB2
-_TRISB2	set	1074
-	global	_TRISB3
-_TRISB3	set	1075
-	global	_TRISB4
-_TRISB4	set	1076
-	global	_TRISB5
-_TRISB5	set	1077
-	global	_TRISB6
-_TRISB6	set	1078
-	global	_TRISB7
-_TRISB7	set	1079
 	global	_TRISC3
 _TRISC3	set	1083
 	global	_TRISC4
@@ -190,23 +644,8 @@ _TXEN	set	1221
 _TXIE	set	1124
 	global	_nRBPU
 _nRBPU	set	1039
-psect	strings,class=STRING,delta=2
-global __pstrings
-__pstrings:
-;	global	stringdir,stringtab,__stringbase
-stringtab:
-;	String table - string pointers are 1 byte each
-stringcode:stringdir:
-movlw high(stringdir)
-movwf pclath
-movf fsr,w
-incf fsr
-	addwf pc
-__stringbase:
-	retlw	0
-psect	strings
 	
-STR_11:	
+STR_4:	
 	retlw	76	;'L'
 	retlw	67	;'C'
 	retlw	45	;'-'
@@ -216,70 +655,20 @@ STR_11:
 	retlw	101	;'e'
 	retlw	114	;'r'
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_10:	
-	retlw	32	;' '
-	retlw	32	;' '
-	retlw	32	;' '
-	retlw	0
-psect	strings
-	
-STR_9:	
-	retlw	45	;'-'
-	retlw	42	;'*'
-	retlw	45	;'-'
-	retlw	0
-psect	strings
-	
-STR_12:	
+STR_5:	
 	retlw	13
 	retlw	10
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_5:	
-	retlw	109	;'m'
-	retlw	70	;'F'
+STR_1:	
+	retlw	32	;' '
 	retlw	0
-psect	strings
-	
-STR_7:	
-	retlw	110	;'n'
-	retlw	70	;'F'
-	retlw	0
-psect	strings
-	
-STR_8:	
-	retlw	112	;'p'
-	retlw	70	;'F'
-	retlw	0
-psect	strings
-	
-STR_6:	
-	retlw	117	;'u'
-	retlw	70	;'F'
-	retlw	0
-psect	strings
-	
-STR_2:	
-	retlw	109	;'m'
-	retlw	72	;'H'
-	retlw	0
-psect	strings
-	
-STR_4:	
-	retlw	110	;'n'
-	retlw	72	;'H'
-	retlw	0
-psect	strings
-	
-STR_3:	
-	retlw	117	;'u'
-	retlw	72	;'H'
-	retlw	0
-psect	strings
-STR_1	equ	STR_2+1
+psect	stringtext
+STR_2	equ	STR_1+0
+STR_3	equ	STR_1+0
 	file	"dist/default/production\LC-meter-Nokia3310.X.production.as"
 	line	#
 psect cinit,class=CODE,delta=2
@@ -289,7 +678,7 @@ start_initialization:
 psect	bssCOMMON,class=COMMON,space=1
 global __pbssCOMMON
 __pbssCOMMON:
-_LCD_function:
+_rxiptr:
        ds      1
 
 _txiptr:
@@ -316,30 +705,11 @@ _seconds:
 _tmr0_overflow:
        ds      2
 
-_LCD_ctrl:
-       ds      1
-
-_LCD_lines:
-       ds      1
-
-_LCD_mode:
-       ds      1
-
-_rxiptr:
-       ds      1
-
 _rxoptr:
        ds      1
 
 _ser_tmp:
        ds      1
-
-psect	dataBANK0,class=BANK0,space=1
-global __pdataBANK0
-__pdataBANK0:
-	file	"../../../lib/lcd44780.c"
-lcd_set_cursor@F1157:
-       ds      4
 
 psect	bssBANK1,class=BANK1,space=1
 global __pbssBANK1
@@ -375,7 +745,7 @@ psect cinit,class=CODE,delta=2
 	bcf	status, 7	;select IRP bank0
 	movlw	low(__pbssBANK0)
 	movwf	fsr
-	movlw	low((__pbssBANK0)+018h)
+	movlw	low((__pbssBANK0)+014h)
 	fcall	clear_ram
 ; Clear objects allocated to BANK1
 psect cinit,class=CODE,delta=2
@@ -383,17 +753,6 @@ psect cinit,class=CODE,delta=2
 	movwf	fsr
 	movlw	low((__pbssBANK1)+020h)
 	fcall	clear_ram
-; Initialize objects allocated to BANK0
-	global __pidataBANK0
-psect cinit,class=CODE,delta=2
-	fcall	__pidataBANK0+0		;fetch initializer
-	movwf	__pdataBANK0+0&07fh		
-	fcall	__pidataBANK0+1		;fetch initializer
-	movwf	__pdataBANK0+1&07fh		
-	fcall	__pidataBANK0+2		;fetch initializer
-	movwf	__pdataBANK0+2&07fh		
-	fcall	__pidataBANK0+3		;fetch initializer
-	movwf	__pdataBANK0+3&07fh		
 psect cinit,class=CODE,delta=2
 global end_of_initialization
 
@@ -405,22 +764,14 @@ ljmp _main	;jump to C main() function
 psect	cstackCOMMON,class=COMMON,space=1
 global __pcstackCOMMON
 __pcstackCOMMON:
-	global	?_initialize
-?_initialize:	; 0 bytes @ 0x0
-	global	?_lcd_pulse_enable
-?_lcd_pulse_enable:	; 0 bytes @ 0x0
-	global	?_lcd_write4bits
-?_lcd_write4bits:	; 0 bytes @ 0x0
 	global	?_lcd_putch
 ?_lcd_putch:	; 0 bytes @ 0x0
-	global	?_lcd_command
-?_lcd_command:	; 0 bytes @ 0x0
-	global	?_lcd_print
-?_lcd_print:	; 0 bytes @ 0x0
+	global	?_initialize
+?_initialize:	; 0 bytes @ 0x0
 	global	?_lcd_init
 ?_lcd_init:	; 0 bytes @ 0x0
-	global	?_ser_puts
-?_ser_puts:	; 0 bytes @ 0x0
+	global	?_lcd_clear
+?_lcd_clear:	; 0 bytes @ 0x0
 	global	?_ser_init
 ?_ser_init:	; 0 bytes @ 0x0
 	global	?_setup_timer0
@@ -432,168 +783,163 @@ __pcstackCOMMON:
 	global	?_isr
 ?_isr:	; 2 bytes @ 0x0
 	ds	3
-	global	??_lcd_pulse_enable
-??_lcd_pulse_enable:	; 0 bytes @ 0x3
-	global	??_lcd_init
-??_lcd_init:	; 0 bytes @ 0x3
 	global	?_ser_putch
 ?_ser_putch:	; 0 bytes @ 0x3
 	global	??_ser_init
 ??_ser_init:	; 0 bytes @ 0x3
 	global	??_setup_timer0
 ??_setup_timer0:	; 0 bytes @ 0x3
+	global	?_lcd_set_cursor
+?_lcd_set_cursor:	; 2 bytes @ 0x3
+	global	?_lcd_print
+?_lcd_print:	; 2 bytes @ 0x3
+	global	?___wmul
+?___wmul:	; 2 bytes @ 0x3
 	global	?___lwdiv
 ?___lwdiv:	; 2 bytes @ 0x3
 	global	?___lwmod
 ?___lwmod:	; 2 bytes @ 0x3
-	global	lcd_init@fourbitmode
-lcd_init@fourbitmode:	; 1 bytes @ 0x3
 	global	ser_putch@c
 ser_putch@c:	; 1 bytes @ 0x3
+	global	___wmul@multiplier
+___wmul@multiplier:	; 2 bytes @ 0x3
 	global	___lwdiv@divisor
 ___lwdiv@divisor:	; 2 bytes @ 0x3
 	global	___lwmod@divisor
 ___lwmod@divisor:	; 2 bytes @ 0x3
 	ds	1
-	global	??_lcd_write4bits
-??_lcd_write4bits:	; 0 bytes @ 0x4
 	global	??_ser_putch
 ??_ser_putch:	; 0 bytes @ 0x4
-	global	??_ser_puts
-??_ser_puts:	; 0 bytes @ 0x4
-	global	lcd_write4bits@value
-lcd_write4bits@value:	; 1 bytes @ 0x4
+	global	?_ser_puts
+?_ser_puts:	; 0 bytes @ 0x4
 	global	ser_puts@s
-ser_puts@s:	; 1 bytes @ 0x4
-	global	_lcd_init$2694
-_lcd_init$2694:	; 2 bytes @ 0x4
+ser_puts@s:	; 2 bytes @ 0x4
 	ds	1
-	global	?_lcd_send
-?_lcd_send:	; 0 bytes @ 0x5
-	global	lcd_send@mode
-lcd_send@mode:	; 1 bytes @ 0x5
+	global	??_lcd_print
+??_lcd_print:	; 0 bytes @ 0x5
+	global	___wmul@multiplicand
+___wmul@multiplicand:	; 2 bytes @ 0x5
 	global	___lwdiv@dividend
 ___lwdiv@dividend:	; 2 bytes @ 0x5
 	global	___lwmod@dividend
 ___lwmod@dividend:	; 2 bytes @ 0x5
 	ds	1
-	global	??_lcd_send
-??_lcd_send:	; 0 bytes @ 0x6
-	global	lcd_send@value
-lcd_send@value:	; 1 bytes @ 0x6
+	global	??_ser_puts
+??_ser_puts:	; 0 bytes @ 0x6
 	ds	1
-	global	??_lcd_putch
-??_lcd_putch:	; 0 bytes @ 0x7
-	global	??_lcd_command
-??_lcd_command:	; 0 bytes @ 0x7
+	global	?_lcd_send
+?_lcd_send:	; 0 bytes @ 0x7
+	global	??_lcd_set_cursor
+??_lcd_set_cursor:	; 0 bytes @ 0x7
+	global	??___wmul
+??___wmul:	; 0 bytes @ 0x7
 	global	??___lwdiv
 ??___lwdiv:	; 0 bytes @ 0x7
 	global	??___lwmod
 ??___lwmod:	; 0 bytes @ 0x7
-	global	lcd_putch@value
-lcd_putch@value:	; 1 bytes @ 0x7
-	global	lcd_command@value
-lcd_command@value:	; 1 bytes @ 0x7
+	global	lcd_send@cmd
+lcd_send@cmd:	; 1 bytes @ 0x7
 	global	___lwmod@counter
 ___lwmod@counter:	; 1 bytes @ 0x7
 	ds	1
+	global	??_lcd_gotoxy
+??_lcd_gotoxy:	; 0 bytes @ 0x8
+	global	??_lcd_send
+??_lcd_send:	; 0 bytes @ 0x8
+	global	??_lcd_putch
+??_lcd_putch:	; 0 bytes @ 0x8
 	global	??_initialize
 ??_initialize:	; 0 bytes @ 0x8
-	global	??_lcd_set_cursor
-??_lcd_set_cursor:	; 0 bytes @ 0x8
-	global	??_lcd_print
-??_lcd_print:	; 0 bytes @ 0x8
+	global	??_lcd_clear
+??_lcd_clear:	; 0 bytes @ 0x8
 	global	??_main
 ??_main:	; 0 bytes @ 0x8
 psect	cstackBANK0,class=BANK0,space=1
 global __pcstackBANK0
 __pcstackBANK0:
-	global	?_lcd_set_cursor
-?_lcd_set_cursor:	; 0 bytes @ 0x0
-	global	?_lcd_begin
-?_lcd_begin:	; 0 bytes @ 0x0
-	global	lcd_set_cursor@row
-lcd_set_cursor@row:	; 1 bytes @ 0x0
-	global	lcd_print@string
-lcd_print@string:	; 1 bytes @ 0x0
-	global	lcd_begin@dotsize
-lcd_begin@dotsize:	; 1 bytes @ 0x0
 	global	___lwdiv@counter
 ___lwdiv@counter:	; 1 bytes @ 0x0
+	global	___wmul@product
+___wmul@product:	; 2 bytes @ 0x0
 	ds	1
-	global	??_lcd_begin
-??_lcd_begin:	; 0 bytes @ 0x1
-	global	lcd_set_cursor@col
-lcd_set_cursor@col:	; 1 bytes @ 0x1
-	global	lcd_print@i
-lcd_print@i:	; 1 bytes @ 0x1
 	global	___lwdiv@quotient
 ___lwdiv@quotient:	; 2 bytes @ 0x1
 	ds	1
-	global	lcd_set_cursor@row_offsets
-lcd_set_cursor@row_offsets:	; 4 bytes @ 0x2
+	global	lcd_send@a
+lcd_send@a:	; 1 bytes @ 0x2
 	ds	1
-	global	?_display_print_number
-?_display_print_number:	; 0 bytes @ 0x3
+	global	?_lcd_gotoxy
+?_lcd_gotoxy:	; 0 bytes @ 0x3
+	global	??_lcd_init
+??_lcd_init:	; 0 bytes @ 0x3
 	global	?_format_number
 ?_format_number:	; 0 bytes @ 0x3
-	global	lcd_begin@lines
-lcd_begin@lines:	; 1 bytes @ 0x3
+	global	lcd_putch@c
+lcd_putch@c:	; 1 bytes @ 0x3
 	global	format_number@n
 format_number@n:	; 2 bytes @ 0x3
+	global	lcd_gotoxy@y
+lcd_gotoxy@y:	; 2 bytes @ 0x3
+	ds	1
+	global	?_display_print_number
+?_display_print_number:	; 0 bytes @ 0x4
 	global	display_print_number@n
-display_print_number@n:	; 2 bytes @ 0x3
-	ds	2
+display_print_number@n:	; 2 bytes @ 0x4
+	ds	1
 	global	format_number@base
 format_number@base:	; 1 bytes @ 0x5
-	global	display_print_number@base
-display_print_number@base:	; 1 bytes @ 0x5
+	global	lcd_gotoxy@x
+lcd_gotoxy@x:	; 1 bytes @ 0x5
 	ds	1
 	global	format_number@pad
 format_number@pad:	; 1 bytes @ 0x6
-	global	display_print_number@pad
-display_print_number@pad:	; 1 bytes @ 0x6
+	global	display_print_number@base
+display_print_number@base:	; 1 bytes @ 0x6
+	global	lcd_clear@i
+lcd_clear@i:	; 2 bytes @ 0x6
 	ds	1
-	global	??_display_print_number
-??_display_print_number:	; 0 bytes @ 0x7
 	global	??_format_number
 ??_format_number:	; 0 bytes @ 0x7
+	global	display_print_number@pad
+display_print_number@pad:	; 1 bytes @ 0x7
 	ds	1
+	global	??_display_print_number
+??_display_print_number:	; 0 bytes @ 0x8
 	global	format_number@buf
 format_number@buf:	; 32 bytes @ 0x8
-	ds	2
+	ds	3
 	global	display_print_number@buf
-display_print_number@buf:	; 32 bytes @ 0xA
-	ds	30
+display_print_number@buf:	; 32 bytes @ 0xB
+	ds	29
 	global	format_number@padchar
 format_number@padchar:	; 1 bytes @ 0x28
 	ds	1
 	global	_format_number$1902
 _format_number$1902:	; 2 bytes @ 0x29
-	ds	1
-	global	_display_print_number$5755
-_display_print_number$5755:	; 2 bytes @ 0x2A
-	ds	1
+	ds	2
 	global	format_number@putchar
 format_number@putchar:	; 1 bytes @ 0x2B
+	global	_display_print_number$4972
+_display_print_number$4972:	; 2 bytes @ 0x2B
 	ds	1
 	global	format_number@di
 format_number@di:	; 1 bytes @ 0x2C
-	global	display_print_number@di
-display_print_number@di:	; 1 bytes @ 0x2C
 	ds	1
 	global	format_number@i
 format_number@i:	; 1 bytes @ 0x2D
+	global	display_print_number@di
+display_print_number@di:	; 1 bytes @ 0x2D
+	ds	1
 	global	display_print_number@i
-display_print_number@i:	; 1 bytes @ 0x2D
+display_print_number@i:	; 1 bytes @ 0x2E
 	ds	1
 	global	main@prev_seconds
-main@prev_seconds:	; 2 bytes @ 0x2E
+main@prev_seconds:	; 2 bytes @ 0x2F
 	ds	2
-;;Data sizes: Strings 41, constant 0, data 4, bss 59, persistent 0 stack 0
+;;Data sizes: Strings 14, constant 455, data 0, bss 55, persistent 0 stack 0
 ;;Auto spaces:   Size  Autos    Used
 ;; COMMON          14      8      11
-;; BANK0           80     48      76
+;; BANK0           80     49      69
 ;; BANK1           80      0      32
 ;; BANK3           96      0       0
 ;; BANK2           96      0       0
@@ -601,21 +947,17 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;;
 ;; Pointer list with targets:
 
+;; ?_lcd_print	int  size(2) Largest target is 9
+;;		 -> STR_4(CODE[9]), 
+;;
+;; ?___wmul	unsigned int  size(1) Largest target is 0
+;;
 ;; ?___lwdiv	unsigned int  size(1) Largest target is 0
 ;;
 ;; ?___lwmod	unsigned int  size(1) Largest target is 0
 ;;
-;; display_unit@units	PTR const unsigned char [8] size(1) Largest target is 3
-;;		 -> STR_8(CODE[3]), STR_7(CODE[3]), STR_6(CODE[3]), STR_5(CODE[3]), 
-;;		 -> STR_4(CODE[3]), STR_3(CODE[3]), STR_2(CODE[3]), STR_1(CODE[2]), 
-;;
-;; ser_puts@s	PTR const unsigned char  size(1) Largest target is 3
-;;		 -> STR_12(CODE[3]), 
-;;
-;; lcd_print@string	PTR const unsigned char  size(1) Largest target is 9
-;;		 -> STR_11(CODE[9]), STR_10(CODE[4]), STR_9(CODE[4]), STR_8(CODE[3]), 
-;;		 -> STR_7(CODE[3]), STR_6(CODE[3]), STR_5(CODE[3]), STR_4(CODE[3]), 
-;;		 -> STR_3(CODE[3]), STR_2(CODE[3]), STR_1(CODE[2]), 
+;; ser_puts@s	PTR const unsigned char  size(2) Largest target is 3
+;;		 -> STR_5(CODE[3]), 
 ;;
 ;; format_number@putchar	PTR FTN(unsigned char ,)void  size(1) Largest target is 0
 ;;		 -> ser_putch(), 
@@ -625,15 +967,12 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;;
 ;; Critical Paths under _main in COMMON
 ;;
+;;   _lcd_clear->_lcd_send
 ;;   _display_print_number->___lwmod
-;;   _display_print_number->_lcd_putch
-;;   _lcd_begin->_lcd_command
-;;   _lcd_print->_lcd_putch
-;;   _lcd_set_cursor->_lcd_command
-;;   _lcd_command->_lcd_send
+;;   _lcd_init->_lcd_send
 ;;   _lcd_putch->_lcd_send
-;;   _lcd_send->_lcd_write4bits
-;;   _lcd_write4bits->_lcd_pulse_enable
+;;   _lcd_gotoxy->_lcd_send
+;;   _lcd_send->___wmul
 ;;   _ser_puts->_ser_putch
 ;;   _format_number->___lwmod
 ;;
@@ -644,9 +983,13 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;; Critical Paths under _main in BANK0
 ;;
 ;;   _main->_display_print_number
-;;   _main->_format_number
-;;   _initialize->_lcd_begin
-;;   _display_print_number->___lwdiv
+;;   _initialize->_lcd_clear
+;;   _lcd_clear->_lcd_gotoxy
+;;   _display_print_number->_lcd_putch
+;;   _lcd_init->_lcd_send
+;;   _lcd_putch->_lcd_send
+;;   _lcd_gotoxy->_lcd_send
+;;   _lcd_send->___wmul
 ;;   _format_number->___lwdiv
 ;;
 ;; Critical Paths under _isr in BANK0
@@ -687,8 +1030,8 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;; ---------------------------------------------------------------------------------
 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;; ---------------------------------------------------------------------------------
-;; (0) _main                                                 3     3      0    3887
-;;                                             46 BANK0      2     2      0
+;; (0) _main                                                 3     3      0    3815
+;;                                             47 BANK0      2     2      0
 ;;                         _initialize
 ;;                     _lcd_set_cursor
 ;;                          _lcd_print
@@ -696,53 +1039,44 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;;                      _format_number
 ;;                           _ser_puts
 ;; ---------------------------------------------------------------------------------
-;; (1) _initialize                                           0     0      0     560
+;; (1) _initialize                                           0     0      0     967
 ;;                       _setup_timer0
 ;;                           _ser_init
 ;;                           _lcd_init
-;;                          _lcd_begin
+;;                          _lcd_clear
 ;; ---------------------------------------------------------------------------------
-;; (1) _display_print_number                                43    39      4    1220
-;;                                              3 BANK0     43    39      4
+;; (2) _lcd_clear                                            2     2      0     688
+;;                                              6 BANK0      2     2      0
+;;                         _lcd_gotoxy
+;;                           _lcd_send
+;; ---------------------------------------------------------------------------------
+;; (1) _display_print_number                                43    39      4    1595
+;;                                              4 BANK0     43    39      4
 ;;                            ___lwmod
 ;;                            ___lwdiv
 ;;                          _lcd_putch
 ;; ---------------------------------------------------------------------------------
-;; (2) _lcd_begin                                            4     3      1     514
-;;                                              0 BANK0      4     3      1
-;;                     _lcd_write4bits
-;;                        _lcd_command
-;; ---------------------------------------------------------------------------------
-;; (1) _lcd_print                                            2     2      0     387
-;;                                              0 BANK0      2     2      0
-;;                          _lcd_putch
-;; ---------------------------------------------------------------------------------
-;; (1) _lcd_set_cursor                                       6     5      1     467
-;;                                              0 BANK0      6     5      1
-;;                        _lcd_command
-;; ---------------------------------------------------------------------------------
-;; (2) _lcd_command                                          1     1      0     257
-;;                                              7 COMMON     1     1      0
+;; (2) _lcd_init                                             2     2      0     279
+;;                                              3 BANK0      2     2      0
 ;;                           _lcd_send
 ;; ---------------------------------------------------------------------------------
-;; (2) _lcd_putch                                            1     1      0     257
-;;                                              7 COMMON     1     1      0
+;; (2) _lcd_putch                                            1     1      0     632
+;;                                              3 BANK0      1     1      0
+;;                             ___wmul
 ;;                           _lcd_send
 ;; ---------------------------------------------------------------------------------
-;; (3) _lcd_send                                             2     1      1     226
-;;                                              5 COMMON     2     1      1
-;;                     _lcd_write4bits
+;; (3) _lcd_gotoxy                                           3     1      2     341
+;;                                              3 BANK0      3     1      2
+;;                           _lcd_send
 ;; ---------------------------------------------------------------------------------
-;; (4) _lcd_write4bits                                       1     1      0     133
-;;                                              4 COMMON     1     1      0
-;;                   _lcd_pulse_enable
+;; (3) _lcd_send                                             2     1      1     279
+;;                                              7 COMMON     1     0      1
+;;                                              2 BANK0      1     1      0
+;;                             ___wmul (ARG)
 ;; ---------------------------------------------------------------------------------
-;; (1) _ser_puts                                             1     1      0      67
-;;                                              4 COMMON     1     1      0
+;; (1) _ser_puts                                             2     0      2      67
+;;                                              4 COMMON     2     0      2
 ;;                          _ser_putch
-;; ---------------------------------------------------------------------------------
-;; (5) _lcd_pulse_enable                                     1     1      0       0
-;;                                              3 COMMON     1     1      0
 ;; ---------------------------------------------------------------------------------
 ;; (1) _format_number                                       43    39      4    1149
 ;;                                              3 BANK0     43    39      4
@@ -757,6 +1091,16 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;;                                              3 COMMON     4     0      4
 ;;                                              0 BANK0      3     3      0
 ;; ---------------------------------------------------------------------------------
+;; (3) ___wmul                                               6     2      4     136
+;;                                              3 COMMON     4     0      4
+;;                                              0 BANK0      2     2      0
+;; ---------------------------------------------------------------------------------
+;; (1) _lcd_print                                            2     0      2       0
+;;                                              3 COMMON     2     0      2
+;; ---------------------------------------------------------------------------------
+;; (1) _lcd_set_cursor                                       4     0      4       0
+;;                                              3 COMMON     4     0      4
+;; ---------------------------------------------------------------------------------
 ;; (2) _setup_timer0                                         0     0      0       0
 ;; ---------------------------------------------------------------------------------
 ;; (2) _ser_init                                             0     0      0       0
@@ -764,17 +1108,14 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;; (2) _ser_putch                                            1     0      1      22
 ;;                                              3 COMMON     1     0      1
 ;; ---------------------------------------------------------------------------------
-;; (2) _lcd_init                                             3     3      0      46
-;;                                              3 COMMON     3     3      0
-;; ---------------------------------------------------------------------------------
-;; Estimated maximum stack depth 5
+;; Estimated maximum stack depth 3
 ;; ---------------------------------------------------------------------------------
 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;; ---------------------------------------------------------------------------------
-;; (7) _isr                                                  3     3      0       0
+;; (5) _isr                                                  3     3      0       0
 ;;                                              0 COMMON     3     3      0
 ;; ---------------------------------------------------------------------------------
-;; Estimated maximum stack depth 7
+;; Estimated maximum stack depth 5
 ;; ---------------------------------------------------------------------------------
 
 ;; Call Graph Graphs:
@@ -784,30 +1125,23 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;;     _setup_timer0
 ;;     _ser_init
 ;;     _lcd_init
-;;     _lcd_begin
-;;       _lcd_write4bits
-;;         _lcd_pulse_enable
-;;       _lcd_command
+;;       _lcd_send
+;;         ___wmul (ARG)
+;;     _lcd_clear
+;;       _lcd_gotoxy
 ;;         _lcd_send
-;;           _lcd_write4bits
-;;             _lcd_pulse_enable
+;;           ___wmul (ARG)
+;;       _lcd_send
+;;         ___wmul (ARG)
 ;;   _lcd_set_cursor
-;;     _lcd_command
-;;       _lcd_send
-;;         _lcd_write4bits
-;;           _lcd_pulse_enable
 ;;   _lcd_print
-;;     _lcd_putch
-;;       _lcd_send
-;;         _lcd_write4bits
-;;           _lcd_pulse_enable
 ;;   _display_print_number
 ;;     ___lwmod
 ;;     ___lwdiv
 ;;     _lcd_putch
+;;       ___wmul
 ;;       _lcd_send
-;;         _lcd_write4bits
-;;           _lcd_pulse_enable
+;;         ___wmul (ARG)
 ;;   _format_number
 ;;     ___lwmod
 ;;     ___lwdiv
@@ -821,30 +1155,30 @@ main@prev_seconds:	; 2 bytes @ 0x2E
 ;; Address spaces:
 
 ;;Name               Size   Autos  Total    Cost      Usage
-;;BANK3               60      0       0       9        0.0%
-;;BITBANK3            60      0       0       8        0.0%
-;;SFR3                 0      0       0       4        0.0%
-;;BITSFR3              0      0       0       4        0.0%
-;;BANK2               60      0       0      11        0.0%
-;;BITBANK2            60      0       0      10        0.0%
-;;SFR2                 0      0       0       5        0.0%
-;;BITSFR2              0      0       0       5        0.0%
-;;SFR1                 0      0       0       2        0.0%
-;;BITSFR1              0      0       0       2        0.0%
-;;BANK1               50      0      20       7       40.0%
-;;BITBANK1            50      0       0       6        0.0%
-;;CODE                 0      0       0       0        0.0%
-;;DATA                 0      0      7D      12        0.0%
-;;ABS                  0      0      77       3        0.0%
-;;NULL                 0      0       0       0        0.0%
-;;STACK                0      0       6       2        0.0%
-;;BANK0               50     30      4C       5       95.0%
-;;BITBANK0            50      0       0       4        0.0%
-;;SFR0                 0      0       0       1        0.0%
-;;BITSFR0              0      0       0       1        0.0%
-;;COMMON               E      8       B       1       78.6%
 ;;BITCOMMON            E      0       0       0        0.0%
 ;;EEDATA             100      0       0       0        0.0%
+;;NULL                 0      0       0       0        0.0%
+;;CODE                 0      0       0       0        0.0%
+;;COMMON               E      8       B       1       78.6%
+;;BITSFR0              0      0       0       1        0.0%
+;;SFR0                 0      0       0       1        0.0%
+;;BITSFR1              0      0       0       2        0.0%
+;;SFR1                 0      0       0       2        0.0%
+;;STACK                0      0       4       2        0.0%
+;;ABS                  0      0      70       3        0.0%
+;;BITBANK0            50      0       0       4        0.0%
+;;BITSFR3              0      0       0       4        0.0%
+;;SFR3                 0      0       0       4        0.0%
+;;BANK0               50     31      45       5       86.3%
+;;BITSFR2              0      0       0       5        0.0%
+;;SFR2                 0      0       0       5        0.0%
+;;BITBANK1            50      0       0       6        0.0%
+;;BANK1               50      0      20       7       40.0%
+;;BITBANK3            60      0       0       8        0.0%
+;;BANK3               60      0       0       9        0.0%
+;;BITBANK2            60      0       0      10        0.0%
+;;BANK2               60      0       0      11        0.0%
+;;DATA                 0      0      74      12        0.0%
 
 	global	_main
 psect	maintext,global,class=CODE,delta=2
@@ -858,14 +1192,14 @@ __pmaintext:
 ;;		None
 ;; Auto vars:     Size  Location     Type
 ;;  led_value       1    0        unsigned char 
-;;  prev_seconds    2   46[BANK0 ] unsigned int 
+;;  prev_seconds    2   47[BANK0 ] unsigned int 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 17F/0
-;;		On exit  : 160/0
+;;		On exit  : 60/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
@@ -873,7 +1207,7 @@ __pmaintext:
 ;;      Temps:          0       0       0       0       0
 ;;      Totals:         0       2       0       0       0
 ;;Total ram usage:        2 bytes
-;; Hardware stack levels required when called:    7
+;; Hardware stack levels required when called:    5
 ;; This function calls:
 ;;		_initialize
 ;;		_lcd_set_cursor
@@ -892,48 +1226,55 @@ psect	maintext
 	__size_of_main	equ	__end_of_main-_main
 	
 _main:	
-	opt	stack 1
-; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+	opt	stack 3
+; Regs used in _main: [allreg]
 	line	109
 	
-l7464:	
+l7684:	
 ;LC-meter.c: 109: initialize();
 	fcall	_initialize
 	line	112
 	
-l7466:	
+l7686:	
 ;LC-meter.c: 112: lcd_set_cursor(0, 0);
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	clrf	(?_lcd_set_cursor)
-	movlw	(0)
+	clrf	(?_lcd_set_cursor+1)
+	clrf	0+(?_lcd_set_cursor)+02h
+	clrf	1+(?_lcd_set_cursor)+02h
 	fcall	_lcd_set_cursor
 	line	114
 	
-l7468:	
+l7688:	
 ;LC-meter.c: 114: lcd_print("LC-meter");
-	movlw	((STR_11-__stringbase))&0ffh
+	movlw	low(STR_4|8000h)
+	movwf	(?_lcd_print)
+	movlw	high(STR_4|8000h)
+	movwf	((?_lcd_print))+1
 	fcall	_lcd_print
 	line	129
 	
-l7470:	
+l7690:	
 ;LC-meter.c: 128: {
 ;LC-meter.c: 129: uint16_t prev_seconds = 0xffff;
 	movlw	low(0FFFFh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(main@prev_seconds)
 	movlw	high(0FFFFh)
 	movwf	((main@prev_seconds))+1
 	line	136
 	
-l7472:	
+l7692:	
 ;LC-meter.c: 136: lcd_set_cursor(0, 1);
 	clrf	(?_lcd_set_cursor)
-	incf	(?_lcd_set_cursor),f
-	movlw	(0)
+	clrf	(?_lcd_set_cursor+1)
+	clrf	0+(?_lcd_set_cursor)+02h
+	incf	0+(?_lcd_set_cursor)+02h,f
+	clrf	1+(?_lcd_set_cursor)+02h
 	fcall	_lcd_set_cursor
 	line	137
 	
-l7474:	
+l7694:	
 ;LC-meter.c: 137: display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -954,25 +1295,25 @@ l7474:
 	fcall	_display_print_number
 	line	141
 	
-l7476:	
+l7696:	
 ;LC-meter.c: 141: if(seconds != prev_seconds)
 	movf	(main@prev_seconds+1),w
 	xorwf	(_seconds+1),w	;volatile
 	skipz
-	goto	u1305
+	goto	u1225
 	movf	(main@prev_seconds),w
 	xorwf	(_seconds),w	;volatile
-u1305:
+u1225:
 
 	skipnz
-	goto	u1301
-	goto	u1300
-u1301:
-	goto	l7472
-u1300:
+	goto	u1221
+	goto	u1220
+u1221:
+	goto	l7692
+u1220:
 	line	144
 	
-l7478:	
+l7698:	
 ;LC-meter.c: 142: {
 ;LC-meter.c: 144: format_number(ser_putch, seconds, 10, 0);
 	movf	(_seconds+1),w	;volatile
@@ -985,19 +1326,23 @@ l7478:
 	movlw	((fp__ser_putch-fpbase))&0ffh
 	fcall	_format_number
 	line	146
+	
+l7700:	
 ;LC-meter.c: 146: ser_puts("\r\n");
-	movlw	((STR_12-__stringbase))&0ffh
+	movlw	low(STR_5|8000h)
+	movwf	(?_ser_puts)
+	movlw	high(STR_5|8000h)
+	movwf	((?_ser_puts))+1
 	fcall	_ser_puts
 	line	148
 	
-l7480:	
+l7702:	
 ;LC-meter.c: 148: prev_seconds = seconds;
-	bcf	status, 5	;RP0=0, select bank0
 	movf	(_seconds+1),w	;volatile
 	movwf	(main@prev_seconds+1)
 	movf	(_seconds),w	;volatile
 	movwf	(main@prev_seconds)
-	goto	l7472
+	goto	l7692
 	global	start
 	ljmp	start
 	opt stack 0
@@ -1009,9 +1354,9 @@ GLOBAL	__end_of_main
 
 	signat	_main,88
 	global	_initialize
-psect	text634,local,class=CODE,delta=2
-global __ptext634
-__ptext634:
+psect	text487,local,class=CODE,delta=2
+global __ptext487
+__ptext487:
 
 ;; *************** function _initialize *****************
 ;; Defined at:
@@ -1026,7 +1371,7 @@ __ptext634:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 17F/0
-;;		On exit  : 0/0
+;;		On exit  : 60/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
@@ -1035,28 +1380,28 @@ __ptext634:
 ;;      Totals:         0       0       0       0       0
 ;;Total ram usage:        0 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    6
+;; Hardware stack levels required when called:    4
 ;; This function calls:
 ;;		_setup_timer0
 ;;		_ser_init
 ;;		_lcd_init
-;;		_lcd_begin
+;;		_lcd_clear
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text634
+psect	text487
 	file	"../../../src/LC-meter.c"
 	line	169
 	global	__size_of_initialize
 	__size_of_initialize	equ	__end_of_initialize-_initialize
 	
 _initialize:	
-	opt	stack 1
+	opt	stack 3
 ; Regs used in _initialize: [wreg+status,2+status,0+pclath+cstack]
 	line	171
 	
-l7432:	
+l7652:	
 ;LC-meter.c: 171: CM0 = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(1248/8)^080h,(1248)&7
@@ -1068,107 +1413,102 @@ l7432:
 	bsf	(1250/8)^080h,(1250)&7
 	line	175
 	
-l7434:	
+l7654:	
 ;LC-meter.c: 175: TRISA = 0b11001111;
 	movlw	(0CFh)
 	movwf	(133)^080h	;volatile
 	line	177
 	
-l7436:	
+l7656:	
 ;LC-meter.c: 177: setup_timer0();
 	fcall	_setup_timer0
 	line	178
 	
-l7438:	
+l7658:	
 ;LC-meter.c: 178: T0IE = 1;
 	bsf	(93/8),(93)&7
 	line	179
 	
-l7440:	
+l7660:	
 ;LC-meter.c: 179: T0IF = 0;
 	bcf	(90/8),(90)&7
 	line	186
 	
-l7442:	
+l7662:	
 ;LC-meter.c: 186: SSPEN = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	(165/8),(165)&7
 	line	191
 	
-l7444:	
+l7664:	
 ;LC-meter.c: 191: TRISC4 = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(1084/8)^080h,(1084)&7
 	line	192
 	
-l7446:	
+l7666:	
 ;LC-meter.c: 192: nRBPU = 1;
 	bsf	(1039/8)^080h,(1039)&7
 	line	197
 	
-l7448:	
+l7668:	
 ;LC-meter.c: 197: TRISA2 = TRISC3 = 0;
 	bcf	(1083/8)^080h,(1083)&7
 	bcf	(1066/8)^080h,(1066)&7
 	line	198
 	
-l7450:	
+l7670:	
 ;LC-meter.c: 198: RA2 = RC3 = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bsf	(59/8),(59)&7
 	btfsc	(59/8),(59)&7
-	goto	u1281
-	goto	u1280
+	goto	u1201
+	goto	u1200
 	
-u1281:
+u1201:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(42/8),(42)&7
-	goto	u1294
-u1280:
+	goto	u1214
+u1200:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(42/8),(42)&7
-u1294:
+u1214:
 	line	201
 	
-l7452:	
+l7672:	
 ;LC-meter.c: 201: ser_init();
 	fcall	_ser_init
 	line	204
 	
-l7454:	
+l7674:	
 ;LC-meter.c: 204: TRISC5 = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	(1085/8)^080h,(1085)&7
 	line	207
 	
-l7456:	
+l7676:	
 ;LC-meter.c: 207: PEIE = 1;
 	bsf	(94/8),(94)&7
 	line	208
 	
-l7458:	
+l7678:	
 ;LC-meter.c: 208: GIE = 1;
 	bsf	(95/8),(95)&7
-	line	215
+	line	212
 	
-l7460:	
-;LC-meter.c: 215: lcd_init(1);
-	movlw	(01h)
+l7680:	
+;LC-meter.c: 212: lcd_init();
 	fcall	_lcd_init
-	line	216
+	line	213
 	
-l7462:	
-;LC-meter.c: 216: lcd_begin(2, 1);
-	bcf	status, 5	;RP0=0, select bank0
-	clrf	(?_lcd_begin)
-	incf	(?_lcd_begin),f
-	movlw	(02h)
-	fcall	_lcd_begin
+l7682:	
+;LC-meter.c: 213: lcd_clear();
+	fcall	_lcd_clear
 	line	218
 	
-l5205:	
+l4526:	
 	return
 	opt stack 0
 GLOBAL	__end_of_initialize
@@ -1176,26 +1516,123 @@ GLOBAL	__end_of_initialize
 ;; =============== function _initialize ends ============
 
 	signat	_initialize,88
+	global	_lcd_clear
+psect	text488,local,class=CODE,delta=2
+global __ptext488
+__ptext488:
+
+;; *************** function _lcd_clear *****************
+;; Defined at:
+;;		line 227 in file "../../../lib/lcd3310.c"
+;; Parameters:    Size  Location     Type
+;;		None
+;; Auto vars:     Size  Location     Type
+;;  i               2    6[BANK0 ] unsigned int 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0, pclath, cstack
+;; Tracked objects:
+;;		On entry : 60/0
+;;		On exit  : 60/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       2       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       2       0       0       0
+;;Total ram usage:        2 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    3
+;; This function calls:
+;;		_lcd_gotoxy
+;;		_lcd_send
+;; This function is called by:
+;;		_initialize
+;; This function uses a non-reentrant model
+;;
+psect	text488
+	file	"../../../lib/lcd3310.c"
+	line	227
+	global	__size_of_lcd_clear
+	__size_of_lcd_clear	equ	__end_of_lcd_clear-_lcd_clear
+	
+_lcd_clear:	
+	opt	stack 3
+; Regs used in _lcd_clear: [wreg+status,2+status,0+pclath+cstack]
+	line	229
+	
+l7638:	
+;lcd3310.c: 228: uint16_t i;
+;lcd3310.c: 229: lcd_gotoxy(0, 0);
+	clrf	(?_lcd_gotoxy)
+	clrf	(?_lcd_gotoxy+1)
+	movlw	(0)
+	fcall	_lcd_gotoxy
+	line	230
+	
+l7640:	
+;lcd3310.c: 230: for(i = 0; i < 504; ++i)
+	clrf	(lcd_clear@i)
+	clrf	(lcd_clear@i+1)
+	line	232
+	
+l7646:	
+;lcd3310.c: 231: {
+;lcd3310.c: 232: lcd_send(0, 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movlw	(0)
+	fcall	_lcd_send
+	line	230
+	
+l7648:	
+	incf	(lcd_clear@i),f
+	skipnz
+	incf	(lcd_clear@i+1),f
+	
+l7650:	
+	movlw	high(01F8h)
+	subwf	(lcd_clear@i+1),w
+	movlw	low(01F8h)
+	skipnz
+	subwf	(lcd_clear@i),w
+	skipc
+	goto	u1191
+	goto	u1190
+u1191:
+	goto	l7646
+u1190:
+	line	234
+	
+l5194:	
+	return
+	opt stack 0
+GLOBAL	__end_of_lcd_clear
+	__end_of_lcd_clear:
+;; =============== function _lcd_clear ends ============
+
+	signat	_lcd_clear,88
 	global	_display_print_number
-psect	text635,local,class=CODE,delta=2
-global __ptext635
-__ptext635:
+psect	text489,local,class=CODE,delta=2
+global __ptext489
+__ptext489:
 
 ;; *************** function _display_print_number *****************
 ;; Defined at:
 ;;		line 164 in file "../../../src/display.c"
 ;; Parameters:    Size  Location     Type
-;;  n               2    3[BANK0 ] unsigned int 
-;;  base            1    5[BANK0 ] unsigned char 
-;;  pad             1    6[BANK0 ] char 
+;;  n               2    4[BANK0 ] unsigned int 
+;;  base            1    6[BANK0 ] unsigned char 
+;;  pad             1    7[BANK0 ] char 
 ;; Auto vars:     Size  Location     Type
-;;  buf            32   10[BANK0 ] unsigned char [32]
-;;  i               1   45[BANK0 ] unsigned char 
-;;  di              1   44[BANK0 ] unsigned char 
+;;  buf            32   11[BANK0 ] unsigned char [32]
+;;  i               1   46[BANK0 ] unsigned char 
+;;  di              1   45[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 60/0
 ;;		On exit  : 60/0
@@ -1207,7 +1644,7 @@ __ptext635:
 ;;      Totals:         0      43       0       0       0
 ;;Total ram usage:       43 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
+;; Hardware stack levels required when called:    3
 ;; This function calls:
 ;;		___lwmod
 ;;		___lwdiv
@@ -1216,25 +1653,25 @@ __ptext635:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text635
+psect	text489
 	file	"../../../src/display.c"
 	line	164
 	global	__size_of_display_print_number
 	__size_of_display_print_number	equ	__end_of_display_print_number-_display_print_number
 	
 _display_print_number:	
-	opt	stack 2
-; Regs used in _display_print_number: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+	opt	stack 4
+; Regs used in _display_print_number: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	167
 	
-l7400:	
+l7606:	
 ;display.c: 165: uint8_t buf[8 * sizeof(long)];
 ;display.c: 166: uint8_t di;
 ;display.c: 167: uint8_t i = 0;
 	clrf	(display_print_number@i)
 	line	179
 	
-l7402:	
+l7608:	
 ;display.c: 175: {
 ;display.c: 179: di = n % base;
 	movf	(display_print_number@base),w
@@ -1249,49 +1686,49 @@ l7402:
 	movwf	(display_print_number@di)
 	line	180
 	
-l7404:	
+l7610:	
 ;display.c: 180: buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 	movlw	(0Ah)
 	subwf	(display_print_number@di),w
 	skipc
-	goto	u1241
-	goto	u1240
-u1241:
-	goto	l7408
-u1240:
+	goto	u1151
+	goto	u1150
+u1151:
+	goto	l7614
+u1150:
 	
-l7406:	
+l7612:	
 	movf	(display_print_number@di),w
-	movwf	(_display_print_number$5755)
-	clrf	(_display_print_number$5755+1)
+	movwf	(_display_print_number$4972)
+	clrf	(_display_print_number$4972+1)
 	movlw	037h
-	addwf	(_display_print_number$5755),f
+	addwf	(_display_print_number$4972),f
 	skipnc
-	incf	(_display_print_number$5755+1),f
-	goto	l7410
+	incf	(_display_print_number$4972+1),f
+	goto	l7616
 	
-l7408:	
+l7614:	
 	movf	(display_print_number@di),w
-	movwf	(_display_print_number$5755)
-	clrf	(_display_print_number$5755+1)
+	movwf	(_display_print_number$4972)
+	clrf	(_display_print_number$4972+1)
 	movlw	030h
-	addwf	(_display_print_number$5755),f
+	addwf	(_display_print_number$4972),f
 	skipnc
-	incf	(_display_print_number$5755+1),f
+	incf	(_display_print_number$4972+1),f
 	
-l7410:	
+l7616:	
 	movf	(display_print_number@i),w
 	addlw	display_print_number@buf&0ffh
 	movwf	fsr0
-	movf	(_display_print_number$5755),w
+	movf	(_display_print_number$4972),w
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l7412:	
+l7618:	
 	incf	(display_print_number@i),f
 	line	182
 	
-l7414:	
+l7620:	
 ;display.c: 182: n /= base;
 	movf	(display_print_number@base),w
 	movwf	(?___lwdiv)
@@ -1307,29 +1744,27 @@ l7414:
 	movwf	(display_print_number@n)
 	line	184
 	
-l7416:	
+l7622:	
 ;display.c: 183: }
 ;display.c: 184: while(n > 0);
 	movf	((display_print_number@n+1)),w
 	iorwf	((display_print_number@n)),w
 	skipz
-	goto	u1251
-	goto	u1250
-u1251:
-	goto	l7402
-u1250:
-	goto	l7420
+	goto	u1161
+	goto	u1160
+u1161:
+	goto	l7608
+u1160:
+	goto	l7626
 	line	187
 	
-l7418:	
+l7624:	
 ;display.c: 187: lcd_putch(' ');
 	movlw	(020h)
 	fcall	_lcd_putch
 	line	186
 	
-l7420:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
+l7626:	
 	movf	(display_print_number@pad),w
 	decf	(display_print_number@pad),f
 	movwf	(??_display_print_number+0)+0
@@ -1342,34 +1777,34 @@ l7420:
 	movlw	80h
 	subwf	(??_display_print_number+2)+0,w
 	skipz
-	goto	u1265
+	goto	u1175
 	movf	(display_print_number@i),w
 	subwf	0+(??_display_print_number+0)+0,w
-u1265:
+u1175:
 
 	skipnc
-	goto	u1261
-	goto	u1260
-u1261:
-	goto	l7418
-u1260:
+	goto	u1171
+	goto	u1170
+u1171:
+	goto	l7624
+u1170:
 	line	189
 	
-l7422:	
+l7628:	
 ;display.c: 189: for(; i > 0; i--)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(display_print_number@i),f
 	skipz
-	goto	u1271
-	goto	u1270
-u1271:
-	goto	l7426
-u1270:
-	goto	l4518
+	goto	u1181
+	goto	u1180
+u1181:
+	goto	l7632
+u1180:
+	goto	l3839
 	line	190
 	
-l7426:	
+l7632:	
 ;display.c: 190: lcd_putch((uint8_t)buf[(int16_t)i - 1]);
 	movf	(display_print_number@i),w
 	addlw	0FFh
@@ -1380,14 +1815,12 @@ l7426:
 	fcall	_lcd_putch
 	line	189
 	
-l7428:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
+l7634:	
 	decf	(display_print_number@i),f
-	goto	l7422
+	goto	l7628
 	line	192
 	
-l4518:	
+l3839:	
 	return
 	opt stack 0
 GLOBAL	__end_of_display_print_number
@@ -1395,658 +1828,398 @@ GLOBAL	__end_of_display_print_number
 ;; =============== function _display_print_number ends ============
 
 	signat	_display_print_number,12408
-	global	_lcd_begin
-psect	text636,local,class=CODE,delta=2
-global __ptext636
-__ptext636:
+	global	_lcd_init
+psect	text490,local,class=CODE,delta=2
+global __ptext490
+__ptext490:
 
-;; *************** function _lcd_begin *****************
+;; *************** function _lcd_init *****************
 ;; Defined at:
-;;		line 437 in file "../../../lib/lcd44780.c"
+;;		line 169 in file "../../../lib/lcd3310.c"
 ;; Parameters:    Size  Location     Type
-;;  lines           1    wreg     unsigned char 
-;;  dotsize         1    0[BANK0 ] unsigned char 
+;;		None
 ;; Auto vars:     Size  Location     Type
-;;  lines           1    3[BANK0 ] unsigned char 
+;;		None
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 60/0
-;;		On exit  : 0/0
+;;		On entry : 60/20
+;;		On exit  : 60/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       1       0       0       0
-;;      Locals:         0       1       0       0       0
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       0       0       0       0
 ;;      Temps:          0       2       0       0       0
-;;      Totals:         0       4       0       0       0
-;;Total ram usage:        4 bytes
+;;      Totals:         0       2       0       0       0
+;;Total ram usage:        2 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
+;; Hardware stack levels required when called:    2
 ;; This function calls:
-;;		_lcd_write4bits
-;;		_lcd_command
+;;		_lcd_send
 ;; This function is called by:
 ;;		_initialize
 ;; This function uses a non-reentrant model
 ;;
-psect	text636
-	file	"../../../lib/lcd44780.c"
-	line	437
-	global	__size_of_lcd_begin
-	__size_of_lcd_begin	equ	__end_of_lcd_begin-_lcd_begin
+psect	text490
+	file	"../../../lib/lcd3310.c"
+	line	169
+	global	__size_of_lcd_init
+	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
 	
-_lcd_begin:	
-	opt	stack 1
-; Regs used in _lcd_begin: [wreg+status,2+status,0+pclath+cstack]
-;lcd_begin@lines stored from wreg
-	movwf	(lcd_begin@lines)
-	line	438
+_lcd_init:	
+	opt	stack 4
+; Regs used in _lcd_init: [wreg+status,2+status,0+pclath+cstack]
+	line	170
 	
-l7356:	
-;lcd44780.c: 438: if(lines > 1)
-	movlw	(02h)
-	subwf	(lcd_begin@lines),w
-	skipc
-	goto	u1201
-	goto	u1200
-u1201:
-	goto	l7360
-u1200:
-	line	439
+l7566:	
+;lcd3310.c: 170: TRISC &= 0x00;
+	clrf	(135)^080h	;volatile
+	line	171
 	
-l7358:	
-;lcd44780.c: 439: LCD_function |= 0x08;
-	bsf	(_LCD_function)+(3/8),(3)&7
-	line	442
-	
-l7360:	
-;lcd44780.c: 442: LCD_lines = lines;
-	movf	(lcd_begin@lines),w
-	movwf	(_LCD_lines)
-	line	446
-;lcd44780.c: 446: if((dotsize != 0) && (lines == 1))
-	movf	(lcd_begin@dotsize),w
-	skipz
-	goto	u1210
-	goto	l7366
-u1210:
-	
-l7362:	
-	decf	(lcd_begin@lines),w
-	skipz
-	goto	u1221
-	goto	u1220
-u1221:
-	goto	l7366
-u1220:
-	line	447
-	
-l7364:	
-;lcd44780.c: 447: LCD_function |= 0x04;
-	bsf	(_LCD_function)+(2/8),(2)&7
-	line	449
-	
-l7366:	
-;lcd44780.c: 449: _delay((unsigned long)((15)*(20000000/4000.0)));
+l7568:	
+;lcd3310.c: 171: _delay((unsigned long)((20)*(20000000/4000.0)));
 	opt asmopt_off
-movlw	98
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	101
-movwf	((??_lcd_begin+0)+0),f
-u1317:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u1317
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u1317
+movlw	130
+	bcf	status, 5	;RP0=0, select bank0
+movwf	((??_lcd_init+0)+0+1),f
+	movlw	221
+movwf	((??_lcd_init+0)+0),f
+u1237:
+	decfsz	((??_lcd_init+0)+0),f
+	goto	u1237
+	decfsz	((??_lcd_init+0)+0+1),f
+	goto	u1237
 	nop2
 opt asmopt_on
 
-	line	452
+	line	173
 	
-l7368:	
-;lcd44780.c: 452: RB2 = 0;
+l7570:	
+;lcd3310.c: 173: _nop();
+	nop
+	line	174
+	
+l7572:	
+;lcd3310.c: 174: RC5 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bcf	(50/8),(50)&7
-	line	453
+	bcf	(61/8),(61)&7
+	line	175
 	
-l7370:	
-;lcd44780.c: 453: RB3 = 0;
-	bcf	(51/8),(51)&7
-	line	456
+l7574:	
+;lcd3310.c: 175: _nop();
+	nop
+	line	176
 	
-l7372:	
-;lcd44780.c: 456: if(!(LCD_function & 0x10)) {
-	btfsc	(_LCD_function),(4)&7
-	goto	u1231
-	goto	u1230
-u1231:
-	goto	l7384
-u1230:
-	line	460
+l7576:	
+;lcd3310.c: 176: RC4 = 1;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(60/8),(60)&7
+	line	177
 	
-l7374:	
-;lcd44780.c: 460: lcd_write4bits(0x03);
-	movlw	(03h)
-	fcall	_lcd_write4bits
-	line	461
+l7578:	
+;lcd3310.c: 177: _nop();
+	nop
+	line	178
 	
-l7376:	
-;lcd44780.c: 461: _delay((unsigned long)((5)*(20000000/4000.0)));
+l7580:	
+;lcd3310.c: 178: RC1 = 0;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(57/8),(57)&7
+	line	179
+	
+l7582:	
+;lcd3310.c: 179: _nop();
+	nop
+	line	180
+	
+l7584:	
+;lcd3310.c: 180: RC2 = 1;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(58/8),(58)&7
+	line	181
+	
+l7586:	
+;lcd3310.c: 181: _nop();
+	nop
+	line	183
+	
+l7588:	
+;lcd3310.c: 183: RC3 = 0;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(59/8),(59)&7
+	line	184
+	
+l7590:	
+;lcd3310.c: 184: _delay((unsigned long)((20)*(20000000/4000.0)));
 	opt asmopt_off
-movlw	33
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u1327:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u1327
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u1327
-	clrwdt
-opt asmopt_on
-
-	line	463
-	
-l7378:	
-;lcd44780.c: 463: lcd_write4bits(0x03);
-	movlw	(03h)
-	fcall	_lcd_write4bits
-	line	464
-;lcd44780.c: 464: _delay((unsigned long)((150)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	249
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	(??_lcd_begin+0)+0,f
-u1337:
-decfsz	(??_lcd_begin+0)+0,f
-	goto	u1337
-	nop2	;nop
-opt asmopt_on
-
-	line	466
-	
-l7380:	
-;lcd44780.c: 466: lcd_write4bits(0x03);
-	movlw	(03h)
-	fcall	_lcd_write4bits
-	line	467
-	
-l7382:	
-;lcd44780.c: 467: _delay((unsigned long)((150)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	249
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	(??_lcd_begin+0)+0,f
-u1347:
-decfsz	(??_lcd_begin+0)+0,f
-	goto	u1347
-	nop2	;nop
-opt asmopt_on
-
-	line	469
-;lcd44780.c: 469: lcd_write4bits(0x02);
-	movlw	(02h)
-	fcall	_lcd_write4bits
-	line	470
-;lcd44780.c: 470: }
-	goto	l7392
-	line	476
-	
-l7384:	
-;lcd44780.c: 472: else {
-;lcd44780.c: 476: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	477
-	
-l7386:	
-;lcd44780.c: 477: _delay((unsigned long)((5)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	33
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u1357:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u1357
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u1357
-	clrwdt
-opt asmopt_on
-
-	line	480
-	
-l7388:	
-;lcd44780.c: 480: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	481
-;lcd44780.c: 481: _delay((unsigned long)((5)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	33
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u1367:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u1367
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u1367
-	clrwdt
-opt asmopt_on
-
-	line	485
-	
-l7390:	
-;lcd44780.c: 485: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	489
-	
-l7392:	
-;lcd44780.c: 486: }
-;lcd44780.c: 489: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	492
-;lcd44780.c: 492: LCD_ctrl = 0x04 | 0x00 | 0x00;
-	movlw	(04h)
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(_LCD_ctrl)
-	line	493
-	
-l7394:	
-;lcd44780.c: 493: lcd_command(0x08 | LCD_ctrl);
-	movf	(_LCD_ctrl),w
-	iorlw	08h
-	fcall	_lcd_command
-	line	496
-	
-l7396:	
-;lcd44780.c: 496: lcd_command(0x01);
-	movlw	(01h)
-	fcall	_lcd_command
-	line	497
-;lcd44780.c: 497: _delay((unsigned long)((2)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	13
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	251
-movwf	((??_lcd_begin+0)+0),f
-u1377:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u1377
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u1377
+movlw	130
+movwf	((??_lcd_init+0)+0+1),f
+	movlw	221
+movwf	((??_lcd_init+0)+0),f
+u1247:
+	decfsz	((??_lcd_init+0)+0),f
+	goto	u1247
+	decfsz	((??_lcd_init+0)+0+1),f
+	goto	u1247
 	nop2
 opt asmopt_on
 
-	line	500
-;lcd44780.c: 500: LCD_mode = 0x02 | 0x00;
-	movlw	(02h)
+	line	186
+	
+l7592:	
+;lcd3310.c: 186: RC3 = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	movwf	(_LCD_mode)
-	line	502
+	bsf	(59/8),(59)&7
+	line	188
 	
-l7398:	
-;lcd44780.c: 502: lcd_command(0x04 | LCD_mode);
-	movf	(_LCD_mode),w
-	iorlw	04h
-	fcall	_lcd_command
-	line	503
+l7594:	
+;lcd3310.c: 188: lcd_send(0x21, 0);
+	clrf	(?_lcd_send)
+	movlw	(021h)
+	fcall	_lcd_send
+	line	189
 	
-l1960:	
+l7596:	
+;lcd3310.c: 189: lcd_send(0xC8, 0);
+	clrf	(?_lcd_send)
+	movlw	(0C8h)
+	fcall	_lcd_send
+	line	190
+	
+l7598:	
+;lcd3310.c: 190: lcd_send(0x06, 0);
+	clrf	(?_lcd_send)
+	movlw	(06h)
+	fcall	_lcd_send
+	line	191
+	
+l7600:	
+;lcd3310.c: 191: lcd_send(0x13, 0);
+	clrf	(?_lcd_send)
+	movlw	(013h)
+	fcall	_lcd_send
+	line	192
+	
+l7602:	
+;lcd3310.c: 192: lcd_send(0x20, 0);
+	clrf	(?_lcd_send)
+	movlw	(020h)
+	fcall	_lcd_send
+	line	193
+	
+l7604:	
+;lcd3310.c: 193: lcd_send(0x0C, 0);
+	clrf	(?_lcd_send)
+	movlw	(0Ch)
+	fcall	_lcd_send
+	line	210
+	
+l5184:	
 	return
 	opt stack 0
-GLOBAL	__end_of_lcd_begin
-	__end_of_lcd_begin:
-;; =============== function _lcd_begin ends ============
+GLOBAL	__end_of_lcd_init
+	__end_of_lcd_init:
+;; =============== function _lcd_init ends ============
 
-	signat	_lcd_begin,8312
-	global	_lcd_print
-psect	text637,local,class=CODE,delta=2
-global __ptext637
-__ptext637:
+	signat	_lcd_init,88
+	global	_lcd_putch
+psect	text491,local,class=CODE,delta=2
+global __ptext491
+__ptext491:
 
-;; *************** function _lcd_print *****************
+;; *************** function _lcd_putch *****************
 ;; Defined at:
-;;		line 188 in file "../../../lib/lcd44780.c"
+;;		line 247 in file "../../../lib/lcd3310.c"
 ;; Parameters:    Size  Location     Type
-;;  string          1    wreg     PTR const unsigned char 
-;;		 -> STR_11(9), STR_10(4), STR_9(4), STR_8(3), 
-;;		 -> STR_7(3), STR_6(3), STR_5(3), STR_4(3), 
-;;		 -> STR_3(3), STR_2(3), STR_1(2), 
+;;  c               1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  string          1    0[BANK0 ] PTR const unsigned char 
-;;		 -> STR_11(9), STR_10(4), STR_9(4), STR_8(3), 
-;;		 -> STR_7(3), STR_6(3), STR_5(3), STR_4(3), 
-;;		 -> STR_3(3), STR_2(3), STR_1(2), 
-;;  i               1    1[BANK0 ] unsigned char 
+;;  c               1    3[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 0/0
 ;;		On exit  : 60/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       2       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         0       2       0       0       0
-;;Total ram usage:        2 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
-;; This function calls:
-;;		_lcd_putch
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text637
-	file	"../../../lib/lcd44780.c"
-	line	188
-	global	__size_of_lcd_print
-	__size_of_lcd_print	equ	__end_of_lcd_print-_lcd_print
-	
-_lcd_print:	
-	opt	stack 2
-; Regs used in _lcd_print: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;lcd_print@string stored from wreg
-	line	190
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(lcd_print@string)
-	
-l7348:	
-;lcd44780.c: 189: uint8_t i;
-;lcd44780.c: 190: for(i = 0; string[i]; i++)
-	clrf	(lcd_print@i)
-	goto	l7354
-	line	191
-	
-l7350:	
-;lcd44780.c: 191: lcd_putch(string[i]);
-	movf	(lcd_print@i),w
-	addwf	(lcd_print@string),w
-	movwf	fsr0
-	fcall	stringdir
-	fcall	_lcd_putch
-	line	190
-	
-l7352:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	incf	(lcd_print@i),f
-	
-l7354:	
-	movf	(lcd_print@i),w
-	addwf	(lcd_print@string),w
-	movwf	fsr0
-	fcall	stringdir
-	iorlw	0
-	skipz
-	goto	u1191
-	goto	u1190
-u1191:
-	goto	l7350
-u1190:
-	line	192
-	
-l1914:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_print
-	__end_of_lcd_print:
-;; =============== function _lcd_print ends ============
-
-	signat	_lcd_print,4216
-	global	_lcd_set_cursor
-psect	text638,local,class=CODE,delta=2
-global __ptext638
-__ptext638:
-
-;; *************** function _lcd_set_cursor *****************
-;; Defined at:
-;;		line 160 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  col             1    wreg     unsigned char 
-;;  row             1    0[BANK0 ] unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  col             1    1[BANK0 ] unsigned char 
-;;  row_offsets     4    2[BANK0 ] unsigned char [4]
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 60/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       1       0       0       0
-;;      Locals:         0       5       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         0       6       0       0       0
-;;Total ram usage:        6 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
-;; This function calls:
-;;		_lcd_command
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text638
-	file	"../../../lib/lcd44780.c"
-	line	160
-	global	__size_of_lcd_set_cursor
-	__size_of_lcd_set_cursor	equ	__end_of_lcd_set_cursor-_lcd_set_cursor
-	
-_lcd_set_cursor:	
-	opt	stack 2
-; Regs used in _lcd_set_cursor: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;lcd_set_cursor@col stored from wreg
-	line	162
-	movwf	(lcd_set_cursor@col)
-	
-l7342:	
-;lcd44780.c: 162: uint8_t row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
-	movf	(lcd_set_cursor@F1157+3),w
-	movwf	(lcd_set_cursor@row_offsets+3)
-	movf	(lcd_set_cursor@F1157+2),w
-	movwf	(lcd_set_cursor@row_offsets+2)
-	movf	(lcd_set_cursor@F1157+1),w
-	movwf	(lcd_set_cursor@row_offsets+1)
-	movf	(lcd_set_cursor@F1157),w
-	movwf	(lcd_set_cursor@row_offsets)
-
-	line	171
-;lcd44780.c: 171: if(LCD_lines == 1) {
-	decf	(_LCD_lines),w
-	skipz
-	goto	u1181
-	goto	u1180
-u1181:
-	goto	l7346
-u1180:
-	line	172
-	
-l7344:	
-;lcd44780.c: 172: row_offsets[1] = 0x14;
-	movlw	(014h)
-	movwf	0+(lcd_set_cursor@row_offsets)+01h
-	line	173
-;lcd44780.c: 173: row_offsets[2] = 0x28;
-	movlw	(028h)
-	movwf	0+(lcd_set_cursor@row_offsets)+02h
-	line	174
-;lcd44780.c: 174: row_offsets[3] = 0x3C;
-	movlw	(03Ch)
-	movwf	0+(lcd_set_cursor@row_offsets)+03h
-	line	181
-	
-l7346:	
-;lcd44780.c: 175: }
-;lcd44780.c: 181: lcd_command(0x80 | (col + row_offsets[row]));
-	movf	(lcd_set_cursor@row),w
-	addlw	lcd_set_cursor@row_offsets&0ffh
-	movwf	fsr0
-	movf	(lcd_set_cursor@col),w
-	bcf	status, 7	;select IRP bank0
-	addwf	indf,w
-	iorlw	080h
-	fcall	_lcd_command
-	line	182
-	
-l1908:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_set_cursor
-	__end_of_lcd_set_cursor:
-;; =============== function _lcd_set_cursor ends ============
-
-	signat	_lcd_set_cursor,8312
-	global	_lcd_command
-psect	text639,local,class=CODE,delta=2
-global __ptext639
-__ptext639:
-
-;; *************** function _lcd_command *****************
-;; Defined at:
-;;		line 152 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  value           1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  value           1    7[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
+;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
+;; Hardware stack levels required when called:    2
 ;; This function calls:
+;;		___wmul
 ;;		_lcd_send
 ;; This function is called by:
-;;		_lcd_set_cursor
-;;		_lcd_begin
-;; This function uses a non-reentrant model
-;;
-psect	text639
-	file	"../../../lib/lcd44780.c"
-	line	152
-	global	__size_of_lcd_command
-	__size_of_lcd_command	equ	__end_of_lcd_command-_lcd_command
-	
-_lcd_command:	
-	opt	stack 2
-; Regs used in _lcd_command: [wreg+status,2+status,0+pclath+cstack]
-;lcd_command@value stored from wreg
-	movwf	(lcd_command@value)
-	line	153
-	
-l7340:	
-;lcd44780.c: 153: lcd_send(value, 0);
-	clrf	(?_lcd_send)
-	movf	(lcd_command@value),w
-	fcall	_lcd_send
-	line	154
-	
-l1902:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_command
-	__end_of_lcd_command:
-;; =============== function _lcd_command ends ============
-
-	signat	_lcd_command,4216
-	global	_lcd_putch
-psect	text640,local,class=CODE,delta=2
-global __ptext640
-__ptext640:
-
-;; *************** function _lcd_putch *****************
-;; Defined at:
-;;		line 145 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  value           1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  value           1    7[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
-;; This function calls:
-;;		_lcd_send
-;; This function is called by:
-;;		_lcd_print
 ;;		_display_print_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text640
-	file	"../../../lib/lcd44780.c"
-	line	145
+psect	text491
+	file	"../../../lib/lcd3310.c"
+	line	247
 	global	__size_of_lcd_putch
 	__size_of_lcd_putch	equ	__end_of_lcd_putch-_lcd_putch
 	
 _lcd_putch:	
-	opt	stack 2
-; Regs used in _lcd_putch: [wreg+status,2+status,0+pclath+cstack]
-;lcd_putch@value stored from wreg
-	movwf	(lcd_putch@value)
-	line	146
+	opt	stack 4
+; Regs used in _lcd_putch: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+;lcd_putch@c stored from wreg
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(lcd_putch@c)
+	line	248
 	
-l7338:	
-;lcd44780.c: 146: lcd_send((unsigned)value, 1);
+l7558:	
+;lcd3310.c: 248: if(c > 'z' || c < 32)
+	movlw	(07Bh)
+	subwf	(lcd_putch@c),w
+	skipnc
+	goto	u1131
+	goto	u1130
+u1131:
+	goto	l5203
+u1130:
+	
+l7560:	
+	movlw	(020h)
+	subwf	(lcd_putch@c),w
+	skipnc
+	goto	u1141
+	goto	u1140
+u1141:
+	goto	l7562
+u1140:
+	goto	l5203
+	line	252
+	
+l7562:	
+;lcd3310.c: 251: }
+;lcd3310.c: 252: lcd_send(lcd_font[c - 32][0], 1);
 	clrf	(?_lcd_send)
 	incf	(?_lcd_send),f
-	movf	(lcd_putch@value),w
+	movf	(lcd_putch@c),w
+	movwf	(?___wmul)
+	clrf	(?___wmul+1)
+	movlw	05h
+	movwf	0+(?___wmul)+02h
+	clrf	1+(?___wmul)+02h
+	fcall	___wmul
+	movlw	high(_lcd_font|8000h+0FF60h)
+	addwf	(1+(?___wmul)),w
+	movwf	btemp+1
+	movlw	low(_lcd_font|8000h+0FF60h)
+	addwf	(0+(?___wmul)),w
+	movwf	fsr0
+	skipnc
+	incf	btemp+1,f
+	fcall	stringtab
 	fcall	_lcd_send
-	line	147
+	line	253
+;lcd3310.c: 253: lcd_send(lcd_font[c - 32][1], 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movf	(lcd_putch@c),w
+	movwf	(?___wmul)
+	clrf	(?___wmul+1)
+	movlw	05h
+	movwf	0+(?___wmul)+02h
+	clrf	1+(?___wmul)+02h
+	fcall	___wmul
+	movlw	high(_lcd_font|8000h+0FF61h)
+	addwf	(1+(?___wmul)),w
+	movwf	btemp+1
+	movlw	low(_lcd_font|8000h+0FF61h)
+	addwf	(0+(?___wmul)),w
+	movwf	fsr0
+	skipnc
+	incf	btemp+1,f
+	fcall	stringtab
+	fcall	_lcd_send
+	line	254
+;lcd3310.c: 254: lcd_send(lcd_font[c - 32][2], 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movf	(lcd_putch@c),w
+	movwf	(?___wmul)
+	clrf	(?___wmul+1)
+	movlw	05h
+	movwf	0+(?___wmul)+02h
+	clrf	1+(?___wmul)+02h
+	fcall	___wmul
+	movlw	high(_lcd_font|8000h+0FF62h)
+	addwf	(1+(?___wmul)),w
+	movwf	btemp+1
+	movlw	low(_lcd_font|8000h+0FF62h)
+	addwf	(0+(?___wmul)),w
+	movwf	fsr0
+	skipnc
+	incf	btemp+1,f
+	fcall	stringtab
+	fcall	_lcd_send
+	line	255
+;lcd3310.c: 255: lcd_send(lcd_font[c - 32][3], 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movf	(lcd_putch@c),w
+	movwf	(?___wmul)
+	clrf	(?___wmul+1)
+	movlw	05h
+	movwf	0+(?___wmul)+02h
+	clrf	1+(?___wmul)+02h
+	fcall	___wmul
+	movlw	high(_lcd_font|8000h+0FF63h)
+	addwf	(1+(?___wmul)),w
+	movwf	btemp+1
+	movlw	low(_lcd_font|8000h+0FF63h)
+	addwf	(0+(?___wmul)),w
+	movwf	fsr0
+	skipnc
+	incf	btemp+1,f
+	fcall	stringtab
+	fcall	_lcd_send
+	line	256
+;lcd3310.c: 256: lcd_send(lcd_font[c - 32][4], 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movf	(lcd_putch@c),w
+	movwf	(?___wmul)
+	clrf	(?___wmul+1)
+	movlw	05h
+	movwf	0+(?___wmul)+02h
+	clrf	1+(?___wmul)+02h
+	fcall	___wmul
+	movlw	high(_lcd_font|8000h+0FF64h)
+	addwf	(1+(?___wmul)),w
+	movwf	btemp+1
+	movlw	low(_lcd_font|8000h+0FF64h)
+	addwf	(0+(?___wmul)),w
+	movwf	fsr0
+	skipnc
+	incf	btemp+1,f
+	fcall	stringtab
+	fcall	_lcd_send
+	line	257
 	
-l1899:	
+l7564:	
+;lcd3310.c: 257: lcd_send(0, 1);
+	clrf	(?_lcd_send)
+	incf	(?_lcd_send),f
+	movlw	(0)
+	fcall	_lcd_send
+	line	258
+	
+l5203:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_putch
@@ -2054,86 +2227,371 @@ GLOBAL	__end_of_lcd_putch
 ;; =============== function _lcd_putch ends ============
 
 	signat	_lcd_putch,4216
-	global	_lcd_send
-psect	text641,local,class=CODE,delta=2
-global __ptext641
-__ptext641:
+	global	_lcd_gotoxy
+psect	text492,local,class=CODE,delta=2
+global __ptext492
+__ptext492:
 
-;; *************** function _lcd_send *****************
+;; *************** function _lcd_gotoxy *****************
 ;; Defined at:
-;;		line 128 in file "../../../lib/lcd44780.c"
+;;		line 239 in file "../../../lib/lcd3310.c"
 ;; Parameters:    Size  Location     Type
-;;  value           1    wreg     unsigned char 
-;;  mode            1    5[COMMON] unsigned char 
+;;  x               1    wreg     unsigned char 
+;;  y               2    3[BANK0 ] unsigned int 
 ;; Auto vars:     Size  Location     Type
-;;  value           1    6[COMMON] unsigned char 
+;;  x               1    5[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
+;;		On entry : 60/0
+;;		On exit  : 60/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       2       0       0       0
+;;      Locals:         0       1       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       3       0       0       0
+;;Total ram usage:        3 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    2
+;; This function calls:
+;;		_lcd_send
+;; This function is called by:
+;;		_lcd_clear
+;; This function uses a non-reentrant model
+;;
+psect	text492
+	file	"../../../lib/lcd3310.c"
+	line	239
+	global	__size_of_lcd_gotoxy
+	__size_of_lcd_gotoxy	equ	__end_of_lcd_gotoxy-_lcd_gotoxy
+	
+_lcd_gotoxy:	
+	opt	stack 3
+; Regs used in _lcd_gotoxy: [wreg+status,2+status,0+pclath+cstack]
+;lcd_gotoxy@x stored from wreg
+	movwf	(lcd_gotoxy@x)
+	line	240
+	
+l7556:	
+;lcd3310.c: 240: lcd_send(x | 0b10000000, 0);
+	clrf	(?_lcd_send)
+	movf	(lcd_gotoxy@x),w
+	iorlw	080h
+	fcall	_lcd_send
+	line	241
+;lcd3310.c: 241: lcd_send((y & 0b00000111) | 0b01000000, 0);
+	clrf	(?_lcd_send)
+	movf	(lcd_gotoxy@y),w
+	andlw	07h
+	iorlw	040h
+	fcall	_lcd_send
+	line	242
+	
+l5197:	
+	return
+	opt stack 0
+GLOBAL	__end_of_lcd_gotoxy
+	__end_of_lcd_gotoxy:
+;; =============== function _lcd_gotoxy ends ============
+
+	signat	_lcd_gotoxy,8312
+	global	_lcd_send
+psect	text493,local,class=CODE,delta=2
+global __ptext493
+__ptext493:
+
+;; *************** function _lcd_send *****************
+;; Defined at:
+;;		line 144 in file "../../../lib/lcd3310.c"
+;; Parameters:    Size  Location     Type
+;;  a               1    wreg     unsigned char 
+;;  cmd             1    7[COMMON] unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  a               1    2[BANK0 ] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0
+;; Tracked objects:
+;;		On entry : 60/0
+;;		On exit  : 60/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         1       0       0       0       0
-;;      Locals:         1       0       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         2       0       0       0       0
+;;      Totals:         1       1       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    3
+;; Hardware stack levels required when called:    1
 ;; This function calls:
-;;		_lcd_write4bits
+;;		Nothing
 ;; This function is called by:
+;;		_lcd_init
+;;		_lcd_clear
+;;		_lcd_gotoxy
 ;;		_lcd_putch
-;;		_lcd_command
 ;; This function uses a non-reentrant model
 ;;
-psect	text641
-	file	"../../../lib/lcd44780.c"
-	line	128
+psect	text493
+	file	"../../../lib/lcd3310.c"
+	line	144
 	global	__size_of_lcd_send
 	__size_of_lcd_send	equ	__end_of_lcd_send-_lcd_send
 	
 _lcd_send:	
-	opt	stack 2
-; Regs used in _lcd_send: [wreg+status,2+status,0+pclath+cstack]
-;lcd_send@value stored from wreg
-	movwf	(lcd_send@value)
-	line	129
+	opt	stack 4
+; Regs used in _lcd_send: [wreg+status,2+status,0]
+;lcd_send@a stored from wreg
+	line	146
+	movwf	(lcd_send@a)
 	
-l7334:	
-;lcd44780.c: 129: RB2 = mode;
-	btfsc	(lcd_send@mode),0
-	goto	u1161
-	goto	u1160
+l7534:	
+;lcd3310.c: 146: RC1 = 1;
+	bsf	(57/8),(57)&7
+	line	147
 	
-u1161:
+l7536:	
+;lcd3310.c: 147: if(cmd == 0)
+	movf	(lcd_send@cmd),f
+	skipz
+	goto	u1041
+	goto	u1040
+u1041:
+	goto	l5172
+u1040:
+	line	149
+	
+l7538:	
+;lcd3310.c: 148: {
+;lcd3310.c: 149: RC1 = 0;
+	bcf	(57/8),(57)&7
+	line	150
+	
+l5172:	
+	line	151
+;lcd3310.c: 150: }
+;lcd3310.c: 151: _nop();
+	nop
+	line	152
+;lcd3310.c: 152: RC2 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bsf	(50/8),(50)&7
-	goto	u1174
-u1160:
+	bcf	(58/8),(58)&7
+	line	154
+;lcd3310.c: 154: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b10000000)) { RC4=1; } _nop(); RC5=1;
+	nop
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bcf	(50/8),(50)&7
-u1174:
-	line	137
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(7)&7
+	goto	u1051
+	goto	u1050
+u1051:
+	goto	l5173
+u1050:
 	
-l7336:	
-;lcd44780.c: 136: {
-;lcd44780.c: 137: lcd_write4bits(value >> 4);
-	swapf	(lcd_send@value),w
-	andlw	(0ffh shr 4) & 0ffh
-	fcall	_lcd_write4bits
-	line	138
-;lcd44780.c: 138: lcd_write4bits(value);
-	movf	(lcd_send@value),w
-	fcall	_lcd_write4bits
-	line	140
+l7540:	
+	bsf	(60/8),(60)&7
 	
-l1896:	
+l5173:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	155
+;lcd3310.c: 155: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b01000000)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(6)&7
+	goto	u1061
+	goto	u1060
+u1061:
+	goto	l5174
+u1060:
+	
+l7542:	
+	bsf	(60/8),(60)&7
+	
+l5174:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	156
+;lcd3310.c: 156: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00100000)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(5)&7
+	goto	u1071
+	goto	u1070
+u1071:
+	goto	l5175
+u1070:
+	
+l7544:	
+	bsf	(60/8),(60)&7
+	
+l5175:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	157
+;lcd3310.c: 157: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00010000)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(4)&7
+	goto	u1081
+	goto	u1080
+u1081:
+	goto	l5176
+u1080:
+	
+l7546:	
+	bsf	(60/8),(60)&7
+	
+l5176:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	158
+;lcd3310.c: 158: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00001000)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(3)&7
+	goto	u1091
+	goto	u1090
+u1091:
+	goto	l5177
+u1090:
+	
+l7548:	
+	bsf	(60/8),(60)&7
+	
+l5177:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	159
+;lcd3310.c: 159: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00000100)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(2)&7
+	goto	u1101
+	goto	u1100
+u1101:
+	goto	l5178
+u1100:
+	
+l7550:	
+	bsf	(60/8),(60)&7
+	
+l5178:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	160
+;lcd3310.c: 160: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00000010)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(1)&7
+	goto	u1111
+	goto	u1110
+u1111:
+	goto	l5179
+u1110:
+	
+l7552:	
+	bsf	(60/8),(60)&7
+	
+l5179:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	161
+;lcd3310.c: 161: _nop(); RC5=0; _nop(); RC4=0; if((a) & (0b00000001)) { RC4=1; } _nop(); RC5=1;
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(61/8),(61)&7
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(60/8),(60)&7
+	btfss	(lcd_send@a),(0)&7
+	goto	u1121
+	goto	u1120
+u1121:
+	goto	l5180
+u1120:
+	
+l7554:	
+	bsf	(60/8),(60)&7
+	
+l5180:	
+	nop
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(61/8),(61)&7
+	line	162
+;lcd3310.c: 162: _nop();
+	nop
+	line	163
+;lcd3310.c: 163: RC2 = 1;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(58/8),(58)&7
+	line	164
+	
+l5181:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_send
@@ -2141,173 +2599,33 @@ GLOBAL	__end_of_lcd_send
 ;; =============== function _lcd_send ends ============
 
 	signat	_lcd_send,8312
-	global	_lcd_write4bits
-psect	text642,local,class=CODE,delta=2
-global __ptext642
-__ptext642:
-
-;; *************** function _lcd_write4bits *****************
-;; Defined at:
-;;		line 61 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  value           1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  value           1    4[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    2
-;; This function calls:
-;;		_lcd_pulse_enable
-;; This function is called by:
-;;		_lcd_send
-;;		_lcd_begin
-;; This function uses a non-reentrant model
-;;
-psect	text642
-	file	"../../../lib/lcd44780.c"
-	line	61
-	global	__size_of_lcd_write4bits
-	__size_of_lcd_write4bits	equ	__end_of_lcd_write4bits-_lcd_write4bits
-	
-_lcd_write4bits:	
-	opt	stack 2
-; Regs used in _lcd_write4bits: [wreg+status,2+status,0+pclath+cstack]
-;lcd_write4bits@value stored from wreg
-	line	66
-	movwf	(lcd_write4bits@value)
-	
-l7330:	
-;lcd44780.c: 66: RB4 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u1081
-	goto	u1080
-	
-u1081:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(52/8),(52)&7
-	goto	u1094
-u1080:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(52/8),(52)&7
-u1094:
-	line	67
-;lcd44780.c: 67: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	68
-;lcd44780.c: 68: RB5 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u1101
-	goto	u1100
-	
-u1101:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(53/8),(53)&7
-	goto	u1114
-u1100:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(53/8),(53)&7
-u1114:
-	line	69
-;lcd44780.c: 69: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	70
-;lcd44780.c: 70: RB6 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u1121
-	goto	u1120
-	
-u1121:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(54/8),(54)&7
-	goto	u1134
-u1120:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(54/8),(54)&7
-u1134:
-	line	71
-;lcd44780.c: 71: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	72
-;lcd44780.c: 72: RB7 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u1141
-	goto	u1140
-	
-u1141:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(55/8),(55)&7
-	goto	u1154
-u1140:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(55/8),(55)&7
-u1154:
-	line	78
-	
-l7332:	
-;lcd44780.c: 78: lcd_pulse_enable();
-	fcall	_lcd_pulse_enable
-	line	83
-	
-l1893:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_write4bits
-	__end_of_lcd_write4bits:
-;; =============== function _lcd_write4bits ends ============
-
-	signat	_lcd_write4bits,4216
 	global	_ser_puts
-psect	text643,local,class=CODE,delta=2
-global __ptext643
-__ptext643:
+psect	text494,local,class=CODE,delta=2
+global __ptext494
+__ptext494:
 
 ;; *************** function _ser_puts *****************
 ;; Defined at:
 ;;		line 90 in file "../../../lib/ser.c"
 ;; Parameters:    Size  Location     Type
-;;  s               1    wreg     PTR const unsigned char 
-;;		 -> STR_12(3), 
+;;  s               2    4[COMMON] PTR const unsigned char 
+;;		 -> STR_5(3), 
 ;; Auto vars:     Size  Location     Type
-;;  s               1    4[COMMON] PTR const unsigned char 
-;;		 -> STR_12(3), 
+;;		None
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 160/0
-;;		On exit  : 140/0
+;;		On exit  : 60/0
 ;;		Unchanged: FFE9F/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
+;;      Params:         2       0       0       0       0
+;;      Locals:         0       0       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
+;;      Totals:         2       0       0       0       0
+;;Total ram usage:        2 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    2
 ;; This function calls:
@@ -2316,7 +2634,7 @@ __ptext643:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text643
+psect	text494
 	file	"../../../lib/ser.c"
 	line	90
 	global	__size_of_ser_puts
@@ -2324,42 +2642,47 @@ psect	text643
 	
 _ser_puts:	
 	opt	stack 5
-; Regs used in _ser_puts: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;ser_puts@s stored from wreg
-	movwf	(ser_puts@s)
+; Regs used in _ser_puts: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	91
 	
-l7090:	
+l7256:	
 ;ser.c: 91: while(*s)
-	goto	l7096
+	goto	l7262
 	line	92
 	
-l7092:	
+l7258:	
 ;ser.c: 92: ser_putch(*s++);
+	movf	(ser_puts@s+1),w
+	movwf	btemp+1
 	movf	(ser_puts@s),w
 	movwf	fsr0
-	fcall	stringdir
+	fcall	stringtab
 	movwf	(?_ser_putch)
 	fcall	_ser_putch
 	
-l7094:	
+l7260:	
 	incf	(ser_puts@s),f
+	skipnz
+	incf	(ser_puts@s+1),f
 	line	91
 	
-l7096:	
+l7262:	
+	movf	(ser_puts@s+1),w
+	bcf	status, 5	;RP0=0, select bank0
+	movwf	btemp+1
 	movf	(ser_puts@s),w
 	movwf	fsr0
-	fcall	stringdir
+	fcall	stringtab
 	iorlw	0
 	skipz
-	goto	u751
-	goto	u750
-u751:
-	goto	l7092
-u750:
+	goto	u731
+	goto	u730
+u731:
+	goto	l7258
+u730:
 	line	93
 	
-l2615:	
+l1915:	
 	return
 	opt stack 0
 GLOBAL	__end_of_ser_puts
@@ -2367,99 +2690,10 @@ GLOBAL	__end_of_ser_puts
 ;; =============== function _ser_puts ends ============
 
 	signat	_ser_puts,4216
-	global	_lcd_pulse_enable
-psect	text644,local,class=CODE,delta=2
-global __ptext644
-__ptext644:
-
-;; *************** function _lcd_pulse_enable *****************
-;; Defined at:
-;;		line 48 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;		None
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg
-;; Tracked objects:
-;;		On entry : 60/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          1       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_lcd_write4bits
-;; This function uses a non-reentrant model
-;;
-psect	text644
-	file	"../../../lib/lcd44780.c"
-	line	48
-	global	__size_of_lcd_pulse_enable
-	__size_of_lcd_pulse_enable	equ	__end_of_lcd_pulse_enable-_lcd_pulse_enable
-	
-_lcd_pulse_enable:	
-	opt	stack 2
-; Regs used in _lcd_pulse_enable: [wreg]
-	line	52
-	
-l7324:	
-;lcd44780.c: 52: RB3 = 1;
-	bsf	(51/8),(51)&7
-	line	53
-	
-l7326:	
-;lcd44780.c: 53: _delay((unsigned long)((4)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	6
-movwf	(??_lcd_pulse_enable+0)+0,f
-u1387:
-decfsz	(??_lcd_pulse_enable+0)+0,f
-	goto	u1387
-	clrwdt
-opt asmopt_on
-
-	line	54
-	
-l7328:	
-;lcd44780.c: 54: RB3 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(51/8),(51)&7
-	line	55
-;lcd44780.c: 55: _delay((unsigned long)((100)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	166
-movwf	(??_lcd_pulse_enable+0)+0,f
-u1397:
-decfsz	(??_lcd_pulse_enable+0)+0,f
-	goto	u1397
-	clrwdt
-opt asmopt_on
-
-	line	56
-	
-l1890:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_pulse_enable
-	__end_of_lcd_pulse_enable:
-;; =============== function _lcd_pulse_enable ends ============
-
-	signat	_lcd_pulse_enable,88
 	global	_format_number
-psect	text645,local,class=CODE,delta=2
-global __ptext645
-__ptext645:
+psect	text495,local,class=CODE,delta=2
+global __ptext495
+__ptext495:
 
 ;; *************** function _format_number *****************
 ;; Defined at:
@@ -2501,7 +2735,7 @@ __ptext645:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text645
+psect	text495
 	file	"../../../lib/format.c"
 	line	6
 	global	__size_of_format_number
@@ -2514,43 +2748,43 @@ _format_number:
 	line	9
 	movwf	(format_number@putchar)
 	
-l7284:	
+l7494:	
 ;format.c: 7: uint8_t buf[8 * sizeof(long)];
 ;format.c: 8: uint8_t di;
 ;format.c: 9: int8_t i = 0;
 	clrf	(format_number@i)
 	line	10
 	
-l7286:	
+l7496:	
 ;format.c: 10: char padchar = ' ';
 	movlw	(020h)
 	movwf	(format_number@padchar)
 	line	12
 	
-l7288:	
+l7498:	
 ;format.c: 12: if(pad < 0)
 	btfss	(format_number@pad),7
-	goto	u1031
-	goto	u1030
-u1031:
-	goto	l7294
-u1030:
+	goto	u991
+	goto	u990
+u991:
+	goto	l7504
+u990:
 	line	14
 	
-l7290:	
+l7500:	
 ;format.c: 13: {
 ;format.c: 14: pad = -pad;
 	comf	(format_number@pad),f
 	incf	(format_number@pad),f
 	line	15
 	
-l7292:	
+l7502:	
 ;format.c: 15: padchar = '0';
 	movlw	(030h)
 	movwf	(format_number@padchar)
 	line	28
 	
-l7294:	
+l7504:	
 ;format.c: 24: {
 ;format.c: 28: di = n % base;
 	movf	(format_number@base),w
@@ -2565,18 +2799,18 @@ l7294:
 	movwf	(format_number@di)
 	line	29
 	
-l7296:	
+l7506:	
 ;format.c: 29: buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 	movlw	(0Ah)
 	subwf	(format_number@di),w
 	skipc
-	goto	u1041
-	goto	u1040
-u1041:
-	goto	l7300
-u1040:
+	goto	u1001
+	goto	u1000
+u1001:
+	goto	l7510
+u1000:
 	
-l7298:	
+l7508:	
 	movf	(format_number@di),w
 	movwf	(_format_number$1902)
 	clrf	(_format_number$1902+1)
@@ -2584,9 +2818,9 @@ l7298:
 	addwf	(_format_number$1902),f
 	skipnc
 	incf	(_format_number$1902+1),f
-	goto	l7302
+	goto	l7512
 	
-l7300:	
+l7510:	
 	movf	(format_number@di),w
 	movwf	(_format_number$1902)
 	clrf	(_format_number$1902+1)
@@ -2595,7 +2829,7 @@ l7300:
 	skipnc
 	incf	(_format_number$1902+1),f
 	
-l7302:	
+l7512:	
 	movf	(format_number@i),w
 	addlw	format_number@buf&0ffh
 	movwf	fsr0
@@ -2603,11 +2837,11 @@ l7302:
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l7304:	
+l7514:	
 	incf	(format_number@i),f
 	line	31
 	
-l7306:	
+l7516:	
 ;format.c: 31: n /= base;
 	movf	(format_number@base),w
 	movwf	(?___lwdiv)
@@ -2623,21 +2857,21 @@ l7306:
 	movwf	(format_number@n)
 	line	33
 	
-l7308:	
+l7518:	
 ;format.c: 32: }
 ;format.c: 33: while(n > 0);
 	movf	((format_number@n+1)),w
 	iorwf	((format_number@n)),w
 	skipz
-	goto	u1051
-	goto	u1050
-u1051:
-	goto	l7294
-u1050:
-	goto	l7312
+	goto	u1011
+	goto	u1010
+u1011:
+	goto	l7504
+u1010:
+	goto	l7522
 	line	36
 	
-l7310:	
+l7520:	
 ;format.c: 36: putchar(padchar);
 	movf	(format_number@padchar),w
 	movwf	(?_ser_putch)
@@ -2645,7 +2879,7 @@ l7310:
 	fcall	fptable
 	line	35
 	
-l7312:	
+l7522:	
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(format_number@pad),w
 	decf	(format_number@pad),f
@@ -2655,28 +2889,28 @@ l7312:
 	xorlw	80h
 	subwf	(??_format_number+0)+0
 	skipnc
-	goto	u1061
-	goto	u1060
-u1061:
-	goto	l7310
-u1060:
+	goto	u1021
+	goto	u1020
+u1021:
+	goto	l7520
+u1020:
 	line	38
 	
-l7314:	
+l7524:	
 ;format.c: 38: for(; i > 0; i--)
 	movf	(format_number@i),w
 	xorlw	80h
 	addlw	-((01h)^80h)
 	skipnc
-	goto	u1071
-	goto	u1070
-u1071:
-	goto	l7318
-u1070:
+	goto	u1031
+	goto	u1030
+u1031:
+	goto	l7528
+u1030:
 	goto	l1267
 	line	39
 	
-l7318:	
+l7528:	
 ;format.c: 39: putchar((char)buf[(int16_t)i - 1]);
 	movf	(format_number@i),w
 	addlw	0FFh
@@ -2688,10 +2922,10 @@ l7318:
 	fcall	fptable
 	line	38
 	
-l7320:	
+l7530:	
 	bcf	status, 5	;RP0=0, select bank0
 	decf	(format_number@i),f
-	goto	l7314
+	goto	l7524
 	line	41
 	
 l1267:	
@@ -2703,9 +2937,9 @@ GLOBAL	__end_of_format_number
 
 	signat	_format_number,16504
 	global	___lwmod
-psect	text646,local,class=CODE,delta=2
-global __ptext646
-__ptext646:
+psect	text496,local,class=CODE,delta=2
+global __ptext496
+__ptext496:
 
 ;; *************** function ___lwmod *****************
 ;; Defined at:
@@ -2738,7 +2972,7 @@ __ptext646:
 ;;		_display_print_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text646
+psect	text496
 	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lwmod.c"
 	line	5
 	global	__size_of___lwmod
@@ -2749,25 +2983,25 @@ ___lwmod:
 ; Regs used in ___lwmod: [wreg+status,2+status,0]
 	line	8
 	
-l7024:	
+l7196:	
 	movf	(___lwmod@divisor+1),w
 	iorwf	(___lwmod@divisor),w
 	skipnz
-	goto	u661
-	goto	u660
-u661:
-	goto	l7040
-u660:
+	goto	u641
+	goto	u640
+u641:
+	goto	l7212
+u640:
 	line	9
 	
-l7026:	
+l7198:	
 	clrf	(___lwmod@counter)
 	incf	(___lwmod@counter),f
 	line	10
-	goto	l7030
+	goto	l7202
 	line	11
 	
-l7028:	
+l7200:	
 	clrc
 	rlf	(___lwmod@divisor),f
 	rlf	(___lwmod@divisor+1),f
@@ -2775,32 +3009,32 @@ l7028:
 	incf	(___lwmod@counter),f
 	line	10
 	
-l7030:	
+l7202:	
 	btfss	(___lwmod@divisor+1),(15)&7
-	goto	u671
-	goto	u670
-u671:
-	goto	l7028
-u670:
+	goto	u651
+	goto	u650
+u651:
+	goto	l7200
+u650:
 	line	15
 	
-l7032:	
+l7204:	
 	movf	(___lwmod@divisor+1),w
 	subwf	(___lwmod@dividend+1),w
 	skipz
-	goto	u685
+	goto	u665
 	movf	(___lwmod@divisor),w
 	subwf	(___lwmod@dividend),w
-u685:
+u665:
 	skipc
-	goto	u681
-	goto	u680
-u681:
-	goto	l7036
-u680:
+	goto	u661
+	goto	u660
+u661:
+	goto	l7208
+u660:
 	line	16
 	
-l7034:	
+l7206:	
 	movf	(___lwmod@divisor),w
 	subwf	(___lwmod@dividend),f
 	movf	(___lwmod@divisor+1),w
@@ -2809,29 +3043,29 @@ l7034:
 	subwf	(___lwmod@dividend+1),f
 	line	17
 	
-l7036:	
+l7208:	
 	clrc
 	rrf	(___lwmod@divisor+1),f
 	rrf	(___lwmod@divisor),f
 	line	18
 	
-l7038:	
+l7210:	
 	decfsz	(___lwmod@counter),f
-	goto	u691
-	goto	u690
-u691:
-	goto	l7032
-u690:
+	goto	u671
+	goto	u670
+u671:
+	goto	l7204
+u670:
 	line	20
 	
-l7040:	
+l7212:	
 	movf	(___lwmod@dividend+1),w
 	movwf	(?___lwmod+1)
 	movf	(___lwmod@dividend),w
 	movwf	(?___lwmod)
 	line	21
 	
-l5864:	
+l5884:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwmod
@@ -2840,9 +3074,9 @@ GLOBAL	__end_of___lwmod
 
 	signat	___lwmod,8314
 	global	___lwdiv
-psect	text647,local,class=CODE,delta=2
-global __ptext647
-__ptext647:
+psect	text497,local,class=CODE,delta=2
+global __ptext497
+__ptext497:
 
 ;; *************** function ___lwdiv *****************
 ;; Defined at:
@@ -2876,7 +3110,7 @@ __ptext647:
 ;;		_display_print_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text647
+psect	text497
 	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\lwdiv.c"
 	line	5
 	global	__size_of___lwdiv
@@ -2887,30 +3121,30 @@ ___lwdiv:
 ; Regs used in ___lwdiv: [wreg+status,2+status,0]
 	line	9
 	
-l7258:	
+l7468:	
 	clrf	(___lwdiv@quotient)
 	clrf	(___lwdiv@quotient+1)
 	line	10
 	
-l7260:	
+l7470:	
 	movf	(___lwdiv@divisor+1),w
 	iorwf	(___lwdiv@divisor),w
 	skipnz
-	goto	u991
-	goto	u990
-u991:
-	goto	l7280
-u990:
+	goto	u951
+	goto	u950
+u951:
+	goto	l7490
+u950:
 	line	11
 	
-l7262:	
+l7472:	
 	clrf	(___lwdiv@counter)
 	incf	(___lwdiv@counter),f
 	line	12
-	goto	l7266
+	goto	l7476
 	line	13
 	
-l7264:	
+l7474:	
 	clrc
 	rlf	(___lwdiv@divisor),f
 	rlf	(___lwdiv@divisor+1),f
@@ -2918,38 +3152,38 @@ l7264:
 	incf	(___lwdiv@counter),f
 	line	12
 	
-l7266:	
+l7476:	
 	btfss	(___lwdiv@divisor+1),(15)&7
-	goto	u1001
-	goto	u1000
-u1001:
-	goto	l7264
-u1000:
+	goto	u961
+	goto	u960
+u961:
+	goto	l7474
+u960:
 	line	17
 	
-l7268:	
+l7478:	
 	clrc
 	rlf	(___lwdiv@quotient),f
 	rlf	(___lwdiv@quotient+1),f
 	line	18
 	
-l7270:	
+l7480:	
 	movf	(___lwdiv@divisor+1),w
 	subwf	(___lwdiv@dividend+1),w
 	skipz
-	goto	u1015
+	goto	u975
 	movf	(___lwdiv@divisor),w
 	subwf	(___lwdiv@dividend),w
-u1015:
+u975:
 	skipc
-	goto	u1011
-	goto	u1010
-u1011:
-	goto	l7276
-u1010:
+	goto	u971
+	goto	u970
+u971:
+	goto	l7486
+u970:
 	line	19
 	
-l7272:	
+l7482:	
 	movf	(___lwdiv@divisor),w
 	subwf	(___lwdiv@dividend),f
 	movf	(___lwdiv@divisor+1),w
@@ -2958,33 +3192,33 @@ l7272:
 	subwf	(___lwdiv@dividend+1),f
 	line	20
 	
-l7274:	
+l7484:	
 	bsf	(___lwdiv@quotient)+(0/8),(0)&7
 	line	22
 	
-l7276:	
+l7486:	
 	clrc
 	rrf	(___lwdiv@divisor+1),f
 	rrf	(___lwdiv@divisor),f
 	line	23
 	
-l7278:	
+l7488:	
 	decfsz	(___lwdiv@counter),f
-	goto	u1021
-	goto	u1020
-u1021:
-	goto	l7268
-u1020:
+	goto	u981
+	goto	u980
+u981:
+	goto	l7478
+u980:
 	line	25
 	
-l7280:	
+l7490:	
 	movf	(___lwdiv@quotient+1),w
 	movwf	(?___lwdiv+1)
 	movf	(___lwdiv@quotient),w
 	movwf	(?___lwdiv)
 	line	26
 	
-l5854:	
+l5874:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwdiv
@@ -2992,10 +3226,119 @@ GLOBAL	__end_of___lwdiv
 ;; =============== function ___lwdiv ends ============
 
 	signat	___lwdiv,8314
+	global	___wmul
+psect	text498,local,class=CODE,delta=2
+global __ptext498
+__ptext498:
+
+;; *************** function ___wmul *****************
+;; Defined at:
+;;		line 3 in file "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\wmul.c"
+;; Parameters:    Size  Location     Type
+;;  multiplier      2    3[COMMON] unsigned int 
+;;  multiplicand    2    5[COMMON] unsigned int 
+;; Auto vars:     Size  Location     Type
+;;  product         2    0[BANK0 ] unsigned int 
+;; Return value:  Size  Location     Type
+;;                  2    3[COMMON] unsigned int 
+;; Registers used:
+;;		wreg, status,2, status,0
+;; Tracked objects:
+;;		On entry : 60/0
+;;		On exit  : 60/0
+;;		Unchanged: FFF9F/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         4       0       0       0       0
+;;      Locals:         0       2       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         4       2       0       0       0
+;;Total ram usage:        6 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_lcd_putch
+;; This function uses a non-reentrant model
+;;
+psect	text498
+	file	"C:\Program Files (x86)\HI-TECH Software\PICC\9.83\sources\wmul.c"
+	line	3
+	global	__size_of___wmul
+	__size_of___wmul	equ	__end_of___wmul-___wmul
+	
+___wmul:	
+	opt	stack 4
+; Regs used in ___wmul: [wreg+status,2+status,0]
+	line	4
+	
+l7452:	
+	clrf	(___wmul@product)
+	clrf	(___wmul@product+1)
+	line	7
+	
+l7454:	
+	btfss	(___wmul@multiplier),(0)&7
+	goto	u931
+	goto	u930
+u931:
+	goto	l7458
+u930:
+	line	8
+	
+l7456:	
+	movf	(___wmul@multiplicand),w
+	addwf	(___wmul@product),f
+	skipnc
+	incf	(___wmul@product+1),f
+	movf	(___wmul@multiplicand+1),w
+	addwf	(___wmul@product+1),f
+	line	9
+	
+l7458:	
+	clrc
+	rlf	(___wmul@multiplicand),f
+	rlf	(___wmul@multiplicand+1),f
+	line	10
+	
+l7460:	
+	clrc
+	rrf	(___wmul@multiplier+1),f
+	rrf	(___wmul@multiplier),f
+	line	11
+	
+l7462:	
+	movf	((___wmul@multiplier+1)),w
+	iorwf	((___wmul@multiplier)),w
+	skipz
+	goto	u941
+	goto	u940
+u941:
+	goto	l7454
+u940:
+	line	12
+	
+l7464:	
+	movf	(___wmul@product+1),w
+	movwf	(?___wmul+1)
+	movf	(___wmul@product),w
+	movwf	(?___wmul)
+	line	13
+	
+l5864:	
+	return
+	opt stack 0
+GLOBAL	__end_of___wmul
+	__end_of___wmul:
+;; =============== function ___wmul ends ============
+
+	signat	___wmul,8314
+	global	_lcd_print
+	global	_lcd_set_cursor
 	global	_setup_timer0
-psect	text648,local,class=CODE,delta=2
-global __ptext648
-__ptext648:
+psect	text499,local,class=CODE,delta=2
+global __ptext499
+__ptext499:
 
 ;; *************** function _setup_timer0 *****************
 ;; Defined at:
@@ -3026,7 +3369,7 @@ __ptext648:
 ;;		_initialize
 ;; This function uses a non-reentrant model
 ;;
-psect	text648
+psect	text499
 	file	"../../../lib/timer.c"
 	line	8
 	global	__size_of_setup_timer0
@@ -3037,7 +3380,7 @@ _setup_timer0:
 ; Regs used in _setup_timer0: [wreg+status,2+status,0]
 	line	11
 	
-l6956:	
+l7112:	
 ;timer.c: 11: T0CS = 0;
 	bcf	(1037/8)^080h,(1037)&7
 	line	22
@@ -3045,13 +3388,13 @@ l6956:
 	bsf	(1035/8)^080h,(1035)&7
 	line	25
 	
-l6958:	
+l7114:	
 ;timer.c: 25: OPTION_REGbits.PS = 0 - 1;
 	movlw	(07h & ((1<<3)-1))<<0
 	iorwf	(129)^080h,f	;volatile
 	line	28
 	
-l3246:	
+l2546:	
 	return
 	opt stack 0
 GLOBAL	__end_of_setup_timer0
@@ -3060,9 +3403,9 @@ GLOBAL	__end_of_setup_timer0
 
 	signat	_setup_timer0,88
 	global	_ser_init
-psect	text649,local,class=CODE,delta=2
-global __ptext649
-__ptext649:
+psect	text500,local,class=CODE,delta=2
+global __ptext500
+__ptext500:
 
 ;; *************** function _ser_init *****************
 ;; Defined at:
@@ -3093,7 +3436,7 @@ __ptext649:
 ;;		_initialize
 ;; This function uses a non-reentrant model
 ;;
-psect	text649
+psect	text500
 	file	"../../../lib/ser.c"
 	line	119
 	global	__size_of_ser_init
@@ -3104,68 +3447,68 @@ _ser_init:
 ; Regs used in _ser_init: [wreg+status,2]
 	line	120
 	
-l6932:	
+l7088:	
 ;ser.c: 120: BRGH = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(1218/8)^080h,(1218)&7
 	line	125
 	
-l6934:	
+l7090:	
 ;ser.c: 125: SPBRG = ser_brg;
 	movlw	(01Fh)
 	movwf	(153)^080h	;volatile
 	line	128
 	
-l6936:	
+l7092:	
 ;ser.c: 128: TX9 = 0;
 	bcf	(1222/8)^080h,(1222)&7
 	line	129
 	
-l6938:	
+l7094:	
 ;ser.c: 129: RX9 = 0;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	(198/8),(198)&7
 	line	131
 	
-l6940:	
+l7096:	
 ;ser.c: 131: SYNC = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	(1220/8)^080h,(1220)&7
 	line	132
 	
-l6942:	
+l7098:	
 ;ser.c: 132: SPEN = 1;
 	bcf	status, 5	;RP0=0, select bank0
 	bsf	(199/8),(199)&7
 	line	133
 	
-l6944:	
+l7100:	
 ;ser.c: 133: CREN = 1;
 	bsf	(196/8),(196)&7
 	line	134
 	
-l6946:	
+l7102:	
 ;ser.c: 134: TXIE = 0;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	(1124/8)^080h,(1124)&7
 	line	135
 	
-l6948:	
+l7104:	
 ;ser.c: 135: RCIE = 1;
 	bsf	(1125/8)^080h,(1125)&7
 	line	136
 	
-l6950:	
+l7106:	
 ;ser.c: 136: TXEN = 1;
 	bsf	(1221/8)^080h,(1221)&7
 	line	137
 	
-l6952:	
+l7108:	
 ;ser.c: 137: PEIE = 1;
 	bsf	(94/8),(94)&7
 	line	139
 	
-l6954:	
+l7110:	
 ;ser.c: 139: rxiptr = rxoptr = txiptr = txoptr = 0;
 	clrf	(_txoptr)	;volatile
 	clrf	(_txiptr)	;volatile
@@ -3174,7 +3517,7 @@ l6954:
 	clrf	(_rxiptr)	;volatile
 	line	140
 	
-l2631:	
+l1931:	
 	return
 	opt stack 0
 GLOBAL	__end_of_ser_init
@@ -3183,9 +3526,9 @@ GLOBAL	__end_of_ser_init
 
 	signat	_ser_init,88
 	global	_ser_putch
-psect	text650,local,class=CODE,delta=2
-global __ptext650
-__ptext650:
+psect	text501,local,class=CODE,delta=2
+global __ptext501
+__ptext501:
 
 ;; *************** function _ser_putch *****************
 ;; Defined at:
@@ -3199,7 +3542,7 @@ __ptext650:
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 40/0
+;;		On entry : 60/0
 ;;		On exit  : 160/20
 ;;		Unchanged: FFE9F/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
@@ -3218,7 +3561,7 @@ __ptext650:
 ;;		_format_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text650
+psect	text501
 	file	"../../../lib/ser.c"
 	line	80
 	global	__size_of_ser_putch
@@ -3229,27 +3572,27 @@ _ser_putch:
 ; Regs used in _ser_putch: [wreg-fsr0h+status,2+status,0]
 	line	81
 	
-l6918:	
+l7074:	
 ;ser.c: 81: while(((txiptr + 1) & (16-1)) == txoptr)
 	
-l6920:	
+l7076:	
 	incf	(_txiptr),w	;volatile
 	andlw	0Fh
 	xorwf	(_txoptr),w	;volatile
 	skipnz
-	goto	u511
-	goto	u510
-u511:
-	goto	l6920
-u510:
+	goto	u471
+	goto	u470
+u471:
+	goto	l7076
+u470:
 	
-l2608:	
+l1908:	
 	line	83
 ;ser.c: 83: GIE = 0;
 	bcf	(95/8),(95)&7
 	line	84
 	
-l6922:	
+l7078:	
 ;ser.c: 84: txfifo[txiptr] = c;
 	movf	(_txiptr),w
 	addlw	_txfifo&0ffh
@@ -3259,27 +3602,27 @@ l6922:
 	movwf	indf
 	line	85
 	
-l6924:	
+l7080:	
 ;ser.c: 85: txiptr = (txiptr + 1) & (16-1);
 	incf	(_txiptr),f	;volatile
 	
-l6926:	
+l7082:	
 	movlw	(0Fh)
 	andwf	(_txiptr),f	;volatile
 	line	86
 	
-l6928:	
+l7084:	
 ;ser.c: 86: TXIE = 1;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(1124/8)^080h,(1124)&7
 	line	87
 	
-l6930:	
+l7086:	
 ;ser.c: 87: GIE = 1;
 	bsf	(95/8),(95)&7
 	line	88
 	
-l2609:	
+l1909:	
 	return
 	opt stack 0
 GLOBAL	__end_of_ser_putch
@@ -3287,151 +3630,10 @@ GLOBAL	__end_of_ser_putch
 ;; =============== function _ser_putch ends ============
 
 	signat	_ser_putch,4216
-	global	_lcd_init
-psect	text651,local,class=CODE,delta=2
-global __ptext651
-__ptext651:
-
-;; *************** function _lcd_init *****************
-;; Defined at:
-;;		line 510 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  fourbitmode     1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  fourbitmode     1    3[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0
-;; Tracked objects:
-;;		On entry : 60/20
-;;		On exit  : 60/20
-;;		Unchanged: FFF9F/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         3       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         3       0       0       0       0
-;;Total ram usage:        3 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_initialize
-;; This function uses a non-reentrant model
-;;
-psect	text651
-	file	"../../../lib/lcd44780.c"
-	line	510
-	global	__size_of_lcd_init
-	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
-	
-_lcd_init:	
-	opt	stack 5
-; Regs used in _lcd_init: [wreg+status,2+status,0]
-;lcd_init@fourbitmode stored from wreg
-	line	512
-	movwf	(lcd_init@fourbitmode)
-	
-l6888:	
-;lcd44780.c: 512: LCD_ctrl = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	clrf	(_LCD_ctrl)
-	line	513
-	
-l6890:	
-;lcd44780.c: 513: LCD_function = (fourbitmode ? 0x00 : 0x10);
-	movf	(lcd_init@fourbitmode),f
-	skipz
-	goto	u501
-	goto	u500
-u501:
-	goto	l6894
-u500:
-	
-l6892:	
-	movlw	010h
-	movwf	(_lcd_init$2694)
-	clrf	(_lcd_init$2694+1)
-	goto	l6896
-	
-l6894:	
-	clrf	(_lcd_init$2694)
-	clrf	(_lcd_init$2694+1)
-	
-l6896:	
-	movf	(_lcd_init$2694),w
-	movwf	(_LCD_function)
-	line	515
-	
-l6898:	
-;lcd44780.c: 515: LCD_lines = 0;
-	clrf	(_LCD_lines)
-	line	517
-	
-l6900:	
-;lcd44780.c: 517: LCD_mode = 0;
-	clrf	(_LCD_mode)
-	line	519
-	
-l6902:	
-;lcd44780.c: 519: TRISB2 = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1074/8)^080h,(1074)&7
-	line	520
-	
-l6904:	
-;lcd44780.c: 520: RB2 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(50/8),(50)&7
-	line	525
-	
-l6906:	
-;lcd44780.c: 525: TRISB3 = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1075/8)^080h,(1075)&7
-	line	526
-	
-l6908:	
-;lcd44780.c: 526: RB3 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(51/8),(51)&7
-	line	528
-	
-l6910:	
-;lcd44780.c: 528: TRISB4 = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1076/8)^080h,(1076)&7
-	line	529
-	
-l6912:	
-;lcd44780.c: 529: TRISB5 = 0;
-	bcf	(1077/8)^080h,(1077)&7
-	line	530
-	
-l6914:	
-;lcd44780.c: 530: TRISB6 = 0;
-	bcf	(1078/8)^080h,(1078)&7
-	line	531
-	
-l6916:	
-;lcd44780.c: 531: TRISB7 = 0;
-	bcf	(1079/8)^080h,(1079)&7
-	line	541
-	
-l1967:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_init
-	__end_of_lcd_init:
-;; =============== function _lcd_init ends ============
-
-	signat	_lcd_init,4216
 	global	_isr
-psect	text652,local,class=CODE,delta=2
-global __ptext652
-__ptext652:
+psect	text502,local,class=CODE,delta=2
+global __ptext502
+__ptext502:
 
 ;; *************** function _isr *****************
 ;; Defined at:
@@ -3441,7 +3643,7 @@ __ptext652:
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  2  5184[COMMON] int 
+;;                  2  4505[COMMON] int 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0
 ;; Tracked objects:
@@ -3461,14 +3663,14 @@ __ptext652:
 ;;		Interrupt level 1
 ;; This function uses a non-reentrant model
 ;;
-psect	text652
+psect	text502
 	file	"../../../src/LC-meter.c"
 	line	50
 	global	__size_of_isr
 	__size_of_isr	equ	__end_of_isr-_isr
 	
 _isr:	
-	opt	stack 1
+	opt	stack 3
 ; Regs used in _isr: [wreg-fsr0h+status,2+status,0]
 psect	intentry,class=CODE,delta=2
 global __pintentry
@@ -3485,20 +3687,20 @@ interrupt_function:
 	movf	pclath,w
 	movwf	(??_isr+2)
 	ljmp	_isr
-psect	text652
+psect	text502
 	line	62
 	
-i1l6960:	
+i1l7116:	
 ;LC-meter.c: 62: if(T0IF)
 	btfss	(90/8),(90)&7
-	goto	u52_21
-	goto	u52_20
-u52_21:
-	goto	i1l6972
-u52_20:
+	goto	u48_21
+	goto	u48_20
+u48_21:
+	goto	i1l7128
+u48_20:
 	line	66
 	
-i1l6962:	
+i1l7118:	
 ;LC-meter.c: 63: {
 ;LC-meter.c: 66: bres += 256;
 	movlw	(0100h >> 8)
@@ -3513,14 +3715,14 @@ i1l6962:
 	skipnz
 	subwf	(_bres),w	;volatile
 	skipc
-	goto	u53_21
-	goto	u53_20
-u53_21:
-	goto	i1l6970
-u53_20:
+	goto	u49_21
+	goto	u49_20
+u49_21:
+	goto	i1l7126
+u49_20:
 	line	69
 	
-i1l6964:	
+i1l7120:	
 ;LC-meter.c: 68: {
 ;LC-meter.c: 69: bres -= 5000;
 	movlw	low(01388h)
@@ -3531,63 +3733,63 @@ i1l6964:
 	subwf	(_bres+1),f	;volatile
 	line	70
 	
-i1l6966:	
+i1l7122:	
 ;LC-meter.c: 70: seconds++;
 	incf	(_seconds),f	;volatile
 	skipnz
 	incf	(_seconds+1),f	;volatile
 	line	72
 	
-i1l6968:	
+i1l7124:	
 	btfss	(_seconds),(0)&7	;volatile
-	goto	u54_21
-	goto	u54_20
+	goto	u50_21
+	goto	u50_20
 	
-u54_21:
+u50_21:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(59/8),(59)&7
-	goto	u55_24
-u54_20:
+	goto	u51_24
+u50_20:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(59/8),(59)&7
-u55_24:
+u51_24:
 	btfsc	(59/8),(59)&7
-	goto	u55_21
-	goto	u55_20
+	goto	u51_21
+	goto	u51_20
 	
-u55_21:
+u51_21:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bsf	(42/8),(42)&7
-	goto	u56_24
-u55_20:
+	goto	u52_24
+u51_20:
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(42/8),(42)&7
-u56_24:
+u52_24:
 	line	75
 	
-i1l6970:	
+i1l7126:	
 ;LC-meter.c: 73: }
 ;LC-meter.c: 75: T0IF = 0;
 	bcf	(90/8),(90)&7
 	line	95
 	
-i1l6972:	
+i1l7128:	
 ;LC-meter.c: 76: }
 ;LC-meter.c: 95: if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & (16-1); if (ser_tmp!=rxoptr) rxiptr=ser_tmp; } if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= (16-1); if (txoptr==txiptr) { TXIE = 0; } };
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	btfss	(101/8),(101)&7
-	goto	u57_21
-	goto	u57_20
-u57_21:
-	goto	i1l6984
-u57_20:
+	goto	u53_21
+	goto	u53_20
+u53_21:
+	goto	i1l7140
+u53_20:
 	
-i1l6974:	
+i1l7130:	
 	movf	(_rxiptr),w
 	addlw	_rxfifo&0ffh
 	movwf	fsr0
@@ -3595,46 +3797,46 @@ i1l6974:
 	bcf	status, 7	;select IRP bank1
 	movwf	indf
 	
-i1l6976:	
+i1l7132:	
 	incf	(_rxiptr),w	;volatile
 	movwf	(_ser_tmp)
 	
-i1l6978:	
+i1l7134:	
 	movlw	(0Fh)
 	andwf	(_ser_tmp),f
 	
-i1l6980:	
+i1l7136:	
 	movf	(_ser_tmp),w
 	xorwf	(_rxoptr),w	;volatile
 	skipnz
-	goto	u58_21
-	goto	u58_20
-u58_21:
-	goto	i1l6984
-u58_20:
+	goto	u54_21
+	goto	u54_20
+u54_21:
+	goto	i1l7140
+u54_20:
 	
-i1l6982:	
+i1l7138:	
 	movf	(_ser_tmp),w
 	movwf	(_rxiptr)	;volatile
 	
-i1l6984:	
+i1l7140:	
 	btfss	(100/8),(100)&7
-	goto	u59_21
-	goto	u59_20
-u59_21:
-	goto	i1l5193
-u59_20:
+	goto	u55_21
+	goto	u55_20
+u55_21:
+	goto	i1l4514
+u55_20:
 	
-i1l6986:	
+i1l7142:	
 	bsf	status, 5	;RP0=1, select bank1
 	btfss	(1124/8)^080h,(1124)&7
-	goto	u60_21
-	goto	u60_20
-u60_21:
-	goto	i1l5193
-u60_20:
+	goto	u56_21
+	goto	u56_20
+u56_21:
+	goto	i1l4514
+u56_20:
 	
-i1l6988:	
+i1l7144:	
 	movf	(_txoptr),w
 	addlw	_txfifo&0ffh
 	movwf	fsr0
@@ -3643,29 +3845,29 @@ i1l6988:
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(25)	;volatile
 	
-i1l6990:	
+i1l7146:	
 	incf	(_txoptr),f	;volatile
 	
-i1l6992:	
+i1l7148:	
 	movlw	(0Fh)
 	andwf	(_txoptr),f	;volatile
 	
-i1l6994:	
+i1l7150:	
 	movf	(_txoptr),w	;volatile
 	xorwf	(_txiptr),w	;volatile
 	skipz
-	goto	u61_21
-	goto	u61_20
-u61_21:
-	goto	i1l5193
-u61_20:
+	goto	u57_21
+	goto	u57_20
+u57_21:
+	goto	i1l4514
+u57_20:
 	
-i1l6996:	
+i1l7152:	
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	(1124/8)^080h,(1124)&7
 	line	97
 	
-i1l5193:	
+i1l4514:	
 	movf	(??_isr+2),w
 	movwf	pclath
 	movf	(??_isr+1),w
