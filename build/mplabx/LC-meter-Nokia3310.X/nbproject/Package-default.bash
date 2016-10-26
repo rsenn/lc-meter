@@ -12,7 +12,7 @@ TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
 OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter-Nokia3310.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 OUTPUT_BASENAME=LC-meter-Nokia3310.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=lc-meter-nokia3310.x/
+PACKAGE_TOP_DIR=lc-meter-Nokia3310.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/lc-meter-nokia3310.x/bin
+makeDirectory ${TMPDIR}/lc-meter-Nokia3310.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/lc-meter-nokia3310.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/lc-meter-Nokia3310.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lc-meter-nokia3310.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lc-meter-Nokia3310.x.tar *
 checkReturnCode
 
 # Cleanup
