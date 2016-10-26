@@ -109,8 +109,11 @@ main(void)
   initialize();
 
 #if USE_HD44780_LCD     || USE_NOKIA3310_LCD
-  lcd_set_cursor(0, 0);
-
+#if USE_NOKIA3310_LCD
+     lcd_gotoxy(0,0);
+#else
+      lcd_set_cursor(0, 0);
+#endif
   lcd_print("LC-meter");
 
 #endif
@@ -132,8 +135,11 @@ main(void)
     {
       bool led_value = 0;
 #if USE_HD44780_LCD    || USE_NOKIA3310_LCD
-
+#if USE_NOKIA3310_LCD
+     lcd_gotoxy(0,0);
+#else
       lcd_set_cursor(0, 1);
+#endif
       display_print_number(ccp1t[1] - ccp1t_lr, 16, -4);
       //    display_print_number(measure_freq(), 16, 4);
 #endif

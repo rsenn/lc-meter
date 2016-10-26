@@ -1,5 +1,19 @@
 #include "display.h"
 #include "LC-meter.h"
+#if USE_HD44780_LCD
+#include "lcd44780.h"
+#endif
+#if USE_NOKIA3310_LCD
+#include "lcd3310.h"
+#endif
+
+void
+lcd_print(const char *string) {
+  uint8_t i;
+  for(i = 0; string[i]; i++)
+    lcd_putch(string[i]);
+}
+
 
 #if USE_NOKIA3310_LCD
 #include "lcd3310.h"

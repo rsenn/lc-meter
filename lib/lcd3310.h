@@ -31,7 +31,7 @@ void lcd_init(void);
 void lcd_test(void);
 void lcd_clear(void);
 void lcd_gotoxy(uint8_t x, unsigned y);
-void lcd_putch(uint8_t c);
+void lcd_putch(char c);
 void lcd_puts(const char *s);
 void lcd_puts2(char *s);
 void lcd_clear_line(uint8_t y);

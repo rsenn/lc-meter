@@ -182,15 +182,6 @@ lcd_set_cursor(uint8_t col, uint8_t row) {
 }
 #endif
 
-/** Print a string on LCD */
-#ifdef LCDPRINT
-void
-lcd_print(const char *string) {
-  uint8_t i;
-  for(i = 0; string[i]; i++)
-    lcd_putch(string[i]);
-}
-#endif
 
 // -------------------------------------------------------------------------
 /** Write formated string on LCD **/
