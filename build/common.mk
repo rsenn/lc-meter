@@ -6,10 +6,10 @@ C_OFF = [0m
 
 
 ifneq ($(shell which picprog 2>/dev/null),)
-PICPROG = picprog
+PICPROG := picprog
 endif
 ifneq ($(shell which picpgm 2>/dev/null),)
-PICPGM = picpgm
+PICPGM := picpgm
 endif
 
 ifeq ($(BUILD_TYPE),)
@@ -40,7 +40,9 @@ program: #$(HEXFILE)
 ifneq ($(PICPGM),)
 	$(PICPGM) $(PICPGM_FLAGS) -p PIC$(chipu) -e -p $(HEXFILE)
 else
+ifneq ($(PICPROG),)
 	$(PICPROG) $(PICPROG_FLAGS) --device="pic$(CHIP)" --input-hexfile="$<" --erase --burn
+endif
 endif
 
 verify: #$(HEXFILE)
@@ -52,7 +54,9 @@ report:
 ifneq ($(PICPROG),)
 	$(PICPROG) $(PICPROG_FLAGS) --device="pic$(CHIP)" --input-hexfile="$<" --erase --burn
 else
-	picpgm $(PICPGM_FLAGS) -p PIC$(chipu) -blank -r
+ifneq ($(PICPGM),)
+	$(PICPGM) $(PICPGM_FLAGS) -p PIC$(chipu) -blank -r
+endif
 endif
 
 chip-header:

@@ -12,7 +12,9 @@
 #endif
 #include "display.h"
 #include "timer.h"
+#ifdef USE_UART
 #include "uart.h"
+#endif
 #if USE_SER
 #include "ser.h"
 #endif

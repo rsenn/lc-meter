@@ -1,0 +1,99 @@
+
+
+HI-TECH Software PIC Macro Assembler V9.83 build 10920 
+                                                                                                           Wed Oct 26 08:28:21 2016
+
+
+     1                           
+     2                           	; HI-TECH C Compiler for PIC10/12/16 MCUs V9.83
+     3                           	; Copyright (C) 1984-2011 HI-TECH Software
+     4                           	;Serial no. HCPICP-36668
+     5                           
+     6                           	; Auto-generated runtime startup code for final link stage.
+     7                           
+     8                           	;
+     9                           	; Compiler options:
+    10                           	;
+    11                           	; -odist/default/production/LC-meter-HD44780.X.production.cof \
+    12                           	; -mdist/default/production/LC-meter-HD44780.X.production.map \
+    13                           	; --summary=default,-psect,-class,+mem,-hex --chip=16F876A -P \
+    14                           	; --runtime=default,+clear,+init,+keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib
+                                  \
+    15                           	; --summary=default,-psect,-class,+mem,-hex \
+    16                           	; --opt=default,+asm,+asmfile,+speed,-space,-debug,9 \
+    17                           	; -D_XTAL_FREQ=20000000 -DUSE_TIMER_0=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 \
+    18                           	; -DUART_BAUD=38400 -P -N127 -I.. -I. -I../../../lib -I../../../src -v \
+    19                           	; --warn=3 --double=32 --float=24 --addrqual=ignore --mode=pro \
+    20                           	; --output=default,-inhx032 -g --asmlist --errformat=%f:%l: error: %s \
+    21                           	; --msgformat=%f:%l: advisory: %s --warnformat=%f:%l warning: %s \
+    22                           	; build/default/production/_ext/1386521430/delay.p1 \
+    23                           	; build/default/production/_ext/1386521430/format.p1 \
+    24                           	; build/default/production/_ext/1386521430/lcd44780.p1 \
+    25                           	; build/default/production/_ext/1386521430/ser.p1 \
+    26                           	; build/default/production/_ext/1386521430/timer.p1 \
+    27                           	; build/default/production/_ext/1386521430/uart.p1 \
+    28                           	; build/default/production/_ext/1386528437/display.p1 \
+    29                           	; build/default/production/_ext/1386528437/LC-meter.p1
+    30                           	;
+    31                           
+    32                           
+    33                           	processor	16F876A
+    34                           
+    35                           	global	_main,start,_exit,reset_vec
+    36                           	fnroot	_main
+    37                           	psect	config,class=CONFIG,delta=2
+    38                           	psect	idloc,class=IDLOC,delta=2
+    39                           	psect	code,class=CODE,delta=2
+    40                           	psect	powerup,class=CODE,delta=2
+    41                           	psect	reset_vec,class=CODE,delta=2
+    42                           	psect	maintext,class=CODE,delta=2
+    43  0000                     	C	set	0
+    44  0002                     	Z	set	2
+    45  0002                     	PCL	set	2
+    46  0000                     	INDF	set	0
+    47                           
+    48  0003                     	STATUS	equ	3
+    49  000A                     	PCLATH	equ	0Ah
+    50                           
+    51                           	psect	eeprom_data,class=EEDATA,delta=2,space=2
+    52                           	psect	intentry,class=CODE,delta=2
+    53                           	psect	functab,class=CODE,delta=2
+    54                           	global	intlevel0,intlevel1,intlevel2, intlevel3, intlevel4, intlevel5
+    55  0100                     intlevel0:
+    56  0100                     intlevel1:
+    57  0100                     intlevel2:
+    58  0100                     intlevel3:
+    59  0100                     intlevel4:
+    60  0100                     intlevel5:
+    61                           	psect	init,class=CODE,delta=2
+    62                           	psect	cinit,class=CODE,delta=2
+    63                           	psect	text,class=CODE,delta=2
+    64                           	psect	end_init,class=CODE,delta=2
+    65                           	psect	clrtext,class=CODE,delta=2
+    66  0004                     	FSR	set	4
+    67                           	psect	strings,class=CODE,delta=2,reloc=256
+    68                           
+    69                           	psect	reset_vec
+    70  0000                     reset_vec:
+    71                           	; No powerup routine
+    72                           	global start
+    73                           
+    74                           ; jump to start
+    75  0000  120A  118A  280E   	goto	start & 0x7FF | (reset_vec & not 0x7FF)
+    76                           
+    77                           
+    78                           
+    79                           	psect	init
+    80  000E                     start
+    81  000E                     _exit
+    82                           	psect	end_init
+    83                           	global start_initialization
+    84  000E  120A  118A  2C6D   	ljmp start_initialization	;jump to C runtime clear & initialization
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                               Wed Oct 26 08:28:21 2016
+
+               _main 03ED                 _exit 000E                 start 000E  start_initialization 046D  
+           intlevel0 0100             intlevel1 0100             intlevel2 0100             intlevel3 0100  
+           intlevel4 0100             intlevel5 0100             reset_vec 0000  
