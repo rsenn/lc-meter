@@ -1,8 +1,8 @@
+#include "interrupt.h"
 #include "LC-meter.h"
 #include "config-bits.h"
 //#include "main.h"
 #include "delay.h"
-#include "interrupt.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"

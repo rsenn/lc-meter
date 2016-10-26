@@ -37,7 +37,22 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define RELAY_TRIS()  TRISC5 = OUTPUT  //as output to drive the relay coil
 
 #define LED_PIN RC3
-#define LED_TRIS TRISC1 = TRISC3
+#define LED_TRIS TRISC3
+
+#define LED2_ANODE RC1
+#define LED2_ANODE_TRIS TRISC1
+
+
+#define INIT_LED() LED_TRIS=OUTPUT
+#define SET_LED(b) LED_PIN=((b)==0)
+
+#ifdef LED2_CATHODE
+#define SET_LED2(b) do { LED2_ANODE=(!!(b)) ? HIGH : LOW; LED2_CATHODE=(!!(b)) ? LOW : HIGH; } while(0)
+#define INIT_LED2() do { LED2_ANODE_TRIS=OUTPUT; LED2_CATHODE_TRIS=OUTPUT; } while(0)
+#else
+#define SET_LED2(b) do { LED2_ANODE=(!!(b))==0; } while(0)
+#define INIT_LED2() do { LED2_ANODE_TRIS=OUTPUT; } while(0)
+#endif
 
 
 //#define TMR0_PRESCALER PRESCALE_1_32
