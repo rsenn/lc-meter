@@ -123,12 +123,11 @@ Freq_meter_NOKIA3310_SOURCES = Freq-meter.c lcd3310.c display.c ser.c timer.c
 Freq_meter_NOKIA3310_DEFS += -DUSE_NOKIA3310_LCD=1
 Freq_meter_NOKIA3310_DEFS += $(TIMER_DEFS)
 
-serialtest_SOURCES = serialtest.c ser.c uart.c softser.c lcd44780.c timer.c
+serialtest_SOURCES = serialtest.c ser.c lcd44780.c timer.c
 ifeq ($(filter 10f%,$(chipl)),)
 serialtest_DEFS += -DUSE_TIMER_0=1 -DUSE_TIMER_1=1 -DUSE_SER=1
 endif
 ifeq ($(filter 10f% 12f%,$(chipl)),)
-serialtest_DEFS +=  -DUSE_HD44780_LCD=1 -DUSE_SOFTSER=1 -DSOFTSER_BAUD=38400
+serialtest_DEFS +=  -DUSE_HD44780_LCD=1 
 endif
-
-
+serialtest_DEFS += -DUART_BAUD=$(BAUD)
