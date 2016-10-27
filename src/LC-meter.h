@@ -47,11 +47,11 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define SET_LED(b) LED_PIN=((b)==0)
 
 #ifdef LED2_CATHODE
-#define SET_LED2(b) do { LED2_ANODE=(!!(b)) ? HIGH : LOW; LED2_CATHODE=(!!(b)) ? LOW : HIGH; } while(0)
-#define INIT_LED2() do { LED2_ANODE_TRIS=OUTPUT; LED2_CATHODE_TRIS=OUTPUT; } while(0)
+#define SET_LED2(b) { LED2_ANODE=(!!(b)) ? HIGH : LOW; LED2_CATHODE=(!!(b)) ? LOW : HIGH; }
+#define INIT_LED2() { LED2_ANODE_TRIS=OUTPUT; LED2_CATHODE_TRIS=OUTPUT; }
 #else
-#define SET_LED2(b) do { LED2_ANODE=(!!(b))==0; } while(0)
-#define INIT_LED2() do { LED2_ANODE_TRIS=OUTPUT; } while(0)
+#define SET_LED2(b) { LED2_ANODE=(!!(b))==0; }
+#define INIT_LED2() { LED2_ANODE_TRIS=OUTPUT; }
 #endif
 
 

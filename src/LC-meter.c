@@ -181,7 +181,7 @@ initialize() {
   lcd_begin(2, 1);
 #endif
 
-  //setup_timer0();
+  setup_timer0();
   OPTION_REGbits.PS = 0b000;
   T0CS = 0;
   TMR0 = 0;
