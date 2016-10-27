@@ -1,3 +1,7 @@
 {
-	"shell_cmd": "make"
+           "name": "MSYS64 build",
+            "env": { "MSYS_HOME": "c:/git-sdk-64/usr" },
+            "path": "c:/git-sdk-64/usr/bin:$path",
+            "shell": "${MSYS_HOME}/bin/sh.exe",
+            "cmd": ["make"]
 }

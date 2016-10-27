@@ -1,4 +1,34 @@
 {
+	"build_systems":
+	[
+		{
+			"cmd":
+			[
+				"make"
+			],
+			"env":
+			{
+				"MSYS_HOME": "c:/git-sdk-64/usr"
+			},
+			"name": "make all",
+			"path": "c:/git-sdk-64/usr/bin:$path",
+			"shell": "${MSYS_HOME}/bin/sh.exe"
+		},
+		{
+			"cmd":
+			[
+				"make",
+				"program"
+			],
+			"env":
+			{
+				"MSYS_HOME": "c:/git-sdk-64/usr"
+			},
+			"name": "make program",
+			"path": "c:/git-sdk-64/usr/bin:$path",
+			"shell": "${MSYS_HOME}/bin/sh.exe"
+		}
+	],
 	"folders":
 	[
 		{
@@ -9,7 +39,8 @@
 				"*.log",
 				".*",
 				"sed??????",
-				"*.list","?"
+				"*.list",
+				"?"
 			],
 			"folder_exclude_patterns":
 			[
@@ -21,15 +52,8 @@
 			"path": "."
 		}
 	],
-    "settings":
-    {
-        "tab_size": 4
-    },
-    "build_systems":
-    [
-        {
-            "name": "Makefile",
-            "cmd": ["make"]
-        }
-    ]
+	"settings":
+	{
+		"tab_size": 4
+	}
 }
