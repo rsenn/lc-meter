@@ -13,7 +13,7 @@
 			"name": "make all",
 			"path": "c:/git-sdk-64/usr/bin:$path",
 			"shell": "${MSYS_HOME}/bin/sh.exe",
-			    "working_dir": "${project_path:${folder}}",
+			"working_dir": "${project_path:${folder}}"
 		},
 		{
 			"cmd":
@@ -28,7 +28,7 @@
 			"name": "make program",
 			"path": "c:/git-sdk-64/usr/bin:$path",
 			"shell": "${MSYS_HOME}/bin/sh.exe",
-			    "working_dir": "${project_path:${folder}}",
+			"working_dir": "${project_path:${folder}}"
 		}
 	],
 	"folders":
@@ -56,6 +56,10 @@
 	],
 	"settings":
 	{
+		"auto_complete": true,
+		"index_files": true,
+		"show_definitions": true,
+		"tab_completion": true,
 		"tab_size": 4
 	}
 }
