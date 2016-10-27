@@ -2,6 +2,7 @@ COMPILER ?= htc
 DEBUG ?= 0
 
 -include build/vars.mk
+-include build/targets.mk
 
 ifeq ($(COMPILERS),)
 COMPILERS = htc xc8

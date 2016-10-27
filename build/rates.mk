@@ -9,6 +9,7 @@ BAUD_RATES = 9600 19200 31250 38400 57600
 endif
 
 -include build/vars.mk
+-include build/targets.mk
 ifeq ($(COMPILER),)
 	COMPILER = htc
 endif

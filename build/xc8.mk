@@ -6,6 +6,7 @@ VERSION_PATCH = 1
 COMPILER = xc8
 
 -include build/vars.mk
+-include build/targets.mk
 
 ifeq ($(PROGRAM),)
 PROGRAM := pictest
@@ -70,7 +71,7 @@ OPT = space
 
 #DEFINES += HI_TECH_C=1
 
-SOURCES = $($(subst -,_,$(PROGRAM))_SOURCES)
+SOURCES =  $(COMMON_SOURCES) $($(subst -,_,$(PROGRAM))_SOURCES)
 COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)

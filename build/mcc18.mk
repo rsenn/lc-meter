@@ -33,6 +33,7 @@ BUILDDIR = build/mcc18-$(chipl)/
 LD = $(CC)
 
 -include build/vars.mk
+-include build/targets.mk
 
 SOURCES = $($(PACKAGE)_SOURCES)
 OBJECTS = $(SOURCES:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.o)

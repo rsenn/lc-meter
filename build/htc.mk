@@ -9,6 +9,7 @@ VERSION_PATCH = 1
 COMPILER := htc
 
 -include build/vars.mk
+-include build/targets.mk
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
@@ -61,7 +62,7 @@ OPT = space
 
 #DEFINES += HI_TECH_C=1
 
-SOURCES := $($(subst -,_,$(PROGRAM))_SOURCES)
+SOURCES := $($(subst -,_,$(PROGRAM))_SOURCES) $(COMMON_SOURCES)
 COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS)
 DEPENDS := $(SOURCES:%.c=$(OBJDIR)%.dep)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)

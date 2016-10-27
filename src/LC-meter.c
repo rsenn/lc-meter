@@ -102,9 +102,9 @@ main() {
   for(int i = 0; i < 10; i++)
   {
     RC5 = HIGH;
-    __delay_ms(500);
+    delay_ms(500);
     RC5 = LOW;
-    __delay_ms(500);
+    delay_ms(500);
   }
 #endif
   PEIE = 1;
@@ -118,7 +118,7 @@ void
 loop() {
   static BOOL led = 0;
 
-  __delay_ms(100);
+  delay_ms(100);
 
    led = !led;
    RC1 = led;
@@ -224,7 +224,7 @@ measure_freq() {   //16-bit freq
   TMR0 = 0x00;
   TMR0IF = 0;    //clear timer0 interrupt flag
   TMR0IE = 1;
-  __delay_ms(1000);
+  delay_ms(1000);
   TRISA4 = 1;    //Disable RA4 output to T0CKI
   TMR0IE = 0;
   return(tmr0_overflow << 8) | TMR0;
@@ -245,7 +245,7 @@ measure_inductance() {
 /*void
 delay10ms(uint16_t period_10ms) {
   do {
-    __delay_ms(10);
+    delay_ms(10);
   }
   while(--period_10ms);
 }

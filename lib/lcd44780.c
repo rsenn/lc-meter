@@ -301,7 +301,7 @@ lcd_print_float(float number, uint8_t digits) {
 void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
-  __delay_ms(2);                  // Wait for more than 4.1 ms
+  delay_ms(2);                  // Wait for more than 4.1 ms
   //__delay_us(2000);
 }
 #endif
@@ -312,7 +312,7 @@ lcd_home() {
 void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
-  __delay_ms(2);                  // Wait for more than 4.1 ms
+  delay_ms(2);                  // Wait for more than 4.1 ms
   //__delay_us(2000);  // this command takes a long time! */
 }
 #endif
@@ -446,7 +446,7 @@ lcd_begin(uint8_t lines, uint8_t dotsize) {
   if((dotsize != 0) && (lines == 1))
     LCD_function |= LCD_5x10DOTS;
 
-  __delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
+  delay_ms(15);                // Wait more than 15 ms after VDD rises to 4.5V
 
   /* Now we pull both RS and R/W low to begin commands */
   RS_PIN = LOW;
@@ -458,7 +458,7 @@ lcd_begin(uint8_t lines, uint8_t dotsize) {
 
     /* we start in 8bit mode, try to set 4 bit mode */
     lcd_write4bits(0x03);
-    __delay_ms(5);                  // Wait for more than 4.1 ms
+    delay_ms(5);                  // Wait for more than 4.1 ms
     /* second try */
     lcd_write4bits(0x03);
     __delay_us(150);                // Wait more than 100 μs
@@ -474,11 +474,11 @@ lcd_begin(uint8_t lines, uint8_t dotsize) {
 
     /* Send function set command sequence */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
-    __delay_ms(5);                  // Wait for more than 4.1 ms
+    delay_ms(5);                  // Wait for more than 4.1 ms
 
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
-    __delay_ms(5);                  // Wait for more than 4.1 ms
+    delay_ms(5);                  // Wait for more than 4.1 ms
     //__delay_us(150);
 
     /* third go */
@@ -494,7 +494,7 @@ lcd_begin(uint8_t lines, uint8_t dotsize) {
 
   /* clear it off */
   lcd_command(LCD_CLEARDISPLAY);  // clear display, set cursor position to zero
-  __delay_ms(2);
+  delay_ms(2);
 
   /* Initialize to default text direction (for romance languages) */
   LCD_mode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;

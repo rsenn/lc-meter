@@ -9,6 +9,7 @@ datadir = ${prefix}/share
 COMPILER = sdcc
 
 -include build/vars.mk
+-include build/targets.mk
 
 ifneq ($(CHIP),$(CHIP:18%=%))
 target = pic16
@@ -33,6 +34,7 @@ CFLAGS += --opt-code-size
 #CFLAGS += --stack-auto
 
 -include build/vars.mk
+-include build/targets.mk
 
 ifneq ($(CHIP),$(CHIP:18%=%))
 
