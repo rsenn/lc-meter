@@ -207,6 +207,11 @@ initialize() {
   SET_LED(1);
   SET_LED2(1);
 
+#if USE_SOFTSER
+  softser_init();
+#endif
+  
+
   PEIE = 1;
   GIE = 1;
 }
