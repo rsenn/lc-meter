@@ -209,8 +209,9 @@ initialize() {
 
 #if USE_SOFTSER
   softser_init();
+   setup_timer1(PRESCALE_1_1);
 #endif
-  
+
 
   PEIE = 1;
   GIE = 1;
