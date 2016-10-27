@@ -122,6 +122,11 @@ loop() {
 
    led = !led;
    RC1 = led;
+
+
+#ifdef USE_SOFTSER
+  softser_puts("XXXX\r\n");
+#endif
  /* static uint16_t prev_seconds = 0xffff;
   
 #if USE_HD44780_LCD || USE_NOKIA3310_LCD
