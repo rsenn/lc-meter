@@ -35,7 +35,7 @@ MHZ := $(shell echo "$(XTAL) / 1000000" | bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s
 KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\..*||g")
 
 ifeq ($(PROGRAMS),)
-PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780
+PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780 serialtest
 endif
 ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
