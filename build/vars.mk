@@ -102,6 +102,10 @@ LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c ser.c format.c timer.c
 LC_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER_0=1
 #LC_meter_HD44780_DEFS += -DUSE_UART=1
 
+LC_meter_HD44780_SOURCES += softser.c
+LC_meter_HD44780_DEFS += -DUSE_SOFTSER=1 -DSOFTSER_BAUD=38400
+
+
 ifneq ($(BAUD),)
 LC_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 endif
