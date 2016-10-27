@@ -21,6 +21,11 @@
 #if USE_SER
 #include "ser.h"
 #endif
+
+#if USE_SOFTSER
+#include "softser.h"
+#endif
+
 #include "format.h"
 
 
