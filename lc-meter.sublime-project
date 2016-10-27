@@ -12,7 +12,8 @@
 			},
 			"name": "make all",
 			"path": "c:/git-sdk-64/usr/bin:$path",
-			"shell": "${MSYS_HOME}/bin/sh.exe"
+			"shell": "${MSYS_HOME}/bin/sh.exe",
+			    "working_dir": "${project_path:${folder}}",
 		},
 		{
 			"cmd":
@@ -26,7 +27,8 @@
 			},
 			"name": "make program",
 			"path": "c:/git-sdk-64/usr/bin:$path",
-			"shell": "${MSYS_HOME}/bin/sh.exe"
+			"shell": "${MSYS_HOME}/bin/sh.exe",
+			    "working_dir": "${project_path:${folder}}",
 		}
 	],
 	"folders":
