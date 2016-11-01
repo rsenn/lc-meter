@@ -51,6 +51,8 @@ void softser_init(void) {
 //  PS0 = 0;  PS1 = 1; PS2 = 0; // prescaler 1:4
   //T0PS = SOFTSER_PS;
 
+  timer ## SOFTSER_TIMER ## _init(PRESCALE_1_1);
+
   SOFTSER_IN_TRIS = INPUT;
   SOFTSER_OUT_TRIS = OUTPUT;
   SOFTSER_OUTB(LOW);

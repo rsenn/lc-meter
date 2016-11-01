@@ -37,17 +37,14 @@
 // to PC serial port using just 2 resistors.
 #define SOFTSER_INVERT 1
 
-#define SOFTSER_OUT_PIN  RB0          // pin for serial out
-#define SOFTSER_OUT_TRIS TRISB0
+#define SOFTSER_IN_PIN  RB0          // pin for serial out
+#define SOFTSER_IN_TRIS TRISB0
 
-#define SOFTSER_IN_PIN   RB1          // pin for serial input
-#define SOFTSER_IN_TRIS  TRISB1
+#define SOFTSER_OUT_PIN   RB1          // pin for serial input
+#define SOFTSER_OUT_TRIS  TRISB1
 
 #ifndef SOFTSER_BAUD
 #define SOFTSER_BAUD UART_BAUD //31250
-#endif
-#ifndef SOFTSER_TMR
-#define SOFTSER_TMR TMR1L
 #endif
 
 //#define SOFTSER_BRG 0x33            // TMR1 (1Mhz/2/19200 baud) = 52
@@ -108,6 +105,13 @@
 //#define SOFTSER_BRG 0x20            // TMR1 (5Mhz/16/9600 baud) = 33
 */
 
+#if SOFTSER_TIMER == 0
+#define SOFTSER_TMR TMR0
+#elif SOFTSER_TIMER == 1
+#define SOFTSER_TMR TMR1L
+#elif SOFTSER_TIMER == 2
+#define SOFTSER_TMR TMR2
+#endif
 
 
 #define SOFTSER_BRG_FN(baud) ((OSC_4/(1<<(SOFTSER_PS+1))/(baud)) + 1)
@@ -117,6 +121,11 @@
 #define SOFTSER_PS 0
 #define SOFTSER_BRG SOFTSER_BRG_FN(SOFTSER_BAUD)
 #endif
+
+#ifndef SOFTSER_TMR
+#define SOFTSER_TMR TMR1L
+#endif
+
 
 //#define SOFTSER_BRG ((OSC_4/(1<<(SOFTSER_PS+1))/SOFTSER_BAUD) - 1)
 

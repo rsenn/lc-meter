@@ -72,13 +72,13 @@ INTERRUPT_HANDLER()
       seconds++;  // update clock, etc
       msecs -= 1000;
 
-          SET_LED2(seconds&1);
+      SET_LED2(seconds&1);
 
     }
 
     //TMR1H = 0xff;
     
-  
+    
     // Clear timer interrupt bit
     T0IF = 0;
   }
@@ -120,8 +120,8 @@ loop() {
 
   delay_ms(100);
 
-   led = !led;
-   RC1 = led;
+  led = !led;
+  RC1 = led;
 
 
 #ifdef USE_SOFTSER
@@ -160,17 +160,17 @@ setup_ccp1() {
 
 void
 initialize() {
-   bres = msecs = seconds  = 0;
+ bres = msecs = seconds  = 0;
 
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
   /*CMCONbits.*/CM1 = 0;
   /*CMCONbits.*/CM2 = 1;
 
-  TRISA = 0b11001111;
+ TRISA = 0b11001111;
 
   //others
-  LC_TRIS();
+ LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
 
 #if USE_SER
@@ -209,7 +209,7 @@ initialize() {
 
 #if USE_SOFTSER
   softser_init();
-   setup_timer1(PRESCALE_1_1);
+  setup_timer1(PRESCALE_1_1);
 #endif
 
 

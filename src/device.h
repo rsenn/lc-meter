@@ -150,7 +150,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define OERR OERR1
 #define SYNC SYNC1
 
-#define SSPEN SSPEN1
+//#define SSPEN SSPEN1
 #endif
 
 #if defined(PIC18) || defined(PIC12)
