@@ -8,6 +8,8 @@
 #include "softser.h"
 #include "delay.h"
 #include "lcd44780.h"
+#include "format.h"
+#include "display.h"
 #include <ctype.h>
 
 #include "config-bits.h"
