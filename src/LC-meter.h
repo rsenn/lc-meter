@@ -6,7 +6,7 @@
 
 #ifdef HI_TECH_C
 # include <htc.h>  // Required to interface with delay routines
-# include <pic.h>
+//# include <pic.h>
 #ifndef nRBPU
 volatile unsigned char           OPTION_REG          @ 0x081;
 
