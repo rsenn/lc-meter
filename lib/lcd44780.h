@@ -62,7 +62,7 @@ void lcd_clear();
 void lcd_home();
 void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
 void lcd_print_float(float number, uint8_t digits);
-void lcd_print(const char *string);
+//void lcd_print(const char *string);
 //void lcd_printf(const char *fmt, ...);
 void lcd_set_cursor(uint8_t col, uint8_t row);
 void lcd_putch(char value);

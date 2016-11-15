@@ -183,7 +183,7 @@ lcd_set_cursor(uint8_t col, uint8_t row) {
 #endif
 
 /** Print a string on LCD */
-#ifdef LCDPRINT
+#if 0 //def LCDPRINT
 void
 lcd_print(const char *string) {
   uint8_t i;

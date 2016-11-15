@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="10" altunitdist="mil" altunit="inch"/>
+<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -106,10 +106,10 @@
 <wire x1="1.27" y1="8.89" x2="1.27" y2="-1.27" width="0.127" layer="22"/>
 <text x="0.6985" y="-0.635" size="0.3048" layer="23" rot="R270">17</text>
 <text x="-1.651" y="-1.016" size="0.6096" layer="27" rot="R90">&gt;VALUE</text>
-<text x="1.778" y="0" size="0.6096" layer="21" font="fixed" align="center-left">TX</text>
-<text x="1.778" y="2.54" size="0.6096" layer="21" font="fixed" align="center-left">RX</text>
-<text x="1.778" y="5.08" size="0.6096" layer="21" font="fixed" align="center-left">VSS</text>
-<text x="1.778" y="7.62" size="0.6096" layer="21" font="fixed" align="center-left">VDD</text>
+<text x="1.905" y="0" size="0.6096" layer="21" font="vector" rot="R90" align="center">TX</text>
+<text x="1.905" y="2.54" size="0.6096" layer="21" font="vector" rot="R90" align="center">RX</text>
+<text x="1.905" y="5.08" size="0.6096" layer="21" font="vector" rot="R90" align="center">VSS</text>
+<text x="1.905" y="7.62" size="0.6096" layer="21" font="vector" rot="R90" align="center">VDD</text>
 <text x="-2.54" y="-1.016" size="0.8128" layer="25" rot="R270" align="top-right">&gt;NAME</text>
 </package>
 <package name="PIC-UART-NOVDD">
