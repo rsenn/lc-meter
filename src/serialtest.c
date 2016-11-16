@@ -165,11 +165,11 @@ int main()
 #endif
 
 
-  INIT_LED();
-  INIT_LED2();
 #if !NO_PORTC
   TRISC &= ~0b1100;
 #endif
+  INIT_LED();
+  INIT_LED2();
   SET_LED(1);
   SET_LED2(1);
 
