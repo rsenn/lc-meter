@@ -29,7 +29,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #define C_CAL          1000    //pF
 #define GATE_PERIOD   100      //ms
-#define PI            3.14159
+#define PI            3.14159265358979323846l
 #define LC_SELECT     RC4      //L or C select (from DPDT switch)
 #define LC_TRIS()     TRISC4 = INPUT  //as input
 #define ADD_CCAL()    RC5 = HIGH    //relay on
@@ -39,22 +39,22 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define LED_PIN RC3
 #define LED_TRIS TRISC3
 
-#define LED2_ANODE RC1
+/*#define LED2_ANODE RC1
 #define LED2_ANODE_TRIS TRISC1
-
+*/
 
 #define INIT_LED() LED_TRIS=OUTPUT
 #define SET_LED(b) LED_PIN=((b)==0)
-
-#ifdef LED2_CATHODE
-#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH
-#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT,LED2_CATHODE_TRIS=OUTPUT
+/*
+//#ifdef LED2_CATHODE
+//#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH
+//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT,LED2_CATHODE_TRIS=OUTPUT
 #else
-#define SET_LED2(b) LED2_ANODE=(!!(b))==0
-#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT
+//#define SET_LED2(b) LED2_ANODE=(!!(b))==0
+//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT
 #endif
 
-
+*/
 //#define TMR0_PRESCALER PRESCALE_1_32
 
 

@@ -66,7 +66,7 @@ extern volatile uint16_t tmr1_overflow;
 #define TMR1_INTERRUPT_FLAG TMR1IF
 #define TMR1_INTERRUPT_ENABLE TMR1IE
 
-void setup_timer1(uint8_t ps);
+void setup_timer1(uint8_t ps, BOOL extclk);
 #endif // USE_TIMER_1
 
 /* ----------------------- Timer 2 ----------------------- */

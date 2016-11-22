@@ -69,7 +69,7 @@ INTERRUPT_HANDLER()
       seconds++;  // update clock, etc
       msecpart -= 1000;
 
-      SET_LED2(seconds&1);
+////      SET_LED2(seconds&1);
 
     }
 
@@ -141,7 +141,13 @@ void loop() {
   lcd_print("      ");
   lcd_set_cursor(10, 0);
 #endif
-  format_number(lcd_putch, s, 10, 0);
+  format_number(lcd_putch, s, 10, 5);
+
+  lcd_set_cursor(10, 1);
+  lcd_print("      ");
+  lcd_set_cursor(10, 1);
+  format_number(lcd_putch, TMR1, 10, 5);
+
 //    display_print_number(measure_freq(), 16, 4);
 #endif
   if (s != prev_seconds) {
@@ -181,10 +187,8 @@ initialize() {
  LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
 
-
   RELAY_TRIS();
 //  ADD_CCAL();
-
 
   SSPEN = 0;
 
@@ -219,10 +223,8 @@ initialize() {
   TRISC &= ~0b1100;
 #endif
   INIT_LED();
-  INIT_LED2();
 
   SET_LED(1);
-  SET_LED2(1);
 
 
 

@@ -40,14 +40,15 @@ void setup_timer0(uint8_t prescaler)
 #if USE_TIMER_1
 volatile uint16_t tmr1_overflow;
 
-void
-setup_timer1(uint8_t ps)
+void setup_timer1(uint8_t ps, BOOL extclk)
 {
 
   tmr1_overflow = 0;
 
   T1CONbits.T1CKPS = ps; // 1:1 prescaler
-  TMR1CS = 0; // Internal clock source
+  TMR1CS = extclk; // Internal clock source
+
+
   T1OSCEN = 0;
   //  T1CONbits.T1SYNC = 1;
 
