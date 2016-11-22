@@ -4,15 +4,16 @@
 #include "typedef.h"
 #include "device.h"
 
-#define PRESCALE_1_1  0
-#define PRESCALE_1_2  0b001
-#define PRESCALE_1_4  0b010
-#define PRESCALE_1_8  0b011
-#define PRESCALE_1_16 0b100
-#define PRESCALE_1_32 0b101
-#define PRESCALE_1_64 0b110
-#define PRESCALE_1_128 0b111
-#define PRESCALE_MASK 0b111
+#define PRESCALE_1_1    0b000
+#define PRESCALE_1_2    0b001
+#define PRESCALE_1_4    0b010
+#define PRESCALE_1_8    0b011
+#define PRESCALE_1_16   0b100
+#define PRESCALE_1_32   0b101
+#define PRESCALE_1_64   0b110
+#define PRESCALE_1_128  0b111
+#define PRESCALE_1_256 0b1000
+#define PRESCALE_MASK 0b1111
 
 #define POSTSCALE_1_1   0
 #define POSTSCALE_1_2   1
@@ -44,6 +45,7 @@
 #define TIMER0_INTERRUPT_ENABLE T0IE
 
 #define TIMER0_FLAGS_INTR   0x80
+#define TIMER0_FLAGS_EXTCLK 0x40
 
 #define TIMER0_VALUE TMR0
 #define TIMER0_BITS 8
