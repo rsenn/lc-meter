@@ -5,25 +5,25 @@
 #include "delay.h"
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+# include "lcd44780.h"
 #endif
 
 #if USE_NOKIA3310_LCD
-#include "lcd3310.h"
+# include "lcd3310.h"
 #endif
 
 #include "timer.h"
 
 #ifdef USE_UART
-#include "uart.h"
+# include "uart.h"
 #endif
 
 #if USE_SER
-#include "ser.h"
+# include "ser.h"
 #endif
 
 #if USE_SOFTSER
-#include "softser.h"
+# include "softser.h"
 #endif
 
 #include "display.h"
@@ -31,55 +31,53 @@
 
 
 #ifdef SDCC
-uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
+uint16_t
+__at (_CONFIG)
+  __configword = CONFIG_WORD;
 #endif
 
 #define CCP1_EDGE() (CCP1M0)
 
-
 volatile uint16_t bres;
-volatile  uint16_t msecpart;
-volatile  uint32_t seconds, msecs;
+volatile uint16_t msecpart;
+volatile uint32_t seconds, msecs;
 
-//volatile uint32_t ccp1t_lr, ccp1t[2];
+// volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
 
 void initialize();
 void loop();
 
-void
-put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/);
+void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
+                int8_t pad /*, int8_t pointpos */);
 
-INTERRUPT_HANDLER()
-{
+INTERRUPT_HANDLER() {
 
-  if(T0IF) {
+  if (T0IF) {
 
     bres += 256;
 
-    if(bres >= 5000) {
+    if (bres >= 5000) {
       bres -= 5000;
       msecpart++;
       msecs++;
 
       SET_LED(msecpart < 500);
     }
-    if(msecpart >= 1000) { // if reached 1 second!
-      seconds++;  // update clock, etc
+    if (msecpart >= 1000) { // if reached 1 second!
+      seconds++;            // update clock, etc
       msecpart -= 1000;
 
-////      SET_LED2(seconds&1);
-
+      ////      SET_LED2(seconds&1);
     }
 
-    //TMR1H = 0xff;
-    
-    
+    // TMR1H = 0xff;
+
     // Clear timer interrupt bit
     T0IF = 0;
   }
-  #ifdef USE_SER
+#ifdef USE_SER
   ser_int();
 #endif
 #if USE_UART
@@ -87,33 +85,32 @@ INTERRUPT_HANDLER()
 #endif
 }
 
-void
-main() {
+void main() {
   initialize();
 
-#if USE_HD44780_LCD     || USE_NOKIA3310_LCD
-#if USE_NOKIA3310_LCD
-  lcd_gotoxy(0,0);
-#else
+#if USE_HD44780_LCD || USE_NOKIA3310_LCD
+# if USE_NOKIA3310_LCD
+  lcd_gotoxy(0, 0);
+# else
   lcd_set_cursor(0, 0);
-#endif
+# endif
   lcd_print("LC-meter");
 #endif
 
 #if 0
-  RELAY_TRIS();
-  for(int i = 0; i < 10; i++)
-  {
-    RC5 = HIGH;
-    delay_ms(500);
-    RC5 = LOW;
-    delay_ms(500);
-  }
+  RELAY_TRIS ();
+  for (int i = 0; i < 10; i++)
+    {
+      RC5 = HIGH;
+      delay_ms (500);
+      RC5 = LOW;
+      delay_ms (500);
+    }
 #endif
   PEIE = 1;
   GIE = 1;
 
-  for(;;)
+  for (;;)
     loop();
 }
 
@@ -159,7 +156,6 @@ void loop() {
 
     prev_seconds = s;
   }
-  
 }
 
 /*
@@ -172,35 +168,34 @@ setup_ccp1() {
   CCP1IF = 0;
 }*/
 
-void
-initialize() {
- bres = msecpart = msecs = seconds  = 0;
+void initialize() {
+  bres = msecpart = msecs = seconds = 0;
 
-  //setup comparator
-  /*CMCONbits.*/CM0 = 1;
-  /*CMCONbits.*/CM1 = 0;
-  /*CMCONbits.*/CM2 = 1;
+  // setup comparator
+  /*CMCONbits. */ CM0 = 1;
+  /*CMCONbits. */ CM1 = 0;
+  /*CMCONbits. */ CM2 = 1;
 
- TRISA = 0b11001111;
+  TRISA = 0b11001111;
 
-  //others
- LC_TRIS();
-  NOT_RBPU = 1;  // enable portB internal pullup
+  // others
+  LC_TRIS();
+  NOT_RBPU = 1; // enable portB internal pullup
 
   RELAY_TRIS();
-//  ADD_CCAL();
+  //  ADD_CCAL();
 
   SSPEN = 0;
 
   setup_timer0(PRESCALE_1_1);
   /*
-  OPTION_REGbits.PS = 0b000;
-  T0CS = 0;*/
+     OPTION_REGbits.PS = 0b000;
+     T0CS = 0; */
   TMR0 = 0;
   T0IE = 1;
   T0IF = 0;
 
-  #if USE_SOFTSER
+#if USE_SOFTSER
   softser_init();
   setup_timer1(PRESCALE_1_1);
 #endif
@@ -208,7 +203,7 @@ initialize() {
   ser_init();
 #endif
 
-  //initialize 3310 lcd
+// initialize 3310 lcd
 #if USE_NOKIA3310_LCD
   lcd_init();
   lcd_clear();
@@ -217,8 +212,6 @@ initialize() {
   lcd_begin(2, 1);
 #endif
 
-
-
 #if !NO_PORTC
   TRISC &= ~0b1100;
 #endif
@@ -226,14 +219,12 @@ initialize() {
 
   SET_LED(1);
 
-
-
   PEIE = 1;
   GIE = 1;
 }
 
 /*uint16_t
-measure_freq() {   //16-bit freq 
+measure_freq() {   //16-bit freq
   TRISA4 = 0;    //Enable RA4 output to T0CKI
   tmr0_overflow = 0;
   TMR0 = 0x00;
@@ -245,17 +236,11 @@ measure_freq() {   //16-bit freq
   return(tmr0_overflow << 8) | TMR0;
 }
 */
-void
-calibrate() {
-}
+void calibrate() {}
 
-void
-measure_capacitance() {
-}
+void measure_capacitance() {}
 
-void
-measure_inductance() {
-}
+void measure_inductance() {}
 
 void delay10ms(uint16_t period_10ms) {
   uint32_t ms = period_10ms * 10;
