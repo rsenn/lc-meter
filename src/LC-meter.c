@@ -26,6 +26,7 @@
 #include "softser.h"
 #endif
 
+#include "display.h"
 #include "format.h"
 
 

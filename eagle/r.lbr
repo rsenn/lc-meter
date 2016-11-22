@@ -510,15 +510,15 @@
 <rectangle x1="-1.651" y1="-0.127" x2="-1.27" y2="0.127" layer="21"/>
 </package>
 <package name="0202/2V">
-<pad name="1" x="0" y="-1.27" drill="0.8" rot="R90"/>
-<pad name="2" x="0" y="1.27" drill="0.8" rot="R90"/>
-<text x="-0.254" y="0.508" size="1.016" layer="25" ratio="10" rot="R180">&gt;NAME</text>
-<text x="0.254" y="-0.508" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
-<circle x="0" y="-0.762" radius="0.762" width="0.127" layer="21"/>
-<wire x1="0" y1="-0.762" x2="0" y2="1.27" width="0.254" layer="51"/>
-<wire x1="0" y1="-0.127" x2="0" y2="0.127" width="0.254" layer="21"/>
-<circle x="0" y="-0.762" radius="0.5588" width="0.1524" layer="51"/>
-<circle x="0" y="-0.762" radius="0.6858" width="0.0508" layer="51"/>
+<pad name="1" x="-1.27" y="0" drill="0.8"/>
+<pad name="2" x="1.27" y="0" drill="0.8"/>
+<text x="0" y="1.016" size="0.8128" layer="25" ratio="10" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.016" size="0.8128" layer="27" ratio="10" align="top-center">&gt;VALUE</text>
+<circle x="-0.762" y="0" radius="0.762" width="0.127" layer="21"/>
+<wire x1="-0.762" y1="0" x2="1.27" y2="0" width="0.254" layer="51"/>
+<wire x1="-0.127" y1="0" x2="0.127" y2="0" width="0.254" layer="21"/>
+<circle x="-0.762" y="0" radius="0.5588" width="0.1524" layer="51"/>
+<circle x="-0.762" y="0" radius="0.6858" width="0.0508" layer="51"/>
 </package>
 <package name="0202/10">
 <wire x1="-1.27" y1="0.381" x2="-1.016" y2="0.635" width="0.1524" layer="21" curve="-90"/>
