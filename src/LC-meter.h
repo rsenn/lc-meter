@@ -55,7 +55,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #endif
 
 */
-//#define TMR0_PRESCALER PRESCALE_1_32
+//#define TIMER0_PRESCALER PRESCALE_1_32
 
 
 uint16_t measure_freq(void);

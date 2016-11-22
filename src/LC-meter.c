@@ -143,7 +143,7 @@ void loop() {
   lcd_set_cursor(10, 1);
   lcd_print("      ");
   lcd_set_cursor(10, 1);
-  format_number(lcd_putch, get_timer1, 10, 5);
+  format_number(lcd_putch, TIMER1_VALUE, 10, 5);
 
 //    display_print_number(measure_freq(), 16, 4);
 #endif
@@ -187,7 +187,7 @@ void initialize() {
 
   SSPEN = 0;
 
-  setup_timer0(PRESCALE_1_1);
+  timer0_init(PRESCALE_1_1);
   /*
      OPTION_REGbits.PS = 0b000;
      T0CS = 0; */
@@ -195,11 +195,11 @@ void initialize() {
   T0IE = 1;
   T0IF = 0;
 
-  setup_timer1(PRESCALE_1_1 | TMR1_FLAGS_EXTCLK);
+  timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
 /*
 #if USE_SOFTSER
   softser_init();
-  setup_timer1(PRESCALE_1_1);
+  timer1_init(PRESCALE_1_1);
 #endif*/
 #if USE_SER
   ser_init();

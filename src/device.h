@@ -130,7 +130,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #endif
 
 #if !defined(__10f206)
-#define HAVE_TIMER_0 1
+#define HAVE_TIMER0 1
 #endif
 
 #if HAVE_COMPARATOR && defined(__18f25k50)

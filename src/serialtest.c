@@ -84,7 +84,7 @@ INTERRUPT_HANDLER() {
 
 void flash_busy_led(uint16_t duration) {
   // LED_PIN = LOW;
-  // setup_timer1(1, duration);
+  // timer1_init(1, duration);
 }
 
 //#ifdef USE_HD44780_LCD
@@ -135,10 +135,10 @@ int main() {
   RA3 = RA5 = 1;
 
   //  TMR1 = 0xff00;
-  setup_timer0(PRESCALE_1_1);
+  timer0_init(PRESCALE_1_1);
   T0IF = 0;
   T0IE = 1;
-  setup_timer1(PRESCALE_1_1);
+  timer1_init(PRESCALE_1_1);
   TMR1IF = 0;
   TMR1IE = 1;
 

@@ -53,11 +53,11 @@ void softser_init(void) {
   //T0PS = SOFTSER_PS;
 
 #if SOFTSER_TIMER == 0
-  setup_timer0(PRESCALE_1_1);
+  timer0_init(PRESCALE_1_1);
 #elif SOFTSER_TIMER == 1
-  setup_timer1(PRESCALE_1_1);
+  timer1_init(PRESCALE_1_1);
 #elif SOFTSER_TIMER == 2
-  setup_timer2(PRESCALE_1_1);
+  timer2_init(PRESCALE_1_1);
 #else
   #warning No timer setup for soft serial!
 #endif  

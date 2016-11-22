@@ -6,7 +6,7 @@
 #if USE_SOFTPWM
 
 #define SOFTPWM_EVAL(x) x
-#define SOFTPWM_TIMER_SETUP setup_timer1
+#define SOFTPWM_TIMER_SETUP timer1_init
 
 uint8_t volatile softpwm_counter;
 uint8_t volatile softpwm_values[SOFTPWM_PIN_COUNT];

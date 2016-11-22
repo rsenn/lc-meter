@@ -57,7 +57,7 @@ INTERRUPT() {
   }
 }
 
-void setup_timer1() {
+void timer1_init() {
 
   T1SYNC = 0;
 
@@ -170,7 +170,7 @@ void initialize(void) {
   lc_tris();
   relay_tris();
 
-  setup_timer1();
+  timer1_init();
   setup_ccp1();
 
   NOT_RBPU = 1; // enable portB internal pullup
