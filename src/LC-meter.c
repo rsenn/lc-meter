@@ -117,40 +117,45 @@ main() {
     loop();
 }
 
-void
-loop() {
+void loop() {
   static BOOL led = 0;
+  static uint32_t prev_seconds = 0;
+  uint32_t s;
 
   delay10ms(10);
 
-  led = !led;
-  RC1 = led;
-
+  GIE = 0;
+  s = seconds;
+  GIE = 1;
 
 #ifdef USE_SOFTSER
   softser_puts("XXXX\r\n");
 #endif
- /* static uint16_t prev_seconds = 0xffff;
-  
+/* static uint16_t prev_seconds = 0xffff;
+ */
 #if USE_HD44780_LCD || USE_NOKIA3310_LCD
 #if USE_NOKIA3310_LCD
-  lcd_gotoxy(0,0);
+  lcd_gotoxy(0, 0);
 #else
-  lcd_set_cursor(0, 1);
+  lcd_set_cursor(8, 0);
+  lcd_print("     ");
+  lcd_set_cursor(8, 0);
 #endif
-  format_number(lcd_putch, seconds, 10, 0);
-  //    display_print_number(measure_freq(), 16, 4);
+  format_number(lcd_putch, s, 10, 0);
+//    display_print_number(measure_freq(), 16, 4);
 #endif
-  if(seconds != prev_seconds) {
+  if (s != prev_seconds) {
 #if USE_SER
-    format_number(ser_putch, seconds, 10, 0);
-    //ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
+    format_number(ser_putch, s, 10, 0);
+    // ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
     ser_puts("\r\n");
 #endif
- 
-    prev_seconds = seconds;
-  }*/
+
+    prev_seconds = s;
+  }
+  
 }
+
 /*
 void
 setup_ccp1() {
