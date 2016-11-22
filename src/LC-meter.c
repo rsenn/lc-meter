@@ -323,16 +323,16 @@ measure_capacitance() {
     F3 = F1; // max freq is F1;
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * C_CAL / (F3 * F3 * (F1 * F1 - F2 * F2));
   if (Cin > 999) {
-    if (Cin > (999E3)) {
-      if (Cin > (999E6)) {
-        Cin = Cin / (1E9);
+    if (Cin > (999e+03l)) {
+      if (Cin > (999e+06l)) {
+        Cin = Cin / (1e+09l);
         display_unit(4); //"mF"
       } else {
-        Cin = Cin / (1E6);
+        Cin = Cin / (1e+06l);
         display_unit(5); //"uF"
       }
     } else {
-      Cin = Cin / 1E3;
+      Cin = Cin / 1e+03l;
       display_unit(6); //"nF"
     }
   } else
@@ -356,18 +356,18 @@ measure_inductance() {
               (GATE_PERIOD * GATE_PERIOD);
   denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * C_CAL;
   Lin = (numerator / denominator) *
-        1E15; // scale to nH { pF/1E12 * nH/1E9 * (s/1E3)^2 }
+        1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
   if (Lin > 999) {
-    if (Lin > (999E3)) {
-      if (Lin > (999E6)) {
-        Lin = Lin / (1E9);
+    if (Lin > (999e+03l)) {
+      if (Lin > (999e+06l)) {
+        Lin = Lin / (1e+09l);
         display_unit(0); //"H"
       } else {
-        Lin = Lin / (1E6);
+        Lin = Lin / (1e+06l);
         display_unit(1); //"mH"
       }
     } else {
-      Lin = Lin / 1E3;
+      Lin = Lin / 1e+03l;
       display_unit(2); //"uH"
     }
   } else
