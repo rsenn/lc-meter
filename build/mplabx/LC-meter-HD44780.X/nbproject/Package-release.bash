@@ -1,73 +1,86 @@
-#!/bin/bash -x
 
-#
-# Generated - do not edit!
-#
+# 1 "../../../lib/timer.c"
 
-# Macros
-TOP=`pwd`
-CND_CONF=release
-CND_DISTDIR=dist
-TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
-TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter-HD44780.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=LC-meter-HD44780.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=lc-meter-hd44780.x/
-
-# Functions
-function checkReturnCode
-{
-    rc=$?
-    if [ $rc != 0 ]
-    then
-        exit $rc
-    fi
-}
-function makeDirectory
-# $1 directory path
-# $2 permission (optional)
-{
-    mkdir -p "$1"
-    checkReturnCode
-    if [ "$2" != "" ]
-    then
-      chmod $2 "$1"
-      checkReturnCode
-    fi
-}
-function copyFileToTmpDir
-# $1 from-file path
-# $2 to-file path
-# $3 permission
-{
-    cp "$1" "$2"
-    checkReturnCode
-    if [ "$3" != "" ]
-    then
-        chmod $3 "$2"
-        checkReturnCode
-    fi
-}
-
-# Setup
-cd "${TOP}"
-mkdir -p ${CND_DISTDIR}/${CND_CONF}/package
-rm -rf ${TMPDIR}
-mkdir -p ${TMPDIR}
-
-# Copy files and create directories and links
-cd "${TOP}"
-makeDirectory ${TMPDIR}/lc-meter-hd44780.x/bin
-copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+extern const char __xc8_OPTIM_SPEED;
 
 
-# Generate tar file
-cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/lc-meter-hd44780.x.tar
-cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lc-meter-hd44780.x.tar *
-checkReturnCode
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+#pragma intrinsic(__builtin_software_breakpoint)
+extern void __builtin_software_breakpoint(void);
 
-# Cleanup
-cd "${TOP}"
-rm -rf ${TMPDIR}
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+extern volatile unsigned char INDF @ 0x000;
+
+asm("INDF equ 00h");
+
+
+
+extern volatile unsigned char TMR0 @ 0x001;
+
+asm("TMR0 equ 01h");
+
+
+
+extern volatile unsigned char PCL @ 0x002;
+
+asm("PCL equ 02h");
+
+
+
+extern volatile unsigned char STATUS @ 0x003;
+
+asm("STATUS equ 03h");
+
+
+typedef union {
+struct {
+unsigned C :1;
+unsigned DC :1;
+unsigned Z :1;
+unsigned nPD :1;
+unsigned nTO :1;
+unsigned RP :2;
+unsigned IRP :1;
+};
+struct {
+unsigned :5;
+unsigned RP0 :1;
+unsigned RP1 :1;
+};
+struct {
+unsigned CARRY :1;
+};
+struct {
+unsigned :2;
+unsigned ZERO :1;
+};
+} STATUSbits_t;
+extern volatile STATUSbits_t STATUSbits @ 0x003;
+
+# 154
+extern volatile unsigned char FSR @ 0x004;
+
+asm("FSR equ 04h");
+
+
+
+extern volatile unsigned char PORTA @ 0x005;
+
+asm("PORTA equ 05h");
+
+
+typedef union {
+struct {
+unsigned RA0 :1;
+unsigned RA1 :1;
+unsigned RA2 :1;
+unsigned RA3 :1;
+unsigned RA4 :1;
+unsigned RA5 :1;
+};
+} PORTAbits_t;
+extern volatile PORTAbits_t PORTAbits @ 0x005;
+
+# 209
+extern v
