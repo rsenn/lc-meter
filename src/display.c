@@ -132,9 +132,9 @@ display_reading(uint16_t measurement) {
   // hundredths digit
   display_digit(3, 50, measurement % 10);
 #elif defined(USE_HD44780_LCD)
-  lcd_set_cursor(4, 0);
-  lcd_print("          ");
-  lcd_set_cursor(4, 0);
+  lcd_set_cursor(9, 0);
+  lcd_print("     ");
+  lcd_set_cursor(9, 0);
   display_print_number(measurement / 100, 10, 0);
   lcd_putch('.');
   display_print_number(measurement % 100, 10, 0);
@@ -157,7 +157,7 @@ indicator(uint8_t indicate) {
     lcd_print(" ");
   }
 #elif defined(USE_HD44780_LCD)
-  lcd_set_cursor(0, 0);
+  lcd_set_cursor(0, 1);
   if (indicate) {
     lcd_print("-*-");
   } else {

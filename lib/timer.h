@@ -34,10 +34,6 @@
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER0
 
-#ifndef TIMER0_PRESCALER 
-#define TIMER0_PRESCALER PRESCALE_1_1
-#endif
-
 #define TIMER0_FREQ (OSC_4/(1<<(TIMER0_PRESCALER)))
 #define TIMER0_INTERVAL (TIMER0_FREQ/256)
 #define TIMER0_TICK_US (1000000/TIMER0_FREQ)
@@ -57,10 +53,6 @@ void timer0_init(uint8_t prescale);
 
 /* ----------------------- Timer 1 ----------------------- */
 #if USE_TIMER1
-
-#ifndef TIMER1_PRESCALER 
-#define TIMER1_PRESCALER PRESCALE_1_1
-#endif
 
 #define TIMER1_FREQ (OSC_4/(1<<(TIMER1_PRESCALER)))
 #define TIMER1_TICK_US (1000000/TIMER1_FREQ)
@@ -84,10 +76,6 @@ void timer1_init(uint8_t ps_mode);
 /* ----------------------- Timer 2 ----------------------- */
 #if USE_TIMER2
 
-#ifndef TIMER2_PRESCALER 
-#define TIMER2_PRESCALER PRESCALE_1_1
-#endif
-
 #ifndef TIMER2_POSTSCALER 
 #define TIMER2_POSTSCALER POSTSCALE_1_1
 #endif
@@ -102,7 +90,7 @@ void timer1_init(uint8_t ps_mode);
 
 #define TIMER2_FLAGS_INTR   0x80
 
-void timer2_init(uint8_t ps);
+void timer2_init(uint8_t ps_mode);
 
 #define TIMER2_VALUE TMR2
 #define TIMER2_BITS 8

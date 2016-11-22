@@ -62,7 +62,7 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
 
 INTERRUPT_HANDLER() {
 
-  if (T0IF) {
+  if (TMR2IF) {
 
     bres += 256;
 
@@ -83,7 +83,7 @@ INTERRUPT_HANDLER() {
     // TMR1H = 0xff;
 
     // Clear timer interrupt bit
-    T0IF = 0;
+    TMR2IF = 0;
   }
 
   if(TMR1IF) {
@@ -195,7 +195,8 @@ setup_ccp1() {
   CCP1IF = 0;
 }*/
 
-void initialize() {
+void
+initialize() {
   bres = msecpart = msecs = seconds = 0;
 
   // setup comparator
@@ -212,11 +213,13 @@ void initialize() {
   SET_LED(1);
 
   SSPEN = 0;
-
-  timer0_init(PRESCALE_1_1 | TIMER0_FLAGS_INTR);
+ 
+   timer0_init(PRESCALE_1_1);
 
   timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   tmr1_overflows = 0;
+
+  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 #if !NO_PORTC
   TRISC &= ~0b1010;
@@ -231,6 +234,7 @@ void initialize() {
 #endif*/
 #if USE_SER
   ser_init();
+  ser_puts("LC-meter\r\n");
 #endif
 
 // initialize 3310 lcd
@@ -264,14 +268,14 @@ measure_freq() {   //16-bit freq
 unsigned int
 measure_freq(void) // 16-bit freq
 {
-  unsigned int oldTMR0, prescaler_cntr;
+  unsigned int prev_tmr0, prescaler_cntr;
   TMR0IF = 0;   // clear timer0 interrupt flag
   TRISA4 = 0;   // Enable RA4 output to T0CKI
   delay10ms(2); // stablize oscillator
   TMR0 = 0x00;  // reset timer0 counter (including prescaler)
   delay10ms(10);
   TRISA4 = 1; // Disable RA4 output to T0CKI
-  oldTMR0 = TMR0;
+  prev_tmr0 = TMR0;
   prescaler_cntr = 0;
   do { // self-clocking
     T0SE = 1;
@@ -281,20 +285,20 @@ measure_freq(void) // 16-bit freq
     NOP();
     NOP();
     prescaler_cntr++; // count until TMR0 incremented
-  } while (oldTMR0 == TMR0 &&
+  } while (prev_tmr0 == TMR0 &&
            prescaler_cntr <= 255); // test if timer0 has incremented
-  //}while(oldTMR0==TMR0);  //test if timer0 has incremented
-  return ((oldTMR0 << 8) + (256 - prescaler_cntr));
+  //}while(prev_tmr0==TMR0);  //test if timer0 has incremented
+  return ((prev_tmr0 << 8) + (256 - prescaler_cntr));
 }
 
 void
 calibrate(void) {
   unsigned char i;
-/*  lcd_clear();
-  lcd_gotoxy(1, 1);
-  lcd_puts("Calibrating.");
-  lcd_gotoxy(1, 3);
-  lcd_puts("please wait..");*/
+  lcd_clear();
+  lcd_set_cursor(0,0);
+  lcd_print("Calibrating.");
+  lcd_set_cursor(0, 1);
+  lcd_print("please wait..");
   REMOVE_CCAL();
   F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
   delay10ms(50);
@@ -304,19 +308,21 @@ calibrate(void) {
   delay10ms(50);
   F2 = (double)measure_freq();
   REMOVE_CCAL();
-  // lcd_gotoxy(0, 4);
-  for (i = 0; i < 84; i++) { // show progress bar
+   lcd_set_cursor(14, 0);
+  for (i = 0; i < 6; i++) { // show progress bar
+    lcd_putch('=');
 /*    lcd_send(0xfc, LCD_TDATA);*/
-    delay10ms(2);
+    delay10ms(28);
   }
 }
 
 void
 measure_capacitance() {
+  uint8_t unit;
   unsigned int var;
   double Cin;
-/*  lcd_gotoxy(7, 5);
-  lcd_puts(" capacitance");*/
+  lcd_set_cursor(0, 0);
+  lcd_print("Capact.:");
   var = measure_freq();
   F3 = (double)var;
   if (F3 > F1)
@@ -326,29 +332,31 @@ measure_capacitance() {
     if (Cin > (999e+03l)) {
       if (Cin > (999e+06l)) {
         Cin = Cin / (1e+09l);
-        display_unit(4); //"mF"
+        unit = 4; //"mF"
       } else {
         Cin = Cin / (1e+06l);
-        display_unit(5); //"uF"
+        unit = 5; //"uF"
       }
     } else {
       Cin = Cin / 1e+03l;
-      display_unit(6); //"nF"
+      unit = 6; //"nF"
     }
   } else
-    display_unit(7); //"pF"
+    unit = 7; //"pF"
   Cin = Cin * 100;   // scale to 2 decimal place
   var = (unsigned int)Cin;
-  display_reading(var);
+    display_unit(unit);
+    display_reading(var);
 }
 
 void
 measure_inductance() {
+  uint8_t unit;
   unsigned int var;
   double Lin, numerator, denominator;
-/*  lcd_gotoxy(7, 5);
-  lcd_puts(" inductance ");
-*/  var = measure_freq();
+  lcd_set_cursor(0, 0);
+  lcd_print("Induct.:");
+  var = measure_freq();
   F3 = (double)var;
   if (F3 > F1)
     F3 = F1; // max freq is F1;
@@ -361,20 +369,21 @@ measure_inductance() {
     if (Lin > (999e+03l)) {
       if (Lin > (999e+06l)) {
         Lin = Lin / (1e+09l);
-        display_unit(0); //"H"
+        unit = 0; //"H"
       } else {
         Lin = Lin / (1e+06l);
-        display_unit(1); //"mH"
+        unit = 1; //"mH"
       }
     } else {
       Lin = Lin / 1e+03l;
-      display_unit(2); //"uH"
+      unit = 2; //"uH"
     }
   } else
-    display_unit(3); //"nH"
+    unit = 3; //"nH"
   Lin = Lin * 100;   // scale to 2 decimal place
   var = (unsigned int)Lin;
-  display_reading(var);
+    display_unit(unit);
+    display_reading(var);
 }
 
 
