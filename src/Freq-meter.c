@@ -108,8 +108,8 @@ int main()
       ser_putch('\n');
 
         __delay_ms(3);
-     
-     prev_frequency = frequency; 
+
+     prev_frequency = frequency;
     }
 /*
     for(a = 0; a < 25; a++) {

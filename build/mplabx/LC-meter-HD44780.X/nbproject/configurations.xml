@@ -98,7 +98,7 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros"
-                  value="_XTAL_FREQ=20000000;USE_TIMER0=1;USE_SER=1;USE_HD44780_LCD=1;UART_BAUD=38400"/>
+                  value="NDEBUG=1;PIC16F876A=1;UART_BAUD=38400;USE_HD44780_LCD=1;USE_SER=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;_XTAL_FREQ=20000000;__NDEBUG=1"/>
         <property key="extra-include-directories"
                   value="..;.;../../../lib;../../../src"/>
         <property key="identifier-length" value="127"/>
@@ -517,13 +517,13 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <VSMViewerPlatformTool>
-        <property key="design.file" value=""/>
+        <property key="design.file" value="../../../proteus/LCmeter876a.DSN"/>
         <property key="target.ip.address" value="localhost"/>
         <property key="target.ip.port" value="8001"/>
       </VSMViewerPlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
-        <property key="output-file-format" value="-mcof,+elf"/>
+        <property key="output-file-format" value="+mcof,-elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
@@ -566,7 +566,7 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros"
-                  value="_XTAL_FREQ=20000000;USE_TIMER0=1;USE_SER=1;USE_HD44780_LCD=1;UART_BAUD=38400"/>
+                  value="PIC16F876A=1;UART_BAUD=38400;USE_HD44780_LCD=1;USE_SER=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;_DEBUG=1;_XTAL_FREQ=20000000;__DEBUG=1"/>
         <property key="extra-include-directories"
                   value="..;.;../../../lib;../../../src"/>
         <property key="identifier-length" value="127"/>
@@ -574,20 +574,20 @@
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="optimization-assembler-files" value="true"/>
-        <property key="optimization-debug" value="false"/>
+        <property key="optimization-debug" value="true"/>
         <property key="optimization-global" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
         <property key="optimization-level" value="9"/>
         <property key="optimization-set" value="default"/>
-        <property key="optimization-speed" value="true"/>
+        <property key="optimization-speed" value="false"/>
         <property key="optimization-stable-enable" value="false"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="true"/>
-        <property key="warning-level" value="3"/>
+        <property key="warning-level" value="9"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
@@ -985,13 +985,13 @@
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
       <VSMViewerPlatformTool>
-        <property key="design.file" value=""/>
+        <property key="design.file" value="../../../proteus/LCmeter876a.DSN"/>
         <property key="target.ip.address" value="localhost"/>
         <property key="target.ip.port" value="8001"/>
       </VSMViewerPlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
-        <property key="output-file-format" value="-mcof,+elf"/>
+        <property key="output-file-format" value="+mcof,-elf"/>
         <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>

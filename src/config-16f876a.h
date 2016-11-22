@@ -12,4 +12,4 @@ __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON & LVP_OFF & CPD_OFF & WRT_OFF 
 #endif
 
 #endif // defined CONFIG_16F876A_H
- 
+

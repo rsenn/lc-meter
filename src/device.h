@@ -161,7 +161,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define INTF INT0F
 #define INTE INT0E
 #define T0PS  T0CONbits.T0PS
-//#define T1CS 
+//#define T1CS
 #define INTEDG INTEDG0
 #ifndef CMCON
 #define CMCON CMCONbits.CM
@@ -196,4 +196,4 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #endif
 
 #endif /* DEVICE_H */
- 
+

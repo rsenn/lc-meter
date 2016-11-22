@@ -120,10 +120,10 @@ display_reading(uint16_t measurement) {
   lcd_send(0x70, LCD_TDATA);
   lcd_send(0x70, LCD_TDATA);
   // hundreds digit
-  if (measurement / 10000 > 0)
+  if(measurement / 10000 > 0)
     display_digit(3, 5, measurement / 10000);
   // tens digit
-  if (((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0))
+  if(((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0))
     display_digit(3, 15, (measurement / 1000) % 10);
   // ones digit
   display_digit(3, 25, (measurement / 100) % 10);
@@ -145,7 +145,7 @@ display_reading(uint16_t measurement) {
 void
 indicator(uint8_t indicate) {
 #if USE_NOKIA3310_LCD
-  if (indicate) {
+  if(indicate) {
     lcd_gotoxy(70, 4);
     lcd_send(0x1C, LCD_TDATA);
     lcd_send(0x3E, LCD_TDATA);
@@ -158,7 +158,7 @@ indicator(uint8_t indicate) {
   }
 #elif defined(USE_HD44780_LCD)
   lcd_set_cursor(0, 1);
-  if (indicate) {
+  if(indicate) {
     lcd_print("-*-");
   } else {
     lcd_print("   ");

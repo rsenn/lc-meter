@@ -47,17 +47,17 @@ INTERRUPT_HANDLER() {
 #if USE_UART
   uart_isr();
 #endif
-  if (T0IF) {
+  if(T0IF) {
 
     bres += 256;
 
-    if (bres >= 5000) {
+    if(bres >= 5000) {
       bres -= 5000;
       msecs++;
 
       SET_LED(msecs < 500);
     }
-    if (msecs >= 1000) { // if reached 1 second!
+    if(msecs >= 1000) { // if reached 1 second!
       seconds++;         // update clock, etc
       msecs -= 1000;
 
@@ -70,13 +70,13 @@ INTERRUPT_HANDLER() {
     T0IF = 0;
   }
 
-  if (TMR1IF) {
+  if(TMR1IF) {
     tmr1_overflows++;
 
     TMR1IF = 0;
   }
 
-  if (RCIF) {
+  if(RCIF) {
     // Clear receive interrupt bit
     RCIF = 0;
   }
@@ -198,7 +198,7 @@ void loop() {
 
   static int32_t prev = -1;
 
-  if (seconds != prev) {
+  if(seconds != prev) {
 #if USE_UART
     put_number(uart_putch, seconds, 10, -5);
     uart_putch('\r');
@@ -214,10 +214,10 @@ void loop() {
 
 #ifdef USE_SER
   //   while(SOFTSER_IN_PIN == LOW) {
-  if (ser_isrx()) {
+  if(ser_isrx()) {
     c = ser_getch();
 
-    if (echo_mode) {
+    if(echo_mode) {
       ser_putch(' ');
       ser_puthex(c);
       ser_putch(' ');
@@ -229,12 +229,12 @@ void loop() {
 
     update_com = 1;
 
-    if (c == 0x1b || c == '\t')
+    if(c == 0x1b || c == '\t')
       echo_mode = !echo_mode;
   }
 #endif
 
-  if (update_com) {
+  if(update_com) {
 #ifdef USE_HD44780_LCD
     lcd_set_cursor(12, 0);
     lcd_print("COM:");
@@ -252,17 +252,17 @@ void loop() {
     softser_recv();
     ser_putch(softser_rdata);
 
-    if (softser_rdata == 0x1b || softser_rdata == '\t')
+    if(softser_rdata == 0x1b || softser_rdata == '\t')
       echo_mode = !echo_mode;
 
     update_midi = 1;
 
-    if (++c == 3)
+    if(++c == 3)
       break;
   }
 #endif
 
-  if (update_midi) {
+  if(update_midi) {
 #if defined(USE_HD44780_LCD) && defined(USE_SOFTSER)
     lcd_set_cursor(3, 0);
     lcd_print("MIDI:");
@@ -309,7 +309,7 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
   int8_t i = 0;
   char padchar = ' ';
 
-  if (pad < 0) {
+  if(pad < 0) {
     pad = -pad;
     padchar = '0';
   }
