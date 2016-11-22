@@ -6,6 +6,8 @@
 #if USE_NOKIA3310_LCD
 #include "lcd3310.h"
 #endif
+#include "format.h"
+#define display_print_number(a,b,c) format_number(lcd_putch, a,b,c)
 
 void
 lcd_print(const char *string) {
@@ -95,9 +97,9 @@ display_unit(uint8_t unit)
   for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
   static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
-  lcd_set_cursor(16, 0);
+  lcd_set_cursor(14, 0);
   lcd_print(units[unit]);
-  lcd_set_cursor(16, 1);
+  lcd_set_cursor(14, 1);
   lcd_print(units[unit]);
 #endif // defined(USE_NOKIA3310_LCD)
 }

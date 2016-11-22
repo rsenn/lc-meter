@@ -13,6 +13,7 @@ void indicator(uint8_t indicate);
 
 void display_print_float(float number, uint8_t digits);
 
+
 #undef DISPLAYPRINTFLOAT
 #define DISPLAYPRINTNUMBER
 
