@@ -137,9 +137,9 @@ void loop() {
 #if USE_NOKIA3310_LCD
   lcd_gotoxy(0, 0);
 #else
-  lcd_set_cursor(8, 0);
-  lcd_print("     ");
-  lcd_set_cursor(8, 0);
+  lcd_set_cursor(10, 0);
+  lcd_print("      ");
+  lcd_set_cursor(10, 0);
 #endif
   format_number(lcd_putch, s, 10, 0);
 //    display_print_number(measure_freq(), 16, 4);
