@@ -29,7 +29,7 @@ __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 void loop();
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad);
 
-volatile BOOL run = 1, got_byte = 0;
+volatile bool run = 1, got_byte = 0;
 volatile uint16_t bres;
 
 volatile uint16_t msecs;

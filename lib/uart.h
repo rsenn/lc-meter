@@ -46,7 +46,7 @@ extern const uint8_t uart_brg;
 void uart_putch(uint8_t byte);
 
 int uart_getch(void);
-BOOL uart_poll(uint8_t bauds);
+bool uart_poll(uint8_t bauds);
 
 /**
  * Initialize UART module

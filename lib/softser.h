@@ -133,7 +133,7 @@
 
 #define SOFTSER_INB() ((SOFTSER_IN_PIN)^(SOFTSER_INVERT)^1)
 
-BOOL softser_poll(uint8_t ticks);
+bool softser_poll(uint8_t ticks);
 void softser_recv(void);
 
 uint8_t softser_getch(void);

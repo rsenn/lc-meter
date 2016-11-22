@@ -46,14 +46,14 @@ volatile uint32_t tmr1_overflows;
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
 float F1, F2, F3;
-void main(void);
-void loop(void);
-void testloop(void);
-void initialize(void);
-unsigned int measure_freq(void);
-void calibrate(void);
-void measure_capacitance(void);
-void measure_inductance(void);
+void main();
+void loop();
+void testloop();
+void initialize();
+uint16_t measure_freq();
+void calibrate();
+void measure_capacitance();
+void measure_inductance();
 void delay10ms(uint16_t period_10ms);
 
 
@@ -135,7 +135,7 @@ loop() {
 void
 testloop() {
   
-    static BOOL led = 0;
+    static bool led = 0;
     static uint32_t prev_seconds = 0;
     uint32_t s;
 
@@ -265,10 +265,9 @@ measure_freq() {   //16-bit freq
 }
 */
 
-unsigned int
-measure_freq(void) // 16-bit freq
-{
-  unsigned int prev_tmr0, prescaler_cntr;
+uint16_t
+measure_freq() {
+  uint16_t prev_tmr0, prescaler_cntr;
   TMR0IF = 0;   // clear timer0 interrupt flag
   TRISA4 = 0;   // Enable RA4 output to T0CKI
   delay10ms(2); // stablize oscillator
@@ -292,8 +291,8 @@ measure_freq(void) // 16-bit freq
 }
 
 void
-calibrate(void) {
-  unsigned char i;
+calibrate() {
+  uint8_t i;
   lcd_clear();
   lcd_set_cursor(0,0);
   lcd_print("Calibrating.");
@@ -319,7 +318,7 @@ calibrate(void) {
 void
 measure_capacitance() {
   uint8_t unit;
-  unsigned int var;
+  uint16_t var;
   double Cin;
   lcd_set_cursor(0, 0);
   lcd_print("Capact.:");
@@ -344,7 +343,7 @@ measure_capacitance() {
   } else
     unit = 7; //"pF"
   Cin = Cin * 100;   // scale to 2 decimal place
-  var = (unsigned int)Cin;
+  var = (uint16_t)Cin;
     display_unit(unit);
     display_reading(var);
 }
@@ -352,7 +351,7 @@ measure_capacitance() {
 void
 measure_inductance() {
   uint8_t unit;
-  unsigned int var;
+  uint16_t var;
   double Lin, numerator, denominator;
   lcd_set_cursor(0, 0);
   lcd_print("Induct.:");
@@ -381,7 +380,7 @@ measure_inductance() {
   } else
     unit = 3; //"nH"
   Lin = Lin * 100;   // scale to 2 decimal place
-  var = (unsigned int)Lin;
+  var = (uint16_t)Lin;
     display_unit(unit);
     display_reading(var);
 }
@@ -389,7 +388,7 @@ measure_inductance() {
 
 void delay10ms(uint16_t period_10ms) {
   uint32_t ms = period_10ms * 10;
-  BOOL run = 1;
+  bool run = 1;
   GIE = 0;
   ms += msecs;
   GIE = 1;
