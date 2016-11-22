@@ -41,6 +41,7 @@ __at (_CONFIG)
 volatile uint16_t bres;
 volatile uint16_t msecpart;
 volatile uint32_t seconds, msecs;
+volatile uint32_t tmr1_overflows;
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
@@ -76,6 +77,11 @@ INTERRUPT_HANDLER() {
 
     // Clear timer interrupt bit
     T0IF = 0;
+  }
+
+  if(TMR1IF) {
+    ++tmr1_overflows;
+    TMR1IF = 0;
   }
 #ifdef USE_SER
   ser_int();
@@ -145,6 +151,14 @@ void loop() {
   lcd_set_cursor(10, 1);
   format_number(lcd_putch, TIMER1_VALUE, 10, 5);
 
+  lcd_set_cursor(0, 1);
+  lcd_print("     ");
+  lcd_set_cursor(0, 1);
+  lcd_print("RC2=");
+  lcd_putch(RC2 != 0 ? '1' : '0');
+
+
+
 //    display_print_number(measure_freq(), 16, 4);
 #endif
   if (s != prev_seconds) {
@@ -184,18 +198,22 @@ void initialize() {
 
   RELAY_TRIS();
   //  ADD_CCAL();
+  INIT_LED();
+
+  SET_LED(1);
 
   SSPEN = 0;
 
-  timer0_init(PRESCALE_1_1);
-  /*
-     OPTION_REGbits.PS = 0b000;
-     T0CS = 0; */
-  TMR0 = 0;
-  T0IE = 1;
-  T0IF = 0;
+  timer0_init(PRESCALE_1_1 | TIMER0_FLAGS_INTR);
 
   timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
+tmr1_overflows= 0;
+
+#if !NO_PORTC
+  TRISC &= ~0b1010;
+  TRISC |= 0b0101;
+#endif
+
 /*
 #if USE_SOFTSER
   softser_init();
@@ -214,12 +232,6 @@ void initialize() {
   lcd_begin(2, 1);
 #endif
 
-#if !NO_PORTC
-  TRISC &= ~0b1100;
-#endif
-  INIT_LED();
-
-  SET_LED(1);
 
   PEIE = 1;
   GIE = 1;

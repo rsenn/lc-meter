@@ -6,6 +6,8 @@
 void timer0_init(uint8_t ps_mode) {
   uint8_t prescaler = ps_mode & PRESCALE_MASK;
 
+  TIMER0_VALUE = 0;
+
   // setup timer0 for internal clock
   T0CS = 0; // Internal instruction cycle clock (CLKO)
 
@@ -48,7 +50,7 @@ timer1_init(uint8_t ps_mode) {
 
   T1OSCEN = 0;
 
-  TMR1 = 0;
+  TIMER1_VALUE = 0;
 
   T1CONbits.TMR1ON = 1;
 
@@ -72,10 +74,7 @@ void timer2_init(uint8_t ps_mode) {
   TOUTPS2 = (postscaler >> 2) & 1;
   T2CONbits.T2CKPS = ps >> 1; // Set timer 2 prescaler to 1:1.
 
-  /*  TMR2IE = 1;
-    TMR2IF = 0;
-  */
-  TMR2 = 0;
+  TIMER2_VALUE = 0;
 
   T2CONbits.TMR2ON = 1; // Enable timer 2.
 

@@ -49,6 +49,9 @@
 
 #define TIMER0_FLAGS_INTR   0x80
 
+#define TIMER0_VALUE TMR0
+#define TIMER0_BITS 8
+
 void timer0_init(uint8_t prescale);
 #endif // USE_TIMER0
 
