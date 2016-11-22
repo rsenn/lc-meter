@@ -9323,6 +9323,7 @@ package type P</description>
 <part name="D2" library="d" deviceset="1N4148" device="34-12V" value="1N4148"/>
 <part name="C8" library="c" deviceset="C" device="050-020X036" value="22pF"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
+<part name="GND4" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -9422,6 +9423,7 @@ package type P</description>
 </instance>
 <instance part="C8" gate="1" x="248.92" y="45.72"/>
 <instance part="GND3" gate="1" x="256.54" y="12.7"/>
+<instance part="GND4" gate="1" x="-12.7" y="12.7"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -9594,6 +9596,17 @@ package type P</description>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="256.54" y1="30.48" x2="256.54" y2="15.24" width="0.1524" layer="91"/>
 <junction x="256.54" y="30.48"/>
+</segment>
+<segment>
+<pinref part="S1" gate="G$1" pin="P1"/>
+<wire x1="-12.7" y1="25.4" x2="-12.7" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-12.7" y1="17.78" x2="-8.89" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-20.32" y1="25.4" x2="-12.7" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="J7" gate="G$1" pin="1"/>
+<label x="-16.51" y="25.4" size="1.778" layer="95"/>
+<junction x="-12.7" y="17.78"/>
+<pinref part="GND4" gate="1" pin="GND"/>
+<wire x1="-12.7" y1="17.78" x2="-12.7" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -9841,20 +9854,12 @@ package type P</description>
 <wire x1="30.48" y1="17.78" x2="30.48" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="M+" class="0">
+<net name="IN+" class="0">
 <segment>
 <wire x1="-20.32" y1="27.94" x2="-8.89" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="S1" gate="G$1" pin="P"/>
 <pinref part="J7" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="M-" class="0">
-<segment>
-<pinref part="S1" gate="G$1" pin="P1"/>
-<wire x1="-12.7" y1="25.4" x2="-12.7" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-12.7" y1="17.78" x2="-8.89" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-20.32" y1="25.4" x2="-12.7" y2="25.4" width="0.1524" layer="91"/>
-<pinref part="J7" gate="G$1" pin="1"/>
+<label x="-16.51" y="29.21" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FREQ" class="0">

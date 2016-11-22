@@ -117,7 +117,7 @@ main() {
 
 
   for (;;)
-    testloop();
+    loop();
 }
 
 void

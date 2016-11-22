@@ -87,49 +87,53 @@ display_digit(uint8_t line, uint8_t column, uint8_t digit)
 
 // -------------------------------------------------------------------------
 void
-display_unit(uint8_t unit)
-{
+display_unit(uint8_t unit) {
 #if USE_NOKIA3310_LCD
   uint8_t i;
   lcd_gotoxy(60, 2);
-  for(i = 0; i < 18; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
+  for (i = 0; i < 18; i++)
+    lcd_send(units[unit * 36 + i], LCD_TDATA);
   lcd_gotoxy(60, 3);
-  for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
+  for (i = 18; i < 36; i++)
+    lcd_send(units[unit * 36 + i], LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
-  static const char* units[8] = { "H", "mH", "uH", "nH", "mF", "uF", "nF", "pF" };
+  static const char *units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
   lcd_set_cursor(14, 0);
   lcd_print(units[unit]);
-  lcd_set_cursor(14, 1);
-  lcd_print(units[unit]);
+  /*lcd_set_cursor(14, 1);
+  lcd_print(units[unit]);*/
 #endif // defined(USE_NOKIA3310_LCD)
 }
 
 void
-display_reading(uint16_t measurement)
-{
-  //measurement divide by 100
+display_reading(uint16_t measurement) {
+// measurement divide by 100
 #if USE_NOKIA3310_LCD
-  //clear previous measurement
+  // clear previous measurement
   lcd_gotoxy(0, 2);
-  lcd_puts(" ");
+  lcd_print(" ");
   lcd_gotoxy(0, 3);
-  lcd_puts(" ");
-  //decimal point
+  lcd_print(" ");
+  // decimal point
   lcd_gotoxy(35, 3);
   lcd_send(0x70, LCD_TDATA);
   lcd_send(0x70, LCD_TDATA);
   lcd_send(0x70, LCD_TDATA);
-  //hundreds digit
-  if(measurement / 10000 > 0) display_digit(3, 5, measurement / 10000);
-  //tens digit
-  if(((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0)) display_digit(3, 15, (measurement / 1000) % 10);
-  //ones digit
+  // hundreds digit
+  if (measurement / 10000 > 0)
+    display_digit(3, 5, measurement / 10000);
+  // tens digit
+  if (((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0))
+    display_digit(3, 15, (measurement / 1000) % 10);
+  // ones digit
   display_digit(3, 25, (measurement / 100) % 10);
-  //tenths digit
+  // tenths digit
   display_digit(3, 40, (measurement / 10) % 10);
-  //hundredths digit
+  // hundredths digit
   display_digit(3, 50, measurement % 10);
 #elif defined(USE_HD44780_LCD)
+  lcd_set_cursor(4, 0);
+  lcd_print("          ");
   lcd_set_cursor(4, 0);
   display_print_number(measurement / 100, 10, 0);
   lcd_putch('.');
@@ -139,31 +143,24 @@ display_reading(uint16_t measurement)
 
 // -------------------------------------------------------------------------
 void
-indicator(uint8_t indicate)
-{
+indicator(uint8_t indicate) {
 #if USE_NOKIA3310_LCD
-  if(indicate)
-  {
+  if (indicate) {
     lcd_gotoxy(70, 4);
     lcd_send(0x1C, LCD_TDATA);
     lcd_send(0x3E, LCD_TDATA);
     lcd_send(0x36, LCD_TDATA);
     lcd_send(0x3E, LCD_TDATA);
     lcd_send(0x1C, LCD_TDATA);
-  }
-  else
-  {
+  } else {
     lcd_gotoxy(70, 4);
-    lcd_puts(" ");
+    lcd_print(" ");
   }
 #elif defined(USE_HD44780_LCD)
   lcd_set_cursor(0, 0);
-  if(indicate)
-  {
+  if (indicate) {
     lcd_print("-*-");
-  }
-  else
-  {
+  } else {
     lcd_print("   ");
   }
 #endif // defined(USE_NOKIA3310_LCD)
