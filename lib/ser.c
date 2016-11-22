@@ -34,7 +34,7 @@
 #define _SER_C_
 #include "device.h"
 #include "ser.h"
-
+#include "const.h"
 
 #ifndef SER_BRG
 //# if HIGH_SPEED == 1
@@ -117,6 +117,10 @@ void ser_puthex(uint8_t v) {
 
 
 void ser_init(void) {
+SER_TX_TRIS =  OUTPUT;
+SER_TX_PIN = LOW;
+SER_RX_PIN = INPUT;
+
   BRGH = 1;					//high speed
 //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
 //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;

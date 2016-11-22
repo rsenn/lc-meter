@@ -38,8 +38,8 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 
 volatile uint16_t bres;
-volatile  uint16_t msecs;
-volatile  uint32_t seconds;
+volatile  uint16_t msecpart;
+volatile  uint32_t seconds, msecs;
 
 //volatile uint32_t ccp1t_lr, ccp1t[2];
 
@@ -53,25 +53,21 @@ put_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t 
 
 INTERRUPT_HANDLER()
 {
-#ifdef USE_SER
-  ser_int();
-#endif
-#if USE_UART
-  uart_isr();
-#endif
+
   if(T0IF) {
 
     bres += 256;
 
     if(bres >= 5000) {
       bres -= 5000;
+      msecpart++;
       msecs++;
 
-      SET_LED(msecs < 500);
+      SET_LED(msecpart < 500);
     }
-    if(msecs >= 1000) { // if reached 1 second!
+    if(msecpart >= 1000) { // if reached 1 second!
       seconds++;  // update clock, etc
-      msecs -= 1000;
+      msecpart -= 1000;
 
       SET_LED2(seconds&1);
 
@@ -83,6 +79,12 @@ INTERRUPT_HANDLER()
     // Clear timer interrupt bit
     T0IF = 0;
   }
+  #ifdef USE_SER
+  ser_int();
+#endif
+#if USE_UART
+  uart_isr();
+#endif
 }
 
 void
@@ -119,7 +121,7 @@ void
 loop() {
   static BOOL led = 0;
 
-  delay_ms(100);
+  delay10ms(10);
 
   led = !led;
   RC1 = led;
@@ -161,7 +163,7 @@ setup_ccp1() {
 
 void
 initialize() {
- bres = msecs = seconds  = 0;
+ bres = msecpart = msecs = seconds  = 0;
 
   //setup comparator
   /*CMCONbits.*/CM0 = 1;
@@ -174,14 +176,28 @@ initialize() {
  LC_TRIS();
   NOT_RBPU = 1;  // enable portB internal pullup
 
-#if USE_SER
-  ser_init();
-#endif
 
   RELAY_TRIS();
 //  ADD_CCAL();
 
+
   SSPEN = 0;
+
+  setup_timer0(PRESCALE_1_1);
+  /*
+  OPTION_REGbits.PS = 0b000;
+  T0CS = 0;*/
+  TMR0 = 0;
+  T0IE = 1;
+  T0IF = 0;
+
+  #if USE_SOFTSER
+  softser_init();
+  setup_timer1(PRESCALE_1_1);
+#endif
+#if USE_SER
+  ser_init();
+#endif
 
   //initialize 3310 lcd
 #if USE_NOKIA3310_LCD
@@ -192,26 +208,17 @@ initialize() {
   lcd_begin(2, 1);
 #endif
 
-  setup_timer0();
-  OPTION_REGbits.PS = 0b000;
-  T0CS = 0;
-  TMR0 = 0;
-  T0IE = 1;
-  T0IF = 0;
 
 
-  INIT_LED();
-  INIT_LED2();
 #if !NO_PORTC
   TRISC &= ~0b1100;
 #endif
+  INIT_LED();
+  INIT_LED2();
+
   SET_LED(1);
   SET_LED2(1);
 
-#if USE_SOFTSER
-  softser_init();
-  setup_timer1(PRESCALE_1_1);
-#endif
 
 
   PEIE = 1;
@@ -243,11 +250,17 @@ void
 measure_inductance() {
 }
 
-/*void
-delay10ms(uint16_t period_10ms) {
+void delay10ms(uint16_t period_10ms) {
+  uint32_t ms = period_10ms * 10;
+  BOOL run = 1;
+  GIE = 0;
+  ms += msecs;
+  GIE = 1;
+
   do {
-    delay_ms(10);
-  }
-  while(--period_10ms);
+    GIE = 0;
+    if (ms <= msecs)
+      run = 0;
+    GIE = 1;
+  } while (run);
 }
-*/

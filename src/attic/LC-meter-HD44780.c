@@ -92,15 +92,19 @@ void main(void) {
   LED_TRIS = OUTPUT;
   LED_PIN = 1;
 
+#if USE_UART
   uart_init();
   uart_putch('I');
+#endif
 
   initialize();
 
   lcd_gotoxy(0, 0);
   lcd_puts("LC-meter");
 
+#if USE_UART
   uart_puts("\r\n");
+#endif
 #if 0
   relay_tris();
   for (int i = 0; i < 10; i++) {
@@ -117,8 +121,9 @@ void main(void) {
     float f = measure_freq();
     LED_PIN = led;
     led ^= 1;
+#if USE_UART
     uart_puts(".\r\n");
-
+#endif
     lcd_clear();
     lcd_gotoxy(0, 0);
     lcd_puts("f2=");

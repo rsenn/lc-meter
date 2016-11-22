@@ -143,7 +143,7 @@ int main()
   RA3 = RA5 = 1;
 
 //  TMR1 = 0xff00;
-  setup_timer0();
+  setup_timer0(PRESCALE_1_1);
   T0IF = 0;
   T0IE = 1;
   setup_timer1(PRESCALE_1_1);

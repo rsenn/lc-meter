@@ -4,7 +4,7 @@
 #if USE_TIMER_0
 volatile uint16_t tmr0_overflow;
 
-void setup_timer0()
+void setup_timer0(uint8_t prescaler)
 {
 
   //setup timer0 for internal clock
@@ -19,10 +19,18 @@ void setup_timer0()
 
   //PSA = 0;  //Prescaler is assigned to the Timer0 module
 
-  PSA = (TMR0_PRESCALER == 0);  //Prescaler isn't assigned to the Timer0 module
+  PSA = (prescaler == 0);  //Prescaler isn't assigned to the Timer0 module
 
+  OPTION_REG &= ~0b111;
+  if(prescaler > 0) {
+    OPTION_REG |= (prescaler-1) & 0b111;
 //#if TMR0_PRESCALER != 0
-  T0PS = TMR0_PRESCALER - 1;
+/*  --prescaler;
+  PS0 = prescaler&1;   prescaler >>= 1;
+  PS1 = prescaler&1;   prescaler >>= 1;
+  PS2 = prescaler&1; */
+  }
+//  T0PS = prescaler - 1;
 //#endif
 
 }
@@ -59,18 +67,21 @@ setup_timer1(uint8_t ps)
 volatile uint16_t tmr2_overflow;
 
 void
-setup_timer2()
-{
-
+setup_timer2(uint8_t ps) {
   tmr2_overflow = 0;
+uint8_t postscaler = TMR2_POSTSCALER;
 
   // set up TMR2
-  T2CONbits.TOUTPS = TMR2_POSTSCALER;    // Set timer 2 postscaler to 1:1
-  T2CONbits.T2CKPS = TMR2_PRESCALER >> 1;    // Set timer 2 prescaler to 1:1.
 
-  TMR2IE = 1;
+// Set timer 2 postscaler
+  TOUTPS0 = postscaler & 1;
+  TOUTPS1 = (postscaler>>1) & 1;    
+  TOUTPS2 = (postscaler>>2) & 1;    
+  T2CONbits.T2CKPS = ps/*TMR2_PRESCALER*/ >> 1;    // Set timer 2 prescaler to 1:1.
+
+/*  TMR2IE = 1;
   TMR2IF = 0;
-
+*/
   TMR2 = 0;
 
   T2CONbits.TMR2ON = 1;       // Enable timer 2.

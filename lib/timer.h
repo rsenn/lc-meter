@@ -10,6 +10,8 @@
 #define PRESCALE_1_8  0b011
 #define PRESCALE_1_16 0b100
 #define PRESCALE_1_32 0b101
+#define PRESCALE_1_64 0b110
+#define PRESCALE_1_128 0b111
 
 #define POSTSCALE_1_1   0
 #define POSTSCALE_1_2   1
@@ -45,7 +47,7 @@ extern volatile uint16_t tmr0_overflow;
 #define TMR0_INTERRUPT_FLAG T0IF
 #define TMR0_INTERRUPT_ENABLE T0IE
 
-void setup_timer0();
+void setup_timer0(uint8_t prescale);
 #endif // USE_TIMER_0
 
 /* ----------------------- Timer 1 ----------------------- */
@@ -87,7 +89,7 @@ extern volatile uint16_t tmr2_overflow;
 #define TMR2_INTERRUPT_FLAG TMR2IF
 #define TMR2_INTERRUPT_ENABLE TMR2IE
 
-void setup_timer2();
+void setup_timer2(uint8_t ps);
 #endif // USE_TIMER_2
 
 #endif // defined TIMER_H
