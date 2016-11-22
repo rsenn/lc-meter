@@ -1,126 +1,71 @@
-
-# 1 "../../../lib/uart.c"
-
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
-extern const char __xc8_OPTIM_SPEED;
-
-
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
-extern volatile unsigned char INDF @ 0x000;
-
-asm("INDF equ 00h");
+#
+# Generated Makefile - do not edit!
+#
+# Edit the Makefile in the project folder instead (../Makefile). Each target
+# has a pre- and a post- target defined where you can add customization code.
+#
+# This makefile implements macros and targets common to all configurations.
+#
+# NOCDDL
 
 
-
-extern volatile unsigned char TMR0 @ 0x001;
-
-asm("TMR0 equ 01h");
-
-
-
-extern volatile unsigned char PCL @ 0x002;
-
-asm("PCL equ 02h");
-
-
-
-extern volatile unsigned char STATUS @ 0x003;
-
-asm("STATUS equ 03h");
+# Building and Cleaning subprojects are done by default, but can be controlled with the SUB
+# macro. If SUB=no, subprojects will not be built or cleaned. The following macro
+# statements set BUILD_SUB-CONF and CLEAN_SUB-CONF to .build-reqprojects-conf
+# and .clean-reqprojects-conf unless SUB has the value 'no'
+SUB_no=NO
+SUBPROJECTS=${SUB_${SUB}}
+BUILD_SUBPROJECTS_=.build-subprojects
+BUILD_SUBPROJECTS_NO=
+BUILD_SUBPROJECTS=${BUILD_SUBPROJECTS_${SUBPROJECTS}}
+CLEAN_SUBPROJECTS_=.clean-subprojects
+CLEAN_SUBPROJECTS_NO=
+CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
-typedef union {
-struct {
-unsigned C :1;
-unsigned DC :1;
-unsigned Z :1;
-unsigned nPD :1;
-unsigned nTO :1;
-unsigned RP :2;
-unsigned IRP :1;
-};
-struct {
-unsigned :5;
-unsigned RP0 :1;
-unsigned RP1 :1;
-};
-struct {
-unsigned CARRY :1;
-};
-struct {
-unsigned :2;
-unsigned ZERO :1;
-};
-} STATUSbits_t;
-extern volatile STATUSbits_t STATUSbits @ 0x003;
+# Project Name
+PROJECTNAME=LC-meter-HD44780.X
 
-# 154
-extern volatile unsigned char FSR @ 0x004;
+# Active Configuration
+DEFAULTCONF=release
+CONF=${DEFAULTCONF}
 
-asm("FSR equ 04h");
+# All Configurations
+ALLCONFS=release debug 
+
+
+# build
+.build-impl: .build-pre
+	${MAKE} -f nbproject/Makefile-${CONF}.mk SUBPROJECTS=${SUBPROJECTS} .build-conf
+
+
+# clean
+.clean-impl: .clean-pre
+	${MAKE} -f nbproject/Makefile-${CONF}.mk SUBPROJECTS=${SUBPROJECTS} .clean-conf
+
+# clobber
+.clobber-impl: .clobber-pre .depcheck-impl
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug clean
 
 
 
-extern volatile unsigned char PORTA @ 0x005;
-
-asm("PORTA equ 05h");
-
-
-typedef union {
-struct {
-unsigned RA0 :1;
-unsigned RA1 :1;
-unsigned RA2 :1;
-unsigned RA3 :1;
-unsigned RA4 :1;
-unsigned RA5 :1;
-};
-} PORTAbits_t;
-extern volatile PORTAbits_t PORTAbits @ 0x005;
-
-# 209
-extern volatile unsigned char PORTB @ 0x006;
-
-asm("PORTB equ 06h");
+# all
+.all-impl: .all-pre .depcheck-impl
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug build
 
 
-typedef union {
-struct {
-unsigned RB0 :1;
-unsigned RB1 :1;
-unsigned RB2 :1;
-unsigned RB3 :1;
-unsigned RB4 :1;
-unsigned RB5 :1;
-unsigned RB6 :1;
-unsigned RB7 :1;
-};
-} PORTBbits_t;
-extern volatile PORTBbits_t PORTBbits @ 0x006;
 
-# 270
-extern volatile unsigned char PORTC @ 0x007;
-
-asm("PORTC equ 07h");
-
-
-typedef union {
-struct {
-unsigned RC0 :1;
-unsigned RC1 :1;
-unsigned RC2 :1;
-unsigned RC3 :1;
-unsigned RC4 :1;
-unsigned RC5 :1;
-unsigned RC6 :1;
-unsigned RC7 :1;
-};
-} PORTCbits_t;
-extern volatile PORTCbits_t PORTCbits @ 0x007;
-
-# 331
-extern vol
+# dependency checking support
+.depcheck-impl:
+#	@echo "# This code depends on make tool being used" >.dep.inc
+#	@if [ -n "${MAKE_VERSION}" ]; then \
+#	    echo "DEPFILES=\$$(wildcard \$$(addsuffix .d, \$${OBJECTFILES}))" >>.dep.inc; \
+#	    echo "ifneq (\$${DEPFILES},)" >>.dep.inc; \
+#	    echo "include \$${DEPFILES}" >>.dep.inc; \
+#	    echo "endif" >>.dep.inc; \
+#	else \
+#	    echo ".KEEP_STATE:" >>.dep.inc; \
+#	    echo ".KEEP_STATE_FILE:.make.state.\$${CONF}" >>.dep.inc; \
+#	fi

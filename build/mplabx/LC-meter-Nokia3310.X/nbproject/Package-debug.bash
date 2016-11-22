@@ -1,3 +1,73 @@
-76A=1 -DSOFTSER_TIMER=2 -DUART_BAUD=38400 -DUSE_SOFTPWM=1 -DUSE_SOFTSER=1 -DUSE_TIMER_0=1 -DUSE_TIMER_1=1 -DUSE_TIMER_2=1 -DUSE_UART=1 -D_DEBUG=1 -D_XTAL_FREQ=20000000 -D__16f876a=1 -D__DEBUG=1 -D__NDEBUG=1 -P -N127 -I".." -I"." -I"../../.." -I"." -I"../../../lib" -I"../../../src" -v --warn=3 --runtime=default,-clear,+init,+keep,-osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=all,+asm,+asmfile,+speed,-space,-debug,9 -D__DEBUG   --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@${MP_CC} --scandep  ../../../lib/uart.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -DNDEBUG=1 -DPIC16F876A=1 -DSOFTSER_TIMER=2 -DUART_BAUD=38400 -DUSE_SOFTPWM=1 -DUSE_SOFTSER=1 -DUSE_TIMER_0=1 -DUSE_TIMER_1=1 -DUSE_TIMER_2=1 -DUSE_UART=1 -D_DEBUG=1 -D_XTAL_FREQ=20000000 -D__16f876a=1 -D__DEBUG=1 -D__NDEBUG=1 -P -N127 -I".." -I"." -I"../../.." -I"." -I"../../../lib" -I"../../../src" -v --warn=3 --runtime=default,-clear,+init,+keep,-osccal,+oscval:0,-resetbits,+download,-stackcall,+clib --opt=all,+asm,+asmfile,+speed,-space,-debug,9 -D__DEBUG   --double=32 --float=24 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: %s" "--msgformat=%f:%l: advisory: %s" "--warnformat=%f:%l warning: %s"
-	@echo ${OBJECT
+#!/bin/bash -x
+
+#
+# Generated - do not edit!
+#
+
+# Macros
+TOP=`pwd`
+CND_CONF=debug
+CND_DISTDIR=dist
+TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
+TMPDIRNAME=tmp-packaging
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LC-meter-Nokia3310.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=LC-meter-Nokia3310.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=lc-meter-nokia3310.x/
+
+# Functions
+function checkReturnCode
+{
+    rc=$?
+    if [ $rc != 0 ]
+    then
+        exit $rc
+    fi
+}
+function makeDirectory
+# $1 directory path
+# $2 permission (optional)
+{
+    mkdir -p "$1"
+    checkReturnCode
+    if [ "$2" != "" ]
+    then
+      chmod $2 "$1"
+      checkReturnCode
+    fi
+}
+function copyFileToTmpDir
+# $1 from-file path
+# $2 to-file path
+# $3 permission
+{
+    cp "$1" "$2"
+    checkReturnCode
+    if [ "$3" != "" ]
+    then
+        chmod $3 "$2"
+        checkReturnCode
+    fi
+}
+
+# Setup
+cd "${TOP}"
+mkdir -p ${CND_DISTDIR}/${CND_CONF}/package
+rm -rf ${TMPDIR}
+mkdir -p ${TMPDIR}
+
+# Copy files and create directories and links
+cd "${TOP}"
+makeDirectory ${TMPDIR}/lc-meter-nokia3310.x/bin
+copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
+
+
+# Generate tar file
+cd "${TOP}"
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/lc-meter-nokia3310.x.tar
+cd ${TMPDIR}
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lc-meter-nokia3310.x.tar *
+checkReturnCode
+
+# Cleanup
+cd "${TOP}"
+rm -rf ${TMPDIR}
