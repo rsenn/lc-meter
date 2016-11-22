@@ -138,7 +138,7 @@ int main() {
   setup_timer0(PRESCALE_1_1);
   T0IF = 0;
   T0IE = 1;
-  setup_timer1(PRESCALE_1_1, FALSE);
+  setup_timer1(PRESCALE_1_1);
   TMR1IF = 0;
   TMR1IE = 1;
 

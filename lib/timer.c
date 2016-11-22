@@ -40,25 +40,33 @@ void setup_timer0(uint8_t prescaler)
 #if USE_TIMER_1
 volatile uint16_t tmr1_overflow;
 
-void setup_timer1(uint8_t ps, BOOL extclk)
-{
+void
+setup_timer1(uint8_t ps_mode) {
 
   tmr1_overflow = 0;
 
-  T1CONbits.T1CKPS = ps; // 1:1 prescaler
-  TMR1CS = extclk; // Internal clock source
+  T1CONbits.T1CKPS = ps_mode&PRESCALE_MASK; // 1:1 prescaler
+  TMR1CS = !!(ps_mode & TMR1_FLAGS_EXTCLK);       // Internal clock source
 
+  if (TMR1CS)
+    T1CONbits.T1SYNC =  !(ps_mode & TMR1_FLAGS_SYNC); 
+
+  // T1SYNC = extclk;
 
   T1OSCEN = 0;
-  //  T1CONbits.T1SYNC = 1;
 
   TMR1 = 0;
 
   T1CONbits.TMR1ON = 1;
 
-//  TMR1IE = 1;
-//  TMR1IF = 0;
+  //  TMR1IE = 1;
+  //  TMR1IF = 0;
 }
+
+uint16_t
+get_timer1(void) { 
+  return TMR1; 
+  }
 
 #endif // USE_TIMER_1
 
