@@ -57,6 +57,8 @@ void measure_inductance();
 void delay10ms(uint16_t period_10ms);
 
 
+void put_str(const char*);
+
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
                 int8_t pad /*, int8_t pointpos */);
 
@@ -295,9 +297,9 @@ calibrate() {
   uint8_t i;
   lcd_clear();
   lcd_set_cursor(0,0);
-  lcd_print("Calibrating.");
+  put_str("Calibrating.");
   lcd_set_cursor(0, 1);
-  lcd_print("please wait..");
+  put_str("please wait..");
   REMOVE_CCAL();
   F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
   delay10ms(50);
@@ -321,7 +323,7 @@ measure_capacitance() {
   uint16_t var;
   double Cin;
   lcd_set_cursor(0, 0);
-  lcd_print("Capact.:");
+  put_str("Capact.:");
   var = measure_freq();
   F3 = (double)var;
   if (F3 > F1)
@@ -354,7 +356,7 @@ measure_inductance() {
   uint16_t var;
   double Lin, numerator, denominator;
   lcd_set_cursor(0, 0);
-  lcd_print("Induct.:");
+  put_str("Induct.:");
   var = measure_freq();
   F3 = (double)var;
   if (F3 > F1)
@@ -399,4 +401,19 @@ void delay10ms(uint16_t period_10ms) {
       run = 0;
     GIE = 1;
   } while (run);
+}
+
+void
+put_str(const char* s) {
+  uint8_t i;
+  for(i = 0; s[i]; i++) {
+    lcd_putch(s[i]);
+#ifdef USE_SER
+    ser_putch(s[i]);
+#endif
+  }
+#ifdef USE_SER
+  ser_putch('\r');
+  ser_putch('\n');
+#endif
 }
