@@ -1,5 +1,37 @@
 {
-	"build_systems":
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.stackdump",
+				"*.sed",
+				"*.log",
+				".*",
+				
+				"sed??????",
+				"*.list",
+				"?", "*~"
+			],
+			"folder_exclude_patterns":
+			[
+				".*",
+				"bin",
+				"obj",
+				"unused"
+			],
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"auto_complete": true,
+		"index_files": true,
+		"show_definitions": true,
+		"tab_completion": true,
+		"tab_size": 4
+	},
+		"build_systems":
 	[
 		{
 			"cmd":
@@ -31,36 +63,5 @@
 			"working_dir": "${project_path:${folder}}"
 		}
 	],
-	"folders":
-	[
-		{
-			"file_exclude_patterns":
-			[
-				"*.stackdump",
-				"*.sed",
-				"*.log",
-				".*",
-				
-				"sed??????",
-				"*.list",
-				"?"
-			],
-			"folder_exclude_patterns":
-			[
-				".*",
-				"bin",
-				"obj",
-				"unused"
-			],
-			"path": "."
-		}
-	],
-	"settings":
-	{
-		"auto_complete": true,
-		"index_files": true,
-		"show_definitions": true,
-		"tab_completion": true,
-		"tab_size": 4
-	}
+
 }
