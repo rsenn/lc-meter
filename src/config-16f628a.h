@@ -12,4 +12,4 @@ __CONFIG(FOSC_HS & LVP_OFF & BOREN_ON & PWRTE_ON & WDTE_OFF);
 #endif
 
 #endif // defined CONFIG_16F628A_H
- 
+

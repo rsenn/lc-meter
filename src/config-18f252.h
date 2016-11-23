@@ -29,4 +29,4 @@ __CONFIG(5, CPD_OFF);
 #endif
 
 #endif // defined CONFIG_18F252_H
- 
+

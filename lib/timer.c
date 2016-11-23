@@ -9,7 +9,7 @@ void timer0_init(uint8_t ps_mode) {
   TIMER0_VALUE = 0;
 
   // setup timer0 for internal clock
-  T0CS = 0; // Internal instruction cycle clock (CLKO)
+  T0CS = !!(ps_mode & TIMER0_FLAGS_EXTCLK); // Internal instruction cycle clock (CLKO)
 
   // setup timer0 for frequency counter
   // T0CS = 1;  //Transition on T0CKI pin

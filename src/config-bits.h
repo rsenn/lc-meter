@@ -30,4 +30,4 @@
 #endif // defined __18f25k50
 
 #endif // defined CONFIG_BITS_H
- 
+
