@@ -177,7 +177,12 @@ main() {
 #endif
   lcd_print("LC-meter");
 #endif
+
+#ifdef _DEBUG
+   delay10ms(5);
+#else
   delay10ms(200);
+#endif
 
   calibrate();
   lcd_clear();
@@ -454,7 +459,12 @@ delay10ms(uint16_t period_10ms) {
   bool run = 1;
 
   get_milliseconds(ms);
+
+#ifdef _DEBUG
+  ms += period_10ms;
+#else
   ms += period_10ms * 10;
+#endif
 
   do {
     GIE=0;
