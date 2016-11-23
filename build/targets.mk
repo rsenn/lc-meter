@@ -2,7 +2,7 @@ COMMON_SOURCES = format.c timer.c delay.c
 
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c uart.c ser.c
-LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c display.c ser.c
+LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c display.c ser.c buffer.c
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_HD44780_LCD=1
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_SER=1 USE_TIMER0=1
 #LC_meter_HD44780_DEFS += -DUSE_UART=1
