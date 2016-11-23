@@ -28,6 +28,7 @@
 
 #include "display.h"
 #include "format.h"
+#include "buffer.h"
 
 
 #ifdef SDCC
@@ -44,6 +45,18 @@ volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;  // timer 1 overflows
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
+
+static void
+output_putch(char c) {
+  lcd_putch(c);
+#ifdef USE_SER
+  ser_putch(c);
+#endif
+}
+
+
+buffer_t buffer = BUFFER_INIT(&output_putch);
+
 
 float F1, F2, F3;
 void main();

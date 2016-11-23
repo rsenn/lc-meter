@@ -9,25 +9,27 @@
 #define BUFFER_PTRSIZE 4
 #endif
 
+typedef uint8_t len_t;
+
 typedef struct {
   char x[BUFFER_SIZE];
-  unsigned int p:BUFFER_PTRSIZE;		/* current position */
-  unsigned int n:BUFFER_PTRSIZE;		/* current size of string in buffer */
-  int (*op)();	/* putch() or getch() function */
+  unsigned p:BUFFER_PTRSIZE;        /* current position */
+  unsigned n:BUFFER_PTRSIZE;        /* current size of string in buffer */
+  void (*op)(char);    /* putch() function */
 } buffer_t;
 
-#define BUFFER_INIT(op) { {}, 0, 0, op }
+#define BUFFER_INIT(op) { {0}, 0, 0, op }
 
 extern buffer_t buffer;
 
 int buffer_flush();
 int buffer_putch(char ch);
-int buffer_put(const char* x,unsigned len);
-int buffer_putalign(const char* x,unsigned len);
-int buffer_putflush(const char* x,unsigned len);
-int buffer_puts(const char* x);
-int buffer_putsalign(const char* x);
-int buffer_putsflush(const char* x);
+int buffer_put(const char *x, len_t len);
+int buffer_putalign(const char *x, len_t len);
+int buffer_putflush(const char *x, len_t len);
+int buffer_puts(const char *x);
+int buffer_putsalign(const char *x);
+int buffer_putsflush(const char *x);
 
 int buffer_putspace();
 int buffer_putnlflush(); /* put \n and flush */
@@ -38,9 +40,9 @@ int buffer_putnlflush(); /* put \n and flush */
     : buffer_putch(c) \
   )
 
-int buffer_get(char* x,unsigned len);
+int buffer_get(char *x, len_t len);
 int buffer_feed();
-int buffer_getc(char* x);
-int buffer_getn(char* x,unsigned len);
+int buffer_getc(char *x);
+int buffer_getn(char *x, len_t len);
 
 #endif // defined BUFFER_H
