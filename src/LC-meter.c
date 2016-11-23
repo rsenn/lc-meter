@@ -55,7 +55,7 @@ output_putch(char c) {
 }
 
 
-buffer_t buffer = BUFFER_INIT(&output_putch);
+buffer_t buffer = BUFFER_STATIC(output_putch);
 
 
 float F1, F2, F3;
