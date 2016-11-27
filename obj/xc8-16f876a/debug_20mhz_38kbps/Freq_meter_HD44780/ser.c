@@ -17,15 +17,19 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 #line 64 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 bit ser_isrx(void);
 uint8_t ser_getch(void);
-void ser_putch(uint8_t byte);
+char ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
 void ser_puts(const char * s);
 void ser_puts2(uint8_t * s);
 void ser_puthex(uint8_t v);
 void ser_init(void);
-#line 73 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
+#line 74 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 extern uint8_t rxfifo[16];
 extern volatile uint8_t rxiptr, rxoptr;
 extern uint8_t txfifo[16];
@@ -67,8 +71,8 @@ GIE = 0;
   return c;
 }
 
-void
-ser_putch(uint8_t c) {
+char
+ser_putch(char c) {
   while(((txiptr + 1) & (16-1)) == txoptr)
     continue;
   GIE = 0;
@@ -76,11 +80,17 @@ ser_putch(uint8_t c) {
   txiptr = (txiptr + 1) & (16-1);
   TXIE = 1;
   GIE = 1;
+  return 1;
 }
 
 void
 ser_puts(const char * s) {
   while(*s)
+    ser_putch(*s++);
+}
+void
+ser_put(const char* s, unsigned n) {
+  while(n--)
     ser_putch(*s++);
 }
 
@@ -108,17 +118,17 @@ c = v & 0x0F;
     ser_putch('0' + c);
   }
 }
-#line 125 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
+#line 131 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
 void
 ser_init(void) {
-#line 129 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
+#line 135 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
 TRISC6 = 1;
 RC7 = 1;
   
 BRGH = 1; 
-  #line 137 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
+  #line 143 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
 SPBRG = ser_brg; 
-  #line 140 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
+  #line 146 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/ser.c"
 TX9 = 0; 
   RX9 = 0; 
   

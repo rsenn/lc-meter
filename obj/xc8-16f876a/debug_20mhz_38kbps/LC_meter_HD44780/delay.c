@@ -17,6 +17,9 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
  
 #line 49 "C:/Users\\roman\\Documents\\lc-meter\\lib\\tsmdelay.h"
 typedef struct dvars {

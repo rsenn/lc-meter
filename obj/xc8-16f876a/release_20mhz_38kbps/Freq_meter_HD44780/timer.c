@@ -17,6 +17,9 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 #line 53 "C:/Users\\roman\\Documents\\lc-meter\\lib\\timer.h"
 void timer0_init(uint8_t prescale);
  
@@ -30,7 +33,8 @@ TMR0 = 0;
 T0CS = !!(ps_mode & 0x40); 
   
   
-  
+    
+T0SE = 1; 
   
   #line 20 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/timer.c"
 PSA = (prescaler == 0); 

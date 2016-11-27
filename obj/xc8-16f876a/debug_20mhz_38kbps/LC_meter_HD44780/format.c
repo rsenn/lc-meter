@@ -17,12 +17,15 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\lib\\format.h"
 void
-format_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad);
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
 #line 4 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
 void
-format_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad )
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad )
 {
   uint8_t buf[8 * sizeof(long)]; 
   uint8_t di;

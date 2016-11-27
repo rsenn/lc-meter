@@ -18,9 +18,29 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\lib\\format.h"
 void
-format_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad);
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
+#line 12 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
+typedef uint8_t len_t;
+#line 15 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
+typedef struct {
+  char x[16];
+  unsigned p:4; 
+  unsigned n:4; 
+  putchar_p op; 
+} buffer_t;
+#line 27 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
+extern buffer_t buffer;
+
+void buffer_init(putchar_p op);
+char buffer_flush();
+char buffer_putch(char ch);
+char buffer_put(const char *x, len_t len);
+char buffer_puts(const char *x);
 #line 47 "C:/Users\\roman\\Documents\\lc-meter\\lib\\lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(uint8_t l, uint8_t ds);
@@ -42,17 +62,18 @@ void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
 void lcd_print_float(float number, uint8_t digits);
 #line 67 "C:/Users\\roman\\Documents\\lc-meter\\lib\\lcd44780.h"
 void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+char lcd_putch(char value);
  
 #line 64 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 bit ser_isrx(void);
 uint8_t ser_getch(void);
-void ser_putch(uint8_t byte);
+char ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
 void ser_puts(const char * s);
 void ser_puts2(uint8_t * s);
 void ser_puthex(uint8_t v);
 void ser_init(void);
-#line 73 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
+#line 74 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 extern uint8_t rxfifo[16];
 extern volatile uint8_t rxiptr, rxoptr;
 extern uint8_t txfifo[16];
@@ -63,13 +84,22 @@ extern uint8_t ser_brg;
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\src\\config-16f876a.h"
 #pragma config FOSC=HS, WDTE=OFF, PWRTE=ON, BOREN=ON, LVP=OFF, CPD=OFF, WRT=OFF, CP=OFF
 #line 24 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+static char
+output_putch(char c) {
+  lcd_putch(c);
+  ser_putch(c);
+  return 1;
+}
+#line 34 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+buffer_t buffer = { {0}, 0, 0, output_putch };
+#line 38 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 uint8_t control;
-#line 29 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+#line 43 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 INTERRUPT_HANDLER()
 {
   
 if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & (16-1); if (ser_tmp!=rxoptr) rxiptr=ser_tmp; }; if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= (16-1); if (txoptr==txiptr) { TXIE = 0; }; TXIF = 0; };
-  #line 35 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+  #line 49 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 if(CCP1IF) {
     TMR1H = 0; TMR1L = 0;
     GIE = 0;
@@ -80,7 +110,7 @@ CCP1IF = 0;
     GIE = 1;
   }
 }
-#line 47 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+#line 61 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 int initialize()
 {
   TRISA = 0x00;
@@ -95,17 +125,17 @@ CCP1IE = 1;
 CCP1CON = 0b00000110;
   
 T1CON = 0b00100001;
-  #line 63 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+  #line 77 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 ser_init();
-  #line 66 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+  #line 80 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 GIE = 1;
   PEIE = 1;
   
-  #line 74 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+  #line 88 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 lcd_init(true);
   lcd_begin(2, 1);
 }
-#line 80 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+#line 94 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 int main()
 {
   const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
@@ -128,7 +158,7 @@ if(control == 1) frequency = 100000000 / counter;
 if(counter < 10000) frequency = 0;
     
 control = 0;
-    #line 104 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+    #line 118 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 if(frequency != prev_frequency) {
       
 format_number(ser_putch, frequency, 10, 0);
@@ -139,6 +169,6 @@ _delay((unsigned long)((3)*(20000000/4000.0)));
      
 prev_frequency = frequency;
     }
-  #line 142 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
+  #line 156 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/Freq-meter.c"
 }
 }

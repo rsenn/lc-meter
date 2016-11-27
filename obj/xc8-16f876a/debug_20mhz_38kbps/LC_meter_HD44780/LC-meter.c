@@ -24,6 +24,9 @@ volatile bit nRBPU @((unsigned)&OPTION_REG * 8) + 7;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 #line 58 "C:/Users\\roman\\Documents\\lc-meter\\src\\LC-meter.h"
 uint16_t measure_freq(void);
 void calibrate(void);
@@ -71,7 +74,7 @@ void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
 void lcd_print_float(float number, uint8_t digits);
 #line 67 "C:/Users\\roman\\Documents\\lc-meter\\lib\\lcd44780.h"
 void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+char lcd_putch(char value);
  
 #line 53 "C:/Users\\roman\\Documents\\lc-meter\\lib\\timer.h"
 void timer0_init(uint8_t prescale);
@@ -83,12 +86,13 @@ void timer2_init(uint8_t ps_mode);
 #line 64 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 bit ser_isrx(void);
 uint8_t ser_getch(void);
-void ser_putch(uint8_t byte);
+char ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
 void ser_puts(const char * s);
 void ser_puts2(uint8_t * s);
 void ser_puthex(uint8_t v);
 void ser_init(void);
-#line 73 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
+#line 74 "C:/Users\\roman\\Documents\\lc-meter\\lib\\ser.h"
 extern uint8_t rxfifo[16];
 extern volatile uint8_t rxiptr, rxoptr;
 extern uint8_t txfifo[16];
@@ -108,48 +112,39 @@ void indicator(uint8_t indicate);
 void display_print_float(float number, uint8_t digits);
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\lib\\format.h"
 void
-format_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad);
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
 #line 12 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
 typedef uint8_t len_t;
-
-typedef void buffer_fn(char);
-	typedef buffer_fn* buffer_fnptr;
-
+#line 15 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
 typedef struct {
   char x[16];
   unsigned p:4; 
   unsigned n:4; 
-  buffer_fnptr op; 
+  putchar_p op; 
 } buffer_t;
-#line 28 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
+#line 27 "C:/Users\\roman\\Documents\\lc-meter\\lib\\buffer.h"
 extern buffer_t buffer;
 
-void buffer_init(void (*op)(char));
-int buffer_flush();
-int buffer_putch(char ch);
-int buffer_put(const char *x, len_t len);
-int buffer_putalign(const char *x, len_t len);
-int buffer_putflush(const char *x, len_t len);
-int buffer_puts(const char *x);
-int buffer_putsalign(const char *x);
-int buffer_putsflush(const char *x);
-
-int buffer_putspace();
-int buffer_putnlflush(); 
+void buffer_init(putchar_p op);
+char buffer_flush();
+char buffer_putch(char ch);
+char buffer_put(const char *x, len_t len);
+char buffer_puts(const char *x);
 #line 42 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 volatile uint16_t bres; 
 volatile uint16_t msecpart; 
 volatile uint32_t seconds, msecs; 
 volatile uint32_t timer1of; 
 #line 49 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
-static void
+static char
 output_putch(char c) {
   lcd_putch(c);
   ser_putch(c);
+  return 1;
 }
-#line 58 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 59 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 buffer_t buffer = { {0}, 0, 0, output_putch };
-#line 61 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 62 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 float F1, F2, F3;
 void main();
 void loop();
@@ -161,12 +156,12 @@ void measure_capacitance();
 void measure_inductance();
 uint32_t milliseconds();
 void delay10ms(uint16_t period_10ms);
-#line 74 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 75 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void put_str(const char*);
 
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
                 int8_t pad );
-#line 81 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 82 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 interrupt isr() {
   
 if(TMR2IF) {
@@ -197,9 +192,9 @@ if(TMR1IF) {
     TMR1IF = 0;
   }
   if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & (16-1); if (ser_tmp!=rxoptr) rxiptr=ser_tmp; }; if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= (16-1); if (txoptr==txiptr) { TXIE = 0; }; TXIF = 0; };
-#line 116 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 117 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 }
-#line 119 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 120 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 main() {
  bres = msecpart = msecs = seconds = 0;
@@ -207,11 +202,9 @@ main() {
    CM0 = 1;
    CM1 = 0;
    CM2 = 1;
-  #line 128 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
-TRISA = 0b11001111;
   
-  
-nRBPU = 1; 
+  #line 131 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+nRBPU = 0; 
   
 TRISC3=0;
   RC3=((1)==0);
@@ -224,34 +217,41 @@ timer1_init(0b000 | 0x40);
   timer1of = 0;
   
 timer2_init(0b000 | 0x80);
-  #line 148 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 150 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 TRISC1 = 0; TRISC3 = 0;
   TRISC0 = 1; TRISC2 = 1;
-  #line 152 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
-TRISC4 = 1;
-  TRISC5 = 0;
-  #line 156 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 157 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 ser_init();
   ser_puts("LC-meter\r\n");
-  #line 165 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 166 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 lcd_init(true);
   lcd_begin(2, 1);
-  #line 169 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+    #line 170 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+TRISA = 0b11001111;
+ T0CS = 1; 
+  T0SE = 1; 
+  PSA = 0; 
+  PS2 = 1; 
+  PS1 = 1;
+  PS0 = 1;
+  TRISC4 = 1;
+  TRISC5 = 0;
+  #line 181 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 PEIE = 1;
   GIE = 1;
-  #line 176 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 188 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 lcd_gotoxy(0, 0);
   lcd_print("LC-meter");
-   #line 182 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+   #line 194 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 delay10ms(5);
-  #line 187 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 199 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 calibrate();
   lcd_clear();
   
 for(;;)
     loop();
 }
-#line 199 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 211 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 loop() {
   if(RC4)
@@ -277,12 +277,12 @@ delay10ms(10);
 GIE = 0;
   s = seconds;
   GIE = 1;
-  #line 233 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 245 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 lcd_gotoxy(10, 0);
   lcd_print("      ");
   lcd_gotoxy(10, 0);
   format_number(lcd_putch, s, 10, 5);
-  #line 239 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 251 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 lcd_gotoxy(10, 1);
   lcd_print("      ");
   lcd_gotoxy(10, 1);
@@ -293,17 +293,17 @@ lcd_gotoxy(0, 1);
   lcd_gotoxy(0, 1);
   lcd_print("RC4=");
   lcd_putch(RC4 != 0 ? '1' : '0');
-  #line 252 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 264 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 if(s != prev_s) {
     
 format_number(ser_putch, s, 10, 0);
     
     ser_puts("\r\n");
-    #line 259 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+    #line 271 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 prev_s = s;
   }
 }
-#line 266 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 278 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 uint16_t
 measure_freq() {
   uint8_t prev;
@@ -312,11 +312,11 @@ measure_freq() {
 TMR0IF = 0; 
   TRISA4 = 0; 
   
-delay10ms(2); 
+_delay((unsigned long)((20)*(20000000/4000.0))); 
   
 TMR0 = 0x00; 
   
-delay10ms(10);
+_delay((unsigned long)((100)*(20000000/4000.0)));
   
 TRISA4 = 1; 
   
@@ -333,15 +333,14 @@ T0SE = 0;
     __nop();
     __nop();
     count++; 
-  } while (prev == TMR0 &&
-           count <= 255); 
+  } while (prev == TMR0 && count <= 255); 
   
   
 count = ((prev << 8) + (256 - count));
-  #line 305 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 314 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 return count;
 }
-#line 311 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 320 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 calibrate() {
   uint8_t i;
@@ -349,10 +348,11 @@ calibrate() {
 lcd_clear();
   
 lcd_gotoxy(0, 0);
-  put_str("Calibrating.");
+  put_str("Calibrating");
   
 lcd_gotoxy(0, 1);
-  put_str("please wait..");
+  ser_puts("\r\n");
+  put_str("please wait...");
   
 RC5 = 0;
   
@@ -368,15 +368,17 @@ F2 = (double)measure_freq();
 F2 = (double)measure_freq();
   RC5 = 0;
   
-lcd_gotoxy(14, 0);
+lcd_gotoxy(11, 0);
   
 for(i = 0; i < 6; i++) { 
     lcd_putch('=');
      
     delay10ms(28);
   }
+  
+ser_puts("\r\n");
 }
-#line 349 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 361 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 measure_capacitance() {
   uint8_t unit;
@@ -385,11 +387,15 @@ measure_capacitance() {
 double Cin;
   
 lcd_gotoxy(0, 0);
-  put_str("Capact.:");
+  put_str("Capacity ");
   
 var = measure_freq();
-  F3 = (double)var;
   
+ser_puts("measure_freq()=");
+  format_number(ser_putch, var, 16, 0);
+  ser_puts("\r\n");
+  F3 = (double)var;
+  #line 379 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 if(F3 > F1)
     F3 = F1; 
   
@@ -413,10 +419,10 @@ if(Cin > 999) {
   
 Cin = Cin * 100; 
   var = (uint16_t)Cin;
-  display_unit(unit);
   display_reading(var);
+  display_unit(unit);
 }
-#line 392 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 409 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 measure_inductance() {
   uint8_t unit;
@@ -425,7 +431,7 @@ measure_inductance() {
 double Lin, numerator, denominator;
   
 lcd_gotoxy(0, 0);
-  put_str("Induct.:");
+  put_str("Inductivity ");
   
 var = measure_freq();
   
@@ -460,19 +466,19 @@ if(Lin > 999) {
 Lin = Lin * 100; 
   var = (uint16_t)Lin;
   
-display_unit(unit);
-  display_reading(var);
+display_reading(var);
+  display_unit(unit);
 }
-#line 456 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 473 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 delay10ms(uint16_t period_10ms) {
   uint32_t ms;
   bool run = 1;
   
 GIE=0,ms=msecs,GIE=1;
-  #line 464 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
-ms += period_10ms;
-  #line 469 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+  #line 481 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+ms += period_10ms >> 2;
+  #line 486 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 do {
     GIE=0;
     if(ms <= msecs)
@@ -480,7 +486,7 @@ do {
     GIE=1;
   } while (run);
 }
-#line 480 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
+#line 497 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 void
 put_str(const char* s) {
   uint8_t i;
@@ -489,6 +495,5 @@ for(i = 0; s[i]; i++) {
     lcd_putch(s[i]);
     ser_putch(s[i]);
   }
-  ser_putch('\r');
-  ser_putch('\n');
+#line 511 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/LC-meter.c"
 }

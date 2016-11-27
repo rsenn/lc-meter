@@ -17,6 +17,9 @@ extern __bit __timeout;
 #include <stdint.h>
 #line 43 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
 typedef char BOOL;
+#line 63 "C:/Users\\roman\\Documents\\lc-meter\\lib\\typedef.h"
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
  
 #line 49 "C:/Users\\roman\\Documents\\lc-meter\\lib\\tsmdelay.h"
 typedef struct dvars {
@@ -57,7 +60,7 @@ void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
 void lcd_print_float(float number, uint8_t digits);
 #line 67 "C:/Users\\roman\\Documents\\lc-meter\\lib\\lcd44780.h"
 void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+char lcd_putch(char value);
  
 #include <stdarg.h>
 #include <stdio.h>
@@ -102,32 +105,33 @@ lcd_send(uint8_t value, uint8_t mode) {
   }
 }
 #line 144 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
-void
+char
 lcd_putch(char value) {
   lcd_send((unsigned)value, 1);
+  return 1;
 }
-#line 151 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 152 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 static void
 lcd_command(uint8_t value) {
   lcd_send(value, 0);
 }
-#line 159 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 160 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_gotoxy(uint8_t col, uint8_t row) {
   
 uint8_t row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
   
-  #line 171 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 172 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 if(LCD_lines == 1) {
     row_offsets[1] = 0x14;
     row_offsets[2] = 0x28;
     row_offsets[3] = 0x3C;
   }
   
-  #line 181 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 182 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 lcd_command(0x80 | (col + row_offsets[row]));
 }
-#line 215 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 216 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_print_number(uint16_t n, uint8_t base, int8_t pad ) {
   uint8_t buf[8 * sizeof(long)]; 
@@ -140,10 +144,10 @@ if(pad < 0) {
     padchar = '0';
   }
   
-  #line 232 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 233 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 do {
     
-    #line 236 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+    #line 237 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 di = n % base;
     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
     
@@ -157,65 +161,65 @@ for(; i > 0; i--)
     lcd_putch((char)buf[(int16_t)i - 1]);
 
 }
-#line 301 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 302 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_home() {
   lcd_command(0x02);
   delay_ms(2); 
   
 }
-#line 312 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 313 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_clear() {
   lcd_command(0x01); 
   delay_ms(2); 
   
 }
-#line 332 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 333 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_display() {
   LCD_ctrl |= 0x04;
   lcd_command(0x08 | LCD_ctrl);
 }
-#line 342 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 343 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_no_cursor() {
   LCD_ctrl &= ~0x02;
   lcd_command(0x08 | LCD_ctrl);
 }
-#line 351 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 352 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_cursor() {
   LCD_ctrl |= 0x02;
   lcd_command(0x08 | LCD_ctrl);
 }
-#line 370 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 371 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_blink() {
   LCD_ctrl |= 0x01;
   lcd_command(0x08 | LCD_ctrl);
 }
-#line 397 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 398 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_left_to_right(void) {
   LCD_mode |= 0x02;
   lcd_command(0x04 | LCD_mode);
 }
-#line 417 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 418 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_autoscroll(void) {
   LCD_mode |= 0x01;
   lcd_command(0x04 | LCD_mode);
 }
-#line 436 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 437 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_begin(uint8_t lines, uint8_t dotsize) {
   if(lines > 1)
     LCD_function |= 0x08;
-  #line 442 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 443 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 LCD_lines = lines;
    
-  #line 446 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 447 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 if((dotsize != 0) && (lines == 1))
     LCD_function |= 0x04;
   
@@ -274,7 +278,7 @@ LCD_mode = 0x02 | 0x00;
    
   lcd_command(0x04 | LCD_mode);
 }
-#line 509 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 510 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 void
 lcd_init(char fourbitmode) {
   
@@ -282,10 +286,10 @@ LCD_ctrl = 0;
   LCD_function = (fourbitmode ? 0x00 : 0x10);
   LCD_lines = 0;
   LCD_mode = 0;
-  #line 519 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 520 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 TRISB2 = 0;
   RB2 = 0;
-  #line 525 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+  #line 526 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 TRISB3 = 0;
   RB3 = 0;
   
@@ -293,6 +297,6 @@ TRISB4 = 0;
   TRISB5 = 0; 
   TRISB6 = 0; 
   TRISB7 = 0; 
-#line 541 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
+#line 542 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/lcd44780.c"
 }
  
