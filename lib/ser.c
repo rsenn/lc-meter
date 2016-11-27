@@ -54,7 +54,8 @@ volatile uint8_t rxiptr, rxoptr;
 volatile uint8_t txiptr, txoptr;
 uint8_t ser_tmp;
 
-bit ser_isrx(void) {
+bit
+ser_isrx(void) {
   if(OERR) {
     CREN = 0;
     CREN = 1;
@@ -63,7 +64,8 @@ bit ser_isrx(void) {
   return (rxiptr != rxoptr);
 }
 
-uint8_t ser_getch(void) {
+uint8_t
+ser_getch(void) {
   uint8_t c;
 
   while(ser_isrx() == 0)
@@ -77,7 +79,8 @@ uint8_t ser_getch(void) {
   return c;
 }
 
-void ser_putch(uint8_t c) {
+void
+ser_putch(uint8_t c) {
   while(((txiptr + 1) & SER_FIFO_MASK) == txoptr)
     continue;
   GIE = 0;
@@ -87,17 +90,20 @@ void ser_putch(uint8_t c) {
   GIE = 1;
 }
 
-void ser_puts(const char * s) {
+void
+ser_puts(const char * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void ser_puts2(uint8_t * s) {
+void
+ser_puts2(uint8_t * s) {
   while(*s)
     ser_putch(*s++);
 }
 
-void ser_puthex(uint8_t v) {
+void
+ser_puthex(uint8_t v) {
   uint8_t c;
 
   c = v >> 4;
@@ -116,9 +122,11 @@ void ser_puthex(uint8_t v) {
 }
 
 
-void ser_init(void) {
-SER_TX_TRIS =  OUTPUT;
-SER_TX_PIN = LOW;
+void
+ser_init(void) {
+/*SER_TX_TRIS =  OUTPUT;
+SER_TX_PIN = LOW;*/
+SER_TX_TRIS = INPUT;
 SER_RX_PIN = INPUT;
 
   BRGH = 1;					//high speed
