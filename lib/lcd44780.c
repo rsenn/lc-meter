@@ -141,9 +141,10 @@ lcd_send(uint8_t value, uint8_t mode) {
 
 // -------------------------------------------------------------------------
 /** Write a data character on LCD */
-void
+char
 lcd_putch(char value) {
   lcd_send((unsigned)value, HIGH);
+  return 1;
 }
 
 // -------------------------------------------------------------------------

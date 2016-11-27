@@ -6,6 +6,7 @@
 
 #include "Freq-meter.h"
 #include "format.h"
+#include "buffer.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"
@@ -13,11 +14,24 @@
 #if USE_NOKIA3310_LCD
 #include "lcd3310.h"
 #endif
+
 #if USE_SER
 #include "ser.h"
 #endif
 
 #include "config-bits.h"
+
+static char
+output_putch(char c) {
+  lcd_putch(c);
+#ifdef USE_SER
+  ser_putch(c);
+#endif
+  return 1;
+}
+
+
+buffer_t buffer = BUFFER_STATIC(output_putch);
 
 //__CONFIG(WDTDIS& PWRTEN& LVPDIS& XT);
 

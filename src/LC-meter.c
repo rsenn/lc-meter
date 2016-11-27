@@ -46,12 +46,13 @@ volatile uint32_t timer1of;  // timer 1 overflows
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
-static void
+static char
 output_putch(char c) {
   lcd_putch(c);
 #ifdef USE_SER
   ser_putch(c);
 #endif
+  return 1;
 }
 
 
@@ -125,10 +126,9 @@ main() {
   /*CMCONbits. */ CM1 = 0;
   /*CMCONbits. */ CM2 = 1;
 
-  TRISA = 0b11001111;
 
   // others
-  NOT_RBPU = 1; // enable portB internal pullup
+  NOT_RBPU = 0; // enable portB internal pullup
 
   INIT_LED();
   SET_LED(1);
@@ -142,6 +142,8 @@ main() {
 
   timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
+
+
 #if !NO_PORTC
 //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
 //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
@@ -149,8 +151,7 @@ main() {
   TRISC0 = INPUT; TRISC2 = INPUT;
 #endif
 
-  LC_TRIS();
-  RELAY_TRIS();
+
 
 #if USE_SER
   ser_init();
@@ -165,6 +166,17 @@ main() {
   lcd_init(true);
   lcd_begin(2, 1);
 #endif
+
+    TRISA = 0b11001111;
+ T0CS = 1; //Transition on T0CKI pin
+  T0SE = 1; //Increment on high-to-low transition on T0CKI pin
+  PSA = 0;  //Prescaler is assigned to the Timer0 module
+  PS2 = 1;  //PS2:PS0 -> Prescaler Rate = divide by 256
+  PS1 = 1;
+  PS0 = 1;
+  LC_TRIS();
+  RELAY_TRIS();
+
 
   PEIE = 1;
   GIE = 1;
@@ -268,14 +280,14 @@ measure_freq() {
   uint8_t prev;
   uint16_t count;
 
-  TMR0IF = 0;   // clear timer0 interrupt flag
-  TRISA4 = 0;   // Enable RA4 output to T0CKI
+  TMR0IF = 0; // clear timer0 interrupt flag
+  TRISA4 = 0; // Enable RA4 output to T0CKI
 
-  delay10ms(2); // stablize oscillator
+  __delay_ms(20); // stablize oscillator
 
-  TMR0 = 0x00;  // reset timer0 count (including prescaler)
+  TMR0 = 0x00; // reset timer0 count (including prescaler)
 
-  delay10ms(10);
+  __delay_ms(100);
 
   TRISA4 = 1; // Disable RA4 output to T0CKI
 
@@ -291,17 +303,14 @@ measure_freq() {
     T0SE = 0;
     NOP();
     NOP();
-    count++; // count until TMR0 incremented
-  } while (prev == TMR0 &&
-           count <= 255); // test if timer0 has incremented
+    count++;                              // count until TMR0 incremented
+  } while (prev == TMR0 && count <= 255); // test if timer0 has incremented
 
   //}while(prev==TMR0);  //test if timer0 has incremented
   count = ((prev << 8) + (256 - count));
-/*
-#if USE_SER
-  format_number(ser_putch, count, 10, 0);
-#endif
-*/
+
+
+
   return count;
 }
 
@@ -315,10 +324,11 @@ calibrate() {
   lcd_clear();
 
   lcd_gotoxy(0, 0);
-  put_str("Calibrating.");
+  put_str("Calibrating");
 
   lcd_gotoxy(0, 1);
-  put_str("please wait..");
+  ser_puts("\r\n");
+  put_str("please wait...");
 
   REMOVE_CCAL();
 
@@ -334,13 +344,15 @@ calibrate() {
   F2 = (double)measure_freq();
   REMOVE_CCAL();
 
-  lcd_gotoxy(14, 0);
+  lcd_gotoxy(11, 0);
 
   for(i = 0; i < 6; i++) { // show progress bar
     lcd_putch('=');
     /*    lcd_send(0xfc, LCD_TDATA);*/
     delay10ms(28);
   }
+
+  ser_puts("\r\n");
 }
 
 /*
@@ -354,9 +366,14 @@ measure_capacitance() {
   double Cin;
 
   lcd_gotoxy(0, 0);
-  put_str("Capact.:");
+  put_str("Capacity ");
 
   var = measure_freq();
+#if USE_SER
+  ser_puts("measure_freq()=");
+  format_number(ser_putch, var, 16, 0);
+  ser_puts("\r\n");
+#endif
   F3 = (double)var;
 
   if(F3 > F1)
@@ -382,8 +399,8 @@ measure_capacitance() {
 
   Cin = Cin * 100; // scale to 2 decimal place
   var = (uint16_t)Cin;
-  display_unit(unit);
   display_reading(var);
+  display_unit(unit);
 }
 
 /*
@@ -397,7 +414,7 @@ measure_inductance() {
   double Lin, numerator, denominator;
 
   lcd_gotoxy(0, 0);
-  put_str("Induct.:");
+  put_str("Inductivity ");
 
   var = measure_freq();
 
@@ -432,8 +449,8 @@ measure_inductance() {
   Lin = Lin * 100; // scale to 2 decimal place
   var = (uint16_t)Lin;
 
-  display_unit(unit);
   display_reading(var);
+  display_unit(unit);
 }
 
 /*
@@ -461,7 +478,7 @@ delay10ms(uint16_t period_10ms) {
   get_milliseconds(ms);
 
 #ifdef _DEBUG
-  ms += period_10ms;
+  ms += period_10ms >> 2;
 #else
   ms += period_10ms * 10;
 #endif
@@ -487,8 +504,8 @@ put_str(const char* s) {
     ser_putch(s[i]);
 #endif
   }
-#ifdef USE_SER
+/*#ifdef USE_SER
   ser_putch('\r');
   ser_putch('\n');
-#endif
+#endif*/
 }

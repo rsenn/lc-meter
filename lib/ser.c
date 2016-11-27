@@ -79,8 +79,8 @@ ser_getch(void) {
   return c;
 }
 
-void
-ser_putch(uint8_t c) {
+char
+ser_putch(char c) {
   while(((txiptr + 1) & SER_FIFO_MASK) == txoptr)
     continue;
   GIE = 0;
@@ -88,11 +88,17 @@ ser_putch(uint8_t c) {
   txiptr = (txiptr + 1) & SER_FIFO_MASK;
   TXIE = 1;
   GIE = 1;
+  return 1;
 }
 
 void
 ser_puts(const char * s) {
   while(*s)
+    ser_putch(*s++);
+}
+void
+ser_put(const char* s, unsigned n) {
+  while(n--)
     ser_putch(*s++);
 }
 

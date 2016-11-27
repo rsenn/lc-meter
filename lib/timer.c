@@ -13,7 +13,7 @@ void timer0_init(uint8_t ps_mode) {
 
   // setup timer0 for frequency counter
   // T0CS = 1;  //Transition on T0CKI pin
-  //  T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
+    T0SE = 1;  //Increment on high-to-low transition on T0CKI pin
 
   // PSA = 0;  //Prescaler is assigned to the Timer0 module
 

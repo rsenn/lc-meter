@@ -63,7 +63,8 @@
 
 bit ser_isrx(void);
 uint8_t ser_getch(void);
-void ser_putch(uint8_t byte);
+char ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
 void ser_puts(const char * s);
 void ser_puts2(uint8_t * s);
 void ser_puthex(uint8_t v);

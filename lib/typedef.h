@@ -7,8 +7,8 @@
 #  include <stdbool.h>
 #  include <stdint.h>
 
-#  ifdef __XC__
-#   define uint8_t uint8_t
+#  if 0 //def __XC__
+#   define uint8_t unsigned char
 #  endif
 
 # elif defined(MCC18) || defined(__IAR_SYSTEMS_ICC__)
@@ -59,5 +59,8 @@ typedef char BOOL;
 # endif
 
 //#endif // !defined(__PCH__)
+
+typedef char (putchar_fn)(char);
+typedef putchar_fn* putchar_p;
 
 #endif // !defined(TYPES_H)

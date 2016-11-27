@@ -9,7 +9,7 @@
 #include "softser.h"
 #include "timer.h"
 #include "typedef.h"
-#include "uart.h"
+#include "buffer.h"
 #include <ctype.h>
 
 #include "config-bits.h"
@@ -25,6 +25,19 @@ __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 #elif !defined CPROTO
 #error Unknown compiler
 #endif
+
+
+static char
+output_putch(char c) {
+  lcd_putch(c);
+#ifdef USE_SER
+  ser_putch(c);
+#endif
+  return 1;
+}
+
+
+buffer_t buffer = BUFFER_STATIC(output_putch);
 
 void loop();
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad);

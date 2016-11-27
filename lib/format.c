@@ -2,7 +2,7 @@
 
 // -------------------------------------------------------------------------
 void
-format_number(void(*putchar)(char), uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
 {
   uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
