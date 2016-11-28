@@ -43,7 +43,7 @@ void initialize(void)
   //others
   lc_tris();
   relay_tris();
-  RBPU = 0;   // enable portB internal pullup
+  //nRBPU = 0;   // enable portB internal pullup
 }
 
 unsigned int
