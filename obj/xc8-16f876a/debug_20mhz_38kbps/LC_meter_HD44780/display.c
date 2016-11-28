@@ -102,6 +102,11 @@ extern uint8_t ser_brg;
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\lib\\format.h"
 void
 format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
+void
+format_double(putchar_p putchar, double n);
+
+void
+format_xint32(putchar_p putchar, uint32_t x);
 #line 20 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../src/display.c"
 void
 lcd_print(const char *string) {

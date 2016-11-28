@@ -1,4 +1,5 @@
 #include "format.h"
+#include <math.h>
 
 // -------------------------------------------------------------------------
 void
@@ -32,10 +33,32 @@ format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t 
   }
   while(n > 0);
 
-  while(pad-- >= i)
+  while(pad-- > i)
     putchar(padchar);
 
   for(; i > 0; i--)
     putchar((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
+}
+// -------------------------------------------------------------------------
+void
+format_xint32(putchar_p putchar, uint32_t x)
+{
+  putchar('0');
+  putchar('x');
+  format_number(putchar, x >> 16, 16, -4);
+  format_number(putchar, x & 0xffff, 16, -4);
+}
+
+// -------------------------------------------------------------------------
+void
+format_double(putchar_p putchar, double n) {
+  int exponent = 0;
+  double mantissa = frexp(n, &exponent);
+
+  if(mantissa >= 1) putchar('1');
+  putchar('.');
+  format_number(putchar, mantissa*10000, 10, 4);
+  putchar('E');
+  format_number(putchar, exponent, 10, -2);
 }

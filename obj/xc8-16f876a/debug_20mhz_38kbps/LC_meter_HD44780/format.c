@@ -23,7 +23,13 @@ typedef putchar_fn* putchar_p;
 #line 6 "C:/Users\\roman\\Documents\\lc-meter\\lib\\format.h"
 void
 format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
-#line 4 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
+void
+format_double(putchar_p putchar, double n);
+
+void
+format_xint32(putchar_p putchar, uint32_t x);
+#include <math.h>
+#line 5 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
 void
 format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad )
 {
@@ -38,11 +44,11 @@ if(pad < 0)
     padchar = '0';
   }
   
-  #line 23 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
+  #line 24 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
 do
   {
     
-    #line 28 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
+    #line 29 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
 di = n % base;
     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
     
@@ -50,10 +56,31 @@ n /= base;
   }
   while(n > 0);
   
-while(pad-- >= i)
+while(pad-- > i)
     putchar(padchar);
   
 for(; i > 0; i--)
     putchar((char)buf[(int16_t)i - 1]);
   
+}
+
+void
+format_xint32(putchar_p putchar, uint32_t x)
+{
+  putchar('0');
+  putchar('x');
+  format_number(putchar, x >> 16, 16, -4);
+  format_number(putchar, x & 0xffff, 16, -4);
+}
+#line 54 "C:\\Users\\roman\\Documents\\lc-meter\\obj\\../lib/format.c"
+void
+format_double(putchar_p putchar, double n) {
+  int exponent = 0;
+  double mantissa = frexp(n, &exponent);
+  
+if(mantissa >= 1) putchar('1');
+  putchar('.');
+  format_number(putchar, mantissa*10000, 10, 4);
+  putchar('E');
+  format_number(putchar, exponent, 10, -2);
 }
