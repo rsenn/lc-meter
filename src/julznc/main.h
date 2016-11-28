@@ -2,7 +2,7 @@
 #ifndef _XTAL_FREQ
 	#define _XTAL_FREQ 20000000
 #endif
-__CONFIG(HS & WDTDIS & PWRTEN & BOREN);
+__CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 
 #include "lcd3310.h"
 
