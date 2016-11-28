@@ -1,9 +1,9 @@
-#define LCD_CLK		RC5
-#define	LCD_DATA	RC4
-#define	LCD_DC		RC1
-#define	LCD_CE		RC2
-#define	LCD_RESET	RC3
-#define LCD_TRIS()	TRISC &= 0x00
+#define LCD_CLK		RB6
+#define	LCD_DATA	RB5
+#define	LCD_DC		RB4
+#define	LCD_CE		RB2
+#define	LCD_RESET	RB3
+#define LCD_TRIS()	TRISB &= 0x00
 
 
 #define BIT7 0b10000000

@@ -9,11 +9,11 @@ __CONFIG(HS & WDTDIS & PWRTEN & BOREN);
 #define Ccal			1000		//pF
 #define gate_period		100			//ms
 #define pi				3.14159
-#define LC_select		RB0			//L or C select (from DPDT switch)
-#define lc_tris()		TRISB0 = 1	//as input
-#define add_ccal()		RC0 = 1		//relay on
-#define remove_ccal()	RC0 = 0		//relay off
-#define relay_tris()	TRISC0 = 0	//as output to drive the relay coil
+#define LC_select		RB4			//L or C select (from DPDT switch)
+#define lc_tris()		TRISC4 = 1	//as input
+#define add_ccal()		RC5 = 1		//relay on
+#define remove_ccal()	RC5 = 0		//relay off
+#define relay_tris()	TRISC5 = 0	//as output to drive the relay coil
 
 double F1, F2, F3;
 
