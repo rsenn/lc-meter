@@ -35,7 +35,7 @@ MHZ := $(shell echo "$(XTAL) / 1000000" | bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s
 KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\..*||g")
 
 ifeq ($(PROGRAMS),)
-PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780 serialtest
+PROGRAMS := LC_meter_julznc #LC_meter_HD44780 Freq_meter_HD44780 serialtest
 endif
 ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
@@ -64,8 +64,8 @@ OBJDIR := obj/$(COMPILER)-$(chipl)/$(BUILD_ID)/$(PROGRAM)/
 #OBJDIR := $(BUILDDIR)$(BUILD_ID)/
 endif
 
-vpath lib src $(OBJDIR) $(BUILDDIR)
-VPATH = lib src $(OBJDIR) $(BUILDDIR)
+vpath lib src src/julznc $(OBJDIR) $(BUILDDIR)
+VPATH = lib src src/julznc $(OBJDIR) $(BUILDDIR)
 
 DEFINES = PIC$(chipu)=1 __$(chipl)=1
 

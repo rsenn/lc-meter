@@ -43,7 +43,8 @@ void initialize(void)
 	//others
 	lc_tris();
 	relay_tris();
-	RBPU = 0;		// enable portB internal pullup
+//	RBPU = 0;		// enable portB internal pullup
+	nRBPU = 1;		// enable portB internal pullup
 }
 unsigned int measure_freq(void)		//16-bit freq
 {
