@@ -11,8 +11,8 @@
 #if USE_HD44780_LCD
 #include "lcd44780.h"
 #endif
-#if USE_NOKIA3310_LCD
-#include "lcd3310.h"
+#if USE_NOKIA5110_LCD
+#include "lcd5110.h"
 #endif
 
 #if USE_SER
@@ -80,8 +80,8 @@ int initialize()
   GIE = 1;
   PEIE = 1;
 
-  //initialize 3310 lcd
-#if USE_NOKIA3310_LCD
+  //initialize 5110 lcd
+#if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD

@@ -1,5 +1,6 @@
 #include "format.h"
 #include <math.h>
+#include <float.h>
 
 // -------------------------------------------------------------------------
 void
@@ -52,13 +53,18 @@ format_xint32(putchar_p putchar, uint32_t x)
 
 // -------------------------------------------------------------------------
 void
-format_double(putchar_p putchar, double n) {
-  int exponent = 0;
-  double mantissa = frexp(n, &exponent);
+format_double(putchar_p putchar, double num) {
+  int m = log10(num);
+  int digit;
+//  double tolerance = .0001;
 
-  if(mantissa >= 1) putchar('1');
-  putchar('.');
-  format_number(putchar, mantissa*10000, 10, 4);
-  putchar('E');
-  format_number(putchar, exponent, 10, -2);
+  while (num > 0 + DBL_EPSILON) {
+    double weight = pow(10.0l, m);
+    digit = floor(num / weight);
+    num -= (digit * weight);
+    putchar('0' + digit);
+    if (m == 0)
+      putchar('.');
+    m--;
+  }
 }

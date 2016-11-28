@@ -8,8 +8,8 @@
 # include "lcd44780.h"
 #endif
 
-#if USE_NOKIA3310_LCD
-# include "lcd3310.h"
+#if USE_NOKIA5110_LCD
+# include "lcd5110.h"
 #endif
 
 #include "timer.h"
@@ -26,7 +26,7 @@
 # include "softser.h"
 #endif
 
-#include "display.h"
+#include "print.h"
 #include "format.h"
 #include "buffer.h"
 
@@ -158,8 +158,8 @@ main() {
   ser_puts("LC-meter\r\n");
 #endif
 
-// initialize 3310 lcd
-#if USE_NOKIA3310_LCD
+// initialize 5110 lcd
+#if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
@@ -167,22 +167,21 @@ main() {
   lcd_begin(2, 1);
 #endif
 
-    TRISA = 0b11001111;
- T0CS = 1; //Transition on T0CKI pin
-  T0SE = 1; //Increment on high-to-low transition on T0CKI pin
-  PSA = 0;  //Prescaler is assigned to the Timer0 module
-  PS2 = 1;  //PS2:PS0 -> Prescaler Rate = divide by 256
+  TRISA = 0b11001111;
+  T0CS = 1; // Transition on T0CKI pin
+  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+  PSA = 0;  // Prescaler is assigned to the Timer0 module
+  PS2 = 1;  // PS2:PS0 -> Prescaler Rate = divide by 256
   PS1 = 1;
   PS0 = 1;
   LC_TRIS();
   RELAY_TRIS();
 
-
   PEIE = 1;
   GIE = 1;
 
-#if USE_HD44780_LCD || USE_NOKIA3310_LCD
-#if USE_NOKIA3310_LCD
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+#if USE_NOKIA5110_LCD
   lcd_gotoxy(0, 0);
 #else
   lcd_gotoxy(0, 0);
@@ -191,7 +190,7 @@ main() {
 #endif
 
 #ifdef _DEBUG
-   delay10ms(5);
+  delay10ms(5);
 #else
   delay10ms(200);
 #endif
@@ -199,27 +198,25 @@ main() {
   calibrate();
   lcd_clear();
 
-  for(;;)
-    loop();
+  /* main loop:
+   *
+   * Continuously measure capacity/inductance according to switch position.
+   * Blink the indicator (-*-) sign after each measurement.
+   */
+
+  for (;;) {
+    if (LC_SELECT)
+      measure_capacitance();
+    else
+      measure_inductance();
+
+    indicator(1);
+    delay10ms(30);
+    indicator(0);
+    delay10ms(20);
+  }
 }
 
-/* main loop:
- *
- * Continuously measure capacity/inductance according to switch position.
- * Blink the indicator (-*-) sign after each measurement.
- */
-void
-loop() {
-  if(LC_SELECT)
-    measure_capacitance();
-  else
-    measure_inductance();
-
-  indicator(1);
-  delay10ms(30);
-  indicator(0);
-  delay10ms(20);
-}
 
 void
 testloop() {
@@ -238,8 +235,8 @@ testloop() {
   softser_puts("XXXX\r\n");
 #endif
 
-#if USE_HD44780_LCD || USE_NOKIA3310_LCD
-#if USE_NOKIA3310_LCD
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+#if USE_NOKIA5110_LCD
   lcd_gotoxy(0, 0);
 #else
   lcd_gotoxy(10, 0);
@@ -259,7 +256,7 @@ testloop() {
   lcd_print("RC4=");
   lcd_putch(RC4 != 0 ? '1' : '0');
 
-//    display_print_number(measure_freq(), 16, 4);
+//    print_print_number(measure_freq(), 16, 4);
 #endif
   if(s != prev_s) {
 #if USE_SER
@@ -389,7 +386,12 @@ measure_capacitance() {
     F3 = F1; // max freq is F1;
 
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * C_CAL / (F3 * F3 * (F1 * F1 - F2 * F2));
-
+#if USE_SER
+  ser_puts("Cin=");
+  format_double(ser_putch, Cin);
+  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&Cin);
+  ser_puts("\r\n");
+#endif
   if(Cin > 999) {
     if(Cin > (999e+03l)) {
       if(Cin > (999e+06l)) {
@@ -408,8 +410,8 @@ measure_capacitance() {
 
   Cin = Cin * 100; // scale to 2 decimal place
   var = (uint16_t)Cin;
-  display_reading(var);
-  display_unit(unit);
+  print_reading(var);
+  print_unit(unit);
 }
 
 /*
@@ -458,8 +460,8 @@ measure_inductance() {
   Lin = Lin * 100; // scale to 2 decimal place
   var = (uint16_t)Lin;
 
-  display_reading(var);
-  display_unit(unit);
+  print_reading(var);
+  print_unit(unit);
 }
 
 /*

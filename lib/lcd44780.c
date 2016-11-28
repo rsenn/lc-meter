@@ -379,7 +379,7 @@ lcd_blink() {
 /** These commands scroll the display without changing the RAM */
 #ifdef LCDSCROLLDISPLAYLEFT
 void
-lcd_scroll_display_left(void) {
+lcd_scroll_print_left(void) {
   lcd_command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVELEFT);
 }
 #endif
@@ -387,7 +387,7 @@ lcd_scroll_display_left(void) {
 // -------------------------------------------------------------------------
 #ifdef LCDSCROLLDISPLAYRIGHT
 void
-lcd_scroll_display_right(void) {
+lcd_scroll_print_right(void) {
   lcd_command(LCD_CURSORSHIFT | LCD_DISPLAYMOVE | LCD_MOVERIGHT);
 }
 #endif

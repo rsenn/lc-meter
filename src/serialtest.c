@@ -1,7 +1,7 @@
 #include "LC-meter.h"
 #include "const.h"
 #include "delay.h"
-#include "display.h"
+#include "print.h"
 #include "format.h"
 #include "interrupt.h"
 #include "lcd44780.h"

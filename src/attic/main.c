@@ -111,20 +111,20 @@ measure_capacitance() {
     if (Cin > (999E3)) {
       if (Cin > (999E6)) {
         Cin = Cin / (1E9);
-        display_unit(4); //"mF"
+        print_unit(4); //"mF"
       } else {
         Cin = Cin / (1E6);
-        display_unit(5); //"uF"
+        print_unit(5); //"uF"
       }
     } else {
       Cin = Cin / 1E3;
-      display_unit(6); //"nF"
+      print_unit(6); //"nF"
     }
   } else
-    display_unit(7); //"pF"
+    print_unit(7); //"pF"
   Cin = Cin * 100;   // scale to 2 decimal place
   var = (unsigned int)Cin;
-  display_reading(var);
+  print_reading(var);
 }
 
 void
@@ -146,20 +146,20 @@ measure_inductance() {
     if (Lin > (999E3)) {
       if (Lin > (999E6)) {
         Lin = Lin / (1E9);
-        display_unit(0); //"H"
+        print_unit(0); //"H"
       } else {
         Lin = Lin / (1E6);
-        display_unit(1); //"mH"
+        print_unit(1); //"mH"
       }
     } else {
       Lin = Lin / 1E3;
-      display_unit(2); //"uH"
+      print_unit(2); //"uH"
     }
   } else
-    display_unit(3); //"nH"
+    print_unit(3); //"nH"
   Lin = Lin * 100;   // scale to 2 decimal place
   var = (unsigned int)Lin;
-  display_reading(var);
+  print_reading(var);
 }
 
 void delay10ms(unsigned int period_10ms)

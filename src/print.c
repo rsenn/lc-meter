@@ -1,13 +1,13 @@
 #include "buffer.h"
-#include "display.h"
+#include "print.h"
 #include "LC-meter.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"
 #endif
 
-#if USE_NOKIA3310_LCD
-#include "lcd3310.h"
+#if USE_NOKIA5110_LCD
+#include "lcd5110.h"
 #endif
 
 #if USE_SER
@@ -15,7 +15,7 @@
 #endif
 
 #include "format.h"
-#define display_print_number(a,b,c) format_number(lcd_putch, a,b,c)
+#define print_print_number(a,b,c) format_number(lcd_putch, a,b,c)
 
 void
 lcd_print(const char *string) {
@@ -32,8 +32,8 @@ lcd_put(const char* buf, unsigned n) {
 }
 
 
-#if USE_NOKIA3310_LCD
-#include "lcd3310.h"
+#if USE_NOKIA5110_LCD
+#include "lcd5110.h"
 
 const charlogo_image[504] =
 {
@@ -82,9 +82,9 @@ const char units[288] =   //8units * (18*2)
 // -------------------------------------------------------------------------
 // -------------------------------------------------------------------------
 void
-display_digit(uint8_t line, uint8_t column, uint8_t digit)
+print_digit(uint8_t line, uint8_t column, uint8_t digit)
 {
-#if USE_NOKIA3310_LCD
+#if USE_NOKIA5110_LCD
   uint8_t i;
   if(line < 1 || line > 5) return;
   if(column > 74) return;
@@ -97,13 +97,13 @@ display_digit(uint8_t line, uint8_t column, uint8_t digit)
 #elif defined(USE_HD44780_LCD)
   lcd_gotoxy(column, /*line - 1*/ 0);
   lcd_putch('0' + digit);
-#endif // defined(USE_NOKIA3310_LCD)
+#endif // defined(USE_NOKIA5110_LCD)
 }
 
 // -------------------------------------------------------------------------
 void
-display_unit(uint8_t unit) {
-#if USE_NOKIA3310_LCD
+print_unit(uint8_t unit) {
+#if USE_NOKIA5110_LCD
   uint8_t i;
   lcd_gotoxy(60, 2);
   for (i = 0; i < 18; i++)
@@ -121,14 +121,14 @@ display_unit(uint8_t unit) {
 
     buffer_flush();
   ser_puts("\r\n");
-#endif // defined(USE_NOKIA3310_LCD)
+#endif // defined(USE_NOKIA5110_LCD)
 }
 
 void
-display_reading(uint16_t measurement) {
+print_reading(uint16_t measurement) {
 
 // measurement divide by 100
-#if USE_NOKIA3310_LCD
+#if USE_NOKIA5110_LCD
   // clear previous measurement
   lcd_gotoxy(0, 2);
   lcd_print(" ");
@@ -141,16 +141,16 @@ display_reading(uint16_t measurement) {
   lcd_send(0x70, LCD_TDATA);
   // hundreds digit
   if(measurement / 10000 > 0)
-    display_digit(3, 5, measurement / 10000);
+    print_digit(3, 5, measurement / 10000);
   // tens digit
   if(((measurement / 1000) % 10 > 0) || (measurement / 10000 > 0))
-    display_digit(3, 15, (measurement / 1000) % 10);
+    print_digit(3, 15, (measurement / 1000) % 10);
   // ones digit
-  display_digit(3, 25, (measurement / 100) % 10);
+  print_digit(3, 25, (measurement / 100) % 10);
   // tenths digit
-  display_digit(3, 40, (measurement / 10) % 10);
+  print_digit(3, 40, (measurement / 10) % 10);
   // hundredths digit
-  display_digit(3, 50, measurement % 10);
+  print_digit(3, 50, measurement % 10);
 #elif defined(USE_HD44780_LCD)
   lcd_gotoxy(9, 0);
   lcd_print("     ");
@@ -160,13 +160,13 @@ display_reading(uint16_t measurement) {
   format_number(buffer_putch, measurement % 100, 10, 0);
 
 
-#endif // defined(USE_NOKIA3310_LCD)
+#endif // defined(USE_NOKIA5110_LCD)
 }
 
 // -------------------------------------------------------------------------
 void
 indicator(uint8_t indicate) {
-#if USE_NOKIA3310_LCD
+#if USE_NOKIA5110_LCD
   if(indicate) {
     lcd_gotoxy(70, 4);
     lcd_send(0x1C, LCD_TDATA);
@@ -185,5 +185,5 @@ indicator(uint8_t indicate) {
   } else {
     lcd_print("   ");
   }
-#endif // defined(USE_NOKIA3310_LCD)
+#endif // defined(USE_NOKIA5110_LCD)
 }
