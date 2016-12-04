@@ -96,7 +96,7 @@ ifeq ($(OPT),space)
 OPT_SPEED = ,+speed,-space,9
 endif
 
-ifneq ($(_DEBUG),1)
+ifneq ($(BUILD_TYPE),debug)
 COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
 #COMMON_FLAGS += -D__DEBUG=1
 else
