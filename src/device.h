@@ -3,19 +3,19 @@
 
 #ifdef __SDCC
 # ifndef SDCC
-#  define SDCC
+#  define SDCC 1
 # endif
-#endif
+# ifdef __16f876a
+#  include <pic14/pic16f876a.h>
+# endif
 
-#if defined(__XC8)
+#elif defined(__XC8)
 #include <xc.h>
 
 //#define MCHP_XC8 1
 //#undef HI_TECH_C
 
-#endif
-
-#ifdef HI_TECH_C
+#elif defined( HI_TECH_C)
 # include <htc.h>
 # ifdef __PIC10F206_H
 #  define __10f206 1
@@ -194,6 +194,108 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #else
 #define T0PS  OPTION_REGbits.PS
 #endif
+
+#ifdef SDCC
+# ifndef acos
+# define acos acosf
+# endif /* defined(acos) */
+# ifndef asin
+# define asin asinf
+# endif /* defined(asin) */
+# ifndef atan
+# define atan atanf
+# endif /* defined(atan) */
+# ifndef atan2
+# define atan2 atan2f
+# endif /* defined(atan2) */
+# ifndef ceil
+# define ceil ceilf
+# endif /* defined(ceil) */
+# ifndef cos
+# define cos cosf
+# endif /* defined(cos) */
+# ifndef cosh
+# define cosh coshf
+# endif /* defined(cosh) */
+# ifndef exp
+# define exp expf
+# endif /* defined(exp) */
+# ifndef fabs
+# define fabs fabsf
+# endif /* defined(fabs) */
+# ifndef floor
+# define floor floorf
+# endif /* defined(floor) */
+# ifndef frexp
+# define frexp frexpf
+# endif /* defined(frexp) */
+# ifndef ldexp
+# define ldexp ldexpf
+# endif /* defined(ldexp) */
+# ifndef log
+# define log logf
+# endif /* defined(log) */
+# ifndef log10
+# define log10 log10f
+# endif /* defined(log10) */
+# ifndef modf
+# define modf modff
+# endif /* defined(modf) */
+# ifndef pow
+# define pow powf
+# endif /* defined(pow) */
+# ifndef sin
+# define sin sinf
+# endif /* defined(sin) */
+# ifndef sinh
+# define sinh sinhf
+# endif /* defined(sinh) */
+# ifndef sqrt
+# define sqrt sqrtf
+# endif /* defined(sqrt) */
+# ifndef tan
+# define tan tanf
+# endif /* defined(tan) */
+# ifndef tanh
+# define tanh tanhf
+# endif /* defined(tanh) */
+
+#include <float.h>
+
+# ifndef DBL_DIG
+# define DBL_DIG FLT_DIG
+# endif /* defined(DBL_DIG) */
+# ifndef DBL_EPSILON
+# define DBL_EPSILON FLT_EPSILON
+# endif /* defined(DBL_EPSILON) */
+# ifndef DBL_MANT_DIG
+# define DBL_MANT_DIG FLT_MANT_DIG
+# endif /* defined(DBL_MANT_DIG) */
+# ifndef DBL_MAX
+# define DBL_MAX FLT_MAX
+# endif /* defined(DBL_MAX) */
+# ifndef DBL_MAX_10_EXP
+# define DBL_MAX_10_EXP FLT_MAX_10_EXP
+# endif /* defined(DBL_MAX_10_EXP) */
+# ifndef DBL_MAX_EXP
+# define DBL_MAX_EXP FLT_MAX_EXP
+# endif /* defined(DBL_MAX_EXP) */
+# ifndef DBL_MIN
+# define DBL_MIN FLT_MIN
+# endif /* defined(DBL_MIN) */
+# ifndef DBL_MIN_10_EXP
+# define DBL_MIN_10_EXP FLT_MIN_10_EXP
+# endif /* defined(DBL_MIN_10_EXP) */
+# ifndef DBL_MIN_EXP
+# define DBL_MIN_EXP FLT_MIN_EXP
+# endif /* defined(DBL_MIN_EXP) */
+# ifndef DBL_RADIX
+# define DBL_RADIX FLT_RADIX
+# endif /* defined(DBL_RADIX) */
+# ifndef DBL_ROUNDS
+# define DBL_ROUNDS FLT_ROUNDS
+# endif /* defined(DBL_ROUNDS) */
+#endif 
 
 #endif /* DEVICE_H */
 
