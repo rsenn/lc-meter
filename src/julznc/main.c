@@ -43,8 +43,12 @@ void initialize(void)
 	//others
 	lc_tris();
 	relay_tris();
-//	RBPU = 0;		// enable portB internal pullup
+
+#if (_HTC_VER_MINOR_ >= 80)
 	nRBPU = 1;		// enable portB internal pullup
+#else
+	RBPU = 0;		// enable portB internal pullup
+#endif
 }
 unsigned int measure_freq(void)		//16-bit freq
 {

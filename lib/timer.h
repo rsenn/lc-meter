@@ -70,7 +70,7 @@ void timer0_init(uint8_t prescale);
 
 void timer1_init(uint8_t ps_mode);
 
-#define TIMER1_VALUE TMR1
+#define TIMER1_VALUE ((TMR1H << 8)|TMR1L)
 #define TIMER1_BITS 16
 
 #endif // USE_TIMER1

@@ -1,6 +1,13 @@
 #ifndef CONFIG_BITS_H
 #define CONFIG_BITS_H 1
 
+#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#define FOSC_HS HS
+#define WDTE_OFF WDTDIS
+#define PWRTE_ON PWRTEN
+#define BOREN_ON BOREN
+#endif
+
 #ifdef __10f206
 # include "config-10f206.h"
 #endif // defined __10f206

@@ -4,12 +4,17 @@
 # include "device.h"
 
 # if defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8)
+#if (_HTC_VER_MINOR_ >= 80)
 #  include <stdbool.h>
 #  include <stdint.h>
-
-#  if 0 //def __XC__
-#   define uint8_t unsigned char
-#  endif
+#else
+# define uint8_t unsigned char
+# define int8_t signed char
+# define uint16_t unsigned short int
+# define int16_t signed short int
+# define uint32_t unsigned long int
+# define int32_t signed long int
+#endif
 
 # elif defined(MCC18) || defined(__IAR_SYSTEMS_ICC__)
 typedef signed char int8_t;

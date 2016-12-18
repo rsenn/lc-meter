@@ -163,7 +163,7 @@ main() {
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
-  lcd_init(true);
+  lcd_init(TRUE);
   lcd_begin(2, 1);
 #endif
 
@@ -221,7 +221,7 @@ main() {
 void
 testloop() {
 
-  static bool led = 0;
+  static BOOL led = 0;
   static uint32_t prev_s = 0;
   uint32_t s;
 
@@ -484,7 +484,7 @@ milliseconds() {
 void
 delay10ms(uint16_t period_10ms) {
   uint32_t ms;
-  bool run = 1;
+  BOOL run = 1;
 
   get_milliseconds(ms);
 

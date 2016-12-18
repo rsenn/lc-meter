@@ -1,9 +1,9 @@
 #ifndef DEVICE_H
 #define DEVICE_H
 
-#ifdef __SDCC
+#if defined( __SDCC) || defined(SDCC)
 # ifndef SDCC
-#  define SDCC 1
+#  define SDCC 1	
 # endif
 # ifdef __16f876a
 #  include <pic14/pic16f876a.h>
@@ -296,6 +296,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 # define DBL_ROUNDS FLT_ROUNDS
 # endif /* defined(DBL_ROUNDS) */
 #endif 
+
+//#define T1CONbits T1CON_bits
 
 #endif /* DEVICE_H */
 

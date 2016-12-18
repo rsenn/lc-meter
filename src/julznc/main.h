@@ -2,6 +2,14 @@
 #ifndef _XTAL_FREQ
 	#define _XTAL_FREQ 20000000
 #endif
+
+#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#define FOSC_HS HS
+#define WDTE_OFF WDTDIS
+#define PWRTE_ON PWRTEN
+#define BOREN_ON BOREN
+#endif
+
 __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 
 #include "lcd3310.h"
