@@ -27,6 +27,7 @@ LC_meter_NOKIA5110_SOURCES = LC-meter.c lcd5110.c print.c uart.c ser.c timer.c b
 LC_meter_NOKIA5110_DEFS = -DUSE_NOKIA5110_LCD=1
 LC_meter_NOKIA5110_DEFS += $(TIMER_DEFS)
 LC_meter_NOKIA5110_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
+LC_meter_NOKIA5110_DEFS += -DUSE_TIMER1=1 -DUSE_TIMER2=1
 
 LC_meter_julznc_SOURCES = display.c lcd3310.c main.c
 LC_meter_julznc_DEFS += -DNO_JULZNC=1
