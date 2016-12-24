@@ -29,7 +29,7 @@ LC_meter_NOKIA5110_DEFS += $(TIMER_DEFS)
 LC_meter_NOKIA5110_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
 
 LC_meter_julznc_SOURCES = display.c lcd3310.c main.c
-
+LC_meter_julznc_DEFS += -DNO_JULZNC=1
 
 Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c buffer.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
