@@ -44,7 +44,7 @@ void initialize(void)
 	lc_tris();
 	relay_tris();
 
-#if (_HTC_VER_MINOR_ >= 80)
+#if (_HTC_VER_MINOR_ >= 80) || defined(__XC__)
 	nRBPU = 1;		// enable portB internal pullup
 #else
 	RBPU = 0;		// enable portB internal pullup
