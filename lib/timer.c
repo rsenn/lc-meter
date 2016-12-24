@@ -1,4 +1,3 @@
-  #include "device.h"
   #include "timer.h"
 
 /* ----------------------- Timer 0 ----------------------- */
@@ -20,24 +19,20 @@ void timer0_init(uint8_t ps_mode) {
 
   PSA = (prescaler == 0); // Prescaler isn't assigned to the Timer0 module
 
-#if (_HTC_VER_MINOR_ >= 80)
   OPTION_REG &= ~0b111;
   if (prescaler > 0) {
     OPTION_REG |= (prescaler - 1) & 0b111;
-    }
-#else
+    //#if TIMER0_PRESCALER != 0
+    /*  --prescaler;
       PS0 = prescaler&1;   prescaler >>= 1;
       PS1 = prescaler&1;   prescaler >>= 1;
-      PS2 = prescaler&1; 
-#endif
+      PS2 = prescaler&1; */
   }
+  //  T0PS = prescaler - 1;
+  //#endif
 
-  //TMR0IF = 0;
-   
-  INTCON &= ~((1<<5)|(1<<2));
-  INTCON |= ((!!(ps_mode & TIMER0_FLAGS_INTR)) & 1) << 5;
-  
-//  TMR0IE = !!(ps_mode & TIMER0_FLAGS_INTR);
+  TMR0IF = 0;
+  TMR0IE = !!(ps_mode & TIMER0_FLAGS_INTR);
 }
 #endif // USE_TIMER0
 

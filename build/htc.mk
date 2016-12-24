@@ -73,7 +73,7 @@ COMMON_FLAGS += -N127
 
 #COMMON_FLAGS += --runtime=default
 #COMMON_FLAGS += --runtime=default
-COMMON_FLAGS += --runtime=default
+COMMON_FLAGS += --runtime=default,+stackcall
 
 
 
