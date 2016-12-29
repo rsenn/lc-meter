@@ -19,6 +19,8 @@ OS = $(shell uname -o)
 $(info OS: $(OS))
 #CC = $(shell which picc 2>/dev/null)
 
+
+
 ifneq ($(CHIP),$(CHIP:18%=%))
 COMPILER_NAME = picc18
 COMPILER_DIR = picc-18/pro
@@ -28,7 +30,11 @@ DEFINES += __PICC18__=1
 else
 COMPILER_NAME = picc
 COMPILER_DIR = picc
-CCVER = 9.71a
+CCVER = 9.83
+endif
+
+ifneq ($($(subst -,_,$(PROGRAM))_CCVER),)
+CCVER := $($(subst -,_,$(PROGRAM))_CCVER)
 endif
 
 ifeq ($(CCDIR),)
