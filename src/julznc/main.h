@@ -10,7 +10,11 @@
 #define BOREN_ON BOREN
 #endif
 
+/*#ifdef PIC18
+#else
 __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
+#endif*/
+#include "config-bits.h"
 
 #include "lcd3310.h"
 

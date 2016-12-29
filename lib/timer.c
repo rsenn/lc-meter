@@ -19,6 +19,11 @@ void timer0_init(uint8_t ps_mode) {
 
   PSA = (prescaler == 0); // Prescaler isn't assigned to the Timer0 module
 
+#if PIC18
+  if (prescaler > 0) {
+T0PS=(prescaler-1);
+  } 
+#else
   OPTION_REG &= ~0b111;
   if (prescaler > 0) {
     OPTION_REG |= (prescaler - 1) & 0b111;
@@ -30,7 +35,7 @@ void timer0_init(uint8_t ps_mode) {
   }
   //  T0PS = prescaler - 1;
   //#endif
-
+#endif
   TMR0IF = 0;
   TMR0IE = !!(ps_mode & TIMER0_FLAGS_INTR);
 }
