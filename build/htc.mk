@@ -79,7 +79,12 @@ COMMON_FLAGS += -N127
 
 #COMMON_FLAGS += --runtime=default
 #COMMON_FLAGS += --runtime=default
-COMMON_FLAGS += --runtime=default,+stackcall
+
+ifneq ($(PIC18),true)
+STACKCALL = ,+stackcall
+endif
+
+COMMON_FLAGS += --runtime=default$(STACKCALL)
 
 
 
