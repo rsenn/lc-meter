@@ -66,9 +66,9 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
-        <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.34</languageToolchainVersion>
+        <platformTool>VSMViewerPlatformTool</platformTool>
+        <languageToolchain>hi-tech-picc</languageToolchain>
+        <languageToolchainVersion>9.83</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -96,52 +96,49 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="asmlist" value="true"/>
         <property key="define-macros"
-                  value="NDEBUG=1;PIC16F876A=1;UART_BAUD=38400;USE_NOKIA5110_LCD=1;USE_SER=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;_DEBUG=1;_XTAL_FREQ=20000000;__16f876a=1;__DEBUG=1"/>
-        <property key="disable-optimizations" value="false"/>
+                  value="NDEBUG=1;UART_BAUD=38400;USE_NOKIA5110_LCD=1;USE_SER=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;_XTAL_FREQ=20000000;__NDEBUG=1"/>
         <property key="extra-include-directories"
                   value="..;.;../../../lib;../../../src"/>
-        <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="127"/>
         <property key="operation-mode" value="pro"/>
-        <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="optimization-assembler-files" value="true"/>
         <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
-        <property key="optimization-invariant-enable" value="false"/>
-        <property key="optimization-invariant-value" value="16"/>
         <property key="optimization-level" value="9"/>
-        <property key="optimization-set" value="default"/>
-        <property key="optimization-speed" value="false"/>
-        <property key="optimization-stable-enable" value="false"/>
+        <property key="optimization-set" value="all"/>
+        <property key="optimization-speed" value="true"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="false"/>
-        <property key="use-iar" value="false"/>
         <property key="verbose" value="true"/>
         <property key="warning-level" value="3"/>
         <property key="what-to-do" value="ignore"/>
+        <property key="what-to-do-ex" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
+        <property key="additional-options-callgraph" value="std"/>
         <property key="additional-options-checksum" value=""/>
         <property key="additional-options-code-offset" value=""/>
         <property key="additional-options-command-line" value=""/>
         <property key="additional-options-errata" value=""/>
         <property key="additional-options-extend-address" value="false"/>
         <property key="additional-options-trace-type" value=""/>
-        <property key="additional-options-use-response-files" value="false"/>
         <property key="backup-reset-condition-flags" value="false"/>
         <property key="calibrate-oscillator" value="false"/>
         <property key="calibrate-oscillator-value" value="0x3400"/>
+        <property key="checksum-verification" value="false"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
+        <property key="code-model-instruction-set" value="mips32r2"/>
+        <property key="code-model-pointer-size" value="16"/>
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
+        <property key="data-model-memory" value="small"/>
         <property key="data-model-ram" value=""/>
         <property key="data-model-size-of-double" value="32"/>
         <property key="data-model-size-of-float" value="24"/>
+        <property key="data-model-strict" value="false"/>
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
         <property key="display-overall-usage" value="true"/>
@@ -154,15 +151,26 @@
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
         <property key="format-hex-file-for-download" value="true"/>
+        <property key="initialize-cp0" value="true"/>
         <property key="initialize-data" value="true"/>
+        <property key="initialize-gprs" value="true"/>
+        <property key="initialize-heap" value="true"/>
+        <property key="initialize-stack" value="true"/>
         <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-peripheral-library" value="false"/>
+        <property key="linker-interrupts-disable-usage" value="false"/>
+        <property key="linker-interrupts-number-of-vectors" value="multi"/>
+        <property key="linker-interrupts-table-location" value="boot"/>
+        <property key="linker-interrupts-vector-type" value="rom"/>
         <property key="managed-stack" value="true"/>
-        <property key="opt-xc8-linker-file" value="false"/>
-        <property key="opt-xc8-linker-link_startup" value="false"/>
-        <property key="opt-xc8-linker-serial" value=""/>
+        <property key="nmi-handler" value="true"/>
+        <property key="optimal-performance" value="false"/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="soft-reset-handler" value="true"/>
+        <property key="test-ram-on-startup" value="true"/>
+        <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
+        <property key="warn-on-stack-overflow" value="true"/>
       </HI-TECH-LINK>
       <ICD3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -533,6 +541,11 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
+      <VSMViewerPlatformTool>
+        <property key="design.file" value=""/>
+        <property key="target.ip.address" value="localhost"/>
+        <property key="target.ip.port" value="8001"/>
+      </VSMViewerPlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="output-file-format" value="-mcof,+elf"/>
@@ -548,9 +561,9 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
-        <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.34</languageToolchainVersion>
+        <platformTool>VSMViewerPlatformTool</platformTool>
+        <languageToolchain>hi-tech-picc</languageToolchain>
+        <languageToolchainVersion>9.83</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -578,52 +591,49 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="asmlist" value="true"/>
         <property key="define-macros"
-                  value="_XTAL_FREQ=20000000;USE_TIMER0=1;USE_SER=1;USE_NOKIA5110_LCD=1;UART_BAUD=38400;USE_TIMER1=1;USE_TIMER2=1"/>
-        <property key="disable-optimizations" value="false"/>
+                  value="UART_BAUD=38400;USE_NOKIA5110_LCD=1;USE_SER=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;_DEBUG=1;_XTAL_FREQ=20000000;__DEBUG=1"/>
         <property key="extra-include-directories"
                   value="..;.;../../../lib;../../../src"/>
-        <property key="favor-optimization-for" value="-speed,+space"/>
         <property key="identifier-length" value="127"/>
         <property key="operation-mode" value="pro"/>
-        <property key="opt-xc8-compiler-strict_ansi" value="false"/>
-        <property key="optimization-assembler" value="true"/>
-        <property key="optimization-assembler-files" value="true"/>
+        <property key="optimization-assembler" value="false"/>
+        <property key="optimization-assembler-files" value="false"/>
         <property key="optimization-debug" value="true"/>
-        <property key="optimization-global" value="true"/>
-        <property key="optimization-invariant-enable" value="false"/>
-        <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="9"/>
-        <property key="optimization-set" value="default"/>
+        <property key="optimization-global" value="false"/>
+        <property key="optimization-level" value="1"/>
+        <property key="optimization-set" value="none"/>
         <property key="optimization-speed" value="false"/>
-        <property key="optimization-stable-enable" value="false"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="false"/>
-        <property key="use-iar" value="false"/>
         <property key="verbose" value="true"/>
         <property key="warning-level" value="3"/>
         <property key="what-to-do" value="ignore"/>
+        <property key="what-to-do-ex" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
+        <property key="additional-options-callgraph" value="std"/>
         <property key="additional-options-checksum" value=""/>
         <property key="additional-options-code-offset" value=""/>
         <property key="additional-options-command-line" value=""/>
         <property key="additional-options-errata" value=""/>
         <property key="additional-options-extend-address" value="false"/>
         <property key="additional-options-trace-type" value=""/>
-        <property key="additional-options-use-response-files" value="false"/>
         <property key="backup-reset-condition-flags" value="false"/>
         <property key="calibrate-oscillator" value="false"/>
         <property key="calibrate-oscillator-value" value="0x3400"/>
+        <property key="checksum-verification" value="false"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
+        <property key="code-model-instruction-set" value="mips32r2"/>
+        <property key="code-model-pointer-size" value="16"/>
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
+        <property key="data-model-memory" value="small"/>
         <property key="data-model-ram" value=""/>
         <property key="data-model-size-of-double" value="32"/>
         <property key="data-model-size-of-float" value="24"/>
+        <property key="data-model-strict" value="false"/>
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
         <property key="display-overall-usage" value="true"/>
@@ -636,15 +646,26 @@
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
         <property key="format-hex-file-for-download" value="true"/>
+        <property key="initialize-cp0" value="true"/>
         <property key="initialize-data" value="true"/>
+        <property key="initialize-gprs" value="true"/>
+        <property key="initialize-heap" value="true"/>
+        <property key="initialize-stack" value="true"/>
         <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-peripheral-library" value="false"/>
+        <property key="linker-interrupts-disable-usage" value="false"/>
+        <property key="linker-interrupts-number-of-vectors" value="multi"/>
+        <property key="linker-interrupts-table-location" value="boot"/>
+        <property key="linker-interrupts-vector-type" value="rom"/>
         <property key="managed-stack" value="true"/>
-        <property key="opt-xc8-linker-file" value="false"/>
-        <property key="opt-xc8-linker-link_startup" value="false"/>
-        <property key="opt-xc8-linker-serial" value=""/>
+        <property key="nmi-handler" value="true"/>
+        <property key="optimal-performance" value="false"/>
         <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="soft-reset-handler" value="true"/>
+        <property key="test-ram-on-startup" value="true"/>
+        <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
+        <property key="warn-on-stack-overflow" value="true"/>
       </HI-TECH-LINK>
       <ICD3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -1015,6 +1036,11 @@
                   value=""/>
         <property key="warningmessagebreakoptions.warningmessages" value="holdstate"/>
       </Simulator>
+      <VSMViewerPlatformTool>
+        <property key="design.file" value=""/>
+        <property key="target.ip.address" value="localhost"/>
+        <property key="target.ip.port" value="8001"/>
+      </VSMViewerPlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="true"/>
         <property key="output-file-format" value="-mcof,+elf"/>
