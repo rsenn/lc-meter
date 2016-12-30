@@ -51,13 +51,13 @@ timer1_init(uint8_t ps_mode) {
   TMR1CS = !!(ps_mode & TIMER1_FLAGS_EXTCLK);   // Internal clock source
 
   if (TMR1CS)
-    T1CONbits.T1SYNC = !(ps_mode & TIMER1_FLAGS_SYNC);
+    /*T1CONbits.*/T1SYNC = !(ps_mode & TIMER1_FLAGS_SYNC);
 
   T1OSCEN = 0;
 
   TIMER1_VALUE = 0;
 
-  T1CONbits.TMR1ON = 1;
+  /*T1CONbits.*/TMR1ON = 1;
 
   TMR1IF = 0;
   TMR1IE = !!(ps_mode & TIMER1_FLAGS_INTR);
@@ -81,7 +81,7 @@ void timer2_init(uint8_t ps_mode) {
 
   TIMER2_VALUE = 0;
 
-  T2CONbits.TMR2ON = 1; // Enable timer 2.
+  /*T2CONbits.*/TMR2ON = 1; // Enable timer 2.
 
   TMR2IF = 0;
   TMR2IE = !!(ps_mode & TIMER2_FLAGS_INTR);
