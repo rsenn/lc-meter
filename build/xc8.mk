@@ -104,7 +104,7 @@ COMMON_FLAGS += --opt="default,+asm,+debug$(OPT_SPEED)"
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
 
-COMMON_FLAGS += --double=32 --float=24
+COMMON_FLAGS += --double=24 --float=24
 
 COMMON_FLAGS += --warn=9
 COMMON_FLAGS += --asmlist

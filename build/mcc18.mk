@@ -53,7 +53,7 @@ _CPPFLAGS += \
 	-DVERSION_PATCH=$(VERSION_PATCH)
 
 #CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
-#CFLAGS = -q --chip=16F876A -P --runtime=default,+clear,+init,-keep,+osccal,-download,-resetbits,+clib --opt=default,+asm,-debug,+speed,-space,9 --warn=-1 -N127 --double=32 --float=24 --addrqual=ignore -g --asmlist "--errformat=Error   [%n] %f; %l.%c %s" "--msgformat=Advisory[%n] %s" "--warnformat=Warning [%n] %f; %l.%c %s"
+#CFLAGS = -q --chip=16F876A -P --runtime=default,+clear,+init,-keep,+osccal,-download,-resetbits,+clib --opt=default,+asm,-debug,+speed,-space,9 --warn=-1 -N127 --double=24 --float=24 --addrqual=ignore -g --asmlist "--errformat=Error   [%n] %f; %l.%c %s" "--msgformat=Advisory[%n] %s" "--warnformat=Warning [%n] %f; %l.%c %s"
 
 #_LDFLAGS += --summary=default,-psect,-class,+mem,-hex
 

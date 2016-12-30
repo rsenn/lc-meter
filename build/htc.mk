@@ -114,7 +114,7 @@ else
 COMMON_FLAGS += --opt="default,+asm$(OPT_SPEED)"
 endif
 
-COMMON_FLAGS += --double=32 
+COMMON_FLAGS += --double=24 
 #COMMON_FLAGS += --float=24
 
 COMMON_FLAGS += --warn=3
