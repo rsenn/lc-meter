@@ -75,7 +75,8 @@ OPT = speed
 SOURCES =  $(COMMON_SOURCES) $($(subst -,_,$(PROGRAM))_SOURCES)
 COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS) $(DEFINES:%=-D%)
 OBJECTS = $(SOURCES:%.c=$(OBJDIR)%.o)
-ASSRCS = $(SOURCES:%.c=$(OBJDIR)%s)
+ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.s)
+PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 
 #ifneq ($(CODEOFFSET),0)
 #ifneq ($(CODEOFFSET),)
@@ -98,8 +99,9 @@ COMMON_FLAGS +=
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
 
-
-CPPFLAGS += $(DEFINES:%=-D%)
+#CPPFLAGS += $($(subst -,_,$(PROGRAM))_DEFS)
+#CPPFLAGS += $(DEFINES:%=-D%)
+CPPFLAGS += $(sort $(COMMON_FLAGS))
 
 _CPPFLAGS += \
 	-DVERSION_MAJOR=$(VERSION_MAJOR) \
@@ -107,6 +109,7 @@ _CPPFLAGS += \
 	-DVERSION_PATCH=$(VERSION_PATCH)
 
 CFLAGS = --use-non-free
+CFLAGS += $(EXTRA_CFLAGS)
 
 ifneq ($(chipl),$(chipl:16f%=%))
 CFLAGS += -mpic14
@@ -157,11 +160,13 @@ $(HEXFILE): $(OBJECTS)
 
 $(OBJECTS): $(OBJDIR)%.o: %.c
 	$(SDCC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-	#@(cd obj; $(SHELL) ../scripts/sdcc.sh $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),) $(SDCC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
-#	$(SDCC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.o) $<
 
-$(ASSRCS): $(OBJDIR)%s: %.c
-	$(SDCC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
+$(ASSRCS): $(OBJDIR)%.s: %.c
+	$(SDCC) $(CFLAGS) $(CPPFLAGS) -S -o $@ $<
+		$(SDCC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+$(PREPROCESSED): $(OBJDIR)%.e: %.c
+	$(SDCC) $(CFLAGS) $(CPPFLAGS) -E -o $@ $<
 
 prototypes:
 	cproto -DHI_TECH_C=1 -E '$(CPP)' $(CPPFLAGS) $(SOURCES) 2>/dev/null

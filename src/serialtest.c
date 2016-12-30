@@ -14,7 +14,7 @@
 
 #include "config-bits.h"
 
-#ifdef SDCC
+#if defined(__SDCC) || defined(SDCC)
 __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 

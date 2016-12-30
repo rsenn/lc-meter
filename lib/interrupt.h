@@ -4,14 +4,14 @@
 #if defined(HI_TECH_C) || defined(__XC)
 # define INTERRUPT_HANDLER() interrupt isr()
 #else
-# ifdef __SDCC
+# if defined(__SDCC) || defined(SDCC)
 #  define INTERRUPT_HANDLER() void isr() __interrupt 0
 # else
 #  define INTERRUPT_HANDLER() void isr(); interrupt() { void isr(); }; isr()
 # endif
 #endif // !defined(HI_TECH_C)
 
-#ifdef __SDCC
+# if defined(__SDCC) || defined(SDCC)
 # define INTERRUPT_DISABLE() do { GIE = 0; } while(0);
 # define INTERRUPT_ENABLE() do { GIE = 1; } while(0);
 #else

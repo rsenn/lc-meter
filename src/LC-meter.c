@@ -31,7 +31,7 @@
 #include "buffer.h"
 
 
-#ifdef SDCC
+#if defined(__SDCC) || defined(SDCC)
 uint16_t
 __at (_CONFIG)
   __configword = CONFIG_WORD;
@@ -519,4 +519,5 @@ put_str(const char* s) {
   ser_putch('\r');
   ser_putch('\n');
 #endif*/
-}
+};
+

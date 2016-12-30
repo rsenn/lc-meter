@@ -70,7 +70,7 @@
 # endif
 #endif
 
-#ifdef SDCC
+#if defined(__SDCC) || defined(SDCC)
 # define CONFIG_WORD (_FOSC_HS & _PWRTE_ON & _WDT_OFF & _BODEN_OFF & _LVP_OFF & _CPD_OFF & _CP_OFF)
 # define double float
 #endif
@@ -198,7 +198,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define T0PS  OPTION_REGbits.PS
 #endif
 
-#ifdef SDCC
+#if defined(__SDCC) || defined(SDCC)
 # ifndef acos
 # define acos acosf
 # endif /* defined(acos) */

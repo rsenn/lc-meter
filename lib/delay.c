@@ -101,8 +101,12 @@ Delay10TCYx(uint8_t unit) {
     _delay(10);
 #else
     SAVE_CYCLES_SMALL(dvar, 11);
-    __asm__("BANKSEL _dvar");
-    __asm__("CALL correction");
+      __asm
+      BANKSEL _dvar
+      CALL correction
+	__endasm;
+/*    __asm__("BANKSEL _dvar");
+    __asm__("CALL correction");*/
 #endif
   } while(--unit != 0);
 }

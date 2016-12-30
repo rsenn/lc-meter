@@ -126,13 +126,13 @@ void cycle_eater(void);
 /**
  *  Use this macro for delays under 750 cycles and over 13 cycles.
  */
-#define DELAY_SMALL_TCY(X) do { SAVE_CYCLES_SMALL(dvar, X); BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ __asm__("CALL correction"); } while(0)
+#define DELAY_SMALL_TCY(X) do { SAVE_CYCLES_SMALL(dvar, X); BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ /*__asm__("CALL correction");*/ __asm CALL correction __endasm; } while(0)
 
 /**
  *  Use this macro to call a small delay previously calculated.
  */
-#define CALL_CYCLES_SMALL(Y)     do { dvar.loop_c=(Y).loop_c; BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ __asm__("CALL correction"); } while(0)
-#define CALL_CYCLES_SMALL_U8(Y)  do { dvar.loop_c=(Y);        BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ __asm__("CALL correction"); } while(0)
+#define CALL_CYCLES_SMALL(Y)     do { dvar.loop_c=(Y).loop_c; BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ /*__asm__("CALL correction");*/ __asm CALL correction __endasm; } while(0)
+#define CALL_CYCLES_SMALL_U8(Y)  do { dvar.loop_c=(Y);        BANKSEL(_dvar); /*__asm__("EXTERN _correction");*/ /*__asm__("CALL correction");*/ __asm CALL correction __endasm; } while(0)
 
 /**
  *  Calculates cycles from microseconds based on clock speed relative

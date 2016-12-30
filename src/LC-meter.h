@@ -17,7 +17,7 @@ volatile unsigned char           OPTION_REG          @ 0x081;
 #endif
 
 
-#ifdef SDCC
+#if defined(__SDCC) || defined(SDCC)
 #define NOP() __asm("NOP")
 #endif
 
