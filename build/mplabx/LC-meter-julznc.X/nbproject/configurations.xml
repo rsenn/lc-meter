@@ -37,7 +37,7 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>VSMViewerPlatformTool</platformTool>
+        <platformTool>Simulator</platformTool>
         <languageToolchain>hi-tech-picc</languageToolchain>
         <languageToolchainVersion>9.71a</languageToolchainVersion>
         <platform>3</platform>
@@ -142,11 +142,6 @@
         <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
         <property key="warn-on-stack-overflow" value="true"/>
       </HI-TECH-LINK>
-      <VSMViewerPlatformTool>
-        <property key="tracecontrol.disablemacros" value="true"/>
-        <property key="tracecontrol.medium" value="0"/>
-        <property key="tracecontrol.select" value="0"/>
-      </VSMViewerPlatformTool>
     </conf>
   </confs>
 </configurationDescriptor>
