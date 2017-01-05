@@ -85,7 +85,7 @@ int initialize()
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
-  lcd_init(true);
+  lcd_init(TRUE);
   lcd_begin(2, 1);
 #endif
 }
