@@ -1,6 +1,6 @@
 [Eagle]
-Version="07 07 00"
-Platform="Windows"
+Version="07 06 00"
+Platform="Linux"
 Serial="62191E841E-LSR-WLM-1EL"
 Globals="Globals"
 Desktop="Desktop"
@@ -18,8 +18,17 @@ UsedLibrary="eagle/lcd.lbr"
 UsedLibrary="eagle/mcu.lbr"
 
 [Win_1]
+Type="Text Editor"
+Loc="0 0 499 499"
+State=2
+Number=3
+File="README.txt"
+CursorPos="0 0"
+Font="Courier,11,-1,5,50,0,0,0,0,0"
+
+[Win_2]
 Type="Schematic Editor"
-Loc="-4 -23 595 376"
+Loc="0 0 599 399"
 State=2
 Number=2
 File="eagle/LCmeter0-LCD-8pinlcd-PIC-COMP.sch"
@@ -65,10 +74,10 @@ Layer=91
 Views=" 1: 47.3654 4.88351 168.661 49.86"
 Sheet="1"
 
-[Win_2]
+[Win_3]
 Type="Board Editor"
-Loc="500 103 1099 502"
-State=0
+Loc="334 13 1716 848"
+State=2
 Number=1
 File="eagle/LCmeter0-LCD-8pinlcd-PIC-COMP.brd"
 View="17.0086 3.76449 41.6249 26.1692"
@@ -111,9 +120,9 @@ AddLevel=2
 PadsSameType=0
 Layer=16
 
-[Win_3]
+[Win_4]
 Type="Control Panel"
-Loc="296 40 1255 642"
+Loc="296 40 1827 831"
 State=2
 Number=0
 
@@ -122,3 +131,4 @@ Screen="3200 1080"
 Window="Win_1"
 Window="Win_2"
 Window="Win_3"
+Window="Win_4"
