@@ -64,7 +64,7 @@ LD = $(CC)
 #RM = del /f
 DISTFILES = Makefile build/htc.mk build/sdcc.mk
 
-OPT = space
+OPT = speed
 
 #DEFINES += HI_TECH_C=1
 
@@ -89,10 +89,10 @@ COMMON_FLAGS += --runtime=default$(STACKCALL)
 
 
 ifeq ($(OPT),speed)
-OPT_SPEED = ,+speed,-space,9
+OPT_SPEED = ,-space,+speed,3
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,+speed,-space,9
+OPT_SPEED = ,-speed,+space,3
 endif
 
 ifeq ($(BUILD_TYPE),debug)

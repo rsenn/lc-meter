@@ -67,7 +67,7 @@ LD = $(PICC)
 #RM = del /f
 DISTFILES = Makefile build/xc8.mk build/sdcc.mk
 
-OPT = space
+OPT = speed
 
 #DEFINES += HI_TECH_C=1
 
@@ -90,10 +90,10 @@ endif
 endif
 
 ifeq ($(OPT),speed)
-OPT_SPEED = ,+speed,-space,9
+OPT_SPEED = ,-space,+speed,3
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,+speed,-space,9
+OPT_SPEED = ,-speed,+space,3
 endif
 
 ifneq ($(BUILD_TYPE),debug)
@@ -104,7 +104,7 @@ COMMON_FLAGS += --opt="default,+asm,+debug$(OPT_SPEED)"
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
 
-COMMON_FLAGS += --double=24 --float=24
+COMMON_FLAGS += --double=32 --float=32
 
 COMMON_FLAGS += --warn=9
 COMMON_FLAGS += --asmlist
