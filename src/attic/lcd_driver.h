@@ -47,3 +47,4 @@ extern void lcd_home(void);
 #define LCD_CONFIG_CMD 0x38
 
 #endif
+

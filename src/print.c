@@ -189,3 +189,4 @@ indicator(uint8_t indicate) {
   }
 #endif // defined(USE_NOKIA5110_LCD)
 }
+

@@ -10,3 +10,4 @@
 #define LED_TRIS TRISA2 = TRISC3
 
 #endif // defined(FREQ_METER_H)
+

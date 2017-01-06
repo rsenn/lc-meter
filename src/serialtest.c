@@ -350,3 +350,4 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i -
   //    1] - 10));
 }
+

@@ -367,3 +367,4 @@ void lcd_symbol(const char *sym)
 		lcd_send(sym[i], LCD_TDATA);
 	}
 }
+

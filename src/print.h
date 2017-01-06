@@ -18,3 +18,4 @@ void print_print_float(float number, uint8_t digits);
 #define DISPLAYPRINTNUMBER
 
 #endif // DISPLAY_H
+

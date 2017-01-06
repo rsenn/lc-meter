@@ -34,3 +34,4 @@ __CONFIG(2, BORV_LO & WRT_OFF);
 #endif
 
 #endif // defined CONFIG_12F1840_H
+
