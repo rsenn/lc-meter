@@ -4,6 +4,11 @@ NAME=$(basename "$0" .sh)
 set_var() {
     eval "shift;$1=\"\$*\""
 }
+str_toupper ()
+{
+    echo "$@" | tr "[[:lower:]]" "[[:upper:]]"
+}
+
 
 find_program() {
   V=$1
@@ -11,7 +16,7 @@ find_program() {
   if type "$N" 2>/dev/null >/dev/null; then
     P=$N
   else
-    P=$(ls -d {,/usr/,$SYSTEMDRIVE/{Programs,Program\ Files*}/*/,/mingw{32,64}/}{,bin/}"$N".exe 2>/dev/null)
+    P=$(ls -d {,/usr/,$SYSTEMDRIVE/{Programs,Program\ Files*}/*/,/mingw{32,64}/,$SYSTEMDRIVE/"$(str_toupper "$N")"*/}{,bin/}"$N".exe 2>/dev/null)
     [ -n "$P" -a -e "$P" ] || unset P
   fi
   if [ -n "$P" ]; then
@@ -79,8 +84,8 @@ EOF
   
  (set -x
  #echo "Converting $OUTPUT to ${OUTPUT%.pdf}.eps ..." 1>&2
- "$GHOSTSCRIPT" -dNOCACHE -dNOPAUSE -dBATCH -dSAFER -sDEVICE=eps2write -dLanguageLevel=2 -sOutputFile="${OUTPUT%.pdf}.eps" -f "$OUTPUT"
-#  "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
+# "$GHOSTSCRIPT" -dNOCACHE -dNOPAUSE -dBATCH -dSAFER -sDEVICE=eps2write -dLanguageLevel=2 -sOutputFile="${OUTPUT%.pdf}.eps" -f "$OUTPUT"
+  "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
 )
 }
 
@@ -102,7 +107,8 @@ eagle_print() {
 	OUT=doc/pdf/$(basename "${BRD%.*}").pdf
    trap '${RM} -f "${BRD%.*}"-{schematic,board,board-mirrored}.{pdf,eps}' EXIT
    
-	ORIENTATION="portrait" PAPER="a4" SCALE=1.0 eagle_print_to_pdf "$SCH" "${SCH%.*}-schematic.pdf" 
+#	ORIENTATION="portrait" PAPER="a4" SCALE=1.0 eagle_print_to_pdf "$SCH" "${SCH%.*}-schematic.pdf" 
+	ORIENTATION="landscape" PAPER="a4" SCALE="0.8 -1" eagle_print_to_pdf "$SCH" "${SCH%.*}-schematic.pdf" 
 
 	#ORIENTATION="landscape" PAPER="a5"  SCALE="3.0 -1" 
    ORIENTATION="landscape" PAPER="a4"  SCALE="2.0" 
