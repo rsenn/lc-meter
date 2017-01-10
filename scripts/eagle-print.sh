@@ -69,7 +69,8 @@ InfoValue: $(basename "$OUTPUT" .pdf)
 EOF
   set -x; "$PDFTK" "$OUTPUT" update_info "$TMP" output  "$OUTPUT.$$")
   
- (set -x
+ (#set -x
+ echo "Converting $OUTPUT to ${OUTPUT%.pdf}.eps ..." 1>&2
   "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && rm -vf "$OUTPUT")
 }
 
