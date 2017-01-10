@@ -170,20 +170,7 @@ main() {
   lcd_init(TRUE);
   lcd_begin(2, 1);
 #endif
-
-  TRISA = 0b11001111;
-
-    //setup timer0 for frequency counter
-    T0CS = 1;   //Transition on T0CKI pin
-    T0SE = 1;   //Increment on high-to-low transition on T0CKI pin
-    PSA = 0;    //Prescaler is assigned to the Timer0 module
-    PS2 = 1;    //PS2:PS0 -> Prescaler Rate = divide by 256
-    PS1 = 1;
-    PS0 = 1;
-    TMR0IF = 0;
-    TMR0IE = 0;
-
-
+n
   LC_TRIS();
   RELAY_TRIS();
 

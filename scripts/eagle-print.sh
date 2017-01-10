@@ -54,7 +54,7 @@ exec_cmd() {
   eval "echo \"Executing: \${$VAR}\" \"\$@\"; echo"
 
   echo -n "$VAR $@" 1>&2
-  eval "\"\${$VAR}\" \"\$@\" 2>&1"
+  eval "env - \"\${$VAR}\" \"\$@\" 2>&1"
   R=$?
   echo " (R=$R)" 1>&2)  1>&10
 }
