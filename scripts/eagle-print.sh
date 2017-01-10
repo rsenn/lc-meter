@@ -13,10 +13,12 @@ str_toupper ()
 find_program() {
   V=$1
   N=$2 
-  if type "$N" 2>/dev/null >/dev/null; then
+  if [ -e scripts/"$N" ]; then
+    P=scripts/"$N"
+  elif type "$N" 2>/dev/null >/dev/null; then
     P=$N
   else
-    P=$(ls -d {,/usr/,$SYSTEMDRIVE/{Programs,Program\ Files*}/*/,/mingw{32,64}/,$SYSTEMDRIVE/"$(str_toupper "$N")"*/}{,bin/}"$N".exe 2>/dev/null)
+    P=$(ls -d {scripts/,/usr/,$SYSTEMDRIVE/{Programs,Program\ Files*}/*/,/mingw{32,64}/,$SYSTEMDRIVE/"$(str_toupper "$N")"*/}{,bin/}"$N".exe 2>/dev/null)
     [ -n "$P" -a -e "$P" ] || unset P
   fi
   if [ -n "$P" ]; then
@@ -99,6 +101,7 @@ eagle_print() {
   find_program PDFTK "pdftk" || error "pdftk not found"
   find_program GHOSTSCRIPT "gs" || error "ghostscript not found"
   find_program PDFTOPS "pdftops" || error "pdftops not found"
+#PDFTOPS="scripts/pdftops"
 
   for ARG; do
 
