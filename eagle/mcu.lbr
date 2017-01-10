@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.6.0">
+<eagle version="7.7.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -401,7 +401,7 @@
 <pin name="VDD" x="25.4" y="-2.54" direction="pas" rot="R180"/>
 <pin name="VSS" x="25.4" y="-5.08" direction="pas" rot="R180"/>
 <pin name="VSS_2" x="-27.94" y="0" direction="pas"/>
-<text x="-22.86" y="27.94" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="-20.32" y="25.4" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
 <text x="-20.32" y="21.59" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
 <wire x1="-20.32" y1="20.32" x2="-20.32" y2="-20.32" width="0.254" layer="94"/>
 <wire x1="-20.32" y1="-20.32" x2="17.78" y2="-20.32" width="0.254" layer="94"/>
@@ -954,6 +954,78 @@
 <pin name="RE3" x="-27.94" y="53.34" length="middle" rot="R270"/>
 <pin name="RE4" x="-30.48" y="53.34" length="middle" rot="R270"/>
 </symbol>
+<symbol name="PIC18F2550-I/SP">
+<pin name="*MCLR/VPP/RE3" x="-38.1" y="17.78" direction="pas"/>
+<pin name="OSC1/CLKI" x="-38.1" y="-2.54" direction="pas"/>
+<pin name="OSC2/CLKO/RA6" x="-38.1" y="-5.08" direction="pas"/>
+<pin name="RA0/AN0" x="-38.1" y="15.24" direction="pas"/>
+<pin name="RA1/AN1" x="-38.1" y="12.7" direction="pas"/>
+<pin name="RA2/AN2/VREF-/CVREF" x="-38.1" y="10.16" direction="pas"/>
+<pin name="RA3/AN3/VREF+" x="-38.1" y="7.62" direction="pas"/>
+<pin name="RA4/T0CKI/C1OUT/RCV" x="-38.1" y="5.08" direction="pas"/>
+<pin name="RA5/AN4/*SS/C2OUT" x="-38.1" y="2.54" direction="pas"/>
+<pin name="RB0/AN12/INT0/FLT0/SDI/SDA" x="38.1" y="0" direction="pas" rot="R180"/>
+<pin name="RB1/AN10/INT1/SCK/SCL" x="38.1" y="2.54" direction="pas" rot="R180"/>
+<pin name="RB2/AN8/INT2/VMO" x="38.1" y="5.08" direction="pas" rot="R180"/>
+<pin name="RB3/AN9/CCP2/VPO" x="38.1" y="7.62" direction="pas" rot="R180"/>
+<pin name="RB4/AN11/KBI0/CSSPP" x="38.1" y="10.16" direction="pas" rot="R180"/>
+<pin name="RB5/KBI1/PGM" x="38.1" y="12.7" direction="pas" rot="R180"/>
+<pin name="RB6/KBI2/PGC" x="38.1" y="15.24" direction="pas" rot="R180"/>
+<pin name="RB7/KBI3/PGD" x="38.1" y="17.78" direction="pas" rot="R180"/>
+<pin name="RC0/T1OSO/T1CKI" x="-38.1" y="-7.62" direction="pas"/>
+<pin name="RC1/T1OSI/CCP2" x="-38.1" y="-10.16" direction="pas"/>
+<pin name="RC2/CCP1" x="-38.1" y="-12.7" direction="pas"/>
+<pin name="VUSB" x="-38.1" y="-15.24" direction="pas"/>
+<pin name="RC4/D-/VM" x="38.1" y="-15.24" direction="pas" rot="R180"/>
+<pin name="RC5/D+/VP" x="38.1" y="-12.7" direction="pas" rot="R180"/>
+<pin name="RC6/TX/CK" x="38.1" y="-10.16" direction="pas" rot="R180"/>
+<pin name="RC7/RX/DT/SDO" x="38.1" y="-7.62" direction="pas" rot="R180"/>
+<pin name="VDD" x="38.1" y="-2.54" direction="pas" rot="R180"/>
+<pin name="VSS" x="38.1" y="-5.08" direction="pas" rot="R180"/>
+<pin name="VSS_2" x="-38.1" y="0" direction="pas"/>
+<text x="-30.48" y="25.4" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="-30.48" y="21.59" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
+<wire x1="-30.48" y1="20.32" x2="-30.48" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="-30.48" y1="-20.32" x2="30.48" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="30.48" y1="20.32" x2="-30.48" y2="20.32" width="0.254" layer="94"/>
+<wire x1="30.48" y1="20.32" x2="30.48" y2="-20.32" width="0.254" layer="94"/>
+</symbol>
+<symbol name="PIC18F2550-I/SP-2">
+<pin name="RE3/_MCLR/VPP" x="30.48" y="-20.32" direction="pas" rot="R180"/>
+<pin name="OSC1/CLKI" x="30.48" y="-10.16" direction="pas" rot="R180"/>
+<pin name="RA6/OSC2/CLKO" x="-33.02" y="5.08" direction="pas"/>
+<pin name="RA0/AN0" x="-33.02" y="20.32" direction="pas"/>
+<pin name="RA1/AN1" x="-33.02" y="17.78" direction="pas"/>
+<pin name="RA2/AN2/VREF-/CVREF" x="-33.02" y="15.24" direction="pas"/>
+<pin name="RA3/AN3/VREF+" x="-33.02" y="12.7" direction="pas"/>
+<pin name="RA4/T0CKI/C1OUT/RCV" x="-33.02" y="10.16" direction="pas"/>
+<pin name="RA5/AN4/*SS/C2OUT" x="-33.02" y="7.62" direction="pas"/>
+<pin name="RB0/AN12/INT0/FLT0/SDI/SDA" x="-33.02" y="0" direction="pas"/>
+<pin name="RB1/AN10/INT1/SCK/SCL" x="-33.02" y="-2.54" direction="pas"/>
+<pin name="RB2/AN8/INT2/VMO" x="-33.02" y="-5.08" direction="pas"/>
+<pin name="RB3/AN9/CCP2/VPO" x="-33.02" y="-7.62" direction="pas"/>
+<pin name="RB4/AN11/KBI0/CSSPP" x="-33.02" y="-10.16" direction="pas"/>
+<pin name="RB5/KBI1/PGM" x="-33.02" y="-12.7" direction="pas"/>
+<pin name="RB6/KBI2/PGC" x="-33.02" y="-15.24" direction="pas"/>
+<pin name="RB7/KBI3/PGD" x="-33.02" y="-17.78" direction="pas"/>
+<pin name="RC0/T1OSO/T1CKI" x="30.48" y="20.32" direction="pas" rot="R180"/>
+<pin name="RC1/T1OSI/CCP2" x="30.48" y="17.78" direction="pas" rot="R180"/>
+<pin name="RC2/CCP1" x="30.48" y="15.24" direction="pas" rot="R180"/>
+<pin name="VUSB" x="30.48" y="-15.24" direction="pas" rot="R180"/>
+<pin name="RC4/D-/VM" x="30.48" y="12.7" direction="pas" rot="R180"/>
+<pin name="RC5/D+/VP" x="30.48" y="10.16" direction="pas" rot="R180"/>
+<pin name="RC6/TX/CK" x="30.48" y="7.62" direction="pas" rot="R180"/>
+<pin name="RC7/RX/DT/SDO" x="30.48" y="5.08" direction="pas" rot="R180"/>
+<pin name="VDD" x="30.48" y="0" direction="pas" rot="R180"/>
+<pin name="VSS" x="30.48" y="-2.54" direction="pas" rot="R180"/>
+<pin name="VSS_2" x="30.48" y="-5.08" direction="pas" rot="R180"/>
+<text x="-25.4" y="27.94" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="-25.4" y="24.13" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
+<wire x1="-25.4" y1="22.86" x2="-25.4" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-25.4" y1="-22.86" x2="22.86" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="22.86" y1="22.86" x2="-25.4" y2="22.86" width="0.254" layer="94"/>
+<wire x1="22.86" y1="22.86" x2="22.86" y2="-22.86" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="PIC16F876A-X/SP">
@@ -1437,6 +1509,160 @@
 <connect gate="G$1" pin="VSS@4" pad="45"/>
 <connect gate="G$1" pin="VSS@5" pad="65"/>
 <connect gate="G$1" pin="VUSB" pad="55"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PIC18F2550-I/SP">
+<gates>
+<gate name="G$1" symbol="PIC18F2550-I/SP" x="-15.24" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIL28-3">
+<connects>
+<connect gate="G$1" pin="*MCLR/VPP/RE3" pad="1"/>
+<connect gate="G$1" pin="OSC1/CLKI" pad="9"/>
+<connect gate="G$1" pin="OSC2/CLKO/RA6" pad="10"/>
+<connect gate="G$1" pin="RA0/AN0" pad="2"/>
+<connect gate="G$1" pin="RA1/AN1" pad="3"/>
+<connect gate="G$1" pin="RA2/AN2/VREF-/CVREF" pad="4"/>
+<connect gate="G$1" pin="RA3/AN3/VREF+" pad="5"/>
+<connect gate="G$1" pin="RA4/T0CKI/C1OUT/RCV" pad="6"/>
+<connect gate="G$1" pin="RA5/AN4/*SS/C2OUT" pad="7"/>
+<connect gate="G$1" pin="RB0/AN12/INT0/FLT0/SDI/SDA" pad="21"/>
+<connect gate="G$1" pin="RB1/AN10/INT1/SCK/SCL" pad="22"/>
+<connect gate="G$1" pin="RB2/AN8/INT2/VMO" pad="23"/>
+<connect gate="G$1" pin="RB3/AN9/CCP2/VPO" pad="24"/>
+<connect gate="G$1" pin="RB4/AN11/KBI0/CSSPP" pad="25"/>
+<connect gate="G$1" pin="RB5/KBI1/PGM" pad="26"/>
+<connect gate="G$1" pin="RB6/KBI2/PGC" pad="27"/>
+<connect gate="G$1" pin="RB7/KBI3/PGD" pad="28"/>
+<connect gate="G$1" pin="RC0/T1OSO/T1CKI" pad="11"/>
+<connect gate="G$1" pin="RC1/T1OSI/CCP2" pad="12"/>
+<connect gate="G$1" pin="RC2/CCP1" pad="13"/>
+<connect gate="G$1" pin="RC4/D-/VM" pad="15"/>
+<connect gate="G$1" pin="RC5/D+/VP" pad="16"/>
+<connect gate="G$1" pin="RC6/TX/CK" pad="17"/>
+<connect gate="G$1" pin="RC7/RX/DT/SDO" pad="18"/>
+<connect gate="G$1" pin="VDD" pad="20"/>
+<connect gate="G$1" pin="VSS" pad="19"/>
+<connect gate="G$1" pin="VSS_2" pad="8"/>
+<connect gate="G$1" pin="VUSB" pad="14"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-V" package="DIL28-3/V">
+<connects>
+<connect gate="G$1" pin="*MCLR/VPP/RE3" pad="1"/>
+<connect gate="G$1" pin="OSC1/CLKI" pad="9"/>
+<connect gate="G$1" pin="OSC2/CLKO/RA6" pad="10"/>
+<connect gate="G$1" pin="RA0/AN0" pad="2"/>
+<connect gate="G$1" pin="RA1/AN1" pad="3"/>
+<connect gate="G$1" pin="RA2/AN2/VREF-/CVREF" pad="4"/>
+<connect gate="G$1" pin="RA3/AN3/VREF+" pad="5"/>
+<connect gate="G$1" pin="RA4/T0CKI/C1OUT/RCV" pad="6"/>
+<connect gate="G$1" pin="RA5/AN4/*SS/C2OUT" pad="7"/>
+<connect gate="G$1" pin="RB0/AN12/INT0/FLT0/SDI/SDA" pad="21"/>
+<connect gate="G$1" pin="RB1/AN10/INT1/SCK/SCL" pad="22"/>
+<connect gate="G$1" pin="RB2/AN8/INT2/VMO" pad="23"/>
+<connect gate="G$1" pin="RB3/AN9/CCP2/VPO" pad="24"/>
+<connect gate="G$1" pin="RB4/AN11/KBI0/CSSPP" pad="25"/>
+<connect gate="G$1" pin="RB5/KBI1/PGM" pad="26"/>
+<connect gate="G$1" pin="RB6/KBI2/PGC" pad="27"/>
+<connect gate="G$1" pin="RB7/KBI3/PGD" pad="28"/>
+<connect gate="G$1" pin="RC0/T1OSO/T1CKI" pad="11"/>
+<connect gate="G$1" pin="RC1/T1OSI/CCP2" pad="12"/>
+<connect gate="G$1" pin="RC2/CCP1" pad="13"/>
+<connect gate="G$1" pin="RC4/D-/VM" pad="15"/>
+<connect gate="G$1" pin="RC5/D+/VP" pad="16"/>
+<connect gate="G$1" pin="RC6/TX/CK" pad="17"/>
+<connect gate="G$1" pin="RC7/RX/DT/SDO" pad="18"/>
+<connect gate="G$1" pin="VDD" pad="20"/>
+<connect gate="G$1" pin="VSS" pad="19"/>
+<connect gate="G$1" pin="VSS_2" pad="8"/>
+<connect gate="G$1" pin="VUSB" pad="14"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PIC18F2550-I/SP-2">
+<gates>
+<gate name="G$1" symbol="PIC18F2550-I/SP-2" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DIL28-3">
+<connects>
+<connect gate="G$1" pin="OSC1/CLKI" pad="9"/>
+<connect gate="G$1" pin="RA0/AN0" pad="2"/>
+<connect gate="G$1" pin="RA1/AN1" pad="3"/>
+<connect gate="G$1" pin="RA2/AN2/VREF-/CVREF" pad="4"/>
+<connect gate="G$1" pin="RA3/AN3/VREF+" pad="5"/>
+<connect gate="G$1" pin="RA4/T0CKI/C1OUT/RCV" pad="6"/>
+<connect gate="G$1" pin="RA5/AN4/*SS/C2OUT" pad="7"/>
+<connect gate="G$1" pin="RA6/OSC2/CLKO" pad="10"/>
+<connect gate="G$1" pin="RB0/AN12/INT0/FLT0/SDI/SDA" pad="21"/>
+<connect gate="G$1" pin="RB1/AN10/INT1/SCK/SCL" pad="22"/>
+<connect gate="G$1" pin="RB2/AN8/INT2/VMO" pad="23"/>
+<connect gate="G$1" pin="RB3/AN9/CCP2/VPO" pad="24"/>
+<connect gate="G$1" pin="RB4/AN11/KBI0/CSSPP" pad="25"/>
+<connect gate="G$1" pin="RB5/KBI1/PGM" pad="26"/>
+<connect gate="G$1" pin="RB6/KBI2/PGC" pad="27"/>
+<connect gate="G$1" pin="RB7/KBI3/PGD" pad="28"/>
+<connect gate="G$1" pin="RC0/T1OSO/T1CKI" pad="11"/>
+<connect gate="G$1" pin="RC1/T1OSI/CCP2" pad="12"/>
+<connect gate="G$1" pin="RC2/CCP1" pad="13"/>
+<connect gate="G$1" pin="RC4/D-/VM" pad="15"/>
+<connect gate="G$1" pin="RC5/D+/VP" pad="16"/>
+<connect gate="G$1" pin="RC6/TX/CK" pad="17"/>
+<connect gate="G$1" pin="RC7/RX/DT/SDO" pad="18"/>
+<connect gate="G$1" pin="RE3/_MCLR/VPP" pad="1"/>
+<connect gate="G$1" pin="VDD" pad="20"/>
+<connect gate="G$1" pin="VSS" pad="19"/>
+<connect gate="G$1" pin="VSS_2" pad="8"/>
+<connect gate="G$1" pin="VUSB" pad="14"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-V" package="DIL28-3/V">
+<connects>
+<connect gate="G$1" pin="OSC1/CLKI" pad="9"/>
+<connect gate="G$1" pin="RA0/AN0" pad="2"/>
+<connect gate="G$1" pin="RA1/AN1" pad="3"/>
+<connect gate="G$1" pin="RA2/AN2/VREF-/CVREF" pad="4"/>
+<connect gate="G$1" pin="RA3/AN3/VREF+" pad="5"/>
+<connect gate="G$1" pin="RA4/T0CKI/C1OUT/RCV" pad="6"/>
+<connect gate="G$1" pin="RA5/AN4/*SS/C2OUT" pad="7"/>
+<connect gate="G$1" pin="RA6/OSC2/CLKO" pad="10"/>
+<connect gate="G$1" pin="RB0/AN12/INT0/FLT0/SDI/SDA" pad="21"/>
+<connect gate="G$1" pin="RB1/AN10/INT1/SCK/SCL" pad="22"/>
+<connect gate="G$1" pin="RB2/AN8/INT2/VMO" pad="23"/>
+<connect gate="G$1" pin="RB3/AN9/CCP2/VPO" pad="24"/>
+<connect gate="G$1" pin="RB4/AN11/KBI0/CSSPP" pad="25"/>
+<connect gate="G$1" pin="RB5/KBI1/PGM" pad="26"/>
+<connect gate="G$1" pin="RB6/KBI2/PGC" pad="27"/>
+<connect gate="G$1" pin="RB7/KBI3/PGD" pad="28"/>
+<connect gate="G$1" pin="RC0/T1OSO/T1CKI" pad="11"/>
+<connect gate="G$1" pin="RC1/T1OSI/CCP2" pad="12"/>
+<connect gate="G$1" pin="RC2/CCP1" pad="13"/>
+<connect gate="G$1" pin="RC4/D-/VM" pad="15"/>
+<connect gate="G$1" pin="RC5/D+/VP" pad="16"/>
+<connect gate="G$1" pin="RC6/TX/CK" pad="17"/>
+<connect gate="G$1" pin="RC7/RX/DT/SDO" pad="18"/>
+<connect gate="G$1" pin="RE3/_MCLR/VPP" pad="1"/>
+<connect gate="G$1" pin="VDD" pad="20"/>
+<connect gate="G$1" pin="VSS" pad="19"/>
+<connect gate="G$1" pin="VSS_2" pad="8"/>
+<connect gate="G$1" pin="VUSB" pad="14"/>
 </connects>
 <technologies>
 <technology name=""/>
