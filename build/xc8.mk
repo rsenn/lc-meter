@@ -89,11 +89,13 @@ LDFLAGS += --codeoffset=$(CODEOFFSET)
 endif
 endif
 
+OPTLEVEL := 3
+
 ifeq ($(OPT),speed)
-OPT_SPEED = ,-space,+speed,3
+OPT_SPEED = ,-space,+speed,$(OPTLEVEL)
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,-speed,+space,3
+OPT_SPEED = ,-speed,+space,$(OPTLEVEL)
 endif
 
 ifneq ($(BUILD_TYPE),debug)
