@@ -11,7 +11,7 @@ find_program() {
   if type "$N" 2>/dev/null >/dev/null; then
     P=$N
   else
-    P=$(ls -d "$SYSTEMDRIVE"/{,Program\ Files*/}*{,/bin}/"$N".exe 2>/dev/null)
+    P=$(ls -d {,/usr/,$SYSTEMDRIVE/{Programs,Program\ Files*}/*/,/mingw{32,64}/}{,bin/}"$N".exe 2>/dev/null)
     [ -n "$P" -a -e "$P" ] || unset P
   fi
   if [ -n "$P" ]; then
