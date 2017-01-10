@@ -44,6 +44,18 @@ error() {
 R=$?
 echo "ERROR: $@" 1>&2
 exit $R
+}
+
+exec_cmd() {
+ (VAR="$1"
+  shift
+  IFS="
+"
+  #eval "set -- \${$VAR} \"\$@\""
+  echo -n "$VAR $@" 1>&2
+  eval "\"\${$VAR}\" \"\$@\" 2>&1"
+  R=$?
+  echo " (R=$R)" 1>&2)  1>&10
 } 
 
 eagle_print_to_pdf() {
@@ -56,14 +68,17 @@ eagle_print_to_pdf() {
   ORIENTATION=${4:-${ORIENTATION:-portrait}}
   EAGLE_CMD="PRINT $ORIENTATION $SCALE -0 -caption ${OPTIONS:+$OPTIONS }FILE '${OUTPUT}' sheets all paper $PAPER"  
  
+ echo "Processing $1 ..." 1>&2
+ echo 1>&2
+ 
   case $INPUT in
      *.brd)   EAGLE_CMD="DISPLAY -bOrigins -tOrigins bValues tValues; $EAGLE_CMD" ;;
    esac
   EAGLE_CMDS=${EAGLE_CMDS:+"$EAGLE_CMDS; "}$EAGLE_CMD
 
-  msg "CMD: $EAGLE_CMD"
+ #msg "CMD: $EAGLE_CMD"
 
-  "$EAGLE" -C "$EAGLE_CMD; QUIT"      "$INPUT" &
+ exec_cmd EAGLE -C "$EAGLE_CMD; QUIT"      "$INPUT" &
   pid=$!
 
   while [ ! -s "$OUTPUT" ]; do
@@ -72,7 +87,7 @@ eagle_print_to_pdf() {
 
   sleep 0.1
 
-  kill $pid
+  kill $pid 2>/dev/null 
   wait $pid
 		
  (TMP=$(mktemp infoXXXXXX.txt)
@@ -82,13 +97,16 @@ InfoBegin
 InfoKey: Title
 InfoValue: $(basename "$OUTPUT" .pdf)
 EOF
-  set -x; "$PDFTK" "$OUTPUT" update_info "$TMP" output  "$OUTPUT.$$")
+   exec_cmd PDFTK "$OUTPUT" update_info "$TMP" output  "$OUTPUT.$$")
   
- (set -x
+ (#set -x
  #echo "Converting $OUTPUT to ${OUTPUT%.pdf}.eps ..." 1>&2
 # "$GHOSTSCRIPT" -dNOCACHE -dNOPAUSE -dBATCH -dSAFER -sDEVICE=eps2write -dLanguageLevel=2 -sOutputFile="${OUTPUT%.pdf}.eps" -f "$OUTPUT"
-  "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
+  exec_cmd PDFTOPS -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
+  #"$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
 )
+
+echo 1>&2
 }
 
 eagle_print() {
@@ -96,6 +114,8 @@ eagle_print() {
   : ${RM:=rm}
 
   export HOME="$(cygpath -a "$USERPROFILE")"
+  
+  exec 10>eagle-print.log
 
   find_program EAGLE "eagle" || error "eagle not found"
   find_program PDFTK "pdftk" || error "pdftk not found"
@@ -121,9 +141,9 @@ eagle_print() {
 		eagle_print_to_pdf "$BRD" "${BRD%.*}-board.pdf" 
 		eagle_print_to_pdf "$BRD" "${BRD%.*}-board-mirrored.pdf" MIRROR
       
-	set -x
+#	set -x
 #	"$GHOSTSCRIPT" -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop  -dPDFSETTINGS=/prepress -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps
-	"$GHOSTSCRIPT" -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps) || exit $?
+	exec_cmd GHOSTSCRIPT -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps) || exit $?
 	
 	
 
