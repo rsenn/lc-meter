@@ -187,6 +187,16 @@ main() {
   LC_TRIS();
   RELAY_TRIS();
 
+  REMOVE_CCAL();
+  delay10ms(50);
+  ADD_CCAL();
+  delay10ms(50);
+  REMOVE_CCAL();
+  delay10ms(50);
+  ADD_CCAL();
+  delay10ms(50);
+  REMOVE_CCAL();
+
   PEIE = 1;
   GIE = 1;
 
@@ -402,7 +412,8 @@ measure_capacitance() {
   if(F3 > F1)
     F3 = F1; // max freq is F1;
 
-  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
+  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+//  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
 
 
 #if USE_SER
