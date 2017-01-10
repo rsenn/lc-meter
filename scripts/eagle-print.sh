@@ -52,6 +52,8 @@ exec_cmd() {
   IFS="
 "
   #eval "set -- \${$VAR} \"\$@\""
+    eval "echo \"Executing: \${$VAR}\" \"\$@\"; echo"
+
   echo -n "$VAR $@" 1>&2
   eval "\"\${$VAR}\" \"\$@\" 2>&1"
   R=$?
