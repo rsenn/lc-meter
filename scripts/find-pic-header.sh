@@ -107,7 +107,7 @@ find_pic_files() {
 
   BINDIRS=`
 	  for P in $PROGRAMDIRS; do 
-		  find "$P"*/{Microchip/xc8,HI-TECH*/PICC*,SDCC*} -type d -iname "bin" -and -not -iwholename "*/rollback*"
+		  find "$P"*/{Microchip/xc8,HI-TECH*/PICC*{,/PRO},SDCC*} -type d -iname "bin" -and -not -iwholename "*/rollback*"
 	  done
   `
   ARGS="$*"

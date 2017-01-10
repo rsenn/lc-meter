@@ -254,7 +254,16 @@ testloop() {
   lcd_print("     ");
   lcd_gotoxy(0, 1);
   lcd_print("RC4=");
+
   lcd_putch(RC4 != 0 ? '1' : '0');
+
+
+a == 4
+if((a*lah g+wewwe()) > 9) {
+  wehrwehriwehreoirwheor
+}
+
+ Wenn eingang RC4 nicht gleich 0 dann schreibe "1", sonst "0"
 
 //    print_print_number(measure_freq(), 16, 4);
 #endif

@@ -29,8 +29,8 @@ PIC18 = true
 DEFINES += __PICC18__=1
 else
 COMPILER_NAME = picc
-COMPILER_DIR = picc
-CCVER = 9.83
+COMPILER_DIR = PICC/PRO
+CCVER = 9.60
 endif
 
 ifneq ($($(subst -,_,$(PROGRAM))_CCVER),)
@@ -86,23 +86,25 @@ endif
 
 COMMON_FLAGS += --runtime=default$(STACKCALL)
 
-
+ifneq ($(CCVER),9.60)
 
 ifeq ($(OPT),speed)
-OPT_SPEED = ,-space,+speed,3
+OPT_SPEED = ,+speed
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,-speed,+space,3
+OPT_SPEED = ,-speed,+space
 endif
+endif
+OPTLEVEL := 9
+OPT_SPEED := $(OPT_SPEED),$(OPTLEVEL)
 
 ifeq ($(BUILD_TYPE),debug)
-
-ifeq ($(PIC18),true)
-OPT_DEBUG :=
-else
-OPT_DEBUG := ,+debug
-endif
-_DEBUG := 1
+ ifeq ($(PIC18),true)
+  OPT_DEBUG :=
+ else
+#  OPT_DEBUG := ,+debug
+ endif
+ _DEBUG := 1
 endif
 
 #COMMON_FLAGS +=  -V

@@ -6,6 +6,18 @@
 #define WDTE_OFF WDTDIS
 #define PWRTE_ON PWRTEN
 #define BOREN_ON BOREN
+
+#define CP_ON CP
+#define CP_OFF 0x3fff
+
+#define DEBUG_OFF DEBUGDIS
+#define DEBUG_ON DEBUGEN
+#define WRT_OFF WRTDIS
+#define WRT_ON WRTEN
+#define CPD_OFF 0x3fff
+#define CPD_ON CPD
+#define LVP_OFF LVPDIS
+#define LVP_ON LVPEN
 #endif
 
 #ifdef __10f206
