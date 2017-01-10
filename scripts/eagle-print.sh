@@ -17,12 +17,14 @@ find_program() {
   if [ -n "$P" ]; then
     msg "Found $V: $P" 
 	set_var "$V" "$P"
+  else 
+	return 1
   fi
 }
 
 get_pdf_info() {
  (TMP=$(mktemp  pdftkXXXXXX.txt)
-  trap 'rm -f "$TMP"' EXIT
+  trap '${RM} -f "$TMP"' EXIT
   "$PDFTK" "$1" dump_data output "$TMP"
   cat "$TMP")
 }
@@ -31,10 +33,16 @@ msg() {
   echo "${NAME:+$NAME: }$@" 1>&2
 }
 
+error() {
+R=$?
+echo "ERROR: $@" 1>&2
+exit $R
+} 
+
 eagle_print_to_pdf() {
   INPUT=$1
   OUTPUT=${2:-${1%.*}.pdf}
-  rm -f "$OUTPUT"
+  ${RM} -f "$OUTPUT"
   OPTIONS=$3
   : ${SCALE:=1.0}
   : ${PAPER:="a4"}
@@ -69,36 +77,44 @@ InfoValue: $(basename "$OUTPUT" .pdf)
 EOF
   set -x; "$PDFTK" "$OUTPUT" update_info "$TMP" output  "$OUTPUT.$$")
   
- (#set -x
- echo "Converting $OUTPUT to ${OUTPUT%.pdf}.eps ..." 1>&2
-  "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && rm -vf "$OUTPUT")
+ (set -x
+ #echo "Converting $OUTPUT to ${OUTPUT%.pdf}.eps ..." 1>&2
+ "$GHOSTSCRIPT" -dNOCACHE -dNOPAUSE -dBATCH -dSAFER -sDEVICE=eps2write -dLanguageLevel=2 -sOutputFile="${OUTPUT%.pdf}.eps" -f "$OUTPUT"
+#  "$PDFTOPS" -eps "$OUTPUT" "${OUTPUT%.pdf}.eps" && ${RM} -vf "$OUTPUT"
+)
 }
 
 eagle_print() {
+  
+  : ${RM:=rm}
 
   export HOME="$(cygpath -a "$USERPROFILE")"
 
-  find_program EAGLE "eagle"
-  find_program PDFTK "pdftk"
-  find_program GHOSTSCRIPT "gs"
-  find_program PDFTOPS "pdftops"
+  find_program EAGLE "eagle" || error "eagle not found"
+  find_program PDFTK "pdftk" || error "pdftk not found"
+  find_program GHOSTSCRIPT "gs" || error "ghostscript not found"
+  find_program PDFTOPS "pdftops" || error "pdftops not found"
 
   for ARG; do
 
    (SCH=${ARG%.*}.sch
 	BRD=${ARG%.*}.brd
 	OUT=doc/pdf/$(basename "${BRD%.*}").pdf
-   trap 'rm -f "${BRD%.*}"-{schematic,board,board-mirrored}.{pdf,eps}' EXIT
+   trap '${RM} -f "${BRD%.*}"-{schematic,board,board-mirrored}.{pdf,eps}' EXIT
    
 	ORIENTATION="portrait" PAPER="a4" SCALE=1.0 eagle_print_to_pdf "$SCH" "${SCH%.*}-schematic.pdf" 
 
-	ORIENTATION="landscape" PAPER="a6"  SCALE="3.0 -1" 
+	#ORIENTATION="landscape" PAPER="a5"  SCALE="3.0 -1" 
+   ORIENTATION="landscape" PAPER="a4"  SCALE="2.0" 
+      
+      set -e
       
 		eagle_print_to_pdf "$BRD" "${BRD%.*}-board.pdf" 
 		eagle_print_to_pdf "$BRD" "${BRD%.*}-board-mirrored.pdf" MIRROR
       
 	set -x
-	"$GHOSTSCRIPT" -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop  -dPDFSETTINGS=/prepress -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps)
+#	"$GHOSTSCRIPT" -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop  -dPDFSETTINGS=/prepress -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps
+	"$GHOSTSCRIPT" -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER  -dEPSCrop -dSubsetFonts=true -dEmbedAllFonts=true -sOutputFile="$OUT"   "${BRD%.*}"-{schematic,board,board-mirrored}.eps) || exit $?
 	
 	
 
