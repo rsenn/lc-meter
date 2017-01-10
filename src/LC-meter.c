@@ -141,12 +141,10 @@ main() {
 
   SSPEN = 0;
 
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK);
+ // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
+//  timer1of = 0;
 
-  timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
-  timer1of = 0;
-
- // timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+ timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 
 
@@ -174,12 +172,18 @@ main() {
 #endif
 
   TRISA = 0b11001111;
-  T0CS = 1; // Transition on T0CKI pin
-  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
-  PSA = 0;  // Prescaler is assigned to the Timer0 module
-  PS2 = 1;  // PS2:PS0 -> Prescaler Rate = divide by 256
-  PS1 = 1;
-  PS0 = 1;
+
+    //setup timer0 for frequency counter
+    T0CS = 1;   //Transition on T0CKI pin
+    T0SE = 1;   //Increment on high-to-low transition on T0CKI pin
+    PSA = 0;    //Prescaler is assigned to the Timer0 module
+    PS2 = 1;    //PS2:PS0 -> Prescaler Rate = divide by 256
+    PS1 = 1;
+    PS0 = 1;
+    TMR0IF = 0;
+    TMR0IE = 0;
+
+
   LC_TRIS();
   RELAY_TRIS();
 
@@ -192,8 +196,10 @@ main() {
 #else
   lcd_gotoxy(0, 0);
 #endif
-  lcd_print("LC-meter");
+  lcd_print("LC-meter ");
+ format_double(lcd_putch, CCal);
 #endif
+
 
 #ifdef _DEBUG
   delay10ms(5);
@@ -397,8 +403,7 @@ measure_capacitance() {
     F3 = F1; // max freq is F1;
 
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
-  
-    format_double(lcd_putch, Cin);
+
 
 #if USE_SER
   ser_puts("Cin=");
@@ -497,10 +502,10 @@ milliseconds() {
  */
 void
 delay10ms(uint16_t period_10ms) {
-    while(period_10ms--) {
+    /*while(period_10ms--) {
         __delay_ms(10);
     }
-  /*uint32_t ms;
+  */uint32_t ms;
   BOOL run = 1;
 
   get_milliseconds(ms);
@@ -516,7 +521,7 @@ delay10ms(uint16_t period_10ms) {
     if(ms <= msecs)
       run = 0;
     GIE=1;
-  } while (run);*/
+  } while (run);
 }
 
 /*
