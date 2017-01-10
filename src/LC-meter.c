@@ -59,7 +59,7 @@ output_putch(char c) {
 buffer_t buffer = BUFFER_STATIC(output_putch);
 
 
-double F1, F2, F3;
+double F1, F2, F3, CCal;
 void main();
 void loop();
 void testloop();
@@ -121,6 +121,8 @@ void
 main() {
  bres = msecpart = msecs = seconds = 0;
 
+  CCal = C_CAL;
+
   // setup comparator
   /*CMCONbits. */ CM0 = 1;
   /*CMCONbits. */ CM1 = 0;
@@ -144,7 +146,7 @@ main() {
   timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   timer1of = 0;
 
-  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+ // timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 
 
@@ -385,13 +387,19 @@ measure_capacitance() {
   ser_puts("\r\nF3=");
   format_double(ser_putch, F3);
   ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&F3);
+  ser_puts("\r\nCCal=");
+  format_double(ser_putch, CCal);
+  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&CCal);
   ser_puts("\r\n");
 #endif
 
   if(F3 > F1)
     F3 = F1; // max freq is F1;
 
-  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * C_CAL / (F3 * F3 * (F1 * F1 - F2 * F2));
+  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
+  
+    format_double(lcd_putch, Cin);
+
 #if USE_SER
   ser_puts("Cin=");
   format_double(ser_putch, Cin);
@@ -442,7 +450,7 @@ measure_inductance() {
   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) *
               (GATE_PERIOD * GATE_PERIOD);
 
-  denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * C_CAL;
+  denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 
   Lin = (numerator / denominator) *
         1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
@@ -489,7 +497,10 @@ milliseconds() {
  */
 void
 delay10ms(uint16_t period_10ms) {
-  uint32_t ms;
+    while(period_10ms--) {
+        __delay_ms(10);
+    }
+  /*uint32_t ms;
   BOOL run = 1;
 
   get_milliseconds(ms);
@@ -505,7 +516,7 @@ delay10ms(uint16_t period_10ms) {
     if(ms <= msecs)
       run = 0;
     GIE=1;
-  } while (run);
+  } while (run);*/
 }
 
 /*
