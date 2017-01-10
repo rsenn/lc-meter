@@ -128,7 +128,11 @@ main() {
 
 
   // others
+#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+  RBPU = 1;
+#else
   NOT_RBPU = 0; // enable portB internal pullup
+#endif
 
   INIT_LED();
   SET_LED(1);
@@ -258,13 +262,6 @@ testloop() {
   lcd_putch(RC4 != 0 ? '1' : '0');
 
 
-a == 4
-if((a*lah g+wewwe()) > 9) {
-  wehrwehriwehreoirwheor
-}
-
- Wenn eingang RC4 nicht gleich 0 dann schreibe "1", sonst "0"
-
 //    print_print_number(measure_freq(), 16, 4);
 #endif
   if(s != prev_s) {
@@ -293,7 +290,7 @@ measure_freq() {
 
   TMR0 = 0x00; // reset timer0 count (including prescaler)
 
-  __delay_ms(100);
+  delay_ms(100);
 
   TRISA4 = 1; // Disable RA4 output to T0CKI
 

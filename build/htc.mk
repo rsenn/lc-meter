@@ -29,8 +29,10 @@ PIC18 = true
 DEFINES += __PICC18__=1
 else
 COMPILER_NAME = picc
-COMPILER_DIR = PICC/PRO
-CCVER = 9.60
+COMPILER_DIR = PICC
+#CCVER = PRO/9.60
+#CCVER = 9.83
+CCVER = 9.71a
 endif
 
 ifneq ($($(subst -,_,$(PROGRAM))_CCVER),)

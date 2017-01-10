@@ -302,6 +302,10 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 //#define T1CONbits T1CON_bits
 
+#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#define OPTION_REG OPTION
+#endif
+
 #endif /* DEVICE_H */
 
 
