@@ -170,7 +170,7 @@ main() {
   lcd_init(TRUE);
   lcd_begin(2, 1);
 #endif
-n
+
   LC_TRIS();
   RELAY_TRIS();
 
