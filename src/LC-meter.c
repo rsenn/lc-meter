@@ -77,6 +77,8 @@ void put_str(const char*);
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
                 int8_t pad /*, int8_t pointpos */);
 
+static uint16_t blink;
+
 
 /* Interrupt routine */
 INTERRUPT_HANDLER() {
@@ -89,17 +91,19 @@ INTERRUPT_HANDLER() {
       bres -= 5000;
       msecpart++;
       msecs++;
+      
+          
+        SET_LED((blink > 200));
+         if(blink >= 400) blink -= 400;
+         ++blink;
 
-      SET_LED(msecpart < 500);
+        /* if reached 1 second... */
+        if(msecpart >= 1000) {
+          /* ...update clock, etc */
+          seconds++;
+          msecpart -= 1000;
+        }
     }
-
-    /* if reached 1 second... */
-    if(msecpart >= 1000) {
-      /* ...update clock, etc */
-      seconds++;
-      msecpart -= 1000;
-    }
-
     // Clear timer interrupt bit
     TMR2IF = 0;
   }
