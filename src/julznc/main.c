@@ -1,3 +1,4 @@
+#include "device.h"
 #include "main.h"
 #include "lcd3310.h"
 #include "display.h"

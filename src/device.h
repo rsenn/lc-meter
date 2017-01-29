@@ -157,6 +157,12 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define TMR1CS  T1CONbits.TMR1CS
 #endif
 
+/*#ifdef __18f2550
+#define T0PS0 T1CKPS0
+#define T0PS1 T1CKPS1
+#define T0PS2 T1CKPS2
+#endif
+*/
 #ifdef PIC18
 # define INTF INT0F
 # define INTE INT0E

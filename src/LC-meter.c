@@ -268,7 +268,7 @@ testloop() {
   lcd_gotoxy(0, 1);
   lcd_print("RC4=");
 
-  lcd_putch(RC4 != 0 ? '1' : '0');
+  lcd_putch(LC_SELECT != 0 ? '1' : '0');
 
 
 //    print_print_number(measure_freq(), 16, 4);
