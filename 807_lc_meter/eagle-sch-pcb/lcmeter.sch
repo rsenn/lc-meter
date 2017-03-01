@@ -475,7 +475,6 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/40300C.pdf</description>
 <wire x1="-1.2459" y1="-3.2984" x2="-1.0383" y2="0.7508" width="0.1016" layer="51"/>
 <wire x1="-1.0383" y1="0.7508" x2="-0.8306" y2="0.9584" width="0.1016" layer="51" curve="-83.771817"/>
 <wire x1="-1.2459" y1="-3.2985" x2="-1.0383" y2="-3.5061" width="0.1016" layer="51" curve="90"/>
-<wire x1="-1.0383" y1="-3.5061" x2="-1.0382" y2="-3.5061" width="0.1016" layer="21"/>
 <wire x1="-1.0382" y1="-3.5061" x2="-0.8306" y2="-3.2985" width="0.1016" layer="51" curve="90"/>
 <wire x1="-0.8306" y1="-3.2985" x2="-0.623" y2="0.1278" width="0.1016" layer="51"/>
 <wire x1="2.9589" y1="-0.5471" x2="2.7512" y2="-3.2985" width="0.1016" layer="51"/>
@@ -497,7 +496,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/40300C.pdf</description>
 <wire x1="0.6228" y1="0.1278" x2="-0.6232" y2="0.1278" width="0.1016" layer="51"/>
 <wire x1="3.88" y1="4.2594" x2="5.03" y2="4.2594" width="0.1016" layer="51"/>
 <wire x1="5.03" y1="2.8808" x2="3.88" y2="2.8808" width="0.1016" layer="51"/>
-<wire x1="-3.9" y1="4.6" x2="3.9" y2="4.6" width="0.127" layer="52"/>
+<wire x1="-3.9" y1="4.6" x2="3.9" y2="4.6" width="0.127" layer="21"/>
 <wire x1="5.05" y1="3.3" x2="5.05" y2="3.9" width="0.1016" layer="51" curve="-180"/>
 <wire x1="5.05" y1="4.25" x2="5.05" y2="3.9" width="0.1016" layer="51"/>
 <wire x1="5.05" y1="2.9" x2="5.05" y2="3.3" width="0.1016" layer="51"/>
@@ -517,7 +516,7 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/40300C.pdf</description>
 <wire x1="-5.08" y1="-2.67" x2="-5.08" y2="-2.32" width="0.1016" layer="51"/>
 <wire x1="-5.08" y1="-1.32" x2="-5.08" y2="-1.72" width="0.1016" layer="51"/>
 <wire x1="-3.9" y1="-1.29" x2="-3.9" y2="2.81" width="0.127" layer="51"/>
-<wire x1="-3.9" y1="-4.6" x2="3.9" y2="-4.6" width="0.127" layer="52"/>
+<wire x1="-3.9" y1="-4.6" x2="3.9" y2="-4.6" width="0.127" layer="21"/>
 <wire x1="-2.75" y1="4.5" x2="-2.75" y2="3.75" width="0.1016" layer="51"/>
 <wire x1="-2.75" y1="3.75" x2="2.75" y2="3.75" width="0.1016" layer="51"/>
 <wire x1="2.75" y1="3.75" x2="2.75" y2="4.5" width="0.1016" layer="51"/>
@@ -548,8 +547,8 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/40300C.pdf</description>
 <smd name="GND4" x="4.4" y="-2" dx="2" dy="2.4" layer="1"/>
 <text x="-3.31" y="5.35" size="1.27" layer="25">&gt;NAME</text>
 <text x="-3.31" y="-6.35" size="1.27" layer="27">&gt;VALUE</text>
-<hole x="-2.2" y="1" drill="0.9"/>
-<hole x="2.2" y="1" drill="0.9"/>
+<hole x="-2.2" y="1" drill="1"/>
+<hole x="2.2" y="1" drill="1"/>
 </package>
 <package name="USB-MINIB-THM">
 <description>&lt;b&gt;Mini USB 5-pin thru-mount connector&lt;/b&gt;
@@ -716,6 +715,14 @@ Source: http://ww1.microchip.com/downloads/en/DeviceDoc/40300C.pdf</description>
 <text x="-2.81" y="10.67" size="1.27" layer="25" font="vector">&gt;NAME</text>
 <text x="-3.31" y="-1.73" size="1.27" layer="27" font="vector">&gt;VALUE</text>
 </package>
+<package name="1X01-CLEANBIG">
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.778"/>
+<text x="-1.3462" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.27" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
+</package>
+<package name="1X1-BIGPOGO">
+<pad name="P$1" x="0" y="0" drill="1.4" diameter="2.54" shape="long"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MAX1811">
@@ -813,6 +820,22 @@ With round pins</description>
 <device name="" package="1X01">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="CB" package="1X01-CLEANBIG">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="-BIGPOGO" package="1X1-BIGPOGO">
+<connects>
+<connect gate="G$1" pin="1" pad="P$1"/>
 </connects>
 <technologies>
 <technology name=""/>
