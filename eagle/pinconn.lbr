@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="yes" active="yes"/>
@@ -202,14 +202,15 @@
 <text x="-1.905" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 <package name="CONN-2P">
-<pad name="2" x="-2.54" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
-<pad name="1" x="0" y="0" drill="1.2" diameter="1.9304" shape="square"/>
-<wire x1="1.778" y1="-2.032" x2="1.778" y2="2.032" width="0.127" layer="21"/>
-<wire x1="1.778" y1="2.032" x2="-4.318" y2="2.032" width="0.127" layer="21"/>
-<wire x1="-4.318" y1="2.032" x2="-4.318" y2="-2.032" width="0.127" layer="21"/>
-<wire x1="-4.318" y1="-2.032" x2="1.778" y2="-2.032" width="0.127" layer="21"/>
-<text x="1.143" y="-1.143" size="0.508" layer="23" font="fixed" align="top-left">1</text>
-<text x="-4.064" y="2.286" size="0.8128" layer="25">&gt;NAME</text>
+<pad name="2" x="1.27" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R180"/>
+<pad name="1" x="-1.27" y="0" drill="1.2" diameter="1.9304" shape="square" rot="R180"/>
+<wire x1="-3.048" y1="-2.032" x2="-3.048" y2="2.032" width="0.127" layer="22"/>
+<wire x1="-3.048" y1="2.032" x2="3.048" y2="2.032" width="0.127" layer="22"/>
+<wire x1="3.048" y1="2.032" x2="3.048" y2="-2.032" width="0.127" layer="22"/>
+<wire x1="3.048" y1="-2.032" x2="-3.048" y2="-2.032" width="0.127" layer="22"/>
+<text x="-2.413" y="-1.143" size="0.508" layer="23" font="fixed" align="top-right">1</text>
+<text x="-2.794" y="2.286" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-2.794" y="-2.286" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
 </package>
 <package name="PIC-UART-MCLR">
 <pad name="20" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
@@ -248,23 +249,23 @@
 <pad name="8" x="17.78" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
 </package>
 <package name="PIC-ICSP">
-<pad name="4" x="7.62" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="1" x="0" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
-<pad name="2" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<pad name="3" x="5.08" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<wire x1="11.43" y1="1.27" x2="11.43" y2="-1.27" width="0.127" layer="22"/>
-<wire x1="11.43" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="22"/>
-<wire x1="-1.27" y1="1.27" x2="11.43" y2="1.27" width="0.127" layer="22"/>
-<text x="-2.54" y="0" size="0.6096" layer="23" align="top-left">1</text>
-<text x="11.43" y="-1.905" size="0.8128" layer="27" rot="R180">&gt;VALUE</text>
-<text x="10.16" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGD</text>
-<text x="7.62" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGC</text>
-<text x="0" y="1.905" size="0.6096" layer="51" font="vector" align="center">VSS</text>
-<text x="2.54" y="1.905" size="0.6096" layer="51" font="vector" align="center">VDD</text>
-<pad name="5" x="10.16" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
-<text x="5.08" y="1.905" size="0.6096" layer="51" font="vector" align="center">VPP</text>
-<text x="-1.27" y="-1.905" size="0.8128" layer="25" align="top-left">&gt;NAME</text>
+<pad name="4" x="2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<pad name="1" x="-5.08" y="0" drill="0.8" diameter="1.778" shape="square" rot="R180"/>
+<pad name="2" x="-2.54" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<pad name="3" x="0" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<wire x1="6.35" y1="1.27" x2="6.35" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="6.35" y1="-1.27" x2="-6.35" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-6.35" y1="-1.27" x2="-6.35" y2="1.27" width="0.127" layer="22"/>
+<wire x1="-6.35" y1="1.27" x2="6.35" y2="1.27" width="0.127" layer="22"/>
+<text x="-7.62" y="0" size="0.6096" layer="23" align="top-left">1</text>
+<text x="6.35" y="-1.905" size="0.8128" layer="27" rot="R180">&gt;VALUE</text>
+<text x="5.08" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGD</text>
+<text x="2.54" y="1.905" size="0.6096" layer="51" font="vector" align="center">PGC</text>
+<text x="-5.08" y="1.905" size="0.6096" layer="51" font="vector" align="center">VSS</text>
+<text x="-2.54" y="1.905" size="0.6096" layer="51" font="vector" align="center">VDD</text>
+<pad name="5" x="5.08" y="0" drill="0.8" diameter="1.778" shape="octagon" rot="R180"/>
+<text x="0" y="1.905" size="0.6096" layer="51" font="vector" align="center">VPP</text>
+<text x="-6.35" y="-1.905" size="0.8128" layer="25" align="top-left">&gt;NAME</text>
 </package>
 <package name="CONN-LCD44780">
 <pad name="D5" x="0" y="12.7" drill="0.9" diameter="1.4224" shape="octagon" rot="R270"/>
@@ -292,14 +293,15 @@
 <text x="1.778" y="17.78" size="0.6096" layer="21" font="fixed" align="center-left">D7</text>
 </package>
 <package name="CONN-2P-V">
-<pad name="2" x="0" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R270"/>
-<pad name="1" x="0" y="0" drill="1.2" diameter="1.778" shape="square" rot="R270"/>
-<wire x1="-1.905" y1="-2.032" x2="1.905" y2="-2.032" width="0.127" layer="21"/>
-<wire x1="1.905" y1="-2.032" x2="1.905" y2="4.572" width="0.127" layer="21"/>
-<wire x1="1.905" y1="4.572" x2="-1.905" y2="4.572" width="0.127" layer="21"/>
-<wire x1="-1.905" y1="4.572" x2="-1.905" y2="-2.032" width="0.127" layer="21"/>
-<text x="1.143" y="-1.143" size="0.508" layer="23" font="fixed" align="top-left">1</text>
-<text x="-1.778" y="4.953" size="0.8128" layer="25">&gt;NAME</text>
+<pad name="2" x="0" y="1.27" drill="1.2" diameter="1.9304" shape="octagon" rot="R270"/>
+<pad name="1" x="0" y="-1.27" drill="1.2" diameter="1.778" shape="square" rot="R270"/>
+<wire x1="-1.905" y1="-3.302" x2="1.905" y2="-3.302" width="0.127" layer="21"/>
+<wire x1="1.905" y1="-3.302" x2="1.905" y2="3.302" width="0.127" layer="21"/>
+<wire x1="1.905" y1="3.302" x2="-1.905" y2="3.302" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="3.302" x2="-1.905" y2="-3.302" width="0.127" layer="21"/>
+<text x="-1.143" y="-2.413" size="0.508" layer="23" font="fixed" align="top-right">1</text>
+<text x="-1.778" y="3.683" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-1.778" y="-3.683" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
