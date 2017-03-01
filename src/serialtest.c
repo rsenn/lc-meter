@@ -133,7 +133,12 @@ int main() {
 #endif
 
 #if !NO_PORTB
-  NOT_RBPU = 1;
+# if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+  RBPU = 1;
+# else
+  NOT_RBPU = 0; // enable portB internal pullup
+# endif
+
 // TRISB &= 0;
 // PORTB |= 0xff;
 #endif

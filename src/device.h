@@ -312,6 +312,10 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define OPTION_REG OPTION
 #endif
 
+#if defined(__18f2550) || defined(__18f25k22) || defined(__18f25k50)
+#define PIC18_USB 1
+#endif
+
 #endif /* DEVICE_H */
 
 

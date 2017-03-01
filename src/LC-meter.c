@@ -155,7 +155,10 @@ main() {
 #if !NO_PORTC
 //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
 //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
-  TRISC1 = OUTPUT; TRISC3 = OUTPUT;
+  TRISC1 = OUTPUT; 
+#if !PIC18_USB
+  TRISC3 = OUTPUT;
+#endif  
   TRISC0 = INPUT; TRISC2 = INPUT;
 #endif
 
@@ -321,7 +324,9 @@ measure_freq() {
   //}while(prev==TMR0);  //test if timer0 has incremented
   count = ((prev << 8) + (256 - count));
 
-
+  lcd_gotoxy(0, 1);
+  put_str("Freq=");
+  format_number(lcd_putch, count, 10, 5);
 
   return count;
 }

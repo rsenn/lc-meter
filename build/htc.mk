@@ -17,14 +17,15 @@ PROGRAMFILES = C:/Program Files (x86)
 
 OS = $(shell uname -o)
 $(info OS: $(OS))
+$(info CHIP: $(CHIP))
 #CC = $(shell which picc 2>/dev/null)
 
 
 
-ifneq ($(CHIP),$(CHIP:18%=%))
+ifneq ($(CHIP),$(subst 18f,,$(CHIP)))
 COMPILER_NAME = picc18
 COMPILER_DIR = picc-18/pro
-CCVER = 9.66
+CCVER := 9.66
 PIC18 = true
 DEFINES += __PICC18__=1
 else
@@ -32,27 +33,38 @@ COMPILER_NAME = picc
 COMPILER_DIR = PICC
 #CCVER = PRO/9.60
 #CCVER = 9.83
-CCVER = 9.71a
+CCVER := 9.71a
 endif
 
 ifneq ($($(subst -,_,$(PROGRAM))_CCVER),)
 CCVER := $($(subst -,_,$(PROGRAM))_CCVER)
 endif
 
+
+ifeq ($(COMPILER_NAME),picc18)
+CCVER := 9.66
+endif
+
+
 ifeq ($(CCDIR),)
 ifeq ($(OS),GNU/Linux)
-CCDIR = /opt/hitech/$(COMPILER_DIR)/$(CCVER)
+CCDIR := /opt/hitech/$(COMPILER_DIR)/$(CCVER)
 else
-CCDIR = $(PROGRAMFILES)/HI-TECH Software/$(COMPILER_DIR)/$(CCVER)
+CCDIR := $(PROGRAMFILES)/HI-TECH Software/$(COMPILER_DIR)/$(CCVER)
 endif
 endif
 
 
 ifneq ($(CCDIR),)
-CC = "$(CCDIR)/bin/$(COMPILER_NAME)"
+CC := "$(CCDIR)/bin/$(COMPILER_NAME)"
 else
 CC = $(COMPILER_NAME)
 endif
+
+$(info CC: $(CC))
+$(info CCVER: $(CCVER))
+
+$(info COMPILER_NAME: $(COMPILER_NAME))
 
 #ifeq ($(strip $(CC)),)
 #CC = picc
@@ -91,7 +103,7 @@ COMMON_FLAGS += --runtime=default$(STACKCALL)
 ifneq ($(CCVER),9.60)
 
 ifeq ($(OPT),speed)
-OPT_SPEED = ,+speed
+OPT_SPEED = ,-space,+speed
 endif
 ifeq ($(OPT),space)
 OPT_SPEED = ,-speed,+space
