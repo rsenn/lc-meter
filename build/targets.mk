@@ -49,6 +49,14 @@ Freq_meter_Nokia5110_SOURCES = Freq-meter.c lcd5110.c print.c ser.c buffer.c
 Freq_meter_Nokia5110_DEFS += -DUSE_NOKIA5110_LCD=1
 Freq_meter_Nokia5110_DEFS += $(TIMER_DEFS)
 
+
+Cap_meter_HD44780_SOURCES = Cap-meter.c lcd44780.c print.c ser.c buffer.c
+Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
+Cap_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
+
+Cap_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
+Cap_meter_HD44780_DEFS += $(TIMER_DEFS)
+
 serialtest_SOURCES = serialtest.c ser.c lcd44780.c print.c
 ifeq ($(filter 10f%,$(chipl)),)
 serialtest_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_SER=1
