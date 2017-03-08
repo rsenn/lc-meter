@@ -6,24 +6,38 @@
  Written by: Rajendra Bhatt (www.embedded-lab.com)
  
 */
- 
-// LCD module connections
-sbit LCD_RS at RB2_bit;
-sbit LCD_EN at RB3_bit;
-sbit LCD_D4 at RB4_bit;
-sbit LCD_D5 at RB5_bit;
-sbit LCD_D6 at RB6_bit;
-sbit LCD_D7 at RB7_bit;
-sbit LCD_RS_Direction at TRISB2_bit;
-sbit LCD_EN_Direction at TRISB3_bit;
-sbit LCD_D4_Direction at TRISB4_bit;
-sbit LCD_D5_Direction at TRISB5_bit;
-sbit LCD_D6_Direction at TRISB6_bit;
-sbit LCD_D7_Direction at TRISB7_bit;
- 
-sbit Va at RA0_bit;
-sbit Switch at RB0_bit;
- 
+ #include "interrupt.h"
+#include "Cap-meter.h"
+#include "config-bits.h"
+//#include "main.h"
+#include "delay.h"
+
+#if USE_HD44780_LCD
+# include "lcd44780.h"
+#endif
+
+#if USE_NOKIA5110_LCD
+# include "lcd5110.h"
+#endif
+
+#include "timer.h"
+
+#ifdef USE_UART
+# include "uart.h"
+#endif
+
+#if USE_SER
+# include "ser.h"
+#endif
+
+#if USE_SOFTSER
+# include "softser.h"
+#endif
+
+#include "print.h"
+#include "format.h"
+#include "buffer.h"
+
 char message1[] = "Capacitance";
 char message2[] = "Meter";
  
