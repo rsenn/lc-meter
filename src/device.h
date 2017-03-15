@@ -85,6 +85,8 @@
 #elif defined(__16f628a)
 #define NO_PORTC 1
 #define NO_SSP 1
+#define TMR0IE T0IE
+#define TMR0IF T0IF
 #endif
 
 #ifndef NO_PORTA
