@@ -386,6 +386,8 @@ measure_capacitance() {
   put_str("Capacity ");
 
   var = measure_freq();
+
+
   F3 = (double)var;
 #if USE_SER
   ser_puts("var=");
