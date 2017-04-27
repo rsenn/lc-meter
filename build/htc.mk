@@ -190,11 +190,11 @@ $(HEXFILE): $(P1OBJS) | $(BUILDDIR) $(OBJDIR)
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
-	(cd obj; $(CC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%) ../$<)
+	(cd obj; mkdir -p $(OBJDIR:obj/%/=%); $(CC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%) ../$<)
 #	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(DEPENDS): $(OBJDIR)%.dep: %.c
-	(cd obj; $(CC) --scandep $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%) ../$<); \
+	(cd obj; mkdir -p $(OBJDIR:obj/%/=%); $(CC) --scandep $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%) ../$<); \
 	 sed  '/:/d; s,[\\\\],/,g ; s|^\.\./||;  /[ ()]/ s,.*,"&",' <"$@" | sed ':lp; N; $$! { b lp }; s,\n, ,g; s|^|$(patsubst %.c,$(OBJDIR)/%.p1,$(notdir $<)): |;  s|/\+|/|g'  >"$(@:%.dep=%.d)"
 
 #	$(CC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
