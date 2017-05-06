@@ -438,6 +438,7 @@ measure_capacitance() {
 
   Cin = Cin * 100; // scale to 2 decimal place
   var = (uint16_t)Cin;
+  
   print_reading(var);
   print_unit(unit);
 }
