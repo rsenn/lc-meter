@@ -80,6 +80,8 @@ int initialize()
   GIE = 1;
   PEIE = 1;
 
+  INIT_LED();
+
   //initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
@@ -94,6 +96,7 @@ int initialize()
 int main()
 {
   const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
+  char led = 0;
   uint8_t select[4] = {1, 2, 4, 8};
   uint32_t counter, value, remainder1, remainder2;
   float frequency;
@@ -101,6 +104,7 @@ int main()
 
   initialize();
   ser_puts("Freq-meter READY.\r\n");
+  lcd_print("Freq-meter READY.");
 
   for(;;) {
     static uint32_t prev_frequency = 0;
@@ -124,6 +128,8 @@ int main()
         __delay_ms(3);
 
      prev_frequency = frequency;
+
+     SET_LED(led = !led);
     }
 /*
     for(a = 0; a < 25; a++) {
