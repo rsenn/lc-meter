@@ -157,9 +157,10 @@ print_reading(uint16_t measurement) {
   lcd_gotoxy(9, 0);
   lcd_print("     ");
   lcd_gotoxy(9, 0);
-  format_number(buffer_putch, measurement / 100, 10, 0);
+  putchar_ptr = &buffer_putch;
+  format_number(measurement / 100, 10, 0);
   buffer_putch('.');
-  format_number(buffer_putch, measurement % 100, 10, 0);
+  format_number(measurement % 100, 10, 0);
 
 
 #endif // defined(USE_NOKIA5110_LCD)

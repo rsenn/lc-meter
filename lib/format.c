@@ -2,9 +2,14 @@
 #include <math.h>
 #include <float.h>
 
+static int
+format_putchar(char c) {}
+
+putchar_fn* putchar_ptr = &format_putchar;
+
 // -------------------------------------------------------------------------
 void
-format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/) {
+format_number(uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/) {
   uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
   int8_t i = 0;
@@ -34,27 +39,46 @@ format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t 
   while(n > 0);
 
   while(pad-- > i)
-    putchar(padchar);
+    putchar_ptr(padchar);
 
   for(; i > 0; i--)
-    putchar((char)buf[(int16_t)i - 1]);
+    putchar_ptr((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
 }
 
 // -------------------------------------------------------------------------
 #if 0
 void
-format_xint32(putchar_p putchar, uint32_t x)
+format_xint32(uint32_t x)
 {
-  putchar('0');
-  putchar('x');
+  putchar_ptr('0');
+  putchar_ptr('x');
   format_number(putchar, x >> 16, 16, -4);
   format_number(putchar, x & 0xffff, 16, -4);
 }
 #endif
-// -------------------------------------------------------------------------
+
 void
-format_double(putchar_p putchar, double num) {
+format_float(float num) {
+  int m = log10(num);
+  int digit;
+//  float tolerance = .0001;
+
+  while (num > 0 + FLT_EPSILON) {
+    float weight = pow(10.0l, m);
+    digit = floor(num / weight);
+    num -= (digit * weight);
+    putchar_ptr('0' + digit);
+    if (m == 0)
+      putchar_ptr('.');
+    m--;
+  }
+}
+
+// -------------------------------------------------------------------------
+#if 0
+void
+format_double(double num) {
   int m = log10(num);
   int digit;
 //  double tolerance = .0001;
@@ -63,9 +87,10 @@ format_double(putchar_p putchar, double num) {
     double weight = pow(10.0l, m);
     digit = floor(num / weight);
     num -= (digit * weight);
-    putchar('0' + digit);
+    putchar_ptr('0' + digit);
     if (m == 0)
-      putchar('.');
+      putchar_ptr('.');
     m--;
   }
 }
+#endif

@@ -3,13 +3,16 @@
 
 #include "typedef.h"
 
-void
-format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad);
-void
-format_double(putchar_p putchar, double n);
+extern putchar_fn* putchar_ptr;
+
 
 void
-format_xint32(putchar_p putchar, uint32_t x);
+format_number(uint16_t n, uint8_t base, int8_t pad);
+void
+format_double(double n);
+
+void
+format_xint32(uint32_t x);
 
 #endif // defined PICLIB_FORMAT_H
 
