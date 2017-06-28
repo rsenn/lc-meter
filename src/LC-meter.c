@@ -81,7 +81,7 @@ static uint16_t blink;
 
 
 /* Interrupt routine */
-INTERRUPT_HANDLER() {
+INTERRUPT_FN() {
 
   if(TMR2IF) {
 

@@ -53,7 +53,7 @@ volatile uint8_t led_state = 0;
 
 volatile uint16_t tmr1_overflows;
 
-INTERRUPT_HANDLER() {
+INTERRUPT_FN() {
 #ifdef USE_SER
   ser_int();
 #endif

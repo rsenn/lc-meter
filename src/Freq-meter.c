@@ -7,6 +7,7 @@
 #include "Freq-meter.h"
 #include "format.h"
 #include "buffer.h"
+#include "delay.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"
@@ -40,7 +41,7 @@ uint8_t control;
 //---------------------------------------------
 //	     CCP1 INTERRUPT
 //---------------------------------------------
-INTERRUPT_HANDLER() {
+INTERRUPT_FN() {
 #if USE_SER
   ser_int();
 #endif
@@ -57,7 +58,8 @@ INTERRUPT_HANDLER() {
 }
 
 //-----------------------------------------------------------------------------
-int initialize() {
+void
+initialize() {
   TRISA = 0x00;
   TRISB = 0x08;
   CMCON = 0x07;
@@ -96,7 +98,7 @@ int main() {
   char led = 0;
   uint8_t select[4] = {1, 2, 4, 8};
   uint32_t counter, value, remainder1, remainder2;
-  float frequency;
+  uint32_t frequency;
   uint8_t a, i, display[5], data;
 
   initialize();
@@ -123,7 +125,7 @@ int main() {
       ser_putch('\r');
       ser_putch('\n');
 
-      __delay_ms(3);
+      delay_ms(3);
 
       prev_frequency = frequency;
 

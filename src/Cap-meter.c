@@ -53,7 +53,7 @@ unsigned short i, j, TimerValue, OverRange = 0;
 char Capacitance[] = "00.000 uF";
  
 /* Interrupt routine */
-INTERRUPT_HANDLER() {
+INTERRUPT_FN() {
   if(TMR2IF){
   TMR2 = TimerValue;
   Num ++;

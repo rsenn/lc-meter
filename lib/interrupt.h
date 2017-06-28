@@ -2,12 +2,12 @@
 #define PICLIB_INTERRUPT_H 1
 
 #if defined(HI_TECH_C) || defined(__XC)
-# define INTERRUPT_HANDLER() interrupt isr()
+# define INTERRUPT_FN() interrupt isr()
 #else
-# if defined(__SDCC) || defined(SDCC)
-#  define INTERRUPT_HANDLER() void isr() __interrupt 0
+# if defined(__SDCC) || __SDCC__
+#  define INTERRUPT_FN() void isr() __interrupt 0
 # else
-#  define INTERRUPT_HANDLER() void isr(); interrupt() { void isr(); }; isr()
+#  define INTERRUPT_FN() void isr(); interrupt() { void isr(); }; isr()
 # endif
 #endif // !defined(HI_TECH_C)
 

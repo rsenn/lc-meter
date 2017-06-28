@@ -70,7 +70,7 @@ DISTFILES = Makefile build/sdcc.mk build/sdcc.mk
 
 OPT = speed
 
-#DEFINES += HI_TECH_C=1
+DEFINES += __SDCC__=1
 
 SOURCES =  $(COMMON_SOURCES) $($(subst -,_,$(PROGRAM))_SOURCES)
 COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS) $(DEFINES:%=-D%)
