@@ -4,8 +4,7 @@
 
 // -------------------------------------------------------------------------
 void
-format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/)
-{
+format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t pointpos*/) {
   uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
   int8_t i = 0;
@@ -41,7 +40,9 @@ format_number(putchar_p putchar, uint16_t n, uint8_t base, int8_t pad/*, int8_t 
     putchar((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
 }
+
 // -------------------------------------------------------------------------
+#if 0
 void
 format_xint32(putchar_p putchar, uint32_t x)
 {
@@ -50,7 +51,7 @@ format_xint32(putchar_p putchar, uint32_t x)
   format_number(putchar, x >> 16, 16, -4);
   format_number(putchar, x & 0xffff, 16, -4);
 }
-
+#endif
 // -------------------------------------------------------------------------
 void
 format_double(putchar_p putchar, double num) {

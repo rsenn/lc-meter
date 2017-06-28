@@ -45,7 +45,7 @@ INTERRUPT_HANDLER() {
   ser_int();
 #endif
 
-  if (CCP1IF) {
+  if(CCP1IF) {
     TMR1H = 0; TMR1L = 0;
     GIE = 0;
 
@@ -103,20 +103,20 @@ int main() {
   ser_puts("Freq-meter READY.\r\n");
   lcd_print("Freq-meter READY.");
 
-  for (;;) {
+  for(;;) {
     static uint32_t prev_frequency = 0;
 
     counter = 256 * CCPR1H + CCPR1L;
 
-    if (control == 1) frequency = 100000000 / counter;
-    if (control == 0) frequency = 0;
+    if(control == 1) frequency = 100000000 / counter;
+    if(control == 0) frequency = 0;
 
-    if (counter < 10000) frequency = 0;
+    if(counter < 10000) frequency = 0;
 
     control = 0;
 
 
-    if (frequency != prev_frequency) {
+    if(frequency != prev_frequency) {
 
       format_number(ser_putch, frequency, 10, 0);
       ser_putch('\r');

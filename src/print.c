@@ -108,10 +108,10 @@ print_unit(uint8_t unit) {
 #if USE_NOKIA5110_LCD
   uint8_t i;
   lcd_gotoxy(60, 2);
-  for (i = 0; i < 18; i++)
+  for(i = 0; i < 18; i++)
     lcd_send(units[unit * 36 + i], LCD_TDATA);
   lcd_gotoxy(60, 3);
-  for (i = 18; i < 36; i++)
+  for(i = 18; i < 36; i++)
     lcd_send(units[unit * 36 + i], LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
   static const char *units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};

@@ -133,7 +133,7 @@ int main() {
 #endif
 
 #if !NO_PORTB
-# if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+# if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
   RBPU = 1;
 # else
   NOT_RBPU = 0; // enable portB internal pullup
@@ -204,7 +204,7 @@ int main() {
 #endif
   //   flash_busy_led(500);
 
-  for (;;)
+  for(;;)
     loop();
 }
 
@@ -266,7 +266,7 @@ void loop() {
 #ifdef USE_SOFTSER
   c = 0;
 
-  while (softser_poll(32)) {
+  while(softser_poll(32)) {
     softser_recv();
     ser_putch(softser_rdata);
 
@@ -345,12 +345,12 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
     n /= base;
-  } while (n > 0);
+  } while(n > 0);
 
-  while (pad-- >= i)
+  while(pad-- >= i)
     putchar(padchar);
 
-  for (; i > 0; i--)
+  for(; i > 0; i--)
     putchar((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i -
   //    1] - 10));
