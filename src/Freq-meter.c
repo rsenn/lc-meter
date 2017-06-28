@@ -40,13 +40,12 @@ uint8_t control;
 //---------------------------------------------
 //	     CCP1 INTERRUPT
 //---------------------------------------------
-INTERRUPT_HANDLER()
-{
+INTERRUPT_HANDLER() {
 #if USE_SER
   ser_int();
 #endif
 
-  if(CCP1IF) {
+  if (CCP1IF) {
     TMR1H = 0; TMR1L = 0;
     GIE = 0;
 
@@ -58,8 +57,7 @@ INTERRUPT_HANDLER()
 }
 
 //-----------------------------------------------------------------------------
-int initialize()
-{
+int initialize() {
   TRISA = 0x00;
   TRISB = 0x08;
   CMCON = 0x07;
@@ -93,8 +91,7 @@ int initialize()
 }
 
 //-----------------------------------------------------------------------------
-int main()
-{
+int main() {
   const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
   char led = 0;
   uint8_t select[4] = {1, 2, 4, 8};
@@ -106,59 +103,59 @@ int main()
   ser_puts("Freq-meter READY.\r\n");
   lcd_print("Freq-meter READY.");
 
-  for(;;) {
+  for (;;) {
     static uint32_t prev_frequency = 0;
 
     counter = 256 * CCPR1H + CCPR1L;
 
-    if(control == 1) frequency = 100000000 / counter;
-    if(control == 0) frequency = 0;
+    if (control == 1) frequency = 100000000 / counter;
+    if (control == 0) frequency = 0;
 
-    if(counter < 10000) frequency = 0;
+    if (counter < 10000) frequency = 0;
 
     control = 0;
 
 
-    if(frequency != prev_frequency) {
+    if (frequency != prev_frequency) {
 
       format_number(ser_putch, frequency, 10, 0);
       ser_putch('\r');
       ser_putch('\n');
 
-        __delay_ms(3);
+      __delay_ms(3);
 
-     prev_frequency = frequency;
+      prev_frequency = frequency;
 
-     SET_LED(led = !led);
+      SET_LED(led = !led);
     }
-/*
-    for(a = 0; a < 25; a++) {
+    /*
+        for(a = 0; a < 25; a++) {
 
-      value = (int)frequency;
+          value = (int)frequency;
 
-      display[1] = value / 1000;
-      remainder1 = value - display[1] * 1000;
+          display[1] = value / 1000;
+          remainder1 = value - display[1] * 1000;
 
-      display[2] = remainder1 / 100;
-      remainder2 = remainder1 - display[2] * 100;
+          display[2] = remainder1 / 100;
+          remainder2 = remainder1 - display[2] * 100;
 
-      display[3] = remainder2 / 10;
-      display[4] = remainder2 - display[3] * 10;
+          display[3] = remainder2 / 10;
+          display[4] = remainder2 - display[3] * 10;
 
 
-      for(i = 0; i < 4; i++) {
-        PORTB = 0;
-        PORTA = 0;
+          for(i = 0; i < 4; i++) {
+            PORTB = 0;
+            PORTA = 0;
 
-        data = number[display[i + 1]];
-        PORTB = data & 0x07;
-        data = data << 1;
-        PORTB = PORTB | (data & 0xF0);
+            data = number[display[i + 1]];
+            PORTB = data & 0x07;
+            data = data << 1;
+            PORTB = PORTB | (data & 0xF0);
 
-        PORTA = select[i];
-        __delay_ms(3);
-      }
-    }*/
+            PORTA = select[i];
+            __delay_ms(3);
+          }
+        }*/
   }
 }
 

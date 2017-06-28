@@ -134,7 +134,7 @@ main() {
 
 
   // others
-#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
   RBPU = 1;
 #else
   NOT_RBPU = 0; // enable portB internal pullup
@@ -220,8 +220,8 @@ main() {
    * Blink the indicator (-*-) sign after each measurement.
    */
 
-  for (;;) {
-    if (LC_SELECT)
+  for(;;) {
+    if(LC_SELECT)
       measure_capacitance();
     else
       measure_inductance();
@@ -319,7 +319,7 @@ measure_freq() {
     NOP();
     NOP();
     count++;                              // count until TMR0 incremented
-  } while (prev == TMR0 && count <= 255); // test if timer0 has incremented
+  } while(prev == TMR0 && count <= 255); // test if timer0 has incremented
 
   //}while(prev==TMR0);  //test if timer0 has incremented
   count = ((prev << 8) + (256 - count));
@@ -531,7 +531,7 @@ delay10ms(uint16_t period_10ms) {
     if(ms <= msecs)
       run = 0;
     GIE=1;
-  } while (run);
+  } while(run);
 }
 
 /*
