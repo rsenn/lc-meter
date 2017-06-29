@@ -2,8 +2,8 @@
 #include <math.h>
 #include <float.h>
 
-static int
-format_putchar(char c) {}
+static char
+format_putchar(char c) { return 0; }
 
 putchar_fn* putchar_ptr = &format_putchar;
 

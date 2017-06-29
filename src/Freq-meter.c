@@ -8,6 +8,7 @@
 #include "format.h"
 #include "buffer.h"
 #include "delay.h"
+#include "interrupt.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"
@@ -31,7 +32,7 @@ output_putch(char c) {
   return 1;
 }
 
-
+uint32_t frequency;
 buffer_t buffer = BUFFER_STATIC(output_putch);
 
 //__CONFIG(WDTDIS& PWRTEN& LVPDIS& XT);
@@ -97,10 +98,9 @@ int main() {
   const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
   char led = 0;
   uint8_t select[4] = {1, 2, 4, 8};
-  uint32_t counter, value, remainder1, remainder2;
-  uint32_t frequency;
-  uint8_t a, i, display[5], data;
-
+  uint32_t counter;
+  
+  
   initialize();
   ser_puts("Freq-meter READY.\r\n");
   lcd_print("Freq-meter READY.");
@@ -125,8 +125,9 @@ int main() {
       ser_putch('\r');
       ser_putch('\n');
 
+#ifndef __SDCC__
       delay_ms(3);
-
+#endif
       prev_frequency = frequency;
 
       SET_LED(led = !led);
