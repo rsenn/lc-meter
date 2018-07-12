@@ -60,7 +60,7 @@ softser_init(void) {
 #elif SOFTSER_TIMER == 2
   timer2_init(SOFTSER_PS);
 #else
-  #warning No timer setup for soft serial!
+  #pragma warning No timer setup for soft serial!
 #endif  
 
   SOFTSER_IN_TRIS = INPUT;

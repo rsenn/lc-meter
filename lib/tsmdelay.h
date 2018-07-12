@@ -43,7 +43,7 @@
 #endif
 
 #ifndef KHZ
-#warning "Can't calculate delays when KHZ not defined"
+#pragma warning "Can't calculate delays when KHZ not defined"
 #endif
 
 typedef struct dvars {
