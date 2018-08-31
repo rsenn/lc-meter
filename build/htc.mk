@@ -30,7 +30,11 @@ PIC18 = true
 DEFINES += __PICC18__=1
 else
 COMPILER_NAME = picc
+ifeq ($(OS),GNU/Linux)
+COMPILER_DIR = picc
+else
 COMPILER_DIR = PICC
+endif
 #CCVER = PRO/9.60
 CCVER = 9.83
 #CCVER := 9.71a
