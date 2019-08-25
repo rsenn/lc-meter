@@ -19,10 +19,10 @@ __PROG_CONFIG(1, 0x3f72);
 __CONFIG(CONFIG_WORD);
 #endif
 
-#define SET_LED(b)                                                             \
-  do {                                                                         \
-    LED_PIN = !(b);                                                            \
-  } while (0);
+#define SET_LED(b)                                                                                                     \
+  do {                                                                                                                 \
+    LED_PIN = !(b);                                                                                                    \
+  } while(0);
 
 volatile uint32 bres;
 volatile unsigned int seconds;
@@ -33,20 +33,20 @@ uint16_t tmr1_overflow = 0;
 float calc_freq();
 
 INTERRUPT() {
-  if (T0IF) {
+  if(T0IF) {
     tmr0_overflow++;
     T0IF = 0;
   }
 
-  if (TMR1IF) {
+  if(TMR1IF) {
     tmr1_overflow++;
     TMR1IF = 0;
   }
 
   //    uart_int();
-  if (CCP1IF) {
+  if(CCP1IF) {
 
-    if (CCP1_EDGE() == RISING) {
+    if(CCP1_EDGE() == RISING) {
       ccp1t_lr = ccp1t[RISING];
     }
     ccp1t[CCP1_EDGE()] = CCPR1;
@@ -57,7 +57,8 @@ INTERRUPT() {
   }
 }
 
-void timer1_init() {
+void
+timer1_init() {
 
   T1SYNC = 0;
 
@@ -77,7 +78,8 @@ void timer1_init() {
   TMR1IE = 1;
 }
 
-void setup_ccp1() {
+void
+setup_ccp1() {
 
   ccp1t_lr = ccp1t[0] = ccp1t[1] = (int16_t)-1;
 
@@ -86,7 +88,8 @@ void setup_ccp1() {
   CCP1IE = 1;
   CCP1IF = 0;
 }
-void main(void) {
+void
+main(void) {
   int led = 0;
 
   LED_TRIS = OUTPUT;
@@ -116,7 +119,7 @@ void main(void) {
 #endif
   add_ccal();
 
-  for (;;) {
+  for(;;) {
 
     float f = measure_freq();
     LED_PIN = led;
@@ -142,7 +145,8 @@ void main(void) {
   }
 }
 
-void initialize(void) {
+void
+initialize(void) {
   // setup comparator
   /*CMCONbits.*/ CM0 = 1;
   /*CMCONbits.*/ CM1 = 0;
@@ -222,25 +226,31 @@ float measure_freq_tmr1(void) { // 16-bit freq
   return (float)r * 8;
 }
 
-void calibrate(void) {}
+void
+calibrate(void) {}
 
-float calc_freq() {
+float
+calc_freq() {
   float t = measure_freq();
 
   return t;
 }
 
-float calc_capacitance(float f) {
+float
+calc_capacitance(float f) {
   f *= f;
   f *= M_4_PI_PI;
   return L_H_1 / f;
 }
 
-float calc_inductance(float f) { return 1.0l / (M_4_PI_PI * f * f * C_F); }
-
-void delay10ms(uint16_t period_10ms) {
-  do {
-    __delay_ms(10);
-  } while (--period_10ms);
+float
+calc_inductance(float f) {
+  return 1.0l / (M_4_PI_PI * f * f * C_F);
 }
 
+void
+delay10ms(uint16_t period_10ms) {
+  do {
+    __delay_ms(10);
+  } while(--period_10ms);
+}

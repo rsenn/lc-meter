@@ -62,10 +62,10 @@ void lcd_clear();
 void lcd_home();
 void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
 void lcd_print_float(float number, uint8_t digits);
-void lcd_print(const char *string);
-//void lcd_printf(const char *fmt, ...);
+void lcd_puts(const char* string);
+// void lcd_printf(const char *fmt, ...);
 void lcd_gotoxy(uint8_t col, uint8_t row);
-char lcd_putch(char value);
+void lcd_putch(char value);
 
 #define LCDAUTOSCROLL
 #define LCDBLINK
@@ -83,7 +83,4 @@ char lcd_putch(char value);
 #undef LCDSCROLLDISPLAYRIGHT
 #define LCDSETCURSOR
 
-
 #endif /* PICLIB_LCD44780_H */
- 
-

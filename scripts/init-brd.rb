@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/ usr / bin / env ruby
 require 'pp'
 require 'libeagle'
 def method_names(obj)
@@ -55,21 +55,23 @@ def elements_to_hasharr(obj_list, with_ref = false)
   end
 end
 #def elements_to_hashtable(obj_list, with_ref = false)
-#  attribute_names = property_names(obj_list.first)
-#  ht = Hash.new
-#  obj_list.each do |e|
-#    begin
-#      n = get_property(e, "name")
-#    rescue
-#      n = get_property(e, "part")
-#    end
-#    h = properties_to_hash(e, attribute_names)
-#    if with_ref then h[:ref] = e end
-#    ht.store(n, h)
-#  end
-#  ht
+#attribute_names = property_names(obj_list.first)
+#ht = Hash.new
+#obj_list.each do | e |
+#begin
+#n = get_property(e, "name")
+#rescue
+#n = get_property(e, "part")
 #end
-#"""                                                                         """
+#h = properties_to_hash(e, attribute_names)
+#if with_ref then h[:ref] = e end
+#ht.store(n, h)
+#end
+#ht
+#end
+#""                                                                                                                    \
+ "                                                                         "                                           \
+ ""
 """ get_subobj      ------------------------------------------------------- """
 """                                                                         """
 def get_subobj(obj, *list_names)
@@ -82,24 +84,24 @@ def get_subobj(obj, *list_names)
 end
 def get_subobj_list(lobj, list_name)
   list_name = list_name.to_s
-#  if list_name.end_with? "s" then list_name = list_name.chop end
-#  begin
-#    method_object = obj.method( "object_#{list_name}s".to_sym )
-#    
-#    lobj = method_object.call
+#if list_name.end_with ? "s" then list_name = list_name.chop end
+#begin
+#method_object = obj.method("object_#{list_name}s".to_sym)
+#
+#lobj = method_object.call
 #
     method_object = lobj.method( "object_#{list_name}".to_sym )
         lobj = method_object.call
-#    pp method_names(lobj)
-#    puts "get_subobj_list #{obj.to_s} #{list_name}: #{lobj.class}"
+#pp method_names(lobj)
+#puts "get_subobj_list #{obj.to_s} #{list_name}: #{lobj.class}"
     if not lobj.instance_of? Enumerable then
       lobj = [ lobj ]
     end
-#    objects = lobj.instance_variable_get "@object_"+list_name
+#objects = lobj.instance_variable_get "@object_" + list_name
     elements_to_hasharr(lobj)
-#  rescue
-#    []
-#  end
+#rescue
+#[]
+#end
 end
 def print_obj_tree(obj, s = "", n = "")
 class_name = obj.class.to_s.gsub(/.*::/, "")
@@ -107,7 +109,7 @@ puts class_name
   eagle_obj = obj.class.to_s.match(/Eagle/) or obj.is_a? LibEagle::Base
   if obj.is_a? Array then
     obj.each do |c,i|
-#      i = elements_to_hasharr(i)
+#i = elements_to_hasharr(i)
       puts "#{s}/[#{c}]#{i}"
     end
   elsif obj.is_a? String or obj.is_a? Integer or obj.is_a? Float
@@ -116,7 +118,7 @@ puts class_name
     id = get_subobj(obj, :id)
     s += "/#{obj.class}[@id=#{id}]"
     puts s
-    #if n != "" then s += " (#{n})" end
+#if n != "" then s += " (#{n})" end
      names = object_list_names(obj)
 names.delete "id"
   if false and names.size == 1 then
@@ -124,11 +126,11 @@ names.delete "id"
     if o.is_a? Array and o.size > 0 then
     h = elements_to_hasharr(o)
       pp h
-#     print_obj_tree(h, s)
+#print_obj_tree(h, s)
      end
   else
       names.each do |l|
-      #if l == "id" then next end
+#if l == "id" then next end
           o = get_subobj(obj, l)
           if o != nil then print_obj_tree(o, s, l) end
       end
@@ -152,8 +154,8 @@ begin
   def read_schematic(file_name)
     eagle = LibEagle::Parser.parseFile(file_name)
     instance_hasharr = elements_to_hasharr get_subobj(eagle, :drawing, :schematic, :sheets, :sheet, :instances, :instance)
-#     out = PP.pp(instance_hasharr, '')
-#    puts "Instances: #{out}"
+#out = PP.pp(instance_hasharr, '')
+#puts "Instances: #{out}"
     File.write file_name.gsub(/\./, "_")+".xml",  eagle.saveXML
       return instance_hasharr
     end
@@ -176,22 +178,22 @@ begin
          signals = Hash.new
          signals_arr.each do |s|
 		    signame = s.attribute_name
-  #         property_names(s).each do |p|
+#property_names(s).each do | p |
 		   siglists = Hash.new
 		   object_list_names(s).each do |l|     
 				ha = elements_to_hasharr( get_subobj(s, l) )      
 				siglists.store(l.to_sym, ha)
 			end
 			signals.store(signame,  siglists)
-   #	        put_array_hash (signals_by_name, s.attribute_name, 
+#put_array_hash(signals_by_name, s.attribute_name, 
          end
          pp signals
-     #   out = PP.pp(elements_to_hasharr(elements_arr), '')
-     #  puts "Elements: #{out}"
+#out = PP.pp(elements_to_hasharr(elements_arr), '')
+#puts "Elements: #{out}"
      elements
-#    output_filename = file_name.gsub(/\./, "_")+".xml"
-#    File.write output_filename,  eagle.saveXML
-#    $stderr.puts "Output written to: #{output_filename}"
+#output_filename = file_name.gsub(/\./, "_") + ".xml"
+#File.write output_filename, eagle.saveXML
+#$stderr.puts "Output written to: #{output_filename}"
   end
     schematic_file = ARGV[0].gsub(/\.[^.]*$/, "")+".sch"
   instances = read_schematic(schematic_file)

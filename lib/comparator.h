@@ -6,4 +6,3 @@
 void comparator_disable();
 
 #endif // defined PICLIB_COMPARATOR_H
-

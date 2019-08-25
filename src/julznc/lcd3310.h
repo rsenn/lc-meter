@@ -1,18 +1,18 @@
 
 #ifndef NO_JULZNC
-# define LCD_CLK                RC5
-# define        LCD_DATA        RC4
-# define        LCD_DC          RC1
-# define        LCD_CE          RC2
-# define        LCD_RESET       RC3
-# define LCD_TRIS()     TRISC &= 0x00
+#define LCD_CLK RC5
+#define LCD_DATA RC4
+#define LCD_DC RC1
+#define LCD_CE RC2
+#define LCD_RESET RC3
+#define LCD_TRIS() TRISC &= 0x00
 #else
-# define LCD_CLK		RB6
-# define	LCD_DATA	RB5
-# define	LCD_DC		RB4
-# define	LCD_CE		RB2
-# define	LCD_RESET	RB3
-# define LCD_TRIS()	TRISB &= 0x00
+#define LCD_CLK RB6
+#define LCD_DATA RB5
+#define LCD_DC RB4
+#define LCD_CE RB2
+#define LCD_RESET RB3
+#define LCD_TRIS() TRISB &= 0x00
 #endif
 
 #define BIT7 0b10000000
@@ -24,32 +24,26 @@
 #define BIT1 0b00000010
 #define BIT0 0b00000001
 
-#define LCD_TCMD	0
-#define	LCD_TDATA	1
+#define LCD_TCMD 0
+#define LCD_TDATA 1
 
-
-unsigned char lcd_str_width(const unsigned char *c);
+unsigned char lcd_str_width(const unsigned char* c);
 void lcd_send(unsigned char a, unsigned char cmd);
 void lcd_init(void);
 void lcd_test(void);
 void lcd_clear(void);
 void lcd_gotoxy(unsigned char x, unsigned y);
-void lcd_putch(unsigned char c);
-void lcd_puts(const char *s);
-void lcd_puts2(char *s);
+void lcd_putch(char c);
+void lcd_puts(const char* s);
+void lcd_puts2(char* s);
 void lcd_clear_line(unsigned char y);
-void lcd_center_puts(unsigned char y, const char *c);
-void lcd_center_puts2(unsigned char y, char *c, unsigned char len);
-
+void lcd_center_puts(unsigned char y, const char* c);
+void lcd_center_puts2(unsigned char y, char* c, unsigned char len);
 
 void lcd_battery(unsigned char chg);
-//void lcd_bluetooth(void);
+// void lcd_bluetooth(void);
 
-//first element array is the length
-void lcd_symbol(const char *sym);
+// first element array is the length
+void lcd_symbol(const char* sym);
 
-//void  display_digit(unsigned char line, unsigned char column, unsigned char digit);
-
-
-	
-
+// void  display_digit(unsigned char line, unsigned char column, unsigned char digit);

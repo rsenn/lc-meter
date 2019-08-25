@@ -25,7 +25,7 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
-*/
+ */
 
 #ifndef PICLIB_SOFTSER_H_
 #define PICLIB_SOFTSER_H_
@@ -38,64 +38,62 @@
 #define SOFTSER_INVERT 1
 
 #if NO_PORTB
-#define SOFTSER_IN_PIN  RA0          // pin for serial out
+#define SOFTSER_IN_PIN RA0 // pin for serial out
 #define SOFTSER_IN_TRIS TRISA0
-#define SOFTSER_OUT_PIN   RA1          // pin for serial input
-#define SOFTSER_OUT_TRIS  TRISA1
+#define SOFTSER_OUT_PIN RA1 // pin for serial input
+#define SOFTSER_OUT_TRIS TRISA1
 #else
-#define SOFTSER_IN_PIN  RB0          // pin for serial out
+#define SOFTSER_IN_PIN RB0 // pin for serial out
 #define SOFTSER_IN_TRIS TRISB0
-#define SOFTSER_OUT_PIN   RB1          // pin for serial input
-#define SOFTSER_OUT_TRIS  TRISB1
+#define SOFTSER_OUT_PIN RB1 // pin for serial input
+#define SOFTSER_OUT_TRIS TRISB1
 #endif
 
 #ifndef SOFTSER_BAUD
-#define SOFTSER_BAUD UART_BAUD //31250
+#define SOFTSER_BAUD UART_BAUD // 31250
 #endif
 
 //#define SOFTSER_BRG 0x33            // TMR1 (1Mhz/2/19200 baud) = 52
 // tested; works from 49 to 53, using 51
-
-
 
 /*#define SOFTSER_PS 0b001             // prescaler 1:4
 //#define SOFTSER_BRG 0x41            // TMR1 (5Mhz/4/19200 baud) = 66
 #define SOFTSER_BRG 0x1f              // TMR1 (5Mhz/4/38400 baud) = 33
 */
 #if OSC_4 == 5000000
-# if SOFTSER_BAUD == 9600
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x7e            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 19200
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x3f            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 31250
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x28            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 38400
-#  define SOFTSER_PS 0b000                 // prescaler 1:2
-#  define SOFTSER_BRG 0x41            // TMR1 (5Mhz/2/38400 baud) = 66
-# elif SOFTSER_BAUD == 57600
-#  define SOFTSER_PS 0b000                 // prescaler 1:2
-#  define SOFTSER_BRG 0x28                // TMR1 (5Mhz/2/57600 baud) = 87
-# endif
+#if SOFTSER_BAUD == 9600
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x7e // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 19200
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x3f // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 31250
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x28 // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 38400
+#define SOFTSER_PS 0b000 // prescaler 1:2
+#define SOFTSER_BRG 0x41 // TMR1 (5Mhz/2/38400 baud) = 66
+#elif SOFTSER_BAUD == 57600
+#define SOFTSER_PS 0b000 // prescaler 1:2
+#define SOFTSER_BRG 0x28 // TMR1 (5Mhz/2/57600 baud) = 87
+#endif
 #elif OSC_4 == 6000000
-# if SOFTSER_BAUD == 9600
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x66            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 19200
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x33            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 31250
-#  define SOFTSER_PS 0b001             // prescaler 1:4
-#  define SOFTSER_BRG 0x20            // TMR1 (5Mhz/4/31250 baud) = 40
-# elif SOFTSER_BAUD == 38400
-#  define SOFTSER_PS 0b000                 // prescaler 1:2
-#  define SOFTSER_BRG 0x34            // TMR1 (5Mhz/2/38400 baud) = 66
-# elif SOFTSER_BAUD == 57600
-#  define SOFTSER_PS 0b000                 // prescaler 1:2
-#  define SOFTSER_BRG 0x21                // TMR1 (5Mhz/2/57600 baud) = 87
-# endif
+#if SOFTSER_BAUD == 9600
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x66 // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 19200
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x33 // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 31250
+#define SOFTSER_PS 0b001 // prescaler 1:4
+#define SOFTSER_BRG 0x20 // TMR1 (5Mhz/4/31250 baud) = 40
+#elif SOFTSER_BAUD == 38400
+#define SOFTSER_PS 0b000 // prescaler 1:2
+#define SOFTSER_BRG 0x34 // TMR1 (5Mhz/2/38400 baud) = 66
+#elif SOFTSER_BAUD == 57600
+#define SOFTSER_PS 0b000 // prescaler 1:2
+#define SOFTSER_BRG 0x21 // TMR1 (5Mhz/2/57600 baud) = 87
+#endif
 #endif
 
 //#define SOFTSER_BRG 0x07             // TMR1 (1Mhz/4/31250 baud) =  8
@@ -119,9 +117,7 @@
 #define SOFTSER_TMR TMR2
 #endif
 
-
-#define SOFTSER_BRG_FN(baud) ((OSC_4/(1<<(SOFTSER_PS+1))/(baud)) + 1)
-
+#define SOFTSER_BRG_FN(baud) ((OSC_4 / (1 << (SOFTSER_PS + 1)) / (baud)) + 1)
 
 #if USE_SOFTSER && !defined(SOFTSER_BRG)
 #define SOFTSER_PS 0
@@ -132,25 +128,25 @@
 #define SOFTSER_TMR TMR1L
 #endif
 
-
 //#define SOFTSER_BRG ((OSC_4/(1<<(SOFTSER_PS+1))/SOFTSER_BAUD) - 1)
 
-#define SOFTSER_OUTB(b) do { SOFTSER_OUT_PIN = b^(SOFTSER_INVERT)^1; } while(0)
+#define SOFTSER_OUTB(b)                                                                                                \
+  do {                                                                                                                 \
+    SOFTSER_OUT_PIN = b ^ (SOFTSER_INVERT) ^ 1;                                                                        \
+  } while(0)
 
-#define SOFTSER_INB() ((SOFTSER_IN_PIN)^(SOFTSER_INVERT)^1)
+#define SOFTSER_INB() ((SOFTSER_IN_PIN) ^ (SOFTSER_INVERT) ^ 1)
 
 BOOL softser_poll(uint8_t ticks);
 void softser_recv(void);
 
 uint8_t softser_getch(void);
 void softser_putch(uint8_t byte);
-void softser_puts(const char * s);
-void softser_puts2(uint8_t * s);
+void softser_puts(const char* s);
+void softser_puts2(uint8_t* s);
 void softser_puthex(uint8_t v);
 void softser_init(void);
 
 extern uint8_t softser_rdata;
 
 #endif
- 
-

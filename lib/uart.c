@@ -3,15 +3,14 @@
 #include "softser.h"
 #include "typedef.h"
 
-
 #if USE_UART
 
 #ifndef UART_BRG
-# if HIGH_SPEED == 1
-#  define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
-# else
-#  define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
-# endif
+#if HIGH_SPEED == 1
+#define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+#else
+#define UART_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
+#endif
 #endif
 #define UART_TIMEOUT UART_BAUD
 
@@ -33,29 +32,27 @@ uart_putch(uint8_t byte) {
 int
 uart_getch(void) {
 
-	if(uart_poll(UART_TIMEOUT)) {
-      uint8_t ch;
-	  ch = RCREG;
-	  RCIF = 0;
-	  return (int)ch;
+  if(uart_poll(UART_TIMEOUT)) {
+    uint8_t ch;
+    ch = RCREG;
+    RCIF = 0;
+    return (int)ch;
   }
- return -1;
+  return -1;
 }
-
 
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
 BOOL
 uart_poll(uint8_t bauds) {
 
-    // TMR0 -= SOFTSER_BRG;            // load corrected baud value
+  // TMR0 -= SOFTSER_BRG;            // load corrected baud value
 
-
-    TMR0 = (256 - SOFTSER_BRG_FN(bauds));
-    while( TMR0&(1<<7) ) {
-      if(RCIF)
-        return 1;
-    }
+  TMR0 = (256 - SOFTSER_BRG_FN(bauds));
+  while(TMR0 & (1 << 7)) {
+    if(RCIF)
+      return 1;
+  }
 
   return 0;
 }
@@ -99,7 +96,7 @@ uart_init(void) {
   RX_TRIS = 1;
   TX_TRIS = 0;
   TX_PIN = 0;
-  SPBRG = UART_BRG; //UART_BRG;
+  SPBRG = UART_BRG; // UART_BRG;
 
   CREN = 1;
   RX9D = (NINE == 1);
@@ -110,19 +107,14 @@ uart_init(void) {
   uart_enable();
 }
 
-
 #endif // USE_UART
 
 void
-uart_puts(const char * s) {
-  while(*s)
-    uart_putch(*s++);
+uart_puts(const char* s) {
+  while(*s) uart_putch(*s++);
 }
 
 void
-uart_puts2(uint8_t * s) {
-  while(*s)
-    uart_putch(*s++);
+uart_puts2(uint8_t* s) {
+  while(*s) uart_putch(*s++);
 }
- 
-

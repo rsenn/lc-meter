@@ -5,11 +5,10 @@
 #include "lcd44780.h"
 #include "ds18b20.h"
 
-
 //-----------------------------------------------------------------------------
-#define LS_A_PIN  RA2
+#define LS_A_PIN RA2
 #define LS_A_TRIS TRISA2
-#define LS_K_PIN  RA1
+#define LS_K_PIN RA1
 #define LS_K_TRIS TRISA1
 
 // -------------------------------------------------------------------------
@@ -38,13 +37,8 @@ ledsense_read() {
   return adc_read(1);
 }
 
-
 extern volatile BOOL control;
 
 // -------------------------------------------------------------------------
 void
-ledsense_loop() {
-
-}
-
-
+ledsense_loop() {}

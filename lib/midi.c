@@ -1,8 +1,6 @@
 #include "midi.h"
 #include "uart.h"
 
-
-
 // -------------------------------------------------------------------------
 void
 midi_send(const putch_ptr putch, uint8_t cmd, uint8_t d1, uint8_t d2, uint8_t chan) {
@@ -10,5 +8,3 @@ midi_send(const putch_ptr putch, uint8_t cmd, uint8_t d1, uint8_t d2, uint8_t ch
   putch(d1);
   putch(d2);
 }
- 
-

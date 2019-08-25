@@ -9,5 +9,3 @@ uint16_t ledsense_read(void);
 void ledsense_loop(void);
 
 #endif
- 
-

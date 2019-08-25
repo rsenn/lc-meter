@@ -9,9 +9,7 @@
 #define LED_PIN RC3
 #define LED_TRIS TRISC3
 
-
-#define INIT_LED() LED_TRIS=OUTPUT
-#define SET_LED(b) LED_PIN=((b)==0)
+#define INIT_LED() LED_TRIS = OUTPUT
+#define SET_LED(b) LED_PIN = ((b) == 0)
 
 #endif // defined(FREQ_METER_H)
-

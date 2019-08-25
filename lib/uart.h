@@ -5,22 +5,22 @@
 #include "typedef.h"
 
 #ifndef UART_BAUD
-#define UART_BAUD 38400      /** Baudrate */
+#define UART_BAUD 38400 /** Baudrate */
 //#define UART_BAUD 19200      /** Baudrate */
 //#define UART_BAUD 31250      /** Baudrate */
 #endif
 
-#define NINE 0          /** Use 9bit communication? 0=8bit */
+#define NINE 0 /** Use 9bit communication? 0=8bit */
 
-#if 0 //OSC_4 == 5000000
-# if UART_BAUD == 38400
-#  define UART_BRG  31
-#  define HIGH_SPEED 1            // (5Mhz/2/38400 baud) = 66
-# endif
+#if 0 // OSC_4 == 5000000
+#if UART_BAUD == 38400
+#define UART_BRG 31
+#define HIGH_SPEED 1 // (5Mhz/2/38400 baud) = 66
+#endif
 #endif
 
 #ifndef HIGH_SPEED
-#define HIGH_SPEED 1    /** Set for high speed communicatin (see BRGH bit) */
+#define HIGH_SPEED 1 /** Set for high speed communicatin (see BRGH bit) */
 #endif
 
 #ifdef __12f1840
@@ -41,7 +41,6 @@
 #endif
 
 extern const uint8_t uart_brg;
-
 
 void uart_putch(uint8_t byte);
 
@@ -70,10 +69,7 @@ void uart_enable(void);
  */
 void uart_disable(void);
 
-void uart_puts(const char *s);
-void uart_puts2(uint8_t *s);
-
+void uart_puts(const char* s);
+void uart_puts2(uint8_t* s);
 
 #endif /* PICLIB_UART_H */
- 
-

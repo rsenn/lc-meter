@@ -17,14 +17,11 @@
 #elif defined(HI_TECH_C)
 
 __CONFIG(1, FOSC_HSPLL_HS);
-__CONFIG(2, BOR_ON & PWRT_ON & WDT_OFF);
+__CONFIG(2, BOR_ON& PWRT_ON& WDT_OFF);
 __CONFIG(3, CCP2MX_ON);
 __CONFIG(4, LVP_OFF);
 __CONFIG(5, CPD_OFF);
 
 #endif
 
-
 #endif // defined CONFIG_18F2550_H
-
-

@@ -48,7 +48,8 @@ INTERRUPT_FN() {
 #endif
 
   if(CCP1IF) {
-    TMR1H = 0; TMR1L = 0;
+    TMR1H = 0;
+    TMR1L = 0;
     GIE = 0;
 
     control = 1;
@@ -66,7 +67,8 @@ initialize() {
   CMCON = 0x07;
 
   control = 0;
-  PORTA = 0; PORTB = 0;
+  PORTA = 0;
+  PORTB = 0;
 
   CCP1IE = 1;
 
@@ -83,7 +85,7 @@ initialize() {
 
   INIT_LED();
 
-  //initialize 5110 lcd
+  // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
@@ -94,33 +96,35 @@ initialize() {
 }
 
 //-----------------------------------------------------------------------------
-int main() {
-  const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F };
+int
+main() {
+  const uint8_t number[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
   char led = 0;
   uint8_t select[4] = {1, 2, 4, 8};
   uint32_t counter;
-  
-  
+
   initialize();
   ser_puts("Freq-meter READY.\r\n");
-  lcd_print("Freq-meter READY.");
+  lcd_puts("Freq-meter READY.");
 
   for(;;) {
     static uint32_t prev_frequency = 0;
 
     counter = 256 * CCPR1H + CCPR1L;
 
-    if(control == 1) frequency = 100000000 / counter;
-    if(control == 0) frequency = 0;
+    if(control == 1)
+      frequency = 100000000 / counter;
+    if(control == 0)
+      frequency = 0;
 
-    if(counter < 10000) frequency = 0;
+    if(counter < 10000)
+      frequency = 0;
 
     control = 0;
 
-
     if(frequency != prev_frequency) {
 
-      putchar_ptr=&ser_putch;
+      putchar_ptr = &ser_putch;
       format_number(frequency, 10, 0);
       ser_putch('\r');
       ser_putch('\n');
@@ -162,4 +166,3 @@ int main() {
         }*/
   }
 }
-

@@ -112,9 +112,9 @@ CFLAGS = --use-non-free
 CFLAGS += $(EXTRA_CFLAGS)
 
 ifneq ($(chipl),$(chipl:16f%=%))
-CFLAGS += -mpic14
+CFLAGS +=
 else
-CFLAGS += -mpic16
+CFLAGS +=
 endif
 
 CFLAGS += -p$(chipl)

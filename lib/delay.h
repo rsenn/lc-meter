@@ -12,10 +12,27 @@
 #define KTCY_PER_SECOND ((long)TCY_PER_SECOND / 1000)
 #define KTCY_PER_MILLISECOND ((long)KTCY_PER_SECOND / 1000)
 
-#if !(defined(HI_TECH_C) || defined(MCHP_XC8) ||  defined(__XC))
-#define _delay(C)  do { if(C < 750) DELAY_SMALL_TCY(C); else DELAY_BIG_TCY(C); } while(0)
-#define __delay_us(X) do { if(US_CYCLES(X) < 750) DELAY_SMALL_US(X); else  DELAY_BIG_US(X); } while(0)
-#define __delay_ms(X) do { dvars msec; SAVE_CYCLES_BIG(msec, US_CYCLES(X*1000lu)); CALL_CYCLES_BIG(msec); } while(0)
+#if !(defined(HI_TECH_C) || defined(MCHP_XC8) || defined(__XC))
+#define _delay(C)                                                                                                      \
+  do {                                                                                                                 \
+    if(C < 750)                                                                                                        \
+      DELAY_SMALL_TCY(C);                                                                                              \
+    else                                                                                                               \
+      DELAY_BIG_TCY(C);                                                                                                \
+  } while(0)
+#define __delay_us(X)                                                                                                  \
+  do {                                                                                                                 \
+    if(US_CYCLES(X) < 750)                                                                                             \
+      DELAY_SMALL_US(X);                                                                                               \
+    else                                                                                                               \
+      DELAY_BIG_US(X);                                                                                                 \
+  } while(0)
+#define __delay_ms(X)                                                                                                  \
+  do {                                                                                                                 \
+    dvars msec;                                                                                                        \
+    SAVE_CYCLES_BIG(msec, US_CYCLES(X * 1000lu));                                                                      \
+    CALL_CYCLES_BIG(msec);                                                                                             \
+  } while(0)
 #else
 #endif
 
@@ -33,5 +50,3 @@ void Delay1KTCYx(uint8_t);
 
 #endif
 /* delay.c */
- 
-

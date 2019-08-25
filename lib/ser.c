@@ -29,7 +29,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  *
-*/
+ */
 #ifdef USE_SER
 #define _SER_C_
 #include "device.h"
@@ -38,15 +38,13 @@
 
 #ifndef SER_BRG
 //# if HIGH_SPEED == 1
-#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
+#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
 //# else
 //#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
 //# endif
 #endif
 
-
 uint8_t ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
-
 
 uint8_t rxfifo[SER_BUFFER_SIZE];
 volatile uint8_t rxiptr, rxoptr;
@@ -68,8 +66,7 @@ uint8_t
 ser_getch(void) {
   uint8_t c;
 
-  while(ser_isrx() == 0)
-    continue;
+  while(ser_isrx() == 0) continue;
 
   GIE = 0;
   c = rxfifo[rxoptr];
@@ -81,8 +78,7 @@ ser_getch(void) {
 
 char
 ser_putch(char c) {
-  while(((txiptr + 1) & SER_FIFO_MASK) == txoptr)
-    continue;
+  while(((txiptr + 1) & SER_FIFO_MASK) == txoptr) continue;
   GIE = 0;
   txfifo[txiptr] = c;
   txiptr = (txiptr + 1) & SER_FIFO_MASK;
@@ -92,20 +88,17 @@ ser_putch(char c) {
 }
 
 void
-ser_puts(const char * s) {
-  while(*s)
-    ser_putch(*s++);
+ser_puts(const char* s) {
+  while(*s) ser_putch(*s++);
 }
 void
 ser_put(const char* s, unsigned n) {
-  while(n--)
-    ser_putch(*s++);
+  while(n--) ser_putch(*s++);
 }
 
 void
-ser_puts2(uint8_t * s) {
-  while(*s)
-    ser_putch(*s++);
+ser_puts2(uint8_t* s) {
+  while(*s) ser_putch(*s++);
 }
 
 void
@@ -127,30 +120,29 @@ ser_puthex(uint8_t v) {
   }
 }
 
-
 void
 ser_init(void) {
-/*SER_TX_TRIS =  OUTPUT;
-SER_TX_PIN = LOW;*/
-SER_TX_TRIS = INPUT;
-SER_RX_PIN = INPUT;
+  /*SER_TX_TRIS =  OUTPUT;
+  SER_TX_PIN = LOW;*/
+  SER_TX_TRIS = INPUT;
+  SER_RX_PIN = INPUT;
 
-  BRGH = 1;					//high speed
-//	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-//	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-//	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-//	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-  SPBRG = ser_brg;				//56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
-//	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  BRGH = 1; // high speed
+  //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
+  //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
+  //	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  SPBRG = ser_brg; // 56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
 
-  TX9 = 0;					//8 bits
-  RX9 = 0;					//
+  TX9 = 0; // 8 bits
+  RX9 = 0; //
 
-  SYNC = 0;					//uart settings
+  SYNC = 0; // uart settings
   SPEN = 1;
   CREN = 1;
   TXIE = 0;
-//  RCIE = 1;
+  //  RCIE = 1;
   TXEN = 1;
   PEIE = 1;
 
@@ -158,5 +150,3 @@ SER_RX_PIN = INPUT;
 }
 
 #endif // USE_SER
- 
-

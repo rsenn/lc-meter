@@ -1,7 +1,6 @@
 #include "buffer.h"
 #include <string.h>
 
-
 void
 buffer_init(putchar_p op) {
   buffer.p = 0;
@@ -20,7 +19,7 @@ buffer_flush() {
 
 char
 buffer_putch(char ch) {
-  if(BUFFER_SIZE -  buffer.n <= 0) {
+  if(BUFFER_SIZE - buffer.n <= 0) {
     return 0;
   }
   buffer.x[buffer.n++] = ch;
@@ -31,14 +30,14 @@ char
 buffer_put(const char* buf, len_t len) {
   if(len > BUFFER_SIZE - buffer.n) { // doesn't fit
 
-/*    if(buffer_flush() == -1)
-      return -1;
+    /*    if(buffer_flush() == -1)
+          return -1;
 
-    if(len > buffer.n) {
-      if(buffer_stubborn(buffer.op, buf, len) < 0)
-        return -1;
-      return 0;
-    }*/
+        if(len > buffer.n) {
+          if(buffer_stubborn(buffer.op, buf, len) < 0)
+            return -1;
+          return 0;
+        }*/
     return -1;
   }
 
@@ -48,7 +47,7 @@ buffer_put(const char* buf, len_t len) {
 }
 
 char
-buffer_puts(const char *x) {
+buffer_puts(const char* x) {
   while(*x) {
     buffer_putch(*x);
     ++x;

@@ -16,37 +16,28 @@
 
 // Returns 0 for one wire device presence, 1 for none
 // ---------------------------------------------------------------------------
-void
-ow_search(void);
+void ow_search(void);
 
 // ---------------------------------------------------------------------------
-char
-ow_reset(void);
+char ow_reset(void);
 
 // ---------------------------------------------------------------------------
-uint8_t
-ow_crc(uint8_t x);
+uint8_t ow_crc(uint8_t x);
 
 // ---------------------------------------------------------------------------
 // Searches for the next device on the one wire bus. If there are no more
 // devices on the bus then false is returned.
 // ---------------------------------------------------------------------------
-char
-ow_next(void);
+char ow_next(void);
 
 // ---------------------------------------------------------------------------
-uint8_t
-ow_read_byte(void);
+uint8_t ow_read_byte(void);
 
 // ---------------------------------------------------------------------------
-void
-ow_write_byte(uint8_t val, BOOL power_on);
+void ow_write_byte(uint8_t val, BOOL power_on);
 
 // Sends Match ROM command to bus then device address
 // ---------------------------------------------------------------------------
-char
-ow_access(uint8_t actNumRom) ;
+char ow_access(uint8_t actNumRom);
 
 #endif // defined(PICLIB_ONEWIRE_H)
- 
-

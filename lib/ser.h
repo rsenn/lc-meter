@@ -25,7 +25,7 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
-*/
+ */
 
 #ifndef PICLIB_SER_H_
 #define PICLIB_SER_H_
@@ -52,25 +52,38 @@
 #endif
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */
-#define SER_BUFFER_SIZE		16
+#define SER_BUFFER_SIZE 16
 
-#define SER_FIFO_MASK 		(SER_BUFFER_SIZE-1)
+#define SER_FIFO_MASK (SER_BUFFER_SIZE - 1)
 
 /* Insert this macro inside the interrupt routine */
-#define ser_int() if (RCIF) { rxfifo[rxiptr]=RCREG; ser_tmp=(rxiptr+1) & SER_FIFO_MASK; \
-  if (ser_tmp!=rxoptr) rxiptr=ser_tmp; }; if (TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= SER_FIFO_MASK; if (txoptr==txiptr) { TXIE = 0; }; TXIF = 0; }
-
+#define ser_int()                                                                                                      \
+  if(RCIF) {                                                                                                           \
+    rxfifo[rxiptr] = RCREG;                                                                                            \
+    ser_tmp = (rxiptr + 1) & SER_FIFO_MASK;                                                                            \
+    if(ser_tmp != rxoptr)                                                                                              \
+      rxiptr = ser_tmp;                                                                                                \
+  };                                                                                                                   \
+  if(TXIF && TXIE) {                                                                                                   \
+    TXREG = txfifo[txoptr];                                                                                            \
+    ++txoptr;                                                                                                          \
+    txoptr &= SER_FIFO_MASK;                                                                                           \
+    if(txoptr == txiptr) {                                                                                             \
+      TXIE = 0;                                                                                                        \
+    };                                                                                                                 \
+    TXIF = 0;                                                                                                          \
+  }
 
 bit ser_isrx(void);
 uint8_t ser_getch(void);
 char ser_putch(char byte);
 void ser_put(const char* s, unsigned n);
-void ser_puts(const char * s);
-void ser_puts2(uint8_t * s);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
 void ser_puthex(uint8_t v);
 void ser_init(void);
 
-#if 1 //ndef _SER_C_
+#if 1 // ndef _SER_C_
 extern uint8_t rxfifo[SER_BUFFER_SIZE];
 extern volatile uint8_t rxiptr, rxoptr;
 extern /*bank1*/ uint8_t txfifo[SER_BUFFER_SIZE];
@@ -81,5 +94,3 @@ extern uint8_t ser_brg;
 #endif
 
 #endif
- 
-

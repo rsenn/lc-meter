@@ -2,14 +2,13 @@
 
 #if HAVE_COMPARATOR
 
-
 void
 comparator_disable() {
 
-//Disable PORTA Comparators
+  // Disable PORTA Comparators
 
 #if NUM_COMPARATORS == 1
-  
+
   // CMCONbits.CON = 0;
   CMCON = 0b111;
 
@@ -18,11 +17,7 @@ comparator_disable() {
   C1ON = 0;
   C2ON = 0;
 
-#endif 
+#endif
 }
 
-
-
 #endif // HAVE_COMPARATOR
-
-

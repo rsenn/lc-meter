@@ -15,16 +15,14 @@ random_init(uint8_t s1, uint8_t s2, uint8_t s3) // Can also be used to seed the 
   x++;
   a = (a ^ c ^ x);
   b = (b + a);
-  c = (c + (b >> 1)^a);
+  c = (c + (b >> 1) ^ a);
 }
 
 uint8_t
-random()
-{
-  x++;                  // x is incremented every round and is not affected by any other variable
-  a = (a ^ c ^ x);      // note the mix of addition and XOR
-  b = (b + a);          // And the use of very few instructions
-  c = (c + (b >> 1)^a); // the right shift is to ensure that high-order bits from b can affect
-  return (c);           // low order bits of other variables
+random() {
+  x++;                    // x is incremented every round and is not affected by any other variable
+  a = (a ^ c ^ x);        // note the mix of addition and XOR
+  b = (b + a);            // And the use of very few instructions
+  c = (c + (b >> 1) ^ a); // the right shift is to ensure that high-order bits from b can affect
+  return (c);             // low order bits of other variables
 }
-

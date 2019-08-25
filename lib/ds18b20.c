@@ -5,8 +5,8 @@
 // ---------------------------------------------------------------------------
 BOOL
 ds18b20_start_conversion(int8_t actNumROM, BOOL parasite_power) {
-  if(!ow_reset()) {    // If a device is present
-    ow_write_byte(OW_SKIP_ROM, 0); // Skip Rom command
+  if(!ow_reset()) {                                   // If a device is present
+    ow_write_byte(OW_SKIP_ROM, 0);                    // Skip Rom command
     ow_write_byte(DS18B20_CONVERT_T, parasite_power); // Temperature convert command
 
     return 1;
@@ -30,29 +30,25 @@ ds18b20_value(int8_t actNumROM) {
   else*/
   ow_write_byte(OW_SKIP_ROM, 0);
   ow_write_byte(DS18B20_READ_SCRATCHPAD, 0); // Read scratch pad command
-  //dowcrc = 0;
+  // dowcrc = 0;
 
   // Get the data bytes
   for(i = 0; i <= 7; i++) {
     scratch[i] = ow_read_byte();
-    //ow_crc(scratch[i]);
+    // ow_crc(scratch[i]);
   }
 
-  scratch[8] = ow_read_byte();   // Get crc byte
+  scratch[8] = ow_read_byte(); // Get crc byte
   ow_reset();
 
   // If calculated crc from incoming bytes equal to crc byte
   // then data is valid.
 
-  //if(scratch[8] == dowcrc)
-  {
-    v = (((uint16_t)(unsigned)scratch[1] << 8) | (unsigned)scratch[0]);
-
-  }
+  // if(scratch[8] == dowcrc)
+  { v = (((uint16_t)(unsigned)scratch[1] << 8) | (unsigned)scratch[0]); }
 
   return v;
 }
-
 
 // ---------------------------------------------------------------------------
 double
@@ -74,5 +70,3 @@ ds18b20_temperature(uint16_t value, uint8_t shift) {
 
   return t;
 }
- 
-

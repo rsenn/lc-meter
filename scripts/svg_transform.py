@@ -1,23 +1,23 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/ usr / bin / env python
+#- * - coding : utf - 8 - * -
 
-#  SVG transformation list parser
+#SVG transformation list parser
 #
-#  Copyright 2010 Louis Simard
+#Copyright 2010 Louis Simard
 #
-#  This file is part of Scour, http://www.codedread.com/scour/
+#This file is part of Scour, http: // www.codedread.com/scour/
 #
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
+#Licensed under the Apache License, Version 2.0(the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
 #
-#       http://www.apache.org/licenses/LICENSE-2.0
+#http: // www.apache.org/licenses/LICENSE-2.0
 #
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
 
 """ Small recursive descent parser for SVG transform="" data.
 
@@ -60,8 +60,7 @@ Out[12]: [('translate', [30.0, -30.0]), ('rotate', [36.0])]
 import re
 from decimal import *
 
-
-# Sentinel.
+#Sentinel.
 class _EOF(object):
     def __repr__(self):
         return 'EOF'
@@ -131,15 +130,11 @@ class SVGTransformationParser(object):
         self.lexer = lexer
 
         self.command_dispatch = {
-            'translate': self.rule_1or2numbers,
-            'scale': self.rule_1or2numbers,
-            'skewX': self.rule_1number,
-            'skewY': self.rule_1number,
-            'rotate': self.rule_1or3numbers,
-            'matrix': self.rule_6numbers,
+  'translate' : self.rule_1or2numbers, 'scale' : self.rule_1or2numbers, 'skewX' : self.rule_1number,
+      'skewY' : self.rule_1number, 'rotate' : self.rule_1or3numbers, 'matrix' : self.rule_6numbers,
         }
 
-#        self.number_tokens = set(['int', 'float'])
+#self.number_tokens = set([ 'int', 'float' ])
         self.number_tokens = list(['int', 'float'])
 
     def parse(self, text):
@@ -169,11 +164,11 @@ class SVGTransformationParser(object):
 
     def rule_1or2numbers(self, next, token):
         numbers = []
-        # 1st number is mandatory
+# 1st number is mandatory
         token = next()
         number, token = self.rule_number(next, token)
         numbers.append(number)
-        # 2nd number is optional
+# 2nd number is optional
         number, token = self.rule_optional_number(next, token)
         if number is not None:
             numbers.append(number)
@@ -181,7 +176,7 @@ class SVGTransformationParser(object):
         return numbers, token
 
     def rule_1number(self, next, token):
-        # this number is mandatory
+#this number is mandatory
         token = next()
         number, token = self.rule_number(next, token)
         numbers = [number]
@@ -189,15 +184,15 @@ class SVGTransformationParser(object):
 
     def rule_1or3numbers(self, next, token):
         numbers = []
-        # 1st number is mandatory
+# 1st number is mandatory
         token = next()
         number, token = self.rule_number(next, token)
         numbers.append(number)
-        # 2nd number is optional
+# 2nd number is optional
         number, token = self.rule_optional_number(next, token)
         if number is not None:
-            # but, if the 2nd number is provided, the 3rd is mandatory.
-            # we can't have just 2.
+#but, if the 2nd number is provided, the 3rd is mandatory.
+#we can't have just 2.
             numbers.append(number)
             
             number, token = self.rule_number(next, token)
@@ -208,7 +203,7 @@ class SVGTransformationParser(object):
     def rule_6numbers(self, next, token):
         numbers = []
         token = next()
-        # all numbers are mandatory
+#all numbers are mandatory
         for i in xrange(6):
             number, token = self.rule_number(next, token)
             numbers.append(number)

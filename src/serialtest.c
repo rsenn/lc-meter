@@ -26,7 +26,6 @@ __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 #error Unknown compiler
 #endif
 
-
 static char
 output_putch(char c) {
   lcd_putch(c);
@@ -35,7 +34,6 @@ output_putch(char c) {
 #endif
   return 1;
 }
-
 
 buffer_t buffer = BUFFER_STATIC(output_putch);
 
@@ -71,10 +69,10 @@ INTERRUPT_FN() {
       SET_LED(msecs < 500);
     }
     if(msecs >= 1000) { // if reached 1 second!
-      seconds++;         // update clock, etc
+      seconds++;        // update clock, etc
       msecs -= 1000;
 
-//      SET_LED2(seconds & 1);
+      //      SET_LED2(seconds & 1);
     }
 
     // TMR1H = 0xff;
@@ -95,7 +93,8 @@ INTERRUPT_FN() {
   }
 }
 
-void flash_busy_led(uint16_t duration) {
+void
+flash_busy_led(uint16_t duration) {
   // LED_PIN = LOW;
   // timer1_init(1, duration);
 }
@@ -117,7 +116,8 @@ void flash_busy_led(uint16_t duration) {
 
 // -------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-int main() {
+int
+main() {
   run = bres = msecs = seconds = tmr1_overflows = 0;
 
 #ifdef USE_SOFTSER
@@ -133,11 +133,11 @@ int main() {
 #endif
 
 #if !NO_PORTB
-# if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
   RBPU = 1;
-# else
+#else
   NOT_RBPU = 0; // enable portB internal pullup
-# endif
+#endif
 
 // TRISB &= 0;
 // PORTB |= 0xff;
@@ -178,9 +178,9 @@ int main() {
   TRISC &= ~0b1100;
 #endif
   INIT_LED();
-//  INIT_LED2();
+  //  INIT_LED2();
   SET_LED(1);
-//  SET_LED2(1);
+  //  SET_LED2(1);
 
   PEIE = 1;
   GIE = 1;
@@ -190,7 +190,7 @@ int main() {
 
   run = 1;
 
-//   flash_busy_led(1000);
+  //   flash_busy_led(1000);
 
 #if USE_UART
   uart_puts("XXXX\r\n");
@@ -204,11 +204,11 @@ int main() {
 #endif
   //   flash_busy_led(500);
 
-  for(;;)
-    loop();
+  for(;;) loop();
 }
 
-void loop() {
+void
+loop() {
   char update_com, update_midi, echo_mode = 0;
   uint8_t c;
 
@@ -255,7 +255,7 @@ void loop() {
   if(update_com) {
 #ifdef USE_HD44780_LCD
     lcd_gotoxy(12, 0);
-    lcd_print("COM:");
+    lcd_puts("COM:");
     lcd_putch(c);
 #endif
     update_com = 0;
@@ -283,7 +283,7 @@ void loop() {
   if(update_midi) {
 #if defined(USE_HD44780_LCD) && defined(USE_SOFTSER)
     lcd_gotoxy(3, 0);
-    lcd_print("MIDI:");
+    lcd_puts("MIDI:");
     lcd_putch(softser_rdata);
 #endif
     //         flash_busy_led(150);
@@ -320,8 +320,8 @@ void echo_hex_loop()
   }
 }
 */
-void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
-                int8_t pad /*, int8_t pointpos*/) {
+void
+put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
   uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
   int8_t i = 0;
@@ -347,12 +347,9 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
     n /= base;
   } while(n > 0);
 
-  while(pad-- >= i)
-    putchar(padchar);
+  while(pad-- >= i) putchar(padchar);
 
-  for(; i > 0; i--)
-    putchar((char)buf[(int16_t)i - 1]);
+  for(; i > 0; i--) putchar((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i -
   //    1] - 10));
 }
-

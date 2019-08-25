@@ -5,44 +5,41 @@
 #include "delay.h"
 
 #if USE_HD44780_LCD
-# include "lcd44780.h"
+#include "lcd44780.h"
 #endif
 
 #if USE_NOKIA5110_LCD
-# include "lcd5110.h"
+#include "lcd5110.h"
 #endif
 
 #include "timer.h"
 
 #ifdef USE_UART
-# include "uart.h"
+#include "uart.h"
 #endif
 
 #if USE_SER
-# include "ser.h"
+#include "ser.h"
 #endif
 
 #if USE_SOFTSER
-# include "softser.h"
+#include "softser.h"
 #endif
 
 #include "print.h"
 #include "format.h"
 #include "buffer.h"
 
-
 #if defined(__SDCC) || defined(SDCC)
-uint16_t
-__at (_CONFIG)
-  __configword = CONFIG_WORD;
+uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
 #define CCP1_EDGE() (CCP1M0)
 
-volatile uint16_t bres;      // bresenham count
-volatile uint16_t msecpart;  // milliseconds modulo 1000
+volatile uint16_t bres;           // bresenham count
+volatile uint16_t msecpart;       // milliseconds modulo 1000
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
-volatile uint32_t timer1of;  // timer 1 overflows
+volatile uint32_t timer1of;       // timer 1 overflows
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
@@ -55,9 +52,7 @@ output_putch(char c) {
   return 1;
 }
 
-
 buffer_t buffer = BUFFER_STATIC(output_putch);
-
 
 double F1, F2, F3, CCal;
 void main();
@@ -71,14 +66,11 @@ void measure_inductance();
 uint32_t milliseconds();
 void delay10ms(uint16_t period_10ms);
 
-
 void put_str(const char*);
 
-void put_number(void (*putchar)(char), uint16_t n, uint8_t base,
-                int8_t pad /*, int8_t pointpos */);
+void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos */);
 
 static uint16_t blink;
-
 
 /* Interrupt routine */
 INTERRUPT_FN() {
@@ -91,18 +83,18 @@ INTERRUPT_FN() {
       bres -= 5000;
       msecpart++;
       msecs++;
-      
-          
-        SET_LED((blink > 200));
-         if(blink >= 400) blink -= 400;
-         ++blink;
 
-        /* if reached 1 second... */
-        if(msecpart >= 1000) {
-          /* ...update clock, etc */
-          seconds++;
-          msecpart -= 1000;
-        }
+      SET_LED((blink > 200));
+      if(blink >= 400)
+        blink -= 400;
+      ++blink;
+
+      /* if reached 1 second... */
+      if(msecpart >= 1000) {
+        /* ...update clock, etc */
+        seconds++;
+        msecpart -= 1000;
+      }
     }
     // Clear timer interrupt bit
     TMR2IF = 0;
@@ -123,7 +115,7 @@ INTERRUPT_FN() {
 /* main routine */
 void
 main() {
- bres = msecpart = msecs = seconds = 0;
+  bres = msecpart = msecs = seconds = 0;
 
   CCal = C_CAL;
 
@@ -131,7 +123,6 @@ main() {
   /*CMCONbits. */ CM0 = 1;
   /*CMCONbits. */ CM1 = 0;
   /*CMCONbits. */ CM2 = 1;
-
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
@@ -145,24 +136,21 @@ main() {
 
   SSPEN = 0;
 
- // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
-//  timer1of = 0;
+  // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
+  //  timer1of = 0;
 
- timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
-
-
+  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 #if !NO_PORTC
-//  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
-//  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
-  TRISC1 = OUTPUT; 
+  //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
+  //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
+  TRISC1 = OUTPUT;
 #if !PIC18_USB
   TRISC3 = OUTPUT;
-#endif  
-  TRISC0 = INPUT; TRISC2 = INPUT;
 #endif
-
-
+  TRISC0 = INPUT;
+  TRISC2 = INPUT;
+#endif
 
 #if USE_SER
   ser_init();
@@ -200,10 +188,9 @@ main() {
 #else
   lcd_gotoxy(0, 0);
 #endif
-  lcd_print("LC-meter ");
- format_double(lcd_putch, CCal);
+  lcd_puts("LC-meter ");
+  format_double(&lcd_putch, CCal);
 #endif
-
 
 #ifdef _DEBUG
   delay10ms(5);
@@ -233,7 +220,6 @@ main() {
   }
 }
 
-
 void
 testloop() {
 
@@ -256,23 +242,22 @@ testloop() {
   lcd_gotoxy(0, 0);
 #else
   lcd_gotoxy(10, 0);
-  lcd_print("      ");
+  lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
   format_number(lcd_putch, s, 10, 5);
 
   lcd_gotoxy(10, 1);
-  lcd_print("      ");
+  lcd_puts("      ");
   lcd_gotoxy(10, 1);
   format_number(lcd_putch, TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
-  lcd_print("     ");
+  lcd_puts("     ");
   lcd_gotoxy(0, 1);
-  lcd_print("RC4=");
+  lcd_puts("RC4=");
 
   lcd_putch(LC_SELECT != 0 ? '1' : '0');
-
 
 //    print_print_number(measure_freq(), 16, 4);
 #endif
@@ -318,7 +303,7 @@ measure_freq() {
     T0SE = 0;
     NOP();
     NOP();
-    count++;                              // count until TMR0 incremented
+    count++;                             // count until TMR0 incremented
   } while(prev == TMR0 && count <= 255); // test if timer0 has incremented
 
   //}while(prev==TMR0);  //test if timer0 has incremented
@@ -387,23 +372,26 @@ measure_capacitance() {
 
   var = measure_freq();
 
-
   F3 = (double)var;
 #if USE_SER
   ser_puts("var=");
   format_xint32(ser_putch, var);
   ser_puts("\r\nF1=");
   format_double(ser_putch, F1);
-  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&F1);
+  ser_putch(' ');
+  format_xint32(ser_putch, *(uint32_t*)&F1);
   ser_puts("\r\nF2=");
   format_double(ser_putch, F2);
-  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&F2);
+  ser_putch(' ');
+  format_xint32(ser_putch, *(uint32_t*)&F2);
   ser_puts("\r\nF3=");
   format_double(ser_putch, F3);
-  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&F3);
+  ser_putch(' ');
+  format_xint32(ser_putch, *(uint32_t*)&F3);
   ser_puts("\r\nCCal=");
   format_double(ser_putch, CCal);
-  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&CCal);
+  ser_putch(' ');
+  format_xint32(ser_putch, *(uint32_t*)&CCal);
   ser_puts("\r\n");
 #endif
 
@@ -411,13 +399,13 @@ measure_capacitance() {
     F3 = F1; // max freq is F1;
 
   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-//  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
-
+  //  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
 
 #if USE_SER
   ser_puts("Cin=");
   format_double(ser_putch, Cin);
-  ser_putch(' '); format_xint32(ser_putch, *(uint32_t*)&Cin);
+  ser_putch(' ');
+  format_xint32(ser_putch, *(uint32_t*)&Cin);
   ser_puts("\r\n");
 #endif
   if(Cin > 999) {
@@ -434,11 +422,11 @@ measure_capacitance() {
       unit = 6; //"nF"
     }
   } else
-    unit = 7;      //"pF"
+    unit = 7; //"pF"
 
   Cin = Cin * 100; // scale to 2 decimal place
   var = (uint16_t)Cin;
-  
+
   print_reading(var);
   print_unit(unit);
 }
@@ -462,29 +450,27 @@ measure_inductance() {
   if(F3 > F1)
     F3 = F1; // max freq is F1;
 
-  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) *
-              (GATE_PERIOD * GATE_PERIOD);
+  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (GATE_PERIOD * GATE_PERIOD);
 
   denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 
-  Lin = (numerator / denominator) *
-        1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
+  Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
 
   if(Lin > 999) {
     if(Lin > (999e+03l)) {
       if(Lin > (999e+06l)) {
         Lin = Lin / (1e+09l);
-        unit = 0;  // "H"
+        unit = 0; // "H"
       } else {
         Lin = Lin / (1e+06l);
-        unit = 1;  // "mH"
+        unit = 1; // "mH"
       }
     } else {
       Lin = Lin / 1e+03l;
-      unit = 2;    // "uH"
+      unit = 2; // "uH"
     }
   } else
-    unit = 3;      // "nH"
+    unit = 3; // "nH"
 
   Lin = Lin * 100; // scale to 2 decimal place
   var = (uint16_t)Lin;
@@ -496,7 +482,7 @@ measure_inductance() {
 /*
  * Get the milliseconds count
  */
-#define get_milliseconds(v) GIE=0,v=msecs,GIE=1
+#define get_milliseconds(v) GIE = 0, v = msecs, GIE = 1
 /*uint32_t
 milliseconds() {
   uint32_t ms;
@@ -512,10 +498,10 @@ milliseconds() {
  */
 void
 delay10ms(uint16_t period_10ms) {
-    /*while(period_10ms--) {
-        __delay_ms(10);
-    }
-  */uint32_t ms;
+  /*while(period_10ms--) {
+      __delay_ms(10);
+  }
+*/ uint32_t ms;
   BOOL run = 1;
 
   get_milliseconds(ms);
@@ -527,10 +513,10 @@ delay10ms(uint16_t period_10ms) {
 #endif
 
   do {
-    GIE=0;
+    GIE = 0;
     if(ms <= msecs)
       run = 0;
-    GIE=1;
+    GIE = 1;
   } while(run);
 }
 
@@ -547,10 +533,8 @@ put_str(const char* s) {
     ser_putch(s[i]);
 #endif
   }
-/*#ifdef USE_SER
-  ser_putch('\r');
-  ser_putch('\n');
-#endif*/
+  /*#ifdef USE_SER
+    ser_putch('\r');
+    ser_putch('\n');
+  #endif*/
 };
-
-

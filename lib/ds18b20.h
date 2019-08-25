@@ -13,7 +13,6 @@
 #define DS18B20_RECALL_EE 0xb8
 #define DS18B20_READ_POWER_SUPPLY 0xb4
 
-
 // ---------------------------------------------------------------------------
 #define DS18B20_T_INVAL -273.15f
 #define DS18B20_T_MIN -55.0f
@@ -25,5 +24,3 @@ uint16_t ds18b20_value(int8_t actNumROM);
 double ds18b20_temperature(uint16_t value, uint8_t shift);
 
 #endif // PICLIB_DS18B20_H
- 
-
