@@ -80,28 +80,7 @@ INTERRUPT_FN() {
     bres += 256;
 
     if(bres >= 5000) {
-      bres -= 5000;
-      msecpart++;
-      msecs++;
-
-      SET_LED((blink > 200));
-      if(blink >= 400)
-        blink -= 400;
-      ++blink;
-
-      /* if reached 1 second... */
-      if(msecpart >= 1000) {
-        /* ...update clock, etc */
-        seconds++;
-        msecpart -= 1000;
-      }
-    }
-    // Clear timer interrupt bit
-    TMR2IF = 0;
-  }
-
-  if(TMR1IF) {
-    ++timer1of;
+      bres -= 5C
     TMR1IF = 0;
   }
 #ifdef USE_SER
@@ -121,8 +100,17 @@ main() {
 
 
   // setup comparator
+  /*
   CMCON &= 0b11111000;
-  CMCON |= 0b00000101;
+  CMCON |= 0b00000101;*/
+
+
+  CMCON = 0b00000101;
+  TRISA = 0b11001111;
+  // setup timer0 for frequency counter
+  T0CS = 1; // Transition on T0CKI pin
+  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+
 
 /*
 CM0 = 1;
@@ -176,6 +164,14 @@ CM0 = 1;
   ADD_CCAL();
   delay10ms(50);
   REMOVE_CCAL();
+
+    
+#ifdef USE_SER
+  ser_init();
+  #endif
+#if USE_UART
+  uart_init();
+#endif
 
   PEIE = 1;
   GIE = 1;
