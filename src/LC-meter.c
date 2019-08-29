@@ -119,6 +119,7 @@ main() {
 
   CCal = C_CAL;
 
+
   // setup comparator
   CMCON &= 0b11111000;
   CMCON |= 0b00000101;
@@ -280,7 +281,9 @@ measure_freq() {
   uint16_t count;
 
   TMR0IF = 0; // clear timer0 interrupt flag
-  TRISA4 = 0; // Enable RA4 output to T0CKI
+
+  TRISA &= ~0b00010000; // Enable RA4 output to T0CKI
+//  TRISA4 = 0; 
 
   __delay_ms(20); // stablize oscillator
 
@@ -288,7 +291,7 @@ measure_freq() {
 
   delay_ms(100);
 
-  TRISA4 = 1; // Disable RA4 output to T0CKI
+  TRISA |= 0b00010000;// Disable RA4 output to T0CKI
 
   prev = TMR0;
   count = 0;
