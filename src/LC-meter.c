@@ -150,6 +150,7 @@ CM0 = 1;
   //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
   //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
   TRISC1 = OUTPUT;
+#endif
 #if !PIC18_USB
   TRISC3 = OUTPUT;
 #endif
