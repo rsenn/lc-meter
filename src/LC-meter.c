@@ -179,6 +179,8 @@ CM0 = 1;
   PEIE = 1;
   GIE = 1;
 
+  putchar_ptr = &lcd_putch;
+
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
 #if USE_NOKIA5110_LCD
   lcd_gotoxy(0, 0);
@@ -186,7 +188,7 @@ CM0 = 1;
   lcd_gotoxy(0, 0);
 #endif
   lcd_puts("LC-meter ");
-  format_double(&lcd_putch, CCal);
+  format_double(/*&lcd_putch,*/ CCal);
 #endif
 
 #ifdef _DEBUG
@@ -242,12 +244,12 @@ testloop() {
   lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
-  format_number(lcd_putch, s, 10, 5);
+  format_number(/*lcd_putch,*/s, 10, 5);
 
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
   lcd_gotoxy(10, 1);
-  format_number(lcd_putch, TIMER1_VALUE, 10, 5);
+  format_number(/*lcd_putch,*/TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
   lcd_puts("     ");
@@ -260,8 +262,8 @@ testloop() {
 #endif
   if(s != prev_s) {
 #if USE_SER
-    format_number(ser_putch, s, 10, 0);
-    // ser_putch(' ');    put_number(ser_putch, bres / 5000, 10, 0);
+    format_number(/*ser_putch,*/ s, 10, 0);
+    // ser_putch(' ');    put_number(/*ser_putch,*/ bres / 5000, 10, 0);
     ser_puts("\r\n");
 #endif
 
@@ -308,7 +310,7 @@ measure_freq() {
 
   lcd_gotoxy(0, 1);
   put_str("Freq=");
-  format_number(lcd_putch, count, 10, 5);
+  format_number(/*lcd_putch,*/count, 10, 5);
 
   return count;
 }
@@ -371,25 +373,27 @@ measure_capacitance() {
 
   F3 = (double)var;
 #if USE_SER
+  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(ser_putch, var);
+  format_xint32(/*ser_putch,*/ var);
   ser_puts("\r\nF1=");
-  format_double(ser_putch, F1);
+  format_double(/*ser_putch,*/ F1);
   ser_putch(' ');
-  format_xint32(ser_putch, *(uint32_t*)&F1);
+  format_xint32(/*ser_putch,*/ *(uint32_t*)&F1);
   ser_puts("\r\nF2=");
-  format_double(ser_putch, F2);
+  format_double(/*ser_putch,*/ F2);
   ser_putch(' ');
-  format_xint32(ser_putch, *(uint32_t*)&F2);
+  format_xint32(/*ser_putch,*/ *(uint32_t*)&F2);
   ser_puts("\r\nF3=");
-  format_double(ser_putch, F3);
+  format_double(/*ser_putch,*/ F3);
   ser_putch(' ');
-  format_xint32(ser_putch, *(uint32_t*)&F3);
+  format_xint32(/*ser_putch,*/ *(uint32_t*)&F3);
   ser_puts("\r\nCCal=");
-  format_double(ser_putch, CCal);
+  format_double(/*ser_putch,*/ CCal);
   ser_putch(' ');
-  format_xint32(ser_putch, *(uint32_t*)&CCal);
+  format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
   ser_puts("\r\n");
+  putchar_ptr = &lcd_putch;
 #endif
 
   if(F3 > F1)
@@ -400,9 +404,9 @@ measure_capacitance() {
 
 #if USE_SER
   ser_puts("Cin=");
-  format_double(ser_putch, Cin);
+  format_double(/*ser_putch,*/ Cin);
   ser_putch(' ');
-  format_xint32(ser_putch, *(uint32_t*)&Cin);
+  format_xint32(/*ser_putch,*/ *(uint32_t*)&Cin);
   ser_puts("\r\n");
 #endif
   if(Cin > 999) {

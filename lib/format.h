@@ -5,10 +5,10 @@
 
 extern putchar_fn* putchar_ptr;
 
-void format_number(putchar_fn* pc, uint16_t n, uint8_t base, int8_t pad);
+void format_number(/*putchar_fn* pc,*/ uint16_t n, uint8_t base, int8_t pad);
 
-void format_xint32(putchar_fn* pc, uint32_t x);
+void format_xint32(/*putchar_fn* pc,*/ uint32_t x);
 
-void format_double(putchar_fn* pc, double num);
+void format_double(/*putchar_fn* pc,*/ double num);
 
 #endif // defined PICLIB_FORMAT_H

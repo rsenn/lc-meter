@@ -2,16 +2,16 @@
 #include <math.h>
 #include <float.h>
 
-static char
+static void
 format_putchar(char c) {
-  return 0;
+  return;
 }
 
 putchar_fn* putchar_ptr = &format_putchar;
 
 // -------------------------------------------------------------------------
 void
-format_number(putchar_fn* putchar_ptr, uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
+format_number(/*putchar_fn* putchar_ptr,*/ uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
   uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
   int8_t i = 0;
@@ -45,11 +45,11 @@ format_number(putchar_fn* putchar_ptr, uint16_t n, uint8_t base, int8_t pad /*, 
 
 // -------------------------------------------------------------------------
 void
-format_xint32(putchar_fn* putchar, uint32_t x) {
+format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
   putchar_ptr('0');
   putchar_ptr('x');
-  format_number(putchar, x >> 16, 16, -4);
-  format_number(putchar, x & 0xffff, 16, -4);
+  format_number(x >> 16, 16, -4);
+  format_number(x & 0xffff, 16, -4);
 }
 
 void
@@ -71,7 +71,7 @@ format_float(putchar_fn* putchar_ptr, float num) {
 
 // -------------------------------------------------------------------------
 void
-format_double(putchar_fn* __putc, double num) {
+format_double(double num) {
   int m = log10(num);
   int digit;
   //  double tolerance = .0001;
@@ -80,9 +80,9 @@ format_double(putchar_fn* __putc, double num) {
     double weight = pow(10.0l, m);
     digit = floor(num / weight);
     num -= (digit * weight);
-    __putc('0' + digit);
+   putchar_ptr('0' + digit);
     if(m == 0)
-      __putc('.');
+      putchar_ptr('.');
     m--;
   }
 }
