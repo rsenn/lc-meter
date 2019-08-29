@@ -225,6 +225,8 @@ main() {
    */
 
   for(;;) {
+
+    ser_puts("...\r\n");
     if(LC_SELECT)
       measure_capacitance();
     else
