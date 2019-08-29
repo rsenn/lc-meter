@@ -37,7 +37,7 @@ LC_meter_Nokia5110_DEFS += -DUSE_TIMER1=1 -DUSE_TIMER2=1
 LC_meter_Nokia5110_CCVER = 9.83
 
 LC_meter_julznc_SOURCES = display.c lcd3310.c main.c
-LC_meter_julznc_DEFS += -DNO_JULZNC=1
+LC_meter_julznc_DEFS += -DNO_JULZNC=1 -DUSE_SER=1 
 #LC_meter_julznc_CCVER = 9.71a
 
 Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c buffer.c delay.c
