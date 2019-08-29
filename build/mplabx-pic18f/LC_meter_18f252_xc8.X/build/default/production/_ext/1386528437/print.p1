@@ -4,7 +4,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f252.h: 49: extern volatile unsigned char PORTA @ 0xF80;
-"51 /opt/microchip/xc8/v1.34/include/pic18f252.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f252.h
 [; ;pic18f252.h: 51: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f252.h: 54: typedef union {
@@ -2253,9 +2253,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;typedef.h: 48: typedef char BOOL;
-[; ;typedef.h: 68: typedef void(putchar_fn)(char);
-[; ;typedef.h: 69: typedef putchar_fn* putchar_p;
+[; ;lib\typedef.h: 48: typedef char BOOL;
+[; ;lib\typedef.h: 68: typedef void(putchar_fn)(char);
+[; ;lib\typedef.h: 69: typedef putchar_fn* putchar_p;
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void lcd_puts(const char*);
 [; ;print.h: 9: void print_digit(unsigned char line, unsigned char column, unsigned char digit);
@@ -2268,24 +2268,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.h: 73: void measure_capacitance(void);
 [; ;LC-meter.h: 74: void measure_inductance(void);
 [; ;LC-meter.h: 75: void delay10ms(unsigned short int period_10ms);
-[; ;ser.h: 77: bit ser_isrx(void);
-[; ;ser.h: 78: unsigned char ser_getch(void);
-[; ;ser.h: 79: void ser_putch(char byte);
-[; ;ser.h: 80: void ser_put(const char* s, unsigned n);
-[; ;ser.h: 81: void ser_puts(const char* s);
-[; ;ser.h: 82: void ser_puts2(unsigned char* s);
-[; ;ser.h: 83: void ser_puthex(unsigned char v);
-[; ;ser.h: 84: void ser_init(void);
-[; ;ser.h: 87: extern unsigned char rxfifo[(unsigned char)16];
-[; ;ser.h: 88: extern volatile unsigned char rxiptr, rxoptr;
-[; ;ser.h: 89: extern unsigned char txfifo[(unsigned char)16];
-[; ;ser.h: 90: extern volatile unsigned char txiptr, txoptr;
-[; ;ser.h: 91: extern unsigned char ser_tmp;
-[; ;ser.h: 93: extern unsigned char ser_brg;
-[; ;format.h: 6: extern putchar_fn* putchar_ptr;
-[; ;format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
-[; ;format.h: 10: void format_xint32( unsigned long int x);
-[; ;format.h: 12: void format_double( double num);
+[; ;lib\ser.h: 77: bit ser_isrx(void);
+[; ;lib\ser.h: 78: unsigned char ser_getch(void);
+[; ;lib\ser.h: 79: void ser_putch(char byte);
+[; ;lib\ser.h: 80: void ser_put(const char* s, unsigned n);
+[; ;lib\ser.h: 81: void ser_puts(const char* s);
+[; ;lib\ser.h: 82: void ser_puts2(unsigned char* s);
+[; ;lib\ser.h: 83: void ser_puthex(unsigned char v);
+[; ;lib\ser.h: 84: void ser_init(void);
+[; ;lib\ser.h: 87: extern unsigned char rxfifo[(unsigned char)16];
+[; ;lib\ser.h: 88: extern volatile unsigned char rxiptr, rxoptr;
+[; ;lib\ser.h: 89: extern unsigned char txfifo[(unsigned char)16];
+[; ;lib\ser.h: 90: extern volatile unsigned char txiptr, txoptr;
+[; ;lib\ser.h: 91: extern unsigned char ser_tmp;
+[; ;lib\ser.h: 93: extern unsigned char ser_brg;
+[; ;lib\format.h: 6: extern putchar_fn* putchar_ptr;
+[; ;lib\format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
+[; ;lib\format.h: 10: void format_xint32( unsigned long int x);
+[; ;lib\format.h: 12: void format_double( double num);
 [; ;print.c: 21: extern void lcd_putch(char c);
 "24 ../../../src/print.c
 [v _lcd_puts `(v ~T0 @X0 1 ef1`*Cuc ]
