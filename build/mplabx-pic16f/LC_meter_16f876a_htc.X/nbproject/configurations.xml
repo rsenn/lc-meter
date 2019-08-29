@@ -45,7 +45,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>hi-tech-picc</languageToolchain>
         <languageToolchainVersion>9.83</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
@@ -86,8 +86,8 @@
         <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
         <property key="optimization-level" value="-O1"/>
-        <property key="optimization-set" value="default"/>
-        <property key="optimization-speed" value="false"/>
+        <property key="optimization-set" value="all"/>
+        <property key="optimization-speed" value="true"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="undefine-macros" value=""/>
         <property key="verbose" value="false"/>
@@ -130,7 +130,7 @@
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
-        <property key="format-hex-file-for-download" value="false"/>
+        <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-cp0" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="initialize-gprs" value="true"/>
@@ -143,7 +143,7 @@
         <property key="linker-interrupts-number-of-vectors" value="multi"/>
         <property key="linker-interrupts-table-location" value="boot"/>
         <property key="linker-interrupts-vector-type" value="rom"/>
-        <property key="managed-stack" value="false"/>
+        <property key="managed-stack" value="true"/>
         <property key="nmi-handler" value="true"/>
         <property key="optimal-performance" value="false"/>
         <property key="program-the-device-with-default-config-words" value="true"/>
