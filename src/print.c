@@ -1,4 +1,4 @@
-#include "buffer.h"
+//#include "buffer.h"
 #include "print.h"
 #include "LC-meter.h"
 
@@ -416,12 +416,12 @@ print_unit(uint8_t unit) {
 #elif defined(USE_HD44780_LCD)
   static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
   lcd_gotoxy(14, 0);
-  buffer_puts(units[unit]);
+//  buffer_puts(units[unit]);
   /*lcd_gotoxy(14, 1);
   lcd_puts(units[unit]);*/
   lcd_gotoxy(16 - BUFFER_LEN(), 0);
 
-  buffer_flush();
+  //buffer_flush();
   ser_puts("\r\n");
 #endif // defined(USE_NOKIA5110_LCD)
 }
@@ -459,7 +459,7 @@ print_reading(uint16_t measurement) {
   lcd_gotoxy(9, 0);
   // putchar_ptr = &buffer_putch;
   format_number(/*&buffer_putch,*/  measurement / 100, 10, 0);
-  buffer_putch('.');
+  //buffer_putch('.');
   format_number(/*&buffer_putch,*/  measurement % 100, 10, 0);
 
 #endif // defined(USE_NOKIA5110_LCD)
