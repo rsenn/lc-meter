@@ -53,7 +53,7 @@ format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
 }
 
 void
-format_float(putchar_fn* putchar_ptr, float num) {
+format_float(/*putchar_fn* putchar_ptr,*/ float num) {
   int m = log10(num);
   int digit;
   //  float tolerance = .0001;

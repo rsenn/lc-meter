@@ -80,8 +80,24 @@ INTERRUPT_FN() {
     bres += 256;
 
     if(bres >= 5000) {
-      bres -= 5000;
-    TMR1IF = 0;
+       bres -= 5000;
+      msecpart++;
+      msecs++;
+
+      SET_LED((blink > 200));
+      if(blink >= 400)
+        blink -= 400;
+      ++blink;
+
+      /* if reached 1 second... */
+      if(msecpart >= 1000) {
+        /* ...update clock, etc */
+        seconds++;
+        msecpart -= 1000;
+      }
+    }
+    // Clear timer interrupt bit
+    TMR2IF = 0;
   }
 #ifdef USE_SER
   ser_int();
