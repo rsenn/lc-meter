@@ -2,7 +2,7 @@ COMMON_SOURCES = format.c timer.c delay.c
 
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c uart.c ser.c
-LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c print.c ser.c buffer.c
+LC_meter_HD44780_SOURCES = LC-meter.c lcd44780.c print.c ser.c
 #$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_HD44780_LCD=1
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_SER=1 USE_TIMER0=1
 
@@ -29,7 +29,7 @@ endif
 LC_meter_HD44780_DEFS += $(TIMER_DEFS)
 
 
-LC_meter_Nokia5110_SOURCES = LC-meter.c lcd5110.c print.c uart.c ser.c timer.c buffer.c
+LC_meter_Nokia5110_SOURCES = LC-meter.c lcd5110.c print.c uart.c ser.c timer.c
 LC_meter_Nokia5110_DEFS = -DUSE_NOKIA5110_LCD=1
 LC_meter_Nokia5110_DEFS += $(TIMER_DEFS)
 LC_meter_Nokia5110_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
@@ -40,18 +40,18 @@ LC_meter_julznc_SOURCES = display.c lcd3310.c main.c uart.c ser.c
 LC_meter_julznc_DEFS += -DNO_JULZNC=1   -DUSE_SER=1
 #LC_meter_julznc_CCVER = 9.71a
 
-Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c buffer.c delay.c
+Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c delay.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 Freq_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
 
 Freq_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 Freq_meter_HD44780_DEFS += $(TIMER_DEFS)
-Freq_meter_Nokia5110_SOURCES = Freq-meter.c lcd5110.c print.c ser.c buffer.c
+Freq_meter_Nokia5110_SOURCES = Freq-meter.c lcd5110.c print.c ser.c
 Freq_meter_Nokia5110_DEFS += -DUSE_NOKIA5110_LCD=1
 Freq_meter_Nokia5110_DEFS += $(TIMER_DEFS)
 
 
-Cap_meter_HD44780_SOURCES = Cap-meter.c lcd44780.c print.c ser.c buffer.c
+Cap_meter_HD44780_SOURCES = Cap-meter.c lcd44780.c print.c ser.c
 Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 Cap_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
 
