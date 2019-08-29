@@ -10,14 +10,26 @@
 #define CP_ON CP
 #define CP_OFF 0x3fff
 
+#ifndef DEBUG_OFF
 #define DEBUG_OFF DEBUGDIS
+#endif
+#ifndef DEBUG_ON
 #define DEBUG_ON DEBUGEN
+#endif
 #define WRT_OFF WRTDIS
 #define WRT_ON WRTEN
+#ifndef CPD_OFF
 #define CPD_OFF 0x3fff
+#endif
+#ifndef CPD_ON
 #define CPD_ON CPD
+#endif
+#ifndef LVP_OFF
 #define LVP_OFF LVPDIS
+#endif
+#ifndef LVP_ON
 #define LVP_ON LVPEN
+#endif
 #endif
 
 #ifdef __10f206
