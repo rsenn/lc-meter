@@ -71,7 +71,7 @@ Display_Cap(unsigned int n) {
   lcd_clear();
   lcd_gotoxy(0, 0);
   lcd_puts("C = ");
-  format_number(lcd_putch, Capacitance, 10, 0);
+  format_number(/*lcd_putch,*/ Capacitance, 10, 0);
 }
 
 void
@@ -116,7 +116,7 @@ main() {
 
   lcd_home();
   lcd_puts("C = ");
-  format_number(lcd_putch, Capacitance, 10, 0);
+  format_number(/*lcd_putch,*/ Capacitance, 10, 0);
 
   Va = 0;
   TimerValue = 108; // 104 + 4 additional clock cycles delay on branching to ISR
