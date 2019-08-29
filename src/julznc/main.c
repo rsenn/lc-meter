@@ -38,6 +38,9 @@ main(void) {
   lcd_clear();
 
   while(1) {
+
+    ser_puts("...\r\n");
+
     if(LC_select)
       measure_capacitance();
     else
@@ -73,6 +76,9 @@ initialize(void) {
 #if USE_UART
   uart_init();
 #endif
+
+  PEIE = 1;
+  GIE = 1;
 
 #if(_HTC_VER_MINOR_ >= 80) || defined(__XC__)
   nRBPU = 1; // enable portB internal pullup
