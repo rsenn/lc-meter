@@ -70,7 +70,9 @@ initialize(void) {
 #ifdef USE_SER
   ser_init();
   #endif
-
+#if USE_UART
+  uart_init();
+#endif
 
 #if(_HTC_VER_MINOR_ >= 80) || defined(__XC__)
   nRBPU = 1; // enable portB internal pullup
