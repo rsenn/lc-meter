@@ -3,7 +3,7 @@
 
 #include "typedef.h"
 
-// extern putchar_fn* putchar_ptr;
+extern putchar_fn* putchar_ptr;
 
 void format_number(putchar_fn* pc, uint16_t n, uint8_t base, int8_t pad);
 

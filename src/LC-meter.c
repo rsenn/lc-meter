@@ -120,10 +120,14 @@ main() {
   CCal = C_CAL;
 
   // setup comparator
-  /*CMCONbits. */ CM0 = 1;
-  /*CMCONbits. */ CM1 = 0;
-  /*CMCONbits. */ CM2 = 1;
+  CMCON &= 0b11111000;
+  CMCON |= 0b00000101;
 
+/*
+CM0 = 1;
+ CM1 = 0;
+ CM2 = 1;
+*/
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
   RBPU = 1;
@@ -149,14 +153,7 @@ main() {
   TRISC3 = OUTPUT;
 #endif
   TRISC0 = INPUT;
-  TRISC2 = INPUT;
-#endif
-
-#if USE_SER
-  ser_init();
-  ser_puts("LC-meter\r\n");
-#endif
-
+  TRISC2 = INPUT; 
 // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
