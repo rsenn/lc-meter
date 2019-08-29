@@ -4,6 +4,7 @@
 C_RED = [1;31m
 C_OFF = [0m
 
+DEBUGGER ?= pickit3
 
 ifneq ($(shell which picprog 2>/dev/null),)
 PICPROG := picprog
