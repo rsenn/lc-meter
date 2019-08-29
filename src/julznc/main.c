@@ -76,6 +76,8 @@ initialize(void) {
 #if USE_UART
   uart_init();
 #endif
+    TRISC &= ~0b01000000;
+
 
   PEIE = 1;
   GIE = 1;
