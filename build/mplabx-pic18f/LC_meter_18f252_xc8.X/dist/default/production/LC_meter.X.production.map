@@ -5,7 +5,7 @@ Linker command line:
 -W1 --edf=/opt/microchip/xc8/v1.34/dat/en_msgs.txt -cs \
   -h+dist/default/production/LC_meter.X.production.sym \
   --cmf=dist/default/production/LC_meter.X.production.cmf -z -Q18F252 \
-  -o/tmp/cgtsVCf5w -Mdist/default/production/LC_meter.X.production.map -E1 \
+  -o/tmp/cgtgaQIC1 -Mdist/default/production/LC_meter.X.production.map -E1 \
   -ver=XC8 -ASTACK=0110h-05ffh -pstack=STACK -ACODE=00h-03FFFhx2 \
   -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
   -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh -AABS1=00h-05FFh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/cgtvbul5F.obj dist/default/production/LC_meter.X.production.obj 
+  /tmp/cgtI3kb2A.obj dist/default/production/LC_meter.X.production.obj 
 
 Object code version is 3.11
 
@@ -33,7 +33,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtvbul5F.obj
+/tmp/cgtI3kb2A.obj
                 end_init                            180      180        4        4       0
                 text                               2854     2854        2     142A       0
                 reset_vec                             0        0        6        0       0
@@ -602,7 +602,7 @@ ___wmul@multiplier                                               cstackCOMRAM 00
 ___wmul@product                                                  cstackCOMRAM 000013
 __accesstop                                                      (abs)        000080
 __activetblptr                                                   (abs)        000002
-__cntErrataNOP_/tmp/cgtvbul5F.obj                                (abs)        000001
+__cntErrataNOP_/tmp/cgtI3kb2A.obj                                (abs)        000001
 __cntErrataNOP_dist/default/production/LC_meter.X.production.obj (abs)        00010B
 __end_of___altoft                                                text18       00216C
 __end_of___awtoft                                                text32       002708
