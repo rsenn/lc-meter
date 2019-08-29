@@ -185,7 +185,6 @@ CM0 = 1;
   ADD_CCAL();
   delay10ms(50);
   REMOVE_CCAL();
-
     
 #ifdef USE_SER
   ser_init();
@@ -193,6 +192,7 @@ CM0 = 1;
 #if USE_UART
   uart_init();
 #endif
+  TRISC &= ~0b01000000;
 
   PEIE = 1;
   GIE = 1;
