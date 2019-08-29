@@ -12,7 +12,7 @@ putchar_fn* putchar_ptr = &format_putchar;
 // -------------------------------------------------------------------------
 void
 format_number(/*putchar_fn* putchar_ptr,*/ uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
-  uint8_t buf[8 * sizeof(long)]; // Assumes 8-bit chars.
+  char buf[8 * sizeof(long)]; // Assumes 8-bit chars.
   uint8_t di;
   int8_t i = 0;
   char padchar = ' ';
@@ -55,7 +55,7 @@ format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
 void
 format_float(/*putchar_fn* putchar_ptr,*/ float num) {
   int m = log10(num);
-  int digit;
+  char digit;
   //  float tolerance = .0001;
 
   while(num > 0 + FLT_EPSILON) {
@@ -73,14 +73,14 @@ format_float(/*putchar_fn* putchar_ptr,*/ float num) {
 void
 format_double(double num) {
   int m = log10(num);
-  int digit;
+  short digit;
   //  double tolerance = .0001;
 
   while(num > 0 + DBL_EPSILON) {
     double weight = pow(10.0l, m);
-    digit = floor(num / weight);
+    digit = (short)floor(num / weight);
     num -= (digit * weight);
-    putchar_ptr('0' + digit);
+    putchar_ptr((char*)('0' + digit));
     if(m == 0)
       putchar_ptr('.');
     m--;

@@ -33,7 +33,9 @@
 #ifdef USE_SER
 #define _SER_C_
 #include "device.h"
+#include "oscillator.h"
 #include "ser.h"
+#include "uart.h"
 #include "const.h"
 
 #ifndef SER_BRG

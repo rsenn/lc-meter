@@ -5,7 +5,11 @@
 #include "typedef.h"
 
 #ifndef UART_BAUD
+#ifdef BAUD_RATE
+#define UART_BAUD BAUD_RATE
+#else
 #define UART_BAUD 38400 /** Baudrate */
+#endif
 //#define UART_BAUD 19200      /** Baudrate */
 //#define UART_BAUD 31250      /** Baudrate */
 #endif

@@ -1,7 +1,7 @@
 #ifndef PICLIB_INTERRUPT_H
 #define PICLIB_INTERRUPT_H 1
 
-#if defined(HI_TECH_C) || defined(__XC)
+#if defined(HI_TECH_C) || defined(__XC) || defined(__XC8__)
 #define INTERRUPT_FN() interrupt isr()
 #else
 #if defined(__SDCC) || __SDCC__

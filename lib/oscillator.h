@@ -6,7 +6,11 @@
 //#endif
 
 #if !defined(_XTAL_FREQ)
+#if defined(XTAL_FREQ)
+#define _XTAL_FREQ XTAL_FREQ
+#else
 #define _XTAL_FREQ 20000000 /** CPU clock */
+#endif
 #endif
 
 #define KHZ ((_XTAL_FREQ) / 1000)

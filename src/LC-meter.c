@@ -1,4 +1,5 @@
 #include "interrupt.h"
+#include "oscillator.h"
 #include "LC-meter.h"
 #include "config-bits.h"
 //#include "main.h"
@@ -43,7 +44,7 @@ volatile uint32_t timer1of;       // timer 1 overflows
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
-static char
+char
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
 
@@ -134,7 +135,7 @@ main() {
    CM2 = 1;
   */
   // others
-#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
   NOT_RBPU = 0; // enable portB internal pullup
@@ -422,8 +423,8 @@ measure_capacitance() {
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
   ser_puts("\r\n");
-  putchar_ptr = &output_putch;
 #endif
+  putchar_ptr = &output_putch;
 
   if(F3 > F1)
     F3 = F1; // max freq is F1;
