@@ -78,7 +78,7 @@ ser_getch(void) {
   return c;
 }
 
-char
+void
 ser_putch(char c) {
   while(((txiptr + 1) & SER_FIFO_MASK) == txoptr) continue;
   GIE = 0;
@@ -86,7 +86,6 @@ ser_putch(char c) {
   txiptr = (txiptr + 1) & SER_FIFO_MASK;
   TXIE = 1;
   GIE = 1;
-  return 1;
 }
 
 void
@@ -109,16 +108,16 @@ ser_puthex(uint8_t v) {
 
   c = v >> 4;
   if(c > 9) {
-    ser_putch('A' - 10 + c);
+    ser_putch((char)('A' - 10 + c));
   } else {
-    ser_putch('0' + c);
+    ser_putch((char)('0' + c));
   }
 
   c = v & 0x0F;
   if(c > 9) {
-    ser_putch('A' - 10 + c);
+    ser_putch((char)('A' - 10 + c));
   } else {
-    ser_putch('0' + c);
+    ser_putch((char)('0' + c));
   }
 }
 

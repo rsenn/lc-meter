@@ -44,7 +44,7 @@ volatile uint32_t timer1of;       // timer 1 overflows
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
-char
+void
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
 
@@ -53,7 +53,6 @@ output_putch(char c) {
 #ifdef USE_SER
   ser_putch(c);
 #endif
-  return 1;
 }
 
 // buffer_t buffer = BUFFER_STATIC(output_putch);
@@ -122,8 +121,9 @@ main() {
   /*
   CMCON &= 0b11111000;
   CMCON |= 0b00000101;*/
-
+#ifdef __16f876a
   CMCON = 0b00000101;
+#endif
   TRISA = 0b11001111;
   // setup timer0 for frequency counter
   T0CS = 1; // Transition on T0CKI pin
@@ -244,8 +244,8 @@ void
 testloop() {
 
   static BOOL led = 0;
-  static uint32_t prev_s = 0;
-  uint32_t s;
+  static uint16_t prev_s = 0;
+  uint16_t s;
 
   delay10ms(10);
 
@@ -309,7 +309,8 @@ measure_freq() {
 
   TMR0 = 0x00; // reset timer0 count (including prescaler)
 
-  delay_ms(100);
+  for(char i = 0; i < 10; i++)
+    delay_ms(10);
 
   TRISA |= 0b00010000; // Disable RA4 output to T0CKI
 

@@ -5,6 +5,7 @@
 ../../../src/print.h  \
 ../../../src/device.h  \
 ../../../src/LC-meter.h  \
+../../../src/config-18f252.h  \
 ../../../lib/format.h  \
 ../../../lib/interrupt.h  \
 ../../../lib/tsmdelay.h  \

@@ -52,7 +52,7 @@
 #endif
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */
-#define SER_BUFFER_SIZE 16
+#define SER_BUFFER_SIZE (uint8_t)16
 
 #define SER_FIFO_MASK (SER_BUFFER_SIZE - 1)
 
@@ -76,7 +76,7 @@
 
 bit ser_isrx(void);
 uint8_t ser_getch(void);
-char ser_putch(char byte);
+void ser_putch(char byte);
 void ser_put(const char* s, unsigned n);
 void ser_puts(const char* s);
 void ser_puts2(uint8_t* s);

@@ -48,19 +48,19 @@ void
 format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
   putchar_ptr('0');
   putchar_ptr('x');
-  format_number(x >> 16, 16, -4);
-  format_number(x & 0xffff, 16, -4);
+  format_number((uint16_t)(x >> 16), 16, -4);
+  format_number((uint16_t)(x & 0xffff), 16, -4);
 }
 
 void
 format_float(/*putchar_fn* putchar_ptr,*/ float num) {
-  int m = log10(num);
+  short m = (int)log10(num);
   char digit;
   //  float tolerance = .0001;
 
   while(num > 0 + FLT_EPSILON) {
     float weight = pow(10.0l, m);
-    digit = floor(num / weight);
+    digit = (char)floor(num / weight);
     num -= (digit * weight);
     putchar_ptr('0' + digit);
     if(m == 0)
@@ -72,7 +72,7 @@ format_float(/*putchar_fn* putchar_ptr,*/ float num) {
 // -------------------------------------------------------------------------
 void
 format_double(double num) {
-  int m = log10(num);
+  short m = (short)log10(num);
   short digit;
   //  double tolerance = .0001;
 
@@ -80,7 +80,7 @@ format_double(double num) {
     double weight = pow(10.0l, m);
     digit = (short)floor(num / weight);
     num -= (digit * weight);
-    putchar_ptr((char*)('0' + digit));
+    putchar_ptr((char)('0' + digit));
     if(m == 0)
       putchar_ptr('.');
     m--;
