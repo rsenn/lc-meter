@@ -47,7 +47,6 @@ static char
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
 
-
   lcd_putch(c);
 #endif
 #ifdef USE_SER
@@ -56,7 +55,7 @@ output_putch(char c) {
   return 1;
 }
 
-//buffer_t buffer = BUFFER_STATIC(output_putch);
+// buffer_t buffer = BUFFER_STATIC(output_putch);
 
 double F1, F2, F3, CCal;
 void main();
@@ -84,7 +83,7 @@ INTERRUPT_FN() {
     bres += 256;
 
     if(bres >= 5000) {
-       bres -= 5000;
+      bres -= 5000;
       msecpart++;
       msecs++;
 
@@ -118,12 +117,10 @@ main() {
 
   CCal = C_CAL;
 
-
   // setup comparator
   /*
   CMCON &= 0b11111000;
   CMCON |= 0b00000101;*/
-
 
   CMCON = 0b00000101;
   TRISA = 0b11001111;
@@ -131,12 +128,11 @@ main() {
   T0CS = 1; // Transition on T0CKI pin
   T0SE = 1; // Increment on high-to-low transition on T0CKI pin
 
-
-/*
-CM0 = 1;
- CM1 = 0;
- CM2 = 1;
-*/
+  /*
+  CM0 = 1;
+   CM1 = 0;
+   CM2 = 1;
+  */
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
   RBPU = 1;
@@ -163,7 +159,7 @@ CM0 = 1;
   TRISC3 = OUTPUT;
 #endif
   TRISC0 = INPUT;
-  TRISC2 = INPUT; 
+  TRISC2 = INPUT;
 // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
@@ -185,10 +181,10 @@ CM0 = 1;
   ADD_CCAL();
   delay10ms(50);
   REMOVE_CCAL();
-    
+
 #ifdef USE_SER
   ser_init();
-  #endif
+#endif
 #if USE_UART
   uart_init();
 #endif
@@ -266,12 +262,12 @@ testloop() {
   lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
-  format_number(/*lcd_putch,*/s, 10, 5);
+  format_number(/*lcd_putch,*/ s, 10, 5);
 
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
   lcd_gotoxy(10, 1);
-  format_number(/*lcd_putch,*/TIMER1_VALUE, 10, 5);
+  format_number(/*lcd_putch,*/ TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
   lcd_puts("     ");
@@ -304,7 +300,7 @@ measure_freq() {
   TMR0IF = 0; // clear timer0 interrupt flag
 
   TRISA &= ~0b00010000; // Enable RA4 output to T0CKI
-//  TRISA4 = 0; 
+                        //  TRISA4 = 0;
 
   __delay_ms(20); // stablize oscillator
 
@@ -312,7 +308,7 @@ measure_freq() {
 
   delay_ms(100);
 
-  TRISA |= 0b00010000;// Disable RA4 output to T0CKI
+  TRISA |= 0b00010000; // Disable RA4 output to T0CKI
 
   prev = TMR0;
   count = 0;
@@ -335,7 +331,7 @@ measure_freq() {
 
   lcd_gotoxy(0, 1);
   put_str("Freq=");
-  format_number(/*lcd_putch,*/count, 10, 5);
+  format_number(/*lcd_putch,*/ count, 10, 5);
 #endif
   return count;
 }
@@ -561,11 +557,11 @@ put_str(const char* s) {
   uint8_t i;
 
   for(i = 0; s[i]; i++) {
-output_putch(s[i]);
-/*    lcd_putch(s[i]);
-#ifdef USE_SER
-    ser_putch(s[i]);
-#endif*/
+    output_putch(s[i]);
+    /*    lcd_putch(s[i]);
+    #ifdef USE_SER
+        ser_putch(s[i]);
+    #endif*/
   }
   /*#ifdef USE_SER
     ser_putch('\r');

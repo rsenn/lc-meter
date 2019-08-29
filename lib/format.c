@@ -80,7 +80,7 @@ format_double(double num) {
     double weight = pow(10.0l, m);
     digit = floor(num / weight);
     num -= (digit * weight);
-   putchar_ptr('0' + digit);
+    putchar_ptr('0' + digit);
     if(m == 0)
       putchar_ptr('.');
     m--;
