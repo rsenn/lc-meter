@@ -1,15 +1,15 @@
 
 # 1 "../../../src/print.c"
 
-# 26 "/opt/microchip/xc8/v1.34/include/htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/opt/microchip/xc8/v1.34/include/pic18f252.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f252.h"
 extern volatile unsigned char PORTA @ 0xF80;
 
 asm("PORTA equ 0F80h");
@@ -2966,7 +2966,7 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
-# 18 "/opt/microchip/xc8/v1.34/include/pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h"
 __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 
 
@@ -2983,7 +2983,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 48 "../../../lib/typedef.h"
+# 48 "../../../lib\typedef.h"
 typedef char BOOL;
 
 # 68
@@ -3008,7 +3008,7 @@ void measure_capacitance(void);
 void measure_inductance(void);
 void delay10ms(unsigned short int period_10ms);
 
-# 77 "../../../lib/ser.h"
+# 77 "../../../lib\ser.h"
 bit ser_isrx(void);
 unsigned char ser_getch(void);
 void ser_putch(char byte);
@@ -3027,7 +3027,7 @@ extern unsigned char ser_tmp;
 
 extern unsigned char ser_brg;
 
-# 6 "../../../lib/format.h"
+# 6 "../../../lib\format.h"
 extern putchar_fn* putchar_ptr;
 
 void format_number( unsigned short int n, unsigned char base, signed char pad);

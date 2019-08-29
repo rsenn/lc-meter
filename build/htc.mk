@@ -7,6 +7,7 @@ VERSION_MINOR = 9
 VERSION_PATCH = 1
 
 COMPILER := htc
+DEBUGGER ?= pickit3
 
 -include build/vars.mk
 -include build/targets.mk
@@ -128,7 +129,7 @@ endif
 #COMMON_FLAGS +=  -V
 
 ifeq ($(_DEBUG),1)
-COMMON_FLAGS += -G --debugger=pickit2
+COMMON_FLAGS += -G $(if $(DEBUGGER),--debugger=$(DEBUGGER),)
 COMMON_FLAGS += --opt=default$(OPT_DEBUG)
 else
 COMMON_FLAGS += --opt="default,+asm$(OPT_SPEED)"

@@ -99,6 +99,11 @@ OPT_SPEED = ,-speed,+space,$(OPTLEVEL)
 endif
 
 ifneq ($(BUILD_TYPE),debug)
+
+ifneq ($(DEBUGGER),)
+COMMON_FLAGS += --debugger=$(DEBUGGER)
+endif
+
 COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
 #COMMON_FLAGS += -D__DEBUG=1
 else
