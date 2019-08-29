@@ -28,7 +28,7 @@
 
 #include "print.h"
 #include "format.h"
-#include "buffer.h"
+//#include "buffer.h"
 
 #if defined(__SDCC) || defined(SDCC)
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
@@ -45,14 +45,18 @@ volatile uint32_t timer1of;       // timer 1 overflows
 
 static char
 output_putch(char c) {
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+
+
   lcd_putch(c);
+#endif
 #ifdef USE_SER
   ser_putch(c);
 #endif
   return 1;
 }
 
-buffer_t buffer = BUFFER_STATIC(output_putch);
+//buffer_t buffer = BUFFER_STATIC(output_putch);
 
 double F1, F2, F3, CCal;
 void main();
@@ -193,7 +197,9 @@ CM0 = 1;
   PEIE = 1;
   GIE = 1;
 
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
   putchar_ptr = &lcd_putch;
+#endif
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
 #if USE_NOKIA5110_LCD
@@ -212,7 +218,9 @@ CM0 = 1;
 #endif
 
   calibrate();
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_clear();
+#endif
 
   /* main loop:
    *
@@ -323,11 +331,12 @@ measure_freq() {
 
   //}while(prev==TMR0);  //test if timer0 has incremented
   count = ((prev << 8) + (256 - count));
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
 
   lcd_gotoxy(0, 1);
   put_str("Freq=");
   format_number(/*lcd_putch,*/count, 10, 5);
-
+#endif
   return count;
 }
 
@@ -338,6 +347,7 @@ void
 calibrate() {
   uint8_t i;
 
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_clear();
 
   lcd_gotoxy(0, 0);
@@ -346,6 +356,7 @@ calibrate() {
   lcd_gotoxy(0, 1);
   ser_puts("\r\n");
   put_str("please wait...");
+#endif
 
   REMOVE_CCAL();
 
@@ -361,6 +372,8 @@ calibrate() {
   F2 = (double)measure_freq();
   REMOVE_CCAL();
 
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+
   lcd_gotoxy(11, 0);
 
   for(i = 0; i < 6; i++) { // show progress bar
@@ -368,7 +381,7 @@ calibrate() {
     /*    lcd_send(0xfc, LCD_TDATA);*/
     delay10ms(28);
   }
-
+#endif
   ser_puts("\r\n");
 }
 
@@ -382,9 +395,11 @@ measure_capacitance() {
 
   double Cin;
 
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+
   lcd_gotoxy(0, 0);
   put_str("Capacity ");
-
+#endif
   var = measure_freq();
 
   F3 = (double)var;
@@ -409,7 +424,7 @@ measure_capacitance() {
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
   ser_puts("\r\n");
-  putchar_ptr = &lcd_putch;
+  putchar_ptr = &output_putch;
 #endif
 
   if(F3 > F1)
@@ -457,10 +472,11 @@ measure_inductance() {
   uint16_t var;
 
   double Lin, numerator, denominator;
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
 
   lcd_gotoxy(0, 0);
   put_str("Inductivity ");
-
+#endif
   var = measure_freq();
 
   F3 = (double)var;
@@ -545,10 +561,11 @@ put_str(const char* s) {
   uint8_t i;
 
   for(i = 0; s[i]; i++) {
-    lcd_putch(s[i]);
+output_putch(s[i]);
+/*    lcd_putch(s[i]);
 #ifdef USE_SER
     ser_putch(s[i]);
-#endif
+#endif*/
   }
   /*#ifdef USE_SER
     ser_putch('\r');

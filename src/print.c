@@ -15,9 +15,12 @@
 #endif
 
 #include "format.h"
-#define print_print_number(a, b, c) format_number(lcd_putch, a, b, c)
+#define print_print_number(a, b, c) format_number(a, b, c)
+
 
 #ifndef USE_HD44780_LCD
+extern void lcd_putch(char c);
+
 void
 lcd_puts(const char* string) {
   uint8_t i;
