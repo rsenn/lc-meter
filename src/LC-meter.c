@@ -309,8 +309,7 @@ measure_freq() {
 
   TMR0 = 0x00; // reset timer0 count (including prescaler)
 
-  for(char i = 0; i < 10; i++)
-    delay_ms(10);
+  for(char i = 0; i < 10; i++) delay_ms(10);
 
   TRISA |= 0b00010000; // Disable RA4 output to T0CKI
 

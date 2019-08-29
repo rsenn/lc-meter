@@ -23,7 +23,6 @@ INTERRUPT_FN() {
 #endif
 }
 
-
 void
 main(void) {
   int i;
@@ -69,15 +68,14 @@ initialize(void) {
   // others
   lc_tris();
   relay_tris();
-  
+
 #ifdef USE_SER
   ser_init();
-  #endif
+#endif
 #if USE_UART
   uart_init();
 #endif
-    TRISC &= ~0b01000000;
-
+  TRISC &= ~0b01000000;
 
   PEIE = 1;
   GIE = 1;
