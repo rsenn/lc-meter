@@ -10,7 +10,6 @@ COMPILER := htc
 DEBUGGER ?= pickit3
 
 -include build/vars.mk
--include build/common.mk
 -include build/targets.mk
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)

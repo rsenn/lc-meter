@@ -6,7 +6,6 @@ VERSION_PATCH = 1
 COMPILER = xc8
 
 -include build/vars.mk
--include build/common.mk
 -include build/targets.mk
 
 ifeq ($(PROGRAM),)
