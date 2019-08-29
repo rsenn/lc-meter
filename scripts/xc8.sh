@@ -102,10 +102,14 @@ xc8_driver() {
 		 -S "$INCDIR" \
 		 -F "$SYSINC"
    fi
+   SYS=$(uname -s)
+   case "$SYS" in
+	   Linux) EXEEXT=.elf ;;
+   esac
  (     
  set -e
   A="cpp-xc8" \
-  exec_bin "$MYDIR/../cpp-xc8" "$@" $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
+  exec_bin "$MYDIR/../cpp-xc8$EXEEXT" "$@" $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
 	  
    A="xc8" exec_bin "$EXE" $CFLAGS --outdir="$OUTDIR" "$OUTDIR/${ARG##*/}" 
   )
