@@ -80,7 +80,7 @@ INTERRUPT_FN() {
     bres += 256;
 
     if(bres >= 5000) {
-      bres -= 5C
+      bres -= 5000;
     TMR1IF = 0;
   }
 #ifdef USE_SER
