@@ -3,6 +3,10 @@
 
 #include "../src/device.h"
 
+#if (defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8) || defined(MCC18) || defined(__C18))
+#define HAVE_C99_TYPES 1
+#endif
+
 #if defined(MCC18) || defined(__IAR_SYSTEMS_ICC__)
 typedef signed char int8_t;
 typedef signed short int16_t;
@@ -12,9 +16,9 @@ typedef unsigned char uint8_t;
 typedef unsigned short uint16_t;
 typedef unsigned long uint32_t;
 
-#elif (defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8) || defined(MCC18) || defined(__C18))
+#elif HAVE_C99_TYPES
 #if(_HTC_VER_MINOR_ >= 80)
-#include <stdbool.h>
+//#include <stdbool.h>
 #include <stdint.h>
 #else
 #define uint8_t unsigned char
@@ -48,10 +52,15 @@ typedef BOOL bit;
 typedef char BOOL;
 #elif defined(__PCH__)
 typedef int1 BOOL;
-#else
+#elif !defined(HAVE_C99_TYPES)
 #define TRUE 1
 #define FALSE 0
 typedef char BOOL;
+#endif
+
+#if HAVE_C99_TYPES
+#undef TRUE
+#undef FALSE
 #endif
 
 #if defined(HI_TECH_C) || defined(SDCC) || defined(__IAR_SYSTEMS_ICC__) || defined(__PCH__)

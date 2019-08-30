@@ -16,7 +16,9 @@
 #define DATA3_PIN RB7
 #define DATA3_TRIS TRISB7
 #else
+#ifndef RS_PIN
 #define RS_PIN RB2
+#endif
 #define RS_TRIS TRISB2
 #undef RW_PIN
 #undef RW_TRIS
