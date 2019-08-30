@@ -27,10 +27,10 @@
  * this one to understand the code.
  */
 
-volatile xdata at LCD_COMMAND_WR unsigned char lcd_command_wr;
-volatile xdata at LCD_STATUS_RD unsigned char lcd_status_rd;
-volatile xdata at LCD_DATA_WR unsigned char lcd_data_wr;
-volatile xdata at LCD_DATA_RD unsigned char lcd_data_rd;
+volatile xdata at LCD_COMMAND_WR uint8_t lcd_command_wr;
+volatile xdata at LCD_STATUS_RD uint8_t lcd_status_rd;
+volatile xdata at LCD_DATA_WR uint8_t lcd_data_wr;
+volatile xdata at LCD_DATA_RD uint8_t lcd_data_rd;
 
 #pragma CALLEE - SAVES lcd_busy
 void
@@ -41,7 +41,7 @@ lcd_busy(void) {
 
 #pragma CALLEE - SAVES lcd_command
 void
-lcd_command(unsigned char cmd) {
+lcd_command(uint8_t cmd) {
   lcd_busy();
   lcd_command_wr = cmd;
 }
@@ -61,7 +61,7 @@ lcd_init(void) {
 
 void
 lcd_set_xy_raw(unsigned int x_and_y) {
-  unsigned char x, y;
+  uint8_t x, y;
   if((x = x_and_y & 255) >= LCD_HORIZ_SIZE)
     x = LCD_HORIZ_SIZE - 1;
   if((y = x_and_y >> 8) >= LCD_VERT_SIZE)

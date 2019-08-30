@@ -1,7 +1,7 @@
 #ifndef PICLIB_TYPES_H
 #define PICLIB_TYPES_H 1
 
-#include "device.h"
+#include "../src/device.h"
 
 #if defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8)
 #if(_HTC_VER_MINOR_ >= 80)
@@ -33,7 +33,7 @@ typedef unsigned int32_t uint32_t;
 #define int16_t signed short
 #define int32_t signed long
 
-#define uint8_t unsigned char
+#define uint8_t uint8_t
 #define uint16_t unsigned short
 #define uint32_t unsigned long
 #endif

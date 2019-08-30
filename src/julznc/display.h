@@ -339,7 +339,7 @@ static const char units[288] = // 8units * (18*2)
         0,
         0};
 
-void display_digit(unsigned char line, unsigned char column, unsigned char digit);
-void display_unit(unsigned char unit);
+void display_digit(uint8_t line, uint8_t column, uint8_t digit);
+void display_unit(uint8_t unit);
 void display_reading(unsigned int measurement); // measurement divide by 100
-void indicator(unsigned char indicate);
+void indicator(uint8_t indicate);

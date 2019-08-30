@@ -1,8 +1,8 @@
 #include "display.h"
 
 void
-display_digit(unsigned char line, unsigned char column, unsigned char digit) {
-  unsigned char i;
+display_digit(uint8_t line, uint8_t column, uint8_t digit) {
+  uint8_t i;
   if(line < 1 || line > 5)
     return;
   if(column > 74)
@@ -16,8 +16,8 @@ display_digit(unsigned char line, unsigned char column, unsigned char digit) {
   for(i = 8; i < 16; i++) lcd_send(digits_8x16[(digit << 4) + i], LCD_TDATA);
 }
 void
-display_unit(unsigned char unit) {
-  unsigned char i;
+display_unit(uint8_t unit) {
+  uint8_t i;
   lcd_gotoxy(60, 2);
   for(i = 0; i < 18; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
   lcd_gotoxy(60, 3);
@@ -50,7 +50,7 @@ display_reading(unsigned int measurement) // measurement divide by 100
   display_digit(3, 50, measurement % 10);
 }
 void
-indicator(unsigned char indicate) {
+indicator(uint8_t indicate) {
   if(indicate) {
     lcd_gotoxy(70, 4);
     lcd_send(0x1C, LCD_TDATA);

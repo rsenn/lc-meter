@@ -112,9 +112,9 @@ static const char lcd_font[][5] = {
     {0x44, 0x64, 0x54, 0x4C, 0x44}  // z
 };
 
-unsigned char
+uint8_t
 lcd_str_width(const char* c) {
-  unsigned char i;
+  uint8_t i;
 
   i = 0;
   while(*c) {
@@ -137,7 +137,7 @@ lcd_str_width(const char* c) {
   LCD_CLK = 1
 
 void
-lcd_send(unsigned char a, unsigned char cmd) {
+lcd_send(uint8_t a, uint8_t cmd) {
   // set if data or command byte
   LCD_DC = 1;
   if(cmd == LCD_TCMD) {
@@ -235,7 +235,7 @@ lcd_clear(void) {
 }
 
 void
-lcd_gotoxy(unsigned char x, unsigned y) {
+lcd_gotoxy(uint8_t x, unsigned y) {
   lcd_send(x | 0b10000000, LCD_TCMD);
   lcd_send((y & 0b00000111) | 0b01000000, LCD_TCMD);
 }
@@ -265,7 +265,7 @@ lcd_puts(const char* s) {
 }
 
 void
-lcd_center_puts(unsigned char y, const char* c) {
+lcd_center_puts(uint8_t y, const char* c) {
   lcd_gotoxy(41 - (lcd_str_width(c) / 2), y);
   lcd_puts(c);
 }
@@ -282,8 +282,8 @@ lcd_puts2(char* s) {
 }
 
 void
-lcd_clear_line(unsigned char y) {
-  unsigned char k;
+lcd_clear_line(uint8_t y) {
+  uint8_t k;
   lcd_gotoxy(0, y);
   for(k = 0; k < 83; ++k) {
     lcd_send(0, LCD_TDATA);
@@ -291,7 +291,7 @@ lcd_clear_line(unsigned char y) {
 }
 
 void
-lcd_center_puts2(unsigned char y, char* c, unsigned char len) {
+lcd_center_puts2(uint8_t y, char* c, uint8_t len) {
   lcd_gotoxy(42 - (len << 1) - len, y);
   while(len) {
     lcd_putch(*c);
@@ -315,8 +315,8 @@ const char bat_symbol[] = {0b00111000,
                            0b11111110};
 
 void
-lcd_battery(unsigned char chg) {
-  unsigned char i;
+lcd_battery(uint8_t chg) {
+  uint8_t i;
 
   chg = 12 - chg;
   lcd_gotoxy(71, 0);
@@ -342,7 +342,7 @@ void lcd_bluetooth(void)
 
 void
 lcd_symbol(const char* sym) {
-  unsigned char i, n;
+  uint8_t i, n;
 
   n = sym[0];
   for(i = 1; i <= n; ++i) {
