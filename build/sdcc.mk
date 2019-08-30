@@ -92,7 +92,7 @@ OPT_SPEED = --opt-code-size
 endif
 
 ifeq ($(BUILD_TYPE),debug)
-COMMON_FLAGS += --debug --debug-xtra
+COMMON_FLAGS += --debug
 #COMMON_FLAGS += -D__DEBUG=1
 else
 COMMON_FLAGS += 

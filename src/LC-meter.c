@@ -570,4 +570,4 @@ put_str(const char* s) {
     ser_putch('\r');
     ser_putch('\n');
   #endif*/
-};
+}
