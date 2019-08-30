@@ -29,7 +29,7 @@
 #define LCD_TCMD 0
 #define LCD_TDATA 1
 
-uint8_t lcd_str_width(const uint8_t* c);
+unsigned lcd_str_width(const char* c);
 void lcd_send(uint8_t a, uint8_t cmd);
 void lcd_init(void);
 void lcd_test(void);

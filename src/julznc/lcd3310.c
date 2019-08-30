@@ -112,7 +112,7 @@ static const char lcd_font[][5] = {
     {0x44, 0x64, 0x54, 0x4C, 0x44}  // z
 };
 
-uint8_t
+unsigned
 lcd_str_width(const char* c) {
   uint8_t i;
 
