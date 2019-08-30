@@ -50,11 +50,11 @@ else
 COMPILER_NAME = picc
 endif
 
-ifneq ($(CCDIR),)
-SDCC = "$(CCDIR)/bin/$(COMPILER_NAME)"
-else
+#ifneq ($(CCDIR),)
+#SDCC = "$(CCDIR)/bin/$(COMPILER_NAME)"
+#else
 SDCC = $(COMPILER_NAME)
-endif
+#endif
 
 ifeq ($(strip $(SDCC)),)
 SDCC = picc
