@@ -1,7 +1,7 @@
 #ifndef PICLIB_LCD5110_H
 #define PICLIB_LCD5110_H
 
-#include "device.h"
+#include "../src/device.h"
 #include "typedef.h"
 
 #define LCD_CE RB2

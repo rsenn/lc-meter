@@ -1,7 +1,7 @@
 #ifndef PICLIB_COMPARATOR_H
 #define PICLIB_COMPARATOR_H 1
 
-#include "device.h"
+#include "../src/device.h"
 
 void comparator_disable();
 
