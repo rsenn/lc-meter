@@ -39,7 +39,7 @@
 // the function main must first detect the start bit, then
 // call receive_serial_byte()
 
-unsigned char softser_rdata; // holds the serial byte that was received
+uint8_t softser_rdata; // holds the serial byte that was received
 
 void
 softser_init(void) {
@@ -57,7 +57,7 @@ softser_init(void) {
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
 bit
-softser_poll(unsigned char bauds) {
+softser_poll(uint8_t bauds) {
   int i = bauds;
 
   while(i--) {
@@ -80,7 +80,7 @@ softser_recv(void) {
   // baud timing is done by using TMR0 and removing
   // timer error after each baud. Starts with 1.5 baud delay,
   // so each bit is sampled in middle of baud.
-  unsigned char i;
+  uint8_t i;
 
   i = 8; // 8 data bits to receive
 
@@ -107,7 +107,7 @@ softser_recv(void) {
 }
 
 //---------------------------------------------------------
-unsigned char
+uint8_t
 softser_getch(void) {
   softser_rdata = 0;
   softser_recv();
@@ -116,12 +116,12 @@ softser_getch(void) {
 
 //---------------------------------------------------------
 void
-softser_putch(unsigned char data) {
+softser_putch(uint8_t data) {
   // this manually sends a serial byte out any PIC pin.
   // NOTE! serial is inverted to connect direct to PC serial port.
   // baud timing is done by using TMR0 and removing
   // timer error after each baud.
-  unsigned char i;
+  uint8_t i;
 
   i = 8; // 8 data bits to send
 
@@ -159,13 +159,13 @@ softser_puts(const char* s) {
 }
 
 void
-softser_puts2(unsigned char* s) {
+softser_puts2(uint8_t* s) {
   while(*s) softser_putch(*s++);
 }
 
 void
-softser_puthex(unsigned char v) {
-  unsigned char c;
+softser_puthex(uint8_t v) {
+  uint8_t c;
 
   c = v >> 4;
   if(c > 9) {

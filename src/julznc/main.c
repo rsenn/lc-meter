@@ -1,4 +1,4 @@
-#include "device.h"
+#include "../device.h"
 #include "main.h"
 #include "lcd3310.h"
 #include "display.h"
@@ -113,7 +113,7 @@ measure_freq(void) // 16-bit freq
 
 void
 calibrate(void) {
-  unsigned char i;
+  uint8_t i;
   lcd_clear();
   lcd_gotoxy(1, 1);
   lcd_puts("Calibrating.");
