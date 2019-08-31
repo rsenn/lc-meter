@@ -8,6 +8,7 @@ V1.0 11/23/04 	Created.
 //#include <pic.h>
 #include <htc.h>
 #include "lcd3310.h"
+#include "../../lib/delay.h"
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ 20000000
 #endif
@@ -124,8 +125,8 @@ lcd_str_width(const char* c) {
   //	return i;
   return ((i << 1) + i) << 1; // return i*6
 }
-
-#define CLK_IN(data, bitnum)                                                                                           \
+#define CLK_IN(data, bitnum)                                                                      
+                     \
   NOP();                                                                                                               \
   LCD_CLK = 0;                                                                                                         \
   NOP();                                                                                                               \

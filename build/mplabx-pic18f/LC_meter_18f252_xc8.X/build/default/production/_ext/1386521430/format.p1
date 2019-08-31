@@ -2257,9 +2257,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;typedef.h: 48: typedef char BOOL;
-[; ;typedef.h: 68: typedef void(putchar_fn)(char);
-[; ;typedef.h: 69: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char BOOL;
+[; ;typedef.h: 77: typedef void(putchar_fn)(char);
+[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
 [; ;format.h: 6: extern putchar_fn* putchar_ptr;
 [; ;format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
 [; ;format.h: 10: void format_xint32( unsigned long int x);

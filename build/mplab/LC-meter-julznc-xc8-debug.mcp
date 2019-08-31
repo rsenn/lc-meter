@@ -1,22 +1,22 @@
 [HEADER]
 magic_cookie={66E99B07-E706-4689-9E80-9B2582898A13}
 file_version=1.0
-device=PIC16F876A
+device=PIC18F252
 [PATH_INFO]
 BuildDirPolicy=BuildDirIsSourceDir
 dir_src=
 dir_bin=LC-meter-julznc-xc8-debug
 dir_tmp=
 dir_sin=
-dir_inc=..\..\..\lib;..\..\..\src
+dir_inc=C:\Users\vboxuser\Desktop\lc-meter\lib;..\..\..\lib;..\..\..\src
 dir_lib=
 dir_lkr=
 [CAT_FILTERS]
-filter_src=*.c;*.as;*.asm;*.usb
-filter_inc=*.h;
-filter_obj=*.obj;*.p1;*.hex
-filter_lib=*.lib;*.lpp
-filter_lkr=*.unknown
+filter_src=*.asm;*.c
+filter_inc=*.h;*.inc
+filter_obj=*.o
+filter_lib=*.lib
+filter_lkr=*.lkr
 [CAT_SUBFOLDERS]
 subfolder_src=
 subfolder_inc=
@@ -52,18 +52,13 @@ file_003=..\..\src\julznc\display.h
 file_004=..\..\src\julznc\lcd3310.h
 file_005=..\..\src\julznc\main.h
 [SUITE_INFO]
-suite_guid={38171385-97B2-4EC5-BF2C-C2C027BA5B04}
+suite_guid={5B7D72DD-9861-47BD-9F60-2BE967BF8416}
 suite_state=
 [TOOL_SETTINGS]
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}=C6=255 DB=9 DC=9 D1=DEBUG=1,__DEBUG=1,_XTAL_FREQ=20000000,UART_BAUD=38400 D5=NDEBUG DF=1 DD=1 C2=1 C3=1 DE=0 D7=1 11E=0 121=0 122=0 123=0 124=0 125=0 11F=94 127=0 C9=3,12,11,10,9,8,7,6,4,1,2 FE=31 EC=1 F0=1 EF=1 EE=0 104=0 E9= C4=0 F2= F3= F4= F8=1 F5= F9=0 FA=1 FB=0 C0=0 C1=1 BD=0 BC=0 BB=0 BF=0 BE=0 B8= 101=0 103= 102=0 BA= FF=0 100=0 106=0 109=0 10A=1 10B=0 10C=0 10E=0 10F=0 110=1 118=0 116=0 117= 10D=0 114=-1 113=-1 111=0 115=-1 F5=0 E5=1 E7=0 E8=1 126=0 F1=0 F6= F7= B9=-1 107=0 
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}_alt=yes
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}000=
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}001=
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}002=
-[ACTIVE_FILE_SETTINGS]
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}000_active=yes
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}001_active=yes
-TS{F42384DA-C7ED-4A02-880F-0F5E88735CE2}002_active=yes
+TS{DD2213A8-6310-47B1-8376-9430CDFC013F}=
+TS{BFD27FBA-4A02-4C0E-A5E5-B812F3E7707C}=/o"$(BINDIR_)$(TARGETBASE).cof" /M"$(BINDIR_)$(TARGETBASE).map" /W
+TS{C2AF05E7-1416-4625-923D-E114DB6E2B96}=-Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+TS{ADE93A55-C7C7-4D4D-A4BA-59305F7D0391}=
 [INSTRUMENTED_TRACE]
 enable=0
 transport=0
