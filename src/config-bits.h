@@ -48,6 +48,10 @@
 #include "config-18f252.h"
 #endif // defined __18f252
 
+#ifdef __18f2520
+#include "config-18f2520.h"
+#endif // defined __18f2520
+
 #ifdef __18f2550
 #include "config-18f2550.h"
 #endif // defined __18f2550
