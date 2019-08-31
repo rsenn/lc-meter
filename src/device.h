@@ -35,6 +35,9 @@
 #ifdef __PIC18F2550_H
 #define __18f2550 1
 #endif
+#ifdef __PIC18F2520_H
+#define __18f2520 1
+#endif
 #ifdef __PIC18F25K22_H
 #define __18f25k22 1
 #endif

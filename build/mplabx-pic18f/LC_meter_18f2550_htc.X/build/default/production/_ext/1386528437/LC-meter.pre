@@ -2556,12 +2556,30 @@ asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "CCP2MUX_ON");
 asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFB");
 asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
 
-# 19 "../../../src/config-18f2550.h"
-asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "0xF4FF");
-asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xFFFF& 0xFFFE& 0xFEFF");
-asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "0xFFFF");
-asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFB");
-asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
+# 27 "../../../src/config-18f2550.h"
+asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xF6FF & 0xBFFF & 0xFFFF");
+
+asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "0xFFFE & 0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "6"); asm("\t__config" "6" " equ " "0xFFFF & 0xFFFB & 0xFFBF");
+
+asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "8"); asm("\t__config" "8" " equ " "0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "9"); asm("\t__config" "9" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "10"); asm("\t__config" "10" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "11"); asm("\t__config" "11" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
+
+asm("\tglobal __config" "12"); asm("\t__config" "12" " equ " "0xFFFF");
 
 # 49 "../../../lib\tsmdelay.h"
 typedef struct dvars {

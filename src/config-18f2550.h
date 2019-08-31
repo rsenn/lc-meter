@@ -13,15 +13,15 @@
 #pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 #pragma config EBTRB = OFF
-
-#elif defined(HI_TECH_C)
-
-__CONFIG(1, FOSC_HSPLL_HS);
-__CONFIG(2, BOR_ON& PWRT_ON& WDT_OFF);
-__CONFIG(3, CCP2MX_ON);
-__CONFIG(4, LVP_OFF);
-__CONFIG(5, CPD_OFF);
-
-#endif
-
+//
+//#elif defined(HI_TECH_C)
+//
+//
+//// PIC18F2550 Configuration Bit Settings
+//
+//// 'C' source line config statements
+//
+//#include <htc.h>
+//^
+//        
 #endif // defined CONFIG_18F2550_H
