@@ -1,5 +1,5 @@
-#ifndef CONFIG_18F2550_H
-#define CONFIG_18F2550_H 1
+#ifndef CONFIG_18F2520_H
+#define CONFIG_18F2520_H 1
 
 #ifdef __XC
 
@@ -24,4 +24,4 @@ __CONFIG(5, CPD_OFF);
 
 #endif
 
-#endif // defined CONFIG_18F2550_H
+#endif // defined CONFIG_18F2520_H
