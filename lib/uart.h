@@ -1,7 +1,7 @@
 #ifndef PICLIB_UART_H
 #define PICLIB_UART_H
 
-#include "device.h"
+#include "../src/device.h"
 #include "typedef.h"
 
 #ifndef UART_BAUD

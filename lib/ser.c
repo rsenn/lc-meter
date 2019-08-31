@@ -32,7 +32,7 @@
  */
 #ifdef USE_SER
 #define _SER_C_
-#include "device.h"
+#include "../src/device.h"
 #include "oscillator.h"
 #include "ser.h"
 #include "uart.h"

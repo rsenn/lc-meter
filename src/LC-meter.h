@@ -1,7 +1,7 @@
 #ifndef LC_METER_H
 #define LC_METER_H
 
-#include "device.h"
+#include "../src/device.h"
 #include "oscillator.h"
 
 #ifdef HI_TECH_C

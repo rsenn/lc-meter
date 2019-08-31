@@ -1,8 +1,8 @@
 #include "LC-meter-HD44780.h"
-#include "delay.h"
-#include "interrupt.h"
+#include "../delay.h"
+#include "../../lib/interrupt.h"
 #include "lcd44780.h"
-#include "uart.h"
+#include "../../lib/uart.h"
 //#include "display.h"
 
 #ifdef SDCC

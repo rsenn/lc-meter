@@ -1,7 +1,7 @@
 #ifndef PICLIB_DELAY_H
 #define PICLIB_DELAY_H
 
-#include "device.h"
+#include "../src/device.h"
 #include "typedef.h"
 #include "tsmdelay.h"
 
