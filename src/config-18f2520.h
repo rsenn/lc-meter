@@ -16,9 +16,9 @@
 
 #elif defined(HI_TECH_C)
 
-__CONFIG(1, 0);
+__CONFIG(1, 0x3fff);
 __CONFIG(2, PWRT_ON & WDT_OFF);
-__CONFIG(3, 0);
+__CONFIG(3, 0x3fff);
 __CONFIG(4, LVP_OFF);
 __CONFIG(5, CPD_OFF);
 
