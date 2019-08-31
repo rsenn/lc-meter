@@ -2,34 +2,62 @@
 #define CONFIG_BITS_H 1
 
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
+#ifndef FOSC_HS
 #define FOSC_HS HS
-#define WDTE_OFF WDTDIS
-#define PWRTE_ON PWRTEN
-#define BOREN_ON BOREN
+#endif
 
+#ifndef WDTE_OFF
+#define WDTE_OFF WDTDIS
+#endif
+
+#ifndef PWRTE_ON
+#define PWRTE_ON PWRTEN
+#endif
+
+#ifndef BOREN_ON
+#define BOREN_ON BOREN
+#endif
+
+#ifndef CP_ON
 #define CP_ON CP
+#endif
+
+#ifndef CP_OFF
 #define CP_OFF 0x3fff
+#endif
 
 #ifndef DEBUG_OFF
 #define DEBUG_OFF DEBUGDIS
 #endif
+
 #ifndef DEBUG_ON
 #define DEBUG_ON DEBUGEN
 #endif
+
+#ifndef WRT_OFF
 #define WRT_OFF WRTDIS
+#endif
+
+#ifndef WRT_ON
 #define WRT_ON WRTEN
+#endif
+
 #ifndef CPD_OFF
 #define CPD_OFF 0x3fff
 #endif
+
 #ifndef CPD_ON
 #define CPD_ON CPD
 #endif
+
 #ifndef LVP_OFF
 #define LVP_OFF LVPDIS
 #endif
+
 #ifndef LVP_ON
 #define LVP_ON LVPEN
 #endif
+
 #endif
 
 #ifdef __10f206
