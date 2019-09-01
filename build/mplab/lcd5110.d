@@ -1,0 +1,1 @@
+ lcd5110.d  lcd5110.p1:  C:/Users/vboxuser/Desktop/lc-meter/lib/lcd5110.c ../../lib/pwm.h ../../src/device.h ../../lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/typedef.h ../../lib/../src/device.h ../../lib/adc.h C:/Users/vboxuser/Desktop/lc-meter/lib/lcd5110.h

@@ -37,8 +37,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _blink `us 1 s ]
 "1211 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _TMR2IF `Vb 0 e@31985 ]
-"1031 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
-[v _LATC1 `Vb 0 e@31833 ]
+"41 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2550.h
+[v _RC1 `VNb 0 e@31761 ]
 "1215 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _RCIF `Vb 0 e@31989 ]
 "87 ../../../lib\ser.h
@@ -82,12 +82,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC0 `Vb 0 e@31904 ]
 "1134 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _TRISC2 `Vb 0 e@31906 ]
+"1129 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _TRISC `Vuc 0 e@3988 ]
+"923 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _PORTC `Vuc 0 e@3970 ]
 "75 ../../../src/LC-meter.h
 [v _delay10ms `(v 0 ef1`us ]
 "84 ../../../lib\ser.h
 [v _ser_init `(v 0 ef ]
-"1129 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
-[v _TRISC `Vuc 0 e@3988 ]
 "2436 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _PEIE `Vb 0 e@32662 ]
 "2437 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
@@ -96,6 +98,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _calibrate `(v 0 ef ]
 "81 ../../../lib\ser.h
 [v _ser_puts `(v 0 ef1`*Cuc ]
+"928 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _RC4 `Vb 0 e@31764 ]
 "73 ../../../src/LC-meter.h
 [v _measure_capacitance `(v 0 ef ]
 "74 ../../../src/LC-meter.h
@@ -2089,74 +2093,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.h: 73: void measure_capacitance(void);
 [; ;LC-meter.h: 74: void measure_inductance(void);
 [; ;LC-meter.h: 75: void delay10ms(unsigned short int period_10ms);
-"23 ../../../src/config-18f252.h
-[; ;config-18f252.h: 23: asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "OSC_HSPLL& OSCS_OFF");
-[; 	global __config1 ;#
-[; 	__config1 equ OSC_HSPLL& OSCS_OFF ;#
-"24
-[; ;config-18f252.h: 24: asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xFFFF& BORV_27& 0xFFFE& 0xFEFF");
-[; 	global __config2 ;#
-[; 	__config2 equ 0xFFFF& BORV_27& 0xFFFE& 0xFEFF ;#
-"25
-[; ;config-18f252.h: 25: asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "CCP2MUX_ON");
-[; 	global __config3 ;#
-[; 	__config3 equ CCP2MUX_ON ;#
-"26
-[; ;config-18f252.h: 26: asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFB");
-[; 	global __config4 ;#
-[; 	__config4 equ 0xFFFB ;#
-"27
-[; ;config-18f252.h: 27: asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
-[; 	global __config5 ;#
-[; 	__config5 equ 0xFFFF ;#
-"27 ../../../src/config-18f2550.h
-[; ;config-18f2550.h: 27: asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config1 ;#
-[; 	__config1 equ 0xFFFF & 0xFFFF & 0xFFFF ;#
-"29
-[; ;config-18f2550.h: 29: asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xF6FF & 0xBFFF & 0xFFFF");
-[; 	global __config2 ;#
-[; 	__config2 equ 0xF6FF & 0xBFFF & 0xFFFF ;#
-"31
-[; ;config-18f2550.h: 31: asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "0xFFFE & 0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config3 ;#
-[; 	__config3 equ 0xFFFE & 0xFFFF & 0xFFFF & 0xFFFF ;#
-"33
-[; ;config-18f2550.h: 33: asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFF & 0xFFFF");
-[; 	global __config4 ;#
-[; 	__config4 equ 0xFFFF & 0xFFFF ;#
-"35
-[; ;config-18f2550.h: 35: asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config5 ;#
-[; 	__config5 equ 0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF ;#
-"37
-[; ;config-18f2550.h: 37: asm("\tglobal __config" "6"); asm("\t__config" "6" " equ " "0xFFFF & 0xFFFB & 0xFFBF");
-[; 	global __config6 ;#
-[; 	__config6 equ 0xFFFF & 0xFFFB & 0xFFBF ;#
-"39
-[; ;config-18f2550.h: 39: asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config7 ;#
-[; 	__config7 equ 0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF ;#
-"41
-[; ;config-18f2550.h: 41: asm("\tglobal __config" "8"); asm("\t__config" "8" " equ " "0xFFFF & 0xFFFF");
-[; 	global __config8 ;#
-[; 	__config8 equ 0xFFFF & 0xFFFF ;#
-"43
-[; ;config-18f2550.h: 43: asm("\tglobal __config" "9"); asm("\t__config" "9" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config9 ;#
-[; 	__config9 equ 0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF ;#
-"45
-[; ;config-18f2550.h: 45: asm("\tglobal __config" "10"); asm("\t__config" "10" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config10 ;#
-[; 	__config10 equ 0xFFFF & 0xFFFF & 0xFFFF ;#
-"47
-[; ;config-18f2550.h: 47: asm("\tglobal __config" "11"); asm("\t__config" "11" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-[; 	global __config11 ;#
-[; 	__config11 equ 0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF ;#
-"49
-[; ;config-18f2550.h: 49: asm("\tglobal __config" "12"); asm("\t__config" "12" " equ " "0xFFFF");
-[; 	global __config12 ;#
-[; 	__config12 equ 0xFFFF ;#
 [; ;lib\tsmdelay.h: 49: typedef struct dvars {
 [; ;lib\tsmdelay.h: 50: unsigned char loop_x, loop_b, loop_c;
 [; ;lib\tsmdelay.h: 51: } dvars;
@@ -2252,9 +2188,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 88: msecs++;
 "88
 [e ++ _msecs -> -> -> 1 `i `l `ul ]
-[; ;LC-meter.c: 90: LATC1 = (((blink > 200)) == 0);
+[; ;LC-meter.c: 90: RC1 = (((blink > 200)) == 0);
 "90
-[e = _LATC1 == -> > -> _blink `ui -> -> 200 `i `ui `i -> 0 `i ]
+[e = _RC1 == -> > -> _blink `ui -> -> 200 `i `ui `i -> 0 `i ]
 [; ;LC-meter.c: 91: if(blink >= 400)
 "91
 [e $ ! >= -> _blink `ui -> -> 400 `i `ui 236  ]
@@ -2346,9 +2282,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 144: TRISC1 = 0;
 "144
 [e = _TRISC1 -> -> 0 `i `b ]
-[; ;LC-meter.c: 145: LATC1 = ((1) == 0);
+[; ;LC-meter.c: 145: RC1 = ((1) == 0);
 "145
-[e = _LATC1 == -> 1 `i -> 0 `i ]
+[e = _RC1 == -> 1 `i -> 0 `i ]
 [; ;LC-meter.c: 147: SSPEN = 0;
 "147
 [e = _SSPEN -> -> 0 `i `b ]
@@ -2364,42 +2300,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 163: TRISC2 = 1;
 "163
 [e = _TRISC2 -> -> 1 `i `b ]
-[; ;LC-meter.c: 173: TRISC4 = 1;
-[v _TRISC4 `i 1 s ]
+[; ;LC-meter.c: 173: TRISC |= (1 << 4);
 "173
-[e = _TRISC4 -> 1 `i ]
-[; ;LC-meter.c: 174: TRISC5 = 0;
-[v _TRISC5 `i 1 s ]
+[e =| _TRISC -> << -> 1 `i -> 4 `i `uc ]
+[; ;LC-meter.c: 174: TRISC &= ~(1 << 5);
 "174
-[e = _TRISC5 -> 0 `i ]
-[; ;LC-meter.c: 176: LATC5 = 0;
-[v _LATC5 `i 1 s ]
+[e =& _TRISC -> ~ << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 176: PORTC &= ~(1 << 5);
 "176
-[e = _LATC5 -> 0 `i ]
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 177: delay10ms(50);
 "177
 [e ( _delay10ms (1 -> -> 50 `i `us ]
-[; ;LC-meter.c: 178: LATC5 = 1;
+[; ;LC-meter.c: 178: PORTC |= (1 << 5);
 "178
-[e = _LATC5 -> 1 `i ]
+[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 179: delay10ms(50);
 "179
 [e ( _delay10ms (1 -> -> 50 `i `us ]
-[; ;LC-meter.c: 180: LATC5 = 0;
+[; ;LC-meter.c: 180: PORTC &= ~(1 << 5);
 "180
-[e = _LATC5 -> 0 `i ]
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 181: delay10ms(50);
 "181
 [e ( _delay10ms (1 -> -> 50 `i `us ]
-[; ;LC-meter.c: 182: LATC5 = 1;
+[; ;LC-meter.c: 182: PORTC |= (1 << 5);
 "182
-[e = _LATC5 -> 1 `i ]
+[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 183: delay10ms(50);
 "183
 [e ( _delay10ms (1 -> -> 50 `i `us ]
-[; ;LC-meter.c: 184: LATC5 = 0;
+[; ;LC-meter.c: 184: PORTC &= ~(1 << 5);
 "184
-[e = _LATC5 -> 0 `i ]
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 187: ser_init();
 "187
 [e ( _ser_init ..  ]
@@ -2426,10 +2359,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 230: ser_puts("...\r\n");
 "230
 [e ( _ser_puts (1 :s 1C ]
-[; ;LC-meter.c: 231: if(LATC4)
-[v _LATC4 `i 1 s ]
+[; ;LC-meter.c: 231: if(RC4)
 "231
-[e $ ! != _LATC4 -> 0 `i 246  ]
+[e $ ! _RC4 246  ]
 [; ;LC-meter.c: 232: measure_capacitance();
 "232
 [e ( _measure_capacitance ..  ]
@@ -2471,13 +2403,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _testloop ]
 [f ]
 "246
-[v F2695 `uc 1 s led ]
-[i F2695
+[v F2691 `uc 1 s led ]
+[i F2691
 -> -> 0 `i `uc
 ]
 "247
-[v F2696 `us 1 s prev_s ]
-[i F2696
+[v F2692 `us 1 s prev_s ]
+[i F2692
 -> -> 0 `i `us
 ]
 "248
@@ -2499,7 +2431,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _GIE -> -> 1 `i `b ]
 [; ;LC-meter.c: 284: if(s != prev_s) {
 "284
-[e $ ! != -> _s `ui -> F2696 `ui 249  ]
+[e $ ! != -> _s `ui -> F2692 `ui 249  ]
 {
 [; ;LC-meter.c: 286: format_number( s, 10, 0);
 "286
@@ -2509,7 +2441,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _ser_puts (1 :s 2C ]
 [; ;LC-meter.c: 291: prev_s = s;
 "291
-[e = F2696 _s ]
+[e = F2692 _s ]
 "292
 }
 [e :U 249 ]
@@ -2616,10 +2548,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "347
 [v _i `uc 1 a ]
 [; ;LC-meter.c: 347: unsigned char i;
-[; ;LC-meter.c: 360: LATC5 = 0;
-[v _LATC5 `i 1 s ]
+[; ;LC-meter.c: 360: PORTC &= ~(1 << 5);
 "360
-[e = _LATC5 -> 0 `i ]
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 362: F1 = (double)measure_freq();
 "362
 [e = _F1 -> ( _measure_freq ..  `d ]
@@ -2629,9 +2560,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 365: F1 = (double)measure_freq();
 "365
 [e = _F1 -> ( _measure_freq ..  `d ]
-[; ;LC-meter.c: 366: LATC5 = 1;
+[; ;LC-meter.c: 366: PORTC |= (1 << 5);
 "366
-[e = _LATC5 -> 1 `i ]
+[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 368: F2 = (double)measure_freq();
 "368
 [e = _F2 -> ( _measure_freq ..  `d ]
@@ -2641,9 +2572,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 371: F2 = (double)measure_freq();
 "371
 [e = _F2 -> ( _measure_freq ..  `d ]
-[; ;LC-meter.c: 372: LATC5 = 0;
+[; ;LC-meter.c: 372: PORTC &= ~(1 << 5);
 "372
-[e = _LATC5 -> 0 `i ]
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
 [; ;LC-meter.c: 384: ser_puts("\r\n");
 "384
 [e ( _ser_puts (1 :s 3C ]

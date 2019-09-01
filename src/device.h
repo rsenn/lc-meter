@@ -180,29 +180,29 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define CMCON CMCONbits.CM
 #endif
 #define SSPCONbits SSPCON1bits
-
-#define RA0 LATA0
-#define RA1 LATA1
-#define RA2 LATA2
-#define RA3 LATA3
-#define RA4 LATA4
-#define RA5 LATA5
-#define RB0 LATB0
-#define RB1 LATB1
-#define RB2 LATB2
-#define RB3 LATB3
-#define RB4 LATB4
-#define RB5 LATB5
-#define RB6 LATB6
-#define RB7 LATB7
-#define RC0 LATC0
-#define RC1 LATC1
-#define RC2 LATC2
-#define RC3 LATC3
-#define RC4 LATC4
-#define RC5 LATC5
-#define RC6 LATC6
-#define RC7 LATC7
+//
+//#define RA0 LATA0
+//#define RA1 LATA1
+//#define RA2 LATA2
+//#define RA3 LATA3
+//#define RA4 LATA4
+//#define RA5 LATA5
+//#define RB0 LATB0
+//#define RB1 LATB1
+//#define RB2 LATB2
+//#define RB3 LATB3
+//#define RB4 LATB4
+//#define RB5 LATB5
+//#define RB6 LATB6
+//#define RB7 LATB7
+//#define RC0 LATC0
+//#define RC1 LATC1
+//#define RC2 LATC2
+//#define RC3 LATC3
+//#define RC4 LATC4
+//#define RC5 LATC5
+//#define RC6 LATC6
+//#define RC7 LATC7
 
 #else
 #define T0PS OPTION_REGbits.PS

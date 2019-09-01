@@ -1,0 +1,1 @@
+ timer.d  timer.p1:  C:/Users/vboxuser/Desktop/lc-meter/lib/timer.c ../../lib/pwm.h ../../src/device.h C:/Users/vboxuser/Desktop/lc-meter/lib/timer.h ../../lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/typedef.h ../../lib/../src/device.h ../../lib/adc.h

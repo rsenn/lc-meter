@@ -2549,38 +2549,6 @@ void measure_capacitance(void);
 void measure_inductance(void);
 void delay10ms(unsigned short int period_10ms);
 
-# 23 "../../../src/config-18f252.h"
-asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "OSC_HSPLL& OSCS_OFF");
-asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xFFFF& BORV_27& 0xFFFE& 0xFEFF");
-asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "CCP2MUX_ON");
-asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFB");
-asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF");
-
-# 27 "../../../src/config-18f2550.h"
-asm("\tglobal __config" "1"); asm("\t__config" "1" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "2"); asm("\t__config" "2" " equ " "0xF6FF & 0xBFFF & 0xFFFF");
-
-asm("\tglobal __config" "3"); asm("\t__config" "3" " equ " "0xFFFE & 0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "4"); asm("\t__config" "4" " equ " "0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "5"); asm("\t__config" "5" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "6"); asm("\t__config" "6" " equ " "0xFFFF & 0xFFFB & 0xFFBF");
-
-asm("\tglobal __config" "7"); asm("\t__config" "7" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "8"); asm("\t__config" "8" " equ " "0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "9"); asm("\t__config" "9" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "10"); asm("\t__config" "10" " equ " "0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "11"); asm("\t__config" "11" " equ " "0xFFFF & 0xFFFF & 0xFFFF & 0xFFFF");
-
-asm("\tglobal __config" "12"); asm("\t__config" "12" " equ " "0xFFFF");
-
 # 49 "../../../lib\tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
@@ -2688,7 +2656,7 @@ bres -= 5000;
 msecpart++;
 msecs++;
 
-LATC1 = (((blink > 200)) == 0);
+RC1 = (((blink > 200)) == 0);
 if(blink >= 400)
 blink -= 400;
 ++blink;
@@ -2727,7 +2695,7 @@ RBPU = 1;
 
 # 144
 TRISC1 = 0;
-LATC1 = ((1) == 0);
+RC1 = ((1) == 0);
 
 SSPEN = 0;
 
@@ -2746,18 +2714,18 @@ TRISC0 = 1;
 TRISC2 = 1;
 
 # 173
-TRISC4 = 1;
-TRISC5 = 0;
+TRISC |= (1 << 4);
+TRISC &= ~(1 << 5);
 
-LATC5 = 0;
+PORTC &= ~(1 << 5);
 delay10ms(50);
-LATC5 = 1;
+PORTC |= (1 << 5);
 delay10ms(50);
-LATC5 = 0;
+PORTC &= ~(1 << 5);
 delay10ms(50);
-LATC5 = 1;
+PORTC |= (1 << 5);
 delay10ms(50);
-LATC5 = 0;
+PORTC &= ~(1 << 5);
 
 
 ser_init();
@@ -2778,7 +2746,7 @@ calibrate();
 for(;;) {
 
 ser_puts("...\r\n");
-if(LATC4)
+if(RC4)
 measure_capacitance();
 else
 measure_inductance();
@@ -2862,19 +2830,19 @@ calibrate() {
 unsigned char i;
 
 # 360
-LATC5 = 0;
+PORTC &= ~(1 << 5);
 
 F1 = (double)measure_freq();
 delay10ms(50);
 
 F1 = (double)measure_freq();
-LATC5 = 1;
+PORTC |= (1 << 5);
 
 F2 = (double)measure_freq();
 delay10ms(50);
 
 F2 = (double)measure_freq();
-LATC5 = 0;
+PORTC &= ~(1 << 5);
 
 # 384
 ser_puts("\r\n");

@@ -1,0 +1,1 @@
+ print.d  print.p1:  C:/Users/vboxuser/Desktop/lc-meter/src/print.c ../../lib/pwm.h C:/Users/vboxuser/Desktop/lc-meter/src/print.h ../../lib/oscillator.h ../../lib/format.h ../../lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/src/device.h ../../lib/../src/device.h ../../lib/adc.h ../../lib/const.h C:/Users/vboxuser/Desktop/lc-meter/src/LC-meter.h ../../lib/ser.h

@@ -2,9 +2,10 @@ build/default/production/_ext/1386528437/print.p1:	\
 	../../../lib\const.h	\
 	../../../lib\format.h	\
 	../../../src/print.h	\
+	../../../src/../lib/../src/device.h	\
 	../../../src/LC-meter.h	\
 	../../../lib\oscillator.h	\
 	../../../src/../src/device.h	\
 	../../../lib\typedef.h	\
-	../../../lib\../src/device.h	\
 	../../../lib\ser.h	\
+	../../../src/../lib/typedef.h	\

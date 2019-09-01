@@ -1,0 +1,1 @@
+ delay.d  delay.p1:  C:/Users/vboxuser/Desktop/lc-meter/lib/delay.c ../../lib/pwm.h ../../src/device.h C:/Users/vboxuser/Desktop/lc-meter/lib/tsmdelay.h C:/Users/vboxuser/Desktop/lc-meter/lib/oscillator.h ../../lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/delay.h ../../lib/../src/device.h ../../lib/adc.h

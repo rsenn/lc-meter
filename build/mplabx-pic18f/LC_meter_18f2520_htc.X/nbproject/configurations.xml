@@ -5,33 +5,44 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/comparator.h</itemPath>
+        <itemPath>../../../lib/const.h</itemPath>
+        <itemPath>../../../lib/delay.h</itemPath>
         <itemPath>../../../lib/format.h</itemPath>
         <itemPath>../../../lib/interrupt.h</itemPath>
+        <itemPath>../../../lib/lcd44780.h</itemPath>
         <itemPath>../../../lib/oscillator.h</itemPath>
         <itemPath>../../../lib/ser.h</itemPath>
+        <itemPath>../../../lib/timer.h</itemPath>
+        <itemPath>../../../lib/tsmdelay.h</itemPath>
+        <itemPath>../../../lib/typedef.h</itemPath>
         <itemPath>../../../lib/uart.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="src" projectFiles="true">
-        <itemPath>../../../src/config-bits.h</itemPath>
         <itemPath>../../../src/LC-meter.h</itemPath>
+        <itemPath>../../../src/config-18f2520.h</itemPath>
+        <itemPath>../../../src/config-bits.h</itemPath>
         <itemPath>../../../src/device.h</itemPath>
         <itemPath>../../../src/lcd44780-config.h</itemPath>
         <itemPath>../../../src/print.h</itemPath>
-        <itemPath>../../../src/config-18f2520.h</itemPath>
       </logicalFolder>
-    </logicalFolder>
-    <logicalFolder name="LinkerScript"
-                   displayName="Linker Files"
-                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../../../src/print.c</itemPath>
-      <itemPath>../../../lib/ser.c</itemPath>
-      <itemPath>../../../lib/timer.c</itemPath>
-      <itemPath>../../../lib/format.c</itemPath>
-      <itemPath>../../../src/LC-meter.c</itemPath>
+      <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/comparator.c</itemPath>
+        <itemPath>../../../lib/delay.c</itemPath>
+        <itemPath>../../../lib/format.c</itemPath>
+        <itemPath>../../../lib/lcd44780.c</itemPath>
+        <itemPath>../../../lib/ser.c</itemPath>
+        <itemPath>../../../lib/timer.c</itemPath>
+        <itemPath>../../../lib/uart.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="src" projectFiles="true">
+        <itemPath>../../../src/LC-meter.c</itemPath>
+        <itemPath>../../../src/print.c</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -40,9 +51,8 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../mplab</Elem>
-    <Elem>../../../src</Elem>
     <Elem>../../../lib</Elem>
+    <Elem>../../../src</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -85,26 +95,23 @@
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
       <HI-TECH-COMP>
-        <property key="define-macros"
-                  value="__HTC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__18f252=1"/>
-        <property key="extra-include-directories"
-                  value="../../mplab;.;../../../src;../../../lib"/>
-        <property key="identifier-length" value="255"/>
-        <property key="operation-mode" value="pro"/>
+        <property key="define-macros" value=""/>
+        <property key="extra-include-directories" value="..\..\..\lib;..\..\..\src"/>
+        <property key="identifier-length" value="31"/>
+        <property key="operation-mode" value="lite"/>
         <property key="optimization-assembler" value="true"/>
-        <property key="optimization-assembler-files" value="true"/>
+        <property key="optimization-assembler-files" value="false"/>
         <property key="optimization-debug" value="false"/>
         <property key="optimization-global" value="true"/>
-        <property key="optimization-level" value="3"/>
-        <property key="optimization-set" value="all"/>
-        <property key="optimization-speed" value="true"/>
-        <property key="preprocess-assembler" value="true"/>
+        <property key="optimization-level" value="9"/>
+        <property key="optimization-set" value="default"/>
+        <property key="optimization-speed" value="false"/>
+        <property key="preprocess-assembler" value="false"/>
         <property key="undefine-macros" value=""/>
         <property key="verbose" value="false"/>
-        <property key="warning-level" value="1"/>
+        <property key="warning-level" value="0"/>
         <property key="what-to-do" value="ignore"/>
         <property key="what-to-do-ex" value="ignore"/>
-        <appendMe value="--double=32"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
         <property key="additional-options-callgraph" value="std"/>
@@ -115,8 +122,8 @@
         <property key="additional-options-extend-address" value="false"/>
         <property key="additional-options-trace-type" value=""/>
         <property key="backup-reset-condition-flags" value="false"/>
-        <property key="calibrate-oscillator" value="false"/>
-        <property key="calibrate-oscillator-value" value="0x3400"/>
+        <property key="calibrate-oscillator" value="true"/>
+        <property key="calibrate-oscillator-value" value=""/>
         <property key="checksum-verification" value="false"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
@@ -126,8 +133,8 @@
         <property key="create-html-files" value="false"/>
         <property key="data-model-memory" value="large"/>
         <property key="data-model-ram" value=""/>
-        <property key="data-model-size-of-double" value="32"/>
-        <property key="data-model-size-of-float" value="32"/>
+        <property key="data-model-size-of-double" value="24"/>
+        <property key="data-model-size-of-float" value="24"/>
         <property key="data-model-strict" value="false"/>
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
@@ -140,7 +147,7 @@
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
-        <property key="format-hex-file-for-download" value="true"/>
+        <property key="format-hex-file-for-download" value="false"/>
         <property key="initialize-cp0" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="initialize-gprs" value="true"/>
@@ -156,7 +163,7 @@
         <property key="managed-stack" value="false"/>
         <property key="nmi-handler" value="true"/>
         <property key="optimal-performance" value="false"/>
-        <property key="program-the-device-with-default-config-words" value="true"/>
+        <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="soft-reset-handler" value="true"/>
         <property key="test-ram-on-startup" value="true"/>
         <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
@@ -183,7 +190,7 @@
         <property key="memories.instruction.ram.ranges"
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.ranges" value="0-1fff"/>
+        <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>

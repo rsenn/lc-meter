@@ -1973,9 +1973,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 166: extern volatile bit BF_x @ ((unsigned)&SSPSTAT*8)+0;
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
-[; ;lib\typedef.h: 52: typedef char BOOL;
-[; ;lib\typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;lib\typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char BOOL;
+[; ;typedef.h: 77: typedef void(putchar_fn)(char);
+[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void lcd_puts(const char*);
 [; ;print.h: 9: void print_digit(unsigned char line, unsigned char column, unsigned char digit);
