@@ -1,0 +1,227 @@
+
+
+HI-TECH Software LITE Macro Assembler (PIC18) V9.66 build 8870 
+                                                       Sun Sep 01 09:59:51 2019
+
+HI-TECH Software Omniscient Code Generator build 8870
+     1  000000                     opt subtitle "HI-TECH Software Omniscient Code G
+                                 enerator build 8870"
+     2                           
+     3                           	processor	18F2520
+     4  000000                     porta	equ	0F80h
+     5  000000                     portb	equ	0F81h
+     6  000000                     portc	equ	0F82h
+     7  000000                     portd	equ	0F83h
+     8  000000                     porte	equ	0F84h
+     9  000000                     lata	equ	0F89h
+    10  000000                     latb	equ	0F8Ah
+    11  000000                     latc	equ	0F8Bh
+    12  000000                     latd	equ	0F8Ch
+    13  000000                     late	equ	0F8Dh
+    14  000000                     trisa	equ	0F92h
+    15  000000                     trisb	equ	0F93h
+    16  000000                     trisc	equ	0F94h
+    17  000000                     trisd	equ	0F95h
+    18  000000                     trise	equ	0F96h
+    19  000000                     pie1	equ	0F9Dh
+    20  000000                     pir1	equ	0F9Eh
+    21  000000                     ipr1	equ	0F9Fh
+    22  000000                     pie2	equ	0FA0h
+    23  000000                     pir2	equ	0FA1h
+    24  000000                     ipr2	equ	0FA2h
+    25  000000                     t3con	equ	0FB1h
+    26  000000                     tmr3l	equ	0FB2h
+    27  000000                     tmr3h	equ	0FB3h
+    28  000000                     ccp1con	equ	0FBDh
+    29  000000                     ccpr1l	equ	0FBEh
+    30  000000                     ccpr1h	equ	0FBFh
+    31  000000                     adcon1	equ	0FC1h
+    32  000000                     adcon0	equ	0FC2h
+    33  000000                     adresl	equ	0FC3h
+    34  000000                     adresh	equ	0FC4h
+    35  000000                     sspcon2	equ	0FC5h
+    36  000000                     sspcon1	equ	0FC6h
+    37  000000                     sspstat	equ	0FC7h
+    38  000000                     sspadd	equ	0FC8h
+    39  000000                     sspbuf	equ	0FC9h
+    40  000000                     t2con	equ	0FCAh
+    41  000000                     pr2	equ	0FCBh
+    42  000000                     tmr2	equ	0FCCh
+    43  000000                     t1con	equ	0FCDh
+    44  000000                     tmr1l	equ	0FCEh
+    45  000000                     tmr1h	equ	0FCFh
+    46  000000                     rcon	equ	0FD0h
+    47  000000                     wdtcon	equ	0FD1h
+    48  000000                     lvdcon	equ	0FD2h
+    49  000000                     osccon	equ	0FD3h
+    50  000000                     t0con	equ	0FD5h
+    51  000000                     tmr0l	equ	0FD6h
+    52  000000                     tmr0h	equ	0FD7h
+    53  000000                     status	equ	0FD8h
+    54  000000                     fsr2	equ	0FD9h
+    55  000000                     fsr2l	equ	0FD9h
+    56  000000                     fsr2h	equ	0FDAh
+    57  000000                     plusw2	equ	0FDBh
+    58  000000                     preinc2	equ	0FDCh
+    59  000000                     postdec2	equ	0FDDh
+    60  000000                     postinc2	equ	0FDEh
+    61  000000                     indf2	equ	0FDFh
+    62  000000                     bsr	equ	0FE0h
+    63  000000                     fsr1	equ	0FE1h
+    64  000000                     fsr1l	equ	0FE1h
+    65  000000                     fsr1h	equ	0FE2h
+    66  000000                     plusw1	equ	0FE3h
+    67  000000                     preinc1	equ	0FE4h
+    68  000000                     postdec1	equ	0FE5h
+    69  000000                     postinc1	equ	0FE6h
+    70  000000                     indf1	equ	0FE7h
+    71  000000                     wreg	equ	0FE8h
+    72  000000                     fsr0	equ	0FE9h
+    73  000000                     fsr0l	equ	0FE9h
+    74  000000                     fsr0h	equ	0FEAh
+    75  000000                     plusw0	equ	0FEBh
+    76  000000                     preinc0	equ	0FECh
+    77  000000                     postdec0	equ	0FEDh
+    78  000000                     postinc0	equ	0FEEh
+    79  000000                     indf0	equ	0FEFh
+    80  000000                     intcon3	equ	0FF0h
+    81  000000                     intcon2	equ	0FF1h
+    82  000000                     intcon	equ	0FF2h
+    83  000000                     prod	equ	0FF3h
+    84  000000                     prodl	equ	0FF3h
+    85  000000                     prodh	equ	0FF4h
+    86  000000                     tablat	equ	0FF5h
+    87  000000                     tblptr	equ	0FF6h
+    88  000000                     tblptrl	equ	0FF6h
+    89  000000                     tblptrh	equ	0FF7h
+    90  000000                     tblptru	equ	0FF8h
+    91  000000                     pcl	equ	0FF9h
+    92  000000                     pclat	equ	0FFAh
+    93  000000                     pclath	equ	0FFAh
+    94  000000                     pclatu	equ	0FFBh
+    95  000000                     stkptr	equ	0FFCh
+    96  000000                     tosl	equ	0FFDh
+    97  000000                     tosh	equ	0FFEh
+    98  000000                     tosu	equ	0FFFh
+    99                           	global	__ramtop
+   100                           	global	__accesstop
+   101                           ;Data sizes: Strings 0, constant 57, data 2, bss
+                                  0, persistent 0 stack 0
+   102                           	global	_putchar_ptr
+   103                           	global	_putchar_ptr
+   104                                   psect   text0,class=CODE,space=0,reloc=2
+   105  000000                     _putchar_ptr  equ     2
+   106                           
+   107                           	opt lm
+   108                           
+   109                           	DABS	1,2,2	;_putchar_ptr
+   110                                   psect   idata,class=CODE,space=0
+   111                           	file	"../../../lib/format.c"
+   112                           	line	10
+   113                           
+   114                           ;initializer for _putchar_ptr
+   115  000000' 0000               	dw	(0)&0ffffh
+   116                                   psect   smallconst,class=SMALLCONST,spac
+                                 e=0,reloc=2
+   117  000000' 00                 	db	0	;reserve
+   118                           	global	F65
+   119                           	file	"C:\Program Files (x86)\HI-TECH Software\P
+                                 ICC-18\PRO\9.66\sources\exp.c"
+   120                           	line	17
+   121  000001'                    F65:
+   122  000001' 00                 	db	low(float24(1.0000000000000000))
+   123  000002' 80                 	db	high(float24(1.0000000000000000))
+   124  000003' 3F                 	db	low highword(float24(1.0000000000000000))
+   125  000004' 72                 	db	low(float24(0.69314718056000002))
+   126  000005' 31                 	db	high(float24(0.69314718056000002))
+   127  000006' 3F                 	db	low highword(float24(0.69314718056000002))
+   128  000007' FE                 	db	low(float24(0.24022650695000000))
+   129  000008' 75                 	db	high(float24(0.24022650695000000))
+   130  000009' 3E                 	db	low highword(float24(0.24022650695000000))
+   131  00000A' 58                 	db	low(float24(0.055504108944999998))
+   132  00000B' 63                 	db	high(float24(0.055504108944999998))
+   133  00000C' 3D                 	db	low highword(float24(0.055504108944999998))
+   134  00000D' 95                 	db	low(float24(0.0096181261778999997))
+   135  00000E' 1D                 	db	high(float24(0.0096181261778999997))
+   136  00000F' 3C                 	db	low highword(float24(0.0096181261778999997))
+   137  000010' C5                 	db	low(float24(0.0013333710529000000))
+   138  000011' AE                 	db	high(float24(0.0013333710529000000))
+   139  000012' 3A                 	db	low highword(float24(0.0013333710529000000))
+   140  000013' 79                 	db	low(float24(0.00015399104432000000))
+   141  000014' 21                 	db	high(float24(0.00015399104432000000))
+   142  000015' 39                 	db	low highword(float24(0.00015399104432000000)
+                                 )
+   143  000016' 94                 	db	low(float24(1.5327675256999998e-005))
+   144  000017' 80                 	db	high(float24(1.5327675256999998e-005))
+   145  000018' 37                 	db	low highword(float24(1.5327675256999998e-005
+                                 ))
+   146  000019' 93                 	db	low(float24(1.2485143336000000e-006))
+   147  00001A' A7                 	db	high(float24(1.2485143336000000e-006))
+   148  00001B' 35                 	db	low highword(float24(1.2485143336000000e-006
+                                 ))
+   149  00001C' 56                 	db	low(float24(1.3908092220999999e-007))
+   150  00001D' 15                 	db	high(float24(1.3908092220999999e-007))
+   151  00001E' 34                 	db	low highword(float24(1.3908092220999999e-007
+                                 ))
+   152                           	global	F64
+   153                           	file	"C:\Program Files (x86)\HI-TECH Software\P
+                                 ICC-18\PRO\9.66\sources\log.c"
+   154                           	line	9
+   155  00001F'                    F64:
+   156  00001F' 00                 	db	low(float24(0.00000000000000000))
+   157  000020' 00                 	db	high(float24(0.00000000000000000))
+   158  000021' 00                 	db	low highword(float24(0.00000000000000000))
+   159  000022' 00                 	db	low(float24(0.99999642389999999))
+   160  000023' 80                 	db	high(float24(0.99999642389999999))
+   161  000024' 3F                 	db	low highword(float24(0.99999642389999999))
+   162  000025' F0                 	db	low(float24(-0.49987412380000001))
+   163  000026' FF                 	db	high(float24(-0.49987412380000001))
+   164  000027' BE                 	db	low highword(float24(-0.49987412380000001))
+   165  000028' E2                 	db	low(float24(0.33179902579999998))
+   166  000029' A9                 	db	high(float24(0.33179902579999998))
+   167  00002A' 3E                 	db	low highword(float24(0.33179902579999998))
+   168  00002B' 83                 	db	low(float24(-0.24073380840000000))
+   169  00002C' 76                 	db	high(float24(-0.24073380840000000))
+   170  00002D' BE                 	db	low highword(float24(-0.24073380840000000))
+   171  00002E' AE                 	db	low(float24(0.16765407110000000))
+   172  00002F' 2B                 	db	high(float24(0.16765407110000000))
+   173  000030' 3E                 	db	low highword(float24(0.16765407110000000))
+   174  000031' 3C                 	db	low(float24(-0.095329389700000003))
+   175  000032' C3                 	db	high(float24(-0.095329389700000003))
+   176  000033' BD                 	db	low highword(float24(-0.095329389700000003))
+   177  000034' D2                 	db	low(float24(0.036088493700000002))
+   178  000035' 13                 	db	high(float24(0.036088493700000002))
+   179  000036' 3D                 	db	low highword(float24(0.036088493700000002))
+   180  000037' 78                 	db	low(float24(-0.0064535442000000004))
+   181  000038' D3                 	db	high(float24(-0.0064535442000000004))
+   182  000039' BB                 	db	low highword(float24(-0.0064535442000000004)
+                                 )
+   183                           	global	F65
+   184                           	global	F64
+   185                           	global	_errno
+   186                           	global	_errno
+   187  000000                     _errno  equ     0
+   188                           
+   189                           	DABS	1,0,2	;_errno
+   190  00003A' 00                 	db 0	; dummy byte at the end
+   191                           	psect	intsave_regs,class=BIGRAM,space=1
+   192                           	PSECT	rparam,class=COMRAM,space=1
+   193                           	GLOBAL	__Lrparam
+   194                           	FNCONF	rparam,??,?
+   195                           	GLOBAL	__Labsbss0
+   196  000000                     __Labsbss0	EQU	0
+   197                           	GLOBAL	__Habsbss0
+   198  000000                     __Habsbss0	EQU	2
+   199                           	GLOBAL	__Ldata0
+   200  000000                     __Ldata0	EQU	2
+   201                           	GLOBAL	__Hdata0
+   202  000000                     __Hdata0	EQU	4
+
+
+HI-TECH Software PICC-18 Macro Assembler V9.66 build 8870 
+Symbol Table                                           Sun Sep 01 09:59:51 2019
+
+         F64 00001F           F65 000001  _putchar_ptr 000002  
+      _errno 000000   __accesstop 000000*     __Hdata0 000004  
+    __Ldata0 000002      __ramtop 000000*   __Habsbss0 000002  
+  __Labsbss0 000000     __Lrparam 000000* 

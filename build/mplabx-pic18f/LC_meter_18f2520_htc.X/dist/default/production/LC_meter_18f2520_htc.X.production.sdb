@@ -1,0 +1,20 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2520 ]
+"6 ../../../lib/format.h
+[v F2105 `(v  1 t 0 ]
+[s S87 flt 3 `[1]uc 1 mant 1 0 `uc 1 hmant 1 1 :7:0 
+`uc 1 lexp 1 1 :1:7 
+`uc 1 hexp 1 2 :7:0 
+`uc 1 sign 1 2 :1:7 
+]
+[u S93 both 3 `S87 1 flt 3 0 `d 1 fl 3 0 ]
+"10 ../../../lib/format.c
+[v _putchar_ptr `*.f(v  1 e 2 @2 ]
+"22 /hitech/products/compilers/pic18/pro/9.66/dist/linux/include/errno.h
+[v _errno `i  1 e 2 @0 ]
+"17 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\sources\exp.c
+[v F65 `DC[10]d  1 s 30 coeff ]
+"9 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\sources\log.c
+[v F64 `DC[9]d  1 s 27 coeff ]
