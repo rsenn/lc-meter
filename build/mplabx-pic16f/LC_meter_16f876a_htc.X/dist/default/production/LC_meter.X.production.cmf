@@ -1,0 +1,1335 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production/LC_meter.X.production.obj
+cinit CODE 0 7DA 7DA 26 2
+text1 CODE 0 246 246 63 2
+text2 CODE 0 226 226 20 2
+text3 CODE 0 58 58 6A8 2
+text4 CODE 0 ACE ACE 532 2
+text5 CODE 0 7D7 7D7 1 2
+text6 CODE 0 7D8 7D8 1 2
+text7 CODE 0 1D8 1D8 4E 2
+text8 CODE 0 1A55 1A55 8C 2
+text9 CODE 0 1A4 1A4 34 2
+text10 CODE 0 166 166 3E 2
+text11 CODE 0 15F3 15F3 20D 2
+text12 CODE 0 13F5 13F5 1FE 2
+text13 CODE 0 880 880 24E 2
+text14 CODE 0 1E0F 1E0F F8 2
+text15 CODE 0 187C 187C B 2
+text16 CODE 0 1058 1058 10F 2
+text17 CODE 0 19CF 19CF 86 2
+text18 CODE 0 1887 1887 54 2
+text19 CODE 0 13E 13E 28 2
+text20 CODE 0 1C57 1C57 D2 2
+text21 CODE 0 121 121 1D 2
+text22 CODE 0 7D9 7D9 1 2
+text23 CODE 0 105 105 1C 2
+text24 CODE 0 FB FB A 2
+text25 CODE 0 1001 1001 57 2
+text26 CODE 0 129A 129A 15B 2
+text27 CODE 0 13 13 45 2
+text28 CODE 0 1D29 1D29 E6 2
+text29 CODE 0 1F07 1F07 F9 2
+text30 CODE 0 1167 1167 133 2
+text31 CODE 0 1954 1954 7B 2
+text32 CODE 0 D1 D1 2A 2
+text33 CODE 0 12 12 1 2
+text34 CODE 0 1B93 1B93 C4 2
+text35 CODE 0 AE AE 23 2
+text36 CODE 0 18DB 18DB 79 2
+text37 CODE 0 3E 3E 70 2
+text38 CODE 0 1B 1B 23 2
+text39 CODE 0 0 0 1B 2
+text40 CODE 0 802 802 7E 2
+text41 CODE 0 1AE1 1AE1 B2 2
+nvBANK3 BANK3 1 1E7 1E7 8 1
+idataCOMMON CODE 0 7D5 7D5 1 2
+maintext CODE 0 70F 70F C6 2
+cstackCOMMON COMMON 1 70 70 5 1
+cstackBANK0 BANK0 1 20 20 50 1
+cstackBANK1 BANK1 1 A0 A0 4E 1
+cstackBANK3 BANK3 1 190 190 38 1
+intentry CODE 0 0 0 E 2
+bssBANK1 BANK1 1 EE EE 1 1
+bssBANK2 BANK2 1 110 110 20 1
+bssBANK3 BANK3 1 1C8 1C8 1F 1
+idataBANK1 CODE 0 7D6 7D6 1 2
+strings STRING 0 1800 1800 7C 2
+dataBANK1 BANK1 1 EF EF 1 1
+dataCOMMON COMMON 1 79 79 1 1
+functab CODE 0 700 700 F 2
+clrtext CODE 0 2A9 2A9 8 2
+bssCOMMON COMMON 1 75 75 4 1
+$/tmp/cgtZWcDLI.obj
+end_init CODE 0 E E 4 2
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 130-16F 1
+RAM 1EF-1EF 1
+BANK2 130-16F 1
+BANK3 1EF-1EF 1
+CONST 800-801 2
+CONST 1000-1000 2
+ENTRY 800-801 2
+ENTRY 1000-1000 2
+IDLOC 2000-2003 2
+CODE 800-801 2
+CODE 1000-1000 2
+SFR0 0-1F 1
+SFR1 80-9F 1
+SFR2 100-10F 1
+SFR3 180-18F 1
+COMMON 7A-7D 1
+CONFIG 2007-2007 2
+EEDATA 2100-21FF 2
+STRCODE 800-801 2
+STRCODE 1000-1000 2
+STRING 800-801 2
+STRING 1000-1000 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production/LC_meter.X.production.obj
+0 intentry CODE >79:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+0 text39 CODE >28:/opt/microchip/xc8/v1.34/sources/common/lwtofl.c
+0 text39 CODE >30:/opt/microchip/xc8/v1.34/sources/common/lwtofl.c
+12 text33 CODE >469:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+12 text33 CODE >490:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+13 text27 CODE >254:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+13 text27 CODE >256:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1B text38 CODE >15:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+1B text38 CODE >43:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+1B text27 CODE >257:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1F text38 CODE >45:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+21 text38 CODE >46:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+21 text27 CODE >258:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+27 text38 CODE >47:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+2A text27 CODE >261:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+2E text38 CODE >48:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+35 text38 CODE >49:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+39 text38 CODE >52:/opt/microchip/xc8/v1.34/sources/common/Umul16.c
+39 text27 CODE >262:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+3E text37 CODE >533:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+3E text37 CODE >538:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+42 text37 CODE >540:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+45 text27 CODE >263:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+52 text27 CODE >268:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+56 text27 CODE >269:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+57 text27 CODE >273:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+58 text3 CODE >470:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+58 text3 CODE >480:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+5C text37 CODE >545:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+69 text3 CODE >482:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+85 text37 CODE >549:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+86 text37 CODE >550:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+90 text3 CODE >483:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+A4 text37 CODE >551:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+A7 text37 CODE >552:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+A8 text37 CODE >553:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+AC text37 CODE >554:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+AD text37 CODE >553:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+AE text35 CODE >92:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+B1 text35 CODE >93:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+C5 text3 CODE >484:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+CF text3 CODE >486:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+D1 text32 CODE >31:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+D1 text32 CODE >36:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+D4 text32 CODE >37:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+D6 text32 CODE >38:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+DB text32 CODE >39:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+DF text32 CODE >41:/opt/microchip/xc8/v1.34/sources/common/awtofl.c
+FB text24 CODE >48:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+FB text24 CODE >54:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+104 text24 CODE >56:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+105 text23 CODE >82:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+105 text23 CODE >83:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+10B text23 CODE >84:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+10C text23 CODE >85:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+116 text23 CODE >86:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+11C text23 CODE >87:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+11F text23 CODE >88:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+120 text23 CODE >89:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+121 text21 CODE >30:/opt/microchip/xc8/v1.34/sources/common/lltofl.c
+121 text21 CODE >32:/opt/microchip/xc8/v1.34/sources/common/lltofl.c
+13E text19 CODE >18:/opt/microchip/xc8/v1.34/sources/common/flsub.c
+13E text19 CODE >23:/opt/microchip/xc8/v1.34/sources/common/flsub.c
+146 text19 CODE >24:/opt/microchip/xc8/v1.34/sources/common/flsub.c
+148 text19 CODE >28:/opt/microchip/xc8/v1.34/sources/common/flsub.c
+166 text10 CODE >6:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+166 text10 CODE >14:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+16A text10 CODE >15:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+16E text10 CODE >16:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+170 text10 CODE >17:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+172 text10 CODE >18:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+179 text10 CODE >19:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+17D text10 CODE >17:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+17E text10 CODE >22:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+185 text10 CODE >23:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+18D text10 CODE >24:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+193 text10 CODE >25:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+194 text10 CODE >27:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+19B text10 CODE >28:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+19F text10 CODE >30:/opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+1A4 text9 CODE >6:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1A4 text9 CODE >13:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1AA text9 CODE >14:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1AC text9 CODE >15:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1AE text9 CODE >16:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1B5 text9 CODE >17:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1B9 text9 CODE >15:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1BA text9 CODE >20:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1C2 text9 CODE >21:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1C8 text9 CODE >22:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1CF text9 CODE >23:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1D3 text9 CODE >25:/opt/microchip/xc8/v1.34/sources/common/lwmod.c
+1D8 text7 CODE >48:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1D8 text7 CODE >49:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1E4 text7 CODE >50:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1F0 text7 CODE >51:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+214 text7 CODE >52:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+225 text7 CODE >53:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+226 text2 CODE >125:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+226 text2 CODE >128:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+229 text2 CODE >129:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+22C text2 CODE >131:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+22F text2 CODE >136:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+231 text2 CODE >139:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+232 text2 CODE >140:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+235 text2 CODE >142:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+238 text2 CODE >143:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+23B text2 CODE >144:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+23C text2 CODE >145:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+23F text2 CODE >147:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+240 text2 CODE >148:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+241 text2 CODE >150:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+245 text2 CODE >151:/home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+246 text1 CODE >81:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+249 text1 CODE >82:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+24E text1 CODE >83:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+24F text1 CODE >86:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+258 text1 CODE >87:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+269 text1 CODE >88:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+27A text1 CODE >90:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+28B text1 CODE >91:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+29C text1 CODE >93:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+29D text1 CODE >95:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+29E text1 CODE >97:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+29F text1 CODE >98:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+2A8 text1 CODE >99:/home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+2A9 clrtext CODE >1152:/tmp/cgtPMBnxH
+2A9 clrtext CODE >1153:/tmp/cgtPMBnxH
+2AA clrtext CODE >1154:/tmp/cgtPMBnxH
+2AA clrtext CODE >1155:/tmp/cgtPMBnxH
+2AB clrtext CODE >1156:/tmp/cgtPMBnxH
+2AC clrtext CODE >1157:/tmp/cgtPMBnxH
+2AD clrtext CODE >1158:/tmp/cgtPMBnxH
+2AE clrtext CODE >1159:/tmp/cgtPMBnxH
+2AF clrtext CODE >1160:/tmp/cgtPMBnxH
+2B0 clrtext CODE >1161:/tmp/cgtPMBnxH
+2E0 text3 CODE >488:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+4ED text3 CODE >490:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+553 text3 CODE >492:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+57C text3 CODE >493:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+5A5 text3 CODE >494:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+5CE text3 CODE >495:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+60D text3 CODE >496:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+60E text3 CODE >497:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+60F text3 CODE >498:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+64E text3 CODE >499:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+650 text3 CODE >501:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+651 text3 CODE >502:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+690 text3 CODE >503:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+692 text3 CODE >506:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+698 text3 CODE >508:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+6D7 text3 CODE >509:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+6EA text3 CODE >511:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+6F9 text3 CODE >512:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+6FF text3 CODE >513:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+700 functab CODE >17121:/tmp/cgtPMBnxH
+700 functab CODE >17123:/tmp/cgtPMBnxH
+700 functab CODE >17124:/tmp/cgtPMBnxH
+700 functab CODE >17125:/tmp/cgtPMBnxH
+701 functab CODE >17126:/tmp/cgtPMBnxH
+702 functab CODE >17127:/tmp/cgtPMBnxH
+703 functab CODE >17128:/tmp/cgtPMBnxH
+704 functab CODE >17129:/tmp/cgtPMBnxH
+705 functab CODE >17131:/tmp/cgtPMBnxH
+705 functab CODE >17132:/tmp/cgtPMBnxH
+706 functab CODE >17135:/tmp/cgtPMBnxH
+706 functab CODE >17136:/tmp/cgtPMBnxH
+706 functab CODE >17138:/tmp/cgtPMBnxH
+709 functab CODE >17141:/tmp/cgtPMBnxH
+709 functab CODE >17142:/tmp/cgtPMBnxH
+709 functab CODE >17144:/tmp/cgtPMBnxH
+70C functab CODE >17147:/tmp/cgtPMBnxH
+70C functab CODE >17148:/tmp/cgtPMBnxH
+70F maintext CODE >115:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+70F maintext CODE >116:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+729 maintext CODE >118:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+731 maintext CODE >125:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+735 maintext CODE >127:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+737 maintext CODE >129:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+738 maintext CODE >130:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+739 maintext CODE >141:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+73A maintext CODE >144:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+73B maintext CODE >145:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+73E maintext CODE >147:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+73F maintext CODE >152:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+745 maintext CODE >157:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+748 maintext CODE >160:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+749 maintext CODE >162:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+74A maintext CODE >163:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+74B maintext CODE >173:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+74C maintext CODE >174:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+74D maintext CODE >176:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+750 maintext CODE >177:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+759 maintext CODE >178:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+75C maintext CODE >179:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+765 maintext CODE >180:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+768 maintext CODE >181:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+771 maintext CODE >182:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+774 maintext CODE >183:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+77D maintext CODE >184:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+780 maintext CODE >187:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+785 maintext CODE >192:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+78B maintext CODE >194:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+78C maintext CODE >195:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+78D maintext CODE >214:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+798 maintext CODE >217:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+79D maintext CODE >230:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7A3 maintext CODE >231:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7A7 maintext CODE >232:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7AD maintext CODE >234:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7B2 maintext CODE >236:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7B8 maintext CODE >237:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7C3 maintext CODE >238:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7C9 maintext CODE >239:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7D4 maintext CODE >240:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+7D7 text5 CODE >408:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+7D7 text5 CODE >426:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+7D8 text6 CODE >429:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+7D8 text6 CODE >465:/home/roman/Dokumente/Sources/lc-meter/src/print.c
+7D9 text22 CODE >6:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+7D9 text22 CODE >8:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+7DA cinit CODE >1063:/tmp/cgtPMBnxH
+7DA cinit CODE >1066:/tmp/cgtPMBnxH
+7DA cinit CODE >1165:/tmp/cgtPMBnxH
+7DB cinit CODE >1166:/tmp/cgtPMBnxH
+7DC cinit CODE >1167:/tmp/cgtPMBnxH
+7DD cinit CODE >1168:/tmp/cgtPMBnxH
+7DE cinit CODE >1171:/tmp/cgtPMBnxH
+7DF cinit CODE >1172:/tmp/cgtPMBnxH
+7E0 cinit CODE >1173:/tmp/cgtPMBnxH
+7E1 cinit CODE >1176:/tmp/cgtPMBnxH
+7E2 cinit CODE >1177:/tmp/cgtPMBnxH
+7E3 cinit CODE >1178:/tmp/cgtPMBnxH
+7E4 cinit CODE >1179:/tmp/cgtPMBnxH
+7E5 cinit CODE >1180:/tmp/cgtPMBnxH
+7EA cinit CODE >1183:/tmp/cgtPMBnxH
+7EB cinit CODE >1184:/tmp/cgtPMBnxH
+7EC cinit CODE >1185:/tmp/cgtPMBnxH
+7ED cinit CODE >1186:/tmp/cgtPMBnxH
+7F2 cinit CODE >1191:/tmp/cgtPMBnxH
+7F7 cinit CODE >1192:/tmp/cgtPMBnxH
+7F8 cinit CODE >1196:/tmp/cgtPMBnxH
+7FB cinit CODE >1197:/tmp/cgtPMBnxH
+7FC cinit CODE >1203:/tmp/cgtPMBnxH
+7FC cinit CODE >1204:/tmp/cgtPMBnxH
+7FD cinit CODE >1205:/tmp/cgtPMBnxH
+802 text40 CODE >63:/opt/microchip/xc8/v1.34/sources/common/double.c
+802 text40 CODE >65:/opt/microchip/xc8/v1.34/sources/common/double.c
+80D text40 CODE >66:/opt/microchip/xc8/v1.34/sources/common/double.c
+816 text40 CODE >68:/opt/microchip/xc8/v1.34/sources/common/double.c
+81A text40 CODE >69:/opt/microchip/xc8/v1.34/sources/common/double.c
+823 text40 CODE >67:/opt/microchip/xc8/v1.34/sources/common/double.c
+828 text40 CODE >72:/opt/microchip/xc8/v1.34/sources/common/double.c
+82C text40 CODE >73:/opt/microchip/xc8/v1.34/sources/common/double.c
+83A text40 CODE >74:/opt/microchip/xc8/v1.34/sources/common/double.c
+843 text40 CODE >71:/opt/microchip/xc8/v1.34/sources/common/double.c
+843 text40 CODE >75:/opt/microchip/xc8/v1.34/sources/common/double.c
+848 text40 CODE >76:/opt/microchip/xc8/v1.34/sources/common/double.c
+84C text40 CODE >77:/opt/microchip/xc8/v1.34/sources/common/double.c
+84E text40 CODE >78:/opt/microchip/xc8/v1.34/sources/common/double.c
+857 text40 CODE >76:/opt/microchip/xc8/v1.34/sources/common/double.c
+859 text40 CODE >80:/opt/microchip/xc8/v1.34/sources/common/double.c
+85B text40 CODE >81:/opt/microchip/xc8/v1.34/sources/common/double.c
+863 text40 CODE >82:/opt/microchip/xc8/v1.34/sources/common/double.c
+865 text40 CODE >83:/opt/microchip/xc8/v1.34/sources/common/double.c
+87B text40 CODE >84:/opt/microchip/xc8/v1.34/sources/common/double.c
+87E text40 CODE >85:/opt/microchip/xc8/v1.34/sources/common/double.c
+87F text40 CODE >87:/opt/microchip/xc8/v1.34/sources/common/double.c
+880 text13 CODE >12:/opt/microchip/xc8/v1.34/sources/common/exp.c
+880 text13 CODE >31:/opt/microchip/xc8/v1.34/sources/common/exp.c
+888 text13 CODE >32:/opt/microchip/xc8/v1.34/sources/common/exp.c
+891 text13 CODE >34:/opt/microchip/xc8/v1.34/sources/common/exp.c
+8BA text13 CODE >35:/opt/microchip/xc8/v1.34/sources/common/exp.c
+8C0 text13 CODE >36:/opt/microchip/xc8/v1.34/sources/common/exp.c
+8CA text13 CODE >38:/opt/microchip/xc8/v1.34/sources/common/exp.c
+8F1 text13 CODE >39:/opt/microchip/xc8/v1.34/sources/common/exp.c
+8F7 text13 CODE >40:/opt/microchip/xc8/v1.34/sources/common/exp.c
+902 text13 CODE >43:/opt/microchip/xc8/v1.34/sources/common/exp.c
+931 text13 CODE >44:/opt/microchip/xc8/v1.34/sources/common/exp.c
+934 text13 CODE >45:/opt/microchip/xc8/v1.34/sources/common/exp.c
+967 text13 CODE >46:/opt/microchip/xc8/v1.34/sources/common/exp.c
+9A6 text13 CODE >47:/opt/microchip/xc8/v1.34/sources/common/exp.c
+9D0 text13 CODE >48:/opt/microchip/xc8/v1.34/sources/common/exp.c
+A1E text13 CODE >49:/opt/microchip/xc8/v1.34/sources/common/exp.c
+A70 text13 CODE >50:/opt/microchip/xc8/v1.34/sources/common/exp.c
+A73 text13 CODE >52:/opt/microchip/xc8/v1.34/sources/common/exp.c
+A8B text13 CODE >53:/opt/microchip/xc8/v1.34/sources/common/exp.c
+A94 text13 CODE >54:/opt/microchip/xc8/v1.34/sources/common/exp.c
+ACD text13 CODE >57:/opt/microchip/xc8/v1.34/sources/common/exp.c
+ACE text4 CODE >392:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+ACE text4 CODE >403:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+ADF text4 CODE >405:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B06 text4 CODE >407:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B0C text4 CODE >408:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B12 text4 CODE >409:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B25 text4 CODE >410:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B2B text4 CODE >411:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B3A text4 CODE >412:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B47 text4 CODE >413:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B64 text4 CODE >414:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B6A text4 CODE >415:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B79 text4 CODE >416:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+B86 text4 CODE >417:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BA3 text4 CODE >418:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BA9 text4 CODE >419:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BB8 text4 CODE >420:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BC5 text4 CODE >421:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BE2 text4 CODE >422:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BE8 text4 CODE >423:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+BF7 text4 CODE >424:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C04 text4 CODE >425:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C21 text4 CODE >426:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C27 text4 CODE >428:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C2D text4 CODE >430:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C64 text4 CODE >431:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+C6E text4 CODE >433:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+DF9 text4 CODE >437:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+DFF text4 CODE >438:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E0E text4 CODE >439:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E1B text4 CODE >440:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E38 text4 CODE >441:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E3E text4 CODE >443:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E67 text4 CODE >444:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+E90 text4 CODE >445:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+EB9 text4 CODE >446:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+EF8 text4 CODE >447:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+EFA text4 CODE >449:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+F39 text4 CODE >450:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+F3B text4 CODE >453:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+F7A text4 CODE >454:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+F7C text4 CODE >457:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+F84 text4 CODE >459:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+FC3 text4 CODE >460:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+FEA text4 CODE >462:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+FF9 text4 CODE >463:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+FFF text4 CODE >464:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1001 text25 CODE >39:/opt/microchip/xc8/v1.34/sources/common/log.c
+1001 text25 CODE >41:/opt/microchip/xc8/v1.34/sources/common/log.c
+1058 text16 CODE >13:/opt/microchip/xc8/v1.34/sources/common/floor.c
+1058 text16 CODE >18:/opt/microchip/xc8/v1.34/sources/common/floor.c
+107D text16 CODE >19:/opt/microchip/xc8/v1.34/sources/common/floor.c
+1081 text16 CODE >20:/opt/microchip/xc8/v1.34/sources/common/floor.c
+10A6 text16 CODE >21:/opt/microchip/xc8/v1.34/sources/common/floor.c
+10B1 text16 CODE >22:/opt/microchip/xc8/v1.34/sources/common/floor.c
+10BC text16 CODE >24:/opt/microchip/xc8/v1.34/sources/common/floor.c
+10C3 text16 CODE >26:/opt/microchip/xc8/v1.34/sources/common/floor.c
+10E9 text16 CODE >27:/opt/microchip/xc8/v1.34/sources/common/floor.c
+111E text16 CODE >28:/opt/microchip/xc8/v1.34/sources/common/floor.c
+115C text16 CODE >29:/opt/microchip/xc8/v1.34/sources/common/floor.c
+1167 text30 CODE >88:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1167 text30 CODE >92:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1177 text30 CODE >93:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1185 text30 CODE >94:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1194 text30 CODE >95:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+119D text30 CODE >96:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11AC text30 CODE >98:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B0 text30 CODE >99:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B1 text30 CODE >100:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B2 text30 CODE >101:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B3 text30 CODE >102:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B4 text30 CODE >103:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11B5 text30 CODE >104:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11BD text30 CODE >105:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11BE text30 CODE >106:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11C6 text30 CODE >108:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11CA text30 CODE >112:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11D3 text30 CODE >113:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11D5 text30 CODE >114:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11E0 text30 CODE >116:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11E9 text30 CODE >117:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11ED text30 CODE >115:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11F2 text30 CODE >119:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11F6 text30 CODE >123:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+11FF text30 CODE >124:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1201 text30 CODE >125:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+120C text30 CODE >127:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1215 text30 CODE >128:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1219 text30 CODE >126:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+121D text30 CODE >131:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+121F text30 CODE >133:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1227 text30 CODE >134:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1235 text30 CODE >136:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1237 text30 CODE >138:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+123F text30 CODE >139:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+124D text30 CODE >141:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+124E text30 CODE >142:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1262 text30 CODE >143:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+1264 text30 CODE >144:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+126C text30 CODE >145:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+127A text30 CODE >146:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+127C text30 CODE >148:/opt/microchip/xc8/v1.34/sources/common/fladd.c
+129A text26 CODE >5:/opt/microchip/xc8/v1.34/sources/common/log.c
+129A text26 CODE >24:/opt/microchip/xc8/v1.34/sources/common/log.c
+12C1 text26 CODE >25:/opt/microchip/xc8/v1.34/sources/common/log.c
+12C7 text26 CODE >26:/opt/microchip/xc8/v1.34/sources/common/log.c
+12D2 text26 CODE >28:/opt/microchip/xc8/v1.34/sources/common/log.c
+12DA text26 CODE >29:/opt/microchip/xc8/v1.34/sources/common/log.c
+12E0 text26 CODE >30:/opt/microchip/xc8/v1.34/sources/common/log.c
+12EB text26 CODE >32:/opt/microchip/xc8/v1.34/sources/common/log.c
+1354 text26 CODE >33:/opt/microchip/xc8/v1.34/sources/common/log.c
+135C text26 CODE >34:/opt/microchip/xc8/v1.34/sources/common/log.c
+1399 text26 CODE >35:/opt/microchip/xc8/v1.34/sources/common/log.c
+13F5 text12 CODE >5:/opt/microchip/xc8/v1.34/sources/common/pow.c
+13F5 text12 CODE >7:/opt/microchip/xc8/v1.34/sources/common/pow.c
+13F8 text12 CODE >10:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1400 text12 CODE >11:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1429 text12 CODE >12:/opt/microchip/xc8/v1.34/sources/common/pow.c
+142F text12 CODE >13:/opt/microchip/xc8/v1.34/sources/common/pow.c
+142F text12 CODE >14:/opt/microchip/xc8/v1.34/sources/common/pow.c
+143A text12 CODE >16:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1440 text12 CODE >17:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1449 text12 CODE >18:/opt/microchip/xc8/v1.34/sources/common/pow.c
+146E text12 CODE >19:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1495 text12 CODE >20:/opt/microchip/xc8/v1.34/sources/common/pow.c
+14D0 text12 CODE >21:/opt/microchip/xc8/v1.34/sources/common/pow.c
+14D6 text12 CODE >22:/opt/microchip/xc8/v1.34/sources/common/pow.c
+14E1 text12 CODE >24:/opt/microchip/xc8/v1.34/sources/common/pow.c
+14EC text12 CODE >25:/opt/microchip/xc8/v1.34/sources/common/pow.c
+1521 text12 CODE >27:/opt/microchip/xc8/v1.34/sources/common/pow.c
+15BA text12 CODE >28:/opt/microchip/xc8/v1.34/sources/common/pow.c
+15BF text12 CODE >29:/opt/microchip/xc8/v1.34/sources/common/pow.c
+15F2 text12 CODE >31:/opt/microchip/xc8/v1.34/sources/common/pow.c
+15F3 text11 CODE >74:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+15F3 text11 CODE >75:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+162B text11 CODE >79:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1668 text11 CODE >80:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+16D0 text11 CODE >81:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+175F text11 CODE >82:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+17D4 text11 CODE >83:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+17E3 text11 CODE >84:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+17E9 text11 CODE >85:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+17F7 text11 CODE >86:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+17FF text11 CODE >79:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+187C text15 CODE >15:/opt/microchip/xc8/v1.34/sources/common/flneg.c
+187C text15 CODE >17:/opt/microchip/xc8/v1.34/sources/common/flneg.c
+1884 text15 CODE >18:/opt/microchip/xc8/v1.34/sources/common/flneg.c
+1886 text15 CODE >20:/opt/microchip/xc8/v1.34/sources/common/flneg.c
+1887 text18 CODE >36:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+1887 text18 CODE >40:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+188A text18 CODE >41:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+188C text18 CODE >42:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+1897 text18 CODE >43:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+1899 text18 CODE >45:/opt/microchip/xc8/v1.34/sources/common/altofl.c
+18DB text36 CODE >299:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18DB text36 CODE >303:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18DC text36 CODE >305:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18E4 text36 CODE >308:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18EF text36 CODE >310:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18F2 text36 CODE >312:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+18F7 text36 CODE >313:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1900 text36 CODE >312:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+190A text36 CODE >315:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+190D text36 CODE >317:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1913 text36 CODE >318:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1915 text36 CODE >322:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1918 text36 CODE >323:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1919 text36 CODE >324:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+191A text36 CODE >326:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+191D text36 CODE >327:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+191E text36 CODE >328:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+191F text36 CODE >329:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1927 text36 CODE >330:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1932 text36 CODE >333:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+194F text36 CODE >340:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1954 text31 CODE >4:/opt/microchip/xc8/v1.34/sources/common/flge.c
+1954 text31 CODE >6:/opt/microchip/xc8/v1.34/sources/common/flge.c
+1958 text31 CODE >7:/opt/microchip/xc8/v1.34/sources/common/flge.c
+1989 text31 CODE >8:/opt/microchip/xc8/v1.34/sources/common/flge.c
+198B text31 CODE >9:/opt/microchip/xc8/v1.34/sources/common/flge.c
+19BC text31 CODE >10:/opt/microchip/xc8/v1.34/sources/common/flge.c
+19BE text31 CODE >11:/opt/microchip/xc8/v1.34/sources/common/flge.c
+19C0 text31 CODE >12:/opt/microchip/xc8/v1.34/sources/common/flge.c
+19CF text17 CODE >43:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+19CF text17 CODE >47:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+19E2 text17 CODE >48:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+19EB text17 CODE >49:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A00 text17 CODE >50:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A01 text17 CODE >51:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A09 text17 CODE >52:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A0B text17 CODE >53:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A0D text17 CODE >54:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A12 text17 CODE >55:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A1B text17 CODE >57:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A24 text17 CODE >58:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A2B text17 CODE >60:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A2F text17 CODE >61:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A38 text17 CODE >63:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A41 text17 CODE >64:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A43 text17 CODE >62:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A43 text17 CODE >65:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A46 text17 CODE >67:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A49 text17 CODE >68:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A54 text17 CODE >70:/opt/microchip/xc8/v1.34/sources/common/fltol.c
+1A55 text8 CODE >14:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A55 text8 CODE >17:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A58 text8 CODE >18:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A5C text8 CODE >20:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A5E text8 CODE >21:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A60 text8 CODE >22:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A64 text8 CODE >34:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A7A text8 CODE >35:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1A94 text8 CODE >37:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1AAA text8 CODE >38:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1AAF text8 CODE >40:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1AC6 text8 CODE >42:/home/roman/Dokumente/Sources/lc-meter/lib/format.c
+1AE1 text41 CODE >79:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AE1 text41 CODE >81:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AE3 text41 CODE >83:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AEB text41 CODE >85:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AF2 text41 CODE >86:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AF8 text41 CODE >87:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1AFE text41 CODE >88:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B0C text41 CODE >90:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B1A text41 CODE >91:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B23 text41 CODE >92:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B29 text41 CODE >93:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B2F text41 CODE >96:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B36 text41 CODE >98:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B44 text41 CODE >99:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B4A text41 CODE >103:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B4D text41 CODE >106:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B87 text41 CODE >111:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B93 text34 CODE >347:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B93 text34 CODE >361:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1B96 text34 CODE >363:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1BBE text34 CODE >364:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1BC9 text34 CODE >366:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1BF1 text34 CODE >367:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1BF4 text34 CODE >369:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C1C text34 CODE >370:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C27 text34 CODE >372:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C4F text34 CODE >373:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C52 text34 CODE >385:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C56 text34 CODE >386:/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+1C57 text20 CODE >56:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C57 text20 CODE >63:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C6A text20 CODE >64:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C73 text20 CODE >65:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C84 text20 CODE >66:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C8D text20 CODE >67:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1C92 text20 CODE >68:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CA7 text20 CODE >69:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CBC text20 CODE >70:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CC0 text20 CODE >71:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CC1 text20 CODE >72:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CC9 text20 CODE >73:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CCA text20 CODE >74:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CD2 text20 CODE >75:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CD6 text20 CODE >77:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CDF text20 CODE >78:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CEF text20 CODE >79:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CFD text20 CODE >80:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1CFE text20 CODE >82:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1D07 text20 CODE >83:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1D0B text20 CODE >84:/opt/microchip/xc8/v1.34/sources/common/fldiv.c
+1D29 text28 CODE >4:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1D29 text28 CODE >8:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1D5C text28 CODE >10:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1D5D text28 CODE >9:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1D63 text28 CODE >10:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1DF5 text28 CODE >9:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1DF6 text28 CODE >11:/opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+1E0F text14 CODE >277:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E0F text14 CODE >279:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E17 text14 CODE >280:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E20 text14 CODE >282:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E35 text14 CODE >283:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E48 text14 CODE >287:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E4A text14 CODE >288:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E50 text14 CODE >289:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E5B text14 CODE >291:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E66 text14 CODE >292:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E6C text14 CODE >293:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1E93 text14 CODE >294:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1ECF text14 CODE >296:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1EDA text14 CODE >300:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1EF4 text14 CODE >301:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1F06 text14 CODE >307:/opt/microchip/xc8/v1.34/sources/common/frexp.c
+1F07 text29 CODE >62:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F07 text29 CODE >67:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F1A text29 CODE >68:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F23 text29 CODE >69:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F34 text29 CODE >70:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F3D text29 CODE >71:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F42 text29 CODE >72:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F57 text29 CODE >73:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F6C text29 CODE >74:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F70 text29 CODE >75:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F71 text29 CODE >77:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F72 text29 CODE >78:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F7A text29 CODE >79:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F82 text29 CODE >197:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F86 text29 CODE >199:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F88 text29 CODE >200:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1F9C text29 CODE >201:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FA5 text29 CODE >202:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FAE text29 CODE >203:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FB2 text29 CODE >206:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FB6 text29 CODE >208:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FB8 text29 CODE >209:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FCC text29 CODE >210:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FD5 text29 CODE >211:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FDE text29 CODE >212:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+1FE2 text29 CODE >219:/opt/microchip/xc8/v1.34/sources/common/flmul.c
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__end_of_indicator 26 0 CODE 0 text33 dist/default/production/LC_meter.X.production.obj
+___latbits 2 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___lwmod@counter 25 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__LdataBANK1 562 0 ABS 0 dataBANK1 -
+__size_of_indicator 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__Hspace_0 2000 0 ABS 0 - -
+__Hspace_1 1EF 0 ABS 0 - -
+__Hspace_2 0 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__HidataBANK1 562 0 ABS 0 idataBANK1 -
+frexp@eptr 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+_putchar_ptr 79 0 COMMON 1 dataCOMMON dist/default/production/LC_meter.X.production.obj
+_F1 1E3 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+_F2 1C8 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+_F3 1CC 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+ltemp0 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ltemp1 82 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ltemp2 86 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ltemp3 80 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+?_exp D2 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?_log A9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?_pow E2 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__Hstrings 0 0 ABS 0 strings -
+_indicator 24 0 CODE 0 text33 dist/default/production/LC_meter.X.production.obj
+_BRGH 4C2 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_CCal 1E7 0 BANK3 1 nvBANK3 dist/default/production/LC_meter.X.production.obj
+_CREN C4 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_OERR C1 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_PEIE 5E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RCIF 65 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_SPEN C7 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_T0CS 40D 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_T0SE 40C 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_SYNC 4C4 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TMR0 1 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TMR2 11 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TXEN 4C5 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TXIE 464 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TXIF 64 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___sp 0 0 STACK 2 stack /tmp/cgtZWcDLI.obj
+_bres 1EB 0 BANK3 1 nvBANK3 dist/default/production/LC_meter.X.production.obj
+_main E1E 0 CODE 0 maintext dist/default/production/LC_meter.X.production.obj
+_measure_inductance$813 C9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$814 DA 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$815 DE 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$816 E2 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$817 CD 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$818 D1 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_inductance$819 D5 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+btemp 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+exp@x D2 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+log@x A9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+ltemp 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+format_number@base 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__end_of_format_number 35C2 0 CODE 0 text8 dist/default/production/LC_meter.X.production.obj
+pow@x E2 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+pow@y E6 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+start 1C 0 CODE 0 init /tmp/cgtZWcDLI.obj
+ttemp 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___flmul@cntr 50 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flmul@sign 51 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__pfunctab E00 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+__size_of___fladd 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___fldiv 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___flmul 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___flneg 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___flsub 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___fltol 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_format_xint32 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__HbssCOMMON 562 0 ABS 0 bssCOMMON -
+pow@yi 199 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+?___wmul 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__LidataBANK1 562 0 ABS 0 idataBANK1 -
+__Hpowerup 0 0 CODE 0 powerup -
+__size_of_format_putchar 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+log@coeff 305C 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+_print_unit FAE 0 CODE 0 text5 dist/default/production/LC_meter.X.production.obj
+ttemp0 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ttemp1 81 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ttemp2 84 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ttemp3 87 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+ttemp4 7F 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__HdataCOMMON 562 0 ABS 0 dataCOMMON -
+intlevel0 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+intlevel1 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+intlevel2 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+intlevel3 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+intlevel4 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+intlevel5 E00 0 CODE 0 functab /tmp/cgtZWcDLI.obj
+__LbssCOMMON 562 0 ABS 0 bssCOMMON -
+__end_oflog@coeff 30A4 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+wtemp0 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp1 80 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp2 82 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp3 84 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp4 86 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp5 88 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+wtemp6 7F 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_of_format_xint32 44C 0 CODE 0 text7 dist/default/production/LC_meter.X.production.obj
+__Hfunctab E1E 0 CODE 0 functab -
+_TOUTPS0 93 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TOUTPS1 94 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TOUTPS2 95 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_freq@count 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_timer2_init 48C 0 CODE 0 text1 dist/default/production/LC_meter.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext -
+__pidataCOMMON FAA 0 CODE 0 idataCOMMON dist/default/production/LC_meter.X.production.obj
+___wmul@multiplicand 22 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_format_number$126 4F 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+measure_capacitance@unit 1C1 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__size_of___altofl 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__LdataCOMMON 562 0 ABS 0 dataCOMMON -
+__size_of___awtofl 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___altofl@c C0 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__end_of___flge 339E 0 CODE 0 text31 dist/default/production/LC_meter.X.production.obj
+__end_of___wmul 7C 0 CODE 0 text38 dist/default/production/LC_meter.X.production.obj
+__Lmaintext 0 0 ABS 0 maintext -
+___fldiv@cntr 3B 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fldiv@sign 3D 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__LnvBANK3 562 0 ABS 0 nvBANK3 -
+__end_of_print_unit FB0 0 CODE 0 text5 dist/default/production/LC_meter.X.production.obj
+__size_of___flpack 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___lwmod@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__end_of___fladd 2534 0 CODE 0 text30 dist/default/production/LC_meter.X.production.obj
+__end_of___fldiv 3A52 0 CODE 0 text20 dist/default/production/LC_meter.X.production.obj
+__end_of___flmul 4000 0 CODE 0 text29 dist/default/production/LC_meter.X.production.obj
+__end_of___flneg 310E 0 CODE 0 text15 dist/default/production/LC_meter.X.production.obj
+__end_of___flsub 2CC 0 CODE 0 text19 dist/default/production/LC_meter.X.production.obj
+__end_of___fltol 34AA 0 CODE 0 text17 dist/default/production/LC_meter.X.production.obj
+__end_of___lwdiv 348 0 CODE 0 text10 dist/default/production/LC_meter.X.production.obj
+__end_of___lwmod 3B0 0 CODE 0 text9 dist/default/production/LC_meter.X.production.obj
+format_double@weight 1AD 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+delay10ms@run 30 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?_eval_poly 66 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___lwdiv@quotient 26 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__LidataCOMMON 562 0 ABS 0 idataCOMMON -
+__size_of_floor 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_frexp 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_ldexp 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_log10 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_msecpart 1ED 0 BANK3 1 nvBANK3 dist/default/production/LC_meter.X.production.obj
+__size_of___lltofl 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___lwtofl 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___lwmod@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+timer2_init@postscaler 23 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+start_initialization FB4 0 CODE 0 cinit dist/default/production/LC_meter.X.production.obj
+pow@sign 198 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+___altofl 310E 0 CODE 0 text18 dist/default/production/LC_meter.X.production.obj
+___awtofl 1A2 0 CODE 0 text32 dist/default/production/LC_meter.X.production.obj
+__end_of___altofl 31B6 0 CODE 0 text18 dist/default/production/LC_meter.X.production.obj
+__end_of___awtofl 1F6 0 CODE 0 text32 dist/default/production/LC_meter.X.production.obj
+clear_ram0 552 0 CODE 0 clrtext dist/default/production/LC_meter.X.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__pcstackBANK3 190 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_TMR0IF 5A 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TMR2IE 461 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TMR2IF 61 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TMR2ON 92 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_of_ser_putch 242 0 CODE 0 text23 dist/default/production/LC_meter.X.production.obj
+_TRISC0 438 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC1 439 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC2 43A 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC3 43B 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC4 43C 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC5 43D 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC6 43E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_of_measure_inductance E00 0 CODE 0 text3 dist/default/production/LC_meter.X.production.obj
+___lltofl@c 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flpack 1004 0 CODE 0 text40 dist/default/production/LC_meter.X.production.obj
+__size_of_ser_putch 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_inductance@numerator C1 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_freq 31B6 0 CODE 0 text36 dist/default/production/LC_meter.X.production.obj
+___int_sp 0 0 STACK 2 stack /tmp/cgtZWcDLI.obj
+__end_of___flpack 1100 0 CODE 0 text40 dist/default/production/LC_meter.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 -
+__Hbank1 0 0 ABS 0 bank1 -
+__Hbank2 0 0 ABS 0 bank2 -
+__Hbank3 0 0 ABS 0 bank3 -
+__Hcinit 1000 0 CODE 0 cinit -
+exp@exponent DF 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc -
+__Hstack 0 0 STACK 2 stack -
+__stringbase 300A 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+___lwdiv@counter 25 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Hmaintext 0 0 ABS 0 maintext -
+_ser_putch 20A 0 CODE 0 text23 dist/default/production/LC_meter.X.production.obj
+___lltofl 242 0 CODE 0 text21 dist/default/production/LC_meter.X.production.obj
+__Hcommon 0 0 ABS 0 common -
+__Hconfig 0 0 CONFIG 0 config -
+___lwtofl 0 0 CODE 0 text39 dist/default/production/LC_meter.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 -
+__Lbank1 0 0 ABS 0 bank1 -
+__Lbank2 0 0 ABS 0 bank2 -
+__Lbank3 0 0 ABS 0 bank3 -
+__Lcinit FB4 0 CODE 0 cinit -
+__Lidloc 0 0 IDLOC 0 idloc -
+__Lstack 0 0 STACK 2 stack -
+__size_of__fptable 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_measure_inductance B0 0 CODE 0 text3 dist/default/production/LC_meter.X.production.obj
+__end_of___lltofl 27C 0 CODE 0 text21 dist/default/production/LC_meter.X.production.obj
+___flmul@exp 4B 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__end_of___lwtofl 36 0 CODE 0 text39 dist/default/production/LC_meter.X.production.obj
+__Habs1 0 0 ABS 0 abs1 -
+__Hcode 0 0 ABS 0 code -
+__Hinit 1C 0 CODE 0 init -
+__Hsfr0 0 0 ABS 0 sfr0 -
+__Hsfr1 0 0 ABS 0 sfr1 -
+__Hsfr2 0 0 ABS 0 sfr2 -
+__Hsfr3 0 0 ABS 0 sfr3 -
+__Htext 0 0 ABS 0 text -
+__Labs1 0 0 ABS 0 abs1 -
+__Lcode 0 0 ABS 0 code -
+__Linit 1C 0 CODE 0 init -
+__Lsfr0 0 0 ABS 0 sfr0 -
+__Lsfr1 0 0 ABS 0 sfr1 -
+__Lsfr2 0 0 ABS 0 sfr2 -
+__Lsfr3 0 0 ABS 0 sfr3 -
+__Ltext 0 0 ABS 0 text -
+__pnvBANK3 1E7 0 BANK3 1 nvBANK3 dist/default/production/LC_meter.X.production.obj
+___flge 32A8 0 CODE 0 text31 dist/default/production/LC_meter.X.production.obj
+___wmul 36 0 CODE 0 text38 dist/default/production/LC_meter.X.production.obj
+__LcstackBANK0 552 0 ABS 0 cstackBANK0 -
+__LcstackBANK1 552 0 ABS 0 cstackBANK1 -
+__LcstackBANK3 552 0 ABS 0 cstackBANK3 -
+format_xint32@x 54 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__HcstackCOMMON 552 0 ABS 0 cstackCOMMON -
+_GIE 5F 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RC3 3B 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RC4 3C 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RC5 3D 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RC7 3F 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_RX9 C6 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TX9 4C6 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__S0 2000 0 ABS 0 - -
+__S1 1EF 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+_exp 1100 0 CODE 0 text13 dist/default/production/LC_meter.X.production.obj
+_isr 35C2 0 CODE 0 text41 dist/default/production/LC_meter.X.production.obj
+_log 2534 0 CODE 0 text26 dist/default/production/LC_meter.X.production.obj
+_pow 27EA 0 CODE 0 text12 dist/default/production/LC_meter.X.production.obj
+__size_of_measure_capacitance 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+format_double@num 19D 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__size_of_measure_freq 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_freq@i 29 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+saved_w 7E 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_freq@prev 28 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+eval_poly@res A5 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+___awtofl@c 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__HidataCOMMON 562 0 ABS 0 idataCOMMON -
+log10@x AD 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__end_of_exp 159C 0 CODE 0 text13 dist/default/production/LC_meter.X.production.obj
+__end_of_isr 3726 0 CODE 0 text41 dist/default/production/LC_meter.X.production.obj
+__end_of_log 27EA 0 CODE 0 text26 dist/default/production/LC_meter.X.production.obj
+__end_of_pow 2BE6 0 CODE 0 text12 dist/default/production/LC_meter.X.production.obj
+__HnvBANK3 562 0 ABS 0 nvBANK3 -
+__Lintentry 0 0 CODE 0 intentry -
+___flmul@f3_as_product 4C 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__size_of_print_unit 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__stringtab 3000 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+_format_putchar FB2 0 CODE 0 text22 dist/default/production/LC_meter.X.production.obj
+__end_of_measure_freq 32A8 0 CODE 0 text36 dist/default/production/LC_meter.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/cgtZWcDLI.obj
+__end_of_timer2_init 552 0 CODE 0 text1 dist/default/production/LC_meter.X.production.obj
+__fptable E00 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+__pdataBANK1 EF 0 BANK1 1 dataBANK1 dist/default/production/LC_meter.X.production.obj
+__size_of___flge 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of___wmul 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__LbssBANK1 562 0 ABS 0 bssBANK1 -
+__LbssBANK2 562 0 ABS 0 bssBANK2 -
+__LbssBANK3 562 0 ABS 0 bssBANK3 -
+?___altofl C0 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?___awtofl 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+entry__output_putch E0C 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+__end_of__fptable E1E 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+floor@expon D0 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_measure_capacitance 159C 0 CODE 0 text4 dist/default/production/LC_meter.X.production.obj
+_output_putch 1F6 0 CODE 0 text24 dist/default/production/LC_meter.X.production.obj
+?_measure_freq 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+measure_inductance@denominator C5 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__ptext10 2CC 0 CODE 0 text10 dist/default/production/LC_meter.X.production.obj
+__ptext11 2BE6 0 CODE 0 text11 dist/default/production/LC_meter.X.production.obj
+__ptext12 27EA 0 CODE 0 text12 dist/default/production/LC_meter.X.production.obj
+__ptext13 1100 0 CODE 0 text13 dist/default/production/LC_meter.X.production.obj
+__ptext14 3C1E 0 CODE 0 text14 dist/default/production/LC_meter.X.production.obj
+__ptext15 30F8 0 CODE 0 text15 dist/default/production/LC_meter.X.production.obj
+__ptext16 20B0 0 CODE 0 text16 dist/default/production/LC_meter.X.production.obj
+__ptext17 339E 0 CODE 0 text17 dist/default/production/LC_meter.X.production.obj
+__ptext18 310E 0 CODE 0 text18 dist/default/production/LC_meter.X.production.obj
+__ptext19 27C 0 CODE 0 text19 dist/default/production/LC_meter.X.production.obj
+__ptext20 38AE 0 CODE 0 text20 dist/default/production/LC_meter.X.production.obj
+__ptext21 242 0 CODE 0 text21 dist/default/production/LC_meter.X.production.obj
+__ptext22 FB2 0 CODE 0 text22 dist/default/production/LC_meter.X.production.obj
+__ptext23 20A 0 CODE 0 text23 dist/default/production/LC_meter.X.production.obj
+__ptext24 1F6 0 CODE 0 text24 dist/default/production/LC_meter.X.production.obj
+__ptext25 2002 0 CODE 0 text25 dist/default/production/LC_meter.X.production.obj
+__ptext26 2534 0 CODE 0 text26 dist/default/production/LC_meter.X.production.obj
+__ptext27 26 0 CODE 0 text27 dist/default/production/LC_meter.X.production.obj
+__ptext28 3A52 0 CODE 0 text28 dist/default/production/LC_meter.X.production.obj
+__ptext29 3E0E 0 CODE 0 text29 dist/default/production/LC_meter.X.production.obj
+__ptext30 22CE 0 CODE 0 text30 dist/default/production/LC_meter.X.production.obj
+__ptext31 32A8 0 CODE 0 text31 dist/default/production/LC_meter.X.production.obj
+__ptext32 1A2 0 CODE 0 text32 dist/default/production/LC_meter.X.production.obj
+__ptext33 24 0 CODE 0 text33 dist/default/production/LC_meter.X.production.obj
+__ptext34 3726 0 CODE 0 text34 dist/default/production/LC_meter.X.production.obj
+__ptext35 15C 0 CODE 0 text35 dist/default/production/LC_meter.X.production.obj
+__ptext36 31B6 0 CODE 0 text36 dist/default/production/LC_meter.X.production.obj
+__ptext37 7C 0 CODE 0 text37 dist/default/production/LC_meter.X.production.obj
+__ptext38 36 0 CODE 0 text38 dist/default/production/LC_meter.X.production.obj
+__ptext39 0 0 CODE 0 text39 dist/default/production/LC_meter.X.production.obj
+__ptext40 1004 0 CODE 0 text40 dist/default/production/LC_meter.X.production.obj
+__ptext41 35C2 0 CODE 0 text41 dist/default/production/LC_meter.X.production.obj
+___fladd 22CE 0 CODE 0 text30 dist/default/production/LC_meter.X.production.obj
+___fldiv 38AE 0 CODE 0 text20 dist/default/production/LC_meter.X.production.obj
+___flmul 3E0E 0 CODE 0 text29 dist/default/production/LC_meter.X.production.obj
+___flneg 30F8 0 CODE 0 text15 dist/default/production/LC_meter.X.production.obj
+___flsub 27C 0 CODE 0 text19 dist/default/production/LC_meter.X.production.obj
+___fltol 339E 0 CODE 0 text17 dist/default/production/LC_meter.X.production.obj
+__size_of_ser_init 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_ser_puts 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___lwdiv 2CC 0 CODE 0 text10 dist/default/production/LC_meter.X.production.obj
+___lwmod 348 0 CODE 0 text9 dist/default/production/LC_meter.X.production.obj
+output_putch@c 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__pmaintext E1E 0 CODE 0 maintext dist/default/production/LC_meter.X.production.obj
+?___flpack 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Lcommon 0 0 ABS 0 common -
+__Lconfig 0 0 CONFIG 0 config -
+__CFG_CP$OFF 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_ldexp$498 AF 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___wmul@multiplier 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fldiv@exp 3C 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_exp$592 DB 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_exp$823 D7 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_rxfifo 110 0 BANK2 1 bssBANK2 dist/default/production/LC_meter.X.production.obj
+_rxiptr 75 0 COMMON 1 bssCOMMON dist/default/production/LC_meter.X.production.obj
+_rxoptr 76 0 COMMON 1 bssCOMMON dist/default/production/LC_meter.X.production.obj
+___fladd@f1 56 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fladd@f2 5A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___lwdiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+print_reading@measurement 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_txfifo 120 0 BANK2 1 bssBANK2 dist/default/production/LC_meter.X.production.obj
+_txiptr 77 0 COMMON 1 bssCOMMON dist/default/production/LC_meter.X.production.obj
+_txoptr 78 0 COMMON 1 bssCOMMON dist/default/production/LC_meter.X.production.obj
+__end_of_format_putchar FB4 0 CODE 0 text22 dist/default/production/LC_meter.X.production.obj
+___lwtofl@c 2C 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_print_reading FB0 0 CODE 0 text6 dist/default/production/LC_meter.X.production.obj
+stackhi 0 0 ABS 0 - /tmp/cgtZWcDLI.obj
+stacklo 0 0 ABS 0 - /tmp/cgtZWcDLI.obj
+__end_of_calibrate 38AE 0 CODE 0 text34 dist/default/production/LC_meter.X.production.obj
+_seconds 1D4 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+?___lltofl 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fldiv@f1 2E 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fldiv@f2 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fldiv@f3 37 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__end_of_eval_poly 3C1E 0 CODE 0 text28 dist/default/production/LC_meter.X.production.obj
+__size_of_calibrate 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+?___lwtofl 2C 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_ser_brg EF 0 BANK1 1 dataBANK1 dist/default/production/LC_meter.X.production.obj
+_ser_tmp EE 0 BANK1 1 bssBANK1 dist/default/production/LC_meter.X.production.obj
+__end_of__stringtab 300C 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_format_double 2BE6 0 CODE 0 text11 dist/default/production/LC_meter.X.production.obj
+__size_of_eval_poly 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+format_double@digit 1B1 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__size_of_output_putch 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+floor@i CC 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+floor@x C7 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_2 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__pbssCOMMON 75 0 COMMON 1 bssCOMMON dist/default/production/LC_meter.X.production.obj
+timer2_init@ps_mode 21 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__HcstackBANK0 552 0 ABS 0 cstackBANK0 -
+__HcstackBANK1 552 0 ABS 0 cstackBANK1 -
+__HcstackBANK3 552 0 ABS 0 cstackBANK3 -
+___flge@ff1 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flge@ff2 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Lend_init 1C 0 CODE 0 end_init -
+__LcstackCOMMON 552 0 ABS 0 cstackCOMMON -
+___fltol@exp1 BF 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_log10$820 B1 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+end_of_initialization FF8 0 CODE 0 cinit dist/default/production/LC_meter.X.production.obj
+__Hintentry 1C 0 CODE 0 intentry -
+_calibrate 3726 0 CODE 0 text34 dist/default/production/LC_meter.X.production.obj
+timer2_init@ps 22 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+fptable E00 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+fptotal 6 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_ser_init 44C 0 CODE 0 text2 dist/default/production/LC_meter.X.production.obj
+_ser_puts 15C 0 CODE 0 text35 dist/default/production/LC_meter.X.production.obj
+___flpack@sign 25 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Lstrings 0 0 ABS 0 strings -
+_eval_poly 3A52 0 CODE 0 text28 dist/default/production/LC_meter.X.production.obj
+ser_putch@c 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___lwdiv@dividend 22 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___fladd 56 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___fldiv 2A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___flmul 3E 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___flneg 52 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___flsub 66 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___fltol B5 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?___lwdiv 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?___lwmod 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flpack@arg 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flpack@exp 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+entry__ser_putch E12 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+_format_double$140 1A9 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_format_double$808 1A1 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_format_double$809 1A5 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__Hreset_vec 0 0 CODE 0 reset_vec -
+ldexp@value A9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__end_of_delay10ms 15C 0 CODE 0 text37 dist/default/production/LC_meter.X.production.obj
+__HbssBANK1 562 0 ABS 0 bssBANK1 -
+__HbssBANK2 562 0 ABS 0 bssBANK2 -
+__HbssBANK3 562 0 ABS 0 bssBANK3 -
+__end_of_output_putch 20A 0 CODE 0 text24 dist/default/production/LC_meter.X.production.obj
+__size_of_delay10ms 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_of_ser_init 48C 0 CODE 0 text2 dist/default/production/LC_meter.X.production.obj
+__end_of_ser_puts 1A2 0 CODE 0 text35 dist/default/production/LC_meter.X.production.obj
+___flmul@f1 3E 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flmul@f2 42 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_measure_capacitance$810 1B5 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_measure_capacitance$811 1B9 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_measure_capacitance$812 1BD 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+___flneg@f1 52 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__ptext1 48C 0 CODE 0 text1 dist/default/production/LC_meter.X.production.obj
+__ptext2 44C 0 CODE 0 text2 dist/default/production/LC_meter.X.production.obj
+__ptext3 B0 0 CODE 0 text3 dist/default/production/LC_meter.X.production.obj
+__ptext4 159C 0 CODE 0 text4 dist/default/production/LC_meter.X.production.obj
+__ptext5 FAE 0 CODE 0 text5 dist/default/production/LC_meter.X.production.obj
+__ptext6 FB0 0 CODE 0 text6 dist/default/production/LC_meter.X.production.obj
+__ptext7 3B0 0 CODE 0 text7 dist/default/production/LC_meter.X.production.obj
+__ptext8 34AA 0 CODE 0 text8 dist/default/production/LC_meter.X.production.obj
+__ptext9 348 0 CODE 0 text9 dist/default/production/LC_meter.X.production.obj
+format_number@di 52 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_format_number 34AA 0 CODE 0 text8 dist/default/production/LC_meter.X.production.obj
+___altofl@sign C6 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+delay10ms@ms 2C 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Lpowerup 0 0 CODE 0 powerup -
+__end_of_measure_capacitance 2000 0 CODE 0 text4 dist/default/production/LC_meter.X.production.obj
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+___fladd@exp1 65 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fladd@exp2 64 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fladd@sign 63 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fltol@sign1 BE 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+ser_puts@s 27 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_delay10ms 7C 0 CODE 0 text37 dist/default/production/LC_meter.X.production.obj
+__size_of_measure_inductance 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+exp@sign E1 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec -
+_timer1of 1D8 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+eval_poly@d 6A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+eval_poly@n 6B 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+eval_poly@x 66 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+measure_capacitance@Cin 1C4 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+measure_capacitance@var 1C2 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__CFG_FOSC$HS 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+___flsub@f1 6A 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___flsub@f2 66 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+format_number@padchar 51 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+___fltol@f1 B5 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__size_of_timer2_init 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_of__initialization FF8 0 CODE 0 cinit dist/default/production/LC_meter.X.production.obj
+format_number@i 53 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+format_number@n 28 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__Lfunctab E00 0 CODE 0 functab -
+frexp@value 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+?_floor C7 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?_frexp 20 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__pidataBANK1 FAC 0 CODE 0 idataBANK1 dist/default/production/LC_meter.X.production.obj
+?_ldexp A9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+?_log10 AD 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext -
+_format_xint32 3B0 0 CODE 0 text7 dist/default/production/LC_meter.X.production.obj
+__size_of_print_reading 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_inductance@Lin E8 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+measure_inductance@var E6 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_pow$821 190 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+_pow$822 194 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+format_double@m 1B3 0 BANK3 1 cstackBANK3 dist/default/production/LC_meter.X.production.obj
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/LC_meter.X.production.obj
+_T2CKPS0 90 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_T2CKPS1 91 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_format_double 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__Hend_init 24 0 CODE 0 end_init -
+__end_of_main FAA 0 CODE 0 maintext dist/default/production/LC_meter.X.production.obj
+delay10ms@period_10ms 26 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+_CMCON 9C 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+log@exponent 6E 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__end_of_floor 22CE 0 CODE 0 text16 dist/default/production/LC_meter.X.production.obj
+__end_of_frexp B0 0 CODE 0 text27 dist/default/production/LC_meter.X.production.obj
+__end_of_ldexp 3E0E 0 CODE 0 text14 dist/default/production/LC_meter.X.production.obj
+__end_of_log10 20B0 0 CODE 0 text25 dist/default/production/LC_meter.X.production.obj
+_RCREG 1A 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_SPBRG 99 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_SSPEN A5 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISA 85 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TRISC 87 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_TXREG 19 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__Hram 0 0 ABS 0 ram -
+__Lram 0 0 ABS 0 ram -
+_blink 1DC 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+interrupt_function 0 0 CODE 0 intentry dist/default/production/LC_meter.X.production.obj
+_errno 1DE 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+_floor 20B0 0 CODE 0 text16 dist/default/production/LC_meter.X.production.obj
+_frexp 26 0 CODE 0 text27 dist/default/production/LC_meter.X.production.obj
+_ldexp 3C1E 0 CODE 0 text14 dist/default/production/LC_meter.X.production.obj
+_log10 2002 0 CODE 0 text25 dist/default/production/LC_meter.X.production.obj
+ldexp@newexp AD 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+_nRBPU 40F 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+_msecs 1D0 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__pintentry 0 0 CODE 0 intentry dist/default/production/LC_meter.X.production.obj
+exp@coeff 300C 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+format_number@buf 2F 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+format_number@pad 2B 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__size_of_exp 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_isr 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_log 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__size_of_pow 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__HdataBANK1 562 0 ABS 0 dataBANK1 -
+__end_of_print_reading FB2 0 CODE 0 text6 dist/default/production/LC_meter.X.production.obj
+__initialization FB4 0 CODE 0 cinit dist/default/production/LC_meter.X.production.obj
+__pbssBANK1 EE 0 BANK1 1 bssBANK1 dist/default/production/LC_meter.X.production.obj
+__pbssBANK2 110 0 BANK2 1 bssBANK2 dist/default/production/LC_meter.X.production.obj
+__pbssBANK3 1C8 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+__pdataCOMMON 79 0 COMMON 1 dataCOMMON dist/default/production/LC_meter.X.production.obj
+___awtofl@sign 30 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+__CFG_WRT$OFF 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+__end_ofexp@coeff 305C 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+__pstrings 3000 0 STRING 0 strings dist/default/production/LC_meter.X.production.obj
+__end_of_format_double 3000 0 CODE 0 text11 dist/default/production/LC_meter.X.production.obj
+___wmul@product 24 0 BANK0 1 cstackBANK0 dist/default/production/LC_meter.X.production.obj
+testloop@prev_s 1E0 0 BANK3 1 bssBANK3 dist/default/production/LC_meter.X.production.obj
+__size_of_format_number 0 0 ABS 0 - dist/default/production/LC_meter.X.production.obj
+measure_inductance@unit D9 0 BANK1 1 cstackBANK1 dist/default/production/LC_meter.X.production.obj
+fpbase E0A 0 CODE 0 functab dist/default/production/LC_meter.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+- 1 7E 2
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cinit 0 7DA FB4 26 2
+text3 0 58 B0 6A8 2
+text4 0 ACE 159C 532 2
+text8 0 1A55 34AA 8C 2
+text11 0 15F3 2BE6 20D 2
+text12 0 13F5 27EA 1FE 2
+text13 0 880 1100 24E 2
+text14 0 1E0F 3C1E F8 2
+text15 0 187C 30F8 B 2
+text16 0 1058 20B0 10F 2
+text17 0 19CF 339E 86 2
+text18 0 1887 310E 54 2
+text20 0 1C57 38AE D2 2
+text25 0 1001 2002 57 2
+text26 0 129A 2534 15B 2
+text27 0 13 26 45 2
+text28 0 1D29 3A52 E6 2
+text29 0 1F07 3E0E F9 2
+text30 0 1167 22CE 133 2
+text31 0 1954 32A8 7B 2
+text34 0 1B93 3726 C4 2
+text36 0 18DB 31B6 79 2
+text40 0 802 1004 7E 2
+text41 0 1AE1 35C2 B2 2
+cstackCOMMON 1 70 70 A 1
+cstackBANK0 1 20 20 50 1
+cstackBANK1 1 A0 A0 50 1
+cstackBANK3 1 190 190 5F 1
+reset_vec 0 0 0 13 2
+bssBANK2 1 110 110 20 1
+strings 0 1800 3000 7C 2
+functab 0 700 E00 DA 2

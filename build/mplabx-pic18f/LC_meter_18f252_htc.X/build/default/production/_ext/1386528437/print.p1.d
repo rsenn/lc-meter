@@ -1,0 +1,16 @@
+build/default/production/_ext/1386528437/print.p1:	\
+	../../../src/print.h	\
+	../../../src/device.h	\
+	/opt/hitech/picc-18/9.66/include/legacy/ppic18f252.h	\
+	../../../src/LC-meter.h	\
+	../../../lib/format.h	\
+	/opt/hitech/picc-18/9.66/include/pic18f252.h	\
+	/opt/hitech/picc-18/9.66/include/errata.h	\
+	/opt/hitech/picc-18/9.66/include/htc.h	\
+	../../../lib/const.h	\
+	../../../lib/ser.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/psupport.h	\
+	../../../lib/oscillator.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/pconfig.h	\
+	/opt/hitech/picc-18/9.66/include/pic18.h	\
