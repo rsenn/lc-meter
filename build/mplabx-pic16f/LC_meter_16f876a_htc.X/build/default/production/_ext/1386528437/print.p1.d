@@ -1,0 +1,16 @@
+build/default/production/_ext/1386528437/print.p1:	\
+	../../../src/print.h	\
+	../../../src/device.h	\
+	/opt/hitech/picc/9.83/include/htc.h	\
+	/opt/hitech/picc/9.83/include/eeprom_routines.h	\
+	../../../src/LC-meter.h	\
+	../../../lib/format.h	\
+	/opt/hitech/picc/9.83/include/pic16f876a.h	\
+	../../../lib/const.h	\
+	../../../lib/ser.h	\
+	/opt/hitech/picc/9.83/include/pic.h	\
+	../../../lib/oscillator.h	\
+	/opt/hitech/picc/9.83/include/chip_select.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc/9.83/include/stdbool.h	\
+	/opt/hitech/picc/9.83/include/stdint.h	\

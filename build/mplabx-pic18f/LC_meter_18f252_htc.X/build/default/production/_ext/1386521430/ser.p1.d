@@ -1,0 +1,14 @@
+build/default/production/_ext/1386521430/ser.p1:	\
+	../../../src/device.h	\
+	/opt/hitech/picc-18/9.66/include/legacy/ppic18f252.h	\
+	../../../lib/uart.h	\
+	/opt/hitech/picc-18/9.66/include/pic18f252.h	\
+	/opt/hitech/picc-18/9.66/include/errata.h	\
+	/opt/hitech/picc-18/9.66/include/htc.h	\
+	../../../lib/const.h	\
+	../../../lib/ser.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/psupport.h	\
+	../../../lib/oscillator.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/pconfig.h	\
+	/opt/hitech/picc-18/9.66/include/pic18.h	\

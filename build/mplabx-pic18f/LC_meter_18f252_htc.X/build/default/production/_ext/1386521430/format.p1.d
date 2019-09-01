@@ -1,0 +1,13 @@
+build/default/production/_ext/1386521430/format.p1:	\
+	/opt/hitech/picc-18/9.66/include/math.h	\
+	../../../src/device.h	\
+	/opt/hitech/picc-18/9.66/include/legacy/ppic18f252.h	\
+	../../../lib/format.h	\
+	/opt/hitech/picc-18/9.66/include/pic18f252.h	\
+	/opt/hitech/picc-18/9.66/include/errata.h	\
+	/opt/hitech/picc-18/9.66/include/htc.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/psupport.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc-18/9.66/include/float.h	\
+	/opt/hitech/picc-18/9.66/include/peripheral/pconfig.h	\
+	/opt/hitech/picc-18/9.66/include/pic18.h	\

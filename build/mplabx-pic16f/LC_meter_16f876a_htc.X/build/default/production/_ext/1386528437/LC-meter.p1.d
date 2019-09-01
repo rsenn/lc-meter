@@ -1,0 +1,22 @@
+build/default/production/_ext/1386528437/LC-meter.p1:	\
+	../../../lib/timer.h	\
+	../../../src/print.h	\
+	../../../src/device.h	\
+	../../../src/config-16f876a.h	\
+	/opt/hitech/picc/9.83/include/htc.h	\
+	/opt/hitech/picc/9.83/include/eeprom_routines.h	\
+	../../../src/LC-meter.h	\
+	../../../lib/format.h	\
+	../../../lib/interrupt.h	\
+	/opt/hitech/picc/9.83/include/pic16f876a.h	\
+	../../../lib/tsmdelay.h	\
+	../../../src/config-bits.h	\
+	../../../lib/delay.h	\
+	../../../lib/const.h	\
+	../../../lib/ser.h	\
+	/opt/hitech/picc/9.83/include/pic.h	\
+	../../../lib/oscillator.h	\
+	/opt/hitech/picc/9.83/include/chip_select.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc/9.83/include/stdbool.h	\
+	/opt/hitech/picc/9.83/include/stdint.h	\

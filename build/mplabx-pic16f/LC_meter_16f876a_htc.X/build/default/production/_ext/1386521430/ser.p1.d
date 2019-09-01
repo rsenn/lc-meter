@@ -1,0 +1,14 @@
+build/default/production/_ext/1386521430/ser.p1:	\
+	../../../src/device.h	\
+	../../../lib/uart.h	\
+	/opt/hitech/picc/9.83/include/htc.h	\
+	/opt/hitech/picc/9.83/include/eeprom_routines.h	\
+	/opt/hitech/picc/9.83/include/pic16f876a.h	\
+	../../../lib/const.h	\
+	../../../lib/ser.h	\
+	/opt/hitech/picc/9.83/include/pic.h	\
+	../../../lib/oscillator.h	\
+	/opt/hitech/picc/9.83/include/chip_select.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc/9.83/include/stdbool.h	\
+	/opt/hitech/picc/9.83/include/stdint.h	\

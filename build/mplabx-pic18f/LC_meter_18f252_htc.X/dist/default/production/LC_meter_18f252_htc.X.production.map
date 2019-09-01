@@ -1,0 +1,918 @@
+HI-TECH Software C Compiler 
+
+Linker command line:
+
+-W1 --edf=/opt/hitech/picc-18/9.66/dat/en_msgs.txt -cs \
+  -h+dist/default/production/LC_meter_18f252_htc.X.production.sym -z -w9 \
+  --norlf -Q18F252 \
+  -Mdist/default/production/LC_meter_18f252_htc.X.production.map -E1 \
+  -ACODE=00h-03FFFhx2 -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
+  -AMEDIUMCONST=0600h-07FFFh -ARAM=00h-0FFhx5,0500h-057Fh \
+  -ABIGRAM=00h-057Fh -ACOMRAM=00h-07Fh -AABS1=00h-057Fh -ABANK0=00h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-057Fh -ANVRAM=0500h-057Fh \
+  -preset_vec=00h,intcode,intcodelo,powerup,init,end_init -pramtop=0600h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -prparam=COMRAM -pparam0=BANK0 -pparam1=BANK1 -pparam2=BANK2 \
+  -pparam3=BANK3 -pparam4=BANK4 -pparam5=BANK5 -AFARRAM=00h-00h \
+  -ACONFIG=0300000h-030000Dh -pconfig=CONFIG -AIDLOC=0200000h-0200007h \
+  -pidloc=IDLOC -AEEDATA=0F00000h-0F000FFh -peeprom_data=EEDATA \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtbZ4C3R.obj \
+  dist/default/production/LC_meter_18f252_htc.X.production.obj 
+
+Object code version is 3.10
+
+Machine type is 18F252
+
+Call graph: (short form)
+
+*_main size 0,1 offset 0
+     _timer2_init size 1,3 offset 1
+     _delay10ms size 2,6 offset 1
+         ___wmul size 4,2 offset 9
+     _ser_init size 0,0 offset 1
+     _calibrate size 0,0 offset 1
+         _measure_freq size 2,8 offset 33
+         ___lwtofl size 4,5 offset 33
+             ___flpack size 3,8 offset 90
+         _delay10ms size 2,6 offset 1
+         _ser_puts size 2,0 offset 13
+             _ser_putch size 1,2 offset 63
+     _ser_puts size 2,0 offset 13
+*    _measure_capacitance size 0,12 offset 1
+         _measure_freq size 2,8 offset 33
+*        ___lwtofl size 4,5 offset 33
+         _ser_puts size 2,0 offset 13
+         _format_xint32 size 4,2 offset 13
+             _format_number size 4,38 offset 19
+                 ___lwmod size 4,2 offset 61
+                 ___lwdiv size 4,4 offset 61
+                 _output_putch size 1,0 offset 62
+                     _ser_putch size 1,2 offset 63
+                 _ser_putch size 1,2 offset 63
+                 _format_putchar size 1,0 offset 62
+             _output_putch size 1,0 offset 62
+             _ser_putch size 1,2 offset 63
+             _format_putchar size 1,0 offset 62
+*        _format_double size 4,17 offset 13
+             _log10 size 4,0 offset 34
+                 _log size 4,2 offset 48
+                     _frexp size 6,3 offset 69
+                     ___flmul size 8,8 offset 74
+                         ___flunpack size 4,6 offset 90
+                         ___flpack size 3,8 offset 90
+                     ___fladd size 8,6 offset 74
+                         ___flunpack size 4,6 offset 90
+                         ___flpack size 3,8 offset 90
+                     _eval_poly size 8,7 offset 59
+                         ___flmul size 8,8 offset 74
+                         ___fladd size 8,6 offset 74
+                     ___awtofl size 4,5 offset 59
+                         ___flpack size 3,8 offset 90
+                         ___flneg size 4,0 offset 80
+                 ___flmul size 8,8 offset 74
+             ___fltol size 4,6 offset 69
+                 ___flunpack size 4,6 offset 90
+             ___awtofl size 4,5 offset 59
+*            _pow size 8,6 offset 34
+                 ___flge size 8,0 offset 69
+                 ___fltol size 4,6 offset 69
+                 ___lltofl size 4,6 offset 48
+                     ___flpack size 3,8 offset 90
+                 ___flneg size 4,0 offset 80
+                 _log size 4,2 offset 48
+*                ___flmul size 8,8 offset 74
+*                _exp size 4,7 offset 48
+                     ___flge size 8,0 offset 69
+                     ___flneg size 4,0 offset 80
+                     ___asflmul size 6,0 offset 59
+                         ___flmul size 8,8 offset 74
+*                    _floor size 4,6 offset 59
+                         _frexp size 6,3 offset 69
+                         ___fltol size 4,6 offset 69
+*                        ___altofl size 4,7 offset 69
+*                            ___flpack size 3,8 offset 90
+                             ___flneg size 4,0 offset 80
+                         ___flge size 8,0 offset 69
+*                        ___fladd size 8,6 offset 74
+                     ___fltol size 4,6 offset 69
+                     ___awtofl size 4,5 offset 59
+*                    ___asflsub size 6,0 offset 59
+*                        ___flsub size 8,0 offset 65
+*                            ___fladd size 8,6 offset 74
+*                    _eval_poly size 8,7 offset 59
+                     _ldexp size 6,3 offset 59
+                     ___fldiv size 8,9 offset 59
+                         ___flunpack size 4,6 offset 90
+                         ___flpack size 3,8 offset 90
+             ___fldiv size 8,9 offset 59
+*            _floor size 4,6 offset 59
+*            ___flmul size 8,8 offset 74
+*            ___asflsub size 6,0 offset 59
+             ___flge size 8,0 offset 69
+             _output_putch size 1,0 offset 62
+             _ser_putch size 1,2 offset 63
+             _format_putchar size 1,0 offset 62
+         _ser_putch size 1,2 offset 63
+         ___flge size 8,0 offset 69
+*        ___flmul size 8,8 offset 74
+*        ___flsub size 8,0 offset 65
+         ___fldiv size 8,9 offset 59
+         ___fltol size 4,6 offset 69
+         _print_reading size 2,0 offset 33
+         _print_unit size 1,0 offset 33
+*    _measure_inductance size 0,32 offset 1
+         _measure_freq size 2,8 offset 33
+*        ___lwtofl size 4,5 offset 33
+         ___flge size 8,0 offset 69
+*        ___flmul size 8,8 offset 74
+*        ___flsub size 8,0 offset 65
+         ___fldiv size 8,9 offset 59
+         ___fltol size 4,6 offset 69
+         _print_reading size 2,0 offset 33
+         _print_unit size 1,0 offset 33
+     _indicator size 1,0 offset 1
+
+Estimated maximum call depth: 7
+
+*intlevel2 size 0,0 offset 101
+*    _isr size 0,14 offset 101
+
+Estimated maximum call depth: 1
+
+
+                Name          Link     Load   Length Selector Space Scale
+/tmp/cgtbZ4C3R.obj
+                init             E        E        8       0     0
+dist/default/production/LC_meter_18f252_htc.X.production.obj
+                intcode          0        0        E       0     0
+                smallcons      600      600       78     300     0
+                idata          678      678        3     33C     0
+                text34         5A6      5A6       5A     2D3     0
+                text33        29F0     29F0      1AE     33E     0
+                text32        33F2     33F2      112     33E     0
+                text37        1DF8     1DF8      236     33E     0
+                text36        35F8     35F8       EC     33E     0
+                text35        32CA     32CA      128     33E     0
+                text31        2442     2442      1FC     33E     0
+                text27        2B9E     2B9E      196     33E     0
+                text26        3E9C     3E9C       64     33E     0
+                text25         4EC      4EC        C     276     0
+                text30        317A     317A      150     33E     0
+                text29        3E36     3E36       66     33E     0
+                text28        3F00     3F00       64     33E     0
+                text44        281A     281A      1D6     33E     0
+                text40         54E      54E       58     2A7     0
+                text39        2D34     2D34      182     33E     0
+                text38        37D0     37D0       D0     33E     0
+                text43        3504     3504       F4     33E     0
+                text42        1BB2     1BB2      246     33E     0
+                text41        11C4     11C4      434     33E     0
+                text8         202E     202E      214     33E     0
+                text7         3BCA     3BCA       BE     33E     0
+                text6         38A0     38A0       D0     33E     0
+                text11        3C88     3C88       96     33E     0
+                text10         4E0      4E0        6     270     0
+                text9          4E6      4E6        6     273     0
+                text5          67C      67C      5A8     33E     0
+                text1         3B08     3B08       C2     33E     0
+                text0         2EB6     2EB6      16E     33E     0
+                text4         3FC2     3FC2       30     33E     0
+                text3          C24      C24      5A0     33E     0
+                text2          4DA      4DA        6     26D     0
+                text21        36E4     36E4       EC     33E     0
+                text20        3D1E     3D1E       92     33E     0
+                text19        15F8     15F8      334     33E     0
+                text24        263E     263E      1DC     33E     0
+                text23        3FF2     3FF2        E     33E     0
+                text22        3970     3970       CC     33E     0
+                text18        192C     192C      286     33E     0
+                text14         4F8      4F8       56     27C     0
+                text13        3A3C     3A3C       CC     33E     0
+                text12        3024     3024      156     33E     0
+                text17        2242     2242      200     33E     0
+                text16        3F64     3F64       5E     33E     0
+                text15        3DB0     3DB0       86     33E     0
+
+COMMON          param1         100      100       73     100     1
+
+TOTAL           Name          Link     Load   Length  Space
+        CLASS   CODE           
+                init             E        E        8     0
+                intcode          0        0        E     0
+                idata          678      678        3     0
+                text34         5A6      5A6       5A     0
+                text33        29F0     29F0      1AE     0
+                text32        33F2     33F2      112     0
+                text37        1DF8     1DF8      236     0
+                text36        35F8     35F8       EC     0
+                text35        32CA     32CA      128     0
+                text31        2442     2442      1FC     0
+                text27        2B9E     2B9E      196     0
+                text26        3E9C     3E9C       64     0
+                text25         4EC      4EC        C     0
+                text30        317A     317A      150     0
+                text29        3E36     3E36       66     0
+                text28        3F00     3F00       64     0
+                text44        281A     281A      1D6     0
+                text40         54E      54E       58     0
+                text39        2D34     2D34      182     0
+                text38        37D0     37D0       D0     0
+                text43        3504     3504       F4     0
+                text42        1BB2     1BB2      246     0
+                text41        11C4     11C4      434     0
+                text8         202E     202E      214     0
+                text7         3BCA     3BCA       BE     0
+                text6         38A0     38A0       D0     0
+                text11        3C88     3C88       96     0
+                text10         4E0      4E0        6     0
+                text9          4E6      4E6        6     0
+                text5          67C      67C      5A8     0
+                text1         3B08     3B08       C2     0
+                text0         2EB6     2EB6      16E     0
+                text4         3FC2     3FC2       30     0
+                text3          C24      C24      5A0     0
+                text2          4DA      4DA        6     0
+                text21        36E4     36E4       EC     0
+                text20        3D1E     3D1E       92     0
+                text19        15F8     15F8      334     0
+                text24        263E     263E      1DC     0
+                text23        3FF2     3FF2        E     0
+                text22        3970     3970       CC     0
+                text18        192C     192C      286     0
+                text14         4F8      4F8       56     0
+                text13        3A3C     3A3C       CC     0
+                text12        3024     3024      156     0
+                text17        2242     2242      200     0
+                text16        3F64     3F64       5E     0
+                text15        3DB0     3DB0       86     0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+                smallcons      600      600       78     0
+
+        CLASS   MEDIUMCONST    
+
+        CLASS   RAM            
+
+        CLASS   BIGRAM         
+
+        CLASS   COMRAM         
+
+        CLASS   ABS1           
+                abs_s1           0        0       4F     1
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+                param1         100      100       73     1
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   NVRAM          
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name           Load    Length   Top     Selector    Space Class
+
+                reset_vec       000000  000016  000016         0       0  CODE    
+                param1          000100  000073  000173       100       1  BANK1   
+                text2           0004DA  000006  0004E0       26D       0  CODE    
+                text10          0004E0  000006  0004E6       270       0  CODE    
+                text9           0004E6  000006  0004EC       273       0  CODE    
+                text25          0004EC  00000C  0004F8       276       0  CODE    
+                text14          0004F8  000056  00054E       27C       0  CODE    
+                text40          00054E  000058  0005A6       2A7       0  CODE    
+                text34          0005A6  00005A  000600       2D3       0  CODE    
+                smallconst      000600  000078  000678       300       0  SMALLCON
+                idata           000678  000003  00067B       33C       0  CODE    
+                irdata          00067C  003984  004000       33E       0  CODE    
+
+
+UNUSED ADDRESS RANGES
+
+        BANK0            00004F-0000FF
+        BANK1            000173-0001FF
+        BANK2            000200-0002FF
+        BANK3            000300-0003FF
+        BANK4            000400-0004FF
+        BANK5            000500-00057F
+        BIGRAM           00004F-0000FF
+                         000173-00057F
+        CODE             000016-0004D9
+                         00067B-00067B
+                         004000-007FFF
+        COMRAM           00004F-00007F
+        CONFIG           300000-30000D
+        CONST            000016-0004D9
+                         00067B-00067B
+                         004000-007FFF
+        EEDATA           F00000-F000FF
+        IDLOC            200000-200007
+        MEDIUMCONST      00067B-00067B
+                         004000-007FFF
+        NVRAM            000500-00057F
+        RAM              00004F-0000FF
+                         000173-00057F
+        SMALLCONST       00067B-00067B
+                         004000-007FFF
+
+                                  Symbol Table
+
+_CCal                                                                       (abs)        000000
+__HRAM                                                                      (abs)        000000
+__Hfarbss                                                                   farbss       000000
+__Hfardata                                                                  fardata      000000
+__Hreset_vec                                                                reset_vec    000000
+__Labsbss0                                                                  (abs)        000000
+__Lfarbss                                                                   farbss       000000
+__Lfardata                                                                  fardata      000000
+__Lintcode                                                                  intcode      000000
+__Lreset_vec                                                                reset_vec    000000
+__cntErrataNOP_/tmp/cgtbZ4C3R.obj                                           (abs)        000000
+int_func                                                                    intcode      000000
+__LRAM                                                                      (abs)        000001
+__activetblptr                                                              (abs)        000002
+_msecpart                                                                   (abs)        000004
+_bres                                                                       (abs)        000006
+_F1                                                                         (abs)        000008
+_F3                                                                         (abs)        00000C
+__Hintcode                                                                  intcode      00000E
+__Hintcodelo                                                                intcodelo    00000E
+__Hpowerup                                                                  powerup      00000E
+__Linit                                                                     init         00000E
+__Lintcodelo                                                                intcodelo    00000E
+__Lpowerup                                                                  powerup      00000E
+_exit                                                                       init         00000E
+start                                                                       init         00000E
+_F2                                                                         (abs)        000010
+_txfifo                                                                     (abs)        000014
+__Hend_init                                                                 end_init     000016
+__Hinit                                                                     init         000016
+__Lend_init                                                                 end_init     000016
+_rxfifo                                                                     (abs)        000024
+_msecs                                                                      (abs)        000034
+_blink                                                                      (abs)        000038
+_txiptr                                                                     (abs)        00003A
+_txoptr                                                                     (abs)        00003B
+_rxiptr                                                                     (abs)        00003C
+_rxoptr                                                                     (abs)        00003D
+_ser_tmp                                                                    (abs)        00003E
+_timer1of                                                                   (abs)        00003F
+_seconds                                                                    (abs)        000043
+F1925                                                                       (abs)        000047
+F1924                                                                       (abs)        000049
+_errno                                                                      (abs)        00004A
+__Habsbss0                                                                  (abs)        00004C
+__Ldata                                                                     (abs)        00004C
+__Ldata0                                                                    (abs)        00004C
+_putchar_ptr                                                                (abs)        00004C
+_ser_brg                                                                    (abs)        00004E
+__Bnvbit                                                                    nvbit        00004F
+__Brbit                                                                     rbit         00004F
+__Hbss                                                                      bss          00004F
+__Hdata0                                                                    (abs)        00004F
+__Hnvrram                                                                   nvrram       00004F
+__Hparam0                                                                   param0       00004F
+__Hrbss                                                                     rbss         00004F
+__Hrdata                                                                    rdata        00004F
+__Hrparam                                                                   rparam       00004F
+__Hstruct                                                                   struct       00004F
+__Htemp                                                                     temp         00004F
+__Lbss                                                                      bss          00004F
+__Lnvrram                                                                   nvrram       00004F
+__Lparam0                                                                   param0       00004F
+__Lrbss                                                                     rbss         00004F
+__Lrdata                                                                    rdata        00004F
+__Lrparam                                                                   rparam       00004F
+__Lstruct                                                                   struct       00004F
+__Ltemp                                                                     temp         00004F
+__accesstop                                                                 (abs)        000080
+??_main                                                                     param1       000100
+?_main                                                                      param1       000100
+__Lparam                                                                    param1       000100
+__Lparam1                                                                   param1       000100
+??_calibrate                                                                param1       000101
+??_measure_capacitance                                                      param1       000101
+??_measure_inductance                                                       param1       000101
+??_ser_init                                                                 param1       000101
+?_calibrate                                                                 param1       000101
+?_delay10ms                                                                 param1       000101
+?_indicator                                                                 param1       000101
+?_measure_capacitance                                                       param1       000101
+?_measure_inductance                                                        param1       000101
+?_ser_init                                                                  param1       000101
+?_timer2_init                                                               param1       000101
+_measure_capacitance$1281                                                   param1       000101
+_measure_inductance$1300                                                    param1       000101
+delay10ms@period_10ms                                                       param1       000101
+indicator@indicate                                                          param1       000101
+timer2_init@ps_mode                                                         param1       000101
+??_indicator                                                                param1       000102
+??_timer2_init                                                              param1       000102
+timer2_init@ps                                                              param1       000102
+??_delay10ms                                                                param1       000103
+delay10ms@run                                                               param1       000103
+timer2_init@postscaler                                                      param1       000103
+delay10ms@ms                                                                param1       000104
+_measure_inductance$1301                                                    param1       000105
+measure_capacitance@unit                                                    param1       000105
+measure_capacitance@var                                                     param1       000106
+measure_capacitance@Cin                                                     param1       000108
+?___wmul                                                                    param1       000109
+___wmul@multiplier                                                          param1       000109
+_measure_inductance$1302                                                    param1       000109
+___wmul@multiplicand                                                        param1       00010B
+??___wmul                                                                   param1       00010D
+?_format_double                                                             param1       00010D
+?_format_xint32                                                             param1       00010D
+?_ser_puts                                                                  param1       00010D
+___wmul@product                                                             param1       00010D
+_measure_inductance$1303                                                    param1       00010D
+format_double@num                                                           param1       00010D
+format_xint32@x                                                             param1       00010D
+ser_puts@s                                                                  param1       00010D
+??_ser_puts                                                                 param1       00010F
+??_format_double                                                            param1       000111
+??_format_xint32                                                            param1       000111
+_format_double$1332                                                         param1       000111
+measure_inductance@unit                                                     param1       000111
+measure_inductance@var                                                      param1       000112
+?_format_number                                                             param1       000113
+format_number@n                                                             param1       000113
+measure_inductance@denominator                                              param1       000114
+_format_double$1333                                                         param1       000115
+format_number@base                                                          param1       000115
+format_number@pad                                                           param1       000116
+??_format_number                                                            param1       000117
+_format_number$1343                                                         param1       000117
+measure_inductance@numerator                                                param1       000118
+format_double@digit                                                         param1       000119
+format_number@padchar                                                       param1       000119
+format_number@di                                                            param1       00011A
+format_double@m                                                             param1       00011B
+format_number@i                                                             param1       00011B
+format_number@buf                                                           param1       00011C
+measure_inductance@Lin                                                      param1       00011C
+format_double@weight                                                        param1       00011D
+?___lwtofl                                                                  param1       000121
+?_measure_freq                                                              param1       000121
+?_print_reading                                                             param1       000121
+?_print_unit                                                                param1       000121
+___lwtofl@c                                                                 param1       000121
+print_reading@measurement                                                   param1       000121
+print_unit@unit                                                             param1       000121
+??_print_unit                                                               param1       000122
+?_log10                                                                     param1       000122
+?_pow                                                                       param1       000122
+log10@x                                                                     param1       000122
+pow@x                                                                       param1       000122
+??_measure_freq                                                             param1       000123
+??_print_reading                                                            param1       000123
+measure_freq@prev                                                           param1       000123
+measure_freq@count                                                          param1       000124
+??___lwtofl                                                                 param1       000125
+___lwtofl@f1                                                                param1       000125
+??_log10                                                                    param1       000126
+measure_freq@i                                                              param1       000126
+pow@y                                                                       param1       000126
+??_pow                                                                      param1       00012A
+pow@sign                                                                    param1       00012A
+pow@yi                                                                      param1       00012B
+?___lltofl                                                                  param1       000130
+?_exp                                                                       param1       000130
+?_log                                                                       param1       000130
+___lltofl@c                                                                 param1       000130
+exp@x                                                                       param1       000130
+log@x                                                                       param1       000130
+??___lltofl                                                                 param1       000134
+??_exp                                                                      param1       000134
+??_log                                                                      param1       000134
+___lltofl@exp                                                               param1       000134
+_exp$1357                                                                   param1       000134
+log@exp                                                                     param1       000134
+___lltofl@f1                                                                param1       000135
+exp@sign                                                                    param1       000138
+exp@exp                                                                     param1       000139
+?___asflmul                                                                 param1       00013B
+?___asflsub                                                                 param1       00013B
+?___awtofl                                                                  param1       00013B
+?___fldiv                                                                   param1       00013B
+?_eval_poly                                                                 param1       00013B
+?_floor                                                                     param1       00013B
+?_ldexp                                                                     param1       00013B
+___asflmul@mp                                                               param1       00013B
+___asflsub@f1p                                                              param1       00013B
+___awtofl@c                                                                 param1       00013B
+___fldiv@f1                                                                 param1       00013B
+eval_poly@x                                                                 param1       00013B
+floor@x                                                                     param1       00013B
+ldexp@value                                                                 param1       00013B
+?___lwdiv                                                                   param1       00013D
+?___lwmod                                                                   param1       00013D
+___asflmul@multiplicand                                                     param1       00013D
+___asflsub@f2                                                               param1       00013D
+___lwdiv@dividend                                                           param1       00013D
+___lwmod@dividend                                                           param1       00013D
+?_format_putchar                                                            param1       00013E
+?_output_putch                                                              param1       00013E
+format_putchar@c                                                            param1       00013E
+output_putch@c                                                              param1       00013E
+??___awtofl                                                                 param1       00013F
+??_floor                                                                    param1       00013F
+??_format_putchar                                                           param1       00013F
+??_output_putch                                                             param1       00013F
+?_ser_putch                                                                 param1       00013F
+___awtofl@f1                                                                param1       00013F
+___fldiv@f2                                                                 param1       00013F
+___lwdiv@divisor                                                            param1       00013F
+___lwmod@divisor                                                            param1       00013F
+eval_poly@d                                                                 param1       00013F
+floor@expon                                                                 param1       00013F
+ldexp@newexp                                                                param1       00013F
+ser_putch@c                                                                 param1       00013F
+??_ser_putch                                                                param1       000140
+??___asflmul                                                                param1       000141
+??___asflsub                                                                param1       000141
+??___lwdiv                                                                  param1       000141
+??___lwmod                                                                  param1       000141
+??_ldexp                                                                    param1       000141
+?___flsub                                                                   param1       000141
+___flsub@f1                                                                 param1       000141
+___lwdiv@counter                                                            param1       000141
+___lwmod@counter                                                            param1       000141
+eval_poly@n                                                                 param1       000141
+floor@i                                                                     param1       000141
+___lwdiv@quotient                                                           param1       000142
+??___fldiv                                                                  param1       000143
+??_eval_poly                                                                param1       000143
+___fldiv@exp2                                                               param1       000143
+eval_poly@res                                                               param1       000143
+___fldiv@sign1                                                              param1       000144
+?___altofl                                                                  param1       000145
+?___flge                                                                    param1       000145
+?___fltol                                                                   param1       000145
+?_frexp                                                                     param1       000145
+___altofl@c                                                                 param1       000145
+___fldiv@exp1                                                               param1       000145
+___flge@ff1                                                                 param1       000145
+___flsub@f2                                                                 param1       000145
+___fltol@f1                                                                 param1       000145
+frexp@value                                                                 param1       000145
+___fldiv@sign2                                                              param1       000146
+___fldiv@f3                                                                 param1       000147
+??___altofl                                                                 param1       000149
+??___flsub                                                                  param1       000149
+??___fltol                                                                  param1       000149
+___altofl@exp                                                               param1       000149
+___flge@ff2                                                                 param1       000149
+___fltol@sign1                                                              param1       000149
+frexp@eptr                                                                  param1       000149
+?___fladd                                                                   param1       00014A
+?___flmul                                                                   param1       00014A
+___altofl@sign                                                              param1       00014A
+___fladd@f1                                                                 param1       00014A
+___flmul@f1                                                                 param1       00014A
+___fltol@exp1                                                               param1       00014A
+??_frexp                                                                    param1       00014B
+___altofl@f1                                                                param1       00014B
+___fltol@lval                                                               param1       00014B
+??___flge                                                                   param1       00014D
+___fladd@f2                                                                 param1       00014E
+___flmul@f2                                                                 param1       00014E
+?___flneg                                                                   param1       000150
+___flneg@f1                                                                 param1       000150
+??___fladd                                                                  param1       000152
+??___flmul                                                                  param1       000152
+___fladd@sign2                                                              param1       000152
+___flmul@sign1                                                              param1       000152
+___fladd@cntr                                                               param1       000153
+___flmul@exp1                                                               param1       000153
+??___flneg                                                                  param1       000154
+___fladd@sign1                                                              param1       000154
+___flmul@cntr                                                               param1       000154
+___fladd@exp2                                                               param1       000155
+___flmul@f3                                                                 param1       000155
+___fladd@exp1                                                               param1       000156
+?___flpack                                                                  param1       00015A
+?___flunpack                                                                param1       00015A
+___flpack@arg                                                               param1       00015A
+___flunpack@arg                                                             param1       00015A
+___flpack@exp                                                               param1       00015C
+___flunpack@exp                                                             param1       00015C
+??___flpack                                                                 param1       00015D
+___flpack@l_arg                                                             param1       00015D
+??___flunpack                                                               param1       00015E
+___flunpack@sign                                                            param1       00015E
+___flunpack@l_arg                                                           param1       00015F
+??_isr                                                                      param1       000165
+?_isr                                                                       param1       000165
+__Hbigbss                                                                   bigbss       000173
+__Hbigdata                                                                  bigdata      000173
+__Hintsave_regs                                                             intsave_regs 000173
+__Hparam                                                                    param1       000173
+__Hparam1                                                                   param1       000173
+__Lbigbss                                                                   bigbss       000173
+__Lbigdata                                                                  bigdata      000173
+__Lintsave_regs                                                             intsave_regs 000173
+__cntErrataNOP_dist/default/production/LC_meter_18f252_htc.X.production.obj (abs)        0001E8
+__Hparam2                                                                   param2       000200
+__Lparam2                                                                   param2       000200
+__Hnvbit                                                                    nvbit        000278
+__Hrbit                                                                     rbit         000278
+__Lnvbit                                                                    nvbit        000278
+__Lrbit                                                                     rbit         000278
+__Hparam3                                                                   param3       000300
+__Lparam3                                                                   param3       000300
+__Hparam4                                                                   param4       000400
+__Lparam4                                                                   param4       000400
+_indicator                                                                  text2        0004DA
+__end_of_indicator                                                          text2        0004E0
+_print_reading                                                              text10       0004E0
+__end_of_print_reading                                                      text10       0004E6
+_print_unit                                                                 text9        0004E6
+__end_of_print_unit                                                         text9        0004EC
+_format_putchar                                                             text25       0004EC
+__end_of_format_putchar                                                     text25       0004F8
+_ser_puts                                                                   text14       0004F8
+__Hparam5                                                                   param5       000500
+__Lparam5                                                                   param5       000500
+__S1                                                                        (abs)        000500
+___flneg                                                                    text40       00054E
+__end_of_ser_puts                                                           text14       00054E
+___flsub                                                                    text34       0005A6
+__end_of___flneg                                                            text40       0005A6
+__Hramtop                                                                   ramtop       000600
+__Lramtop                                                                   ramtop       000600
+__Lsmallconst                                                               smallconst   000600
+__end_of___flsub                                                            text34       000600
+__ramtop                                                                    ramtop       000600
+__smallconst                                                                smallconst   000600
+F65                                                                         smallconst   000601
+F64                                                                         smallconst   000629
+__Hconst                                                                    const        000678
+__Hmediumconst                                                              mediumconst  000678
+__Hsmallconst                                                               smallconst   000678
+__Lconst                                                                    const        000678
+__Lidata                                                                    idata        000678
+__Lmediumconst                                                              mediumconst  000678
+__mediumconst                                                               mediumconst  000678
+__Hidata                                                                    idata        00067B
+__Hclrtext                                                                  clrtext      00067C
+__Hdata                                                                     data         00067C
+__Hibigdata                                                                 ibigdata     00067C
+__Hifardata                                                                 ifardata     00067C
+__Hintentry                                                                 intentry     00067C
+__Hintret                                                                   intret       00067C
+__Hirdata                                                                   irdata       00067C
+__Hnvram                                                                    nvram        00067C
+__Htext                                                                     text         00067C
+__Htext0                                                                    text0        00067C
+__Htext1                                                                    text1        00067C
+__Htext10                                                                   text10       00067C
+__Htext11                                                                   text11       00067C
+__Htext12                                                                   text12       00067C
+__Htext13                                                                   text13       00067C
+__Htext14                                                                   text14       00067C
+__Htext15                                                                   text15       00067C
+__Htext16                                                                   text16       00067C
+__Htext17                                                                   text17       00067C
+__Htext18                                                                   text18       00067C
+__Htext19                                                                   text19       00067C
+__Htext2                                                                    text2        00067C
+__Htext20                                                                   text20       00067C
+__Htext21                                                                   text21       00067C
+__Htext22                                                                   text22       00067C
+__Htext23                                                                   text23       00067C
+__Htext24                                                                   text24       00067C
+__Htext25                                                                   text25       00067C
+__Htext26                                                                   text26       00067C
+__Htext27                                                                   text27       00067C
+__Htext28                                                                   text28       00067C
+__Htext29                                                                   text29       00067C
+__Htext3                                                                    text3        00067C
+__Htext30                                                                   text30       00067C
+__Htext31                                                                   text31       00067C
+__Htext32                                                                   text32       00067C
+__Htext33                                                                   text33       00067C
+__Htext34                                                                   text34       00067C
+__Htext35                                                                   text35       00067C
+__Htext36                                                                   text36       00067C
+__Htext37                                                                   text37       00067C
+__Htext38                                                                   text38       00067C
+__Htext39                                                                   text39       00067C
+__Htext4                                                                    text4        00067C
+__Htext40                                                                   text40       00067C
+__Htext41                                                                   text41       00067C
+__Htext42                                                                   text42       00067C
+__Htext43                                                                   text43       00067C
+__Htext44                                                                   text44       00067C
+__Htext45                                                                   text45       00067C
+__Htext5                                                                    text5        00067C
+__Htext6                                                                    text6        00067C
+__Htext7                                                                    text7        00067C
+__Htext8                                                                    text8        00067C
+__Htext9                                                                    text9        00067C
+__Lclrtext                                                                  clrtext      00067C
+__Libigdata                                                                 ibigdata     00067C
+__Lifardata                                                                 ifardata     00067C
+__Lintentry                                                                 intentry     00067C
+__Lintret                                                                   intret       00067C
+__Lirdata                                                                   irdata       00067C
+__Lnvram                                                                    nvram        00067C
+__Ltext                                                                     text         00067C
+__Ltext0                                                                    text0        00067C
+__Ltext1                                                                    text1        00067C
+__Ltext10                                                                   text10       00067C
+__Ltext11                                                                   text11       00067C
+__Ltext12                                                                   text12       00067C
+__Ltext13                                                                   text13       00067C
+__Ltext14                                                                   text14       00067C
+__Ltext15                                                                   text15       00067C
+__Ltext16                                                                   text16       00067C
+__Ltext17                                                                   text17       00067C
+__Ltext18                                                                   text18       00067C
+__Ltext19                                                                   text19       00067C
+__Ltext2                                                                    text2        00067C
+__Ltext20                                                                   text20       00067C
+__Ltext21                                                                   text21       00067C
+__Ltext22                                                                   text22       00067C
+__Ltext23                                                                   text23       00067C
+__Ltext24                                                                   text24       00067C
+__Ltext25                                                                   text25       00067C
+__Ltext26                                                                   text26       00067C
+__Ltext27                                                                   text27       00067C
+__Ltext28                                                                   text28       00067C
+__Ltext29                                                                   text29       00067C
+__Ltext3                                                                    text3        00067C
+__Ltext30                                                                   text30       00067C
+__Ltext31                                                                   text31       00067C
+__Ltext32                                                                   text32       00067C
+__Ltext33                                                                   text33       00067C
+__Ltext34                                                                   text34       00067C
+__Ltext35                                                                   text35       00067C
+__Ltext36                                                                   text36       00067C
+__Ltext37                                                                   text37       00067C
+__Ltext38                                                                   text38       00067C
+__Ltext39                                                                   text39       00067C
+__Ltext4                                                                    text4        00067C
+__Ltext40                                                                   text40       00067C
+__Ltext41                                                                   text41       00067C
+__Ltext42                                                                   text42       00067C
+__Ltext43                                                                   text43       00067C
+__Ltext44                                                                   text44       00067C
+__Ltext45                                                                   text45       00067C
+__Ltext5                                                                    text5        00067C
+__Ltext6                                                                    text6        00067C
+__Ltext7                                                                    text7        00067C
+__Ltext8                                                                    text8        00067C
+__Ltext9                                                                    text9        00067C
+_measure_inductance                                                         text5        00067C
+__end_of_measure_inductance                                                 text5        000C24
+_measure_capacitance                                                        text3        000C24
+_TRISA                                                                      (abs)        000F92
+_TRISC                                                                      (abs)        000F94
+_TXREG                                                                      (abs)        000FAD
+_RCREG                                                                      (abs)        000FAE
+_SPBRG                                                                      (abs)        000FAF
+_TMR2                                                                       (abs)        000FCC
+_TMR0                                                                       (abs)        000FD6
+___fladd                                                                    text41       0011C4
+__end_of_measure_capacitance                                                text3        0011C4
+__end_of___fladd                                                            text41       0015F8
+_exp                                                                        text19       0015F8
+__end_of_exp                                                                text19       00192C
+_pow                                                                        text18       00192C
+___flpack                                                                   text42       001BB2
+__end_of_pow                                                                text18       001BB2
+___flmul                                                                    text37       001DF8
+__end_of___flpack                                                           text42       001DF8
+__end_of___flmul                                                            text37       00202E
+_format_double                                                              text8        00202E
+__end_of_format_double                                                      text8        002242
+_format_number                                                              text17       002242
+___fldiv                                                                    text31       002442
+__end_of_format_number                                                      text17       002442
+__end_of___fldiv                                                            text31       00263E
+_log                                                                        text24       00263E
+__end_of_log                                                                text24       00281A
+_isr                                                                        text44       00281A
+__end_of_isr                                                                text44       0029F0
+_ldexp                                                                      text33       0029F0
+__end_of_ldexp                                                              text33       002B9E
+_floor                                                                      text27       002B9E
+___fltol                                                                    text39       002D34
+__end_of_floor                                                              text27       002D34
+__end_of___fltol                                                            text39       002EB6
+_main                                                                       text0        002EB6
+__end_of_main                                                               text0        003024
+_measure_freq                                                               text12       003024
+__end_of_measure_freq                                                       text12       00317A
+_eval_poly                                                                  text30       00317A
+___altofl                                                                   text35       0032CA
+__end_of_eval_poly                                                          text30       0032CA
+___awtofl                                                                   text32       0033F2
+__end_of___altofl                                                           text35       0033F2
+___flunpack                                                                 text43       003504
+__end_of___awtofl                                                           text32       003504
+__end_of___flunpack                                                         text43       0035F8
+_frexp                                                                      text36       0035F8
+___lwdiv                                                                    text21       0036E4
+__end_of_frexp                                                              text36       0036E4
+___flge                                                                     text38       0037D0
+__end_of___lwdiv                                                            text21       0037D0
+__end_of___flge                                                             text38       0038A0
+_timer2_init                                                                text6        0038A0
+___lwmod                                                                    text22       003970
+__end_of_timer2_init                                                        text6        003970
+__end_of___lwmod                                                            text22       003A3C
+_delay10ms                                                                  text13       003A3C
+__end_of_delay10ms                                                          text13       003B08
+_calibrate                                                                  text1        003B08
+__end_of_calibrate                                                          text1        003BCA
+_format_xint32                                                              text7        003BCA
+___lwtofl                                                                   text11       003C88
+__end_of_format_xint32                                                      text7        003C88
+___lltofl                                                                   text20       003D1E
+__end_of___lwtofl                                                           text11       003D1E
+___wmul                                                                     text15       003DB0
+__end_of___lltofl                                                           text20       003DB0
+__end_of___wmul                                                             text15       003E36
+_ser_putch                                                                  text29       003E36
+___asflsub                                                                  text26       003E9C
+__end_of_ser_putch                                                          text29       003E9C
+___asflmul                                                                  text28       003F00
+__end_of___asflsub                                                          text26       003F00
+__end_of___asflmul                                                          text28       003F64
+_log10                                                                      text16       003F64
+__end_of_log10                                                              text16       003FC2
+_ser_init                                                                   text4        003FC2
+__end_of_ser_init                                                           text4        003FF2
+_output_putch                                                               text23       003FF2
+intlevel0                                                                   text         003FF2
+intlevel1                                                                   text         003FF2
+intlevel2                                                                   text         003FF2
+intlevel3                                                                   text         003FF2
+__end_of_output_putch                                                       text23       004000
+_LATC3                                                                      (abs)        007C5B
+_LATC4                                                                      (abs)        007C5C
+_LATC5                                                                      (abs)        007C5D
+_LATC7                                                                      (abs)        007C5F
+_TRISC0                                                                     (abs)        007CA0
+_TRISC1                                                                     (abs)        007CA1
+_TRISC2                                                                     (abs)        007CA2
+_TRISC3                                                                     (abs)        007CA3
+_TRISC4                                                                     (abs)        007CA4
+_TRISC5                                                                     (abs)        007CA5
+_TRISC6                                                                     (abs)        007CA6
+_TMR2IE                                                                     (abs)        007CE9
+_TXIE                                                                       (abs)        007CEC
+_TMR2IF                                                                     (abs)        007CF1
+_TXIF                                                                       (abs)        007CF4
+_RCIF                                                                       (abs)        007CF5
+_OERR                                                                       (abs)        007D59
+_CREN                                                                       (abs)        007D5C
+_RX9                                                                        (abs)        007D5E
+_SPEN                                                                       (abs)        007D5F
+_BRGH                                                                       (abs)        007D62
+_SYNC                                                                       (abs)        007D64
+_TXEN                                                                       (abs)        007D65
+_TX9                                                                        (abs)        007D66
+_SSPEN                                                                      (abs)        007E35
+_T2CKPS0                                                                    (abs)        007E50
+_T2CKPS1                                                                    (abs)        007E51
+_TMR2ON                                                                     (abs)        007E52
+_TOUTPS0                                                                    (abs)        007E53
+_TOUTPS1                                                                    (abs)        007E54
+_TOUTPS2                                                                    (abs)        007E55
+_T0SE                                                                       (abs)        007EAC
+_T0CS                                                                       (abs)        007EAD
+_RBPU                                                                       (abs)        007F8F
+_TMR0IF                                                                     (abs)        007F92
+_PEIE                                                                       (abs)        007F96
+_GIE                                                                        (abs)        007F97
+__Hidloc                                                                    idloc        200000
+__Lidloc                                                                    idloc        200000
+__Hconfig                                                                   config       300000
+__Lconfig                                                                   config       300000
+__Heeprom_data                                                              eeprom_data  F00000
+__Leeprom_data                                                              eeprom_data  F00000
+__S0                                                                        (abs)        F00000

@@ -1,0 +1,13 @@
+build/default/production/_ext/1386521430/format.p1:	\
+	/opt/hitech/picc/9.83/include/float.h	\
+	../../../src/device.h	\
+	/opt/hitech/picc/9.83/include/htc.h	\
+	/opt/hitech/picc/9.83/include/eeprom_routines.h	\
+	../../../lib/format.h	\
+	/opt/hitech/picc/9.83/include/pic16f876a.h	\
+	/opt/hitech/picc/9.83/include/pic.h	\
+	/opt/hitech/picc/9.83/include/chip_select.h	\
+	../../../lib/typedef.h	\
+	/opt/hitech/picc/9.83/include/stdbool.h	\
+	/opt/hitech/picc/9.83/include/math.h	\
+	/opt/hitech/picc/9.83/include/stdint.h	\

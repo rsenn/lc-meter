@@ -1,0 +1,610 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F252 ]
+[d frameptr 4065 ]
+"6 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _format_putchar format_putchar `(v  1 s 0 format_putchar ]
+"14
+[v _format_number format_number `(v  1 e 0 0 ]
+"48
+[v _format_xint32 format_xint32 `(v  1 e 0 0 ]
+"74
+[v _format_double format_double `(v  1 e 0 0 ]
+"58 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_isrx ser_isrx `(b  1 e 0 0 ]
+"82
+[v _ser_putch ser_putch `(v  1 e 0 0 ]
+"92
+[v _ser_puts ser_puts `(v  1 e 0 0 ]
+"125
+[v _ser_init ser_init `(v  1 e 0 0 ]
+"81 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+[v _timer2_init timer2_init `(v  1 e 0 0 ]
+"48 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _output_putch output_putch `(v  1 e 0 0 ]
+"79
+[v _isr isr `II(i  1 e 2 0 ]
+"115
+[v _main main `(v  1 e 0 0 ]
+"299
+[v _measure_freq measure_freq `(us  1 e 2 0 ]
+"347
+[v _calibrate calibrate `(v  1 e 0 0 ]
+"392
+[v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
+"470
+[v _measure_inductance measure_inductance `(v  1 e 0 0 ]
+"533
+[v _delay10ms delay10ms `(v  1 e 0 0 ]
+"408 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _print_unit print_unit `(v  1 e 0 0 ]
+"429
+[v _print_reading print_reading `(v  1 e 0 0 ]
+"469
+[v _indicator indicator `(v  1 e 0 0 ]
+"42 /opt/microchip/xc8/v1.34/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"32 /opt/microchip/xc8/v1.34/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"63 /opt/microchip/xc8/v1.34/sources/common/double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+"12 /opt/microchip/xc8/v1.34/sources/common/exp.c
+[v _exp exp `(d  1 e 3 0 ]
+"88 /opt/microchip/xc8/v1.34/sources/common/fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"54 /opt/microchip/xc8/v1.34/sources/common/fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.34/sources/common/flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.34/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"13 /opt/microchip/xc8/v1.34/sources/common/floor.c
+[v _floor floor `(d  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.34/sources/common/flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"254 /opt/microchip/xc8/v1.34/sources/common/frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+"277
+[v _ldexp ldexp `(d  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.34/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 /opt/microchip/xc8/v1.34/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 /opt/microchip/xc8/v1.34/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v1.34/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.34/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"20 /opt/microchip/xc8/v1.34/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.34/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"27 /opt/microchip/xc8/v1.34/sources/common/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"35 /opt/microchip/xc8/v1.34/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"5 /opt/microchip/xc8/v1.34/sources/common/log.c
+[v _log log `(d  1 e 3 0 ]
+"39
+[v _log10 log10 `(d  1 e 3 0 ]
+"8 /opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 /opt/microchip/xc8/v1.34/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 /opt/microchip/xc8/v1.34/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"5 /opt/microchip/xc8/v1.34/sources/common/pow.c
+[v _pow pow `(d  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.34/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 /opt/microchip/xc8/v1.34/sources/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"10 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _putchar_ptr putchar_ptr `*.37(v  1 e 2 0 ]
+"49 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_brg ser_brg `uc  1 e 1 0 ]
+"51
+[v _rxfifo rxfifo `[16]uc  1 e 16 0 ]
+"52
+[v _rxiptr rxiptr `VEuc  1 e 1 0 ]
+[v _rxoptr rxoptr `VEuc  1 e 1 0 ]
+"53
+[v _txfifo txfifo `[16]uc  1 e 16 0 ]
+"54
+[v _txiptr txiptr `VEuc  1 e 1 0 ]
+[v _txoptr txoptr `VEuc  1 e 1 0 ]
+"55
+[v _ser_tmp ser_tmp `uc  1 e 1 0 ]
+"40 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _bres bres `VEus  1 e 2 0 ]
+"41
+[v _msecpart msecpart `VEus  1 e 2 0 ]
+"42
+[v _seconds seconds `VEul  1 e 4 0 ]
+[v _msecs msecs `VEul  1 e 4 0 ]
+"43
+[v _timer1of timer1of `VEul  1 e 4 0 ]
+"60
+[v _F1 F1 `d  1 e 3 0 ]
+[v _F2 F2 `d  1 e 3 0 ]
+[v _F3 F3 `d  1 e 3 0 ]
+[v _CCal CCal `d  1 e 3 0 ]
+"76
+[v _blink blink `us  1 s 2 blink ]
+"903 /opt/microchip/xc8/v1.34/include/pic18f252.h
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1339
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"2533
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"2544
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"2555
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"3732
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"4178
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"5137
+[v _BRGH BRGH `VEb  1 e 0 @32098 ]
+"5203
+[v _CREN CREN `VEb  1 e 0 @32092 ]
+"5253
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"5383
+[v _LATC3 LATC3 `VEb  1 e 0 @31835 ]
+"5385
+[v _LATC4 LATC4 `VEb  1 e 0 @31836 ]
+"5387
+[v _LATC5 LATC5 `VEb  1 e 0 @31837 ]
+"5391
+[v _LATC7 LATC7 `VEb  1 e 0 @31839 ]
+"5477
+[v _OERR OERR `VEb  1 e 0 @32089 ]
+"5499
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"5587
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"5609
+[v _RX9 RX9 `VEb  1 e 0 @32094 ]
+"5649
+[v _SPEN SPEN `VEb  1 e 0 @32095 ]
+"5657
+[v _SSPEN SSPEN `VEb  1 e 0 @32309 ]
+"5699
+[v _SYNC SYNC `VEb  1 e 0 @32100 ]
+"5707
+[v _T0CS T0CS `VEb  1 e 0 @32429 ]
+"5721
+[v _T0SE T0SE `VEb  1 e 0 @32428 ]
+"5741
+[v _T2CKPS0 T2CKPS0 `VEb  1 e 0 @32336 ]
+"5743
+[v _T2CKPS1 T2CKPS1 `VEb  1 e 0 @32337 ]
+"5761
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"5777
+[v _TMR2IE TMR2IE `VEb  1 e 0 @31977 ]
+"5779
+[v _TMR2IF TMR2IF `VEb  1 e 0 @31985 ]
+"5783
+[v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
+"5797
+[v _TOUTPS0 TOUTPS0 `VEb  1 e 0 @32339 ]
+"5799
+[v _TOUTPS1 TOUTPS1 `VEb  1 e 0 @32340 ]
+"5801
+[v _TOUTPS2 TOUTPS2 `VEb  1 e 0 @32341 ]
+"5835
+[v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"5837
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
+"5839
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"5841
+[v _TRISC3 TRISC3 `VEb  1 e 0 @31907 ]
+"5843
+[v _TRISC4 TRISC4 `VEb  1 e 0 @31908 ]
+"5845
+[v _TRISC5 TRISC5 `VEb  1 e 0 @31909 ]
+"5847
+[v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
+"5865
+[v _TX9 TX9 `VEb  1 e 0 @32102 ]
+"5875
+[v _TXEN TXEN `VEb  1 e 0 @32101 ]
+"5879
+[v _TXIE TXIE `VEb  1 e 0 @31980 ]
+"5881
+[v _TXIF TXIF `VEb  1 e 0 @31988 ]
+"5925
+[v _nRBPU nRBPU `VEb  1 e 0 @32655 ]
+"3 /opt/microchip/xc8/v1.34/sources/common/errno.c
+[v _errno errno `i  1 e 2 0 ]
+"115 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _main main `(v  1 e 0 0 ]
+{
+"241
+} 0
+"81 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+[v _timer2_init timer2_init `(v  1 e 0 0 ]
+{
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
+"83
+[v timer2_init@postscaler postscaler `uc  1 a 1 17 ]
+"82
+[v timer2_init@ps ps `uc  1 a 1 16 ]
+"81
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 15 ]
+"99
+} 0
+"125 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_init ser_init `(v  1 e 0 0 ]
+{
+"151
+} 0
+"470 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _measure_inductance measure_inductance `(v  1 e 0 0 ]
+{
+"474
+[v measure_inductance@Lin Lin `d  1 a 3 36 ]
+[v measure_inductance@denominator denominator `d  1 a 3 9 ]
+[v measure_inductance@numerator numerator `d  1 a 3 6 ]
+"472
+[v measure_inductance@var var `us  1 a 2 34 ]
+"471
+[v measure_inductance@unit unit `uc  1 a 1 24 ]
+"513
+} 0
+"392
+[v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
+{
+"396
+[v measure_capacitance@Cin Cin `d  1 a 3 78 ]
+"394
+[v measure_capacitance@var var `us  1 a 2 76 ]
+"393
+[v measure_capacitance@unit unit `uc  1 a 1 75 ]
+"464
+} 0
+"408 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _print_unit print_unit `(v  1 e 0 0 ]
+{
+"426
+} 0
+"429
+[v _print_reading print_reading `(v  1 e 0 0 ]
+{
+[v print_reading@measurement measurement `us  1 p 2 14 ]
+"465
+} 0
+"48 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _format_xint32 format_xint32 `(v  1 e 0 0 ]
+{
+[v format_xint32@x x `ul  1 p 4 66 ]
+"53
+} 0
+"14
+[v _format_number format_number `(v  1 e 0 0 ]
+{
+"15
+[v format_number@buf buf `[32]uc  1 a 32 29 ]
+"17
+[v format_number@i i `c  1 a 1 65 ]
+"16
+[v format_number@di di `uc  1 a 1 64 ]
+"18
+[v format_number@padchar padchar `uc  1 a 1 63 ]
+"14
+[v format_number@n n `us  1 p 2 21 ]
+[v format_number@base base `uc  1 p 1 23 ]
+[v format_number@pad pad `c  1 p 1 24 ]
+"44
+} 0
+"8 /opt/microchip/xc8/v1.34/sources/common/lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 18 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 14 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 16 ]
+"26
+} 0
+"8 /opt/microchip/xc8/v1.34/sources/common/lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 18 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 20 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 14 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 16 ]
+"31
+} 0
+"74 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _format_double format_double `(v  1 e 0 0 ]
+{
+"80
+[v format_double@weight weight `d  1 a 3 59 ]
+"75
+[v format_double@m m `s  1 a 2 64 ]
+"76
+[v format_double@digit digit `s  1 a 2 62 ]
+"74
+[v format_double@num num `d  1 p 3 50 ]
+"88
+} 0
+"5 /opt/microchip/xc8/v1.34/sources/common/pow.c
+[v _pow pow `(d  1 e 3 0 ]
+{
+"8
+[v pow@yi yi `ul  1 a 4 46 ]
+"7
+[v pow@sign sign `uc  1 a 1 45 ]
+"5
+[v pow@x x `d  1 p 3 33 ]
+[v pow@y y `d  1 p 3 36 ]
+"31
+} 0
+"12 /opt/microchip/xc8/v1.34/sources/common/exp.c
+[v _exp exp `(d  1 e 3 0 ]
+{
+"14
+[v exp@exponent exponent `i  1 a 2 30 ]
+"15
+[v exp@sign sign `uc  1 a 1 32 ]
+"12
+[v exp@x x `d  1 p 3 24 ]
+"17
+[v exp@coeff coeff `C[10]d  1 s 30 coeff ]
+"57
+} 0
+"277 /opt/microchip/xc8/v1.34/sources/common/frexp.c
+[v _ldexp ldexp `(d  1 e 3 0 ]
+{
+[v ldexp@value value `d  1 p 3 79 ]
+[v ldexp@newexp newexp `i  1 p 2 82 ]
+"307
+} 0
+"13 /opt/microchip/xc8/v1.34/sources/common/floor.c
+[v _floor floor `(d  1 e 3 0 ]
+{
+"15
+[v floor@i i `d  1 a 3 19 ]
+"16
+[v floor@expon expon `i  1 a 2 22 ]
+"13
+[v floor@x x `d  1 p 3 16 ]
+"30
+} 0
+"44 /opt/microchip/xc8/v1.34/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 1 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 5 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 0 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 90 ]
+"73
+} 0
+"4 /opt/microchip/xc8/v1.34/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 14 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 17 ]
+"13
+} 0
+"42 /opt/microchip/xc8/v1.34/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 15 ]
+[v ___altoft@exp exp `uc  1 a 1 14 ]
+"42
+[v ___altoft@c c `l  1 p 4 6 ]
+"57
+} 0
+"20 /opt/microchip/xc8/v1.34/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+{
+[v ___ftsub@f1 f1 `f  1 p 3 67 ]
+[v ___ftsub@f2 f2 `f  1 p 3 70 ]
+"27
+} 0
+"15 /opt/microchip/xc8/v1.34/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+{
+[v ___ftneg@f1 f1 `f  1 p 3 52 ]
+"20
+} 0
+"54 /opt/microchip/xc8/v1.34/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 32 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 36 ]
+[v ___ftdiv@exp exp `uc  1 a 1 35 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 31 ]
+"54
+[v ___ftdiv@f1 f1 `f  1 p 3 22 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 25 ]
+"86
+} 0
+"35 /opt/microchip/xc8/v1.34/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+{
+"37
+[v ___lltoft@exp exp `uc  1 a 1 30 ]
+"35
+[v ___lltoft@c c `ul  1 p 4 22 ]
+"46
+} 0
+"6 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _format_putchar format_putchar `(v  1 s 0 format_putchar ]
+{
+"8
+} 0
+"82 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_putch ser_putch `(v  1 e 0 0 ]
+{
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 14 ]
+"89
+} 0
+"48 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _output_putch output_putch `(v  1 e 0 0 ]
+{
+[v output_putch@c c `uc  1 a 1 wreg ]
+[v output_putch@c c `uc  1 a 1 wreg ]
+"54
+[v output_putch@c c `uc  1 a 1 15 ]
+"56
+} 0
+"39 /opt/microchip/xc8/v1.34/sources/common/log.c
+[v _log10 log10 `(d  1 e 3 0 ]
+{
+[v log10@x x `d  1 p 3 84 ]
+"42
+} 0
+"5
+[v _log log `(d  1 e 3 0 ]
+{
+"7
+[v log@exponent exponent `i  1 a 2 82 ]
+"5
+[v log@x x `d  1 p 3 79 ]
+"9
+[v log@coeff coeff `C[9]d  1 s 27 coeff ]
+"36
+} 0
+"254 /opt/microchip/xc8/v1.34/sources/common/frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+{
+[v frexp@value value `d  1 p 3 14 ]
+[v frexp@eptr eptr `*.39i  1 p 2 17 ]
+"274
+} 0
+"4 /opt/microchip/xc8/v1.34/sources/common/evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+{
+"6
+[v eval_poly@res res `d  1 a 3 76 ]
+"4
+[v eval_poly@x x `d  1 p 3 67 ]
+[v eval_poly@d d `*.25Cd  1 p 2 70 ]
+[v eval_poly@n n `i  1 p 2 72 ]
+"12
+} 0
+"62 /opt/microchip/xc8/v1.34/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 47 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 51 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 50 ]
+[v ___ftmul@exp exp `uc  1 a 1 46 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 37 ]
+[v ___ftmul@f2 f2 `f  1 p 3 40 ]
+"157
+} 0
+"86 /opt/microchip/xc8/v1.34/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 66 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 65 ]
+[v ___ftadd@sign sign `uc  1 a 1 64 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 55 ]
+[v ___ftadd@f2 f2 `f  1 p 3 58 ]
+"148
+} 0
+"32 /opt/microchip/xc8/v1.34/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 25 ]
+"32
+[v ___awtoft@c c `i  1 p 2 22 ]
+"42
+} 0
+"469 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _indicator indicator `(v  1 e 0 0 ]
+{
+"490
+} 0
+"347 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _calibrate calibrate `(v  1 e 0 0 ]
+{
+"386
+} 0
+"92 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_puts ser_puts `(v  1 e 0 0 ]
+{
+[v ser_puts@s s `*.25Cuc  1 p 2 15 ]
+"94
+} 0
+"299 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _measure_freq measure_freq `(us  1 e 2 0 ]
+{
+"312
+[v measure_freq@i i `uc  1 a 1 21 ]
+"301
+[v measure_freq@count count `us  1 a 2 22 ]
+"300
+[v measure_freq@prev prev `uc  1 a 1 20 ]
+"341
+} 0
+"533
+[v _delay10ms delay10ms `(v  1 e 0 0 ]
+{
+"537
+[v delay10ms@ms ms `ul  1 a 4 22 ]
+"538
+[v delay10ms@run run `uc  1 a 1 26 ]
+"533
+[v delay10ms@period_10ms period_10ms `us  1 p 2 20 ]
+"554
+} 0
+"15 /opt/microchip/xc8/v1.34/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 18 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 14 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 16 ]
+"53
+} 0
+"28 /opt/microchip/xc8/v1.34/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 24 ]
+"31
+} 0
+"62 /opt/microchip/xc8/v1.34/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 14 ]
+[v ___ftpack@exp exp `uc  1 p 1 17 ]
+[v ___ftpack@sign sign `uc  1 p 1 18 ]
+"86
+} 0
+"79 /home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c
+[v _isr isr `II(i  1 e 2 0 ]
+{
+"111
+} 0
