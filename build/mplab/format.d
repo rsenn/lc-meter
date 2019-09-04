@@ -1,1 +1,0 @@
- format.d  format.p1:  C:/Users/vboxuser/Desktop/lc-meter/lib/format.c ../../lib/pwm.h ../../lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/format.h C:/Users/vboxuser/Desktop/lc-meter/lib/typedef.h C:/Users/vboxuser/Desktop/lc-meter/lib/../src/device.h ../../lib/adc.h

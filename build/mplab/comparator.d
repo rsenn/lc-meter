@@ -1,1 +1,0 @@
- comparator.d  comparator.p1:  C:/Users/vboxuser/Desktop/lc-meter/lib/comparator.c ../../lib/pwm.h ../../src/device.h C:/Users/vboxuser/Desktop/lc-meter/lib/comparator.h ../../lib/typedef.h ../../lib/../src/device.h ../../lib/adc.h
