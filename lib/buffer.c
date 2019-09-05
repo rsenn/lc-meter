@@ -1,6 +1,8 @@
 #include "buffer.h"
 #include <string.h>
 
+buffer_t buffer;
+
 void
 buffer_init(putchar_p op) {
   buffer.p = 0;
@@ -22,7 +24,8 @@ buffer_putch(char ch) {
   if(BUFFER_SIZE - buffer.n <= 0) {
     return 0;
   }
-  buffer.x[buffer.n++] = ch;
+  buffer.x[buffer.n] = ch;
+  buffer.n++;
   return 1;
 }
 
