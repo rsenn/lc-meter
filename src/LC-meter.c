@@ -135,7 +135,7 @@ main() {
    CM2 = 1;
   */
   // others
-#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
+#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
   NOT_RBPU = 0; // enable portB internal pullup
@@ -571,3 +571,8 @@ put_str(const char* s) {
     ser_putch('\n');
   #endif*/
 }
+
+
+
+
+
