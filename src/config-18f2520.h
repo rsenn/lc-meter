@@ -3,10 +3,10 @@
 
 #ifdef __XC
 
-#pragma config FOSC = HSPLL_HS
-#pragma config PWRT = ON, BOR = ON, BORV = 27
+#pragma config OSC = HSPLL
+#pragma config PWRT = ON, BOREN = ON, BORV = 3
 #pragma config WDT = OFF
-#pragma config CCP2MX = ON, STVREN = OFF, LVP = OFF
+#pragma config CCP2MX = PORTC, STVREN = OFF, LVP = OFF
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
 #pragma config CPB = OFF, CPD = OFF
 #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
