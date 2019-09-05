@@ -102,7 +102,7 @@ all clean program verify:
 else
 .PHONY: all clean program verify
 all clean program verify:
-	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(call get-list,PROGRAM) $@),$(MAKE_LOOP))
+	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(call get-list,PROGRAM) dirs $@),$(MAKE_LOOP))
 endif
 
 

@@ -63,8 +63,8 @@ ifeq ($(BUILDDIR),)
 BUILDDIR := bin/$(COMPILER)-$(chipl)/
 endif
 ifeq ($(OBJDIR),)
-OBJDIR := obj/$(COMPILER)-$(chipl)/$(BUILD_ID)/$(PROGRAM)/
-#OBJDIR := $(BUILDDIR)$(BUILD_ID)/
+#OBJDIR := obj/$(COMPILER)-$(chipl)/$(BUILD_ID)/$(PROGRAM)/
+OBJDIR := $(BUILDDIR)$(BUILD_ID)/
 endif
 
 vpath lib src src/julznc $(OBJDIR) $(BUILDDIR)
