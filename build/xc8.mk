@@ -166,6 +166,7 @@ $(CPP_CONFIG): build/xc8.mk
 endif
 
 output: $(HEXFILE) #$(COFFILE)
+	-mkdir -p $(BUILDDIR)
 	@for F in $(HEXFILE) $(COFFILE); do \
 	  echo "Output file '$(C_RED)$$F$(C_OFF)' built..." 1>&2; \
 	 done
@@ -176,7 +177,7 @@ dist:
 	tar -cvzf $(PROGRAM)-$(VERSION).tar.gz $(PROGRAM)-$(VERSION)
 
 $(HEXFILE): $(P1OBJS)
-	@-mkdir -p $(BUILDDIR)
+	-mkdir -p $(BUILDDIR)
 	@-$(RM) $(HEXFILE) $(COFFILE)
 	$(LD) $(LDFLAGS) -m$(BUILDDIR)$(PROGRAM)_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.map -o$@ $^
 	#sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
@@ -185,11 +186,12 @@ $(HEXFILE): $(P1OBJS)
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
 #	(cd obj; $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$< #; R=$$?; echo; exit $$R)
-	@-mkdir -p $(OBJDIR)
+	-mkdir -p $(OBJDIR)
 	@(cd obj; $(SHELL) ../scripts/xc8.sh $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),) $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
 #	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
+	-mkdir -p $(OBJDIR)
 	$(PICC) -S $(CFLAGS) $(CPPFLAGS) --outdir=$(OBJDIR:%/=%) $<
 
 prototypes:

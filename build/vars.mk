@@ -38,7 +38,7 @@ KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\.
 ifeq ($(PROGRAMS),)
 #PROGRAMS := LC_meter_julznc #LC_meter_HD44780 Freq_meter_HD44780 serialtest
 #PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780 Cap_meter_HD44780 serialtest LC_meter_julznc
-PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780 serialtest LC_meter_julznc
+PROGRAMS := LC_meter_HD44780 #serialtest LC_meter_julznc
 endif
 ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
@@ -64,7 +64,7 @@ BUILDDIR := bin/$(COMPILER)-$(chipl)/
 endif
 ifeq ($(OBJDIR),)
 #OBJDIR := obj/$(COMPILER)-$(chipl)/$(BUILD_ID)/$(PROGRAM)/
-OBJDIR := $(BUILDDIR)$(BUILD_ID)/
+OBJDIR := $(BUILDDIR:bin/%=obj/%)$(BUILD_ID)/
 endif
 
 vpath lib src src/julznc $(OBJDIR) $(BUILDDIR)
