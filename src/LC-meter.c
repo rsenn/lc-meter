@@ -243,7 +243,7 @@ main() {
 void
 testloop() {
 
-  static BOOL led = 0;
+  static char led = 0;
   static uint16_t prev_s = 0;
   uint16_t s;
 
@@ -534,7 +534,7 @@ delay10ms(uint16_t period_10ms) {
       __delay_ms(10);
   }
 */ uint32_t ms;
-  BOOL run = 1;
+  char run = 1;
 
   get_milliseconds(ms);
 
