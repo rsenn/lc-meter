@@ -8,6 +8,12 @@
 #ifdef __16f876a
 #include <pic14/pic16f876a.h>
 #endif
+#ifdef __18f252
+#include <pic16/pic18f252.h>
+#endif
+#ifdef __18f2550
+#include <pic16/pic18f2550.h>
+#endif
 
 #elif defined(__XC8)
 #include <xc.h>
