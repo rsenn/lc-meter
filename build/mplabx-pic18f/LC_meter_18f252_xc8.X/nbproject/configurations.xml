@@ -9,6 +9,9 @@
       <itemPath>../../../lib/oscillator.h</itemPath>
       <itemPath>../../../lib/ser.h</itemPath>
       <itemPath>../../../lib/uart.h</itemPath>
+      <itemPath>../../../lib/typedef.h</itemPath>
+      <itemPath>../../../lib/lcd44780.h</itemPath>
+      <itemPath>../../../lib/buffer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +24,8 @@
       <itemPath>../../../lib/ser.c</itemPath>
       <itemPath>../../../lib/timer.c</itemPath>
       <itemPath>../../../lib/format.c</itemPath>
+      <itemPath>../../../lib/lcd44780.c</itemPath>
+      <itemPath>../../../lib/buffer.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -80,10 +85,9 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__XC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__18f252=1"/>
+                  value="__XC=1;__18f252=1;USE_TIMER1=1;USE_TIMER2=1;USE_SER=1;USE_HD44780_LCD=1;XTAL_FREQ=20000000;BAUD_RATE=38400"/>
         <property key="disable-optimizations" value="false"/>
-        <property key="extra-include-directories"
-                  value="../../mplab;.;../../../src;../../../lib"/>
+        <property key="extra-include-directories" value="../../../src;../../../lib"/>
         <property key="favor-optimization-for" value="+speed,-space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -103,10 +107,10 @@
         <property key="preprocess-assembler" value="true"/>
         <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="false"/>
+        <property key="use-cci" value="true"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
-        <property key="warning-level" value="1"/>
+        <property key="verbose" value="true"/>
+        <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
         <appendMe value="--double=32"/>
       </HI-TECH-COMP>
@@ -128,8 +132,8 @@
         <property key="data-model-ram" value=""/>
         <property key="data-model-size-of-double" value="32"/>
         <property key="data-model-size-of-double-gcc" value="no-short-double"/>
-        <property key="data-model-size-of-float" value="32"/>
-        <property key="data-model-size-of-float-gcc" value="no-short-float"/>
+        <property key="data-model-size-of-float" value="24"/>
+        <property key="data-model-size-of-float-gcc" value="short-float"/>
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
         <property key="display-overall-usage" value="true"/>
@@ -145,7 +149,7 @@
         <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="input-libraries" value="libm"/>
-        <property key="keep-generated-startup.as" value="false"/>
+        <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-c-library-gcc" value=""/>
         <property key="link-in-peripheral-library" value="false"/>
@@ -205,7 +209,7 @@
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
         <property key="output-file-format" value="+mcof,-elf"/>
-        <property key="stack-size-high" value=""/>
+        <property key="stack-size-high" value="auto"/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
         <property key="stack-type" value="hybrid"/>
