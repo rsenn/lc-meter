@@ -1,0 +1,579 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC IEEE_DBL LFSROK SPEEDOPT EMI_WORD IEEE_FLT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2550 ]
+[d frameptr 4065 ]
+"6 C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+[v _format_putchar format_putchar `(v  1 s 0 format_putchar ]
+"14
+[v _format_number format_number `(v  1 e 0 0 ]
+"48
+[v _format_xint32 format_xint32 `(v  1 e 0 0 ]
+"74
+[v _format_double format_double `(v  1 e 0 0 ]
+"58 C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+[v _ser_isrx ser_isrx `(b  1 e 0 0 ]
+"82
+[v _ser_putch ser_putch `(v  1 e 0 0 ]
+"92
+[v _ser_puts ser_puts `(v  1 e 0 0 ]
+"125
+[v _ser_init ser_init `(v  1 e 0 0 ]
+"81 C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+[v _timer2_init timer2_init `(v  1 e 0 0 ]
+"48 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _output_putch output_putch `(v  1 e 0 0 ]
+"79
+[v _isr isr `II(i  1 e 2 0 ]
+"115
+[v _main main `(v  1 e 0 0 ]
+"299
+[v _measure_freq measure_freq `(us  1 e 2 0 ]
+"346
+[v _calibrate calibrate `(v  1 e 0 0 ]
+"391
+[v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
+"469
+[v _measure_inductance measure_inductance `(v  1 e 0 0 ]
+"532
+[v _delay10ms delay10ms `(v  1 e 0 0 ]
+"408 C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+[v _print_unit print_unit `(v  1 e 0 0 ]
+"429
+[v _print_reading print_reading `(v  1 e 0 0 ]
+"469
+[v _indicator indicator `(v  1 e 0 0 ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+[v ___altofl __altofl `(d  1 e 4 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+[v ___awtofl __awtofl `(d  1 e 4 0 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 4 0 ]
+"12 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+[v _exp exp `(d  1 e 4 0 ]
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"13 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+[v _floor floor `(d  1 e 4 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"254 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+[v _frexp frexp `(d  1 e 4 0 ]
+"277
+[v _ldexp ldexp `(d  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lbtofl.c
+[v ___lbtofl __lbtofl `(d  1 e 4 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c
+[v ___lltofl __lltofl `(d  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+[v _log log `(d  1 e 4 0 ]
+"39
+[v _log10 log10 `(d  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c
+[v ___lwtofl __lwtofl `(d  1 e 4 0 ]
+"5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+[v _pow pow `(d  1 e 4 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"10 C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+[v _putchar_ptr putchar_ptr `*.37(v  1 e 2 0 ]
+"51 C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+[v _rxfifo rxfifo `[16]uc  1 e 16 0 ]
+"52
+[v _rxiptr rxiptr `VEuc  1 e 1 0 ]
+[v _rxoptr rxoptr `VEuc  1 e 1 0 ]
+"53
+[v _txfifo txfifo `[16]uc  1 e 16 0 ]
+"54
+[v _txiptr txiptr `VEuc  1 e 1 0 ]
+[v _txoptr txoptr `VEuc  1 e 1 0 ]
+"55
+[v _ser_tmp ser_tmp `uc  1 e 1 0 ]
+"40 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _bres bres `VEus  1 e 2 0 ]
+"41
+[v _msecpart msecpart `VEus  1 e 2 0 ]
+"42
+[v _seconds seconds `VEul  1 e 4 0 ]
+[v _msecs msecs `VEul  1 e 4 0 ]
+"43
+[v _timer1of timer1of `VEul  1 e 4 0 ]
+"60
+[v _F1 F1 `d  1 e 4 0 ]
+[v _F2 F2 `d  1 e 4 0 ]
+[v _F3 F3 `d  1 e 4 0 ]
+[v _CCal CCal `d  1 e 4 0 ]
+"76
+[v _blink blink `us  1 s 2 blink ]
+"2643 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f2550.h
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"3411
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"3829
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"5076
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5087
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5098
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+"6857
+[v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
+"7580
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"8401
+[v _BRGH BRGH `VEb  1 e 0 @32098 ]
+"8515
+[v _CREN CREN `VEb  1 e 0 @32092 ]
+"8873
+[v _GIE GIE `VEb  1 e 0 @32663 ]
+"9177
+[v _PEIE PEIE `VEb  1 e 0 @32662 ]
+"9255
+[v _RC1 RC1 `VEb  1 e 0 @31761 ]
+"9267
+[v _RC4 RC4 `VEb  1 e 0 @31764 ]
+"9273
+[v _RC7 RC7 `VEb  1 e 0 @31767 ]
+"9287
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"9329
+[v _RX9 RX9 `VEb  1 e 0 @32094 ]
+"9369
+[v _SPEN SPEN `VEb  1 e 0 @32095 ]
+"9375
+[v _SSPEN SSPEN `VEb  1 e 0 @32309 ]
+"9423
+[v _SYNC SYNC `VEb  1 e 0 @32100 ]
+"9431
+[v _T0CS T0CS `VEb  1 e 0 @32429 ]
+"9445
+[v _T0SE T0SE `VEb  1 e 0 @32428 ]
+"9465
+[v _T2CKPS0 T2CKPS0 `VEb  1 e 0 @32336 ]
+"9467
+[v _T2CKPS1 T2CKPS1 `VEb  1 e 0 @32337 ]
+"9493
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
+"9509
+[v _TMR2IE TMR2IE `VEb  1 e 0 @31977 ]
+"9511
+[v _TMR2IF TMR2IF `VEb  1 e 0 @31985 ]
+"9515
+[v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
+"9529
+[v _TOUTPS0 TOUTPS0 `VEb  1 e 0 @32339 ]
+"9531
+[v _TOUTPS1 TOUTPS1 `VEb  1 e 0 @32340 ]
+"9533
+[v _TOUTPS2 TOUTPS2 `VEb  1 e 0 @32341 ]
+"9567
+[v _TRISC0 TRISC0 `VEb  1 e 0 @31904 ]
+"9569
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
+"9571
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"9575
+[v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
+"9607
+[v _TX9 TX9 `VEb  1 e 0 @32102 ]
+"9619
+[v _TXEN TXEN `VEb  1 e 0 @32101 ]
+"9623
+[v _TXIE TXIE `VEb  1 e 0 @31980 ]
+"9625
+[v _TXIF TXIF `VEb  1 e 0 @31988 ]
+"9713
+[v _nRBPU nRBPU `VEb  1 e 0 @32655 ]
+"115 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _main main `(v  1 e 0 0 ]
+{
+"241
+} 0
+"81 C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+[v _timer2_init timer2_init `(v  1 e 0 0 ]
+{
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
+"82
+[v timer2_init@ps ps `uc  1 a 1 4 ]
+"81
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 3 ]
+"99
+} 0
+"125 C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+[v _ser_init ser_init `(v  1 e 0 0 ]
+{
+"151
+} 0
+"469 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _measure_inductance measure_inductance `(v  1 e 0 0 ]
+{
+"473
+[v measure_inductance@Lin Lin `d  1 a 4 51 ]
+[v measure_inductance@denominator denominator `d  1 a 4 16 ]
+[v measure_inductance@numerator numerator `d  1 a 4 12 ]
+"471
+[v measure_inductance@var var `us  1 a 2 49 ]
+"470
+[v measure_inductance@unit unit `uc  1 a 1 36 ]
+"512
+} 0
+"391
+[v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
+{
+"395
+[v measure_capacitance@Cin Cin `d  1 a 4 93 ]
+"393
+[v measure_capacitance@var var `us  1 a 2 91 ]
+"392
+[v measure_capacitance@unit unit `uc  1 a 1 90 ]
+"463
+} 0
+"408 C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+[v _print_unit print_unit `(v  1 e 0 0 ]
+{
+"426
+} 0
+"429
+[v _print_reading print_reading `(v  1 e 0 0 ]
+{
+[v print_reading@measurement measurement `us  1 p 2 2 ]
+"465
+} 0
+"48 C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+[v _format_xint32 format_xint32 `(v  1 e 0 0 ]
+{
+[v format_xint32@x x `ul  1 p 4 52 ]
+"53
+} 0
+"14
+[v _format_number format_number `(v  1 e 0 0 ]
+{
+"15
+[v format_number@buf buf `[32]uc  1 a 32 15 ]
+"17
+[v format_number@i i `c  1 a 1 51 ]
+"16
+[v format_number@di di `uc  1 a 1 50 ]
+"18
+[v format_number@padchar padchar `uc  1 a 1 49 ]
+"14
+[v format_number@n n `us  1 p 2 9 ]
+[v format_number@base base `uc  1 p 1 11 ]
+[v format_number@pad pad `c  1 p 1 12 ]
+"44
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwmod@counter counter `uc  1 a 1 6 ]
+"8
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 4 ]
+"26
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 6 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 8 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 4 ]
+"31
+} 0
+"74 C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+[v _format_double format_double `(v  1 e 0 0 ]
+{
+"80
+[v format_double@weight weight `d  1 a 4 70 ]
+"75
+[v format_double@m m `s  1 a 2 76 ]
+"76
+[v format_double@digit digit `s  1 a 2 74 ]
+"74
+[v format_double@num num `d  1 p 4 58 ]
+"88
+} 0
+"5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+[v _pow pow `(d  1 e 4 0 ]
+{
+"8
+[v pow@yi yi `ul  1 a 4 54 ]
+"7
+[v pow@sign sign `uc  1 a 1 53 ]
+"5
+[v pow@x x `d  1 p 4 37 ]
+[v pow@y y `d  1 p 4 41 ]
+"31
+} 0
+"12 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+[v _exp exp `(d  1 e 4 0 ]
+{
+"14
+[v exp@exponent exponent `i  1 a 2 34 ]
+"15
+[v exp@sign sign `uc  1 a 1 36 ]
+"12
+[v exp@x x `d  1 p 4 26 ]
+"17
+[v exp@coeff coeff `C[10]d  1 s 40 coeff ]
+"57
+} 0
+"277 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+[v _ldexp ldexp `(d  1 e 4 0 ]
+{
+[v ldexp@value value `d  1 p 4 78 ]
+[v ldexp@newexp newexp `i  1 p 2 82 ]
+"307
+} 0
+"13 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+[v _floor floor `(d  1 e 4 0 ]
+{
+"15
+[v floor@i i `d  1 a 4 20 ]
+"16
+[v floor@expon expon `i  1 a 2 24 ]
+"13
+[v floor@x x `d  1 p 4 16 ]
+"30
+} 0
+"43 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 89 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 88 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 4 ]
+"70
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+{
+[v ___flge@ff1 ff1 `d  1 p 4 2 ]
+[v ___flge@ff2 ff2 `d  1 p 4 6 ]
+"13
+} 0
+"36 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+[v ___altofl __altofl `(d  1 e 4 0 ]
+{
+"38
+[v ___altofl@sign sign `uc  1 a 1 90 ]
+"36
+[v ___altofl@c c `l  1 p 4 12 ]
+"46
+} 0
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+{
+[v ___flsub@f1 f1 `d  1 p 4 66 ]
+[v ___flsub@f2 f2 `d  1 p 4 70 ]
+"32
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+[v ___flneg __flneg `(d  1 e 4 0 ]
+{
+[v ___flneg@f1 f1 `d  1 p 4 2 ]
+"20
+} 0
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"60
+[v ___fldiv@f3 f3 `d  1 a 4 20 ]
+"59
+[v ___fldiv@sign sign `uc  1 a 1 26 ]
+[v ___fldiv@exp exp `uc  1 a 1 25 ]
+[v ___fldiv@cntr cntr `uc  1 a 1 24 ]
+"54
+[v ___fldiv@f1 f1 `d  1 p 4 12 ]
+[v ___fldiv@f2 f2 `d  1 p 4 16 ]
+"85
+} 0
+"30 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c
+[v ___lltofl __lltofl `(d  1 e 4 0 ]
+{
+[v ___lltofl@c c `ul  1 p 4 12 ]
+"33
+} 0
+"6 C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+[v _format_putchar format_putchar `(v  1 s 0 format_putchar ]
+{
+"8
+} 0
+"82 C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+[v _ser_putch ser_putch `(v  1 e 0 0 ]
+{
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 2 ]
+"89
+} 0
+"48 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _output_putch output_putch `(v  1 e 0 0 ]
+{
+[v output_putch@c c `uc  1 a 1 wreg ]
+[v output_putch@c c `uc  1 a 1 wreg ]
+"54
+[v output_putch@c c `uc  1 a 1 3 ]
+"56
+} 0
+"39 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+[v _log10 log10 `(d  1 e 4 0 ]
+{
+[v log10@x x `d  1 p 4 84 ]
+"42
+} 0
+"5
+[v _log log `(d  1 e 4 0 ]
+{
+"7
+[v log@exponent exponent `i  1 a 2 82 ]
+"5
+[v log@x x `d  1 p 4 78 ]
+"9
+[v log@coeff coeff `C[9]d  1 s 36 coeff ]
+"36
+} 0
+"254 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+[v _frexp frexp `(d  1 e 4 0 ]
+{
+[v frexp@value value `d  1 p 4 2 ]
+[v frexp@eptr eptr `*.30i  1 p 1 6 ]
+"274
+} 0
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 4 0 ]
+{
+"6
+[v eval_poly@res res `d  1 a 4 74 ]
+"4
+[v eval_poly@x x `d  1 p 4 66 ]
+[v eval_poly@d d `*.31Cd  1 p 1 70 ]
+[v eval_poly@n n `i  1 p 2 71 ]
+"12
+} 0
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+"65
+[v ___flmul@f3_as_product f3_as_product `ul  1 a 4 50 ]
+"64
+[v ___flmul@sign sign `uc  1 a 1 49 ]
+[v ___flmul@exp exp `uc  1 a 1 48 ]
+"62
+[v ___flmul@f1 f1 `d  1 p 4 27 ]
+[v ___flmul@f2 f2 `d  1 p 4 31 ]
+"220
+} 0
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+{
+"90
+[v ___fladd@exp1 exp1 `uc  1 a 1 65 ]
+[v ___fladd@exp2 exp2 `uc  1 a 1 64 ]
+[v ___fladd@sign sign `uc  1 a 1 63 ]
+"88
+[v ___fladd@f1 f1 `d  1 p 4 54 ]
+[v ___fladd@f2 f2 `d  1 p 4 58 ]
+"149
+} 0
+"31 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+[v ___awtofl __awtofl `(d  1 e 4 0 ]
+{
+"34
+[v ___awtofl@sign sign `uc  1 a 1 16 ]
+"31
+[v ___awtofl@c c `i  1 p 2 12 ]
+"42
+} 0
+"469 C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+[v _indicator indicator `(v  1 e 0 0 ]
+{
+"490
+} 0
+"346 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _calibrate calibrate `(v  1 e 0 0 ]
+{
+"385
+} 0
+"92 C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+[v _ser_puts ser_puts `(v  1 e 0 0 ]
+{
+[v ser_puts@s s `*.31Cuc  1 a 1 wreg ]
+[v ser_puts@s s `*.31Cuc  1 a 1 wreg ]
+[v ser_puts@s s `*.31Cuc  1 a 1 3 ]
+"94
+} 0
+"299 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _measure_freq measure_freq `(us  1 e 2 0 ]
+{
+"312
+[v measure_freq@i i `uc  1 a 1 7 ]
+"301
+[v measure_freq@count count `us  1 a 2 8 ]
+"300
+[v measure_freq@prev prev `uc  1 a 1 6 ]
+"340
+} 0
+"532
+[v _delay10ms delay10ms `(v  1 e 0 0 ]
+{
+"536
+[v delay10ms@ms ms `ul  1 a 4 6 ]
+"537
+[v delay10ms@run run `uc  1 a 1 10 ]
+"532
+[v delay10ms@period_10ms period_10ms `us  1 p 2 2 ]
+"553
+} 0
+"28 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c
+[v ___lwtofl __lwtofl `(d  1 e 4 0 ]
+{
+[v ___lwtofl@c c `ui  1 p 2 12 ]
+"31
+} 0
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 4 0 ]
+{
+[v ___flpack@arg arg `ul  1 p 4 2 ]
+[v ___flpack@exp exp `uc  1 p 1 6 ]
+[v ___flpack@sign sign `uc  1 p 1 7 ]
+"87
+} 0
+"79 C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+[v _isr isr `II(i  1 e 2 0 ]
+{
+"111
+} 0

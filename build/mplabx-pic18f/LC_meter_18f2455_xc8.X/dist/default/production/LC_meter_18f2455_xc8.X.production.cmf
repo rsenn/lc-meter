@@ -1,0 +1,1602 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+cinit CODE 0 28A8 28A8 46 1
+intcode_body CODE 0 2140 2140 C2 1
+text0 CODE 0 1BCC 1BCC 116 1
+text1 CODE 0 2732 2732 4C 1
+text2 CODE 0 2B28 2B28 24 1
+text3 CODE 0 8E0 8E0 522 1
+text4 CODE 0 E02 E02 43E 1
+text5 CODE 0 2AAC 2AAC 2A 1
+text6 CODE 0 25B0 25B0 70 1
+text7 CODE 0 2620 2620 5E 1
+text8 CODE 0 1610 1610 1B2 1
+text9 CODE 0 17C2 17C2 188 1
+text10 CODE 0 1240 1240 212 1
+text11 CODE 0 24A0 24A0 98 1
+text12 CODE 0 1CE2 1CE2 FA 1
+text13 CODE 0 2364 2364 9E 1
+text14 CODE 0 277E 277E 4C 1
+text15 CODE 0 2860 2860 48 1
+text16 CODE 0 28EE 28EE 44 1
+text17 CODE 0 2B70 2B70 20 1
+text18 CODE 0 22BE 22BE A6 1
+text19 CODE 0 2A7E 2A7E 2E 1
+text20 CODE 0 267E 267E 5A 1
+text21 CODE 0 1AB2 1AB2 11A 1
+text22 CODE 0 2538 2538 78 1
+text23 CODE 0 2202 2202 BC 1
+text24 CODE 0 1452 1452 1BE 1
+text25 CODE 0 194A 194A 168 1
+text26 CODE 0 2970 2970 3A 1
+text27 CODE 0 2A4E 2A4E 30 1
+text28 CODE 0 1EC8 1EC8 DE 1
+text29 CODE 0 2B90 2B90 20 1
+text30 CODE 0 29E2 29E2 36 1
+text31 CODE 0 1DDC 1DDC EC 1
+text32 CODE 0 2B00 2B00 28 1
+text33 CODE 0 2402 2402 9E 1
+text34 CODE 0 2A18 2A18 36 1
+text35 CODE 0 29AA 29AA 38 1
+text36 CODE 0 1FA6 1FA6 D4 1
+text37 CODE 0 2C12 2C12 2 1
+text38 CODE 0 2B4C 2B4C 24 1
+text39 CODE 0 2BF2 2BF2 E 1
+text40 CODE 0 2BE2 2BE2 10 1
+text41 CODE 0 2932 2932 3E 1
+text42 CODE 0 2816 2816 4A 1
+text43 CODE 0 2BCC 2BCC 16 1
+text44 CODE 0 2C00 2C00 C 1
+text45 CODE 0 2BB0 2BB0 1C 1
+text46 CODE 0 27CA 27CA 4C 1
+text47 CODE 0 26D8 26D8 5A 1
+text48 CODE 0 2AD6 2AD6 2A 1
+text49 CODE 0 207A 207A C6 1
+nvBANK0 BANK0 1 F2 F2 8 1
+cstackCOMRAM COMRAM 1 1 1 5B 1
+cstackBANK0 BANK0 1 60 60 61 1
+bssBANK0 BANK0 1 C1 C1 31 1
+bssBANK1 BANK1 1 100 100 23 1
+intcode CODE 0 8 8 C 1
+smallconst SMALLCONST 0 800 800 E0 1
+idataBANK0 CODE 0 2C0C 2C0C 6 1
+dataBANK0 BANK0 1 FA FA 6 1
+bssCOMRAM COMRAM 1 5C 5C 2 1
+$dist/default/production\startup.obj
+idloc IDLOC 0 200000 200000 8 1
+reset_vec CODE 0 0 0 4 1
+end_init CODE 0 14 14 4 1
+config CONFIG 0 300000 300000 E 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 123-7FF 1
+SFR F60-FFF 1
+BANK1 123-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+CONST 4-7 1
+CONST 18-7FF 1
+CONST 2C14-5FFF 1
+STACK 123-7FF 1
+SMALLCONST 2C14-5FFF 1
+CODE 4-7 1
+CODE 18-7FF 1
+CODE 2C14-5FFF 1
+BIGRAM 5E-5F 1
+BIGRAM 123-7FF 1
+COMRAM 5E-5F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 2C14-5FFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+8 intcode CODE >79:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+8 intcode CODE >87:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+8E0 text3 CODE >469:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+8E0 text3 CODE >476:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+8E8 text3 CODE >477:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+8EE text3 CODE >479:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+8FA text3 CODE >481:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+916 text3 CODE >482:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+93C text3 CODE >483:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+94C text3 CODE >485:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+ABC text3 CODE >487:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+C28 text3 CODE >489:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+C80 text3 CODE >491:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+CA4 text3 CODE >492:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+CCA text3 CODE >493:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+CF0 text3 CODE >494:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D24 text3 CODE >495:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D28 text3 CODE >496:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D2A text3 CODE >497:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D5E text3 CODE >498:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D62 text3 CODE >501:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D94 text3 CODE >502:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D98 text3 CODE >505:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+D9E text3 CODE >507:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+DD0 text3 CODE >508:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+DEC text3 CODE >510:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+DF8 text3 CODE >511:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E00 text3 CODE >512:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E02 text4 CODE >391:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E02 text4 CODE >399:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E0A text4 CODE >400:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E10 text4 CODE >402:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E1C text4 CODE >404:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E38 text4 CODE >406:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E42 text4 CODE >407:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E48 text4 CODE >408:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E58 text4 CODE >409:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E5E text4 CODE >410:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E72 text4 CODE >411:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E78 text4 CODE >412:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E8C text4 CODE >413:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+E92 text4 CODE >414:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EA6 text4 CODE >415:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EAC text4 CODE >416:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EC0 text4 CODE >417:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EC6 text4 CODE >418:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EDA text4 CODE >419:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EE0 text4 CODE >420:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EF4 text4 CODE >421:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+EFA text4 CODE >422:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F0E text4 CODE >423:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F14 text4 CODE >424:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F28 text4 CODE >425:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F2E text4 CODE >427:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F38 text4 CODE >429:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F5E text4 CODE >430:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+F6E text4 CODE >432:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1086 text4 CODE >436:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+108C text4 CODE >437:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+10A0 text4 CODE >438:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+10A6 text4 CODE >439:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+10BA text4 CODE >440:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+10C0 text4 CODE >442:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+10E4 text4 CODE >443:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+110A text4 CODE >444:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1130 text4 CODE >445:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1164 text4 CODE >446:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1168 text4 CODE >448:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+119C text4 CODE >449:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+11A0 text4 CODE >452:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+11D2 text4 CODE >453:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+11D6 text4 CODE >456:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+11DC text4 CODE >458:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+120E text4 CODE >459:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+122A text4 CODE >461:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1236 text4 CODE >462:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+123E text4 CODE >463:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1240 text10 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1240 text10 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+124C text10 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1258 text10 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+127E text10 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+128C text10 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+12B2 text10 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+12B6 text10 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+12C0 text10 CODE >44:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+12C4 text10 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+12E8 text10 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+131C text10 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+135C text10 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+139C text10 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+13E6 text10 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+13EC text10 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1402 text10 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+140C text10 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1440 text10 CODE >55:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1440 text10 CODE >56:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1450 text10 CODE >57:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c
+1452 text24 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1452 text24 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+145A text24 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+145C text24 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1466 text24 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1470 text24 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1476 text24 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+147A text24 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+147E text24 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1482 text24 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1484 text24 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1486 text24 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1488 text24 CODE >142:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+148A text24 CODE >144:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+14A0 text24 CODE >148:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+14E2 text24 CODE >149:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+14F0 text24 CODE >156:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1548 text24 CODE >171:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1572 text24 CODE >173:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+159C text24 CODE >176:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15C8 text24 CODE >188:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15CC text24 CODE >189:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15D6 text24 CODE >190:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15D8 text24 CODE >191:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15D8 text24 CODE >192:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+15E2 text24 CODE >219:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+160E text24 CODE >220:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
+1610 text8 CODE >74:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1610 text8 CODE >75:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1640 text8 CODE >79:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1642 text8 CODE >80:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1690 text8 CODE >81:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+16F4 text8 CODE >82:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1758 text8 CODE >83:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1776 text8 CODE >84:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+177E text8 CODE >85:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1796 text8 CODE >86:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+179E text8 CODE >79:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+17BE text8 CODE >88:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+17C0 text8 CODE >79:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+17C2 text9 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17C2 text9 CODE >7:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17C4 text9 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17CE text9 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17EA text9 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17EE text9 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+17F8 text9 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1806 text9 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+180A text9 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+182E text9 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+185C text9 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1866 text9 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+186C text9 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1890 text9 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+190C text9 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1912 text9 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1938 text9 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+1948 text9 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c
+194A text25 CODE >88:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+194A text25 CODE >92:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1950 text25 CODE >93:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1956 text25 CODE >94:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+196C text25 CODE >95:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+197E text25 CODE >96:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1994 text25 CODE >97:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19A6 text25 CODE >98:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19AA text25 CODE >99:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19AC text25 CODE >100:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19AE text25 CODE >101:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19B0 text25 CODE >102:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19B2 text25 CODE >103:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19B4 text25 CODE >104:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19B6 text25 CODE >105:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19B8 text25 CODE >106:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19BA text25 CODE >108:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19C0 text25 CODE >112:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19CA text25 CODE >113:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19CC text25 CODE >114:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19E0 text25 CODE >116:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19EA text25 CODE >117:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19EC text25 CODE >115:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19F4 text25 CODE >119:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+19FA text25 CODE >123:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A04 text25 CODE >124:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A06 text25 CODE >125:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A1A text25 CODE >127:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A24 text25 CODE >128:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A26 text25 CODE >126:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A2C text25 CODE >131:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A30 text25 CODE >133:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A38 text25 CODE >134:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A42 text25 CODE >136:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A46 text25 CODE >138:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A4E text25 CODE >139:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A58 text25 CODE >141:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A5A text25 CODE >142:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A6A text25 CODE >143:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A6E text25 CODE >144:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A76 text25 CODE >145:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A80 text25 CODE >146:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1A84 text25 CODE >148:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1AB0 text25 CODE >149:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
+1AB2 text21 CODE >5:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1AB2 text21 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1AB6 text21 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1AC0 text21 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1ACA text21 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1B32 text21 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1B38 text21 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1B66 text21 CODE >35:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1BCA text21 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+1BCC text0 CODE >115:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1BCC text0 CODE >116:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1BF6 text0 CODE >118:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C02 text0 CODE >127:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C06 text0 CODE >129:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C08 text0 CODE >130:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C0A text0 CODE >141:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C0C text0 CODE >144:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C0E text0 CODE >145:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C10 text0 CODE >147:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C12 text0 CODE >152:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C18 text0 CODE >157:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C1A text0 CODE >160:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C1C text0 CODE >162:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C1E text0 CODE >163:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C20 text0 CODE >169:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C26 text0 CODE >170:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C30 text0 CODE >173:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C32 text0 CODE >174:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C34 text0 CODE >176:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C36 text0 CODE >177:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C40 text0 CODE >178:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C42 text0 CODE >179:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C4C text0 CODE >180:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C4E text0 CODE >181:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C58 text0 CODE >182:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C5A text0 CODE >183:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C64 text0 CODE >184:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C66 text0 CODE >187:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C6A text0 CODE >192:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C6C text0 CODE >194:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C6E text0 CODE >195:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C70 text0 CODE >198:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C78 text0 CODE >205:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C80 text0 CODE >207:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C86 text0 CODE >208:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1C9A text0 CODE >214:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CA4 text0 CODE >217:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CA8 text0 CODE >219:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CAC text0 CODE >230:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CB2 text0 CODE >231:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CB6 text0 CODE >232:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CBC text0 CODE >234:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CC0 text0 CODE >236:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CC6 text0 CODE >237:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CD0 text0 CODE >238:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CD6 text0 CODE >239:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CE0 text0 CODE >240:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1CE2 text12 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1CE2 text12 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1CFA text12 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D00 text12 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D04 text12 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D12 text12 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D1C text12 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D26 text12 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D38 text12 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D70 text12 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1D96 text12 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1DCA text12 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1DDA text12 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c
+1DDC text31 CODE >346:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DDC text31 CODE >350:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DE0 text31 CODE >352:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DE8 text31 CODE >353:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DEE text31 CODE >355:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DF8 text31 CODE >356:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1DFE text31 CODE >357:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E04 text31 CODE >360:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E06 text31 CODE >362:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E26 text31 CODE >363:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E30 text31 CODE >365:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E50 text31 CODE >366:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E52 text31 CODE >368:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E72 text31 CODE >369:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E7C text31 CODE >371:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E9C text31 CODE >372:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1E9E text31 CODE >376:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EA6 text31 CODE >378:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EA8 text31 CODE >379:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EAE text31 CODE >381:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EB8 text31 CODE >378:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EC0 text31 CODE >384:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EC6 text31 CODE >385:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+1EC8 text28 CODE >430:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1ECA text28 CODE >431:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1ED0 text28 CODE >432:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1ED2 text28 CODE >435:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1ED6 text28 CODE >439:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EDE text28 CODE >440:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EE0 text28 CODE >442:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EEE text28 CODE >445:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EF0 text28 CODE >446:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EF2 text28 CODE >449:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EF8 text28 CODE >453:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1EFE text28 CODE >454:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F0E text28 CODE >456:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F14 text28 CODE >457:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F1A text28 CODE >459:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F20 text28 CODE >460:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F26 text28 CODE >462:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F2C text28 CODE >463:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F2E text28 CODE >469:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F36 text28 CODE >470:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F46 text28 CODE >473:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F50 text28 CODE >474:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F60 text28 CODE >478:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F6A text28 CODE >482:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F74 text28 CODE >485:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F7A text28 CODE >486:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F82 text28 CODE >489:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F88 text28 CODE >490:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F96 text28 CODE >493:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1F9C text28 CODE >495:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1FA4 text28 CODE >496:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+1FA6 text36 CODE >14:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FA6 text36 CODE >17:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FA8 text36 CODE >18:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FAC text36 CODE >20:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FB0 text36 CODE >21:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FB2 text36 CODE >22:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FB6 text36 CODE >34:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FCC text36 CODE >35:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+1FF0 text36 CODE >37:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+200A text36 CODE >38:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2012 text36 CODE >40:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2042 text36 CODE >42:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2078 text36 CODE >44:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+207A text49 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+207A text49 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2088 text49 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2092 text49 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2094 text49 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+209E text49 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20B6 text49 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20B8 text49 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20C2 text49 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20CC text49 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20CC text49 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20E2 text49 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20E4 text49 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20EE text49 CODE >76:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20F8 text49 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+20FC text49 CODE >81:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2100 text49 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2104 text49 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2128 text49 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+212C text49 CODE >85:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+212E text49 CODE >86:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+213E text49 CODE >87:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
+2140 intcode_body CODE >79:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2142 intcode_body CODE >81:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2146 intcode_body CODE >83:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+214A intcode_body CODE >85:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2154 intcode_body CODE >86:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+215C intcode_body CODE >87:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2160 intcode_body CODE >88:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+216A intcode_body CODE >90:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+217A intcode_body CODE >91:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2186 intcode_body CODE >92:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+218E intcode_body CODE >93:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2192 intcode_body CODE >96:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+219C intcode_body CODE >98:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+21A6 intcode_body CODE >99:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+21AE intcode_body CODE >103:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+21B0 intcode_body CODE >106:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+21F8 intcode_body CODE >111:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2202 text23 CODE >4:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+2202 text23 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+222C text23 CODE >9:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+222E text23 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+22A6 text23 CODE >9:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+22AC text23 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+22BC text23 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
+22BE text18 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22BE text18 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22C6 text18 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22C8 text18 CODE >65:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22D2 text18 CODE >66:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22DC text18 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22E2 text18 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22E6 text18 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22EA text18 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22EE text18 CODE >71:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22F0 text18 CODE >72:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22F2 text18 CODE >73:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22F4 text18 CODE >74:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22F6 text18 CODE >75:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+22FA text18 CODE >77:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2304 text18 CODE >78:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2316 text18 CODE >79:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2326 text18 CODE >80:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2328 text18 CODE >82:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2332 text18 CODE >83:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2336 text18 CODE >84:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2362 text18 CODE >85:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
+2364 text13 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+2364 text13 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+2370 text13 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+237A text13 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23A0 text13 CODE >50:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23A2 text13 CODE >51:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23A4 text13 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23A8 text13 CODE >53:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23AC text13 CODE >54:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23B4 text13 CODE >57:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23BE text13 CODE >58:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23C4 text13 CODE >60:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23CC text13 CODE >63:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23D6 text13 CODE >64:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23D8 text13 CODE >62:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23DC text13 CODE >67:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23E0 text13 CODE >68:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+23F0 text13 CODE >69:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+2400 text13 CODE >70:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c
+2402 text33 CODE >299:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2402 text33 CODE >303:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2404 text33 CODE >305:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2406 text33 CODE >308:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2414 text33 CODE >310:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2418 text33 CODE >312:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2432 text33 CODE >314:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2434 text33 CODE >316:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2438 text33 CODE >317:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+243C text33 CODE >321:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+243E text33 CODE >322:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2440 text33 CODE >323:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2442 text33 CODE >325:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2444 text33 CODE >326:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2446 text33 CODE >327:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2448 text33 CODE >328:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+244C text33 CODE >329:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2458 text33 CODE >332:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2472 text33 CODE >335:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+247C text33 CODE >336:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2482 text33 CODE >337:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2496 text33 CODE >339:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+249E text33 CODE >340:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+24A0 text11 CODE >277:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24A0 text11 CODE >279:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24A8 text11 CODE >280:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24AA text11 CODE >282:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24C0 text11 CODE >283:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24CC text11 CODE >287:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24D0 text11 CODE >289:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24DA text11 CODE >291:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24E2 text11 CODE >293:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24E6 text11 CODE >294:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24F2 text11 CODE >296:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+24FE text11 CODE >300:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2510 text11 CODE >301:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2526 text11 CODE >306:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2536 text11 CODE >307:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2538 text22 CODE >254:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2538 text22 CODE >256:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2542 text22 CODE >257:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+254E text22 CODE >258:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2558 text22 CODE >261:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2574 text22 CODE >262:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2586 text22 CODE >263:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+2594 text22 CODE >268:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+259C text22 CODE >269:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+259E text22 CODE >273:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+25AE text22 CODE >274:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
+25B0 text6 CODE >429:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+25B0 text6 CODE >456:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+25B8 text6 CODE >457:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+25BE text6 CODE >458:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+25C6 text6 CODE >460:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+25F2 text6 CODE >462:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+261E text6 CODE >465:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2620 text7 CODE >48:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2620 text7 CODE >49:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+263A text7 CODE >50:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2654 text7 CODE >51:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2668 text7 CODE >52:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+267C text7 CODE >53:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+267E text20 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+267E text20 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+26D6 text20 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
+26D8 text47 CODE >532:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+26D8 text47 CODE >537:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+26DC text47 CODE >539:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+26F0 text47 CODE >544:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2710 text47 CODE >548:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2712 text47 CODE >549:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2726 text47 CODE >550:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2728 text47 CODE >551:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+272A text47 CODE >552:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+272E text47 CODE >553:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2730 text47 CODE >552:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2732 text1 CODE >81:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+2734 text1 CODE >82:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+273A text1 CODE >86:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+273C text1 CODE >87:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+273E text1 CODE >88:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+2740 text1 CODE >90:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+2754 text1 CODE >91:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+276C text1 CODE >93:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+276E text1 CODE >95:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+2770 text1 CODE >97:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+2772 text1 CODE >98:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+277C text1 CODE >99:C:\Users\vboxuser\Desktop\lc-meter/lib/timer.c
+277E text14 CODE >4:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+277E text14 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+2782 text14 CODE >7:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+2794 text14 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+2798 text14 CODE >9:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+27AA text14 CODE >10:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+27AE text14 CODE >11:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+27B0 text14 CODE >12:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+27C8 text14 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c
+27CA text46 CODE >57:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27CC text46 CODE >62:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27D6 text46 CODE >63:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27DA text46 CODE >64:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27E4 text46 CODE >65:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27E8 text46 CODE >66:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27F2 text46 CODE >67:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+27F6 text46 CODE >68:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2800 text46 CODE >74:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2814 text46 CODE >79:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2816 text42 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2816 text42 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+281A text42 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2820 text42 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2824 text42 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2826 text42 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+282C text42 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+282E text42 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2832 text42 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2838 text42 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2842 text42 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+284A text42 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+284C text42 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2852 text42 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2856 text42 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2856 text42 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+285E text42 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
+2860 text15 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+2860 text15 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+2862 text15 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+2866 text15 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+2876 text15 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+287A text15 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+28A6 text15 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c
+28A8 cinit CODE >2923:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28A8 cinit CODE >2925:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28A8 cinit CODE >2928:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28A8 cinit CODE >3009:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28AC cinit CODE >3010:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28AE cinit CODE >3011:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28AE cinit CODE >3012:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28B0 cinit CODE >3013:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28B2 cinit CODE >3014:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28B4 cinit CODE >3017:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28B8 cinit CODE >3018:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28BA cinit CODE >3019:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28BA cinit CODE >3020:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28BC cinit CODE >3021:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28BE cinit CODE >3022:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28C0 cinit CODE >3025:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28C2 cinit CODE >3026:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28C4 cinit CODE >3031:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28C6 cinit CODE >3032:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28C8 cinit CODE >3033:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28CA cinit CODE >3034:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28CC cinit CODE >3035:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28CE cinit CODE >3036:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28D0 cinit CODE >3037:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28D4 cinit CODE >3038:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28D8 cinit CODE >3039:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28D8 cinit CODE >3040:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28DA cinit CODE >3041:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28DE cinit CODE >3042:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E0 cinit CODE >3043:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E2 cinit CODE >3044:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E4 cinit CODE >3050:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E4 cinit CODE >3052:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E6 cinit CODE >3053:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28E8 cinit CODE >3054:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28EA cinit CODE >3055:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\LC_meter_18f2455_xc8.X.production.as
+28EE text16 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+28EE text16 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+28F8 text16 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+28FC text16 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+2930 text16 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
+2932 text41 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2932 text41 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2938 text41 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+293C text41 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+293E text41 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2944 text41 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2946 text41 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+294A text41 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2954 text41 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+295C text41 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2962 text41 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2966 text41 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2966 text41 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+296E text41 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
+2970 text26 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+2970 text26 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+2972 text26 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+2976 text26 CODE >38:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+297E text26 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+2980 text26 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+29A8 text26 CODE >42:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c
+29AA text35 CODE >154:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29AC text35 CODE >156:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29BC text35 CODE >165:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29C2 text35 CODE >166:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29C6 text35 CODE >167:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29CA text35 CODE >168:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29CE text35 CODE >175:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29E0 text35 CODE >176:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29E2 text30 CODE >182:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+29E4 text30 CODE >184:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A14 text30 CODE >185:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A16 text30 CODE >184:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A18 text34 CODE >559:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A1A text34 CODE >562:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A1E text34 CODE >563:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A34 text34 CODE >562:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A4A text34 CODE >573:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A4C text34 CODE >562:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2A4E text27 CODE >503:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A50 text27 CODE >505:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A54 text27 CODE >506:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A68 text27 CODE >508:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A6A text27 CODE >510:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A6C text27 CODE >512:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A6E text27 CODE >513:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A70 text27 CODE >518:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A72 text27 CODE >519:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A74 text27 CODE >521:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A76 text27 CODE >522:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A78 text27 CODE >523:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A7A text27 CODE >524:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A7C text27 CODE >534:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2A7E text19 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c
+2A7E text19 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c
+2AAA text19 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c
+2AAC text5 CODE >408:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2AAC text5 CODE >417:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2AB4 text5 CODE >421:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2ACE text5 CODE >424:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2AD4 text5 CODE >426:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2AD6 text48 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c
+2AD6 text48 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c
+2AFE text48 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c
+2B00 text32 CODE >92:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B02 text32 CODE >93:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B24 text32 CODE >94:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B26 text32 CODE >93:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B28 text2 CODE >125:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B28 text2 CODE >128:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B2A text2 CODE >129:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B2C text2 CODE >131:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B2E text2 CODE >136:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B32 text2 CODE >139:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B34 text2 CODE >140:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B36 text2 CODE >142:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B38 text2 CODE >143:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B3A text2 CODE >144:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B3C text2 CODE >145:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B3E text2 CODE >147:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B40 text2 CODE >148:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B42 text2 CODE >150:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B4A text2 CODE >151:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B4C text38 CODE >82:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B4E text38 CODE >83:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B56 text38 CODE >84:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B58 text38 CODE >85:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B64 text38 CODE >86:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B6A text38 CODE >87:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B6C text38 CODE >88:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B6E text38 CODE >89:C:\Users\vboxuser\Desktop\lc-meter/lib/ser.c
+2B70 text17 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+2B70 text17 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+2B7A text17 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+2B7E text17 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+2B8E text17 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c
+2B90 text29 CODE >469:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2B92 text29 CODE >483:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2B9C text29 CODE >484:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2BA0 text29 CODE >485:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2BA6 text29 CODE >486:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2BA8 text29 CODE >487:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2BAE text29 CODE >490:C:\Users\vboxuser\Desktop\lc-meter/src/print.c
+2BB0 text45 CODE >122:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BB2 text45 CODE >123:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BBC text45 CODE >131:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BC4 text45 CODE >132:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BCA text45 CODE >134:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BCC text43 CODE >306:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BCC text43 CODE >307:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BD2 text43 CODE >308:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BE0 text43 CODE >310:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BE2 text40 CODE >48:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2BE4 text40 CODE >51:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2BEA text40 CODE >54:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2BF0 text40 CODE >56:C:\Users\vboxuser\Desktop\lc-meter/src/LC-meter.c
+2BF2 text39 CODE >139:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BF4 text39 CODE >140:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2BFE text39 CODE >141:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2C00 text44 CODE >146:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2C02 text44 CODE >147:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2C0A text44 CODE >148:C:\Users\vboxuser\Desktop\lc-meter/lib/lcd44780.c
+2C12 text37 CODE >6:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+2C12 text37 CODE >8:C:\Users\vboxuser\Desktop\lc-meter/lib/format.c
+$dist/default/production\startup.obj
+0 text CODE >80:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+0 text CODE >81:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+0 text CODE >82:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+0 text CODE >84:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+0 reset_vec CODE >120:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+0 reset_vec CODE >125:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+14 init CODE >131:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+14 end_init CODE >147:C:\Users\vboxuser\Desktop\lc-meter\build\mplabx-pic18f\LC_meter_18f2455_xc8.X\dist/default/production\startup.as
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__end_of_indicator 2BB0 0 CODE 0 text29 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwmod@counter 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_pow$1163 8D 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_pow$1164 91 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_indicator 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hspace_1 123 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_gotoxy@row_offsets 9 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+frexp@eptr 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\startup.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_putchar_ptr FE 0 BANK0 1 dataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_gotoxy@col 8 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_gotoxy@row 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_F1 EE 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_F2 D1 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_F3 D5 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_exp 7A 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_log 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_pow 85 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lsmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_indicator 2B90 0 CODE 0 text29 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_BRGH 7D62 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_CCal F2 0 BANK0 1 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_CREN 7D5C 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_PEIE 7F96 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RCIF 7CF5 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_SPEN 7D5F 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_T0CS 7EAD 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_T0SE 7EAC 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_SYNC 7D64 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR0 FD6 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR2 FCC 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TXEN 7D65 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TXIE 7CEC 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TXIF 7CF4 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___sp 0 0 STACK 2 stack dist/default/production\startup.obj
+_bres F6 0 BANK0 1 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_main 1BCC 0 CODE 0 text0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+exp@x 7A 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+log@x 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@base C 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_format_number 207A 0 CODE 0 text36 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+pow@x 85 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+pow@y 89 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+start 14 0 CODE 0 init dist/default/production\startup.obj
+___flmul@sign 32 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___fladd 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___fldiv 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___flmul 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___flneg 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___flsub 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___fltol 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_format_xint32 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_write4bits 2816 0 CODE 0 text46 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+pow@yi 96 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_LCD_ctrl E7 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_LCD_mode EA 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hpowerup 14 0 CODE 0 powerup dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_format_putchar 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+log@coeff 829 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_print_unit 2AAC 0 CODE 0 text5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_gotoxy 29E2 0 CODE 0 text35 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_begin 1FA6 0 CODE 0 text28 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_clear 2BE2 0 CODE 0 text43 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_putch 2C00 0 CODE 0 text39 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_init@fourbitmode 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_begin 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_clear 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__accesstop 60 0 ABS 0 - dist/default/production\startup.obj
+intlevel0 0 0 CODE 0 text dist/default/production\startup.obj
+intlevel1 0 0 CODE 0 text dist/default/production\startup.obj
+intlevel2 0 0 CODE 0 text dist/default/production\startup.obj
+intlevel3 0 0 CODE 0 text dist/default/production\startup.obj
+__size_of_lcd_putch 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_oflog@coeff 84D 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_begin@dotsize 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_format_xint32 267E 0 CODE 0 text7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TOUTPS0 7E53 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TOUTPS1 7E54 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TOUTPS2 7E55 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_freq@count 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_timer2_init 2732 0 CODE 0 text1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_begin 1EC8 0 CODE 0 text28 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_clear 2BCC 0 CODE 0 text43 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_putch 2BF2 0 CODE 0 text39 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_number$188 30 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_capacitance@unit BA 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___inthi_sp 0 0 STACK 2 stack dist/default/production\startup.obj
+___intlo_sp 0 0 STACK 2 stack dist/default/production\startup.obj
+__size_of___altofl 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___awtofl 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___altofl@c 6C 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___flge 27CA 0 CODE 0 text14 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_gotoxy@F4094 FA 0 BANK0 1 dataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_print_reading$1146 37 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_print_reading$1147 39 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@cntr 19 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@sign 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LnvBANK0 0 0 ABS 0 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintcodelo 14 0 CODE 0 intcodelo dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_print_unit 2AD6 0 CODE 0 text5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___flpack 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwmod@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___fladd 1AB2 0 CODE 0 text25 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___fldiv 2364 0 CODE 0 text18 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___flmul 1610 0 CODE 0 text24 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___flneg 2B90 0 CODE 0 text17 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___flsub 2932 0 CODE 0 text16 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___fltol 2402 0 CODE 0 text13 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___lwdiv 2860 0 CODE 0 text42 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___lwmod 2970 0 CODE 0 text41 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_double@weight A6 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+delay10ms@run B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_eval_poly 43 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwdiv@quotient 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_floor 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_frexp 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_ldexp 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_write4bits@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_log10 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_msecpart F8 0 BANK0 1 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___lltofl 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___lwtofl 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwmod@dividend 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintcodelo 14 0 CODE 0 intcodelo dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+start_initialization 28A8 0 CODE 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_command 2C00 0 CODE 0 text44 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+pow@sign 95 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_send@value 5 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___altofl 2860 0 CODE 0 text15 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___awtofl 2970 0 CODE 0 text26 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___rparam_used 1 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___altofl 28A8 0 CODE 0 text15 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___awtofl 29AA 0 CODE 0 text26 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR0IF 7F92 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR2IE 7CE9 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR2IF 7CF1 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TMR2ON 7E52 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_ser_putch 2B70 0 CODE 0 text38 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB2 7C9A 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB3 7C9B 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB4 7C9C 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB5 7C9D 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB6 7C9E 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISB7 7C9F 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC0 7CA0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC1 7CA1 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC2 7CA2 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC3 7CA3 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC6 7CA6 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_measure_inductance E02 0 CODE 0 text3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lltofl@c D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flpack 207A 0 CODE 0 text49 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_ser_putch 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_put_str 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_inductance@numerator 6C 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_freq 2402 0 CODE 0 text33 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___flpack 2140 0 CODE 0 text49 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank6 0 0 ABS 0 bank6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbank7 0 0 ABS 0 bank7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hconst 0 0 CODE 0 const dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+exp@exponent 82 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwdiv@counter 9 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__smallconst 800 0 SMALLCONST 0 smallconst dist/default/production\startup.obj
+_ser_putch 2B4C 0 CODE 0 text38 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lltofl 2A7E 0 CODE 0 text19 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_init 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_puts 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_send 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_gotoxy 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwtofl 2AD6 0 CODE 0 text48 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank6 0 0 ABS 0 bank6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbank7 0 0 ABS 0 bank7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lconst 0 0 CODE 0 const dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance 8E0 0 CODE 0 text3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___lltofl 2AAC 0 CODE 0 text19 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flmul@exp 31 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of___lwtofl 2B00 0 CODE 0 text48 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_capacitance$1152 AE 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_capacitance$1153 B2 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_capacitance$1154 B6 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hinit 14 0 CODE 0 init dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_LCD_lines E9 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Linit 14 0 CODE 0 init dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pnvBANK0 F2 0 BANK0 1 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flge 277E 0 CODE 0 text14 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_xint32@x 35 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_GIE 7F97 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB2 7C0A 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB3 7C0B 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB4 7C0C 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB5 7C0D 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB6 7C0E 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RB7 7C0F 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RC3 7C13 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RC4 7C14 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RC7 7C17 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RX9 7D5E 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TX9 7D66 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__S1 123 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_exp 1240 0 CODE 0 text10 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_isr 8 0 CODE 0 intcode dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_log 1AB2 0 CODE 0 text21 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_pow 17C2 0 CODE 0 text9 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_measure_capacitance 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_double@num 9A 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_measure_freq 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_exp$1165 7E 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_freq@i 3A 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_buffer 110 0 BANK1 1 bssBANK1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_write4bits 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_freq@prev 39 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+eval_poly@res 4B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___awtofl@c D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+log10@x 55 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_exp 1452 0 CODE 0 text10 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_isr 2202 0 CODE 0 intcode_body dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_log 1BCC 0 CODE 0 text21 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_pow 194A 0 CODE 0 text9 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+int_func 2140 0 CODE 0 intcode_body dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_init 2A4E 0 CODE 0 text27 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_puts 29E2 0 CODE 0 text30 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_send 2BB0 0 CODE 0 text45 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HnvBANK0 0 0 ABS 0 nvBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flmul@f3_as_product 33 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_print_unit 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_putchar 2C12 0 CODE 0 text37 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_measure_freq 24A0 0 CODE 0 text33 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hramtop 800 0 RAM 0 ramtop dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_timer2_init 277E 0 CODE 0 text1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_put_str 2A4E 0 CODE 0 text34 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pdataBANK0 FA 0 BANK0 1 dataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__activetblptr 2 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of___flge 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_init 2A7E 0 CODE 0 text27 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_puts 2A18 0 CODE 0 text30 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_send 2BCC 0 CODE 0 text45 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext31 0 0 ABS 0 text31 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext32 0 0 ABS 0 text32 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext33 0 0 ABS 0 text33 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext34 0 0 ABS 0 text34 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext35 0 0 ABS 0 text35 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext36 0 0 ABS 0 text36 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext37 0 0 ABS 0 text37 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext38 0 0 ABS 0 text38 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext39 0 0 ABS 0 text39 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext40 0 0 ABS 0 text40 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext41 0 0 ABS 0 text41 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext42 0 0 ABS 0 text42 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext43 0 0 ABS 0 text43 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext44 0 0 ABS 0 text44 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext45 0 0 ABS 0 text45 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext46 0 0 ABS 0 text46 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext47 0 0 ABS 0 text47 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext48 0 0 ABS 0 text48 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Htext49 0 0 ABS 0 text49 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___altofl 6C 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___awtofl D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+floor@expon 78 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_capacitance E02 0 CODE 0 text4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+calibrate@i 41 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_output_putch 2BE2 0 CODE 0 text40 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_measure_freq 35 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_inductance@denominator 70 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext10 1240 0 CODE 0 text10 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext11 24A0 0 CODE 0 text11 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext12 1CE2 0 CODE 0 text12 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext13 2364 0 CODE 0 text13 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext14 277E 0 CODE 0 text14 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext15 2860 0 CODE 0 text15 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext16 28EE 0 CODE 0 text16 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext17 2B70 0 CODE 0 text17 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext18 22BE 0 CODE 0 text18 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext19 2A7E 0 CODE 0 text19 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext20 267E 0 CODE 0 text20 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext21 1AB2 0 CODE 0 text21 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext22 2538 0 CODE 0 text22 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext23 2202 0 CODE 0 text23 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext24 1452 0 CODE 0 text24 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext25 194A 0 CODE 0 text25 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext26 2970 0 CODE 0 text26 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext27 2A4E 0 CODE 0 text27 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext28 1EC8 0 CODE 0 text28 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext29 2B90 0 CODE 0 text29 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext30 29E2 0 CODE 0 text30 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext31 1DDC 0 CODE 0 text31 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext32 2B00 0 CODE 0 text32 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext33 2402 0 CODE 0 text33 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext34 2A18 0 CODE 0 text34 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext35 29AA 0 CODE 0 text35 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext36 1FA6 0 CODE 0 text36 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext37 2C12 0 CODE 0 text37 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext38 2B4C 0 CODE 0 text38 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext39 2BF2 0 CODE 0 text39 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext40 2BE2 0 CODE 0 text40 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext41 2932 0 CODE 0 text41 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext42 2816 0 CODE 0 text42 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext43 2BCC 0 CODE 0 text43 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext44 2C00 0 CODE 0 text44 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext45 2BB0 0 CODE 0 text45 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext46 27CA 0 CODE 0 text46 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext47 26D8 0 CODE 0 text47 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext48 2AD6 0 CODE 0 text48 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext49 207A 0 CODE 0 text49 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd 194A 0 CODE 0 text25 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv 22BE 0 CODE 0 text18 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flmul 1452 0 CODE 0 text24 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flneg 2B70 0 CODE 0 text17 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flsub 28EE 0 CODE 0 text16 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fltol 2364 0 CODE 0 text13 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_ser_init 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_ser_puts 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pintcode_body 2140 0 CODE 0 intcode_body dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwdiv 2816 0 CODE 0 text42 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwmod 2932 0 CODE 0 text41 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+output_putch@c 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___flpack 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@exp 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_rxfifo 100 0 BANK1 1 bssBANK1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_rxiptr EB 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_rxoptr EC 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd@f1 37 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd@f2 3B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwdiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+put_str@i 9 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+put_str@s A 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_command@value 6 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+print_reading@measurement 35 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_txfifo C1 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_txiptr 5C 0 COMRAM 1 bssCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_txoptr 5D 0 COMRAM 1 bssCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_begin@lines 9 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_format_putchar 2C14 0 CODE 0 text37 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwtofl@c 3D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_print_reading 25B0 0 CODE 0 text6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+stackhi 7FF 0 ABS 0 - dist/default/production\startup.obj
+stacklo 123 0 ABS 0 - dist/default/production\startup.obj
+__end_of_calibrate 1EC8 0 CODE 0 text31 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintcode 8 0 CODE 0 intcode dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_seconds DD 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___lltofl D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@f1 D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@f2 11 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fldiv@f3 15 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_eval_poly 22BE 0 CODE 0 text23 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_calibrate 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___lwtofl 3D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_ser_tmp ED 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_double 1610 0 CODE 0 text8 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+indicator@indicate D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_eval_poly 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_double@digit AA 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_output_putch 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+floor@i 74 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+floor@x 70 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pbssCOMRAM 5C 0 COMRAM 1 bssCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+timer2_init@ps_mode 4 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flge@ff1 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flge@ff2 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lend_init 14 0 CODE 0 end_init dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fltol@exp1 5A 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_lcd_command 2C0C 0 CODE 0 text44 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+end_of_initialization 28E4 0 CODE 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_calibrate 1DDC 0 CODE 0 text31 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+timer2_init@ps 5 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_ser_init 2B28 0 CODE 0 text2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_ser_puts 2B00 0 CODE 0 text32 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flpack@sign 8 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_eval_poly 2202 0 CODE 0 text23 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+ser_putch@c 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___lwdiv@dividend 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___fladd 37 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___fldiv D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___flmul 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___flneg 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___flsub 43 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___fltol 64 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___lwdiv 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?___lwmod 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flpack@arg 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flpack@exp 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+ldexp@value 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_delay10ms 2732 0 CODE 0 text47 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_output_putch 2BF2 0 CODE 0 text40 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lramtop 800 0 RAM 0 ramtop dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_delay10ms 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_ser_init 2B4C 0 CODE 0 text2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_ser_puts 2B28 0 CODE 0 text32 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pcinit 28A8 0 CODE 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flmul@f1 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flmul@f2 20 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flneg@f1 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext0 1BCC 0 CODE 0 text0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext1 2732 0 CODE 0 text1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext2 2B28 0 CODE 0 text2 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext3 8E0 0 CODE 0 text3 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext4 E02 0 CODE 0 text4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext5 2AAC 0 CODE 0 text5 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext6 25B0 0 CODE 0 text6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext7 2620 0 CODE 0 text7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext8 1610 0 CODE 0 text8 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ptext9 17C2 0 CODE 0 text9 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext31 0 0 ABS 0 text31 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext32 0 0 ABS 0 text32 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext33 0 0 ABS 0 text33 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext34 0 0 ABS 0 text34 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext35 0 0 ABS 0 text35 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext36 0 0 ABS 0 text36 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext37 0 0 ABS 0 text37 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext38 0 0 ABS 0 text38 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext39 0 0 ABS 0 text39 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext40 0 0 ABS 0 text40 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext41 0 0 ABS 0 text41 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext42 0 0 ABS 0 text42 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext43 0 0 ABS 0 text43 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext44 0 0 ABS 0 text44 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext45 0 0 ABS 0 text45 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext46 0 0 ABS 0 text46 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext47 0 0 ABS 0 text47 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext48 0 0 ABS 0 text48 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Ltext49 0 0 ABS 0 text49 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@di 33 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_number 1FA6 0 CODE 0 text36 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___altofl@sign 5B 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__ramtop 800 0 RAM 0 ramtop dist/default/production\startup.obj
+lcd_putch@value 6 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+delay10ms@ms 7 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lpowerup 14 0 CODE 0 powerup dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_measure_capacitance 1240 0 CODE 0 text4 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd@exp1 42 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd@exp2 41 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fladd@sign 40 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fltol@sign1 59 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+ser_puts@s 4 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__psmallconst 800 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_delay10ms 26D8 0 CODE 0 text47 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_measure_inductance 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+exp@sign 84 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_timer1of E1 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+eval_poly@d 47 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+eval_poly@n 48 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+eval_poly@x 43 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_capacitance@Cin BD 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_capacitance@var BB 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flsub@f1 43 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___flsub@f2 47 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@padchar 32 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___fltol@f1 64 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___param_bank 10 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_double$1150 9E 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_double$1151 A2 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_timer2_init 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of__initialization 28E4 0 CODE 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@i 34 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@n A 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+frexp@value 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_floor 70 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_frexp 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pidataBANK0 2C0C 0 CODE 0 idataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_ldexp 4F 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+?_log10 55 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_log10$1162 60 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_puts@i 8 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_format_xint32 2620 0 CODE 0 text7 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_print_reading 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_init$265 4 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_inductance@Lin 93 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_inductance@var 91 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_double@m AC 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_T2CKPS0 7E50 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_T2CKPS1 7E51 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_format_double 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hend_init 18 0 CODE 0 end_init dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_main 1CE2 0 CODE 0 text0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pintcode 8 0 CODE 0 intcode dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+delay10ms@period_10ms 3 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+log@exponent 53 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_floor 1DDC 0 CODE 0 text12 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_frexp 25B0 0 CODE 0 text22 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_PORTC F82 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_ldexp 2538 0 CODE 0 text11 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_log10 26D8 0 CODE 0 text20 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_RCREG FAE 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_SPBRG FAF 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_SSPEN 7E35 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISA F92 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TRISC F94 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_TXREG FAD 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HRAM 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__LRAM 1 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lram 0 0 ABS 0 ram dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_blink E5 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_floor 1CE2 0 CODE 0 text12 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_frexp 2538 0 CODE 0 text22 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_ldexp 24A0 0 CODE 0 text11 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_log10 267E 0 CODE 0 text20 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+ldexp@newexp 53 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_nRBPU 7F8F 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_msecs D9 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1155 74 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1156 85 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1157 89 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1158 8D 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1159 78 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1160 7C 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_measure_inductance$1161 80 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_put_str 2A18 0 CODE 0 text34 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+exp@coeff 801 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@buf 10 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+format_number@pad D 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_exp 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_isr 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_log 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_pow 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_print_reading 2620 0 CODE 0 text6 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__initialization 28A8 0 CODE 0 cinit dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pbssBANK0 C1 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_write4bits 27CA 0 CODE 0 text46 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_LCD_function E8 0 BANK0 1 bssBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+___awtofl@sign 11 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_ofexp@coeff 829 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__end_of_format_double 17C2 0 CODE 0 text8 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hsmallconst 8E0 0 SMALLCONST 0 smallconst dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_send@mode 4 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_format_number 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+_lcd_gotoxy 29AA 0 CODE 0 text35 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+measure_inductance@unit 84 0 BANK0 1 cstackBANK0 dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__Hintcode 14 0 CODE 0 intcode dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+__size_of_lcd_command 0 0 ABS 0 - dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+lcd_puts@string 9 0 COMRAM 1 cstackCOMRAM dist/default/production\LC_meter_18f2455_xc8.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+idloc 0 200000 200000 8 1
+text3 0 8E0 8E0 2334 1
+cstackCOMRAM 1 1 1 5D 1
+cstackBANK0 1 60 60 A0 1
+reset_vec 0 0 0 4 1
+bssBANK1 1 100 100 23 1
+intcode 0 8 8 10 1
+smallconst 0 800 800 E0 1
+config 0 300000 300000 E 1

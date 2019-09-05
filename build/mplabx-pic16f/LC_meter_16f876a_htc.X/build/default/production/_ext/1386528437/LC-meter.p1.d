@@ -1,0 +1,17 @@
+build/default/production/_ext/1386528437/LC-meter.p1:	\
+	../../../lib\const.h	\
+	../../../lib\tsmdelay.h	\
+	../../../lib\format.h	\
+	../../../src/print.h	\
+	../../../src/config-16f876a.h	\
+	../../../src/LC-meter.h	\
+	../../../lib\oscillator.h	\
+	../../../lib\timer.h	\
+	../../../src/../src/device.h	\
+	../../../src/config-bits.h	\
+	../../../lib\interrupt.h	\
+	../../../lib\typedef.h	\
+	../../../lib\../src/device.h	\
+	../../../lib\ser.h	\
+	../../../src/../lib/typedef.h	\
+	../../../lib\delay.h	\
