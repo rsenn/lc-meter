@@ -530,10 +530,10 @@ milliseconds() {
  */
 void
 delay10ms(uint16_t period_10ms) {
-  /*while(period_10ms--) {
+  while(period_10ms--) {
       __delay_ms(10);
   }
-*/ uint32_t ms;
+/* uint32_t ms;
   char run = 1;
 
   get_milliseconds(ms);
@@ -549,7 +549,7 @@ delay10ms(uint16_t period_10ms) {
     if(ms <= msecs)
       run = 0;
     GIE = 1;
-  } while(run);
+  } while(run);*/
 }
 
 /*
