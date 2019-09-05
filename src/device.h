@@ -182,8 +182,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define PS2 T0PS2
 //#define T1CS
 #define INTEDG INTEDG0
-#ifndef CMCON
-#define CMCON CMCONbits.CM
+#ifndef CM
+#define CM CMCONbits.CM
 #endif
 #define SSPCONbits SSPCON1bits
 //
