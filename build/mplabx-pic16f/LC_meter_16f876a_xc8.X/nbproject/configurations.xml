@@ -105,9 +105,9 @@
         <property key="preprocess-assembler" value="true"/>
         <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="true"/>
+        <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="true"/>
+        <property key="verbose" value="false"/>
         <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
         <appendMe value="--double=32"/>
@@ -121,7 +121,7 @@
         <property key="additional-options-trace-type" value=""/>
         <property key="additional-options-use-response-files" value="false"/>
         <property key="backup-reset-condition-flags" value="false"/>
-        <property key="calibrate-oscillator" value="false"/>
+        <property key="calibrate-oscillator" value="true"/>
         <property key="calibrate-oscillator-value" value="0x3400"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
@@ -147,11 +147,11 @@
         <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="input-libraries" value="libm"/>
-        <property key="keep-generated-startup.as" value="false"/>
+        <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-c-library-gcc" value=""/>
         <property key="link-in-peripheral-library" value="false"/>
-        <property key="managed-stack" value="true"/>
+        <property key="managed-stack" value="false"/>
         <property key="opt-xc8-linker-file" value="false"/>
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
@@ -215,7 +215,7 @@
         <property key="stack-size-high" value=""/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
-        <property key="stack-type" value="hybrid"/>
+        <property key="stack-type" value="reentrant"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
     </conf>
@@ -286,7 +286,7 @@
         <property key="preprocess-assembler" value="true"/>
         <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="true"/>
+        <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="false"/>
         <property key="warning-level" value="-3"/>
@@ -301,8 +301,8 @@
         <property key="additional-options-extend-address" value="false"/>
         <property key="additional-options-trace-type" value=""/>
         <property key="additional-options-use-response-files" value="false"/>
-        <property key="backup-reset-condition-flags" value="false"/>
-        <property key="calibrate-oscillator" value="false"/>
+        <property key="backup-reset-condition-flags" value="true"/>
+        <property key="calibrate-oscillator" value="true"/>
         <property key="calibrate-oscillator-value" value="0x3400"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
@@ -328,7 +328,7 @@
         <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="input-libraries" value="libm"/>
-        <property key="keep-generated-startup.as" value="false"/>
+        <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-c-library-gcc" value=""/>
         <property key="link-in-peripheral-library" value="false"/>
@@ -396,7 +396,7 @@
         <property key="stack-size-high" value=""/>
         <property key="stack-size-low" value="auto"/>
         <property key="stack-size-main" value="auto"/>
-        <property key="stack-type" value="hybrid"/>
+        <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
     </conf>
