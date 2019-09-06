@@ -67,6 +67,7 @@
 
 */
 //#define TIMER0_PRESCALER PRESCALE_1_32
+extern double F1, F2, F3, CCal;
 
 uint16_t measure_freq(void);
 void calibrate(void);

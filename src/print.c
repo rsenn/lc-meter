@@ -488,3 +488,29 @@ indicator(uint8_t indicate) {
   }
 #endif // defined(USE_NOKIA5110_LCD)
 }
+
+
+
+void
+output_putch(char c) {
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+
+  lcd_putch(c);
+#endif
+#ifdef USE_SER
+  ser_putch(c);
+#endif
+}
+
+/*
+ * Put a string to the LCD and serial (if supported)
+ */
+void
+put_str(const rom char* s) {
+  int i;
+
+  for(i = 0; s[i]; i++) {
+    output_putch(s[i]);
+  }
+}
+
