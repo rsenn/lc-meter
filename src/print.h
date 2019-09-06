@@ -1,7 +1,7 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include "../lib/typedef.h"
+#include "typedef.h"
 
 extern const char logo_image[504];
 

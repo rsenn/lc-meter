@@ -1,7 +1,7 @@
 #ifndef PICLIB_LCD44780_H
 #define PICLIB_LCD44780_H
 
-#include "../src/device.h"
+#include "device.h"
 #include "typedef.h"
 
 // commands

@@ -22,7 +22,7 @@ Pins, Schematics and more info:
 
 #include "const.h" // HIGH, LOW, OUTPUT, ...
 #include "delay.h"
-#include "../src/device.h"
+#include "device.h"
 #include "lcd44780.h"
 
 #ifdef USE_HD44780_LCD

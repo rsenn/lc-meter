@@ -1,7 +1,7 @@
 #ifndef PICLIB_TIMER_H
 #define PICLIB_TIMER_H 1
 
-#include "../src/device.h"
+#include "device.h"
 #include "typedef.h"
 
 #define PRESCALE_1_1 0b000
