@@ -32,6 +32,9 @@
 #define POSTSCALE_1_15 14
 #define POSTSCALE_1_16 15
 
+#define EDGE_HIGH_LOW 0x10
+#define EDGE_LOW_HIGH 0x00
+
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER0
 
@@ -62,7 +65,15 @@
 #define TIMER0_VALUE TMR0
 #define TIMER0_BITS 8
 
-void timer0_init(uint8_t prescale);
+void timer0_init(uint8_t);
+
+/* Read Timer 0:
+ *
+ * TMR0 in high byte
+ * prescaler in low byte
+ */
+uint16_t timer0_read_ps();
+
 #endif // USE_TIMER0
 
 /* ----------------------- Timer 1 ----------------------- */

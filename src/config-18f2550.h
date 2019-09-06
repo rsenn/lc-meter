@@ -3,7 +3,6 @@
 
 #if defined(__XC)
 
-
 //#pragma config FOSC = HSPLL_HS
 //#pragma config PWRT = ON, BOR = ON, BORV = 27
 //#pragma config WDT = OFF

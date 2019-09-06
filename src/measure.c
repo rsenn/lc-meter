@@ -14,50 +14,87 @@
 #include "print.h"
 #include "format.h"
 
+
+/*
+ * Calibrate by adding the calibration capacitor into the circuit (by relay)
+ */
+void
+calibrate() {
+  uint8_t i;
+
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+  lcd_clear();
+
+  lcd_gotoxy(0, 0);
+  put_str("Calibrating");
+
+  lcd_gotoxy(0, 1);
+  ser_puts("\r\n");
+  put_str("please wait...");
+#endif
+
+  REMOVE_CCAL();
+
+  F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
+  delay10ms(50);
+
+  F1 = (double)measure_freq();
+  ADD_CCAL();
+
+  F2 = (double)measure_freq(); // dummy reading to stabilize oscillator
+  delay10ms(50);
+
+  F2 = (double)measure_freq();
+  REMOVE_CCAL();
+
+#if USE_HD44780_LCD || USE_NOKIA5110_LCD
+
+  lcd_gotoxy(11, 0);
+
+  for(i = 0; i < 6; i++) { // show progress bar
+    lcd_putch('=');
+    /*    lcd_send(0xfc, LCD_TDATA);*/
+    delay10ms(28);
+  }
+#endif
+  ser_puts("\r\n");
+}
+
+
 /*
  * Measure frequency on comparator output via T0CKI
  */
 uint16_t
 measure_freq() {
-  uint8_t prev;
   uint16_t count;
 
-  TMR0IF = 0; // clear timer0 interrupt flag
+  TMR0IF = 0;
 
-  TRISA &= ~0b00010000; // Enable RA4 output to T0CKI
-                        //  TRISA4 = 0;
+  // Enable RA4 output to T0CKI:
+  // If pin is set as output, C1OUT will connnect to T0CKI
+  TRISA &= ~0b00010000;
 
   __delay_ms(20); // stablize oscillator
 
-  TMR0 = 0x00; // reset timer0 count (including prescaler)
+  // reset timer0 & prescaler
+  TMR0 = 0x00;
 
-  for(char i = 0; i < 10; i++) delay_ms(10);
+  // Wait fixed period (100ms)
+    __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
+    __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
 
-  TRISA |= 0b00010000; // Disable RA4 output to T0CKI
+  // Disable RA4 output to T0CKI
+  TRISA |= 0b00010000; 
 
-  prev = TMR0;
-  count = 0;
+  // Read out Timer 0 incl prescaler
+  count = timer0_read_ps();
 
-  do {
-    /* self-clocking */
-    T0SE = 1;
-    NOP();
-    NOP();
-
-    T0SE = 0;
-    NOP();
-    NOP();
-    count++;                             // count until TMR0 incremented
-  } while(prev == TMR0 && count <= 255); // test if timer0 has incremented
-
-  //}while(prev==TMR0);  //test if timer0 has incremented
-  count = ((prev << 8) + (256 - count));
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
   lcd_gotoxy(0, 1);
   put_str("Freq=");
   format_number(/*lcd_putch,*/ count, 10, 5);
 #endif
+
   return count;
 }
 
