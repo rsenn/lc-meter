@@ -67,7 +67,7 @@ void calibrate();
 void measure_capacitance();
 void measure_inductance();
 uint32_t milliseconds();
-void delay10ms(uint16_t period_10ms);
+void delay10ms(int16_t period_10ms);
 
 void put_str(const char*);
 
@@ -529,8 +529,8 @@ milliseconds() {
  * Delay using milliseconds count
  */
 void
-delay10ms(uint16_t period_10ms) {
-  while(period_10ms--) {
+delay10ms(int16_t period_10ms) {
+  while(period_10ms-- > 0) {
       __delay_ms(10);
   }
 /* uint32_t ms;
