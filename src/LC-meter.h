@@ -3,6 +3,8 @@
 
 #include "device.h"
 #include "oscillator.h"
+#include "typedef.h"
+#include "const.h"
 
 #ifdef HI_TECH_C
 #include <htc.h> // Required to interface with delay routines
@@ -19,8 +21,6 @@
 #define NOP() __asm("NOP")
 #endif
 
-#include "typedef.h"
-#include "const.h"
 
 #define C_CAL 1000      // pF
 #define GATE_PERIOD 100 // ms
@@ -69,10 +69,6 @@
 //#define TIMER0_PRESCALER PRESCALE_1_32
 extern double F1, F2, F3, CCal;
 
-uint16_t measure_freq(void);
-void calibrate(void);
-void measure_capacitance(void);
-void measure_inductance(void);
 void delay10ms(int16_t period_10ms);
 
 #endif // defined(LC_METER_H)

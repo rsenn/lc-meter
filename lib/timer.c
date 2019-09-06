@@ -9,16 +9,15 @@ timer0_init(uint8_t ps_mode) {
 
   TIMER0_VALUE = 0;
 
-  // setup timer0 for internal clock
-  T0CS = !!(ps_mode & TIMER0_FLAGS_EXTCLK); // Internal instruction cycle clock (CLKO)
+  // 0: Internal instruction cycle clock (CLKO) or 1: Transition on T0CKI pin
+  T0CS = !!(ps_mode & TIMER0_FLAGS_EXTCLK); 
 
-  // setup timer0 for frequency counter
-  // T0CS = 1;  //Transition on T0CKI pin
-  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+  // T0CKI pin: Increment on 1->0 or on 0->1 transition 
+  T0SE = !!(ps_mode  & EDGE_HIGH_LOW);  
 
-  // PSA = 0;  //Prescaler is assigned to the Timer0 module
 
-  PSA = (prescaler == 0); // Prescaler isn't assigned to the Timer0 module
+  // If a prescaler is to be assigned to the Timer0 module
+  PSA = (prescaler == 0); 
 
 #if PIC18
   if(prescaler > 0) {
@@ -38,9 +37,35 @@ timer0_init(uint8_t ps_mode) {
   //  T0PS = prescaler - 1;
   //#endif
 #endif
+
   TMR0IF = 0;
   TMR0IE = !!(ps_mode & TIMER0_FLAGS_INTR);
 }
+
+uint16_t
+timer0_read_ps() {
+  uint8_t prev = TMR0;
+  uint16_t count = 0;
+
+  do {
+    /* self-clocking */
+    T0SE = 1;
+
+    NOP();
+    NOP();
+
+    T0SE = 0;
+    
+    NOP();
+    NOP();
+    
+    // count until TMR0 incremented
+  } while(prev == TMR0 && count <= 255);
+
+  count = ((prev << 8) + (256 - count));
+  return count;
+}
+
 #endif // USE_TIMER0
 
 /* ----------------------- Timer 1 ----------------------- */

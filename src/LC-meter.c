@@ -1,6 +1,7 @@
 
-#include "oscillator.h"
 #include "config-bits.h"
+#include "oscillator.h"
+#include "interrupt.h"
 
 #include "LC-meter.h"
 //#include "main.h"
@@ -64,9 +65,6 @@ void loop();
 void testloop();
 void initialize();
 uint16_t measure_freq();
-void calibrate();
-void measure_capacitance();
-void measure_inductance();
 uint32_t milliseconds();
 void delay10ms(int16_t period_10ms);
 
@@ -75,7 +73,6 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, 
 volatile uint16_t blink = 0;
 
 /* Interrupt routine */
-#include "interrupt.h"
 
 INTERRUPT_FN() {
 
@@ -126,8 +123,11 @@ main() {
   CMCON = 0b00000101;
 #endif
   TRISA = 0b11001111;
+
   // setup timer0 for frequency counter
-  T0CS = 1; // Transition on T0CKI pin
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK);
+
+  ///T0CS = 1; // Transition on T0CKI pin
   T0SE = 1; // Increment on high-to-low transition on T0CKI pin
 
   /*
@@ -291,51 +291,6 @@ testloop() {
 
     prev_s = s;
   }
-}
-
-/*
- * Calibrate by adding the calibration capacitor into the circuit (by relay)
- */
-void
-calibrate() {
-  uint8_t i;
-
-#if USE_HD44780_LCD || USE_NOKIA5110_LCD
-  lcd_clear();
-
-  lcd_gotoxy(0, 0);
-  put_str("Calibrating");
-
-  lcd_gotoxy(0, 1);
-  ser_puts("\r\n");
-  put_str("please wait...");
-#endif
-
-  REMOVE_CCAL();
-
-  F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
-  delay10ms(50);
-
-  F1 = (double)measure_freq();
-  ADD_CCAL();
-
-  F2 = (double)measure_freq(); // dummy reading to stabilize oscillator
-  delay10ms(50);
-
-  F2 = (double)measure_freq();
-  REMOVE_CCAL();
-
-#if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
-  lcd_gotoxy(11, 0);
-
-  for(i = 0; i < 6; i++) { // show progress bar
-    lcd_putch('=');
-    /*    lcd_send(0xfc, LCD_TDATA);*/
-    delay10ms(28);
-  }
-#endif
-  ser_puts("\r\n");
 }
 
 /*
