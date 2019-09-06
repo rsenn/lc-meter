@@ -1,7 +1,7 @@
 #ifndef CAP_METER_H
 #define CAP_METER_H
 
-#include "../src/device.h"
+#include "device.h"
 #include "oscillator.h"
 
 #ifdef HI_TECH_C

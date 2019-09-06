@@ -14,7 +14,7 @@
 #else
 __CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & BOREN_ON);
 #endif*/
-#include "../config-bits.h"
+#include "config-bits.h"
 
 #include "lcd3310.h"
 

@@ -119,16 +119,16 @@ endif
 
 CFLAGS += -p$(chipl)
 
-LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file
-
-LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib
-LDFLAGS += --output=-mcof,+elf
-LDFLAGS += --stack=compiled
-
-
-LDFLAGS += --output="default,-inhx032"
-LDFLAGS += --chip=$(chipl)
-LDFLAGS +=  --asmlist
+#LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file
+#
+#LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib
+#LDFLAGS += --output=-mcof,+elf
+#LDFLAGS += --stack=compiled
+#
+#
+#LDFLAGS += --output="default,-inhx032"
+#LDFLAGS += --chip=$(chipl)
+#LDFLAGS +=  --asmlist
 
 PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd
 

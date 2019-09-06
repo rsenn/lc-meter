@@ -1,5 +1,5 @@
 
-#include "../../lib/typedef.h"
+#include "typedef.h"
 
 #ifndef NO_JULZNC
 #define LCD_CLK RC5

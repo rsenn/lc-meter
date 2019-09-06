@@ -1,7 +1,7 @@
 #ifndef FREQ_METER_H
 #define FREQ_METER_H
 
-#include "../src/device.h"
+#include "device.h"
 #include "oscillator.h"
 #include "typedef.h"
 #include "const.h"

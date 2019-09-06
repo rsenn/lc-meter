@@ -8,7 +8,7 @@ V1.0 11/23/04 	Created.
 //#include <pic.h>
 #include <htc.h>
 #include "lcd3310.h"
-#include "../../lib/delay.h"
+#include "delay.h"
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ 20000000
 #endif
