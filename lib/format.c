@@ -7,7 +7,7 @@ format_putchar(char c) {
   return;
 }
 
-putchar_fn* putchar_ptr = &format_putchar;
+putchar_fn* putchar_ptr = format_putchar;
 
 // -------------------------------------------------------------------------
 void

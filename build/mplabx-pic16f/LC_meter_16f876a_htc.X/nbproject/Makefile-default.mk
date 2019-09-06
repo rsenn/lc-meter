@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../src/LC-meter.c
+SOURCEFILES_QUOTED_IF_SPACED=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../src/LC-meter.c ../../../lib/buffer.c ../../../lib/lcd44780.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386528437/print.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386528437/print.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1
 
 # Source Files
-SOURCEFILES=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../src/LC-meter.c
+SOURCEFILES=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../src/LC-meter.c ../../../lib/buffer.c ../../../lib/lcd44780.c
 
 
 CFLAGS=
@@ -139,6 +139,22 @@ ${OBJECTDIR}/_ext/1386528437/LC-meter.p1: ../../../src/LC-meter.c  nbproject/Mak
 	@cat ${OBJECTDIR}/_ext/1386528437/LC-meter.dep >> ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
+	${MP_CC} --pass1 ../../../lib/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=all,+asm,+asmfile,+speed,-space,-debug -D__DEBUG --debugger=pickit3  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@${MP_CC} --scandep  ../../../lib/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --opt=all,+asm,+asmfile,+speed,-space,-debug -D__DEBUG --debugger=pickit3  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@echo ${OBJECTDIR}/_ext/1386521430/buffer.p1: > ${OBJECTDIR}/_ext/1386521430/buffer.p1.d
+	@cat ${OBJECTDIR}/_ext/1386521430/buffer.dep >> ${OBJECTDIR}/_ext/1386521430/buffer.p1.d
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1386521430/buffer.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
+	${MP_CC} --pass1 ../../../lib/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=all,+asm,+asmfile,+speed,-space,-debug -D__DEBUG --debugger=pickit3  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@${MP_CC} --scandep  ../../../lib/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --opt=all,+asm,+asmfile,+speed,-space,-debug -D__DEBUG --debugger=pickit3  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@echo ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: > ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d
+	@cat ${OBJECTDIR}/_ext/1386521430/lcd44780.dep >> ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/_ext/1386528437/print.p1: ../../../src/print.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
@@ -179,6 +195,22 @@ ${OBJECTDIR}/_ext/1386528437/LC-meter.p1: ../../../src/LC-meter.c  nbproject/Mak
 	@echo ${OBJECTDIR}/_ext/1386528437/LC-meter.p1: > ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d
 	@cat ${OBJECTDIR}/_ext/1386528437/LC-meter.dep >> ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
+	${MP_CC} --pass1 ../../../lib/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=all,+asm,+asmfile,+speed,-space,-debug  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@${MP_CC} --scandep  ../../../lib/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --opt=all,+asm,+asmfile,+speed,-space,-debug  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@echo ${OBJECTDIR}/_ext/1386521430/buffer.p1: > ${OBJECTDIR}/_ext/1386521430/buffer.p1.d
+	@cat ${OBJECTDIR}/_ext/1386521430/buffer.dep >> ${OBJECTDIR}/_ext/1386521430/buffer.p1.d
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1386521430/buffer.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
+	${MP_CC} --pass1 ../../../lib/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=all,+asm,+asmfile,+speed,-space,-debug  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@${MP_CC} --scandep  ../../../lib/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir="${OBJECTDIR}\_ext\1386521430" -D__HTC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" --warn=1 --runtime=default,+clear,+init,-keep,-osccal,+oscval:0x3400,-resetbits,+download,+stackcall,+clib --opt=all,+asm,+asmfile,+speed,-space,-debug  --double=32 --float=32 --addrqual=ignore --mode=pro -g --asmlist "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32
+	@echo ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: > ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d
+	@cat ${OBJECTDIR}/_ext/1386521430/lcd44780.dep >> ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d" $(SILENT) -ht  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
