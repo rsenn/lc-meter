@@ -267,7 +267,7 @@
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="../../mplab;.;../../../src;../../../lib"/>
-        <property key="favor-optimization-for" value="-speed,+space"/>
+        <property key="favor-optimization-for" value="+speed,-space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
@@ -279,16 +279,16 @@
         <property key="optimization-debug" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="-Os"/>
-        <property key="optimization-speed" value="false"/>
+        <property key="optimization-level" value="-O3"/>
+        <property key="optimization-speed" value="true"/>
         <property key="optimization-stable-enable" value="false"/>
         <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
         <property key="short-enums" value="true"/>
         <property key="undefine-macros" value=""/>
-        <property key="use-cci" value="false"/>
+        <property key="use-cci" value="true"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="true"/>
+        <property key="verbose" value="false"/>
         <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
         <appendMe value="--double=32"/>
