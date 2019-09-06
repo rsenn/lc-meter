@@ -34,10 +34,10 @@
 #define RELAY_TRIS() TRISC &= ~(1 << 5) // as output to drive the relay coil
 
 #else
-#define LC_SELECT RC4                // L or C select (from DPDT switch)
-#define LC_TRIS() TRISC |= (1 << 4)     // as input
-#define ADD_CCAL()  PORTC |= (1 << 5)     // relay on
-#define REMOVE_CCAL()  PORTC &= ~(1 << 5)     // relay off
+#define LC_SELECT RC4                    // L or C select (from DPDT switch)
+#define LC_TRIS() TRISC |= (1 << 4)      // as input
+#define ADD_CCAL() PORTC |= (1 << 5)     // relay on
+#define REMOVE_CCAL() PORTC &= ~(1 << 5) // relay off
 #define RELAY_TRIS() TRISC &= ~(1 << 5)  // as output to drive the relay coil
 
 #endif

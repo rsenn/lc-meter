@@ -135,7 +135,7 @@ main() {
    CM2 = 1;
   */
   // others
-#if (_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
+#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
   NOT_RBPU = 0; // enable portB internal pullup
@@ -530,31 +530,30 @@ milliseconds() {
  */
 void
 delay10ms(int16_t period_10ms) {
-	
-	/*
-  while(period_10ms-- > 0) {
-      __delay_ms(10);
-  }
-  */
-  
-  
-/* uint32_t ms;
-  char run = 1;
 
-  get_milliseconds(ms);
+  /*
+while(period_10ms-- > 0) {
+    __delay_ms(10);
+}
+*/
 
-#ifdef _DEBUG
-  ms += period_10ms >> 2;
-#else
-  ms += period_10ms * 10;
-#endif
+  /* uint32_t ms;
+    char run = 1;
 
-  do {
-    GIE = 0;
-    if(ms <= msecs)
-      run = 0;
-    GIE = 1;
-  } while(run);*/
+    get_milliseconds(ms);
+
+  #ifdef _DEBUG
+    ms += period_10ms >> 2;
+  #else
+    ms += period_10ms * 10;
+  #endif
+
+    do {
+      GIE = 0;
+      if(ms <= msecs)
+        run = 0;
+      GIE = 1;
+    } while(run);*/
 }
 
 /*
@@ -576,8 +575,3 @@ put_str(const char* s) {
     ser_putch('\n');
   #endif*/
 }
-
-
-
-
-
