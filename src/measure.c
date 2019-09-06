@@ -10,6 +10,7 @@
 #if USE_HD44780_LCD
 #include "lcd44780.h"
 #endif
+#include "measure.h"
 #include "print.h"
 #include "format.h"
 

@@ -27,6 +27,7 @@
 #include "softser.h"
 #endif
 
+#include "measure.h"
 #include "print.h"
 #include "format.h"
 //#include "buffer.h"
