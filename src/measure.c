@@ -1,6 +1,5 @@
 #include "oscillator.h"
 #include "LC-meter.h"
-#include "config-bits.h"
 #include "delay.h"
 
 #if USE_SER
