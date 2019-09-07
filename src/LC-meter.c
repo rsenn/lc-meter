@@ -1,6 +1,5 @@
 #include "LC-meter.h"
 
-#include "config-bits.h"
 #include "oscillator.h"
 #include "interrupt.h"
 
@@ -32,6 +31,9 @@
 #include "print.h"
 #include "format.h"
 //#include "buffer.h"
+
+#include "config-bits.h"
+
 
 #if defined(__SDCC) || defined(SDCC)
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
