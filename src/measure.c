@@ -79,9 +79,13 @@ measure_freq() {
   // reset timer0 & prescaler
   TMR0 = 0x00;
 
+  SET_LED(1);
+
   // Wait fixed period (100ms)
     __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
     __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
+
+  SET_LED(0);
 
   // Disable RA4 output to T0CKI
   TRISA |= 0b00010000; 
