@@ -494,7 +494,6 @@ indicator(uint8_t indicate) {
 void
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
   lcd_putch(c);
 #endif
 #ifdef USE_SER
