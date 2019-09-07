@@ -51,9 +51,8 @@ volatile uint32_t timer1of;       // timer 1 overflows
  */
 void
 delay10ms(int16_t period_10ms) {
-
   while(period_10ms-- > 0) {
-    delay_ms(10);
+    __delay_ms(10);
   }
 }
 
@@ -64,9 +63,7 @@ void main();
 void loop();
 void testloop();
 void initialize();
-uint16_t measure_freq();
 uint32_t milliseconds();
-void delay10ms(int16_t period_10ms);
 
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos */);
 
