@@ -72,7 +72,7 @@ void timer0_init(uint8_t);
  * TMR0 in high byte
  * prescaler in low byte
  */
-uint16_t timer0_read_ps();
+unsigned short timer0_read_ps();
 
 #endif // USE_TIMER0
 
