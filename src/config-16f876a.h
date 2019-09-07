@@ -3,11 +3,13 @@
 
 #ifdef __XC
 
-#pragma config FOSC = HS,   LVP = OFF, CPD = OFF
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF
 
-#elif defined(HI_TECH_C)
+€#elif defined(HI_TECH_C)
 
-__CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & LVP_OFF & CPD_OFF & DEBUG_OFF & CP_OFF);
+#include <htc.h>
+
+__PROG_CONFIG(FOSC_HS & WDTE_OFF & PWRTE_ON & LVP_OFF & CPD_OFF & DEBUG_OFF & CP_OFF);
 
 #endif
 

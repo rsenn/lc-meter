@@ -1,9 +1,9 @@
+#include "LC-meter.h"
 
 #include "config-bits.h"
 #include "oscillator.h"
 #include "interrupt.h"
 
-#include "LC-meter.h"
 //#include "main.h"
 #include "delay.h"
 
