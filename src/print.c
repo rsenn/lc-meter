@@ -505,7 +505,7 @@ output_putch(char c) {
  * Put a string to the LCD and serial (if supported)
  */
 void
-put_str(const rom char* s) {
+put_str(const char* s) {
   int i;
 
   for(i = 0; s[i]; i++) {
