@@ -43,7 +43,7 @@ timer0_init(uint8_t ps_mode) {
 }
 
 unsigned short
-timer0_read_ps() {
+timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
 
