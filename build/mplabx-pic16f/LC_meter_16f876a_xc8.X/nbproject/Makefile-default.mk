@@ -68,7 +68,10 @@ OBJECTFILES=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/s
 
 # Source Files
 SOURCEFILES=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../src/LC-meter.c ../../../lib/lcd44780.c ../../../lib/buffer.c ../../../lib/../src/measure.c
+<<<<<<< HEAD
+=======
 
+>>>>>>> af6fc56774ff01f4ea684fd7f65c6e9f6e93de0f
 
 
 CFLAGS=

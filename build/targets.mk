@@ -4,11 +4,19 @@ COMMON_SOURCES = format.c timer.c delay.c
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c uart.c uart.c
 LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c uart.c buffer.c
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_HD44780_LCD=1
+$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_SER=1 USE_TIMER0=1
+$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1 USE_TIMER2=1
+
+#LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
+#LC_meter_HD44780_DEFS +=  -DUSE_SER=1 
+
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_UART=1 USE_TIMER0=1
 
 #LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 LC_meter_HD44780_DEFS += -DUSE_UART=1 
 LC_meter_HD44780_DEFS +=  -DUSE_TIMER0=1
+LC_meter_HD44780_DEFS +=  -DUSE_TIMER1=1
+LC_meter_HD44780_DEFS +=  -DUSE_TIMER2=1
 
 ifeq ($(SOFTSER),1)
 LC_meter_HD44780_SOURCES += softuart.c
@@ -42,7 +50,10 @@ LC_meter_julznc_DEFS += -DNO_JULZNC=1   -DUSE_UART=1
 
 Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c uart.c delay.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-Freq_meter_HD44780_DEFS += -DUSE_UART=1 -DUSE_TIMER0=1
+Freq_meter_HD44780_DEFS += -DUSE_TIMER0=1
+Freq_meter_HD44780_DEFS += -DUSE_TIMER1=1
+Freq_meter_HD44780_DEFS += -DUSE_TIMER2=1
+Freq_meter_HD44780_DEFS += -DUSE_UART=1 
 
 Freq_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 Freq_meter_HD44780_DEFS += $(TIMER_DEFS)
