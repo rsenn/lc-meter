@@ -124,7 +124,7 @@ main() {
   TRISA = 0b11001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK);
+  timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
 
   ///T0CS = 1; // Transition on T0CKI pin
   T0SE = 1; // Increment on high-to-low transition on T0CKI pin
