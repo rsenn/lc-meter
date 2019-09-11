@@ -59,6 +59,8 @@ timer0_read_ps(void) {
     
     NOP();
     NOP();
+
+    ++count;
     
     // count until TMR0 incremented
   } while(prev == TMR0 && count <= 255);
