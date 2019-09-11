@@ -46,6 +46,8 @@ unsigned short
 timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
+  
+    OPTION_REG |= 0x20; // T0CS = 1;
 
   do {
     /* self-clocking */
