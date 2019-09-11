@@ -16,7 +16,7 @@ timer0_init(uint8_t ps_mode) {
   OPTION_REG |= (!!(ps_mode  & EDGE_HIGH_LOW)) ? 0x10 : 0x00;
 
   // If a prescaler is to be assigned to the Timer0 module
-  OPTION_REG |= (prescaler == 0) ? 0x08 : 0x00; 
+  OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00; 
 
 #if PIC18
   if(prescaler > 0) {
