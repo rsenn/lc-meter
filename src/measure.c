@@ -15,6 +15,7 @@
 #include "measure.h"
 #include "print.h"
 #include "format.h"
+#include "timer.h"
 
 
 /*
