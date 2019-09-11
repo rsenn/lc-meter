@@ -49,12 +49,12 @@ timer0_read_ps(void) {
 
   do {
     /* self-clocking */
-    T0SE = 1;
+    OPTION_REG |= 0x10; // T0SE = 1;
 
     NOP();
     NOP();
 
-    T0SE = 0;
+     OPTION_REG &= ~0x10; //T0SE = 0;
     
     NOP();
     NOP();
