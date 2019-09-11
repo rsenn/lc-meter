@@ -76,7 +76,7 @@ uart_enable(void) {
   RX_TRIS = 1;
   TX_TRIS = TX_PIN = 0;
   TXEN = 1;
-  SPEN = 1;
+    RCSTA |= 0x80; //SPEN = 1;
   RCIE = 0;
 }
 
