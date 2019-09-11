@@ -30,7 +30,7 @@
 #define __12f1840 1
 #endif
 #ifdef __PIC16F628A_H
-#define __16f628a 1
+#define __16f628a
 #endif
 #ifdef __PIC16F876A_H
 #define __16f876a 1

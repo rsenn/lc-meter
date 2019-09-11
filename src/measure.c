@@ -1,8 +1,10 @@
 #include "oscillator.h"
 #include "LC-meter.h"
-#include "config-bits.h"
 #include "delay.h"
 
+#if USE_UART
+#include "uart.h"
+#endif
 #if USE_SER
 #include "ser.h"
 #endif
@@ -29,7 +31,7 @@ calibrate() {
   put_str("Calibrating");
 
   lcd_gotoxy(0, 1);
-  ser_puts("\r\n");
+  uart_puts("\r\n");
   put_str("please wait...");
 #endif
 
@@ -57,14 +59,14 @@ calibrate() {
     delay10ms(28);
   }
 #endif
-  ser_puts("\r\n");
+  uart_puts("\r\n");
 }
 
 
 /*
  * Measure frequency on comparator output via T0CKI
  */
-uint16_t
+unsigned short
 measure_freq() {
   uint16_t count;
 
@@ -79,9 +81,13 @@ measure_freq() {
   // reset timer0 & prescaler
   TMR0 = 0x00;
 
+  SET_LED(1);
+
   // Wait fixed period (100ms)
     __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
     __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
+
+  SET_LED(0);
 
   // Disable RA4 output to T0CKI
   TRISA |= 0b00010000; 
@@ -119,25 +125,25 @@ measure_capacitance() {
   F3 = (double)var;
 #if USE_SER
 //  putchar_ptr = &ser_putch;
-  ser_puts("var=");
+  uart_puts("var=");
   format_xint32(/*ser_putch,*/ var);
-  ser_puts("\r\nF1=");
+  uart_puts("\r\nF1=");
   format_double(/*ser_putch,*/ F1);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F1);
-  ser_puts("\r\nF2=");
+  uart_puts("\r\nF2=");
   format_double(/*ser_putch,*/ F2);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F2);
-  ser_puts("\r\nF3=");
+  uart_puts("\r\nF3=");
   format_double(/*ser_putch,*/ F3);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F3);
-  ser_puts("\r\nCCal=");
+  uart_puts("\r\nCCal=");
   format_double(/*ser_putch,*/ CCal);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
-  ser_puts("\r\n");
+  uart_puts("\r\n");
 #endif
   putchar_ptr = &output_putch;
 
@@ -148,11 +154,11 @@ measure_capacitance() {
   //  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
 
 #if USE_SER
-  ser_puts("Cin=");
+  uart_puts("Cin=");
   format_double(/*ser_putch,*/ Cin);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&Cin);
-  ser_puts("\r\n");
+  uart_puts("\r\n");
 #endif
   if(Cin > 999) {
     if(Cin > (999e+03l)) {

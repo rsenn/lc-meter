@@ -98,11 +98,12 @@ uart_init(void) {
   TX_PIN = 0;
   SPBRG = UART_BRG; // UART_BRG;
 
-  CREN = 1;
-  RX9D = (NINE == 1);
+  RCSTA |= 0x90 //CREN = 1;
+  | /*RX9D =*/ (NINE == 1 ? 0b1 : 0);
 
-  BRGH = (HIGH_SPEED == 1);
-  TX9 = (NINE == 1);
+  TXSTA |= /*
+  BRGH =  */(HIGH_SPEED == 1) ? 0b100 : 0b000;
+  TX9 |= (NINE == 1) ? 0b01000000 : 0;
 
   uart_enable();
 }

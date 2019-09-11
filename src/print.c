@@ -10,6 +10,9 @@
 #include "lcd5110.h"
 #endif
 
+#if USE_UART
+#include "uart.h"
+#endif
 #if USE_SER
 #include "ser.h"
 #endif
@@ -421,7 +424,7 @@ print_unit(uint8_t unit) {
   lcd_gotoxy(16 - BUFFER_LEN(), 0);
 
   // buffer_flush();
-  ser_puts("\r\n");
+  uart_puts("\r\n");
 #endif // defined(USE_NOKIA5110_LCD)
 }
 
@@ -494,7 +497,6 @@ indicator(uint8_t indicate) {
 void
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
   lcd_putch(c);
 #endif
 #ifdef USE_SER
@@ -506,7 +508,7 @@ output_putch(char c) {
  * Put a string to the LCD and serial (if supported)
  */
 void
-put_str(const rom char* s) {
+put_str(const char* s) {
   int i;
 
   for(i = 0; s[i]; i++) {

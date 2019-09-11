@@ -1,9 +1,8 @@
+#include "LC-meter.h"
 
-#include "config-bits.h"
 #include "oscillator.h"
 #include "interrupt.h"
 
-#include "LC-meter.h"
 //#include "main.h"
 #include "delay.h"
 
@@ -33,6 +32,9 @@
 #include "format.h"
 //#include "buffer.h"
 
+#include "config-bits.h"
+
+
 #if defined(__SDCC) || defined(SDCC)
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
@@ -51,9 +53,8 @@ volatile uint32_t timer1of;       // timer 1 overflows
  */
 void
 delay10ms(int16_t period_10ms) {
-
   while(period_10ms-- > 0) {
-    delay_ms(10);
+    __delay_ms(10);
   }
 }
 
@@ -64,9 +65,7 @@ void main();
 void loop();
 void testloop();
 void initialize();
-uint16_t measure_freq();
 uint32_t milliseconds();
-void delay10ms(int16_t period_10ms);
 
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos */);
 
@@ -104,7 +103,7 @@ INTERRUPT_FN() {
   ser_int();
 #endif
 #if USE_UART
-  uart_isr();
+  //uart_isr();
 #endif
 }
 
@@ -155,14 +154,14 @@ main() {
 #if !NO_PORTC
   //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
   //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
-  TRISC1 = OUTPUT;
+  TRISC &= 0b10110101;
 #endif
-#if !PIC18_USB
+/*#if !PIC18_USB
   TRISC3 = OUTPUT;
 #endif
   TRISC0 = INPUT;
   TRISC2 = INPUT;
-// initialize 5110 lcd
+*/// initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
@@ -190,7 +189,7 @@ main() {
 #if USE_UART
   uart_init();
 #endif
-  TRISC &= ~0b01000000;
+//  TRISC &= ~0b01000000;
 
   PEIE = 1;
   GIE = 1;
@@ -228,7 +227,7 @@ main() {
 
   for(;;) {
 
-    ser_puts("...\r\n");
+    uart_puts("...\r\n");
     if(LC_SELECT)
       measure_capacitance();
     else
@@ -255,7 +254,7 @@ testloop() {
   GIE = 1;
 
 #ifdef USE_SOFTSER
-  softser_puts("XXXX\r\n");
+  softuart_puts("XXXX\r\n");
 #endif
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
@@ -286,7 +285,7 @@ testloop() {
 #if USE_SER
     format_number(/*ser_putch,*/ s, 10, 0);
     // ser_putch(' ');    put_number(/*ser_putch,*/ bres / 5000, 10, 0);
-    ser_puts("\r\n");
+    uart_puts("\r\n");
 #endif
 
     prev_s = s;
