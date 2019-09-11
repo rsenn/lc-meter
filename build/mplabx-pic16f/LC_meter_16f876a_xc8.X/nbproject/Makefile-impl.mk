@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=LC_meter_16f876a_xc8.X
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=release
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default debug_vsm 
+ALLCONFS=default debug_vsm release 
 
 
 # build
@@ -47,6 +47,7 @@ ALLCONFS=default debug_vsm
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_vsm clean
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release clean
 
 
 
@@ -54,6 +55,7 @@ ALLCONFS=default debug_vsm
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_vsm build
+	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release build
 
 
 
