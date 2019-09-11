@@ -68,10 +68,10 @@
 */
 //#define TIMER0_PRESCALER PRESCALE_1_32
 
-uint16_t measure_freq(void);
+unsigned short measure_freq(void);
 void calibrate(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-void delay10ms(uint16_t period_10ms);
+void delay10ms(unsigned char period_10ms);
 
 #endif // defined(CAP_METER_H)
