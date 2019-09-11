@@ -108,8 +108,6 @@ uart_init(void) {
   uart_enable();
 }
 
-#endif // USE_UART
-
 void
 uart_puts(const char* s) {
   while(*s) uart_putch(*s++);
@@ -119,3 +117,5 @@ void
 uart_puts2(uint8_t* s) {
   while(*s) uart_putch(*s++);
 }
+
+#endif // USE_UART

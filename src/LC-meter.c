@@ -52,10 +52,10 @@ volatile uint32_t timer1of;       // timer 1 overflows
  * Delay using milliseconds count
  */
 void
-delay10ms(int16_t period_10ms) {
-  while(period_10ms-- > 0) {
-    __delay_ms(10);
-  }
+delay10ms(unsigned char period_10ms) {
+/*	short i,j = period_10ms;
+  for(i = 0; i < j; ++i) 
+    __delay_ms(10);*/
 }
 
 // buffer_t buffer = BUFFER_STATIC(output_putch);
