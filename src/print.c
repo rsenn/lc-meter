@@ -10,6 +10,9 @@
 #include "lcd5110.h"
 #endif
 
+#if USE_UART
+#include "uart.h"
+#endif
 #if USE_SER
 #include "ser.h"
 #endif
@@ -421,7 +424,7 @@ print_unit(uint8_t unit) {
   lcd_gotoxy(16 - BUFFER_LEN(), 0);
 
   // buffer_flush();
-  ser_puts("\r\n");
+  uart_puts("\r\n");
 #endif // defined(USE_NOKIA5110_LCD)
 }
 
