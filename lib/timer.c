@@ -30,7 +30,6 @@ timer0_init(uint8_t ps_mode) {
 
   // If a prescaler is to be assigned to the Timer0 module
   T0CON &= (!!prescaler) ? ~0x08 : ~0x00; 
-#endif
 
 #if PIC18
   if(prescaler > 0) {
