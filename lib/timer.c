@@ -1,5 +1,16 @@
 #include "timer.h"
 
+#ifdef PIC18F2550
+#define PIC18 1
+#endif
+#ifdef __18f2550
+#define PIC18 1
+#endif
+
+#ifndef PIC18
+#define T0CON OPTION_REG
+#endif
+
 /* ----------------------- Timer 0 ----------------------- */
 #if USE_TIMER0
 
@@ -9,24 +20,27 @@ timer0_init(uint8_t ps_mode) {
 
   TIMER0_VALUE = 0;
 
+  
+ 
   // 0: Internal instruction cycle clock (CLKO) or 1: Transition on T0CKI pin
- OPTION_REG |= (!!(ps_mode & TIMER0_FLAGS_EXTCLK)) ? 0x20 : 0x00; 
+   T0CON |= (!!(ps_mode & TIMER0_FLAGS_EXTCLK)) ? 0x20 : 0x00; 
 
   // T0CKI pin: Increment on 1->0 or on 0->1 transition 
-  OPTION_REG |= (!!(ps_mode  & EDGE_HIGH_LOW)) ? 0x10 : 0x00;
+  T0CON |= (!!(ps_mode  & EDGE_HIGH_LOW)) ? 0x10 : 0x00;
 
   // If a prescaler is to be assigned to the Timer0 module
-  OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00; 
+  T0CON &= (!!prescaler) ? ~0x08 : ~0x00; 
+#endif
 
 #if PIC18
   if(prescaler > 0) {
     T0PS = (prescaler - 1);
   }
 #else
-  OPTION_REG &= ~0b111;
+  T0CON &= ~0b111;
 
   if(prescaler > 0) {
-    OPTION_REG |= (prescaler - 1) & 0b111;
+    T0CON |= (prescaler - 1) & 0b111;
     //#if TIMER0_PRESCALER != 0
     /*  --prescaler;
       PS0 = prescaler&1;   prescaler >>= 1;
@@ -46,16 +60,16 @@ timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
 
-    OPTION_REG |= 0x20; // T0CS = 1;
+    T0CON |= 0x20; // T0CS = 1;
 
   do {
     /* self-clocking */
-    OPTION_REG |= 0x10; // T0SE = 1;
+    T0CON |= 0x10; // T0SE = 1;
 
     NOP();
     NOP();
 
-     OPTION_REG &= ~0x10; //T0SE = 0;
+     T0CON &= ~0x10; //T0SE = 0;
     
     NOP();
     NOP();

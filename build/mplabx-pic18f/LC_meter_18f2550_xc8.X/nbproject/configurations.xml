@@ -12,6 +12,7 @@
       <itemPath>../../../lib/lcd44780.h</itemPath>
       <itemPath>../../../lib/buffer.h</itemPath>
       <itemPath>../../../lib/comparator.h</itemPath>
+      <itemPath>../../../lib/timer.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -85,10 +86,9 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__XC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__18f2550=1"/>
+                  value="__XC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__18f2550=1;USE_TIMER0=1;USE_TIMER1=1"/>
         <property key="disable-optimizations" value="false"/>
-        <property key="extra-include-directories"
-                  value="../../mplab;.;../../../src;../../../lib"/>
+        <property key="extra-include-directories" value="../../../src;../../../lib"/>
         <property key="favor-optimization-for" value="+speed,-space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
@@ -110,7 +110,7 @@
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
         <property key="warning-level" value="1"/>
         <property key="what-to-do" value="ignore"/>
         <appendMe value="--double=32"/>
