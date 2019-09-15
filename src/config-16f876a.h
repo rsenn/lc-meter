@@ -7,8 +7,6 @@
 
 #elif defined(HI_TECH_C)
 
-#include <htc.h>
-
 __CONFIG(FOSC_HS& WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_OFF& CP_OFF);
 
 #endif

@@ -20,7 +20,7 @@
 
 // 'C' source line config statements
 
-#include <htc.h>
+//c:#include <htc.h>
 
 #endif
 

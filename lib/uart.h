@@ -28,19 +28,19 @@
 #endif
 
 #ifdef __12f1840
-#define TX_PIN RA0
+#define TX_PIN OUTA0
 #define TX_TRIS TRISA0
-#define RX_PIN RA1
+#define RX_PIN OUTA1
 #define RX_TRIS TRISA1
 #elif defined(__16f628a)
-#define TX_PIN RB2
+#define TX_PIN OUTB2
 #define TX_TRIS TRISB2
-#define RX_PIN RB1
+#define RX_PIN OUTB1
 #define RX_TRIS TRISB1
 #else
-#define TX_PIN RC6
+#define TX_PIN OUTC6
 #define TX_TRIS TRISC6
-#define RX_PIN RC7
+#define RX_PIN OUTC7
 #define RX_TRIS TRISC7
 #endif
 

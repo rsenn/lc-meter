@@ -6,7 +6,7 @@
 #include "typedef.h"
 #include "const.h"
 
-#define LED_PIN RC3
+#define LED_PIN OUTC3
 #define LED_TRIS TRISC3
 
 #define INIT_LED() LED_TRIS = OUTPUT

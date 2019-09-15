@@ -22,6 +22,7 @@
 //#undef HI_TECH_C
 
 #elif defined(HI_TECH_C)
+
 #include <htc.h>
 #ifdef __PIC10F206_H
 #define __10f206 1
@@ -187,32 +188,62 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define CM CMCONbits.CM
 #endif
 #define SSPCONbits SSPCON1bits
+
+#define OUTA LATA
+#define OUTB LATB
+#define OUTC LATC
 //
-//#define RA0 LATA0
-//#define RA1 LATA1
-//#define RA2 LATA2
-//#define RA3 LATA3
-//#define RA4 LATA4
-//#define RA5 LATA5
-//#define RB0 LATB0
-//#define RB1 LATB1
-//#define RB2 LATB2
-//#define RB3 LATB3
-//#define RB4 LATB4
-//#define RB5 LATB5
-//#define RB6 LATB6
-//#define RB7 LATB7
-//#define RC0 LATC0
-//#define RC1 LATC1
-//#define RC2 LATC2
-//#define RC3 LATC3
-//#define RC4 LATC4
-//#define RC5 LATC5
-//#define RC6 LATC6
-//#define RC7 LATC7
+#define OUTA0 LATA0
+#define OUTA1 LATA1
+#define OUTA2 LATA2
+#define OUTA3 LATA3
+#define OUTA4 LATA4
+#define OUTA5 LATA5
+#define OUTB0 LATB0
+#define OUTB1 LATB1
+#define OUTB2 LATB2
+#define OUTB3 LATB3
+#define OUTB4 LATB4
+#define OUTB5 LATB5
+#define OUTB6 LATB6
+#define OUTB7 LATB7
+#define OUTC0 LATC0
+#define OUTC1 LATC1
+#define OUTC2 LATC2
+#define OUTC3 LATC3
+#define OUTC4 LATC4
+#define OUTC5 LATC5
+#define OUTC6 LATC6
+#define OUTC7 LATC7
 
 #else
 #define T0PS OPTION_REGbits.PS
+#define OUTA PORTA
+#define OUTB PORTB
+#define OUTC PORTC
+
+#define OUTA0 RA0
+#define OUTA1 RA1
+#define OUTA2 RA2
+#define OUTA3 RA3
+#define OUTA4 RA4
+#define OUTA5 RA5
+#define OUTB0 RB0
+#define OUTB1 RB1
+#define OUTB2 RB2
+#define OUTB3 RB3
+#define OUTB4 RB4
+#define OUTB5 RB5
+#define OUTB6 RB6
+#define OUTB7 RB7
+#define OUTC0 RC0
+#define OUTC1 RC1
+#define OUTC2 RC2
+#define OUTC3 RC3
+#define OUTC4 RC4
+#define OUTC5 RC5
+#define OUTC6 RC6
+#define OUTC7 RC7
 #endif
 
 #if defined(__SDCC) || defined(SDCC)

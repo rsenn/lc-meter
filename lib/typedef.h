@@ -62,10 +62,6 @@ typedef int1 bool;
 #if defined(HI_TECH_C) || defined(SDCC) || defined(__IAR_SYSTEMS_ICC__) || defined(__PCH__)
 #undef rom
 #define rom
-/*# ifdef __PCH__
-#  undef const
-#  define const
-# endif*/
 #endif
 
 //#endif // !defined(__PCH__)

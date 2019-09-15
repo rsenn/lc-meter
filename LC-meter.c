@@ -30,8 +30,6 @@
 #include "measure.h"
 #include "print.h"
 #include "format.h"
-#include "typedef.h"
-#include "const.h"
 //#include "buffer.h"
 
 #include "config-bits.h"
@@ -153,8 +151,8 @@ main() {
   timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 #if !NO_PORTC
-  //  TRISC &= 0b11110101;  /* RC1 and RC3 -> outputs */
-  //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
+  //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
+  //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
   TRISC &= 0b10110101;
 #endif
   /*#if !PIC18_USB
@@ -167,7 +165,7 @@ main() {
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
-  lcd_init(true);
+  lcd_init(TRUE);
   lcd_begin(2, 1);
 #endif
 

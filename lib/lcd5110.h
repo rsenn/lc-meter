@@ -4,11 +4,11 @@
 #include "device.h"
 #include "typedef.h"
 
-#define LCD_CE RB2
-#define LCD_RESET RB3
-#define LCD_DC RB4
-#define LCD_DATA RB5
-#define LCD_CLK RB6
+#define LCD_CE OUTB2
+#define LCD_RESET OUTB3
+#define LCD_DC OUTB4
+#define LCD_DATA OUTB5
+#define LCD_CLK OUTB6
 #define LCD_TRIS() TRISB &= 0x00
 
 #define BIT7 0b10000000

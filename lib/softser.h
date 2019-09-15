@@ -38,14 +38,14 @@
 #define SOFTSER_INVERT 1
 
 #if NO_PORTB
-#define SOFTSER_IN_PIN RA0 // pin for serial out
+#define SOFTSER_IN_PIN OUTA0 // pin for serial out
 #define SOFTSER_IN_TRIS TRISA0
-#define SOFTSER_OUT_PIN RA1 // pin for serial input
+#define SOFTSER_OUT_PIN OUTA1 // pin for serial input
 #define SOFTSER_OUT_TRIS TRISA1
 #else
-#define SOFTSER_IN_PIN RB0 // pin for serial out
+#define SOFTSER_IN_PIN OUTB0 // pin for serial out
 #define SOFTSER_IN_TRIS TRISB0
-#define SOFTSER_OUT_PIN RB1 // pin for serial input
+#define SOFTSER_OUT_PIN OUTB1 // pin for serial input
 #define SOFTSER_OUT_TRIS TRISB1
 #endif
 

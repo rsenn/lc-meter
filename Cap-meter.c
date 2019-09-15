@@ -38,8 +38,8 @@ Written by: Rajendra Bhatt (www.embedded-lab.com)
 #include "format.h"
 #include "buffer.h"
 
-#define Va RA0
-#define Switch RB0
+#define Va OUTA0
+#define Switch OUTB0
 
 buffer_t buffer = BUFFER_STATIC(lcd_putch);
 
@@ -78,7 +78,7 @@ void
 reset() {
   TRISA = 0b00000100;
   CMCON = 7;
-  RA1 = 0;
+  OUTA1 = 0;
   delay_ms(2000);
   TRISA = 0b00000110;
   CMCON = 5;
@@ -101,7 +101,7 @@ main() {
   TMR2IF = 0; // Clear int bit
 
   // Configure Comparator module
-  CMCON = 5; // Independent comparator between RA1 (-) and RA2(+)
+  CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)
 
   lcd_init(TRUE);
 

@@ -78,7 +78,7 @@
 #define DISPLAY_SELECT_MASK (((1 << DISPLAY_DIGITS) - 1) << DISPLAY_SELECT_SHIFT)
 #define DISPLAY_SELECT_BIT(b) (1 << ((b) + DISPLAY_SELECT_SHIFT))
 
-#define BUTTON_PIN RB0
+#define BUTTON_PIN OUTB0
 #define BUTTON_TRIS TRISB0
 
 #define DISPLAY_INTERRUPT()                                                                                            \

@@ -35,19 +35,19 @@
 #include "typedef.h"
 
 #ifdef __12f1840
-#define SER_TX_PIN RA0
+#define SER_TX_PIN OUTA0
 #define SER_TX_TRIS TRISA0
-#define SER_RX_PIN RA1
+#define SER_RX_PIN OUTA1
 #define SER_RX_TRIS TRISA1
 #elif defined(__16f628a)
-#define SER_TX_PIN RB2
+#define SER_TX_PIN OUTB2
 #define SER_TX_TRIS TRISB2
-#define SER_RX_PIN RB1
+#define SER_RX_PIN OUTB1
 #define SER_RX_TRIS TRISB1
 #else
-#define SER_TX_PIN RC6
+#define SER_TX_PIN OUTC6
 #define SER_TX_TRIS TRISC6
-#define SER_RX_PIN RC7
+#define SER_RX_PIN OUTC7
 #define SER_RX_TRIS TRISC7
 #endif
 

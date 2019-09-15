@@ -150,7 +150,7 @@ main() {
 #endif
   TRISA = 0x11000111;
 
-  RA3 = RA5 = 1;
+  OUTA3 = OUTA5 = 1;
 
   //  TMR1 = 0xff00;
   timer0_init(PRESCALE_1_1);

@@ -6,9 +6,9 @@
 #include "ds18b20.h"
 
 //-----------------------------------------------------------------------------
-#define LS_A_PIN RA2
+#define LS_A_PIN OUTA2
 #define LS_A_TRIS TRISA2
-#define LS_K_PIN RA1
+#define LS_K_PIN OUTA1
 #define LS_K_TRIS TRISA1
 
 // -------------------------------------------------------------------------
