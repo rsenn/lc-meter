@@ -492,8 +492,6 @@ indicator(uint8_t indicate) {
 #endif // defined(USE_NOKIA5110_LCD)
 }
 
-
-
 void
 output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
@@ -515,4 +513,3 @@ put_str(const char* s) {
     output_putch(s[i]);
   }
 }
-

@@ -17,7 +17,6 @@
 #include "format.h"
 #include "timer.h"
 
-
 /*
  * Calibrate by adding the calibration capacitor into the circuit (by relay)
  */
@@ -63,7 +62,6 @@ calibrate() {
   uart_puts("\r\n");
 }
 
-
 /*
  * Measure frequency on comparator output via T0CKI
  */
@@ -85,13 +83,21 @@ measure_freq() {
   SET_LED(1);
 
   // Wait fixed period (100ms)
-    __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
-    __delay_ms(10); __delay_ms(10); __delay_ms(10); __delay_ms(10);  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
 
   SET_LED(0);
 
   // Disable RA4 output to T0CKI
-  TRISA |= 0b00010000; 
+  TRISA |= 0b00010000;
 
   // Read out Timer 0 incl prescaler
   count = timer0_read_ps();
@@ -104,7 +110,6 @@ measure_freq() {
 
   return count;
 }
-
 
 /*
  * Calculate capacitance from oscillating frequency (Thompson formula)
@@ -125,7 +130,7 @@ measure_capacitance() {
 
   F3 = (double)var;
 #if USE_SER
-//  putchar_ptr = &ser_putch;
+  //  putchar_ptr = &ser_putch;
   uart_puts("var=");
   format_xint32(/*ser_putch,*/ var);
   uart_puts("\r\nF1=");
@@ -183,7 +188,6 @@ measure_capacitance() {
   print_reading(var);
   print_unit(unit);
 }
-
 
 /*
  * Calculate inductance from oscillating frequency (Thompson formula)

@@ -3,7 +3,7 @@
 
 #include "device.h"
 
-#if (defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8) || defined(MCC18) || defined(__C18))
+#if(defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8) || defined(MCC18) || defined(__C18))
 #define HAVE_C99_TYPES 1
 #endif
 

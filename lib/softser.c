@@ -46,11 +46,11 @@ uint8_t softser_rdata; // holds the serial byte that was received
 
 void
 softser_init(void) {
-  // T0CS = 0;
-  // PSA = 0;
-  //  PS0 = 0; PS1 = 0; PS2 = 0; // prescaler 1:2
-  //  PS0 = 0;  PS1 = 1; PS2 = 0; // prescaler 1:4
-  // T0PS = SOFTSER_PS;
+// T0CS = 0;
+// PSA = 0;
+//  PS0 = 0; PS1 = 0; PS2 = 0; // prescaler 1:2
+//  PS0 = 0;  PS1 = 1; PS2 = 0; // prescaler 1:4
+// T0PS = SOFTSER_PS;
 
 #if SOFTSER_TIMER == 0
   timer0_init(SOFTSER_PS);

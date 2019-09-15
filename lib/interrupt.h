@@ -1,7 +1,6 @@
 #ifndef PICLIB_INTERRUPT_H
 #define PICLIB_INTERRUPT_H 1
 
-
 #if defined(HI_TECH_C) || defined(__XC) || defined(__XC8__)
 #warning interrupt.h
 #define INTERRUPT_FN() interrupt isr()

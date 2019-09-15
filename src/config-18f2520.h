@@ -22,7 +22,6 @@
 
 #include <htc.h>
 
-
 #endif
 
 #endif // defined CONFIG_18F2520_H

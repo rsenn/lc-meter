@@ -21,7 +21,6 @@
 #define NOP() __asm("NOP")
 #endif
 
-
 #define C_CAL 1000      // pF
 #define GATE_PERIOD 100 // ms
 #define PI 3.14159265358979323846l

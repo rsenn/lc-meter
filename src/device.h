@@ -121,7 +121,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #endif
 
-#if defined(__18f252) || defined(__18f2520) || defined(__18f2455) || defined(__18f2550) || defined(__18f25k22) || defined(__18f25k50)
+#if defined(__18f252) || defined(__18f2520) || defined(__18f2455) || defined(__18f2550) || defined(__18f25k22) ||      \
+    defined(__18f25k50)
 #define PIC18 1
 #endif
 

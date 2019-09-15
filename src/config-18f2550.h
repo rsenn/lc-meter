@@ -26,9 +26,8 @@
 //
 
 #ifndef OSC_HSPLL
-#define OSC_HSPLL            0xFEFF 
+#define OSC_HSPLL 0xFEFF
 #endif
-
 
 #endif
 

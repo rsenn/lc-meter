@@ -34,7 +34,6 @@
 
 #include "config-bits.h"
 
-
 #if defined(__SDCC) || defined(SDCC)
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
@@ -53,9 +52,9 @@ volatile uint32_t timer1of;       // timer 1 overflows
  */
 void
 delay10ms(unsigned char period_10ms) {
-/*	short i,j = period_10ms;
-  for(i = 0; i < j; ++i) 
-    __delay_ms(10);*/
+  /*	short i,j = period_10ms;
+    for(i = 0; i < j; ++i)
+      __delay_ms(10);*/
 }
 
 // buffer_t buffer = BUFFER_STATIC(output_putch);
@@ -103,7 +102,7 @@ INTERRUPT_FN() {
   ser_int();
 #endif
 #if USE_UART
-  //uart_isr();
+  // uart_isr();
 #endif
 }
 
@@ -126,7 +125,7 @@ main() {
   // setup timer0 for frequency counter
   timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
 
-  ///T0CS = 1; // Transition on T0CKI pin
+  /// T0CS = 1; // Transition on T0CKI pin
   T0SE = 1; // Increment on high-to-low transition on T0CKI pin
 
   /*
@@ -161,7 +160,7 @@ main() {
 #endif
   TRISC0 = INPUT;
   TRISC2 = INPUT;
-*/// initialize 5110 lcd
+*/ // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
@@ -189,7 +188,7 @@ main() {
 #if USE_UART
   uart_init();
 #endif
-//  TRISC &= ~0b01000000;
+  //  TRISC &= ~0b01000000;
 
   PEIE = 1;
   GIE = 1;

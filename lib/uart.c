@@ -76,7 +76,7 @@ uart_enable(void) {
   RX_TRIS = 1;
   TX_TRIS = TX_PIN = 0;
   TXEN = 1;
-    RCSTA |= 0x80; //SPEN = 1;
+  RCSTA |= 0x80; // SPEN = 1;
   RCIE = 0;
 }
 
@@ -98,11 +98,13 @@ uart_init(void) {
   TX_PIN = 0;
   SPBRG = UART_BRG; // UART_BRG;
 
-  RCSTA |= 0x90 //CREN = 1;
-  | /*RX9D =*/ (NINE == 1 ? 0b1 : 0);
+  RCSTA |= 0x90 // CREN = 1;
+           | /*RX9D =*/(NINE == 1 ? 0b1 : 0);
 
   TXSTA |= /*
-  BRGH =  */(HIGH_SPEED == 1) ? 0b100 : 0b000;
+  BRGH =  */ (HIGH_SPEED == 1)
+               ? 0b100
+               : 0b000;
   TX9 |= (NINE == 1) ? 0b01000000 : 0;
 
   uart_enable();
