@@ -1,10 +1,13 @@
 #include "timer.h"
 
+
 #ifdef PIC18F2550
 #define PIC18 1
 #endif
 #ifdef __18f2550
 #define PIC18 1
+extern volatile unsigned char           T0CON               @ 0xFD5;
+
 #endif
 
 #ifndef PIC18
