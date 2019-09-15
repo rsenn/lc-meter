@@ -252,7 +252,7 @@ lcd_scroll(uint8_t direction) {
   CLR(LCD_RS_OUT, LCD_RS);
   /* Scroll display */
   switch(direction) {
-      /* To left */
+    /* To left */
     case LEFT:
       lcd_write(0x18u);
       break;
@@ -456,8 +456,7 @@ lcd_ntos(uint32_t value, uint8_t n) {
   if(n > 0u) {
     uint32_t i = lcd_pow10(n - 1u);
 
-    while(i > 0u) /* Display at least one symbol */
-    {
+    while(i > 0u) { /* Display at least one symbol */
       lcd_putc('0' + ((value / i) % 10u));
 
       i /= 10u;

@@ -155,12 +155,12 @@ main() {
   //  TRISC |= 0b00000101;  /* RC0 and RC2 -> inputs */
   TRISC &= 0b10110101;
 #endif
-/*#if !PIC18_USB
-  TRISC3 = OUTPUT;
-#endif
-  TRISC0 = INPUT;
-  TRISC2 = INPUT;
-*/ // initialize 5110 lcd
+  /*#if !PIC18_USB
+    TRISC3 = OUTPUT;
+  #endif
+    TRISC0 = INPUT;
+    TRISC2 = INPUT;
+  */ // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();

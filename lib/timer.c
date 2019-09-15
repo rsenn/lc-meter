@@ -31,7 +31,6 @@ timer0_init(uint8_t ps_mode) {
 
   T0CON &= ~0b111;
 
-
   if(prescaler > 0) {
     T0CON |= (prescaler - 1) & 0b111;
     //#if TIMER0_PRESCALER != 0

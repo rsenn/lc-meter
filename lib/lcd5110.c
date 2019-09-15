@@ -323,8 +323,7 @@ lcd_battery(uint8_t chg) {
 // -------------------------------------------------------------------------
 #if 0
 void
-lcd_bluetooth(void)
-{
+lcd_bluetooth(void) {
   lcd_gotoxy(0, 0);
   lcd_send(0b00101000, LCD_TDATA);
   lcd_send(0b11111110, LCD_TDATA);
