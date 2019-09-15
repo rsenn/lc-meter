@@ -7,7 +7,7 @@
 #define deg(x) (x * RAD_TO_DEG)
 
 // already defined in common_types.h
-#if 1 //! defined(__XC__) && !defined(SDCC)
+#if ! defined(__XC__) && !defined(SDCC)
 #ifndef FALSE
 #define FALSE 0
 #endif
