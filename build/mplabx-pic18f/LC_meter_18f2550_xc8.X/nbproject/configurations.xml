@@ -4,15 +4,25 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../../../lib/format.h</itemPath>
-      <itemPath>../../../lib/interrupt.h</itemPath>
-      <itemPath>../../../lib/oscillator.h</itemPath>
-      <itemPath>../../../lib/ser.h</itemPath>
-      <itemPath>../../../lib/uart.h</itemPath>
-      <itemPath>../../../lib/lcd44780.h</itemPath>
-      <itemPath>../../../lib/buffer.h</itemPath>
-      <itemPath>../../../lib/comparator.h</itemPath>
-      <itemPath>../../../lib/timer.h</itemPath>
+      <logicalFolder name="f2" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/buffer.h</itemPath>
+        <itemPath>../../../lib/comparator.h</itemPath>
+        <itemPath>../../../lib/interrupt.h</itemPath>
+        <itemPath>../../../lib/lcd44780.h</itemPath>
+        <itemPath>../../../lib/oscillator.h</itemPath>
+        <itemPath>../../../lib/ser.h</itemPath>
+        <itemPath>../../../lib/uart.h</itemPath>
+        <itemPath>../../../lib/timer.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="src" projectFiles="true">
+        <itemPath>../../../src/config-bits.h</itemPath>
+        <itemPath>../../../src/LC-meter.h</itemPath>
+        <itemPath>../../../lib/format.h</itemPath>
+        <itemPath>../../../src/device.h</itemPath>
+        <itemPath>../../../src/config-18f2550.h</itemPath>
+        <itemPath>../../../src/print.h</itemPath>
+        <itemPath>../../../src/measure.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -267,20 +277,20 @@
                   value="__XC=1;__18f2550=1;PIC18F2550=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;USE_HD44780_LCD=1;BAUD_RATE=38400;XTAL_FREQ=20000000;USE_UART=1"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories" value="..\..\..\lib;..\..\..\src"/>
-        <property key="favor-optimization-for" value="-speed,+space"/>
+        <property key="favor-optimization-for" value="+speed,-space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
         <property key="identifier-length" value="255"/>
         <property key="local-generation" value="false"/>
-        <property key="operation-mode" value="free"/>
+        <property key="operation-mode" value="pro"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="optimization-assembler-files" value="true"/>
-        <property key="optimization-debug" value="false"/>
+        <property key="optimization-debug" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="-O1"/>
-        <property key="optimization-speed" value="false"/>
+        <property key="optimization-level" value="-O3"/>
+        <property key="optimization-speed" value="true"/>
         <property key="optimization-stable-enable" value="false"/>
         <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
@@ -308,10 +318,10 @@
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
-        <property key="data-model-size-of-double" value="24"/>
-        <property key="data-model-size-of-double-gcc" value="short-double"/>
-        <property key="data-model-size-of-float" value="24"/>
-        <property key="data-model-size-of-float-gcc" value="short-float"/>
+        <property key="data-model-size-of-double" value="32"/>
+        <property key="data-model-size-of-double-gcc" value="no-short-double"/>
+        <property key="data-model-size-of-float" value="32"/>
+        <property key="data-model-size-of-float-gcc" value="no-short-float"/>
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
         <property key="display-overall-usage" value="true"/>
@@ -324,7 +334,7 @@
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
-        <property key="format-hex-file-for-download" value="false"/>
+        <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="input-libraries" value="libm"/>
         <property key="keep-generated-startup.as" value="false"/>
@@ -355,6 +365,7 @@
         <property key="stack-size-main" value="auto"/>
         <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
+        <appendMe value="--codeoffset=0x2000"/>
       </XC8-config-global>
     </conf>
     <conf name="debug" type="2">
