@@ -30,6 +30,8 @@
 #include "measure.h"
 #include "print.h"
 #include "format.h"
+#include "typedef.h"
+#include "const.h"
 //#include "buffer.h"
 
 #include "config-bits.h"
@@ -165,7 +167,7 @@ main() {
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
-  lcd_init(TRUE);
+  lcd_init(true);
   lcd_begin(2, 1);
 #endif
 

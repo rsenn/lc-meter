@@ -13,7 +13,7 @@
 
 // -------------------------------------------------------------------------
 void
-ledsense_emit(BOOL on) {
+ledsense_emit(bool on) {
   LS_A_TRIS = LS_K_TRIS = OUTPUT;
 
   LS_A_PIN = on;
@@ -37,7 +37,7 @@ ledsense_read() {
   return adc_read(1);
 }
 
-extern volatile BOOL control;
+extern volatile bool control;
 
 // -------------------------------------------------------------------------
 void

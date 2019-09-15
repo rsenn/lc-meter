@@ -19,7 +19,7 @@
 #define DS18B20_T_MAX 125.0f
 
 // ---------------------------------------------------------------------------
-BOOL ds18b20_start_conversion(int8_t actNumROM, BOOL parasite_power);
+bool ds18b20_start_conversion(int8_t actNumROM, bool parasite_power);
 uint16_t ds18b20_value(int8_t actNumROM);
 double ds18b20_temperature(uint16_t value, uint8_t shift);
 

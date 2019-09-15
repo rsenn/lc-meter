@@ -4,8 +4,8 @@
 #include "typedef.h"
 
 // ---------------------------------------------------------------------------
-#define DQ_BIT RC3
-#define DQ_TRIS TRISC3
+#define DQ_BIT RC1
+#define DQ_TRIS TRISC1
 
 // ---------------------------------------------------------------------------
 #define OW_SEARCH_ROM 0xf0
@@ -34,7 +34,7 @@ char ow_next(void);
 uint8_t ow_read_byte(void);
 
 // ---------------------------------------------------------------------------
-void ow_write_byte(uint8_t val, BOOL power_on);
+void ow_write_byte(uint8_t val, bool power_on);
 
 // Sends Match ROM command to bus then device address
 // ---------------------------------------------------------------------------

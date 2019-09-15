@@ -3,8 +3,8 @@
 #include "ds18b20.h"
 
 // ---------------------------------------------------------------------------
-BOOL
-ds18b20_start_conversion(int8_t actNumROM, BOOL parasite_power) {
+bool
+ds18b20_start_conversion(int8_t actNumROM, bool parasite_power) {
   if(!ow_reset()) {                                   // If a device is present
     ow_write_byte(OW_SKIP_ROM, 0);                    // Skip Rom command
     ow_write_byte(DS18B20_CONVERT_T, parasite_power); // Temperature convert command

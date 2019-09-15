@@ -69,7 +69,7 @@ softser_init(void) {
 
 // returns 1 when start bit received or 0 when timeout
 //---------------------------------------------------------
-BOOL
+bool
 softser_poll(uint8_t bauds) {
   int i = bauds;
 

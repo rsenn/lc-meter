@@ -17,7 +17,7 @@
 
 static uint8_t RomBytes[8];
 static int8_t lastDiscrep = 0;
-static BOOL doneFlag = 0;
+static bool doneFlag = 0;
 static uint8_t FoundROM[12][8]; // Table of found ROM codes, 8 bytes for each
 static uint8_t numROMs;
 static int8_t ow_dowcrc; // crc is accumulated in this variable
@@ -116,7 +116,7 @@ ow_read_byte(void) {
 // new byte writing routine with parasite power option
 // ---------------------------------------------------------------------------
 void
-ow_write_byte(uint8_t val, BOOL power_on) {
+ow_write_byte(uint8_t val, bool power_on) {
   int i;
 
   for(i = 0; i < 8; i++) {

@@ -1,6 +1,7 @@
 #ifndef PICLIB_TYPES_H
 #define PICLIB_TYPES_H 1
 
+#include <stdbool.h>
 #include "device.h"
 
 #if(defined(SDCC) || defined(HI_TECH_C) || defined(__XC) || defined(__XC8) || defined(MCC18) || defined(__C18))
@@ -18,7 +19,6 @@ typedef unsigned long uint32_t;
 
 #elif HAVE_C99_TYPES
 #if(_HTC_VER_MINOR_ >= 80)
-//#include <stdbool.h>
 #include <stdint.h>
 #else
 #define uint8_t unsigned char
@@ -43,15 +43,15 @@ typedef unsigned int32_t uint32_t;
 #endif
 
 #ifdef SDCC
-#undef BOOL
-typedef char BOOL;
-typedef BOOL bit;
-//#define BOOL __bit
+#undef bool
+typedef char bool;
+typedef bool bit;
+//#define bool __bit
 #elif (defined(MCC18) || defined(HI_TECH_C)) && !defined(__XC)
-// typedef enum { FALSE = 0, TRUE = 1 } BOOL;
-typedef char BOOL;
+typedef enum { FALSE = 0, TRUE = 1 } bool;
+typedef char bool;
 #elif defined(__PCH__)
-typedef int1 BOOL;
+typedef int1 bool;
 #endif
 
 #if HAVE_C99_TYPES
