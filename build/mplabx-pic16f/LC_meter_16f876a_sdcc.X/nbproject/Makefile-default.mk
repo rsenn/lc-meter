@@ -95,103 +95,103 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/1386521430/comparator.o: ../../../lib/comparator.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/comparator.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/comparator.c  -o${OBJECTDIR}/_ext/1386521430/comparator.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/comparator.c  -o${OBJECTDIR}/_ext/1386521430/comparator.o
 	
 ${OBJECTDIR}/_ext/1386521430/delay.o: ../../../lib/delay.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/delay.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/delay.c  -o${OBJECTDIR}/_ext/1386521430/delay.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/delay.c  -o${OBJECTDIR}/_ext/1386521430/delay.o
 	
 ${OBJECTDIR}/_ext/1386521430/lcd44780.o: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/lcd44780.c  -o${OBJECTDIR}/_ext/1386521430/lcd44780.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/lcd44780.c  -o${OBJECTDIR}/_ext/1386521430/lcd44780.o
 	
 ${OBJECTDIR}/_ext/1386521430/format.o: ../../../lib/format.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/format.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/format.c  -o${OBJECTDIR}/_ext/1386521430/format.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/format.c  -o${OBJECTDIR}/_ext/1386521430/format.o
 	
 ${OBJECTDIR}/_ext/1386521430/timer.o: ../../../lib/timer.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/timer.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
 	
 ${OBJECTDIR}/_ext/1386521430/uart.o: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/uart.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
 	
 ${OBJECTDIR}/_ext/2124829536/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
 	${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
 	
 ${OBJECTDIR}/_ext/1386521430/buffer.o: ../../../lib/buffer.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/buffer.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/buffer.c  -o${OBJECTDIR}/_ext/1386521430/buffer.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../lib/buffer.c  -o${OBJECTDIR}/_ext/1386521430/buffer.o
 	
 ${OBJECTDIR}/_ext/1386528437/print.o: ../../../src/print.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	${RM} ${OBJECTDIR}/_ext/1386528437/print.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../src/print.c  -o${OBJECTDIR}/_ext/1386528437/print.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../src/print.c  -o${OBJECTDIR}/_ext/1386528437/print.o
 	
 ${OBJECTDIR}/_ext/1386528437/measure.o: ../../../src/measure.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	${RM} ${OBJECTDIR}/_ext/1386528437/measure.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../src/measure.c  -o${OBJECTDIR}/_ext/1386528437/measure.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib --debug -c -mpic14 -p16f876a ../../../src/measure.c  -o${OBJECTDIR}/_ext/1386528437/measure.o
 	
 else
 ${OBJECTDIR}/_ext/1386521430/comparator.o: ../../../lib/comparator.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/comparator.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/comparator.c  -o${OBJECTDIR}/_ext/1386521430/comparator.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/comparator.c  -o${OBJECTDIR}/_ext/1386521430/comparator.o
 	
 ${OBJECTDIR}/_ext/1386521430/delay.o: ../../../lib/delay.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/delay.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/delay.c  -o${OBJECTDIR}/_ext/1386521430/delay.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/delay.c  -o${OBJECTDIR}/_ext/1386521430/delay.o
 	
 ${OBJECTDIR}/_ext/1386521430/lcd44780.o: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/lcd44780.c  -o${OBJECTDIR}/_ext/1386521430/lcd44780.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/lcd44780.c  -o${OBJECTDIR}/_ext/1386521430/lcd44780.o
 	
 ${OBJECTDIR}/_ext/1386521430/format.o: ../../../lib/format.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/format.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/format.c  -o${OBJECTDIR}/_ext/1386521430/format.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/format.c  -o${OBJECTDIR}/_ext/1386521430/format.o
 	
 ${OBJECTDIR}/_ext/1386521430/timer.o: ../../../lib/timer.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/timer.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
 	
 ${OBJECTDIR}/_ext/1386521430/uart.o: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/uart.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
 	
 ${OBJECTDIR}/_ext/2124829536/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
 	${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
 	
 ${OBJECTDIR}/_ext/1386521430/buffer.o: ../../../lib/buffer.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	${RM} ${OBJECTDIR}/_ext/1386521430/buffer.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/buffer.c  -o${OBJECTDIR}/_ext/1386521430/buffer.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../lib/buffer.c  -o${OBJECTDIR}/_ext/1386521430/buffer.o
 	
 ${OBJECTDIR}/_ext/1386528437/print.o: ../../../src/print.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	${RM} ${OBJECTDIR}/_ext/1386528437/print.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../src/print.c  -o${OBJECTDIR}/_ext/1386528437/print.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../src/print.c  -o${OBJECTDIR}/_ext/1386528437/print.o
 	
 ${OBJECTDIR}/_ext/1386528437/measure.o: ../../../src/measure.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	${RM} ${OBJECTDIR}/_ext/1386528437/measure.o 
-	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../src/measure.c  -o${OBJECTDIR}/_ext/1386528437/measure.o
+	${MP_CC} --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -c -mpic14 -p16f876a ../../../src/measure.c  -o${OBJECTDIR}/_ext/1386528437/measure.o
 	
 endif
 
@@ -200,11 +200,11 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  C:/Program\ Files/SDCC/lib/pic14/libm.lib  
 	${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} -Wl-c -Wl-m --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -mpic14 -p16f876a ${OBJECTFILES_QUOTED_IF_SPACED} -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} 
+	${MP_CC} -Wl-c -Wl-m --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -mpic14 -p16f876a ${OBJECTFILES_QUOTED_IF_SPACED} -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} 
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  C:/Program\ Files/SDCC/lib/pic14/libm.lib 
 	${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} -Wl-c -Wl-m --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -mpic14 -p16f876a ${OBJECTFILES_QUOTED_IF_SPACED} -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} 
+	${MP_CC} -Wl-c -Wl-m --use-non-free -DNOT_USE_HD44780_LCD=1 -DSDCC=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DUSE_TIMER0=1 -DNOT_USE_TIMER1=1 -DUSE_TIMER2=1 -I"../../../lib" -I"../../../src" -I"../../.." --opt-code-speed --opt-code-size --debug-xtra -llibm.lib -mpic14 -p16f876a ${OBJECTFILES_QUOTED_IF_SPACED} -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_sdcc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} 
 endif
 
 
