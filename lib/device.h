@@ -77,6 +77,9 @@
 #ifdef __18f252
 #include <pic18f252.h>
 #endif
+#ifdef __18f2455
+#include <pic18f2455.h>
+#endif
 #ifdef __18f2550
 #include <pic18f2550.h>
 #endif
