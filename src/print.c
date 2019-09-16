@@ -1,6 +1,5 @@
 #include "buffer.h"
 #include "print.h"
-#include "LC-meter.h"
 
 #if USE_HD44780_LCD
 #include "lcd44780.h"

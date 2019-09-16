@@ -66,7 +66,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>SDCC</languageToolchain>
         <languageToolchainVersion>3.9.0</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.0.9"/>
@@ -138,7 +138,7 @@
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
       <sdcc-config>
-        <property key="V-show-commands-compiler" value="false"/>
+        <property key="V-show-commands-compiler" value="true"/>
         <property key="Werror" value="false"/>
         <property key="allow-unsafe-read" value="false"/>
         <property key="calltree" value="false"/>
@@ -182,9 +182,9 @@
         <property key="use-crt" value=""/>
         <property key="use-non-free" value="true"/>
         <property key="user-defines"
-                  value="_SDCC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1"/>
+                  value="SDCC=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1"/>
         <property key="user-includes" value="..\..\..\lib;..\..\..\src"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
       </sdcc-config>
     </conf>
   </confs>
