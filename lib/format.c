@@ -38,7 +38,7 @@ format_number(/*putchar_fn* putchar_ptr,*/ uint16_t n, uint8_t base, int8_t pad 
   } while(n > 0);
 
   while(pad-- > i) putchar_ptr(padchar);
-
+  
   for(; i > 0; i--) putchar_ptr((char)buf[(int16_t)i - 1]);
   //    lcd_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
 }

@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=LC_meter_16f876a_xc8.X
 
 # Active Configuration
-DEFAULTCONF=release
+DEFAULTCONF=default
 CONF=${DEFAULTCONF}
 
 # All Configurations

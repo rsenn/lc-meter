@@ -283,9 +283,10 @@ testloop() {
   lcd_puts("     ");
   lcd_gotoxy(0, 1);
   lcd_puts("RC4=");
-
+  
+#ifdef USE_HD44780_LCD
   lcd_putch(LC_SELECT != 0 ? '1' : '0');
-
+#endif
 //    print_print_number(measure_freq(), 16, 4);
 #endif
   if(s != prev_s) {

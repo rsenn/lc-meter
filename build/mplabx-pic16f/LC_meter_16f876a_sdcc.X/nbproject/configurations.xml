@@ -44,8 +44,12 @@
         <itemPath>../../../lib/format.c</itemPath>
         <itemPath>../../../lib/timer.c</itemPath>
         <itemPath>../../../lib/uart.c</itemPath>
+        <itemPath>../../../lib/buffer.c</itemPath>
       </logicalFolder>
-      <itemPath>../../../src/print.c</itemPath>
+      <logicalFolder name="f2" displayName="src" projectFiles="true">
+        <itemPath>../../../src/print.c</itemPath>
+        <itemPath>../../../src/measure.c</itemPath>
+      </logicalFolder>
       <itemPath>../../../LC-meter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -142,7 +146,7 @@
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
       <sdcc-config>
-        <property key="V-show-commands-compiler" value="true"/>
+        <property key="V-show-commands-compiler" value="false"/>
         <property key="Werror" value="false"/>
         <property key="allow-unsafe-read" value="false"/>
         <property key="calltree" value="false"/>
@@ -172,7 +176,7 @@
         <property key="nooverlay" value="false"/>
         <property key="obanksel" value="0"/>
         <property key="opt-code-size" value="true"/>
-        <property key="opt-code-speed" value="false"/>
+        <property key="opt-code-speed" value="true"/>
         <property key="optimize-cmp" value="false"/>
         <property key="optimize-df" value="false"/>
         <property key="pcode-verbose" value="false"/>
@@ -186,9 +190,10 @@
         <property key="use-crt" value=""/>
         <property key="use-non-free" value="true"/>
         <property key="user-defines"
-                  value="SDCC=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;USE_HD44780_LCD=1"/>
+                  value="NOT_USE_HD44780_LCD=1;SDCC=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1;NOT_USE_TIMER1=1;USE_TIMER2=1"/>
         <property key="user-includes" value="..\..\..\lib;..\..\..\src;..\..\.."/>
-        <property key="verbose" value="true"/>
+        <property key="verbose" value="false"/>
+        <appendMe value="-llibm.lib"/>
       </sdcc-config>
     </conf>
   </confs>
