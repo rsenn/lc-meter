@@ -20,7 +20,6 @@ Pins, Schematics and more info:
       http://www.fazzi.eng.br
 */
 
-#include "const.h" // HIGH, LOW, OUTPUT, ...
 #include "delay.h"
 #include "device.h"
 #include "lcd44780.h"
@@ -122,7 +121,7 @@ lcd_write8bits(uint8_t value) {
 
 // -------------------------------------------------------------------------
 /** Send data to LCD 8 or 4 bits */
-static void
+void
 lcd_send(uint8_t value, uint8_t mode) {
   if(mode) {
     RS_HIGH();
@@ -143,10 +142,6 @@ lcd_send(uint8_t value, uint8_t mode) {
 
 // -------------------------------------------------------------------------
 /** Write a data character on LCD */
-void
-lcd_putch(char value) {
-  lcd_send((unsigned)value, HIGH);
-}
 
 // -------------------------------------------------------------------------
 /** Write a control command on LCD */

@@ -203,7 +203,7 @@ main() {
   INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-  putchar_ptr = &lcd_putch;
+  //putchar_ptr = &lcd_putch;
 #endif
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD

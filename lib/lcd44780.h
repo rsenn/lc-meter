@@ -3,6 +3,7 @@
 
 #include "device.h"
 #include "typedef.h"
+#include "const.h" // HIGH, LOW, OUTPUT, ...
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
@@ -65,7 +66,8 @@ void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 // void lcd_printf(const char *fmt, ...);
 void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+//void lcd_putch(char value);
+void lcd_send(uint8_t value, uint8_t mode);
 
 #define LCDAUTOSCROLL
 #define LCDBLINK
@@ -82,5 +84,7 @@ void lcd_putch(char value);
 #undef LCDSCROLLDISPLAYLEFT
 #undef LCDSCROLLDISPLAYRIGHT
 #define LCDSETCURSOR
+
+#define lcd_putch(v) lcd_send((v), HIGH)
 
 #endif /* PICLIB_LCD44780_H */
