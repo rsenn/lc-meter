@@ -4,17 +4,16 @@
 buffer_t buffer;
 
 void
-buffer_init(putchar_p op) {
+buffer_init(void) {
   buffer.p = 0;
   buffer.n = 0;
-  buffer.op = op;
 }
 
 char
 buffer_flush() {
-  while(buffer.p < buffer.n) {
+  /*while(buffer.p < buffer.n)
     buffer.op(buffer.x[buffer.p++]);
-  }
+    */
   BUFFER_CLEAR();
   return 0;
 }

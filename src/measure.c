@@ -151,7 +151,7 @@ measure_capacitance() {
   format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
   uart_puts("\r\n");
 #endif
-  putchar_ptr = &output_putch;
+//  putchar_ptr = &output_putch;
 
   if(F3 > F1)
     F3 = F1; // max freq is F1;

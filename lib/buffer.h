@@ -15,7 +15,6 @@ typedef struct {
   char x[BUFFER_SIZE];
   unsigned p : BUFFER_PTRSIZE; /* current position */
   unsigned n : BUFFER_PTRSIZE; /* current size of string in buffer */
-  putchar_p op;                /* putch() function */
 } buffer_t;
 
 #define BUFFER_STATIC(op)                                                                                              \
@@ -26,8 +25,8 @@ typedef struct {
 
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);

@@ -78,7 +78,7 @@ void interrupt global_int(void) {
 INTERRUPT_FN() {
 #endif
 
-  if(PIR1 & 0b10) {
+  if(PIR1 & 0x02) {
 
     bres += 256;
 
