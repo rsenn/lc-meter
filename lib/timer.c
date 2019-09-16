@@ -1,6 +1,5 @@
 #include "timer.h"
 
-
 #ifdef PIC18F2550
 #define PIC18 1
 #endif
@@ -13,7 +12,7 @@
 #ifdef __18f2550
 #define PIC18 1
 #ifndef SDCC
-extern volatile unsigned char           T0CON               @ 0xFD5;
+extern volatile unsigned char T0CON @0xFD5;
 #endif
 #endif
 
@@ -94,7 +93,7 @@ timer1_init(uint8_t ps_mode) {
 
   T1CON &= ~0b00111110;
 
-  T1CON |= (ps_mode & PRESCALE_MASK) << 4; 
+  T1CON |= (ps_mode & PRESCALE_MASK) << 4;
 
   T1CON |= (!!(ps_mode & TIMER1_FLAGS_EXTCLK)) << 1; // Internal clock source
 
@@ -111,10 +110,10 @@ timer1_init(uint8_t ps_mode) {
 
   T1CON |= 0b1; // TMR1ON = 1;
 
-   PIR1 &= ~0b1; //  TMR1IF = 0;
-   
-   PIE1 &= ~0b1;
-   PIE1 |= !!(ps_mode & TIMER1_FLAGS_INTR);
+  PIR1 &= ~0b1; //  TMR1IF = 0;
+
+  PIE1 &= ~0b1;
+  PIE1 |= !!(ps_mode & TIMER1_FLAGS_INTR);
 }
 
 #endif // USE_TIMER1
@@ -137,8 +136,8 @@ timer2_init(uint8_t ps_mode) {
 
   T2CON |= 0b100; // TMR2ON = 1; // Enable timer 2.
 
-  //TMR2IF = 0;
-  PIR1 &= ~0b10; 
+  // TMR2IF = 0;
+  PIR1 &= ~0b10;
   PIE1 = (!!(ps_mode & TIMER2_FLAGS_INTR)) << 1;
 }
 #endif // USE_TIMER2

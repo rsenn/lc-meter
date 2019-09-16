@@ -46,9 +46,9 @@ static uint8_t LCD_function, LCD_ctrl, LCD_mode
 // enable pulse must be >450ns
 // commands need > 37us to settle
 #define lcd_pulse_enable()                                                                                             \
-  EN_HIGH(); \
-  delay_us(4);                                                                                                       \
-  EN_LOW(); \
+  EN_HIGH();                                                                                                           \
+  delay_us(4);                                                                                                         \
+  EN_LOW();                                                                                                            \
   delay_us(100);
 
 // -------------------------------------------------------------------------
@@ -59,17 +59,17 @@ lcd_write4bits(uint8_t value) {
   DATA0_TRIS = DATA1_TRIS = DATA2_TRIS = DATA3_TRIS = OUTPUT;
 #endif
 
-  LATB &= 0b00001111;
-  LATB |= value << 4;
-/*
-  DATA0_PIN = value & 1;
-  value >>= 1;
-  DATA1_PIN = value & 1;
-  value >>= 1;
-  DATA2_PIN = value & 1;
-  value >>= 1;
-  DATA3_PIN = value & 1;
-  */
+  OUTB &= 0b00001111;
+  OUTB |= value << 4;
+  /*
+    DATA0_PIN = value & 1;
+    value >>= 1;
+    DATA1_PIN = value & 1;
+    value >>= 1;
+    DATA2_PIN = value & 1;
+    value >>= 1;
+    DATA3_PIN = value & 1;
+    */
 
 #if DATABUS_MUX
 //  delay_us(DATABUS_MUXDELAY);
@@ -125,9 +125,9 @@ lcd_write8bits(uint8_t value) {
 static void
 lcd_send(uint8_t value, uint8_t mode) {
   if(mode) {
-	  RS_HIGH();
+    RS_HIGH();
   } else {
-	  RS_LOW();
+    RS_LOW();
   }
 
 #ifdef LCD_HAVE_8BIT_MODE
@@ -303,7 +303,7 @@ void
 lcd_home() {
   lcd_command(LCD_RETURNHOME);
   delay_ms(2); // Wait for more than 4.1 ms
-  //delay_us(2000);
+  // delay_us(2000);
 }
 #endif
 
@@ -313,8 +313,8 @@ lcd_home() {
 void
 lcd_clear() {
   lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor position to zero
-  delay_ms(2);                 // Wait for more than 4.1 ms
-  //delay_us(2000);  // this command takes a long time! */
+  delay_ms(2);                   // Wait for more than 4.1 ms
+  // delay_us(2000);  // this command takes a long time! */
 }
 #endif
 
@@ -480,7 +480,7 @@ lcd_begin(uint8_t lines, uint8_t dotsize) {
     /* second try */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
     delay_ms(5); // Wait for more than 4.1 ms
-    //delay_us(150);
+    // delay_us(150);
 
     /* third go */
     lcd_command(LCD_FUNCTIONSET | LCD_function);
@@ -528,7 +528,7 @@ lcd_init(char fourbitmode) {
 
   DATA_TRIS();
 
-#if 0  //defined(DATA4_TRIS) && defined(DATA5_TRIS) && defined(DATA6_TRIS) && defined(DATA7_TRIS)
+#if 0 // defined(DATA4_TRIS) && defined(DATA5_TRIS) && defined(DATA6_TRIS) && defined(DATA7_TRIS)
   if((LCD_function & LCD_8BITMODE)) {
     DATA4_TRIS = DATABUS_INIT; // DATA4_PIN = LOW;
     DATA5_TRIS = DATABUS_INIT; // DATA5_PIN = LOW;

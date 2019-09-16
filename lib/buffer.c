@@ -31,6 +31,7 @@ buffer_putch(char ch) {
 
 char
 buffer_put(const char* buf, len_t len) {
+  len_t i;
   if(len > BUFFER_SIZE - buffer.n) { // doesn't fit
 
     /*    if(buffer_flush() == -1)
@@ -43,8 +44,10 @@ buffer_put(const char* buf, len_t len) {
         }*/
     return -1;
   }
+  for(i = 0; i < len; i++) {
+    buffer.x[buffer.n + i] = buf[i];
+  }
 
-  memcpy(buffer.x + buffer.n, buf, len);
   buffer.n += len;
   return 0;
 }

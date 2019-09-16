@@ -127,7 +127,7 @@ main() {
 
   /// T0CS = 1; // Transition on T0CKI pin
   //
-   T0CON |= 0x10; // T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+   //T0CON |= 0x10; // T0SE = 1; // Increment on high-to-low transition on T0CKI pin
 
   /*
   CM0 = 1;
@@ -138,13 +138,21 @@ main() {
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
+#if PIC18
   INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
+ #else
+OPTION_REG &= ~0b100000;
 #endif
-
+#endif
+ 
   INIT_LED();
   SET_LED(1);
 
+#if PIC18
   SSPCON1 &= ~0b00100000; //  SSPEN = 0;
+#else
+  SSPCON &= ~0b100;
+ #endif
 
   // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   //  timer1of = 0;

@@ -1,6 +1,5 @@
 #include "delay.h"
 #include "uart.h"
-#include "softser.h"
 #include "typedef.h"
 
 #if USE_UART
@@ -46,9 +45,9 @@ uart_getch(void) {
 bool
 uart_poll(uint8_t bauds) {
 
-  // TMR0 -= SOFTSER_BRG;            // load corrected baud value
+  // TMR0 -= UART_BRG;            // load corrected baud value
 
-  TMR0 = (256 - SOFTSER_BRG_FN(bauds));
+  TMR0 = (256 - UART_BRG_FN(bauds));
   while(TMR0 & (1 << 7)) {
     if((PIR1 & 0b00100000))
       return 1;

@@ -35,6 +35,7 @@
 
 #include "typedef.h"
 #include "oscillator.h"
+#include <delay.h>
 
 #ifdef __16f628a
 #define BANKSEL(x)
@@ -172,5 +173,12 @@ void cycle_eater(void);
 //#define CALL_SMALL_US          CALL_CYCLES_SMALL
 
 //#define CALL_SMALL_US_U8  CALL_CYCLES_SMALL_U8
+
+#define TCY_PER_SECOND ((long)_XTAL_FREQ / 4)
+#define TCY_PER_MILLISECOND ((long)TCY_PER_SECOND / 1000)
+#define TCY_PER_MICROSECOND ((long)TCY_PER_MILLISECOND / 1000)
+
+#define KTCY_PER_SECOND ((long)TCY_PER_SECOND / 1000)
+#define KTCY_PER_MILLISECOND ((long)KTCY_PER_SECOND / 1000)
 
 #endif /*PICLIB_TSMDELAY_H*/
