@@ -1,0 +1,2426 @@
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.9.3 #11377 (MINGW64)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007 ;       .file   "../../../lib/timer.c"
+                      00008         list    p=16f876a
+                      00009         radix dec
+                      00010         include "p16f876a.inc"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Oct 21 2015
+                      00005 ;  MPASM PIC16F876A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2015 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00525         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+  0000                00014         extern  ___uchar2fs
+  0000                00015         extern  ___schar2fs
+  0000                00016         extern  ___uint2fs
+  0000                00017         extern  ___sint2fs
+  0000                00018         extern  ___ulong2fs
+  0000                00019         extern  ___slong2fs
+  0000                00020         extern  ___fs2uchar
+  0000                00021         extern  ___fs2schar
+  0000                00022         extern  ___fs2uint
+  0000                00023         extern  ___fs2sint
+  0000                00024         extern  ___fs2ulong
+  0000                00025         extern  ___fs2slong
+  0000                00026         extern  ___fsadd
+  0000                00027         extern  ___fssub
+  0000                00028         extern  ___fsmul
+  0000                00029         extern  ___fsdiv
+  0000                00030         extern  ___fslt
+  0000                00031         extern  ___fseq
+  0000                00032         extern  ___fsgt
+  0000                00033         extern  _STATUSbits
+  0000                00034         extern  _PORTAbits
+  0000                00035         extern  _PORTBbits
+  0000                00036         extern  _PORTCbits
+  0000                00037         extern  _INTCONbits
+  0000                00038         extern  _PIR1bits
+  0000                00039         extern  _PIR2bits
+  0000                00040         extern  _T1CONbits
+  0000                00041         extern  _T2CONbits
+  0000                00042         extern  _SSPCONbits
+  0000                00043         extern  _CCP1CONbits
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00044         extern  _RCSTAbits
+  0000                00045         extern  _CCP2CONbits
+  0000                00046         extern  _ADCON0bits
+  0000                00047         extern  _OPTION_REGbits
+  0000                00048         extern  _TRISAbits
+  0000                00049         extern  _TRISBbits
+  0000                00050         extern  _TRISCbits
+  0000                00051         extern  _PIE1bits
+  0000                00052         extern  _PIE2bits
+  0000                00053         extern  _PCONbits
+  0000                00054         extern  _SSPCON2bits
+  0000                00055         extern  _SSPSTATbits
+  0000                00056         extern  _TXSTAbits
+  0000                00057         extern  _CMCONbits
+  0000                00058         extern  _CVRCONbits
+  0000                00059         extern  _ADCON1bits
+  0000                00060         extern  _EECON1bits
+  0000                00061         extern  _INDF
+  0000                00062         extern  _TMR0
+  0000                00063         extern  _PCL
+  0000                00064         extern  _STATUS
+  0000                00065         extern  _FSR
+  0000                00066         extern  _PORTA
+  0000                00067         extern  _PORTB
+  0000                00068         extern  _PORTC
+  0000                00069         extern  _PCLATH
+  0000                00070         extern  _INTCON
+  0000                00071         extern  _PIR1
+  0000                00072         extern  _PIR2
+  0000                00073         extern  _TMR1
+  0000                00074         extern  _TMR1L
+  0000                00075         extern  _TMR1H
+  0000                00076         extern  _T1CON
+  0000                00077         extern  _TMR2
+  0000                00078         extern  _T2CON
+  0000                00079         extern  _SSPBUF
+  0000                00080         extern  _SSPCON
+  0000                00081         extern  _CCPR1
+  0000                00082         extern  _CCPR1L
+  0000                00083         extern  _CCPR1H
+  0000                00084         extern  _CCP1CON
+  0000                00085         extern  _RCSTA
+  0000                00086         extern  _TXREG
+  0000                00087         extern  _RCREG
+  0000                00088         extern  _CCPR2
+  0000                00089         extern  _CCPR2L
+  0000                00090         extern  _CCPR2H
+  0000                00091         extern  _CCP2CON
+  0000                00092         extern  _ADRESH
+  0000                00093         extern  _ADCON0
+  0000                00094         extern  _OPTION_REG
+  0000                00095         extern  _TRISA
+  0000                00096         extern  _TRISB
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00097         extern  _TRISC
+  0000                00098         extern  _PIE1
+  0000                00099         extern  _PIE2
+  0000                00100         extern  _PCON
+  0000                00101         extern  _SSPCON2
+  0000                00102         extern  _PR2
+  0000                00103         extern  _SSPADD
+  0000                00104         extern  _SSPSTAT
+  0000                00105         extern  _TXSTA
+  0000                00106         extern  _SPBRG
+  0000                00107         extern  _CMCON
+  0000                00108         extern  _CVRCON
+  0000                00109         extern  _ADRESL
+  0000                00110         extern  _ADCON1
+  0000                00111         extern  _EEDATA
+  0000                00112         extern  _EEADR
+  0000                00113         extern  _EEDATH
+  0000                00114         extern  _EEADRH
+  0000                00115         extern  _EECON1
+  0000                00116         extern  _EECON2
+                      00117 
+  0000                00118         extern PSAVE
+  0000                00119         extern SSAVE
+  0000                00120         extern WSAVE
+  0000                00121         extern STK12
+  0000                00122         extern STK11
+  0000                00123         extern STK10
+  0000                00124         extern STK09
+  0000                00125         extern STK08
+  0000                00126         extern STK07
+  0000                00127         extern STK06
+  0000                00128         extern STK05
+  0000                00129         extern STK04
+  0000                00130         extern STK03
+  0000                00131         extern STK02
+  0000                00132         extern STK01
+  0000                00133         extern STK00
+                      00134 ;--------------------------------------------------------
+                      00135 ; global declarations
+                      00136 ;--------------------------------------------------------
+  0000                00137         global  _timer2_init
+  0000                00138         global  _timer0_read_ps
+  0000                00139         global  _timer0_init
+                      00140 
+                      00141 ;--------------------------------------------------------
+                      00142 ; global definitions
+                      00143 ;--------------------------------------------------------
+                      00144 ;--------------------------------------------------------
+                      00145 ; absolute symbol definitions
+                      00146 ;--------------------------------------------------------
+                      00147 ;--------------------------------------------------------
+                      00148 ; compiler-defined variables
+                      00149 ;--------------------------------------------------------
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00150 UDL_timer_0     udata
+0000                  00151 r0x100A res     1
+0001                  00152 r0x100B res     1
+0002                  00153 r0x100C res     1
+0003                  00154 r0x100D res     1
+0004                  00155 r0x100E res     1
+0005                  00156 r0x100F res     1
+0006                  00157 r0x1004 res     1
+0007                  00158 r0x1005 res     1
+0008                  00159 r0x1006 res     1
+0009                  00160 r0x1007 res     1
+000A                  00161 r0x1008 res     1
+000B                  00162 r0x1009 res     1
+000C                  00163 r0x1000 res     1
+000D                  00164 r0x1001 res     1
+000E                  00165 r0x1002 res     1
+000F                  00166 r0x1003 res     1
+                      00167 ;--------------------------------------------------------
+                      00168 ; initialized data
+                      00169 ;--------------------------------------------------------
+                      00170 ;--------------------------------------------------------
+                      00171 ; overlayable items in internal ram 
+                      00172 ;--------------------------------------------------------
+                      00173 ;       udata_ovr
+                      00174 ;--------------------------------------------------------
+                      00175 ; code
+                      00176 ;--------------------------------------------------------
+                      00177 code_timer      code
+                      00178 ;***
+                      00179 ;  pBlock Stats: dbName = C
+                      00180 ;***
+                      00181 ;has an exit
+                      00182 ;4 compiler assigned registers:
+                      00183 ;   r0x1000
+                      00184 ;   r0x1001
+                      00185 ;   r0x1002
+                      00186 ;   r0x1003
+                      00187 ;; Starting pCode block
+                      00188 ;<>Start of new flow, seq=0x1 ancestor = 0x1
+                      00189 ;  from: ; to: 003 002 
+                      00190 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00191 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00192 ;; ***  genLabel  2755
+                      00193 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00194 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2332:genFunction *{*
+                      00195 ;; ***  genFunction  2334 curr label offset=20previous max_key=16 
+                      00196 ;;      -----------------------------------------
+                      00197 ;;       function timer2_init
+                      00198 ;;      -----------------------------------------
+                      00199 ;_timer2_init:
+                      00200 S_timer__timer2_init    code
+0000                  00201 _timer2_init:
+                      00202 ; 2 exit points
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00203 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00204 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7467:genReceive *{*
+                      00205 ;; ***  genReceive  7468
+                      00206 ;;      695 register type nRegs=1
+                      00207 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1892:assignResultValue *{*
+                      00208 ;; ***  assignResultValue  1894
+                      00209 ;;      line = 1896 result -=-, size=0, left AOP_REG=r0x1052, size=1, right -=-, size=0
+                      00210 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1378:movwf
+                      00211 ;;      1097 rIdx = r0x1052 
+                      00212 ;       .line   125; "../../../lib/timer.c"     timer2_init(uint8_t ps_mode) {
+0000   0??? 0???      00213         BANKSEL r0x1000 ;id=1367,key=000,inCond:0,outCond:0,flow seq=001
+0002   00??           00214         MOVWF   r0x1000 ;id=1089,key=001,inCond:10,outCond:1,flow seq=001,rIdx=r0x1052
+                      00215 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00216 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00217 ;; ***  genAnd  3939
+                      00218 ;;      695 register type nRegs=1
+                      00219 ;;      695 register type nRegs=1
+                      00220 ;;      line = 3974 result AOP_REG=r0x1053, size=1, left AOP_REG=r0x1052, size=1, right AOP_LIT=0x0f, si
+                            ze=1
+                      00221 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4209:genAnd
+                      00222 ;       .line   126; "../../../lib/timer.c"     uint8_t ps = ps_mode & PRESCALE_MASK;
+0003   300F           00223         MOVLW   0x0f    ;id=1098,key=002,inCond:400,outCond:10,flow seq=001
+                      00224 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4210:genAnd
+                      00225 ;;      1097 rIdx = r0x1052 
+                      00226 ;; BANKOPT2 BANKSEL dropped; r0x1000 present in same bank as r0x1000
+0004   05??           00227         ANDWF   r0x1000,W       ;id=1101,key=003,inCond:11,outCond:14,flow seq=001,rIdx=r0x1052
+                      00228 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4211:genAnd
+                      00229 ;;      1097 rIdx = r0x1053 
+                      00230 ;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+0005   00??           00231         MOVWF   r0x1001 ;id=1104,key=004,inCond:10,outCond:1,flow seq=001,rIdx=r0x1053
+                      00232 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00233 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00234 ;; ***  genAnd  3939
+                      00235 ;; ***  aopForSym 316
+                      00236 ;;      328 sym->rname = _T2CON, size = 1
+                      00237 ;;      576
+                      00238 ;;      line = 3974 result AOP_DIR=_T2CON, size=1, left AOP_DIR=_T2CON, size=1, right AOP_LIT=0x80, size
+                            =1
+                      00239 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4147:genAnd
+                      00240 ;       .line   130; "../../../lib/timer.c"     T2CON &= ~0b01111111;
+0006   3080           00241         MOVLW   0x80    ;id=1114,key=005,inCond:400,outCond:10,flow seq=001
+                      00242 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4149:genAnd
+                      00243 ;;      998
+                      00244 ;;      1016  _T2CON   offset=0
+0007   0??? 0???      00245         BANKSEL _T2CON  ;id=1370,key=006,inCond:0,outCond:0,flow seq=001
+0009   05??           00246         ANDWF   _T2CON,F        ;id=1118,key=007,inCond:11,outCond:5,flow seq=001
+                      00247 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00248 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      00249 ;; ***  genAssign  7037
+                      00250 ;;      695 register type nRegs=1
+                      00251 ;;      line = 7046 result AOP_REG=r0x1054, size=1, left -=-, size=0, right AOP_LIT=0x00, size=2
+                      00252 ;; ***  genAssign  7132
+                      00253 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00254 ;;      1097 rIdx = r0x1054 
+                      00255 ;       .line   132; "../../../lib/timer.c"     T2CON |= (postscaler & 0b1111) << 3;
+000A   0??? 0???      00256         BANKSEL r0x1002 ;id=1371,key=008,inCond:0,outCond:0,flow seq=001
+000C   01??           00257         CLRF    r0x1002 ;id=1128,key=009,inCond:0,outCond:5,flow seq=001,rIdx=r0x1054
+                      00258 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00259 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00260 ;; ***  genAnd  3939
+                      00261 ;;      695 register type nRegs=1
+                      00262 ;;      695 register type nRegs=1
+                      00263 ;;      line = 3974 result AOP_REG=r0x1054, size=1, left AOP_REG=r0x1054, size=1, right AOP_LIT=0x0f, si
+                            ze=1
+                      00264 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4147:genAnd
+000D   300F           00265         MOVLW   0x0f    ;id=1136,key=00a,inCond:400,outCond:10,flow seq=001
+                      00266 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4149:genAnd
+                      00267 ;;      1097 rIdx = r0x1054 
+                      00268 ;; BANKOPT2 BANKSEL dropped; r0x1002 present in same bank as r0x1002
+000E   05??           00269         ANDWF   r0x1002,F       ;id=1139,key=00b,inCond:11,outCond:5,flow seq=001,rIdx=r0x1054
+                      00270 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00271 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5516:genGenericShift *{*
+                      00272 ;; ***  genGenericShift  5519
+                      00273 ;;      695 register type nRegs=1
+                      00274 ;;      695 register type nRegs=1
+                      00275 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5232:shiftLeft_Left2ResultLit
+000F   1003           00276         BCF     STATUS,0        ;id=1146,key=00c,inCond:23,outCond:23,flow seq=001
+                      00277 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5241:shiftLeft_Left2ResultLit
+                      00278 ;;      1097 rIdx = r0x1054 
+                      00279 ;; BANKOPT2 BANKSEL dropped; r0x1002 present in same bank as r0x1002
+0010   0D??           00280         RLF     r0x1002,W       ;id=1149,key=00d,inCond:3,outCond:12,flow seq=001,rIdx=r0x1054
+                      00281 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5242:shiftLeft_Left2ResultLit
+                      00282 ;;      1097 rIdx = r0x1055 
+                      00283 ;; BANKOPT2 BANKSEL dropped; r0x1003 present in same bank as r0x1002
+0011   00??           00284         MOVWF   r0x1003 ;id=1152,key=00e,inCond:10,outCond:1,flow seq=001,rIdx=r0x1055
+                      00285 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5232:shiftLeft_Left2ResultLit
+0012   1003           00286         BCF     STATUS,0        ;id=1154,key=00f,inCond:23,outCond:23,flow seq=001
+                      00287 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5237:shiftLeft_Left2ResultLit
+                      00288 ;;      1097 rIdx = r0x1055 
+                      00289 ;; BANKOPT2 BANKSEL dropped; r0x1003 present in same bank as r0x1002
+0013   0D??           00290         RLF     r0x1003,F       ;id=1157,key=010,inCond:3,outCond:3,flow seq=001,rIdx=r0x1055
+                      00291 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5232:shiftLeft_Left2ResultLit
+0014   1003           00292         BCF     STATUS,0        ;id=1159,key=011,inCond:23,outCond:23,flow seq=001
+                      00293 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5237:shiftLeft_Left2ResultLit
+                      00294 ;;      1097 rIdx = r0x1055 
+                      00295 ;; BANKOPT2 BANKSEL dropped; r0x1003 present in same bank as r0x1002
+0015   0D??           00296         RLF     r0x1003,F       ;id=1162,key=012,inCond:3,outCond:3,flow seq=001,rIdx=r0x1055
+                      00297 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00298 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      00299 ;; ***  genCast  7230
+                      00300 ;; ***  aopForSym 316
+                      00301 ;;      328 sym->rname = _T2CON, size = 1
+                      00302 ;;      695 register type nRegs=1
+                      00303 ;;      line = 7238 result AOP_REG=r0x1054, size=1, left -=-, size=0, right AOP_DIR=_T2CON, size=1
+                      00304 ;; ***  genCast  7362
+                      00305 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00306 ;;      998
+                      00307 ;;      1016  _T2CON   offset=0
+0016   0??? 0???      00308         BANKSEL _T2CON  ;id=1377,key=013,inCond:0,outCond:0,flow seq=001
+0018   08??           00309         MOVF    _T2CON,W        ;id=1174,key=014,inCond:1,outCond:14,flow seq=001
+                      00310 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7387:genCast
+                      00311 ;;      1097 rIdx = r0x1054 
+0019   0??? 0???      00312         BANKSEL r0x1002 ;id=1378,key=015,inCond:0,outCond:0,flow seq=001
+001B   00??           00313         MOVWF   r0x1002 ;id=1350,key=016,inCond:10,outCond:1,flow seq=001,rIdx=r0x1054
+                      00314 ;; BANKOPT2 BANKSEL dropped; r0x1003 present in same bank as r0x1002
+001C   04??           00315         IORWF   r0x1003,W       ;id=1351,key=017,inCond:11,outCond:14,flow seq=001,rIdx=r0x1055
+001D   0??? 0???      00316         BANKSEL _T2CON  ;id=1380,key=018,inCond:0,outCond:0,flow seq=001
+001F   00??           00317         MOVWF   _T2CON  ;id=1195,key=019,inCond:10,outCond:1,flow seq=001
+                      00318 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00319 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00320 ;; ***  genAnd  3939
+                      00321 ;;      695 register type nRegs=1
+                      00322 ;;      695 register type nRegs=1
+                      00323 ;;      line = 3974 result AOP_REG=r0x1053, size=1, left AOP_REG=r0x1053, size=1, right AOP_LIT=0x03, si
+                            ze=1
+                      00324 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4147:genAnd
+                      00325 ;       .line   133; "../../../lib/timer.c"     T2CON |= (ps & 0b11); // Set timer 2 prescaler to 1:1.
+0020   3003           00326         MOVLW   0x03    ;id=1204,key=01a,inCond:400,outCond:10,flow seq=001
+                      00327 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4149:genAnd
+                      00328 ;;      1097 rIdx = r0x1053 
+0021   0??? 0???      00329         BANKSEL r0x1001 ;id=1381,key=01b,inCond:0,outCond:0,flow seq=001
+0023   05??           00330         ANDWF   r0x1001,F       ;id=1207,key=01c,inCond:11,outCond:5,flow seq=001,rIdx=r0x1053
+                      00331 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00332 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4239:genOr *{*
+                      00333 ;; ***  genOr  4240
+                      00334 ;; ***  aopForSym 316
+                      00335 ;;      328 sym->rname = _T2CON, size = 1
+                      00336 ;;      695 register type nRegs=1
+                      00337 ;;      line = 4246 result AOP_DIR=_T2CON, size=1, left AOP_DIR=_T2CON, size=1, right AOP_REG=r0x1053, s
+                            ize=1
+                      00338 ;;      line = 4272 result AOP_DIR=_T2CON, size=1, left AOP_DIR=_T2CON, size=1, right AOP_REG=r0x1053, s
+                            ize=1
+                      00339 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4437:genOr
+                      00340 ;;      1097 rIdx = r0x1053 
+                      00341 ;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1001
+0024   08??           00342         MOVF    r0x1001,W       ;id=1218,key=01d,inCond:1,outCond:14,flow seq=001,rIdx=r0x1053
+                      00343 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4438:genOr
+                      00344 ;;      998
+                      00345 ;;      1016  _T2CON   offset=0
+0025   0??? 0???      00346         BANKSEL _T2CON  ;id=1383,key=01e,inCond:0,outCond:0,flow seq=001
+0027   04??           00347         IORWF   _T2CON,F        ;id=1222,key=01f,inCond:11,outCond:5,flow seq=001
+                      00348 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00349 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      00350 ;; ***  genAssign  7037
+                      00351 ;; ***  aopForSym 316
+                      00352 ;;      328 sym->rname = _TMR2, size = 1
+                      00353 ;;      line = 7046 result AOP_DIR=_TMR2, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+                      00354 ;; ***  genAssign  7132
+                      00355 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00356 ;;      998
+                      00357 ;;      1016  _TMR2   offset=0
+                      00358 ;; BANKOPT2 BANKSEL dropped; _TMR2 present in same bank as _T2CON
+                      00359 ;       .line   135; "../../../lib/timer.c"     TIMER2_VALUE = 0;
+0028   01??           00360         CLRF    _TMR2   ;id=1234,key=020,inCond:0,outCond:5,flow seq=001
+                      00361 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00362 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4239:genOr *{*
+                      00363 ;; ***  genOr  4240
+                      00364 ;; ***  aopForSym 316
+                      00365 ;;      328 sym->rname = _T2CON, size = 1
+                      00366 ;;      line = 4246 result AOP_DIR=_T2CON, size=1, left AOP_DIR=_T2CON, size=1, right AOP_LIT=0x04, size
+                            =1
+                      00367 ;;      line = 4272 result AOP_DIR=_T2CON, size=1, left AOP_DIR=_T2CON, size=1, right AOP_LIT=0x04, size
+                            =1
+                      00368 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4423:genOr
+                      00369 ;; BANKOPT2 BANKSEL dropped; _T2CON present in same bank as _T2CON
+                      00370 ;       .line   137; "../../../lib/timer.c"     T2CON |= 0b100; // TMR2ON = 1; // Enable timer 2.
+0029   15??           00371         BSF     _T2CON,2        ;id=1244,key=021,inCond:21,outCond:21,flow seq=001
+                      00372 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00373 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00374 ;; ***  genAnd  3939
+                      00375 ;; ***  aopForSym 316
+                      00376 ;;      328 sym->rname = _PIR1, size = 1
+                      00377 ;;      576
+                      00378 ;;      line = 3974 result AOP_DIR=_PIR1, size=1, left AOP_DIR=_PIR1, size=1, right AOP_LIT=0xfd, size=1
+                      00379 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4141:genAnd
+                      00380 ;; BANKOPT2 BANKSEL dropped; _PIR1 present in same bank as _T2CON
+                      00381 ;       .line   140; "../../../lib/timer.c"     PIR1 &= ~0b10;
+002A   10??           00382         BCF     _PIR1,1 ;id=1254,key=022,inCond:21,outCond:21,flow seq=001
+                      00383 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00384 ;;      695 register type nRegs=1
+                      00385 ;;      695 register type nRegs=1
+                      00386 ;; ***  mov2w  1366  offset=0
+                      00387 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00388 ;;      1097 rIdx = r0x1052 
+                      00389 ;       .line   141; "../../../lib/timer.c"     PIE1 = (!!(ps_mode & TIMER2_FLAGS_INTR)) << 1;
+002B   0??? 0???      00390         BANKSEL r0x1000 ;id=1387,key=023,inCond:0,outCond:0,flow seq=001
+002D   08??           00391         MOVF    r0x1000,W       ;id=1262,key=024,inCond:1,outCond:14,flow seq=001,rIdx=r0x1052
+                      00392 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4928:genGetABit
+002E   3980           00393         ANDLW   0x80    ;id=1264,key=025,inCond:410,outCond:14,flow seq=001
+                      00394 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4938:genGetABit
+002F   1D03           00395         BTFSS   STATUS,2        ;id=1266,key=026,inCond:25,outCond:0,flow seq=001
+                      00396 ;<>Start of new flow, seq=0x2 ancestor = 0x1
+                      00397 ;  from: 001 ; to: 003 
+                      00398 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4939:genGetABit
+0030   3001           00399         MOVLW   0x01    ;id=1268,key=000,inCond:400,outCond:10,flow seq=002
+                      00400 ;<>Start of new flow, seq=0x3 ancestor = 0x1
+                      00401 ;  from: 002 001 ; to: 005 004 
+                      00402 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4944:genGetABit
+                      00403 ;;      1097 rIdx = r0x1053 
+                      00404 ;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+0031   00??           00405         MOVWF   r0x1001 ;id=1271,key=000,inCond:10,outCond:1,flow seq=003,rIdx=r0x1053
+                      00406 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00407 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1533:genNot *{*
+                      00408 ;; ***  genNot  1535
+                      00409 ;;      695 register type nRegs=1
+                      00410 ;;      695 register type nRegs=1
+                      00411 ;;      line = 1540 result AOP_REG=r0x1052, size=1, left AOP_REG=r0x1053, size=1, right -=-, size=0
+                      00412 ;; ***  mov2w  1366  offset=0
+                      00413 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00414 ;;      1097 rIdx = r0x1053 
+                      00415 ;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+0032   08??           00416         MOVF    r0x1001,W       ;id=1281,key=001,inCond:1,outCond:14,flow seq=003,rIdx=r0x1053
+                      00417 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1567:genNot
+0033   3000           00418         MOVLW   0x00    ;id=1283,key=002,inCond:400,outCond:10,flow seq=003
+                      00419 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1568:genNot
+0034   1903           00420         BTFSC   STATUS,2        ;id=1285,key=003,inCond:25,outCond:0,flow seq=003
+                      00421 ;<>Start of new flow, seq=0x4 ancestor = 0x3
+                      00422 ;  from: 003 ; to: 005 
+                      00423 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1569:genNot
+0035   3001           00424         MOVLW   0x01    ;id=1287,key=000,inCond:400,outCond:10,flow seq=004
+                      00425 ;<>Start of new flow, seq=0x5 ancestor = 0x3
+                      00426 ;  from: 004 003 ; to: 007 006 
+                      00427 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1378:movwf
+                      00428 ;;      1097 rIdx = r0x1052 
+                      00429 ;; BANKOPT2 BANKSEL dropped; r0x1000 present in same bank as r0x1000
+0036   00??           00430         MOVWF   r0x1000 ;id=1290,key=000,inCond:10,outCond:1,flow seq=005,rIdx=r0x1052
+                      00431 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00432 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1533:genNot *{*
+                      00433 ;; ***  genNot  1535
+                      00434 ;;      695 register type nRegs=1
+                      00435 ;;      695 register type nRegs=1
+                      00436 ;;      line = 1540 result AOP_REG=r0x1053, size=1, left AOP_REG=r0x1052, size=1, right -=-, size=0
+                      00437 ;; ***  mov2w  1366  offset=0
+                      00438 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00439 ;;      1097 rIdx = r0x1052 
+                      00440 ;; BANKOPT2 BANKSEL dropped; r0x1000 present in same bank as r0x1000
+0037   08??           00441         MOVF    r0x1000,W       ;id=1300,key=001,inCond:1,outCond:14,flow seq=005,rIdx=r0x1052
+                      00442 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1567:genNot
+0038   3000           00443         MOVLW   0x00    ;id=1302,key=002,inCond:400,outCond:10,flow seq=005
+                      00444 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1568:genNot
+0039   1903           00445         BTFSC   STATUS,2        ;id=1304,key=003,inCond:25,outCond:0,flow seq=005
+                      00446 ;<>Start of new flow, seq=0x6 ancestor = 0x5
+                      00447 ;  from: 005 ; to: 007 
+                      00448 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1569:genNot
+003A   3001           00449         MOVLW   0x01    ;id=1306,key=000,inCond:400,outCond:10,flow seq=006
+                      00450 ;<>Start of new flow, seq=0x7 ancestor = 0x5
+                      00451 ;  from: 006 005 ; to: 
+                      00452 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1378:movwf
+                      00453 ;;      1097 rIdx = r0x1053 
+                      00454 ;; BANKOPT2 BANKSEL dropped; r0x1001 present in same bank as r0x1000
+003B   00??           00455         MOVWF   r0x1001 ;id=1352,key=000,inCond:10,outCond:1,flow seq=007,rIdx=r0x1053
+                      00456 ;; BANKOPT2 BANKSEL dropped; r0x1000 present in same bank as r0x1000
+003C   00??           00457         MOVWF   r0x1000 ;id=1322,key=001,inCond:10,outCond:1,flow seq=007,rIdx=r0x1052
+                      00458 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00459 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5516:genGenericShift *{*
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00460 ;; ***  genGenericShift  5519
+                      00461 ;;      695 register type nRegs=1
+                      00462 ;; ***  aopForSym 316
+                      00463 ;;      328 sym->rname = _PIE1, size = 1
+                      00464 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5232:shiftLeft_Left2ResultLit
+003D   1003           00465         BCF     STATUS,0        ;id=1330,key=002,inCond:23,outCond:23,flow seq=007
+                      00466 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5241:shiftLeft_Left2ResultLit
+                      00467 ;;      1097 rIdx = r0x1052 
+                      00468 ;; BANKOPT2 BANKSEL dropped; r0x1000 present in same bank as r0x1000
+003E   0D??           00469         RLF     r0x1000,W       ;id=1333,key=003,inCond:3,outCond:12,flow seq=007,rIdx=r0x1052
+                      00470 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5242:shiftLeft_Left2ResultLit
+                      00471 ;;      998
+                      00472 ;;      1016  _PIE1   offset=0
+003F   0??? 0???      00473         BANKSEL _PIE1   ;id=1395,key=004,inCond:0,outCond:0,flow seq=007
+0041   00??           00474         MOVWF   _PIE1   ;id=1337,key=005,inCond:10,outCond:1,flow seq=007
+                      00475 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00476 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00477 ;; ***  genLabel  2755
+                      00478 ;_00141_DS_:
+                      00479 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00480 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2520:genEndFunction *{*
+                      00481 ;; ***  genEndFunction  2522
+                      00482 ;return
+                      00483 ;       .line   142; "../../../lib/timer.c"     }
+0042   0008           00484         RETURN          ;id=1348,key=006,inCond:10,outCond:e,flow seq=007
+                      00485 ;<>Start of new flow, seq=0x8
+                      00486 ;  from: ; to: 
+                      00487 ; exit point of _timer2_init
+                      00488 
+                      00489 ;***
+                      00490 ;  pBlock Stats: dbName = C
+                      00491 ;***
+                      00492 ;has an exit
+                      00493 ;7 compiler assigned registers:
+                      00494 ;   r0x1004
+                      00495 ;   r0x1005
+                      00496 ;   r0x1006
+                      00497 ;   r0x1007
+                      00498 ;   r0x1008
+                      00499 ;   r0x1009
+                      00500 ;   STK00
+                      00501 ;; Starting pCode block
+                      00502 ;<>Start of new flow, seq=0x9 ancestor = 0x9
+                      00503 ;  from: ; to: 00a 
+                      00504 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00505 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00506 ;; ***  genLabel  2755
+                      00507 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00508 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2332:genFunction *{*
+                      00509 ;; ***  genFunction  2334 curr label offset=4previous max_key=12 
+                      00510 ;;      -----------------------------------------
+                      00511 ;;       function timer0_read_ps
+                      00512 ;;      -----------------------------------------
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00513 ;_timer0_read_ps:
+                      00514 S_timer__timer0_read_ps code
+0000                  00515 _timer0_read_ps:
+                      00516 ; 2 exit points
+                      00517 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00518 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      00519 ;; ***  genAssign  7037
+                      00520 ;; ***  aopForSym 316
+                      00521 ;;      328 sym->rname = _TMR0, size = 1
+                      00522 ;;      695 register type nRegs=1
+                      00523 ;;      line = 7046 result AOP_REG=r0x104C, size=1, left -=-, size=0, right AOP_DIR=_TMR0, size=1
+                      00524 ;; ***  genAssign  7116
+                      00525 ;; WARNING      genAssign  7125 ignoring register storage
+                      00526 ;; ***  genAssign  7132
+                      00527 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      00528 ;; ***  mov2w  1366  offset=0
+                      00529 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00530 ;;      998
+                      00531 ;;      1016  _TMR0   offset=0
+                      00532 ;       .line   60; "../../../lib/timer.c"      uint8_t prev = TMR0;
+0000   0??? 0???      00533         BANKSEL _TMR0   ;id=1396,key=000,inCond:0,outCond:0,flow seq=009
+0002   08??           00534         MOVF    _TMR0,W ;id=768,key=001,inCond:1,outCond:14,flow seq=009
+                      00535 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7159:genAssign
+                      00536 ;;      1097 rIdx = r0x104C 
+0003   0??? 0???      00537         BANKSEL r0x1004 ;id=1397,key=002,inCond:0,outCond:0,flow seq=009
+0005   00??           00538         MOVWF   r0x1004 ;id=771,key=003,inCond:10,outCond:1,flow seq=009,rIdx=r0x104C
+                      00539 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00540 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4239:genOr *{*
+                      00541 ;; ***  genOr  4240
+                      00542 ;; ***  aopForSym 316
+                      00543 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      00544 ;;      line = 4246 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+                            0x20, size=1
+                      00545 ;;      line = 4272 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+                            0x20, size=1
+                      00546 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4423:genOr
+                      00547 ;       .line   63; "../../../lib/timer.c"      T0CON |= 0x20; // T0CS = 1;
+0006   0??? 0???      00548         BANKSEL _OPTION_REG     ;id=1398,key=004,inCond:0,outCond:0,flow seq=009
+0008   16??           00549         BSF     _OPTION_REG,5   ;id=781,key=005,inCond:21,outCond:21,flow seq=009
+                      00550 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00551 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      00552 ;; ***  genAssign  7037
+                      00553 ;;      695 register type nRegs=2
+                      00554 ;;      line = 7046 result AOP_REG=r0x104D, size=2, left -=-, size=0, right AOP_LIT=0x00, size=2
+                      00555 ;; ***  genAssign  7132
+                      00556 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      00557 ;;      1097 rIdx = r0x104D 
+                      00558 ;       .line   65; "../../../lib/timer.c"      do {
+0009   0??? 0???      00559         BANKSEL r0x1005 ;id=1399,key=006,inCond:0,outCond:0,flow seq=009
+000B   01??           00560         CLRF    r0x1005 ;id=791,key=007,inCond:0,outCond:5,flow seq=009,rIdx=r0x104D
+                      00561 ;; ***  genAssign  7132
+                      00562 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      00563 ;;      1097 rIdx = r0x104E 
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 12
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00564 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1005
+000C   01??           00565         CLRF    r0x1006 ;id=795,key=008,inCond:0,outCond:5,flow seq=009,rIdx=r0x104E
+                      00566 ;<>Start of new flow, seq=0xa ancestor = 0x9
+                      00567 ;  from: 012 009 ; to: 00c 00b 
+                      00568 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00569 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00570 ;; ***  genLabel  2755
+                      00571 ;_00122_DS_:
+                      00572 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00573 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4239:genOr *{*
+                      00574 ;; ***  genOr  4240
+                      00575 ;; ***  aopForSym 316
+                      00576 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      00577 ;;      line = 4246 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+                            0x10, size=1
+                      00578 ;;      line = 4272 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+                            0x10, size=1
+                      00579 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4423:genOr
+                      00580 ;; BANKOPT3 drop assumptions: PCI with label or call found
+000D                  00581 _00122_DS_:
+                      00582 ;       .line   67; "../../../lib/timer.c"      T0CON |= 0x10; // T0SE = 1;
+000D   0??? 0???      00583         BANKSEL _OPTION_REG     ;id=1402,key=000,inCond:0,outCond:0,flow seq=00a
+000F   16??           00584         BSF     _OPTION_REG,4   ;id=810,key=001,inCond:21,outCond:21,flow seq=00a
+                      00585 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00586 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4757:pic14_genInline *{*
+                      00587 ;; ***  pic14_genInline  4758
+                      00588 ;; BANKOPT4 drop assumptions: label or ASMDIR found
+0010   0000           00589         nop     
+                      00590 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00591 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4757:pic14_genInline *{*
+                      00592 ;; ***  pic14_genInline  4758
+                      00593 ;; BANKOPT4 drop assumptions: label or ASMDIR found
+0011   0000           00594         nop     
+                      00595 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00596 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00597 ;; ***  genAnd  3939
+                      00598 ;; ***  aopForSym 316
+                      00599 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      00600 ;;      576
+                      00601 ;;      line = 3974 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+                            0xef, size=1
+                      00602 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4141:genAnd
+                      00603 ;       .line   72; "../../../lib/timer.c"      T0CON &= ~0x10; // T0SE = 0;
+0012   0??? 0???      00604         BANKSEL _OPTION_REG     ;id=1405,key=004,inCond:0,outCond:0,flow seq=00a
+0014   12??           00605         BCF     _OPTION_REG,4   ;id=828,key=005,inCond:21,outCond:21,flow seq=00a
+                      00606 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00607 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4757:pic14_genInline *{*
+                      00608 ;; ***  pic14_genInline  4758
+                      00609 ;; BANKOPT4 drop assumptions: label or ASMDIR found
+0015   0000           00610         nop     
+                      00611 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00612 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4757:pic14_genInline *{*
+                      00613 ;; ***  pic14_genInline  4758
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 13
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00614 ;; BANKOPT4 drop assumptions: label or ASMDIR found
+0016   0000           00615         nop     
+                      00616 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00617 ;; ***  genPlus  607
+                      00618 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:608:genPlus *{*
+                      00619 ;;      695 register type nRegs=2
+                      00620 ;;      576
+                      00621 ;;      line = 614 result AOP_REG=r0x104D, size=2, left AOP_REG=r0x104D, size=2, right AOP_LIT=0x01, siz
+                            e=1
+                      00622 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:138:genPlusIncr *{*
+                      00623 ;; ***  genPlusIncr  140
+                      00624 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00625 ;;      genPlusIncr  152
+                      00626 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:164:genPlusIncr
+                      00627 ;;      1097 rIdx = r0x104D 
+                      00628 ;       .line   77; "../../../lib/timer.c"      ++count;
+0017   0??? 0???      00629         BANKSEL r0x1005 ;id=1408,key=008,inCond:0,outCond:0,flow seq=00a
+0019   0A??           00630         INCF    r0x1005,F       ;id=850,key=009,inCond:1,outCond:5,flow seq=00a,rIdx=r0x104D
+                      00631 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:168:genPlusIncr
+001A   1903           00632         BTFSC   STATUS,2        ;id=852,key=00a,inCond:25,outCond:0,flow seq=00a
+                      00633 ;<>Start of new flow, seq=0xb ancestor = 0xa
+                      00634 ;  from: 00a ; to: 00c 
+                      00635 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:169:genPlusIncr
+                      00636 ;;      1097 rIdx = r0x104E 
+                      00637 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1005
+001B   0A??           00638         INCF    r0x1006,F       ;id=855,key=000,inCond:1,outCond:5,flow seq=00b,rIdx=r0x104E
+                      00639 ;<>Start of new flow, seq=0xc ancestor = 0xa
+                      00640 ;  from: 00b 00a ; to: 00e 00d 
+                      00641 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00642 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3638:genCmpEq *{*
+                      00643 ;; ***  genCmpEq  3639
+                      00644 ;; ifx is non-null
+                      00645 ;;      695 register type nRegs=1
+                      00646 ;; ***  aopForSym 316
+                      00647 ;;      328 sym->rname = _TMR0, size = 1
+                      00648 ;;      line = 3650 result AOP_CRY=0x00, size=0, left AOP_REG=r0x104C, size=1, right AOP_DIR=_TMR0, size
+                            =1
+                      00649 ;; ***  mov2w  1366  offset=0
+                      00650 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00651 ;;      998
+                      00652 ;;      1016  _TMR0   offset=0
+                      00653 ;       .line   80; "../../../lib/timer.c"      } while(prev == TMR0 && count <= 255);
+001C   0??? 0???      00654         BANKSEL _TMR0   ;id=1410,key=000,inCond:0,outCond:0,flow seq=00c
+001E   08??           00655         MOVF    _TMR0,W ;id=869,key=001,inCond:1,outCond:14,flow seq=00c
+                      00656 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3722:genCmpEq
+                      00657 ;;      1097 rIdx = r0x104C 
+001F   0??? 0???      00658         BANKSEL r0x1004 ;id=1411,key=002,inCond:0,outCond:0,flow seq=00c
+0021   06??           00659         XORWF   r0x1004,W       ;id=872,key=003,inCond:11,outCond:14,flow seq=00c,rIdx=r0x104C
+                      00660 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3724:genCmpEq
+0022   1D03           00661         BTFSS   STATUS,2        ;id=874,key=004,inCond:25,outCond:0,flow seq=00c
+                      00662 ;<>Start of new flow, seq=0xd ancestor = 0xc
+                      00663 ;  from: 00c ; to: 013 
+                      00664 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3727:genCmpEq
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 14
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00665 ;; ***  popGetLabel  key=4, label offset 20
+0023   2???           00666         GOTO    _00124_DS_      ;id=877,key=000,inCond:0,outCond:0,flow seq=00d
+                      00667 ;<>Start of new flow, seq=0xe ancestor = 0xc
+                      00668 ;  from: 00c ; to: 010 00f 
+                      00669 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00670 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00671 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3566:genCmpGt *{*
+                      00672 ;; ***  genCmpGt  3567
+                      00673 ;;      695 register type nRegs=2
+                      00674 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3304:genCmp *{*
+                      00675 ;;swapping arguments (AOP_TYPEs 1/2)
+                      00676 ;;unsigned compare: left >= lit(0x100=256), size=2
+                      00677 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3275:pic14_mov2w_regOrLit
+0024   3001           00678         MOVLW   0x01    ;id=887,key=000,inCond:400,outCond:10,flow seq=00e
+                      00679 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3442:genCmp
+                      00680 ;;      1097 rIdx = r0x104E 
+                      00681 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+0025   02??           00682         SUBWF   r0x1006,W       ;id=890,key=001,inCond:11,outCond:1e,flow seq=00e,rIdx=r0x104E
+                      00683 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3487:genCmp
+0026   1D03           00684         BTFSS   STATUS,2        ;id=892,key=002,inCond:25,outCond:0,flow seq=00e
+                      00685 ;<>Start of new flow, seq=0xf ancestor = 0xe
+                      00686 ;  from: 00e ; to: 011 
+                      00687 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3495:genCmp
+                      00688 ;; ***  popGetLabel  key=16, label offset 20
+0027   2???           00689         GOTO    _00136_DS_      ;id=895,key=000,inCond:0,outCond:0,flow seq=00f
+                      00690 ;<>Start of new flow, seq=0x10 ancestor = 0xe
+                      00691 ;  from: 00e ; to: 011 
+                      00692 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3275:pic14_mov2w_regOrLit
+0028   3000           00693         MOVLW   0x00    ;id=897,key=000,inCond:400,outCond:10,flow seq=010
+                      00694 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3499:genCmp
+                      00695 ;;      1097 rIdx = r0x104D 
+                      00696 ;; BANKOPT2 BANKSEL dropped; r0x1005 present in same bank as r0x1004
+0029   02??           00697         SUBWF   r0x1005,W       ;id=900,key=001,inCond:11,outCond:1e,flow seq=010,rIdx=r0x104D
+                      00698 ;<>Start of new flow, seq=0x11 ancestor = 0xf
+                      00699 ;  from: 010 00f ; to: 013 012 
+                      00700 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3247:genSkipc *{*
+                      00701 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3254:genSkipc
+                      00702 ;; BANKOPT3 drop assumptions: PCI with label or call found
+                      00703 ;; BANKOPT1 BANKSEL dropped; STATUS present in all of (null)'s banks
+002A                  00704 _00136_DS_:
+002A   1C03           00705         BTFSS   STATUS,0        ;id=904,key=000,inCond:23,outCond:0,flow seq=011
+                      00706 ;<>Start of new flow, seq=0x12 ancestor = 0x11
+                      00707 ;  from: 011 ; to: 00a 
+                      00708 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3256:genSkipc
+                      00709 ;; ***  popGetLabel  key=2, label offset 20
+002B   2???           00710         GOTO    _00122_DS_      ;id=907,key=000,inCond:0,outCond:0,flow seq=012
+                      00711 ;<>Start of new flow, seq=0x13 ancestor = 0xd
+                      00712 ;  from: 011 00d ; to: 015 014 
+                      00713 ;;genSkipc:3257: created from rifx:0000000004785780
+                      00714 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00715 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00716 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00717 ;; ***  genLabel  2755
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 15
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00718 ;_00124_DS_:
+                      00719 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00720 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      00721 ;; ***  genCast  7230
+                      00722 ;;      695 register type nRegs=1
+                      00723 ;;      695 register type nRegs=2
+                      00724 ;;      line = 7238 result AOP_REG=r0x104F, size=2, left -=-, size=0, right AOP_REG=r0x104C, size=1
+                      00725 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7407:genCast
+                      00726 ;;      1097 rIdx = r0x104C 
+                      00727 ;; BANKOPT3 drop assumptions: PCI with label or call found
+002C                  00728 _00124_DS_:
+                      00729 ;       .line   82; "../../../lib/timer.c"      count = ((prev << 8) + (256 - count));
+002C   0??? 0???      00730         BANKSEL r0x1004 ;id=1417,key=000,inCond:0,outCond:0,flow seq=013
+002E   08??           00731         MOVF    r0x1004,W       ;id=924,key=001,inCond:1,outCond:14,flow seq=013,rIdx=r0x104C
+                      00732 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7408:genCast
+                      00733 ;;      1097 rIdx = r0x104F 
+                      00734 ;; BANKOPT2 BANKSEL dropped; r0x1009 present in same bank as r0x1004
+002F   00??           00735         MOVWF   r0x1009 ;id=945,key=002,inCond:10,outCond:1,flow seq=013,rIdx=r0x1051
+                      00736 ;; BANKOPT2 BANKSEL dropped; r0x1007 present in same bank as r0x1004
+0030   00??           00737         MOVWF   r0x1007 ;id=927,key=003,inCond:10,outCond:1,flow seq=013,rIdx=r0x104F
+                      00738 ;; ***  addSign  857
+                      00739 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:858:addSign *{*
+                      00740 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:877:addSign
+                      00741 ;;      1097 rIdx = r0x1050 
+                      00742 ;; BANKOPT2 BANKSEL dropped; r0x1008 present in same bank as r0x1004
+0031   01??           00743         CLRF    r0x1008 ;id=932,key=004,inCond:0,outCond:5,flow seq=013,rIdx=r0x1050
+                      00744 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00745 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5516:genGenericShift *{*
+                      00746 ;; ***  genGenericShift  5519
+                      00747 ;;      695 register type nRegs=2
+                      00748 ;;      695 register type nRegs=2
+                      00749 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5150:movLeft2Result *{*
+                      00750 ;; ***  movLeft2Result  5151
+                      00751 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5156:movLeft2Result
+                      00752 ;;      1097 rIdx = r0x104F 
+                      00753 ;;99    MOVF    r0x1007,W
+                      00754 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5157:movLeft2Result
+                      00755 ;;      1097 rIdx = r0x1051 
+                      00756 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:5286:shiftLeft_Left2ResultLit
+                      00757 ;;      1097 rIdx = r0x104C 
+                      00758 ;; BANKOPT2 BANKSEL dropped; r0x1004 present in same bank as r0x1004
+0032   01??           00759         CLRF    r0x1004 ;id=948,key=005,inCond:0,outCond:5,flow seq=013,rIdx=r0x104C
+                      00760 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00761 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7426:genDjnz *{*
+                      00762 ;; ***  genDjnz  7427
+                      00763 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:892:genMinus *{*
+                      00764 ;; ***  genMinus  893
+                      00765 ;;      695 register type nRegs=2
+                      00766 ;;      695 register type nRegs=2
+                      00767 ;;      result AOP_REG, left AOP_LIT, right AOP_REG
+                      00768 ;; left is lit  line 1010 result AOP_REG, left AOP_LIT, right AOP_REG
+                      00769 ;; ***  mov2w  1366  offset=0
+                      00770 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 16
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00771 ;;      1097 rIdx = r0x104D 
+                      00772 ;; BANKOPT2 BANKSEL dropped; r0x1005 present in same bank as r0x1004
+0033   08??           00773         MOVF    r0x1005,W       ;id=961,key=006,inCond:1,outCond:14,flow seq=013,rIdx=r0x104D
+                      00774 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1049:genMinus
+0034   3C00           00775         SUBLW   0x00    ;id=963,key=007,inCond:410,outCond:1e,flow seq=013
+                      00776 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1050:genMinus
+                      00777 ;;      1097 rIdx = r0x104D 
+                      00778 ;; BANKOPT2 BANKSEL dropped; r0x1005 present in same bank as r0x1004
+0035   00??           00779         MOVWF   r0x1005 ;id=966,key=008,inCond:10,outCond:1,flow seq=013,rIdx=r0x104D
+                      00780 ;; ***  mov2w  1366  offset=1
+                      00781 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00782 ;;      1097 rIdx = r0x104E 
+                      00783 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+0036   08??           00784         MOVF    r0x1006,W       ;id=970,key=009,inCond:1,outCond:14,flow seq=013,rIdx=r0x104E
+                      00785 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1145:genMinus
+0037   1C03           00786         BTFSS   STATUS,0        ;id=972,key=00a,inCond:23,outCond:0,flow seq=013
+                      00787 ;<>Start of new flow, seq=0x14 ancestor = 0x13
+                      00788 ;  from: 013 ; to: 015 
+                      00789 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1146:genMinus
+                      00790 ;;      1097 rIdx = r0x104E 
+                      00791 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+0038   0A??           00792         INCF    r0x1006,W       ;id=975,key=000,inCond:1,outCond:14,flow seq=014,rIdx=r0x104E
+                      00793 ;<>Start of new flow, seq=0x15 ancestor = 0x13
+                      00794 ;  from: 014 013 ; to: 017 016 
+                      00795 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1149:genMinus
+0039   3C01           00796         SUBLW   0x01    ;id=977,key=000,inCond:410,outCond:1e,flow seq=015
+                      00797 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:1150:genMinus
+                      00798 ;;      1097 rIdx = r0x104E 
+                      00799 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+003A   00??           00800         MOVWF   r0x1006 ;id=980,key=001,inCond:10,outCond:1,flow seq=015,rIdx=r0x104E
+                      00801 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00802 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      00803 ;; ***  genCast  7230
+                      00804 ;;      695 register type nRegs=2
+                      00805 ;;      line = 7238 result AOP_REG=r0x104F, size=2, left -=-, size=0, right AOP_REG=r0x104C, size=2
+                      00806 ;; ***  genCast  7362
+                      00807 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      00808 ;;      1097 rIdx = r0x104C 
+                      00809 ;; BANKOPT2 BANKSEL dropped; r0x1004 present in same bank as r0x1004
+003B   08??           00810         MOVF    r0x1004,W       ;id=989,key=002,inCond:1,outCond:14,flow seq=015,rIdx=r0x104C
+                      00811 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7387:genCast
+                      00812 ;;      1097 rIdx = r0x104F 
+                      00813 ;; BANKOPT2 BANKSEL dropped; r0x1007 present in same bank as r0x1004
+003C   00??           00814         MOVWF   r0x1007 ;id=992,key=003,inCond:10,outCond:1,flow seq=015,rIdx=r0x104F
+                      00815 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      00816 ;;      1097 rIdx = r0x1051 
+                      00817 ;; BANKOPT2 BANKSEL dropped; r0x1009 present in same bank as r0x1004
+003D   08??           00818         MOVF    r0x1009,W       ;id=1366,key=004,inCond:1,outCond:14,flow seq=015,rIdx=r0x1051
+                      00819 ;; BANKOPT2 BANKSEL dropped; r0x1008 present in same bank as r0x1004
+003E   00??           00820         MOVWF   r0x1008 ;id=998,key=005,inCond:10,outCond:1,flow seq=015,rIdx=r0x1050
+                      00821 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00822 ;; ***  genPlus  607
+                      00823 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:608:genPlus *{*
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 17
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00824 ;;      695 register type nRegs=2
+                      00825 ;;      695 register type nRegs=2
+                      00826 ;;      695 register type nRegs=2
+                      00827 ;;      line = 614 result AOP_REG=r0x104C, size=2, left AOP_REG=r0x104F, size=2, right AOP_REG=r0x104D, 
+                            size=2
+                      00828 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:138:genPlusIncr *{*
+                      00829 ;; ***  genPlusIncr  140
+                      00830 ;;      result AOP_REG, left AOP_REG, right AOP_REG
+                      00831 ;; ***  genPlus  713
+                      00832 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:722:genPlus
+                      00833 ;;      1097 rIdx = r0x104D 
+                      00834 ;; BANKOPT2 BANKSEL dropped; r0x1005 present in same bank as r0x1004
+003F   08??           00835         MOVF    r0x1005,W       ;id=1012,key=006,inCond:1,outCond:14,flow seq=015,rIdx=r0x104D
+                      00836 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:731:genPlus
+                      00837 ;;      1097 rIdx = r0x104F 
+                      00838 ;; BANKOPT2 BANKSEL dropped; r0x1007 present in same bank as r0x1004
+0040   07??           00839         ADDWF   r0x1007,W       ;id=1015,key=007,inCond:11,outCond:1e,flow seq=015,rIdx=r0x104F
+                      00840 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:732:genPlus
+                      00841 ;;      1097 rIdx = r0x104C 
+                      00842 ;; BANKOPT2 BANKSEL dropped; r0x1004 present in same bank as r0x1004
+0041   00??           00843         MOVWF   r0x1004 ;id=1018,key=008,inCond:10,outCond:1,flow seq=015,rIdx=r0x104C
+                      00844 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:767:genPlus
+                      00845 ;;      1097 rIdx = r0x1050 
+                      00846 ;;100   MOVF    r0x1008,W
+                      00847 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:768:genPlus
+                      00848 ;;      1097 rIdx = r0x1051 
+                      00849 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:770:genPlus
+                      00850 ;;      1097 rIdx = r0x104E 
+                      00851 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+0042   08??           00852         MOVF    r0x1006,W       ;id=1027,key=009,inCond:1,outCond:14,flow seq=015,rIdx=r0x104E
+                      00853 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:771:genPlus
+0043   1803           00854         BTFSC   STATUS,0        ;id=1029,key=00a,inCond:23,outCond:0,flow seq=015
+                      00855 ;<>Start of new flow, seq=0x16 ancestor = 0x15
+                      00856 ;  from: 015 ; to: 018 017 
+                      00857 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:772:genPlus
+                      00858 ;;      1097 rIdx = r0x104E 
+                      00859 ;; BANKOPT2 BANKSEL dropped; r0x1006 present in same bank as r0x1004
+0044   0F??           00860         INCFSZ  r0x1006,W       ;id=1032,key=000,inCond:1,outCond:14,flow seq=016,rIdx=r0x104E
+                      00861 ;<>Start of new flow, seq=0x17 ancestor = 0x15
+                      00862 ;  from: 016 015 ; to: 018 
+                      00863 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:773:genPlus
+                      00864 ;;      1097 rIdx = r0x1051 
+                      00865 ;; BANKOPT2 BANKSEL dropped; r0x1009 present in same bank as r0x1004
+0045   07??           00866         ADDWF   r0x1009,F       ;id=1035,key=000,inCond:11,outCond:f,flow seq=017,rIdx=r0x1051
+                      00867 ;<>Start of new flow, seq=0x18 ancestor = 0x16
+                      00868 ;  from: 017 016 ; to: 
+                      00869 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00870 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2675:genRet *{*
+                      00871 ;; ***  genRet  2677
+                      00872 ;;      695 register type nRegs=2
+                      00873 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      00874 ;; ***  mov2w  1366  offset=0
+                      00875 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 18
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00876 ;;      1097 rIdx = r0x104C 
+                      00877 ;; BANKOPT2 BANKSEL dropped; r0x1004 present in same bank as r0x1004
+                      00878 ;       .line   83; "../../../lib/timer.c"      return count;
+0046   08??           00879         MOVF    r0x1004,W       ;id=1045,key=000,inCond:1,outCond:14,flow seq=018,rIdx=r0x104C
+                      00880 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1401:pass_argument
+                      00881 ;; ***  popRegFromIdx,1030  , rIdx=0x7f
+                      00882 ;; BANKOPT1 BANKSEL dropped; STK00 present in all of r0x1004's banks
+0047   00??           00883         MOVWF   STK00   ;id=1048,key=001,inCond:10,outCond:1,flow seq=018
+                      00884 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      00885 ;; ***  mov2w  1366  offset=1
+                      00886 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00887 ;;      1097 rIdx = r0x1051 
+                      00888 ;; BANKOPT2 BANKSEL dropped; r0x1009 present in same bank as r0x1004
+0048   08??           00889         MOVF    r0x1009,W       ;id=1053,key=002,inCond:1,outCond:14,flow seq=018,rIdx=r0x1051
+                      00890 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00891 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00892 ;; ***  genLabel  2755
+                      00893 ;_00125_DS_:
+                      00894 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00895 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2520:genEndFunction *{*
+                      00896 ;; ***  genEndFunction  2522
+                      00897 ;return
+                      00898 ;       .line   84; "../../../lib/timer.c"      }
+0049   0008           00899         RETURN          ;id=1064,key=003,inCond:10,outCond:e,flow seq=018
+                      00900 ;<>Start of new flow, seq=0x19
+                      00901 ;  from: ; to: 
+                      00902 ; exit point of _timer0_read_ps
+                      00903 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7535:genpic14Code *{*
+                      00904 
+                      00905 ;***
+                      00906 ;  pBlock Stats: dbName = C
+                      00907 ;***
+                      00908 ;has an exit
+                      00909 ;6 compiler assigned registers:
+                      00910 ;   r0x100A
+                      00911 ;   r0x100B
+                      00912 ;   r0x100C
+                      00913 ;   r0x100D
+                      00914 ;   r0x100E
+                      00915 ;   r0x100F
+                      00916 ;; Starting pCode block
+                      00917 ;<>Start of new flow, seq=0x1a ancestor = 0x1a
+                      00918 ;  from: ; to: 01c 01b 
+                      00919 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00920 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      00921 ;; ***  genLabel  2755
+                      00922 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00923 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2332:genFunction *{*
+                      00924 ;; ***  genFunction  2334 curr label offset=0previous max_key=0 
+                      00925 ;;      -----------------------------------------
+                      00926 ;;       function timer0_init
+                      00927 ;;      -----------------------------------------
+                      00928 ;_timer0_init:
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 19
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00929 S_timer__timer0_init    code
+0000                  00930 _timer0_init:
+                      00931 ; 2 exit points
+                      00932 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00933 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7467:genReceive *{*
+                      00934 ;; ***  genReceive  7468
+                      00935 ;;      695 register type nRegs=1
+                      00936 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1892:assignResultValue *{*
+                      00937 ;; ***  assignResultValue  1894
+                      00938 ;;      line = 1896 result -=-, size=0, left AOP_REG=r0x1045, size=1, right -=-, size=0
+                      00939 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1378:movwf
+                      00940 ;;      1097 rIdx = r0x1045 
+                      00941 ;       .line   27; "../../../lib/timer.c"      timer0_init(uint8_t ps_mode) {
+0000   0??? 0???      00942         BANKSEL r0x100A ;id=1440,key=000,inCond:0,outCond:0,flow seq=01a
+0002   00??           00943         MOVWF   r0x100A ;id=125,key=001,inCond:10,outCond:1,flow seq=01a,rIdx=r0x1045
+                      00944 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00945 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      00946 ;; ***  genAnd  3939
+                      00947 ;;      695 register type nRegs=1
+                      00948 ;;      695 register type nRegs=1
+                      00949 ;;      line = 3974 result AOP_REG=r0x1046, size=1, left AOP_REG=r0x1045, size=1, right AOP_LIT=0x0f, si
+                            ze=1
+                      00950 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4209:genAnd
+                      00951 ;       .line   28; "../../../lib/timer.c"      uint8_t prescaler = ps_mode & PRESCALE_MASK;
+0003   300F           00952         MOVLW   0x0f    ;id=134,key=002,inCond:400,outCond:10,flow seq=01a
+                      00953 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4210:genAnd
+                      00954 ;;      1097 rIdx = r0x1045 
+                      00955 ;; BANKOPT2 BANKSEL dropped; r0x100A present in same bank as r0x100A
+0004   05??           00956         ANDWF   r0x100A,W       ;id=137,key=003,inCond:11,outCond:14,flow seq=01a,rIdx=r0x1045
+                      00957 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4211:genAnd
+                      00958 ;;      1097 rIdx = r0x1046 
+                      00959 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100A
+0005   00??           00960         MOVWF   r0x100B ;id=140,key=004,inCond:10,outCond:1,flow seq=01a,rIdx=r0x1046
+                      00961 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00962 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      00963 ;; ***  genAssign  7037
+                      00964 ;; ***  aopForSym 316
+                      00965 ;;      328 sym->rname = _TMR0, size = 1
+                      00966 ;;      line = 7046 result AOP_DIR=_TMR0, size=1, left -=-, size=0, right AOP_LIT=0x00, size=1
+                      00967 ;; ***  genAssign  7132
+                      00968 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      00969 ;;      998
+                      00970 ;;      1016  _TMR0   offset=0
+                      00971 ;       .line   30; "../../../lib/timer.c"      TIMER0_VALUE = 0;
+0006   0??? 0???      00972         BANKSEL _TMR0   ;id=1443,key=005,inCond:0,outCond:0,flow seq=01a
+0008   01??           00973         CLRF    _TMR0   ;id=152,key=006,inCond:0,outCond:5,flow seq=01a
+                      00974 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00975 ;;      695 register type nRegs=1
+                      00976 ;;      695 register type nRegs=1
+                      00977 ;; ***  mov2w  1366  offset=0
+                      00978 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      00979 ;;      1097 rIdx = r0x1045 
+                      00980 ;       .line   33; "../../../lib/timer.c"      T0CON |= (!!(ps_mode & TIMER0_FLAGS_EXTCLK)) ? 0x20 : 0x
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 20
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                            00;
+0009   0??? 0???      00981         BANKSEL r0x100A ;id=1444,key=007,inCond:0,outCond:0,flow seq=01a
+000B   08??           00982         MOVF    r0x100A,W       ;id=160,key=008,inCond:1,outCond:14,flow seq=01a,rIdx=r0x1045
+                      00983 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4928:genGetABit
+000C   3940           00984         ANDLW   0x40    ;id=162,key=009,inCond:410,outCond:14,flow seq=01a
+                      00985 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4938:genGetABit
+000D   1D03           00986         BTFSS   STATUS,2        ;id=164,key=00a,inCond:25,outCond:0,flow seq=01a
+                      00987 ;<>Start of new flow, seq=0x1b ancestor = 0x1a
+                      00988 ;  from: 01a ; to: 01c 
+                      00989 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4939:genGetABit
+000E   3001           00990         MOVLW   0x01    ;id=166,key=000,inCond:400,outCond:10,flow seq=01b
+                      00991 ;<>Start of new flow, seq=0x1c ancestor = 0x1a
+                      00992 ;  from: 01b 01a ; to: 01e 01d 
+                      00993 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4944:genGetABit
+                      00994 ;;      1097 rIdx = r0x1047 
+                      00995 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+000F   00??           00996         MOVWF   r0x100C ;id=169,key=000,inCond:10,outCond:1,flow seq=01c,rIdx=r0x1047
+                      00997 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      00998 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6868:genIfx *{*
+                      00999 ;; ***  genIfx  6869
+                      01000 ;;      695 register type nRegs=1
+                      01001 ;; ***  pic14_toBoolean  1500
+                      01002 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1507:pic14_toBoolean
+                      01003 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+0010   08??           01004         MOVF    r0x100C,W       ;id=1353,key=001,inCond:1,outCond:14,flow seq=01c,rIdx=r0x1047
+0011   1903           01005         BTFSC   STATUS,2        ;id=181,key=002,inCond:25,outCond:0,flow seq=01c
+                      01006 ;<>Start of new flow, seq=0x1d ancestor = 0x1c
+                      01007 ;  from: 01c ; to: 01f 
+                      01008 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6923:genIfx
+                      01009 ;; ***  popGetLabel  key=5, label offset 4
+0012   2???           01010         GOTO    _00109_DS_      ;id=184,key=000,inCond:0,outCond:0,flow seq=01d
+                      01011 ;<>Start of new flow, seq=0x1e ancestor = 0x1c
+                      01012 ;  from: 01c ; to: 020 
+                      01013 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01014 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01015 ;; ***  genAssign  7037
+                      01016 ;;      695 register type nRegs=2
+                      01017 ;;      line = 7046 result AOP_REG=r0x1047, size=2, left -=-, size=0, right AOP_LIT=0x20, size=2
+                      01018 ;; ***  genAssign  7132
+                      01019 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7139:genAssign
+0013   3020           01020         MOVLW   0x20    ;id=192,key=000,inCond:400,outCond:10,flow seq=01e
+                      01021 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7141:genAssign
+                      01022 ;;      1097 rIdx = r0x1047 
+                      01023 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+0014   00??           01024         MOVWF   r0x100C ;id=195,key=001,inCond:10,outCond:1,flow seq=01e,rIdx=r0x1047
+                      01025 ;; ***  genAssign  7132
+                      01026 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01027 ;;      1097 rIdx = r0x1048 
+                      01028 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100A
+0015   01??           01029         CLRF    r0x100D ;id=199,key=002,inCond:0,outCond:5,flow seq=01e,rIdx=r0x1048
+                      01030 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01031 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2770:genGoto *{*
+                      01032 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2772:genGoto
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 21
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01033 ;; ***  popGetLabel  key=6, label offset 4
+0016   2???           01034         GOTO    _00110_DS_      ;id=204,key=003,inCond:0,outCond:0,flow seq=01e
+                      01035 ;<>Start of new flow, seq=0x1f ancestor = 0x1d
+                      01036 ;  from: 01d ; to: 020 
+                      01037 ;goto   _00110_DS_
+                      01038 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01039 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01040 ;; ***  genLabel  2755
+                      01041 ;_00109_DS_:
+                      01042 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01043 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01044 ;; ***  genAssign  7037
+                      01045 ;;      695 register type nRegs=2
+                      01046 ;;      line = 7046 result AOP_REG=r0x1047, size=2, left -=-, size=0, right AOP_LIT=0x00, size=2
+                      01047 ;; ***  genAssign  7132
+                      01048 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01049 ;;      1097 rIdx = r0x1047 
+                      01050 ;; BANKOPT3 drop assumptions: PCI with label or call found
+0017                  01051 _00109_DS_:
+0017   0??? 0???      01052         BANKSEL r0x100C ;id=1450,key=000,inCond:0,outCond:0,flow seq=01f
+0019   01??           01053         CLRF    r0x100C ;id=219,key=001,inCond:0,outCond:5,flow seq=01f,rIdx=r0x1047
+                      01054 ;; ***  genAssign  7132
+                      01055 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01056 ;;      1097 rIdx = r0x1048 
+                      01057 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100C
+001A   01??           01058         CLRF    r0x100D ;id=223,key=002,inCond:0,outCond:5,flow seq=01f,rIdx=r0x1048
+                      01059 ;<>Start of new flow, seq=0x20 ancestor = 0x1e
+                      01060 ;  from: 01f 01e ; to: 022 021 
+                      01061 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01062 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01063 ;; ***  genLabel  2755
+                      01064 ;_00110_DS_:
+                      01065 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01066 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01067 ;; ***  genAssign  7037
+                      01068 ;; ***  aopForSym 316
+                      01069 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01070 ;;      695 register type nRegs=1
+                      01071 ;;      line = 7046 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_DIR=_OPTION_REG, size=1
+                      01072 ;; ***  genAssign  7116
+                      01073 ;; WARNING      genAssign  7125 ignoring register storage
+                      01074 ;; ***  genAssign  7132
+                      01075 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      01076 ;; ***  mov2w  1366  offset=0
+                      01077 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      01078 ;;      998
+                      01079 ;;      1016  _OPTION_REG   offset=0
+                      01080 ;; BANKOPT3 drop assumptions: PCI with label or call found
+001B                  01081 _00110_DS_:
+001B   0??? 0???      01082         BANKSEL _OPTION_REG     ;id=1453,key=000,inCond:0,outCond:0,flow seq=020
+001D   08??           01083         MOVF    _OPTION_REG,W   ;id=244,key=001,inCond:1,outCond:14,flow seq=020
+                      01084 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7159:genAssign
+                      01085 ;;      1097 rIdx = r0x1049 
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 22
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+001E   0??? 0???      01086         BANKSEL r0x100E ;id=1454,key=002,inCond:0,outCond:0,flow seq=020
+0020   00??           01087         MOVWF   r0x100E ;id=247,key=003,inCond:10,outCond:1,flow seq=020,rIdx=r0x1049
+                      01088 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01089 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      01090 ;; ***  genCast  7230
+                      01091 ;;      695 register type nRegs=2
+                      01092 ;;      695 register type nRegs=1
+                      01093 ;;      line = 7238 result AOP_REG=r0x104A, size=1, left -=-, size=0, right AOP_REG=r0x1047, size=2
+                      01094 ;; ***  genCast  7362
+                      01095 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      01096 ;;      1097 rIdx = r0x1047 
+                      01097 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100E
+0021   08??           01098         MOVF    r0x100C,W       ;id=1354,key=004,inCond:1,outCond:14,flow seq=020,rIdx=r0x1047
+                      01099 ;; BANKOPT2 BANKSEL dropped; r0x100F present in same bank as r0x100E
+0022   00??           01100         MOVWF   r0x100F ;id=1355,key=005,inCond:10,outCond:1,flow seq=020,rIdx=r0x104A
+                      01101 ;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100E
+0023   04??           01102         IORWF   r0x100E,W       ;id=275,key=006,inCond:11,outCond:14,flow seq=020,rIdx=r0x1049
+                      01103 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4500:genOr
+                      01104 ;;      998
+                      01105 ;;      1016  _OPTION_REG   offset=0
+0024   0??? 0???      01106         BANKSEL _OPTION_REG     ;id=1458,key=007,inCond:0,outCond:0,flow seq=020
+0026   00??           01107         MOVWF   _OPTION_REG     ;id=279,key=008,inCond:10,outCond:1,flow seq=020
+                      01108 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01109 ;;      695 register type nRegs=1
+                      01110 ;;      695 register type nRegs=1
+                      01111 ;; ***  mov2w  1366  offset=0
+                      01112 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      01113 ;;      1097 rIdx = r0x1045 
+                      01114 ;       .line   36; "../../../lib/timer.c"      T0CON |= (!!(ps_mode & EDGE_HIGH_LOW)) ? 0x10 : 0x00;
+0027   0??? 0???      01115         BANKSEL r0x100A ;id=1459,key=009,inCond:0,outCond:0,flow seq=020
+0029   08??           01116         MOVF    r0x100A,W       ;id=287,key=00a,inCond:1,outCond:14,flow seq=020,rIdx=r0x1045
+                      01117 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4928:genGetABit
+002A   3910           01118         ANDLW   0x10    ;id=289,key=00b,inCond:410,outCond:14,flow seq=020
+                      01119 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4938:genGetABit
+002B   1D03           01120         BTFSS   STATUS,2        ;id=291,key=00c,inCond:25,outCond:0,flow seq=020
+                      01121 ;<>Start of new flow, seq=0x21 ancestor = 0x20
+                      01122 ;  from: 020 ; to: 022 
+                      01123 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4939:genGetABit
+002C   3001           01124         MOVLW   0x01    ;id=293,key=000,inCond:400,outCond:10,flow seq=021
+                      01125 ;<>Start of new flow, seq=0x22 ancestor = 0x20
+                      01126 ;  from: 021 020 ; to: 024 023 
+                      01127 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4944:genGetABit
+                      01128 ;;      1097 rIdx = r0x1047 
+                      01129 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+002D   00??           01130         MOVWF   r0x100C ;id=296,key=000,inCond:10,outCond:1,flow seq=022,rIdx=r0x1047
+                      01131 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01132 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6868:genIfx *{*
+                      01133 ;; ***  genIfx  6869
+                      01134 ;;      695 register type nRegs=1
+                      01135 ;; ***  pic14_toBoolean  1500
+                      01136 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1507:pic14_toBoolean
+                      01137 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+002E   08??           01138         MOVF    r0x100C,W       ;id=1356,key=001,inCond:1,outCond:14,flow seq=022,rIdx=r0x1047
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 23
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+002F   1903           01139         BTFSC   STATUS,2        ;id=308,key=002,inCond:25,outCond:0,flow seq=022
+                      01140 ;<>Start of new flow, seq=0x23 ancestor = 0x22
+                      01141 ;  from: 022 ; to: 025 
+                      01142 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6923:genIfx
+                      01143 ;; ***  popGetLabel  key=7, label offset 4
+0030   2???           01144         GOTO    _00111_DS_      ;id=311,key=000,inCond:0,outCond:0,flow seq=023
+                      01145 ;<>Start of new flow, seq=0x24 ancestor = 0x22
+                      01146 ;  from: 022 ; to: 026 
+                      01147 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01148 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01149 ;; ***  genAssign  7037
+                      01150 ;;      695 register type nRegs=2
+                      01151 ;;      line = 7046 result AOP_REG=r0x1047, size=2, left -=-, size=0, right AOP_LIT=0x10, size=2
+                      01152 ;; ***  genAssign  7132
+                      01153 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7139:genAssign
+0031   3010           01154         MOVLW   0x10    ;id=319,key=000,inCond:400,outCond:10,flow seq=024
+                      01155 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7141:genAssign
+                      01156 ;;      1097 rIdx = r0x1047 
+                      01157 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100A
+0032   00??           01158         MOVWF   r0x100C ;id=322,key=001,inCond:10,outCond:1,flow seq=024,rIdx=r0x1047
+                      01159 ;; ***  genAssign  7132
+                      01160 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01161 ;;      1097 rIdx = r0x1048 
+                      01162 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100A
+0033   01??           01163         CLRF    r0x100D ;id=326,key=002,inCond:0,outCond:5,flow seq=024,rIdx=r0x1048
+                      01164 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01165 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2770:genGoto *{*
+                      01166 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2772:genGoto
+                      01167 ;; ***  popGetLabel  key=8, label offset 4
+0034   2???           01168         GOTO    _00112_DS_      ;id=331,key=003,inCond:0,outCond:0,flow seq=024
+                      01169 ;<>Start of new flow, seq=0x25 ancestor = 0x23
+                      01170 ;  from: 023 ; to: 026 
+                      01171 ;goto   _00112_DS_
+                      01172 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01173 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01174 ;; ***  genLabel  2755
+                      01175 ;_00111_DS_:
+                      01176 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01177 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01178 ;; ***  genAssign  7037
+                      01179 ;;      695 register type nRegs=2
+                      01180 ;;      line = 7046 result AOP_REG=r0x1047, size=2, left -=-, size=0, right AOP_LIT=0x00, size=2
+                      01181 ;; ***  genAssign  7132
+                      01182 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01183 ;;      1097 rIdx = r0x1047 
+                      01184 ;; BANKOPT3 drop assumptions: PCI with label or call found
+0035                  01185 _00111_DS_:
+0035   0??? 0???      01186         BANKSEL r0x100C ;id=1465,key=000,inCond:0,outCond:0,flow seq=025
+0037   01??           01187         CLRF    r0x100C ;id=346,key=001,inCond:0,outCond:5,flow seq=025,rIdx=r0x1047
+                      01188 ;; ***  genAssign  7132
+                      01189 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01190 ;;      1097 rIdx = r0x1048 
+                      01191 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100C
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 24
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0038   01??           01192         CLRF    r0x100D ;id=350,key=002,inCond:0,outCond:5,flow seq=025,rIdx=r0x1048
+                      01193 ;<>Start of new flow, seq=0x26 ancestor = 0x24
+                      01194 ;  from: 025 024 ; to: 028 027 
+                      01195 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01196 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01197 ;; ***  genLabel  2755
+                      01198 ;_00112_DS_:
+                      01199 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01200 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01201 ;; ***  genAssign  7037
+                      01202 ;; ***  aopForSym 316
+                      01203 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01204 ;;      695 register type nRegs=1
+                      01205 ;;      line = 7046 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_DIR=_OPTION_REG, size=1
+                      01206 ;; ***  genAssign  7116
+                      01207 ;; WARNING      genAssign  7125 ignoring register storage
+                      01208 ;; ***  genAssign  7132
+                      01209 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      01210 ;; ***  mov2w  1366  offset=0
+                      01211 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      01212 ;;      998
+                      01213 ;;      1016  _OPTION_REG   offset=0
+                      01214 ;; BANKOPT3 drop assumptions: PCI with label or call found
+0039                  01215 _00112_DS_:
+0039   0??? 0???      01216         BANKSEL _OPTION_REG     ;id=1468,key=000,inCond:0,outCond:0,flow seq=026
+003B   08??           01217         MOVF    _OPTION_REG,W   ;id=371,key=001,inCond:1,outCond:14,flow seq=026
+                      01218 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7159:genAssign
+                      01219 ;;      1097 rIdx = r0x1049 
+003C   0??? 0???      01220         BANKSEL r0x100E ;id=1469,key=002,inCond:0,outCond:0,flow seq=026
+003E   00??           01221         MOVWF   r0x100E ;id=374,key=003,inCond:10,outCond:1,flow seq=026,rIdx=r0x1049
+                      01222 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01223 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      01224 ;; ***  genCast  7230
+                      01225 ;;      695 register type nRegs=2
+                      01226 ;;      695 register type nRegs=1
+                      01227 ;;      line = 7238 result AOP_REG=r0x104A, size=1, left -=-, size=0, right AOP_REG=r0x1047, size=2
+                      01228 ;; ***  genCast  7362
+                      01229 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      01230 ;;      1097 rIdx = r0x1047 
+                      01231 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100E
+003F   08??           01232         MOVF    r0x100C,W       ;id=1357,key=004,inCond:1,outCond:14,flow seq=026,rIdx=r0x1047
+                      01233 ;; BANKOPT2 BANKSEL dropped; r0x100F present in same bank as r0x100E
+0040   00??           01234         MOVWF   r0x100F ;id=1358,key=005,inCond:10,outCond:1,flow seq=026,rIdx=r0x104A
+                      01235 ;; BANKOPT2 BANKSEL dropped; r0x100E present in same bank as r0x100E
+0041   04??           01236         IORWF   r0x100E,W       ;id=402,key=006,inCond:11,outCond:14,flow seq=026,rIdx=r0x1049
+                      01237 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4500:genOr
+                      01238 ;;      998
+                      01239 ;;      1016  _OPTION_REG   offset=0
+0042   0??? 0???      01240         BANKSEL _OPTION_REG     ;id=1473,key=007,inCond:0,outCond:0,flow seq=026
+0044   00??           01241         MOVWF   _OPTION_REG     ;id=406,key=008,inCond:10,outCond:1,flow seq=026
+                      01242 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01243 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6868:genIfx *{*
+                      01244 ;; ***  genIfx  6869
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 25
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01245 ;;      695 register type nRegs=1
+                      01246 ;; ***  pic14_toBoolean  1500
+                      01247 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1507:pic14_toBoolean
+                      01248 ;       .line   39; "../../../lib/timer.c"      T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
+0045   0??? 0???      01249         BANKSEL r0x100B ;id=1474,key=009,inCond:0,outCond:0,flow seq=026
+0047   08??           01250         MOVF    r0x100B,W       ;id=1359,key=00a,inCond:1,outCond:14,flow seq=026,rIdx=r0x1046
+0048   1903           01251         BTFSC   STATUS,2        ;id=419,key=00b,inCond:25,outCond:0,flow seq=026
+                      01252 ;<>Start of new flow, seq=0x27 ancestor = 0x26
+                      01253 ;  from: 026 ; to: 029 
+                      01254 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6923:genIfx
+                      01255 ;; ***  popGetLabel  key=9, label offset 4
+0049   2???           01256         GOTO    _00113_DS_      ;id=422,key=000,inCond:0,outCond:0,flow seq=027
+                      01257 ;<>Start of new flow, seq=0x28 ancestor = 0x26
+                      01258 ;  from: 026 ; to: 02a 
+                      01259 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01260 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01261 ;; ***  genAssign  7037
+                      01262 ;;      695 register type nRegs=1
+                      01263 ;;      line = 7046 result AOP_REG=r0x1047, size=1, left -=-, size=0, right AOP_LIT=0xf7, size=1
+                      01264 ;; ***  genAssign  7132
+                      01265 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7139:genAssign
+004A   30F7           01266         MOVLW   0xf7    ;id=430,key=000,inCond:400,outCond:10,flow seq=028
+                      01267 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7141:genAssign
+                      01268 ;;      1097 rIdx = r0x1047 
+                      01269 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100B
+004B   00??           01270         MOVWF   r0x100C ;id=433,key=001,inCond:10,outCond:1,flow seq=028,rIdx=r0x1047
+                      01271 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01272 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2770:genGoto *{*
+                      01273 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2772:genGoto
+                      01274 ;; ***  popGetLabel  key=10, label offset 4
+004C   2???           01275         GOTO    _00114_DS_      ;id=438,key=002,inCond:0,outCond:0,flow seq=028
+                      01276 ;<>Start of new flow, seq=0x29 ancestor = 0x27
+                      01277 ;  from: 027 ; to: 02a 
+                      01278 ;goto   _00114_DS_
+                      01279 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01280 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01281 ;; ***  genLabel  2755
+                      01282 ;_00113_DS_:
+                      01283 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01284 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01285 ;; ***  genAssign  7037
+                      01286 ;;      695 register type nRegs=1
+                      01287 ;;      line = 7046 result AOP_REG=r0x1047, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+                      01288 ;; ***  genAssign  7132
+                      01289 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7139:genAssign
+                      01290 ;; BANKOPT3 drop assumptions: PCI with label or call found
+004D                  01291 _00113_DS_:
+004D   30FF           01292         MOVLW   0xff    ;id=452,key=000,inCond:400,outCond:10,flow seq=029
+                      01293 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7141:genAssign
+                      01294 ;;      1097 rIdx = r0x1047 
+004E   0??? 0???      01295         BANKSEL r0x100C ;id=1477,key=001,inCond:0,outCond:0,flow seq=029
+0050   00??           01296         MOVWF   r0x100C ;id=455,key=002,inCond:10,outCond:1,flow seq=029,rIdx=r0x1047
+                      01297 ;<>Start of new flow, seq=0x2a ancestor = 0x28
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 26
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01298 ;  from: 029 028 ; to: 02c 02b 
+                      01299 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01300 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01301 ;; ***  genLabel  2755
+                      01302 ;_00114_DS_:
+                      01303 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01304 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      01305 ;; ***  genCast  7230
+                      01306 ;; ***  aopForSym 316
+                      01307 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01308 ;;      695 register type nRegs=1
+                      01309 ;;      line = 7238 result AOP_REG=r0x1048, size=1, left -=-, size=0, right AOP_DIR=_OPTION_REG, size=1
+                      01310 ;; ***  genCast  7362
+                      01311 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      01312 ;;      998
+                      01313 ;;      1016  _OPTION_REG   offset=0
+                      01314 ;; BANKOPT3 drop assumptions: PCI with label or call found
+0051                  01315 _00114_DS_:
+0051   0??? 0???      01316         BANKSEL _OPTION_REG     ;id=1479,key=000,inCond:0,outCond:0,flow seq=02a
+0053   08??           01317         MOVF    _OPTION_REG,W   ;id=472,key=001,inCond:1,outCond:14,flow seq=02a
+                      01318 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7387:genCast
+                      01319 ;;      1097 rIdx = r0x1048 
+0054   0??? 0???      01320         BANKSEL r0x100D ;id=1480,key=002,inCond:0,outCond:0,flow seq=02a
+0056   00??           01321         MOVWF   r0x100D ;id=475,key=003,inCond:10,outCond:1,flow seq=02a,rIdx=r0x1048
+                      01322 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01323 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      01324 ;; ***  genAnd  3939
+                      01325 ;;      695 register type nRegs=1
+                      01326 ;;      695 register type nRegs=1
+                      01327 ;; ***  aopForSym 316
+                      01328 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01329 ;;      line = 3974 result AOP_DIR=_OPTION_REG, size=1, left AOP_REG=r0x1048, size=1, right AOP_REG=r0x1
+                            047, size=1
+                      01330 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4216:genAnd
+                      01331 ;;      1097 rIdx = r0x1047 
+                      01332 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100D
+0057   08??           01333         MOVF    r0x100C,W       ;id=486,key=004,inCond:1,outCond:14,flow seq=02a,rIdx=r0x1047
+                      01334 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4217:genAnd
+                      01335 ;;      1097 rIdx = r0x1048 
+                      01336 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100D
+0058   05??           01337         ANDWF   r0x100D,W       ;id=489,key=005,inCond:11,outCond:14,flow seq=02a,rIdx=r0x1048
+                      01338 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4218:genAnd
+                      01339 ;;      998
+                      01340 ;;      1016  _OPTION_REG   offset=0
+0059   0??? 0???      01341         BANKSEL _OPTION_REG     ;id=1483,key=006,inCond:0,outCond:0,flow seq=02a
+005B   00??           01342         MOVWF   _OPTION_REG     ;id=493,key=007,inCond:10,outCond:1,flow seq=02a
+                      01343 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01344 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      01345 ;; ***  genAnd  3939
+                      01346 ;; ***  aopForSym 316
+                      01347 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01348 ;;      576
+                      01349 ;;      line = 3974 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_LIT=
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 27
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                            0xf8, size=1
+                      01350 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4147:genAnd
+                      01351 ;       .line   41; "../../../lib/timer.c"      T0CON &= ~0b111;
+005C   30F8           01352         MOVLW   0xf8    ;id=503,key=008,inCond:400,outCond:10,flow seq=02a
+                      01353 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4149:genAnd
+                      01354 ;;      998
+                      01355 ;;      1016  _OPTION_REG   offset=0
+                      01356 ;; BANKOPT2 BANKSEL dropped; _OPTION_REG present in same bank as _OPTION_REG
+005D   05??           01357         ANDWF   _OPTION_REG,F   ;id=507,key=009,inCond:11,outCond:5,flow seq=02a
+                      01358 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01359 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6868:genIfx *{*
+                      01360 ;; ***  genIfx  6869
+                      01361 ;;      695 register type nRegs=1
+                      01362 ;; ***  pic14_toBoolean  1500
+                      01363 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1507:pic14_toBoolean
+                      01364 ;       .line   43; "../../../lib/timer.c"      if(prescaler > 0) {
+005E   0??? 0???      01365         BANKSEL r0x100B ;id=1485,key=00a,inCond:0,outCond:0,flow seq=02a
+0060   08??           01366         MOVF    r0x100B,W       ;id=1360,key=00b,inCond:1,outCond:14,flow seq=02a,rIdx=r0x1046
+0061   1903           01367         BTFSC   STATUS,2        ;id=520,key=00c,inCond:25,outCond:0,flow seq=02a
+                      01368 ;<>Start of new flow, seq=0x2b ancestor = 0x2a
+                      01369 ;  from: 02a ; to: 02d 
+                      01370 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6923:genIfx
+                      01371 ;; ***  popGetLabel  key=2, label offset 4
+0062   2???           01372         GOTO    _00106_DS_      ;id=523,key=000,inCond:0,outCond:0,flow seq=02b
+                      01373 ;<>Start of new flow, seq=0x2c ancestor = 0x2a
+                      01374 ;  from: 02a ; to: 02d 
+                      01375 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01376 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      01377 ;; ***  genCast  7230
+                      01378 ;;      695 register type nRegs=1
+                      01379 ;;      695 register type nRegs=1
+                      01380 ;;      line = 7238 result AOP_REG=r0x1047, size=1, left -=-, size=0, right AOP_REG=r0x1046, size=1
+                      01381 ;; ***  genCast  7362
+                      01382 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      01383 ;;      1097 rIdx = r0x1046 
+                      01384 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100B
+                      01385 ;       .line   44; "../../../lib/timer.c"      T0CON |= (prescaler - 1) & 0b111;
+0063   08??           01386         MOVF    r0x100B,W       ;id=534,key=000,inCond:1,outCond:14,flow seq=02c,rIdx=r0x1046
+                      01387 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7387:genCast
+                      01388 ;;      1097 rIdx = r0x1047 
+                      01389 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100B
+0064   00??           01390         MOVWF   r0x100C ;id=537,key=001,inCond:10,outCond:1,flow seq=02c,rIdx=r0x1047
+                      01391 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01392 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7426:genDjnz *{*
+                      01393 ;; ***  genDjnz  7427
+                      01394 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:892:genMinus *{*
+                      01395 ;; ***  genMinus  893
+                      01396 ;;      695 register type nRegs=1
+                      01397 ;;      695 register type nRegs=1
+                      01398 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      01399 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:265:genAddLit *{*
+                      01400 ;; ***  genAddLit  266
+                      01401 ;;  left and result aren't same genAddLit  510
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 28
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01402 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:526:genAddLit
+                      01403 ;;      1097 rIdx = r0x1047 
+                      01404 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100B
+0065   03??           01405         DECF    r0x100C,W       ;id=551,key=002,inCond:1,outCond:14,flow seq=02c,rIdx=r0x1047
+                      01406 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:249:emitMOVWF *{*
+                      01407 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:253:emitMOVWF
+                      01408 ;;      1097 rIdx = r0x1046 
+                      01409 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100B
+0066   00??           01410         MOVWF   r0x100B ;id=555,key=003,inCond:10,outCond:1,flow seq=02c,rIdx=r0x1046
+                      01411 ;; ***  addSign  857
+                      01412 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/genarith.c:858:addSign *{*
+                      01413 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01414 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      01415 ;; ***  genAnd  3939
+                      01416 ;;      695 register type nRegs=1
+                      01417 ;;      695 register type nRegs=1
+                      01418 ;;      line = 3974 result AOP_REG=r0x1046, size=1, left AOP_REG=r0x1046, size=1, right AOP_LIT=0x07, si
+                            ze=1
+                      01419 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4147:genAnd
+0067   3007           01420         MOVLW   0x07    ;id=565,key=004,inCond:400,outCond:10,flow seq=02c
+                      01421 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4149:genAnd
+                      01422 ;;      1097 rIdx = r0x1046 
+                      01423 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100B
+0068   05??           01424         ANDWF   r0x100B,F       ;id=568,key=005,inCond:11,outCond:5,flow seq=02c,rIdx=r0x1046
+                      01425 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01426 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4239:genOr *{*
+                      01427 ;; ***  genOr  4240
+                      01428 ;; ***  aopForSym 316
+                      01429 ;;      328 sym->rname = _OPTION_REG, size = 1
+                      01430 ;;      695 register type nRegs=1
+                      01431 ;;      line = 4246 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_REG=
+                            r0x1046, size=1
+                      01432 ;;      line = 4272 result AOP_DIR=_OPTION_REG, size=1, left AOP_DIR=_OPTION_REG, size=1, right AOP_REG=
+                            r0x1046, size=1
+                      01433 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4437:genOr
+                      01434 ;;      1097 rIdx = r0x1046 
+                      01435 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100B
+0069   08??           01436         MOVF    r0x100B,W       ;id=579,key=006,inCond:1,outCond:14,flow seq=02c,rIdx=r0x1046
+                      01437 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4438:genOr
+                      01438 ;;      998
+                      01439 ;;      1016  _OPTION_REG   offset=0
+006A   0??? 0???      01440         BANKSEL _OPTION_REG     ;id=1492,key=007,inCond:0,outCond:0,flow seq=02c
+006C   04??           01441         IORWF   _OPTION_REG,F   ;id=583,key=008,inCond:11,outCond:5,flow seq=02c
+                      01442 ;<>Start of new flow, seq=0x2d ancestor = 0x2b
+                      01443 ;  from: 02c 02b ; to: 02f 02e 
+                      01444 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01445 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01446 ;; ***  genLabel  2755
+                      01447 ;_00106_DS_:
+                      01448 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01449 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:3938:genAnd *{*
+                      01450 ;; ***  genAnd  3939
+                      01451 ;; ***  aopForSym 316
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 29
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01452 ;;      328 sym->rname = _INTCON, size = 1
+                      01453 ;;      576
+                      01454 ;;      line = 3974 result AOP_DIR=_INTCON, size=1, left AOP_DIR=_INTCON, size=1, right AOP_LIT=0xbf, si
+                            ze=1
+                      01455 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4141:genAnd
+                      01456 ;; BANKOPT3 drop assumptions: PCI with label or call found
+                      01457 ;; BANKOPT1 BANKSEL dropped; INTCON present in all of (null)'s banks
+006D                  01458 _00106_DS_:
+                      01459 ;       .line   54; "../../../lib/timer.c"      INTCON &= ~0x40; // TMR0IF = 0;
+006D   130B           01460         BCF     INTCON,6        ;id=598,key=000,inCond:21,outCond:21,flow seq=02d
+                      01461 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01462 ;;      695 register type nRegs=1
+                      01463 ;;      695 register type nRegs=1
+                      01464 ;; ***  mov2w  1366  offset=0
+                      01465 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      01466 ;;      1097 rIdx = r0x1045 
+                      01467 ;       .line   55; "../../../lib/timer.c"      INTCON |= (!!(ps_mode & TIMER0_FLAGS_INTR)) ? 0x20 : 0x0
+                            0;
+006E   0??? 0???      01468         BANKSEL r0x100A ;id=1495,key=001,inCond:0,outCond:0,flow seq=02d
+0070   08??           01469         MOVF    r0x100A,W       ;id=606,key=002,inCond:1,outCond:14,flow seq=02d,rIdx=r0x1045
+                      01470 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4928:genGetABit
+0071   3980           01471         ANDLW   0x80    ;id=608,key=003,inCond:410,outCond:14,flow seq=02d
+                      01472 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4938:genGetABit
+0072   1D03           01473         BTFSS   STATUS,2        ;id=610,key=004,inCond:25,outCond:0,flow seq=02d
+                      01474 ;<>Start of new flow, seq=0x2e ancestor = 0x2d
+                      01475 ;  from: 02d ; to: 02f 
+                      01476 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4939:genGetABit
+0073   3001           01477         MOVLW   0x01    ;id=612,key=000,inCond:400,outCond:10,flow seq=02e
+                      01478 ;<>Start of new flow, seq=0x2f ancestor = 0x2d
+                      01479 ;  from: 02e 02d ; to: 031 030 
+                      01480 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4944:genGetABit
+                      01481 ;;      1097 rIdx = r0x1046 
+                      01482 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100A
+0074   00??           01483         MOVWF   r0x100B ;id=615,key=000,inCond:10,outCond:1,flow seq=02f,rIdx=r0x1046
+                      01484 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01485 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6868:genIfx *{*
+                      01486 ;; ***  genIfx  6869
+                      01487 ;;      695 register type nRegs=1
+                      01488 ;; ***  pic14_toBoolean  1500
+                      01489 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1507:pic14_toBoolean
+                      01490 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100A
+0075   08??           01491         MOVF    r0x100B,W       ;id=1361,key=001,inCond:1,outCond:14,flow seq=02f,rIdx=r0x1046
+0076   1903           01492         BTFSC   STATUS,2        ;id=627,key=002,inCond:25,outCond:0,flow seq=02f
+                      01493 ;<>Start of new flow, seq=0x30 ancestor = 0x2f
+                      01494 ;  from: 02f ; to: 032 
+                      01495 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:6923:genIfx
+                      01496 ;; ***  popGetLabel  key=11, label offset 4
+0077   2???           01497         GOTO    _00115_DS_      ;id=630,key=000,inCond:0,outCond:0,flow seq=030
+                      01498 ;<>Start of new flow, seq=0x31 ancestor = 0x2f
+                      01499 ;  from: 02f ; to: 033 
+                      01500 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01501 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01502 ;; ***  genAssign  7037
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 30
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01503 ;;      695 register type nRegs=2
+                      01504 ;;      line = 7046 result AOP_REG=r0x1045, size=2, left -=-, size=0, right AOP_LIT=0x20, size=2
+                      01505 ;; ***  genAssign  7132
+                      01506 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7139:genAssign
+0078   3020           01507         MOVLW   0x20    ;id=638,key=000,inCond:400,outCond:10,flow seq=031
+                      01508 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7141:genAssign
+                      01509 ;;      1097 rIdx = r0x1045 
+                      01510 ;; BANKOPT2 BANKSEL dropped; r0x100A present in same bank as r0x100A
+0079   00??           01511         MOVWF   r0x100A ;id=641,key=001,inCond:10,outCond:1,flow seq=031,rIdx=r0x1045
+                      01512 ;; ***  genAssign  7132
+                      01513 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01514 ;;      1097 rIdx = r0x1046 
+                      01515 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100A
+007A   01??           01516         CLRF    r0x100B ;id=645,key=002,inCond:0,outCond:5,flow seq=031,rIdx=r0x1046
+                      01517 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01518 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2770:genGoto *{*
+                      01519 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2772:genGoto
+                      01520 ;; ***  popGetLabel  key=12, label offset 4
+007B   2???           01521         GOTO    _00116_DS_      ;id=650,key=003,inCond:0,outCond:0,flow seq=031
+                      01522 ;<>Start of new flow, seq=0x32 ancestor = 0x30
+                      01523 ;  from: 030 ; to: 033 
+                      01524 ;goto   _00116_DS_
+                      01525 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01526 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01527 ;; ***  genLabel  2755
+                      01528 ;_00115_DS_:
+                      01529 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01530 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01531 ;; ***  genAssign  7037
+                      01532 ;;      695 register type nRegs=2
+                      01533 ;;      line = 7046 result AOP_REG=r0x1045, size=2, left -=-, size=0, right AOP_LIT=0x00, size=2
+                      01534 ;; ***  genAssign  7132
+                      01535 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01536 ;;      1097 rIdx = r0x1045 
+                      01537 ;; BANKOPT3 drop assumptions: PCI with label or call found
+007C                  01538 _00115_DS_:
+007C   0??? 0???      01539         BANKSEL r0x100A ;id=1501,key=000,inCond:0,outCond:0,flow seq=032
+007E   01??           01540         CLRF    r0x100A ;id=665,key=001,inCond:0,outCond:5,flow seq=032,rIdx=r0x1045
+                      01541 ;; ***  genAssign  7132
+                      01542 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7144:genAssign
+                      01543 ;;      1097 rIdx = r0x1046 
+                      01544 ;; BANKOPT2 BANKSEL dropped; r0x100B present in same bank as r0x100A
+007F   01??           01545         CLRF    r0x100B ;id=669,key=002,inCond:0,outCond:5,flow seq=032,rIdx=r0x1046
+                      01546 ;<>Start of new flow, seq=0x33 ancestor = 0x31
+                      01547 ;  from: 032 031 ; to: 
+                      01548 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01549 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01550 ;; ***  genLabel  2755
+                      01551 ;_00116_DS_:
+                      01552 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01553 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7036:genAssign *{*
+                      01554 ;; ***  genAssign  7037
+                      01555 ;; ***  aopForSym 316
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 31
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01556 ;;      328 sym->rname = _INTCON, size = 1
+                      01557 ;;      695 register type nRegs=1
+                      01558 ;;      line = 7046 result AOP_REG=r0x1047, size=1, left -=-, size=0, right AOP_DIR=_INTCON, size=1
+                      01559 ;; ***  genAssign  7116
+                      01560 ;; WARNING      genAssign  7125 ignoring register storage
+                      01561 ;; ***  genAssign  7132
+                      01562 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1328:mov2w_op *{*
+                      01563 ;; ***  mov2w  1366  offset=0
+                      01564 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:1371:mov2w
+                      01565 ;;      998
+                      01566 ;;      1012  _INTCON   offset=0 - had to alloc by reg name
+                      01567 ;; BANKOPT3 drop assumptions: PCI with label or call found
+0080                  01568 _00116_DS_:
+0080   0??? 0???      01569         BANKSEL _INTCON ;id=1504,key=000,inCond:0,outCond:0,flow seq=033
+0082   08??           01570         MOVF    _INTCON,W       ;id=690,key=001,inCond:1,outCond:14,flow seq=033
+                      01571 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7159:genAssign
+                      01572 ;;      1097 rIdx = r0x1047 
+0083   0??? 0???      01573         BANKSEL r0x100C ;id=1505,key=002,inCond:0,outCond:0,flow seq=033
+0085   00??           01574         MOVWF   r0x100C ;id=693,key=003,inCond:10,outCond:1,flow seq=033,rIdx=r0x1047
+                      01575 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01576 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7229:genCast *{*
+                      01577 ;; ***  genCast  7230
+                      01578 ;;      695 register type nRegs=2
+                      01579 ;;      695 register type nRegs=1
+                      01580 ;;      line = 7238 result AOP_REG=r0x1048, size=1, left -=-, size=0, right AOP_REG=r0x1045, size=2
+                      01581 ;; ***  genCast  7362
+                      01582 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7386:genCast
+                      01583 ;;      1097 rIdx = r0x1045 
+                      01584 ;; BANKOPT2 BANKSEL dropped; r0x100A present in same bank as r0x100C
+0086   08??           01585         MOVF    r0x100A,W       ;id=1362,key=004,inCond:1,outCond:14,flow seq=033,rIdx=r0x1045
+                      01586 ;; BANKOPT2 BANKSEL dropped; r0x100D present in same bank as r0x100C
+0087   00??           01587         MOVWF   r0x100D ;id=1363,key=005,inCond:10,outCond:1,flow seq=033,rIdx=r0x1048
+                      01588 ;; BANKOPT2 BANKSEL dropped; r0x100C present in same bank as r0x100C
+0088   04??           01589         IORWF   r0x100C,W       ;id=721,key=006,inCond:11,outCond:14,flow seq=033,rIdx=r0x1047
+                      01590 ;; >>> /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:4500:genOr
+                      01591 ;;      998
+                      01592 ;;      1016  _INTCON   offset=0
+0089   0??? 0???      01593         BANKSEL _INTCON ;id=1509,key=007,inCond:0,outCond:0,flow seq=033
+008B   00??           01594         MOVWF   _INTCON ;id=725,key=008,inCond:10,outCond:1,flow seq=033
+                      01595 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01596 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2752:genLabel *{*
+                      01597 ;; ***  genLabel  2755
+                      01598 ;_00107_DS_:
+                      01599 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2308:resultRemat *{*
+                      01600 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:2520:genEndFunction *{*
+                      01601 ;; ***  genEndFunction  2522
+                      01602 ;return
+                      01603 ;       .line   56; "../../../lib/timer.c"      }
+008C   0008           01604         RETURN          ;id=736,key=009,inCond:10,outCond:e,flow seq=033
+                      01605 ;<>Start of new flow, seq=0x34
+                      01606 ;  from: ; to: 
+                      01607 ; exit point of _timer0_init
+                      01608 ;;; /home/sdcc-builder/build/sdcc-build/orig/sdcc/src/pic14/gen.c:7535:genpic14Code *{*
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 32
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01609 
+                      01610 
+                      01611 ;       code size estimation:
+                      01612 ;         190+   44 =   234 instructions (  556 byte)
+                      01613 
+                      01614         end
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 33
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ACKDT                             CONSTANT      00000005              5
+ACKEN                             CONSTANT      00000004              4
+ACKSTAT                           CONSTANT      00000006              6
+ADCON0                            CONSTANT      0000001F             31
+ADCON1                            CONSTANT      0000009F            159
+ADCS0                             CONSTANT      00000006              6
+ADCS1                             CONSTANT      00000007              7
+ADCS2                             CONSTANT      00000006              6
+ADDEN                             CONSTANT      00000003              3
+ADFM                              CONSTANT      00000007              7
+ADIE                              CONSTANT      00000006              6
+ADIF                              CONSTANT      00000006              6
+ADON                              CONSTANT      00000000              0
+ADRESH                            CONSTANT      0000001E             30
+ADRESL                            CONSTANT      0000009E            158
+BCLIE                             CONSTANT      00000003              3
+BCLIF                             CONSTANT      00000003              3
+BF                                CONSTANT      00000000              0
+BRGH                              CONSTANT      00000002              2
+C                                 CONSTANT      00000000              0
+C1INV                             CONSTANT      00000004              4
+C1OUT                             CONSTANT      00000006              6
+C2INV                             CONSTANT      00000005              5
+C2OUT                             CONSTANT      00000007              7
+CCP1CON                           CONSTANT      00000017             23
+CCP1IE                            CONSTANT      00000002              2
+CCP1IF                            CONSTANT      00000002              2
+CCP1M0                            CONSTANT      00000000              0
+CCP1M1                            CONSTANT      00000001              1
+CCP1M2                            CONSTANT      00000002              2
+CCP1M3                            CONSTANT      00000003              3
+CCP1X                             CONSTANT      00000005              5
+CCP1Y                             CONSTANT      00000004              4
+CCP2CON                           CONSTANT      0000001D             29
+CCP2IE                            CONSTANT      00000000              0
+CCP2IF                            CONSTANT      00000000              0
+CCP2M0                            CONSTANT      00000000              0
+CCP2M1                            CONSTANT      00000001              1
+CCP2M2                            CONSTANT      00000002              2
+CCP2M3                            CONSTANT      00000003              3
+CCP2X                             CONSTANT      00000005              5
+CCP2Y                             CONSTANT      00000004              4
+CCPR1                             CONSTANT      00000015             21
+CCPR1H                            CONSTANT      00000016             22
+CCPR1L                            CONSTANT      00000015             21
+CCPR2                             CONSTANT      0000001B             27
+CCPR2H                            CONSTANT      0000001C             28
+CCPR2L                            CONSTANT      0000001B             27
+CHS0                              CONSTANT      00000003              3
+CHS1                              CONSTANT      00000004              4
+CHS2                              CONSTANT      00000005              5
+CIS                               CONSTANT      00000003              3
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 34
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+CKE                               CONSTANT      00000006              6
+CKP                               CONSTANT      00000004              4
+CM0                               CONSTANT      00000000              0
+CM1                               CONSTANT      00000001              1
+CM2                               CONSTANT      00000002              2
+CMCON                             CONSTANT      0000009C            156
+CMIE                              CONSTANT      00000006              6
+CMIF                              CONSTANT      00000006              6
+CREN                              CONSTANT      00000004              4
+CSRC                              CONSTANT      00000007              7
+CVR0                              CONSTANT      00000000              0
+CVR1                              CONSTANT      00000001              1
+CVR2                              CONSTANT      00000002              2
+CVR3                              CONSTANT      00000003              3
+CVRCON                            CONSTANT      0000009D            157
+CVREN                             CONSTANT      00000007              7
+CVROE                             CONSTANT      00000006              6
+CVRR                              CONSTANT      00000005              5
+D                                 CONSTANT      00000005              5
+DATA_ADDRESS                      CONSTANT      00000005              5
+DC                                CONSTANT      00000001              1
+D_A                               CONSTANT      00000005              5
+D_NOT_A                           CONSTANT      00000005              5
+EEADR                             CONSTANT      0000010D            269
+EEADRH                            CONSTANT      0000010F            271
+EECON1                            CONSTANT      0000018C            396
+EECON2                            CONSTANT      0000018D            397
+EEDATA                            CONSTANT      0000010C            268
+EEDATH                            CONSTANT      0000010E            270
+EEIE                              CONSTANT      00000004              4
+EEIF                              CONSTANT      00000004              4
+EEPGD                             CONSTANT      00000007              7
+F                                 CONSTANT      00000001              1
+FERR                              CONSTANT      00000002              2
+FSR                               CONSTANT      00000004              4
+GCEN                              CONSTANT      00000007              7
+GIE                               CONSTANT      00000007              7
+GO                                CONSTANT      00000002              2
+GO_DONE                           CONSTANT      00000002              2
+GO_NOT_DONE                       CONSTANT      00000002              2
+I2C_DATA                          CONSTANT      00000005              5
+I2C_READ                          CONSTANT      00000002              2
+I2C_START                         CONSTANT      00000003              3
+I2C_STOP                          CONSTANT      00000004              4
+INDF                              CONSTANT      00000000              0
+INTCON                            CONSTANT      0000000B             11
+INTE                              CONSTANT      00000004              4
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000001              1
+IRP                               CONSTANT      00000007              7
+NOT_A                             CONSTANT      00000005              5
+NOT_ADDRESS                       CONSTANT      00000005              5
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 35
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+NOT_BO                            CONSTANT      00000000              0
+NOT_BOR                           CONSTANT      00000000              0
+NOT_DONE                          CONSTANT      00000002              2
+NOT_PD                            CONSTANT      00000003              3
+NOT_POR                           CONSTANT      00000001              1
+NOT_RBPU                          CONSTANT      00000007              7
+NOT_RC8                           CONSTANT      00000006              6
+NOT_T1SYNC                        CONSTANT      00000002              2
+NOT_TO                            CONSTANT      00000004              4
+NOT_TX8                           CONSTANT      00000006              6
+NOT_W                             CONSTANT      00000002              2
+NOT_WRITE                         CONSTANT      00000002              2
+OERR                              CONSTANT      00000001              1
+OPTION_REG                        CONSTANT      00000081            129
+P                                 CONSTANT      00000004              4
+PCFG0                             CONSTANT      00000000              0
+PCFG1                             CONSTANT      00000001              1
+PCFG2                             CONSTANT      00000002              2
+PCFG3                             CONSTANT      00000003              3
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      0000008E            142
+PEIE                              CONSTANT      00000006              6
+PEN                               CONSTANT      00000002              2
+PIE1                              CONSTANT      0000008C            140
+PIE2                              CONSTANT      0000008D            141
+PIR1                              CONSTANT      0000000C             12
+PIR2                              CONSTANT      0000000D             13
+PORTA                             CONSTANT      00000005              5
+PORTB                             CONSTANT      00000006              6
+PORTC                             CONSTANT      00000007              7
+PR2                               CONSTANT      00000092            146
+PS0                               CONSTANT      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+R                                 CONSTANT      00000002              2
+RA0                               CONSTANT      00000000              0
+RA1                               CONSTANT      00000001              1
+RA2                               CONSTANT      00000002              2
+RA3                               CONSTANT      00000003              3
+RA4                               CONSTANT      00000004              4
+RA5                               CONSTANT      00000005              5
+RB0                               CONSTANT      00000000              0
+RB1                               CONSTANT      00000001              1
+RB2                               CONSTANT      00000002              2
+RB3                               CONSTANT      00000003              3
+RB4                               CONSTANT      00000004              4
+RB5                               CONSTANT      00000005              5
+RB6                               CONSTANT      00000006              6
+RB7                               CONSTANT      00000007              7
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 36
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+RBIE                              CONSTANT      00000003              3
+RBIF                              CONSTANT      00000000              0
+RC0                               CONSTANT      00000000              0
+RC1                               CONSTANT      00000001              1
+RC2                               CONSTANT      00000002              2
+RC3                               CONSTANT      00000003              3
+RC4                               CONSTANT      00000004              4
+RC5                               CONSTANT      00000005              5
+RC6                               CONSTANT      00000006              6
+RC7                               CONSTANT      00000007              7
+RC8_9                             CONSTANT      00000006              6
+RC9                               CONSTANT      00000006              6
+RCD8                              CONSTANT      00000000              0
+RCEN                              CONSTANT      00000003              3
+RCIE                              CONSTANT      00000005              5
+RCIF                              CONSTANT      00000005              5
+RCREG                             CONSTANT      0000001A             26
+RCSTA                             CONSTANT      00000018             24
+RD                                CONSTANT      00000000              0
+READ_WRITE                        CONSTANT      00000002              2
+RP0                               CONSTANT      00000005              5
+RP1                               CONSTANT      00000006              6
+RSEN                              CONSTANT      00000001              1
+RX9                               CONSTANT      00000006              6
+RX9D                              CONSTANT      00000000              0
+R_NOT_W                           CONSTANT      00000002              2
+R_W                               CONSTANT      00000002              2
+S                                 CONSTANT      00000003              3
+SEN                               CONSTANT      00000000              0
+SMP                               CONSTANT      00000007              7
+SPBRG                             CONSTANT      00000099            153
+SPEN                              CONSTANT      00000007              7
+SREN                              CONSTANT      00000005              5
+SSAVE                             EXTERNAL      00000000              0
+SSPADD                            CONSTANT      00000093            147
+SSPBUF                            CONSTANT      00000013             19
+SSPCON                            CONSTANT      00000014             20
+SSPCON2                           CONSTANT      00000091            145
+SSPEN                             CONSTANT      00000005              5
+SSPIE                             CONSTANT      00000003              3
+SSPIF                             CONSTANT      00000003              3
+SSPM0                             CONSTANT      00000000              0
+SSPM1                             CONSTANT      00000001              1
+SSPM2                             CONSTANT      00000002              2
+SSPM3                             CONSTANT      00000003              3
+SSPOV                             CONSTANT      00000006              6
+SSPSTAT                           CONSTANT      00000094            148
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 37
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+SYNC                              CONSTANT      00000004              4
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000005              5
+T0IF                              CONSTANT      00000002              2
+T0SE                              CONSTANT      00000004              4
+T1CKPS0                           CONSTANT      00000004              4
+T1CKPS1                           CONSTANT      00000005              5
+T1CON                             CONSTANT      00000010             16
+T1INSYNC                          CONSTANT      00000002              2
+T1OSCEN                           CONSTANT      00000003              3
+T1SYNC                            CONSTANT      00000002              2
+T2CKPS0                           CONSTANT      00000000              0
+T2CKPS1                           CONSTANT      00000001              1
+T2CON                             CONSTANT      00000012             18
+TMR0                              CONSTANT      00000001              1
+TMR0IE                            CONSTANT      00000005              5
+TMR0IF                            CONSTANT      00000002              2
+TMR1                              CONSTANT      0000000E             14
+TMR1CS                            CONSTANT      00000001              1
+TMR1H                             CONSTANT      0000000F             15
+TMR1IE                            CONSTANT      00000000              0
+TMR1IF                            CONSTANT      00000000              0
+TMR1L                             CONSTANT      0000000E             14
+TMR1ON                            CONSTANT      00000000              0
+TMR2                              CONSTANT      00000011             17
+TMR2IE                            CONSTANT      00000001              1
+TMR2IF                            CONSTANT      00000001              1
+TMR2ON                            CONSTANT      00000002              2
+TOUTPS0                           CONSTANT      00000003              3
+TOUTPS1                           CONSTANT      00000004              4
+TOUTPS2                           CONSTANT      00000005              5
+TOUTPS3                           CONSTANT      00000006              6
+TRISA                             CONSTANT      00000085            133
+TRISA0                            CONSTANT      00000000              0
+TRISA1                            CONSTANT      00000001              1
+TRISA2                            CONSTANT      00000002              2
+TRISA3                            CONSTANT      00000003              3
+TRISA4                            CONSTANT      00000004              4
+TRISA5                            CONSTANT      00000005              5
+TRISB                             CONSTANT      00000086            134
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 38
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+TRISC                             CONSTANT      00000087            135
+TRISC0                            CONSTANT      00000000              0
+TRISC1                            CONSTANT      00000001              1
+TRISC2                            CONSTANT      00000002              2
+TRISC3                            CONSTANT      00000003              3
+TRISC4                            CONSTANT      00000004              4
+TRISC5                            CONSTANT      00000005              5
+TRISC6                            CONSTANT      00000006              6
+TRISC7                            CONSTANT      00000007              7
+TRMT                              CONSTANT      00000001              1
+TX8_9                             CONSTANT      00000006              6
+TX9                               CONSTANT      00000006              6
+TX9D                              CONSTANT      00000000              0
+TXD8                              CONSTANT      00000000              0
+TXEN                              CONSTANT      00000005              5
+TXIE                              CONSTANT      00000004              4
+TXIF                              CONSTANT      00000004              4
+TXREG                             CONSTANT      00000019             25
+TXSTA                             CONSTANT      00000098            152
+UA                                CONSTANT      00000001              1
+W                                 CONSTANT      00000000              0
+WCOL                              CONSTANT      00000007              7
+WR                                CONSTANT      00000001              1
+WREN                              CONSTANT      00000002              2
+WRERR                             CONSTANT      00000003              3
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_00106_DS_                        ADDRESS       0000006D            109
+_00109_DS_                        ADDRESS       00000017             23
+_00110_DS_                        ADDRESS       0000001B             27
+_00111_DS_                        ADDRESS       00000035             53
+_00112_DS_                        ADDRESS       00000039             57
+_00113_DS_                        ADDRESS       0000004D             77
+_00114_DS_                        ADDRESS       00000051             81
+_00115_DS_                        ADDRESS       0000007C            124
+_00116_DS_                        ADDRESS       00000080            128
+_00122_DS_                        ADDRESS       0000000D             13
+_00124_DS_                        ADDRESS       0000002C             44
+_00136_DS_                        ADDRESS       0000002A             42
+_ADCON0                           EXTERNAL      00000000              0
+_ADCON0bits                       EXTERNAL      00000000              0
+_ADCON1                           EXTERNAL      00000000              0
+_ADCON1bits                       EXTERNAL      00000000              0
+_ADRESH                           EXTERNAL      00000000              0
+_ADRESL                           EXTERNAL      00000000              0
+_BODEN_OFF                        CONSTANT      00003FBF          16319
+_BODEN_ON                         CONSTANT      00003FFF          16383
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 39
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_BOREN_OFF                        CONSTANT      00003FBF          16319
+_BOREN_ON                         CONSTANT      00003FFF          16383
+_CCP1CON                          EXTERNAL      00000000              0
+_CCP1CONbits                      EXTERNAL      00000000              0
+_CCP2CON                          EXTERNAL      00000000              0
+_CCP2CONbits                      EXTERNAL      00000000              0
+_CCPR1                            EXTERNAL      00000000              0
+_CCPR1H                           EXTERNAL      00000000              0
+_CCPR1L                           EXTERNAL      00000000              0
+_CCPR2                            EXTERNAL      00000000              0
+_CCPR2H                           EXTERNAL      00000000              0
+_CCPR2L                           EXTERNAL      00000000              0
+_CMCON                            EXTERNAL      00000000              0
+_CMCONbits                        EXTERNAL      00000000              0
+_CONFIG                           CONSTANT      00002007           8199
+_CPD_OFF                          CONSTANT      00003FFF          16383
+_CPD_ON                           CONSTANT      00003EFF          16127
+_CP_ALL                           CONSTANT      00001FFF           8191
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00001FFF           8191
+_CVRCON                           EXTERNAL      00000000              0
+_CVRCONbits                       EXTERNAL      00000000              0
+_DEBUG_OFF                        CONSTANT      00003FFF          16383
+_DEBUG_ON                         CONSTANT      000037FF          14335
+_DEVID1                           CONSTANT      00002006           8198
+_EEADR                            EXTERNAL      00000000              0
+_EEADRH                           EXTERNAL      00000000              0
+_EECON1                           EXTERNAL      00000000              0
+_EECON1bits                       EXTERNAL      00000000              0
+_EECON2                           EXTERNAL      00000000              0
+_EEDATA                           EXTERNAL      00000000              0
+_EEDATH                           EXTERNAL      00000000              0
+_FOSC_EXTRC                       CONSTANT      00003FFF          16383
+_FOSC_HS                          CONSTANT      00003FFE          16382
+_FOSC_LP                          CONSTANT      00003FFC          16380
+_FOSC_XT                          CONSTANT      00003FFD          16381
+_FSR                              EXTERNAL      00000000              0
+_HS_OSC                           CONSTANT      00003FFE          16382
+_IDLOC0                           CONSTANT      00002000           8192
+_IDLOC1                           CONSTANT      00002001           8193
+_IDLOC2                           CONSTANT      00002002           8194
+_IDLOC3                           CONSTANT      00002003           8195
+_INDF                             EXTERNAL      00000000              0
+_INTCON                           EXTERNAL      00000000              0
+_INTCONbits                       EXTERNAL      00000000              0
+_LP_OSC                           CONSTANT      00003FFC          16380
+_LVP_OFF                          CONSTANT      00003F7F          16255
+_LVP_ON                           CONSTANT      00003FFF          16383
+_OPTION_REG                       EXTERNAL      00000000              0
+_OPTION_REGbits                   EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 40
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_PCON                             EXTERNAL      00000000              0
+_PCONbits                         EXTERNAL      00000000              0
+_PIE1                             EXTERNAL      00000000              0
+_PIE1bits                         EXTERNAL      00000000              0
+_PIE2                             EXTERNAL      00000000              0
+_PIE2bits                         EXTERNAL      00000000              0
+_PIR1                             EXTERNAL      00000000              0
+_PIR1bits                         EXTERNAL      00000000              0
+_PIR2                             EXTERNAL      00000000              0
+_PIR2bits                         EXTERNAL      00000000              0
+_PORTA                            EXTERNAL      00000000              0
+_PORTAbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PORTC                            EXTERNAL      00000000              0
+_PORTCbits                        EXTERNAL      00000000              0
+_PR2                              EXTERNAL      00000000              0
+_PWRTE_OFF                        CONSTANT      00003FFF          16383
+_PWRTE_ON                         CONSTANT      00003FF7          16375
+_RCREG                            EXTERNAL      00000000              0
+_RCSTA                            EXTERNAL      00000000              0
+_RCSTAbits                        EXTERNAL      00000000              0
+_RC_OSC                           CONSTANT      00003FFF          16383
+_SPBRG                            EXTERNAL      00000000              0
+_SSPADD                           EXTERNAL      00000000              0
+_SSPBUF                           EXTERNAL      00000000              0
+_SSPCON                           EXTERNAL      00000000              0
+_SSPCON2                          EXTERNAL      00000000              0
+_SSPCON2bits                      EXTERNAL      00000000              0
+_SSPCONbits                       EXTERNAL      00000000              0
+_SSPSTAT                          EXTERNAL      00000000              0
+_SSPSTATbits                      EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T2CON                            EXTERNAL      00000000              0
+_T2CONbits                        EXTERNAL      00000000              0
+_TMR0                             EXTERNAL      00000000              0
+_TMR1                             EXTERNAL      00000000              0
+_TMR1H                            EXTERNAL      00000000              0
+_TMR1L                            EXTERNAL      00000000              0
+_TMR2                             EXTERNAL      00000000              0
+_TRISA                            EXTERNAL      00000000              0
+_TRISAbits                        EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TRISC                            EXTERNAL      00000000              0
+_TRISCbits                        EXTERNAL      00000000              0
+_TXREG                            EXTERNAL      00000000              0
+_TXSTA                            EXTERNAL      00000000              0
+_TXSTAbits                        EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 41
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_WRT_1FOURTH                      CONSTANT      00003BFF          15359
+_WRT_256                          CONSTANT      00003DFF          15871
+_WRT_HALF                         CONSTANT      000039FF          14847
+_WRT_OFF                          CONSTANT      00003FFF          16383
+_XT_OSC                           CONSTANT      00003FFD          16381
+__14_BIT                          CONSTANT      00000001              1
+__16F876A                         CONSTANT      00000001              1
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      FFFFFFFF             -1
+__BANK_0                          CONSTANT      00000000              0
+__BANK_1                          CONSTANT      00000080            128
+__BANK_2                          CONSTANT      00000100            256
+__BANK_3                          CONSTANT      00000180            384
+__BANK_BITS                       CONSTANT      00000180            384
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000180            384
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__CODE_END                        CONSTANT      00001FFF           8191
+__CODE_START                      CONSTANT      00000000              0
+__COMMON_RAM_END                  CONSTANT      0000007F            127
+__COMMON_RAM_START                CONSTANT      00000070            112
+__CONFIG_END                      CONSTANT      00002007           8199
+__CONFIG_START                    CONSTANT      00002007           8199
+__EEPROM_END                      CONSTANT      000021FF           8703
+__EEPROM_START                    CONSTANT      00002100           8448
+__GPUTILS_SVN_VERSION             CONSTANT      00000000              0
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000002              2
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002003           8195
+__IDLOCS_START                    CONSTANT      00002000           8192
+__NUM_BANKS                       CONSTANT      00000004              4
+__NUM_PAGES                       CONSTANT      00000004              4
+__PAGE_0                          CONSTANT      00000000              0
+__PAGE_1                          CONSTANT      00000800           2048
+__PAGE_2                          CONSTANT      00001000           4096
+__PAGE_3                          CONSTANT      00001800           6144
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_FIRST                      CONSTANT      00000000              0
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_LAST                       CONSTANT      00001800           6144
+__PAGE_MASK                       CONSTANT      000007FF           2047
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000800           2048
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:40:43         PAGE 42
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__VECTOR_INT                      CONSTANT      00000004              4
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+___fs2schar                       EXTERNAL      00000000              0
+___fs2sint                        EXTERNAL      00000000              0
+___fs2slong                       EXTERNAL      00000000              0
+___fs2uchar                       EXTERNAL      00000000              0
+___fs2uint                        EXTERNAL      00000000              0
+___fs2ulong                       EXTERNAL      00000000              0
+___fsadd                          EXTERNAL      00000000              0
+___fsdiv                          EXTERNAL      00000000              0
+___fseq                           EXTERNAL      00000000              0
+___fsgt                           EXTERNAL      00000000              0
+___fslt                           EXTERNAL      00000000              0
+___fsmul                          EXTERNAL      00000000              0
+___fssub                          EXTERNAL      00000000              0
+___schar2fs                       EXTERNAL      00000000              0
+___sint2fs                        EXTERNAL      00000000              0
+___slong2fs                       EXTERNAL      00000000              0
+___uchar2fs                       EXTERNAL      00000000              0
+___uint2fs                        EXTERNAL      00000000              0
+___ulong2fs                       EXTERNAL      00000000              0
+_timer0_init                      GLOBAL        00000000              0
+_timer0_read_ps                   GLOBAL        00000000              0
+_timer2_init                      GLOBAL        00000000              0
+r0x100A                           STATIC        00000000              0
+r0x100B                           STATIC        00000001              1
+r0x100C                           STATIC        00000002              2
+r0x100D                           STATIC        00000003              3
+r0x100E                           STATIC        00000004              4
+r0x100F                           STATIC        00000005              5
+r0x1000                           STATIC        0000000C             12
+r0x1001                           STATIC        0000000D             13
+r0x1002                           STATIC        0000000E             14
+r0x1003                           STATIC        0000000F             15
+r0x1004                           STATIC        00000006              6
+r0x1005                           STATIC        00000007              7
+r0x1006                           STATIC        00000008              8
+r0x1007                           STATIC        00000009              9
+r0x1008                           STATIC        0000000A             10
+r0x1009                           STATIC        0000000B             11
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

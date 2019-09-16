@@ -1,0 +1,1557 @@
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 3.9.3 #11377 (MINGW64)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC16 port for the Microchip 16-bit core micros
+                      00006 ;--------------------------------------------------------
+                      00007         list    p=18f2550
+                      00008         radix   dec
+Warning[212]: __CONFIG has been deprecated for PIC18 devices. Use directive CONFIG.
+300000 0000           00009         __config 0x300001, 0x7c
+Warning[212]: __CONFIG has been deprecated for PIC18 devices. Use directive CONFIG.
+300006 0000           00010         __config 0x300006, 0x3b
+                      00011 
+                      00012 
+                      00013 ;--------------------------------------------------------
+                      00014 ; public variables in this module
+                      00015 ;--------------------------------------------------------
+  0000                00016         global  _F3
+  0000                00017         global  _F2
+  0000                00018         global  _F1
+  0000                00019         global  _timer1of
+  0000                00020         global  _delay10ms
+  0000                00021         global  _main
+  0000                00022         global  _testloop
+  0000                00023         global  _bres
+  0000                00024         global  _msecpart
+  0000                00025         global  _seconds
+  0000                00026         global  _msecs
+  0000                00027         global  _CCal
+  0000                00028         global  _blink
+  0000                00029         global  _isr
+                      00030 
+                      00031 ;--------------------------------------------------------
+                      00032 ; extern variables in this module
+                      00033 ;--------------------------------------------------------
+  0000                00034         extern  _UFRMLbits
+  0000                00035         extern  _UFRMHbits
+  0000                00036         extern  _UIRbits
+  0000                00037         extern  _UIEbits
+  0000                00038         extern  _UEIRbits
+  0000                00039         extern  _UEIEbits
+  0000                00040         extern  _USTATbits
+  0000                00041         extern  _UCONbits
+  0000                00042         extern  _UADDRbits
+  0000                00043         extern  _UCFGbits
+  0000                00044         extern  _UEP0bits
+  0000                00045         extern  _UEP1bits
+  0000                00046         extern  _UEP2bits
+  0000                00047         extern  _UEP3bits
+  0000                00048         extern  _UEP4bits
+  0000                00049         extern  _UEP5bits
+  0000                00050         extern  _UEP6bits
+  0000                00051         extern  _UEP7bits
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00052         extern  _UEP8bits
+  0000                00053         extern  _UEP9bits
+  0000                00054         extern  _UEP10bits
+  0000                00055         extern  _UEP11bits
+  0000                00056         extern  _UEP12bits
+  0000                00057         extern  _UEP13bits
+  0000                00058         extern  _UEP14bits
+  0000                00059         extern  _UEP15bits
+  0000                00060         extern  _PORTAbits
+  0000                00061         extern  _PORTBbits
+  0000                00062         extern  _PORTCbits
+  0000                00063         extern  _PORTEbits
+  0000                00064         extern  _LATAbits
+  0000                00065         extern  _LATBbits
+  0000                00066         extern  _LATCbits
+  0000                00067         extern  _DDRAbits
+  0000                00068         extern  _TRISAbits
+  0000                00069         extern  _DDRBbits
+  0000                00070         extern  _TRISBbits
+  0000                00071         extern  _DDRCbits
+  0000                00072         extern  _TRISCbits
+  0000                00073         extern  _OSCTUNEbits
+  0000                00074         extern  _PIE1bits
+  0000                00075         extern  _PIR1bits
+  0000                00076         extern  _IPR1bits
+  0000                00077         extern  _PIE2bits
+  0000                00078         extern  _PIR2bits
+  0000                00079         extern  _IPR2bits
+  0000                00080         extern  _EECON1bits
+  0000                00081         extern  _RCSTAbits
+  0000                00082         extern  _TXSTAbits
+  0000                00083         extern  _T3CONbits
+  0000                00084         extern  _CMCONbits
+  0000                00085         extern  _CVRCONbits
+  0000                00086         extern  _CCP1ASbits
+  0000                00087         extern  _ECCP1ASbits
+  0000                00088         extern  _CCP1DELbits
+  0000                00089         extern  _ECCP1DELbits
+  0000                00090         extern  _BAUDCONbits
+  0000                00091         extern  _BAUDCTLbits
+  0000                00092         extern  _CCP2CONbits
+  0000                00093         extern  _CCP1CONbits
+  0000                00094         extern  _ADCON2bits
+  0000                00095         extern  _ADCON1bits
+  0000                00096         extern  _ADCON0bits
+  0000                00097         extern  _SSPCON2bits
+  0000                00098         extern  _SSPCON1bits
+  0000                00099         extern  _SSPSTATbits
+  0000                00100         extern  _T2CONbits
+  0000                00101         extern  _T1CONbits
+  0000                00102         extern  _RCONbits
+  0000                00103         extern  _WDTCONbits
+  0000                00104         extern  _HLVDCONbits
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00105         extern  _LVDCONbits
+  0000                00106         extern  _OSCCONbits
+  0000                00107         extern  _T0CONbits
+  0000                00108         extern  _STATUSbits
+  0000                00109         extern  _INTCON3bits
+  0000                00110         extern  _INTCON2bits
+  0000                00111         extern  _INTCONbits
+  0000                00112         extern  _STKPTRbits
+  0000                00113         extern  _dvar
+  0000                00114         extern  _putchar_ptr
+  0000                00115         extern  _UFRM
+  0000                00116         extern  _UFRML
+  0000                00117         extern  _UFRMH
+  0000                00118         extern  _UIR
+  0000                00119         extern  _UIE
+  0000                00120         extern  _UEIR
+  0000                00121         extern  _UEIE
+  0000                00122         extern  _USTAT
+  0000                00123         extern  _UCON
+  0000                00124         extern  _UADDR
+  0000                00125         extern  _UCFG
+  0000                00126         extern  _UEP0
+  0000                00127         extern  _UEP1
+  0000                00128         extern  _UEP2
+  0000                00129         extern  _UEP3
+  0000                00130         extern  _UEP4
+  0000                00131         extern  _UEP5
+  0000                00132         extern  _UEP6
+  0000                00133         extern  _UEP7
+  0000                00134         extern  _UEP8
+  0000                00135         extern  _UEP9
+  0000                00136         extern  _UEP10
+  0000                00137         extern  _UEP11
+  0000                00138         extern  _UEP12
+  0000                00139         extern  _UEP13
+  0000                00140         extern  _UEP14
+  0000                00141         extern  _UEP15
+  0000                00142         extern  _PORTA
+  0000                00143         extern  _PORTB
+  0000                00144         extern  _PORTC
+  0000                00145         extern  _PORTE
+  0000                00146         extern  _LATA
+  0000                00147         extern  _LATB
+  0000                00148         extern  _LATC
+  0000                00149         extern  _DDRA
+  0000                00150         extern  _TRISA
+  0000                00151         extern  _DDRB
+  0000                00152         extern  _TRISB
+  0000                00153         extern  _DDRC
+  0000                00154         extern  _TRISC
+  0000                00155         extern  _OSCTUNE
+  0000                00156         extern  _PIE1
+  0000                00157         extern  _PIR1
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00158         extern  _IPR1
+  0000                00159         extern  _PIE2
+  0000                00160         extern  _PIR2
+  0000                00161         extern  _IPR2
+  0000                00162         extern  _EECON1
+  0000                00163         extern  _EECON2
+  0000                00164         extern  _EEDATA
+  0000                00165         extern  _EEADR
+  0000                00166         extern  _RCSTA
+  0000                00167         extern  _TXSTA
+  0000                00168         extern  _TXREG
+  0000                00169         extern  _RCREG
+  0000                00170         extern  _SPBRG
+  0000                00171         extern  _SPBRGH
+  0000                00172         extern  _T3CON
+  0000                00173         extern  _TMR3
+  0000                00174         extern  _TMR3L
+  0000                00175         extern  _TMR3H
+  0000                00176         extern  _CMCON
+  0000                00177         extern  _CVRCON
+  0000                00178         extern  _CCP1AS
+  0000                00179         extern  _ECCP1AS
+  0000                00180         extern  _CCP1DEL
+  0000                00181         extern  _ECCP1DEL
+  0000                00182         extern  _BAUDCON
+  0000                00183         extern  _BAUDCTL
+  0000                00184         extern  _CCP2CON
+  0000                00185         extern  _CCPR2
+  0000                00186         extern  _CCPR2L
+  0000                00187         extern  _CCPR2H
+  0000                00188         extern  _CCP1CON
+  0000                00189         extern  _CCPR1
+  0000                00190         extern  _CCPR1L
+  0000                00191         extern  _CCPR1H
+  0000                00192         extern  _ADCON2
+  0000                00193         extern  _ADCON1
+  0000                00194         extern  _ADCON0
+  0000                00195         extern  _ADRES
+  0000                00196         extern  _ADRESL
+  0000                00197         extern  _ADRESH
+  0000                00198         extern  _SSPCON2
+  0000                00199         extern  _SSPCON1
+  0000                00200         extern  _SSPSTAT
+  0000                00201         extern  _SSPADD
+  0000                00202         extern  _SSPBUF
+  0000                00203         extern  _T2CON
+  0000                00204         extern  _PR2
+  0000                00205         extern  _TMR2
+  0000                00206         extern  _T1CON
+  0000                00207         extern  _TMR1
+  0000                00208         extern  _TMR1L
+  0000                00209         extern  _TMR1H
+  0000                00210         extern  _RCON
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00211         extern  _WDTCON
+  0000                00212         extern  _HLVDCON
+  0000                00213         extern  _LVDCON
+  0000                00214         extern  _OSCCON
+  0000                00215         extern  _T0CON
+  0000                00216         extern  _TMR0
+  0000                00217         extern  _TMR0L
+  0000                00218         extern  _TMR0H
+  0000                00219         extern  _STATUS
+  0000                00220         extern  _FSR2L
+  0000                00221         extern  _FSR2H
+  0000                00222         extern  _PLUSW2
+  0000                00223         extern  _PREINC2
+  0000                00224         extern  _POSTDEC2
+  0000                00225         extern  _POSTINC2
+  0000                00226         extern  _INDF2
+  0000                00227         extern  _BSR
+  0000                00228         extern  _FSR1L
+  0000                00229         extern  _FSR1H
+  0000                00230         extern  _PLUSW1
+  0000                00231         extern  _PREINC1
+  0000                00232         extern  _POSTDEC1
+  0000                00233         extern  _POSTINC1
+  0000                00234         extern  _INDF1
+  0000                00235         extern  _WREG
+  0000                00236         extern  _FSR0L
+  0000                00237         extern  _FSR0H
+  0000                00238         extern  _PLUSW0
+  0000                00239         extern  _PREINC0
+  0000                00240         extern  _POSTDEC0
+  0000                00241         extern  _POSTINC0
+  0000                00242         extern  _INDF0
+  0000                00243         extern  _INTCON3
+  0000                00244         extern  _INTCON2
+  0000                00245         extern  _INTCON
+  0000                00246         extern  _PROD
+  0000                00247         extern  _PRODL
+  0000                00248         extern  _PRODH
+  0000                00249         extern  _TABLAT
+  0000                00250         extern  _TBLPTR
+  0000                00251         extern  _TBLPTRL
+  0000                00252         extern  _TBLPTRH
+  0000                00253         extern  _TBLPTRU
+  0000                00254         extern  _PC
+  0000                00255         extern  _PCL
+  0000                00256         extern  _PCLATH
+  0000                00257         extern  _PCLATU
+  0000                00258         extern  _STKPTR
+  0000                00259         extern  _TOS
+  0000                00260         extern  _TOSL
+  0000                00261         extern  _TOSH
+  0000                00262         extern  _TOSU
+  0000                00263         extern  _lcd_init
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00264         extern  _lcd_begin
+  0000                00265         extern  _lcd_clear
+  0000                00266         extern  _lcd_gotoxy
+  0000                00267         extern  _lcd_putch
+  0000                00268         extern  _timer0_init
+  0000                00269         extern  _timer2_init
+  0000                00270         extern  _uart_init
+  0000                00271         extern  _uart_puts
+  0000                00272         extern  _calibrate
+  0000                00273         extern  _measure_capacitance
+  0000                00274         extern  _measure_inductance
+  0000                00275         extern  _lcd_puts
+  0000                00276         extern  _indicator
+  0000                00277         extern  _format_number
+  0000                00278         extern  _format_double
+  0000                00279         extern  _uart_brg
+  0000                00280         extern  _logo_image
+                      00281 
+                      00282 ;--------------------------------------------------------
+                      00283 ;       Equates to used internal registers
+                      00284 ;--------------------------------------------------------
+  00000FD8            00285 STATUS  equ     0xfd8
+  00000FFA            00286 PCLATH  equ     0xffa
+  00000FFB            00287 PCLATU  equ     0xffb
+  00000FE8            00288 WREG    equ     0xfe8
+  00000FE0            00289 BSR     equ     0xfe0
+  00000FE9            00290 FSR0L   equ     0xfe9
+  00000FEA            00291 FSR0H   equ     0xfea
+  00000FE1            00292 FSR1L   equ     0xfe1
+  00000FD9            00293 FSR2L   equ     0xfd9
+  00000FE6            00294 POSTINC1        equ     0xfe6
+  00000FE5            00295 POSTDEC1        equ     0xfe5
+  00000FE4            00296 PREINC1 equ     0xfe4
+  00000FF3            00297 PRODL   equ     0xff3
+  00000FF4            00298 PRODH   equ     0xff4
+                      00299 
+                      00300 
+                      00301         idata
+000000 00 00          00302 _blink  db      0x00, 0x00
+000002 00             00303 _testloop_led_65536_83  db      0x00
+000003 00 00          00304 _testloop_prev_s_65536_83       db      0x00, 0x00
+                      00305 
+                      00306 
+                      00307 ; Internal registers
+                      00308 .registers      udata_ovr       0x0000
+000000                00309 r0x00   res     1
+000001                00310 r0x01   res     1
+000002                00311 r0x02   res     1
+000003                00312 r0x03   res     1
+000004                00313 r0x04   res     1
+000005                00314 r0x05   res     1
+                      00315 
+                      00316 udata_LC_meter_0        udata
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000000                00317 _timer1of       res     4
+                      00318 
+                      00319 udata_LC_meter_1        udata
+000000                00320 _F1     res     4
+                      00321 
+                      00322 udata_LC_meter_2        udata
+000000                00323 _F2     res     4
+                      00324 
+                      00325 udata_LC_meter_3        udata
+000000                00326 _F3     res     4
+                      00327 
+                      00328 udata_LC_meter_4        udata
+000000                00329 _bres   res     2
+                      00330 
+                      00331 udata_LC_meter_5        udata
+000000                00332 _msecpart       res     2
+                      00333 
+                      00334 udata_LC_meter_6        udata
+000000                00335 _msecs  res     4
+                      00336 
+                      00337 udata_LC_meter_7        udata
+000000                00338 _seconds        res     4
+                      00339 
+                      00340 udata_LC_meter_8        udata
+000000                00341 _CCal   res     4
+                      00342 
+                      00343 ;--------------------------------------------------------
+                      00344 ; interrupt vector
+                      00345 ;--------------------------------------------------------
+                      00346 
+                      00347 ;--------------------------------------------------------
+                      00348 ; global & static initialisations
+                      00349 ;--------------------------------------------------------
+                      00350 ; ; Starting pCode block for absolute section
+                      00351 ; ;-----------------------------------------
+                      00352 S_LC_meter_ivec_0x0_isr code    0X000000
+000000                00353 ivec_0x0_isr:
+000000 EF?? F0??      00354         GOTO    _isr
+                      00355 
+                      00356 ; I code from now on!
+                      00357 ; ; Starting pCode block
+                      00358 S_LC_meter__main        code
+000000                00359 _main:
+000000 010?           00360         BANKSEL _seconds
+                      00361 ;       .line   112; ../../../LC-meter.c        bres = msecpart = msecs = seconds = 0;
+000002 6B??           00362         CLRF    _seconds, B
+000004 010?           00363         BANKSEL (_seconds + 1)
+000006 6B??           00364         CLRF    (_seconds + 1), B
+000008 010?           00365         BANKSEL (_seconds + 2)
+00000A 6B??           00366         CLRF    (_seconds + 2), B
+00000C 010?           00367         BANKSEL (_seconds + 3)
+00000E 6B??           00368         CLRF    (_seconds + 3), B
+000010 010?           00369         BANKSEL _msecs
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000012 6B??           00370         CLRF    _msecs, B
+000014 010?           00371         BANKSEL (_msecs + 1)
+000016 6B??           00372         CLRF    (_msecs + 1), B
+000018 010?           00373         BANKSEL (_msecs + 2)
+00001A 6B??           00374         CLRF    (_msecs + 2), B
+00001C 010?           00375         BANKSEL (_msecs + 3)
+00001E 6B??           00376         CLRF    (_msecs + 3), B
+000020 010?           00377         BANKSEL _msecpart
+000022 6B??           00378         CLRF    _msecpart, B
+000024 010?           00379         BANKSEL (_msecpart + 1)
+000026 6B??           00380         CLRF    (_msecpart + 1), B
+000028 010?           00381         BANKSEL _bres
+00002A 6B??           00382         CLRF    _bres, B
+00002C 010?           00383         BANKSEL (_bres + 1)
+00002E 6B??           00384         CLRF    (_bres + 1), B
+000030 010?           00385         BANKSEL _CCal
+                      00386 ;       .line   114; ../../../LC-meter.c        CCal = C_CAL;
+000032 6B??           00387         CLRF    _CCal, B
+000034 010?           00388         BANKSEL (_CCal + 1)
+000036 6B??           00389         CLRF    (_CCal + 1), B
+000038 0E7A           00390         MOVLW   0x7a
+00003A 010?           00391         BANKSEL (_CCal + 2)
+00003C 6F??           00392         MOVWF   (_CCal + 2), B
+00003E 0E44           00393         MOVLW   0x44
+000040 010?           00394         BANKSEL (_CCal + 3)
+000042 6F??           00395         MOVWF   (_CCal + 3), B
+                      00396 ;       .line   123; ../../../LC-meter.c        TRISA = 0b11001111;
+000044 0ECF           00397         MOVLW   0xcf
+000046 6E??           00398         MOVWF   _TRISA
+                      00399 ;       .line   126; ../../../LC-meter.c        timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
+000048 0E44           00400         MOVLW   0x44
+00004A 6EE5           00401         MOVWF   POSTDEC1
+00004C EC?? F0??      00402         CALL    _timer0_init
+000050 52E6           00403         MOVF    POSTINC1, F
+                      00404 ;       .line   142; ../../../LC-meter.c        INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable por
+                            tB internal pullup
+000052 9E??           00405         BCF     _INTCON2, 7
+                      00406 ;       .line   148; ../../../LC-meter.c        INIT_LED();
+000054 92??           00407         BCF     _TRISC, 1
+                      00408 ;       .line   149; ../../../LC-meter.c        SET_LED(1);
+000056 92??           00409         BCF     _LATC, 1
+000058 82??           00410         BSF     _LATC, 1
+                      00411 ;       .line   152; ../../../LC-meter.c        SSPCON1 &= ~0b00100000; //  SSPEN = 0;
+00005A 9A??           00412         BCF     _SSPCON1, 5
+                      00413 ;       .line   160; ../../../LC-meter.c        timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+00005C 0E80           00414         MOVLW   0x80
+00005E 6EE5           00415         MOVWF   POSTDEC1
+000060 EC?? F0??      00416         CALL    _timer2_init
+000064 52E6           00417         MOVF    POSTINC1, F
+                      00418 ;       .line   165; ../../../LC-meter.c        TRISC &= 0b10110101;
+000066 0EB5           00419         MOVLW   0xb5
+000068 16??           00420         ANDWF   _TRISC, F
+                      00421 ;       .line   177; ../../../LC-meter.c        lcd_init(true);
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00006A 0E01           00422         MOVLW   0x01
+00006C 6EE5           00423         MOVWF   POSTDEC1
+00006E EC?? F0??      00424         CALL    _lcd_init
+000072 52E6           00425         MOVF    POSTINC1, F
+                      00426 ;       .line   178; ../../../LC-meter.c        lcd_begin(2, 1);
+000074 0E01           00427         MOVLW   0x01
+000076 6EE5           00428         MOVWF   POSTDEC1
+000078 0E02           00429         MOVLW   0x02
+00007A 6EE5           00430         MOVWF   POSTDEC1
+00007C EC?? F0??      00431         CALL    _lcd_begin
+000080 52E6           00432         MOVF    POSTINC1, F
+000082 52E6           00433         MOVF    POSTINC1, F
+                      00434 ;       .line   181; ../../../LC-meter.c        LC_TRIS();
+000084 80??           00435         BSF     _TRISC, 0
+                      00436 ;       .line   182; ../../../LC-meter.c        RELAY_TRIS();
+000086 9A??           00437         BCF     _TRISC, 5
+                      00438 ;       .line   184; ../../../LC-meter.c        REMOVE_CCAL();
+000088 94??           00439         BCF     _LATC, 2
+                      00440 ;       .line   185; ../../../LC-meter.c        delay10ms(50);
+00008A 0E32           00441         MOVLW   0x32
+00008C 6EE5           00442         MOVWF   POSTDEC1
+00008E EC?? F0??      00443         CALL    _delay10ms
+000092 52E6           00444         MOVF    POSTINC1, F
+                      00445 ;       .line   186; ../../../LC-meter.c        ADD_CCAL();
+000094 84??           00446         BSF     _LATC, 2
+                      00447 ;       .line   187; ../../../LC-meter.c        delay10ms(50);
+000096 0E32           00448         MOVLW   0x32
+000098 6EE5           00449         MOVWF   POSTDEC1
+00009A EC?? F0??      00450         CALL    _delay10ms
+00009E 52E6           00451         MOVF    POSTINC1, F
+                      00452 ;       .line   188; ../../../LC-meter.c        REMOVE_CCAL();
+0000A0 94??           00453         BCF     _LATC, 2
+                      00454 ;       .line   189; ../../../LC-meter.c        delay10ms(50);
+0000A2 0E32           00455         MOVLW   0x32
+0000A4 6EE5           00456         MOVWF   POSTDEC1
+0000A6 EC?? F0??      00457         CALL    _delay10ms
+0000AA 52E6           00458         MOVF    POSTINC1, F
+                      00459 ;       .line   190; ../../../LC-meter.c        ADD_CCAL();
+0000AC 84??           00460         BSF     _LATC, 2
+                      00461 ;       .line   191; ../../../LC-meter.c        delay10ms(50);
+0000AE 0E32           00462         MOVLW   0x32
+0000B0 6EE5           00463         MOVWF   POSTDEC1
+0000B2 EC?? F0??      00464         CALL    _delay10ms
+0000B6 52E6           00465         MOVF    POSTINC1, F
+                      00466 ;       .line   192; ../../../LC-meter.c        REMOVE_CCAL();
+0000B8 94??           00467         BCF     _LATC, 2
+                      00468 ;       .line   198; ../../../LC-meter.c        uart_init();
+0000BA EC?? F0??      00469         CALL    _uart_init
+                      00470 ;       .line   202; ../../../LC-meter.c        INTCON |= 0xc0; // PEIE = 1; GIE = 1;
+0000BE 0EC0           00471         MOVLW   0xc0
+0000C0 12??           00472         IORWF   _INTCON, F
+                      00473 ;       .line   205; ../../../LC-meter.c        putchar_ptr = &lcd_putch;
+0000C2 0E??           00474         MOVLW   LOW(_lcd_putch)
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0000C4 010?           00475         BANKSEL _putchar_ptr
+0000C6 6F??           00476         MOVWF   _putchar_ptr, B
+0000C8 0E??           00477         MOVLW   HIGH(_lcd_putch)
+0000CA 010?           00478         BANKSEL (_putchar_ptr + 1)
+0000CC 6F??           00479         MOVWF   (_putchar_ptr + 1), B
+                      00480 ;       .line   212; ../../../LC-meter.c        lcd_gotoxy(0, 0);
+0000CE 0E00           00481         MOVLW   0x00
+0000D0 6EE5           00482         MOVWF   POSTDEC1
+0000D2 0E00           00483         MOVLW   0x00
+0000D4 6EE5           00484         MOVWF   POSTDEC1
+0000D6 EC?? F0??      00485         CALL    _lcd_gotoxy
+0000DA 52E6           00486         MOVF    POSTINC1, F
+0000DC 52E6           00487         MOVF    POSTINC1, F
+                      00488 ;       .line   214; ../../../LC-meter.c        lcd_puts("LC-meter ");
+0000DE 0E??           00489         MOVLW   HIGH(___str_0)
+0000E0 6E??           00490         MOVWF   r0x01
+0000E2 0E??           00491         MOVLW   LOW(___str_0)
+0000E4 6E??           00492         MOVWF   r0x00
+0000E6 6A??           00493         CLRF    r0x02
+0000E8 50??           00494         MOVF    r0x02, W
+0000EA 6EE5           00495         MOVWF   POSTDEC1
+0000EC 50??           00496         MOVF    r0x01, W
+0000EE 6EE5           00497         MOVWF   POSTDEC1
+0000F0 50??           00498         MOVF    r0x00, W
+0000F2 6EE5           00499         MOVWF   POSTDEC1
+0000F4 EC?? F0??      00500         CALL    _lcd_puts
+0000F8 0E03           00501         MOVLW   0x03
+0000FA 26E1           00502         ADDWF   FSR1L, F
+0000FC 010?           00503         BANKSEL (_CCal + 3)
+                      00504 ;       .line   215; ../../../LC-meter.c        format_double(/*&lcd_putch,*/ CCal);
+0000FE 51??           00505         MOVF    (_CCal + 3), W, B
+000100 6EE5           00506         MOVWF   POSTDEC1
+000102 010?           00507         BANKSEL (_CCal + 2)
+000104 51??           00508         MOVF    (_CCal + 2), W, B
+000106 6EE5           00509         MOVWF   POSTDEC1
+000108 010?           00510         BANKSEL (_CCal + 1)
+00010A 51??           00511         MOVF    (_CCal + 1), W, B
+00010C 6EE5           00512         MOVWF   POSTDEC1
+00010E 010?           00513         BANKSEL _CCal
+000110 51??           00514         MOVF    _CCal, W, B
+000112 6EE5           00515         MOVWF   POSTDEC1
+000114 EC?? F0??      00516         CALL    _format_double
+000118 0E04           00517         MOVLW   0x04
+00011A 26E1           00518         ADDWF   FSR1L, F
+                      00519 ;       .line   221; ../../../LC-meter.c        delay10ms(200);
+00011C 0EC8           00520         MOVLW   0xc8
+00011E 6EE5           00521         MOVWF   POSTDEC1
+000120 EC?? F0??      00522         CALL    _delay10ms
+000124 52E6           00523         MOVF    POSTINC1, F
+                      00524 ;       .line   224; ../../../LC-meter.c        calibrate();
+000126 EC?? F0??      00525         CALL    _calibrate
+                      00526 ;       .line   226; ../../../LC-meter.c        lcd_clear();
+00012A EC?? F0??      00527         CALL    _lcd_clear
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00012E                00528 _00152_DS_:
+                      00529 ;       .line   237; ../../../LC-meter.c        uart_puts("...\r\n");
+00012E 0E??           00530         MOVLW   HIGH(___str_1)
+000130 6E??           00531         MOVWF   r0x01
+000132 0E??           00532         MOVLW   LOW(___str_1)
+000134 6E??           00533         MOVWF   r0x00
+000136 6A??           00534         CLRF    r0x02
+000138 50??           00535         MOVF    r0x02, W
+00013A 6EE5           00536         MOVWF   POSTDEC1
+00013C 50??           00537         MOVF    r0x01, W
+00013E 6EE5           00538         MOVWF   POSTDEC1
+000140 50??           00539         MOVF    r0x00, W
+000142 6EE5           00540         MOVWF   POSTDEC1
+000144 EC?? F0??      00541         CALL    _uart_puts
+000148 0E03           00542         MOVLW   0x03
+00014A 26E1           00543         ADDWF   FSR1L, F
+                      00544 ;       .line   238; ../../../LC-meter.c        if(PORTC & (1 << 4))
+00014C A8??           00545         BTFSS   _PORTC, 4
+00014E D???           00546         BRA     _00149_DS_
+                      00547 ;       .line   239; ../../../LC-meter.c        measure_capacitance();
+000150 EC?? F0??      00548         CALL    _measure_capacitance
+000154 D???           00549         BRA     _00150_DS_
+000156                00550 _00149_DS_:
+                      00551 ;       .line   241; ../../../LC-meter.c        measure_inductance();
+000156 EC?? F0??      00552         CALL    _measure_inductance
+00015A                00553 _00150_DS_:
+                      00554 ;       .line   243; ../../../LC-meter.c        indicator(1);
+00015A 0E01           00555         MOVLW   0x01
+00015C 6EE5           00556         MOVWF   POSTDEC1
+00015E EC?? F0??      00557         CALL    _indicator
+000162 52E6           00558         MOVF    POSTINC1, F
+                      00559 ;       .line   244; ../../../LC-meter.c        delay10ms(30);
+000164 0E1E           00560         MOVLW   0x1e
+000166 6EE5           00561         MOVWF   POSTDEC1
+000168 EC?? F0??      00562         CALL    _delay10ms
+00016C 52E6           00563         MOVF    POSTINC1, F
+                      00564 ;       .line   245; ../../../LC-meter.c        indicator(0);
+00016E 0E00           00565         MOVLW   0x00
+000170 6EE5           00566         MOVWF   POSTDEC1
+000172 EC?? F0??      00567         CALL    _indicator
+000176 52E6           00568         MOVF    POSTINC1, F
+                      00569 ;       .line   246; ../../../LC-meter.c        delay10ms(20);
+000178 0E14           00570         MOVLW   0x14
+00017A 6EE5           00571         MOVWF   POSTDEC1
+00017C EC?? F0??      00572         CALL    _delay10ms
+000180 52E6           00573         MOVF    POSTINC1, F
+000182 D???           00574         BRA     _00152_DS_
+                      00575 ;       .line   248; ../../../LC-meter.c        }
+000184 0012           00576         RETURN  
+                      00577 
+                      00578 ; ; Starting pCode block
+                      00579 S_LC_meter__testloop    code
+000000                00580 _testloop:
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 12
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00581 ;       .line   251; ../../../LC-meter.c        testloop() {
+000000 CFD9 FFE5      00582         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00583         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00584         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00585         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      00586         MOVFF   r0x02, POSTDEC1
+000014 C??? F???      00587         MOVFF   r0x03, POSTDEC1
+000018 C??? F???      00588         MOVFF   r0x04, POSTDEC1
+00001C C??? F???      00589         MOVFF   r0x05, POSTDEC1
+                      00590 ;       .line   257; ../../../LC-meter.c        delay10ms(10);
+000020 0E0A           00591         MOVLW   0x0a
+000022 6EE5           00592         MOVWF   POSTDEC1
+000024 EC?? F0??      00593         CALL    _delay10ms
+000028 52E6           00594         MOVF    POSTINC1, F
+                      00595 ;       .line   259; ../../../LC-meter.c        INTCON &= ~0x80; // GIE = 0;
+00002A 9E??           00596         BCF     _INTCON, 7
+00002C 010?           00597         BANKSEL _seconds
+                      00598 ;       .line   260; ../../../LC-meter.c        s = seconds;
+00002E 51??           00599         MOVF    _seconds, W, B
+000030 6E??           00600         MOVWF   r0x00
+000032 010?           00601         BANKSEL (_seconds + 1)
+000034 51??           00602         MOVF    (_seconds + 1), W, B
+000036 6E??           00603         MOVWF   r0x01
+                      00604 ;       .line   261; ../../../LC-meter.c        INTCON |= 0x80; // GIE = 1;
+000038 8E??           00605         BSF     _INTCON, 7
+                      00606 ;       .line   271; ../../../LC-meter.c        lcd_gotoxy(10, 0);
+00003A 0E00           00607         MOVLW   0x00
+00003C 6EE5           00608         MOVWF   POSTDEC1
+00003E 0E0A           00609         MOVLW   0x0a
+000040 6EE5           00610         MOVWF   POSTDEC1
+000042 EC?? F0??      00611         CALL    _lcd_gotoxy
+000046 52E6           00612         MOVF    POSTINC1, F
+000048 52E6           00613         MOVF    POSTINC1, F
+                      00614 ;       .line   272; ../../../LC-meter.c        lcd_puts("      ");
+00004A 0E??           00615         MOVLW   HIGH(___str_2)
+00004C 6E??           00616         MOVWF   r0x03
+00004E 0E??           00617         MOVLW   LOW(___str_2)
+000050 6E??           00618         MOVWF   r0x02
+000052 6A??           00619         CLRF    r0x04
+000054 50??           00620         MOVF    r0x04, W
+000056 6EE5           00621         MOVWF   POSTDEC1
+000058 50??           00622         MOVF    r0x03, W
+00005A 6EE5           00623         MOVWF   POSTDEC1
+00005C 50??           00624         MOVF    r0x02, W
+00005E 6EE5           00625         MOVWF   POSTDEC1
+000060 EC?? F0??      00626         CALL    _lcd_puts
+000064 0E03           00627         MOVLW   0x03
+000066 26E1           00628         ADDWF   FSR1L, F
+                      00629 ;       .line   273; ../../../LC-meter.c        lcd_gotoxy(10, 0);
+000068 0E00           00630         MOVLW   0x00
+00006A 6EE5           00631         MOVWF   POSTDEC1
+00006C 0E0A           00632         MOVLW   0x0a
+00006E 6EE5           00633         MOVWF   POSTDEC1
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 13
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000070 EC?? F0??      00634         CALL    _lcd_gotoxy
+000074 52E6           00635         MOVF    POSTINC1, F
+000076 52E6           00636         MOVF    POSTINC1, F
+                      00637 ;       .line   275; ../../../LC-meter.c        format_number(/*lcd_putch,*/ s, 10, 5);
+000078 0E05           00638         MOVLW   0x05
+00007A 6EE5           00639         MOVWF   POSTDEC1
+00007C 0E0A           00640         MOVLW   0x0a
+00007E 6EE5           00641         MOVWF   POSTDEC1
+000080 50??           00642         MOVF    r0x01, W
+000082 6EE5           00643         MOVWF   POSTDEC1
+000084 50??           00644         MOVF    r0x00, W
+000086 6EE5           00645         MOVWF   POSTDEC1
+000088 EC?? F0??      00646         CALL    _format_number
+00008C 0E04           00647         MOVLW   0x04
+00008E 26E1           00648         ADDWF   FSR1L, F
+                      00649 ;       .line   277; ../../../LC-meter.c        lcd_gotoxy(10, 1);
+000090 0E01           00650         MOVLW   0x01
+000092 6EE5           00651         MOVWF   POSTDEC1
+000094 0E0A           00652         MOVLW   0x0a
+000096 6EE5           00653         MOVWF   POSTDEC1
+000098 EC?? F0??      00654         CALL    _lcd_gotoxy
+00009C 52E6           00655         MOVF    POSTINC1, F
+00009E 52E6           00656         MOVF    POSTINC1, F
+                      00657 ;       .line   278; ../../../LC-meter.c        lcd_puts("      ");
+0000A0 0E??           00658         MOVLW   HIGH(___str_2)
+0000A2 6E??           00659         MOVWF   r0x03
+0000A4 0E??           00660         MOVLW   LOW(___str_2)
+0000A6 6E??           00661         MOVWF   r0x02
+0000A8 6A??           00662         CLRF    r0x04
+0000AA 50??           00663         MOVF    r0x04, W
+0000AC 6EE5           00664         MOVWF   POSTDEC1
+0000AE 50??           00665         MOVF    r0x03, W
+0000B0 6EE5           00666         MOVWF   POSTDEC1
+0000B2 50??           00667         MOVF    r0x02, W
+0000B4 6EE5           00668         MOVWF   POSTDEC1
+0000B6 EC?? F0??      00669         CALL    _lcd_puts
+0000BA 0E03           00670         MOVLW   0x03
+0000BC 26E1           00671         ADDWF   FSR1L, F
+                      00672 ;       .line   279; ../../../LC-meter.c        lcd_gotoxy(10, 1);
+0000BE 0E01           00673         MOVLW   0x01
+0000C0 6EE5           00674         MOVWF   POSTDEC1
+0000C2 0E0A           00675         MOVLW   0x0a
+0000C4 6EE5           00676         MOVWF   POSTDEC1
+0000C6 EC?? F0??      00677         CALL    _lcd_gotoxy
+0000CA 52E6           00678         MOVF    POSTINC1, F
+0000CC 52E6           00679         MOVF    POSTINC1, F
+                      00680 ;       .line   280; ../../../LC-meter.c        format_number(/*lcd_putch,*/ TIMER1_VALUE, 10, 5);
+0000CE C??? F???      00681         MOVFF   _TMR1H, r0x02
+0000D2 6A??           00682         CLRF    r0x03
+0000D4 50??           00683         MOVF    r0x02, W
+0000D6 6E??           00684         MOVWF   r0x05
+0000D8 6A??           00685         CLRF    r0x04
+0000DA C??? F???      00686         MOVFF   _TMR1L, r0x02
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 14
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0000DE 6A??           00687         CLRF    r0x03
+0000E0 50??           00688         MOVF    r0x02, W
+0000E2 12??           00689         IORWF   r0x04, F
+0000E4 50??           00690         MOVF    r0x03, W
+0000E6 12??           00691         IORWF   r0x05, F
+0000E8 0E05           00692         MOVLW   0x05
+0000EA 6EE5           00693         MOVWF   POSTDEC1
+0000EC 0E0A           00694         MOVLW   0x0a
+0000EE 6EE5           00695         MOVWF   POSTDEC1
+0000F0 50??           00696         MOVF    r0x05, W
+0000F2 6EE5           00697         MOVWF   POSTDEC1
+0000F4 50??           00698         MOVF    r0x04, W
+0000F6 6EE5           00699         MOVWF   POSTDEC1
+0000F8 EC?? F0??      00700         CALL    _format_number
+0000FC 0E04           00701         MOVLW   0x04
+0000FE 26E1           00702         ADDWF   FSR1L, F
+                      00703 ;       .line   282; ../../../LC-meter.c        lcd_gotoxy(0, 1);
+000100 0E01           00704         MOVLW   0x01
+000102 6EE5           00705         MOVWF   POSTDEC1
+000104 0E00           00706         MOVLW   0x00
+000106 6EE5           00707         MOVWF   POSTDEC1
+000108 EC?? F0??      00708         CALL    _lcd_gotoxy
+00010C 52E6           00709         MOVF    POSTINC1, F
+00010E 52E6           00710         MOVF    POSTINC1, F
+                      00711 ;       .line   283; ../../../LC-meter.c        lcd_puts("     ");
+000110 0E??           00712         MOVLW   HIGH(___str_3)
+000112 6E??           00713         MOVWF   r0x03
+000114 0E??           00714         MOVLW   LOW(___str_3)
+000116 6E??           00715         MOVWF   r0x02
+000118 6A??           00716         CLRF    r0x04
+00011A 50??           00717         MOVF    r0x04, W
+00011C 6EE5           00718         MOVWF   POSTDEC1
+00011E 50??           00719         MOVF    r0x03, W
+000120 6EE5           00720         MOVWF   POSTDEC1
+000122 50??           00721         MOVF    r0x02, W
+000124 6EE5           00722         MOVWF   POSTDEC1
+000126 EC?? F0??      00723         CALL    _lcd_puts
+00012A 0E03           00724         MOVLW   0x03
+00012C 26E1           00725         ADDWF   FSR1L, F
+                      00726 ;       .line   284; ../../../LC-meter.c        lcd_gotoxy(0, 1);
+00012E 0E01           00727         MOVLW   0x01
+000130 6EE5           00728         MOVWF   POSTDEC1
+000132 0E00           00729         MOVLW   0x00
+000134 6EE5           00730         MOVWF   POSTDEC1
+000136 EC?? F0??      00731         CALL    _lcd_gotoxy
+00013A 52E6           00732         MOVF    POSTINC1, F
+00013C 52E6           00733         MOVF    POSTINC1, F
+                      00734 ;       .line   285; ../../../LC-meter.c        lcd_puts("RC4=");
+00013E 0E??           00735         MOVLW   HIGH(___str_4)
+000140 6E??           00736         MOVWF   r0x03
+000142 0E??           00737         MOVLW   LOW(___str_4)
+000144 6E??           00738         MOVWF   r0x02
+000146 6A??           00739         CLRF    r0x04
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 15
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000148 50??           00740         MOVF    r0x04, W
+00014A 6EE5           00741         MOVWF   POSTDEC1
+00014C 50??           00742         MOVF    r0x03, W
+00014E 6EE5           00743         MOVWF   POSTDEC1
+000150 50??           00744         MOVF    r0x02, W
+000152 6EE5           00745         MOVWF   POSTDEC1
+000154 EC?? F0??      00746         CALL    _lcd_puts
+000158 0E03           00747         MOVLW   0x03
+00015A 26E1           00748         ADDWF   FSR1L, F
+                      00749 ;       .line   287; ../../../LC-meter.c        lcd_putch(LC_SELECT != 0 ? '1' : '0');
+00015C 50??           00750         MOVF    _LATC, W
+00015E 0B01           00751         ANDLW   0x01
+000160 6E??           00752         MOVWF   r0x02
+000162 50??           00753         MOVF    r0x02, W
+000164 80D8           00754         BSF     STATUS, 0
+000166 66E8           00755         TSTFSZ  WREG
+000168 90D8           00756         BCF     STATUS, 0
+00016A 6A??           00757         CLRF    r0x02
+00016C 36??           00758         RLCF    r0x02, F
+00016E 50??           00759         MOVF    r0x02, W
+000170 E1??           00760         BNZ     _00187_DS_
+000172 0E31           00761         MOVLW   0x31
+000174 6E??           00762         MOVWF   r0x02
+000176 6A??           00763         CLRF    r0x03
+000178 D???           00764         BRA     _00188_DS_
+00017A                00765 _00187_DS_:
+00017A 0E30           00766         MOVLW   0x30
+00017C 6E??           00767         MOVWF   r0x02
+00017E 6A??           00768         CLRF    r0x03
+000180                00769 _00188_DS_:
+000180 50??           00770         MOVF    r0x02, W
+000182 6EE5           00771         MOVWF   POSTDEC1
+000184 EC?? F0??      00772         CALL    _lcd_putch
+000188 52E6           00773         MOVF    POSTINC1, F
+                      00774 ;       .line   291; ../../../LC-meter.c        if(s != prev_s) {
+00018A 50??           00775         MOVF    r0x00, W
+00018C 010?           00776         BANKSEL _testloop_prev_s_65536_83
+00018E 19??           00777         XORWF   _testloop_prev_s_65536_83, W, B
+000190 E1??           00778         BNZ     _00201_DS_
+000192 50??           00779         MOVF    r0x01, W
+000194 010?           00780         BANKSEL (_testloop_prev_s_65536_83 + 1)
+000196 19??           00781         XORWF   (_testloop_prev_s_65536_83 + 1), W, B
+000198 E0??           00782         BZ      _00185_DS_
+00019A                00783 _00201_DS_:
+                      00784 ;       .line   298; ../../../LC-meter.c        prev_s = s;
+00019A C??? F???      00785         MOVFF   r0x00, _testloop_prev_s_65536_83
+00019E C??? F???      00786         MOVFF   r0x01, (_testloop_prev_s_65536_83 + 1)
+0001A2                00787 _00185_DS_:
+                      00788 ;       .line   300; ../../../LC-meter.c        }
+0001A2 CFE4 F000      00789         MOVFF   PREINC1, r0x05
+0001A6 CFE4 F000      00790         MOVFF   PREINC1, r0x04
+0001AA CFE4 F000      00791         MOVFF   PREINC1, r0x03
+0001AE CFE4 F000      00792         MOVFF   PREINC1, r0x02
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 16
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0001B2 CFE4 F000      00793         MOVFF   PREINC1, r0x01
+0001B6 CFE4 F000      00794         MOVFF   PREINC1, r0x00
+0001BA CFE4 FFD9      00795         MOVFF   PREINC1, FSR2L
+0001BE 0012           00796         RETURN  
+                      00797 
+                      00798 ; ; Starting pCode block
+                      00799 S_LC_meter__isr code
+000000                00800 _isr:
+                      00801 ;       .line   75; ../../../LC-meter.c INTERRUPT_FN() {
+000000 CFD8 FFE5      00802         MOVFF   STATUS, POSTDEC1
+000004 CFE0 FFE5      00803         MOVFF   BSR, POSTDEC1
+000008 6EE5           00804         MOVWF   POSTDEC1
+00000A CFF3 FFE5      00805         MOVFF   PRODL, POSTDEC1
+00000E CFF4 FFE5      00806         MOVFF   PRODH, POSTDEC1
+000012 CFE9 FFE5      00807         MOVFF   FSR0L, POSTDEC1
+000016 CFEA FFE5      00808         MOVFF   FSR0H, POSTDEC1
+00001A CFFA FFE5      00809         MOVFF   PCLATH, POSTDEC1
+00001E CFFB FFE5      00810         MOVFF   PCLATU, POSTDEC1
+000022 CFD9 FFE5      00811         MOVFF   FSR2L, POSTDEC1
+000026 CFE1 FFD9      00812         MOVFF   FSR1L, FSR2L
+00002A C??? F???      00813         MOVFF   r0x00, POSTDEC1
+00002E C??? F???      00814         MOVFF   r0x01, POSTDEC1
+000032 C??? F???      00815         MOVFF   r0x02, POSTDEC1
+000036 C??? F???      00816         MOVFF   r0x03, POSTDEC1
+                      00817 ;       .line   77; ../../../LC-meter.c if(PIR1 & 0b10) {
+00003A C??? F???      00818         MOVFF   _PIR1, r0x00
+00003E A2??           00819         BTFSS   r0x00, 1
+000040 D???           00820         BRA     _00118_DS_
+000042 010?           00821         BANKSEL (_bres + 1)
+                      00822 ;       .line   79; ../../../LC-meter.c bres += 256;
+000044 2B??           00823         INCF    (_bres + 1), F, B
+                      00824 ;       .line   81; ../../../LC-meter.c if(bres >= 5000) {
+000046 0E13           00825         MOVLW   0x13
+000048 010?           00826         BANKSEL (_bres + 1)
+00004A 5D??           00827         SUBWF   (_bres + 1), W, B
+00004C E1??           00828         BNZ     _00137_DS_
+00004E 0E88           00829         MOVLW   0x88
+000050 010?           00830         BANKSEL _bres
+000052 5D??           00831         SUBWF   _bres, W, B
+000054                00832 _00137_DS_:
+000054 A0D8           00833         BTFSS   STATUS, 0
+000056 D???           00834         BRA     _00115_DS_
+                      00835 ;       .line   82; ../../../LC-meter.c bres -= 5000;
+000058 0E78           00836         MOVLW   0x78
+00005A 010?           00837         BANKSEL _bres
+00005C 27??           00838         ADDWF   _bres, F, B
+00005E 0EEC           00839         MOVLW   0xec
+000060 010?           00840         BANKSEL (_bres + 1)
+000062 23??           00841         ADDWFC  (_bres + 1), F, B
+                      00842 ;       .line   83; ../../../LC-meter.c msecpart++;
+000064 C??? F???      00843         MOVFF   _msecpart, r0x00
+000068 C??? F???      00844         MOVFF   (_msecpart + 1), r0x01
+00006C 50??           00845         MOVF    r0x00, W
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 17
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00006E 0F01           00846         ADDLW   0x01
+000070 010?           00847         BANKSEL _msecpart
+000072 6F??           00848         MOVWF   _msecpart, B
+000074 0E00           00849         MOVLW   0x00
+000076 20??           00850         ADDWFC  r0x01, W
+000078 010?           00851         BANKSEL (_msecpart + 1)
+00007A 6F??           00852         MOVWF   (_msecpart + 1), B
+                      00853 ;       .line   84; ../../../LC-meter.c msecs++;
+00007C C??? F???      00854         MOVFF   _msecs, r0x00
+000080 C??? F???      00855         MOVFF   (_msecs + 1), r0x01
+000084 C??? F???      00856         MOVFF   (_msecs + 2), r0x02
+000088 C??? F???      00857         MOVFF   (_msecs + 3), r0x03
+00008C 50??           00858         MOVF    r0x00, W
+00008E 0F01           00859         ADDLW   0x01
+000090 010?           00860         BANKSEL _msecs
+000092 6F??           00861         MOVWF   _msecs, B
+000094 0E00           00862         MOVLW   0x00
+000096 20??           00863         ADDWFC  r0x01, W
+000098 010?           00864         BANKSEL (_msecs + 1)
+00009A 6F??           00865         MOVWF   (_msecs + 1), B
+00009C 0E00           00866         MOVLW   0x00
+00009E 20??           00867         ADDWFC  r0x02, W
+0000A0 010?           00868         BANKSEL (_msecs + 2)
+0000A2 6F??           00869         MOVWF   (_msecs + 2), B
+0000A4 0E00           00870         MOVLW   0x00
+0000A6 20??           00871         ADDWFC  r0x03, W
+0000A8 010?           00872         BANKSEL (_msecs + 3)
+0000AA 6F??           00873         MOVWF   (_msecs + 3), B
+                      00874 ;       .line   86; ../../../LC-meter.c SET_LED((blink > 200));
+0000AC 92??           00875         BCF     _LATC, 1
+0000AE 0E00           00876         MOVLW   0x00
+0000B0 010?           00877         BANKSEL (_blink + 1)
+0000B2 5D??           00878         SUBWF   (_blink + 1), W, B
+0000B4 E1??           00879         BNZ     _00140_DS_
+0000B6 0EC9           00880         MOVLW   0xc9
+0000B8 010?           00881         BANKSEL _blink
+0000BA 5D??           00882         SUBWF   _blink, W, B
+0000BC                00883 _00140_DS_:
+0000BC 6A??           00884         CLRF    r0x00
+0000BE 36??           00885         RLCF    r0x00, F
+0000C0 50??           00886         MOVF    r0x00, W
+0000C2 80D8           00887         BSF     STATUS, 0
+0000C4 66E8           00888         TSTFSZ  WREG
+0000C6 90D8           00889         BCF     STATUS, 0
+0000C8 6A??           00890         CLRF    r0x00
+0000CA 36??           00891         RLCF    r0x00, F
+0000CC 50??           00892         MOVF    r0x00, W
+0000CE 80D8           00893         BSF     STATUS, 0
+0000D0 66E8           00894         TSTFSZ  WREG
+0000D2 90D8           00895         BCF     STATUS, 0
+0000D4 6A??           00896         CLRF    r0x00
+0000D6 36??           00897         RLCF    r0x00, F
+0000D8 44??           00898         RLNCF   r0x00, W
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 18
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0000DA 0BFE           00899         ANDLW   0xfe
+0000DC 6E??           00900         MOVWF   r0x01
+0000DE 50??           00901         MOVF    _LATC, W
+0000E0 6E??           00902         MOVWF   r0x00
+0000E2 50??           00903         MOVF    r0x01, W
+0000E4 10??           00904         IORWF   r0x00, W
+0000E6 6E??           00905         MOVWF   _LATC
+                      00906 ;       .line   87; ../../../LC-meter.c if(blink >= 400)
+0000E8 0E01           00907         MOVLW   0x01
+0000EA 010?           00908         BANKSEL (_blink + 1)
+0000EC 5D??           00909         SUBWF   (_blink + 1), W, B
+0000EE E1??           00910         BNZ     _00142_DS_
+0000F0 0E90           00911         MOVLW   0x90
+0000F2 010?           00912         BANKSEL _blink
+0000F4 5D??           00913         SUBWF   _blink, W, B
+0000F6                00914 _00142_DS_:
+0000F6 E3??           00915         BNC     _00111_DS_
+                      00916 ;       .line   88; ../../../LC-meter.c blink -= 400;
+0000F8 0E70           00917         MOVLW   0x70
+0000FA 010?           00918         BANKSEL _blink
+0000FC 27??           00919         ADDWF   _blink, F, B
+0000FE 0EFE           00920         MOVLW   0xfe
+000100 010?           00921         BANKSEL (_blink + 1)
+000102 23??           00922         ADDWFC  (_blink + 1), F, B
+000104                00923 _00111_DS_:
+000104 010?           00924         BANKSEL _blink
+                      00925 ;       .line   89; ../../../LC-meter.c ++blink;
+000106 3F??           00926         INCFSZ  _blink, F, B
+000108 D???           00927         BRA     _10183_DS_
+00010A 010?           00928         BANKSEL (_blink + 1)
+00010C 2B??           00929         INCF    (_blink + 1), F, B
+00010E                00930 _10183_DS_:
+                      00931 ;       .line   92; ../../../LC-meter.c if(msecpart >= 1000) {
+00010E 0E03           00932         MOVLW   0x03
+000110 010?           00933         BANKSEL (_msecpart + 1)
+000112 5D??           00934         SUBWF   (_msecpart + 1), W, B
+000114 E1??           00935         BNZ     _00143_DS_
+000116 0EE8           00936         MOVLW   0xe8
+000118 010?           00937         BANKSEL _msecpart
+00011A 5D??           00938         SUBWF   _msecpart, W, B
+00011C                00939 _00143_DS_:
+00011C E3??           00940         BNC     _00115_DS_
+                      00941 ;       .line   94; ../../../LC-meter.c seconds++;
+00011E C??? F???      00942         MOVFF   _seconds, r0x00
+000122 C??? F???      00943         MOVFF   (_seconds + 1), r0x01
+000126 C??? F???      00944         MOVFF   (_seconds + 2), r0x02
+00012A C??? F???      00945         MOVFF   (_seconds + 3), r0x03
+00012E 50??           00946         MOVF    r0x00, W
+000130 0F01           00947         ADDLW   0x01
+000132 010?           00948         BANKSEL _seconds
+000134 6F??           00949         MOVWF   _seconds, B
+000136 0E00           00950         MOVLW   0x00
+000138 20??           00951         ADDWFC  r0x01, W
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 19
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00013A 010?           00952         BANKSEL (_seconds + 1)
+00013C 6F??           00953         MOVWF   (_seconds + 1), B
+00013E 0E00           00954         MOVLW   0x00
+000140 20??           00955         ADDWFC  r0x02, W
+000142 010?           00956         BANKSEL (_seconds + 2)
+000144 6F??           00957         MOVWF   (_seconds + 2), B
+000146 0E00           00958         MOVLW   0x00
+000148 20??           00959         ADDWFC  r0x03, W
+00014A 010?           00960         BANKSEL (_seconds + 3)
+00014C 6F??           00961         MOVWF   (_seconds + 3), B
+                      00962 ;       .line   95; ../../../LC-meter.c msecpart -= 1000;
+00014E 0E18           00963         MOVLW   0x18
+000150 010?           00964         BANKSEL _msecpart
+000152 27??           00965         ADDWF   _msecpart, F, B
+000154 0EFC           00966         MOVLW   0xfc
+000156 010?           00967         BANKSEL (_msecpart + 1)
+000158 23??           00968         ADDWFC  (_msecpart + 1), F, B
+00015A                00969 _00115_DS_:
+                      00970 ;       .line   99; ../../../LC-meter.c PIR1 &= ~0b10; // TMR2IF = 0
+00015A 92??           00971         BCF     _PIR1, 1
+00015C                00972 _00118_DS_:
+                      00973 ;       .line   107; ../../../LC-meter.c        }
+00015C CFE4 F000      00974         MOVFF   PREINC1, r0x03
+000160 CFE4 F000      00975         MOVFF   PREINC1, r0x02
+000164 CFE4 F000      00976         MOVFF   PREINC1, r0x01
+000168 CFE4 F000      00977         MOVFF   PREINC1, r0x00
+00016C CFE4 FFD9      00978         MOVFF   PREINC1, FSR2L
+000170 CFE4 FFFB      00979         MOVFF   PREINC1, PCLATU
+000174 CFE4 FFFA      00980         MOVFF   PREINC1, PCLATH
+000178 CFE4 FFEA      00981         MOVFF   PREINC1, FSR0H
+00017C CFE4 FFE9      00982         MOVFF   PREINC1, FSR0L
+000180 CFE4 FFF4      00983         MOVFF   PREINC1, PRODH
+000184 CFE4 FFF3      00984         MOVFF   PREINC1, PRODL
+000188 50E4           00985         MOVF    PREINC1, W
+00018A CFE4 FFE0      00986         MOVFF   PREINC1, BSR
+00018E CFE4 FFD8      00987         MOVFF   PREINC1, STATUS
+000192 0010           00988         RETFIE  
+                      00989 
+                      00990 ; ; Starting pCode block
+                      00991 S_LC_meter__delay10ms   code
+000000                00992 _delay10ms:
+                      00993 ;       .line   54; ../../../LC-meter.c delay10ms(unsigned char period_10ms) {
+000000 CFD9 FFE5      00994         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00995         MOVFF   FSR1L, FSR2L
+                      00996 ;       .line   58; ../../../LC-meter.c }
+000008 CFE4 FFD9      00997         MOVFF   PREINC1, FSR2L
+00000C 0012           00998         RETURN  
+                      00999 
+                      01000 ; ; Starting pCode block
+00000E                01001 ___str_0:
+00000E 434C 6D2D 7465 01002         DB      0x4c, 0x43, 0x2d, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x20, 0x00
+       7265 0020      
+                      01003 ; ; Starting pCode block
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 20
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000018                01004 ___str_1:
+000018 2E2E 0D2E 000A 01005         DB      0x2e, 0x2e, 0x2e, 0x0d, 0x0a, 0x00
+                      01006 ; ; Starting pCode block
+00001E                01007 ___str_2:
+00001E 2020 2020 2020 01008         DB      0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+       0000           
+                      01009 ; ; Starting pCode block
+000026                01010 ___str_3:
+000026 2020 2020 0020 01011         DB      0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+                      01012 ; ; Starting pCode block
+00002C                01013 ___str_4:
+00002C 4352 3D34 0000 01014         DB      0x52, 0x43, 0x34, 0x3d, 0x00
+                      01015 
+                      01016 
+                      01017 ; Statistics:
+                      01018 ; code size:     1268 (0x04f4) bytes ( 0.97%)
+                      01019 ;                 634 (0x027a) words
+                      01020 ; udata size:      32 (0x0020) bytes ( 1.79%)
+                      01021 ; access size:      6 (0x0006) bytes
+                      01022 
+                      01023 
+                      01024         end
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 21
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+BSR                               CONSTANT      00000FE0           4064
+FSR0H                             CONSTANT      00000FEA           4074
+FSR0L                             CONSTANT      00000FE9           4073
+FSR1L                             CONSTANT      00000FE1           4065
+FSR2L                             CONSTANT      00000FD9           4057
+PCLATH                            CONSTANT      00000FFA           4090
+PCLATU                            CONSTANT      00000FFB           4091
+POSTDEC1                          CONSTANT      00000FE5           4069
+POSTINC1                          CONSTANT      00000FE6           4070
+PREINC1                           CONSTANT      00000FE4           4068
+PRODH                             CONSTANT      00000FF4           4084
+PRODL                             CONSTANT      00000FF3           4083
+STATUS                            CONSTANT      00000FD8           4056
+WREG                              CONSTANT      00000FE8           4072
+_00111_DS_                        ADDRESS       00000104            260
+_00115_DS_                        ADDRESS       0000015A            346
+_00118_DS_                        ADDRESS       0000015C            348
+_00137_DS_                        ADDRESS       00000054             84
+_00140_DS_                        ADDRESS       000000BC            188
+_00142_DS_                        ADDRESS       000000F6            246
+_00143_DS_                        ADDRESS       0000011C            284
+_00149_DS_                        ADDRESS       00000156            342
+_00150_DS_                        ADDRESS       0000015A            346
+_00152_DS_                        ADDRESS       0000012E            302
+_00185_DS_                        ADDRESS       000001A2            418
+_00187_DS_                        ADDRESS       0000017A            378
+_00188_DS_                        ADDRESS       00000180            384
+_00201_DS_                        ADDRESS       0000019A            410
+_10183_DS_                        ADDRESS       0000010E            270
+_ADCON0                           EXTERNAL      00000000              0
+_ADCON0bits                       EXTERNAL      00000000              0
+_ADCON1                           EXTERNAL      00000000              0
+_ADCON1bits                       EXTERNAL      00000000              0
+_ADCON2                           EXTERNAL      00000000              0
+_ADCON2bits                       EXTERNAL      00000000              0
+_ADRES                            EXTERNAL      00000000              0
+_ADRESH                           EXTERNAL      00000000              0
+_ADRESL                           EXTERNAL      00000000              0
+_BAUDCON                          EXTERNAL      00000000              0
+_BAUDCONbits                      EXTERNAL      00000000              0
+_BAUDCTL                          EXTERNAL      00000000              0
+_BAUDCTLbits                      EXTERNAL      00000000              0
+_BSR                              EXTERNAL      00000000              0
+_CCP1AS                           EXTERNAL      00000000              0
+_CCP1ASbits                       EXTERNAL      00000000              0
+_CCP1CON                          EXTERNAL      00000000              0
+_CCP1CONbits                      EXTERNAL      00000000              0
+_CCP1DEL                          EXTERNAL      00000000              0
+_CCP1DELbits                      EXTERNAL      00000000              0
+_CCP2CON                          EXTERNAL      00000000              0
+_CCP2CONbits                      EXTERNAL      00000000              0
+_CCPR1                            EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 22
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_CCPR1H                           EXTERNAL      00000000              0
+_CCPR1L                           EXTERNAL      00000000              0
+_CCPR2                            EXTERNAL      00000000              0
+_CCPR2H                           EXTERNAL      00000000              0
+_CCPR2L                           EXTERNAL      00000000              0
+_CCal                             GLOBAL        00000000              0
+_CMCON                            EXTERNAL      00000000              0
+_CMCONbits                        EXTERNAL      00000000              0
+_CVRCON                           EXTERNAL      00000000              0
+_CVRCONbits                       EXTERNAL      00000000              0
+_DDRA                             EXTERNAL      00000000              0
+_DDRAbits                         EXTERNAL      00000000              0
+_DDRB                             EXTERNAL      00000000              0
+_DDRBbits                         EXTERNAL      00000000              0
+_DDRC                             EXTERNAL      00000000              0
+_DDRCbits                         EXTERNAL      00000000              0
+_ECCP1AS                          EXTERNAL      00000000              0
+_ECCP1ASbits                      EXTERNAL      00000000              0
+_ECCP1DEL                         EXTERNAL      00000000              0
+_ECCP1DELbits                     EXTERNAL      00000000              0
+_EEADR                            EXTERNAL      00000000              0
+_EECON1                           EXTERNAL      00000000              0
+_EECON1bits                       EXTERNAL      00000000              0
+_EECON2                           EXTERNAL      00000000              0
+_EEDATA                           EXTERNAL      00000000              0
+_F1                               GLOBAL        00000000              0
+_F2                               GLOBAL        00000000              0
+_F3                               GLOBAL        00000000              0
+_FSR0H                            EXTERNAL      00000000              0
+_FSR0L                            EXTERNAL      00000000              0
+_FSR1H                            EXTERNAL      00000000              0
+_FSR1L                            EXTERNAL      00000000              0
+_FSR2H                            EXTERNAL      00000000              0
+_FSR2L                            EXTERNAL      00000000              0
+_HLVDCON                          EXTERNAL      00000000              0
+_HLVDCONbits                      EXTERNAL      00000000              0
+_INDF0                            EXTERNAL      00000000              0
+_INDF1                            EXTERNAL      00000000              0
+_INDF2                            EXTERNAL      00000000              0
+_INTCON                           EXTERNAL      00000000              0
+_INTCON2                          EXTERNAL      00000000              0
+_INTCON2bits                      EXTERNAL      00000000              0
+_INTCON3                          EXTERNAL      00000000              0
+_INTCON3bits                      EXTERNAL      00000000              0
+_INTCONbits                       EXTERNAL      00000000              0
+_IPR1                             EXTERNAL      00000000              0
+_IPR1bits                         EXTERNAL      00000000              0
+_IPR2                             EXTERNAL      00000000              0
+_IPR2bits                         EXTERNAL      00000000              0
+_LATA                             EXTERNAL      00000000              0
+_LATAbits                         EXTERNAL      00000000              0
+_LATB                             EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 23
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_LATBbits                         EXTERNAL      00000000              0
+_LATC                             EXTERNAL      00000000              0
+_LATCbits                         EXTERNAL      00000000              0
+_LVDCON                           EXTERNAL      00000000              0
+_LVDCONbits                       EXTERNAL      00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_OSCTUNE                          EXTERNAL      00000000              0
+_OSCTUNEbits                      EXTERNAL      00000000              0
+_PC                               EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCLATU                           EXTERNAL      00000000              0
+_PIE1                             EXTERNAL      00000000              0
+_PIE1bits                         EXTERNAL      00000000              0
+_PIE2                             EXTERNAL      00000000              0
+_PIE2bits                         EXTERNAL      00000000              0
+_PIR1                             EXTERNAL      00000000              0
+_PIR1bits                         EXTERNAL      00000000              0
+_PIR2                             EXTERNAL      00000000              0
+_PIR2bits                         EXTERNAL      00000000              0
+_PLUSW0                           EXTERNAL      00000000              0
+_PLUSW1                           EXTERNAL      00000000              0
+_PLUSW2                           EXTERNAL      00000000              0
+_PORTA                            EXTERNAL      00000000              0
+_PORTAbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PORTC                            EXTERNAL      00000000              0
+_PORTCbits                        EXTERNAL      00000000              0
+_PORTE                            EXTERNAL      00000000              0
+_PORTEbits                        EXTERNAL      00000000              0
+_POSTDEC0                         EXTERNAL      00000000              0
+_POSTDEC1                         EXTERNAL      00000000              0
+_POSTDEC2                         EXTERNAL      00000000              0
+_POSTINC0                         EXTERNAL      00000000              0
+_POSTINC1                         EXTERNAL      00000000              0
+_POSTINC2                         EXTERNAL      00000000              0
+_PR2                              EXTERNAL      00000000              0
+_PREINC0                          EXTERNAL      00000000              0
+_PREINC1                          EXTERNAL      00000000              0
+_PREINC2                          EXTERNAL      00000000              0
+_PROD                             EXTERNAL      00000000              0
+_PRODH                            EXTERNAL      00000000              0
+_PRODL                            EXTERNAL      00000000              0
+_RCON                             EXTERNAL      00000000              0
+_RCONbits                         EXTERNAL      00000000              0
+_RCREG                            EXTERNAL      00000000              0
+_RCSTA                            EXTERNAL      00000000              0
+_RCSTAbits                        EXTERNAL      00000000              0
+_SPBRG                            EXTERNAL      00000000              0
+_SPBRGH                           EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 24
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_SSPADD                           EXTERNAL      00000000              0
+_SSPBUF                           EXTERNAL      00000000              0
+_SSPCON1                          EXTERNAL      00000000              0
+_SSPCON1bits                      EXTERNAL      00000000              0
+_SSPCON2                          EXTERNAL      00000000              0
+_SSPCON2bits                      EXTERNAL      00000000              0
+_SSPSTAT                          EXTERNAL      00000000              0
+_SSPSTATbits                      EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_STKPTR                           EXTERNAL      00000000              0
+_STKPTRbits                       EXTERNAL      00000000              0
+_T0CON                            EXTERNAL      00000000              0
+_T0CONbits                        EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T2CON                            EXTERNAL      00000000              0
+_T2CONbits                        EXTERNAL      00000000              0
+_T3CON                            EXTERNAL      00000000              0
+_T3CONbits                        EXTERNAL      00000000              0
+_TABLAT                           EXTERNAL      00000000              0
+_TBLPTR                           EXTERNAL      00000000              0
+_TBLPTRH                          EXTERNAL      00000000              0
+_TBLPTRL                          EXTERNAL      00000000              0
+_TBLPTRU                          EXTERNAL      00000000              0
+_TMR0                             EXTERNAL      00000000              0
+_TMR0H                            EXTERNAL      00000000              0
+_TMR0L                            EXTERNAL      00000000              0
+_TMR1                             EXTERNAL      00000000              0
+_TMR1H                            EXTERNAL      00000000              0
+_TMR1L                            EXTERNAL      00000000              0
+_TMR2                             EXTERNAL      00000000              0
+_TMR3                             EXTERNAL      00000000              0
+_TMR3H                            EXTERNAL      00000000              0
+_TMR3L                            EXTERNAL      00000000              0
+_TOS                              EXTERNAL      00000000              0
+_TOSH                             EXTERNAL      00000000              0
+_TOSL                             EXTERNAL      00000000              0
+_TOSU                             EXTERNAL      00000000              0
+_TRISA                            EXTERNAL      00000000              0
+_TRISAbits                        EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TRISC                            EXTERNAL      00000000              0
+_TRISCbits                        EXTERNAL      00000000              0
+_TXREG                            EXTERNAL      00000000              0
+_TXSTA                            EXTERNAL      00000000              0
+_TXSTAbits                        EXTERNAL      00000000              0
+_UADDR                            EXTERNAL      00000000              0
+_UADDRbits                        EXTERNAL      00000000              0
+_UCFG                             EXTERNAL      00000000              0
+_UCFGbits                         EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_UCON                             EXTERNAL      00000000              0
+_UCONbits                         EXTERNAL      00000000              0
+_UEIE                             EXTERNAL      00000000              0
+_UEIEbits                         EXTERNAL      00000000              0
+_UEIR                             EXTERNAL      00000000              0
+_UEIRbits                         EXTERNAL      00000000              0
+_UEP0                             EXTERNAL      00000000              0
+_UEP0bits                         EXTERNAL      00000000              0
+_UEP1                             EXTERNAL      00000000              0
+_UEP1bits                         EXTERNAL      00000000              0
+_UEP2                             EXTERNAL      00000000              0
+_UEP2bits                         EXTERNAL      00000000              0
+_UEP3                             EXTERNAL      00000000              0
+_UEP3bits                         EXTERNAL      00000000              0
+_UEP4                             EXTERNAL      00000000              0
+_UEP4bits                         EXTERNAL      00000000              0
+_UEP5                             EXTERNAL      00000000              0
+_UEP5bits                         EXTERNAL      00000000              0
+_UEP6                             EXTERNAL      00000000              0
+_UEP6bits                         EXTERNAL      00000000              0
+_UEP7                             EXTERNAL      00000000              0
+_UEP7bits                         EXTERNAL      00000000              0
+_UEP8                             EXTERNAL      00000000              0
+_UEP8bits                         EXTERNAL      00000000              0
+_UEP9                             EXTERNAL      00000000              0
+_UEP9bits                         EXTERNAL      00000000              0
+_UEP10                            EXTERNAL      00000000              0
+_UEP10bits                        EXTERNAL      00000000              0
+_UEP11                            EXTERNAL      00000000              0
+_UEP11bits                        EXTERNAL      00000000              0
+_UEP12                            EXTERNAL      00000000              0
+_UEP12bits                        EXTERNAL      00000000              0
+_UEP13                            EXTERNAL      00000000              0
+_UEP13bits                        EXTERNAL      00000000              0
+_UEP14                            EXTERNAL      00000000              0
+_UEP14bits                        EXTERNAL      00000000              0
+_UEP15                            EXTERNAL      00000000              0
+_UEP15bits                        EXTERNAL      00000000              0
+_UFRM                             EXTERNAL      00000000              0
+_UFRMH                            EXTERNAL      00000000              0
+_UFRMHbits                        EXTERNAL      00000000              0
+_UFRML                            EXTERNAL      00000000              0
+_UFRMLbits                        EXTERNAL      00000000              0
+_UIE                              EXTERNAL      00000000              0
+_UIEbits                          EXTERNAL      00000000              0
+_UIR                              EXTERNAL      00000000              0
+_UIRbits                          EXTERNAL      00000000              0
+_USTAT                            EXTERNAL      00000000              0
+_USTATbits                        EXTERNAL      00000000              0
+_WDTCON                           EXTERNAL      00000000              0
+_WDTCONbits                       EXTERNAL      00000000              0
+_WREG                             EXTERNAL      00000000              0
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__16_BIT                          CONSTANT      00000001              1
+__18F2550                         CONSTANT      00000001              1
+__ACC_RAM_LOW_END                 CONSTANT      0000005F             95
+__ACC_RAM_LOW_START               CONSTANT      00000000              0
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      FFFFFFFF             -1
+__BANK_0                          CONSTANT      00000000              0
+__BANK_1                          CONSTANT      00000100            256
+__BANK_2                          CONSTANT      00000200            512
+__BANK_3                          CONSTANT      00000300            768
+__BANK_4                          CONSTANT      00000400           1024
+__BANK_5                          CONSTANT      00000500           1280
+__BANK_6                          CONSTANT      00000600           1536
+__BANK_7                          CONSTANT      00000700           1792
+__BANK_8                          CONSTANT      00000800           2048
+__BANK_9                          CONSTANT      00000900           2304
+__BANK_10                         CONSTANT      00000A00           2560
+__BANK_11                         CONSTANT      00000B00           2816
+__BANK_12                         CONSTANT      00000C00           3072
+__BANK_13                         CONSTANT      00000D00           3328
+__BANK_14                         CONSTANT      00000E00           3584
+__BANK_15                         CONSTANT      00000F00           3840
+__BANK_BITS                       CONSTANT      00000F00           3840
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000F00           3840
+__BANK_MASK                       CONSTANT      000000FF            255
+__BANK_SHIFT                      CONSTANT      00000008              8
+__BANK_SIZE                       CONSTANT      00000100            256
+__CODE_END                        CONSTANT      00007FFF          32767
+__CODE_START                      CONSTANT      00000000              0
+__COMMON_RAM_END                  CONSTANT      0000005F             95
+__COMMON_RAM_START                CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      0030000D        3145741
+__CONFIG_START                    CONSTANT      00300000        3145728
+__EEPROM_END                      CONSTANT      00F000FF       15728895
+__EEPROM_START                    CONSTANT      00F00000       15728640
+__EXTENDED                        CONSTANT      00000001              1
+__GPUTILS_SVN_VERSION             CONSTANT      00000000              0
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000002              2
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00200007        2097159
+__IDLOCS_START                    CONSTANT      00200000        2097152
+__NUM_BANKS                       CONSTANT      00000010             16
+__VECTOR_INT_HIGH                 CONSTANT      00000008              8
+__VECTOR_INT_LOW                  CONSTANT      00000018             24
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+___str_0                          ADDRESS       0000000E             14
+___str_1                          ADDRESS       00000018             24
+___str_2                          ADDRESS       0000001E             30
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:32:01         PAGE 27
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+___str_3                          ADDRESS       00000026             38
+___str_4                          ADDRESS       0000002C             44
+_blink                            GLOBAL        00000000              0
+_bres                             GLOBAL        00000000              0
+_calibrate                        EXTERNAL      00000000              0
+_delay10ms                        GLOBAL        00000000              0
+_dvar                             EXTERNAL      00000000              0
+_format_double                    EXTERNAL      00000000              0
+_format_number                    EXTERNAL      00000000              0
+_indicator                        EXTERNAL      00000000              0
+_isr                              GLOBAL        00000000              0
+_lcd_begin                        EXTERNAL      00000000              0
+_lcd_clear                        EXTERNAL      00000000              0
+_lcd_gotoxy                       EXTERNAL      00000000              0
+_lcd_init                         EXTERNAL      00000000              0
+_lcd_putch                        EXTERNAL      00000000              0
+_lcd_puts                         EXTERNAL      00000000              0
+_logo_image                       EXTERNAL      00000000              0
+_main                             GLOBAL        00000000              0
+_measure_capacitance              EXTERNAL      00000000              0
+_measure_inductance               EXTERNAL      00000000              0
+_msecpart                         GLOBAL        00000000              0
+_msecs                            GLOBAL        00000000              0
+_putchar_ptr                      EXTERNAL      00000000              0
+_seconds                          GLOBAL        00000000              0
+_testloop                         GLOBAL        00000000              0
+_testloop_led_65536_83            STATIC        00000002              2
+_testloop_prev_s_65536_83         STATIC        00000003              3
+_timer0_init                      EXTERNAL      00000000              0
+_timer1of                         GLOBAL        00000000              0
+_timer2_init                      EXTERNAL      00000000              0
+_uart_brg                         EXTERNAL      00000000              0
+_uart_init                        EXTERNAL      00000000              0
+_uart_puts                        EXTERNAL      00000000              0
+ivec_0x0_isr                      ADDRESS       00000000              0
+r0x00                             STATIC        00000000              0
+r0x01                             STATIC        00000001              1
+r0x02                             STATIC        00000002              2
+r0x03                             STATIC        00000003              3
+r0x04                             STATIC        00000004              4
+r0x05                             STATIC        00000005              5
+
+Errors   :     0
+Warnings :     2 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
