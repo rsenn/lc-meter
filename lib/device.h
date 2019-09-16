@@ -11,8 +11,17 @@
 #ifdef __18f252
 #include <pic16/pic18f252.h>
 #endif
+#ifdef __18f2520
+#include <pic16/pic18f2520.h>
+#endif
 #ifdef __18f2550
 #include <pic16/pic18f2550.h>
+#endif
+#ifdef __18f25k22
+#include <pic16/pic18f25k22.h>
+#endif
+#ifdef __18f25k50
+#include <pic16/pic18f25k50.h>
 #endif
 
 #elif defined(__XC8) || defined(__XC)
