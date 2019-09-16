@@ -140,7 +140,10 @@ COMMON_FLAGS += --double=32
 
 COMMON_FLAGS += --warn=3
 #COMMON_FLAGS += --codeoffset=$(CODEOFFSET)
+
+ifneq ($(CODEOFFSET),)
 LDFLAGS += --codeoffset=$(CODEOFFSET)
+endif
 
 #COMMON_FLAGS += --mode=PRO
 
