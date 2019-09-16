@@ -4,22 +4,23 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/timer.h</itemPath>
+        <itemPath>../../../lib/typedef.h</itemPath>
+        <itemPath>../../../lib/lcd44780.h</itemPath>
+        <itemPath>../../../lib/interrupt.h</itemPath>
+        <itemPath>../../../lib/delay.h</itemPath>
+        <itemPath>../../../lib/const.h</itemPath>
+        <itemPath>../../../lib/comparator.h</itemPath>
+        <itemPath>../../../lib/format.h</itemPath>
+        <itemPath>../../../lib/oscillator.h</itemPath>
+        <itemPath>../../../lib/uart.h</itemPath>
+      </logicalFolder>
       <itemPath>../../../LC-meter.h</itemPath>
       <itemPath>../../../src/config-16f876a.h</itemPath>
       <itemPath>../../../src/config-bits.h</itemPath>
-      <itemPath>../../../src/device.h</itemPath>
       <itemPath>../../../src/lcd44780-config.h</itemPath>
       <itemPath>../../../src/print.h</itemPath>
-      <itemPath>../../../lib/comparator.h</itemPath>
-      <itemPath>../../../lib/const.h</itemPath>
-      <itemPath>../../../lib/delay.h</itemPath>
-      <itemPath>../../../lib/format.h</itemPath>
-      <itemPath>../../../lib/interrupt.h</itemPath>
-      <itemPath>../../../lib/lcd44780.h</itemPath>
-      <itemPath>../../../lib/oscillator.h</itemPath>
-      <itemPath>../../../lib/ser.h</itemPath>
-      <itemPath>../../../lib/timer.h</itemPath>
-      <itemPath>../../../lib/typedef.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LibraryFiles"
                    displayName="Library Files"
@@ -36,14 +37,16 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../../../LC-meter.c</itemPath>
+      <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/comparator.c</itemPath>
+        <itemPath>../../../lib/delay.c</itemPath>
+        <itemPath>../../../lib/lcd44780.c</itemPath>
+        <itemPath>../../../lib/format.c</itemPath>
+        <itemPath>../../../lib/timer.c</itemPath>
+        <itemPath>../../../lib/uart.c</itemPath>
+      </logicalFolder>
       <itemPath>../../../src/print.c</itemPath>
-      <itemPath>../../../lib/delay.c</itemPath>
-      <itemPath>../../../lib/comparator.c</itemPath>
-      <itemPath>../../../lib/format.c</itemPath>
-      <itemPath>../../../lib/lcd44780.c</itemPath>
-      <itemPath>../../../lib/ser.c</itemPath>
-      <itemPath>../../../lib/timer.c</itemPath>
+      <itemPath>../../../LC-meter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -74,6 +77,7 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
+            <linkerLibFileItem>C:/Program Files/SDCC/lib/pic14/libm.lib</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -182,8 +186,8 @@
         <property key="use-crt" value=""/>
         <property key="use-non-free" value="true"/>
         <property key="user-defines"
-                  value="SDCC=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1"/>
-        <property key="user-includes" value="..\..\..\lib;..\..\..\src"/>
+                  value="SDCC=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;USE_HD44780_LCD=1"/>
+        <property key="user-includes" value="..\..\..\lib;..\..\..\src;..\..\.."/>
         <property key="verbose" value="true"/>
       </sdcc-config>
     </conf>

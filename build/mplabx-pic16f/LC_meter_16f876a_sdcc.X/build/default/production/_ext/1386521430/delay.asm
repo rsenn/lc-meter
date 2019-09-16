@@ -30,10 +30,6 @@
 	extern	___fslt
 	extern	___fseq
 	extern	___fsgt
-	extern	_Delay100TCYx
-	extern	_Delay10KTCYx
-	extern	_Delay10TCYx
-	extern	_Delay1KTCYx
 	extern	_cycle_eater
 	extern	_STATUSbits
 	extern	_PORTAbits
@@ -140,8 +136,8 @@
 ;--------------------------------------------------------
 ; global declarations
 ;--------------------------------------------------------
-	global	_delay_ms
 	global	_delay_us
+	global	_delay_ms
 
 ;--------------------------------------------------------
 ; global definitions
