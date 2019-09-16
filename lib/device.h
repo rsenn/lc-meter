@@ -362,4 +362,9 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define PIC18_USB 1
 #endif
 
+#if defined(__SDCC) || defined(SDCC)
+#define NOP()  __asm nop __endasm
+#endif
+
+
 #endif /* DEVICE_H */

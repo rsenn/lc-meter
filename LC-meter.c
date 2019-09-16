@@ -34,7 +34,7 @@
 
 #include "config-bits.h"
 
-#if defined(__SDCC) || defined(SDCC)
+#if (defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
@@ -74,7 +74,7 @@ volatile uint16_t blink = 0;
 
 INTERRUPT_FN() {
 
-  if(TMR2IF) {
+  if(PIR1 & 0b10) {
 
     bres += 256;
 
@@ -96,7 +96,7 @@ INTERRUPT_FN() {
       }
     }
     // Clear timer interrupt bit
-    TMR2IF = 0;
+    PIR1 &= ~0b10; // TMR2IF = 0
   }
 #ifdef USE_SER
   ser_int();
@@ -126,7 +126,8 @@ main() {
   timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
 
   /// T0CS = 1; // Transition on T0CKI pin
-  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+  //
+   T0CON |= 0x10; // T0SE = 1; // Increment on high-to-low transition on T0CKI pin
 
   /*
   CM0 = 1;
@@ -137,13 +138,13 @@ main() {
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
-  NOT_RBPU = 0; // enable portB internal pullup
+  INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
 #endif
 
   INIT_LED();
   SET_LED(1);
 
-  SSPEN = 0;
+  SSPCON1 &= ~0b00100000; //  SSPEN = 0;
 
   // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   //  timer1of = 0;
@@ -165,7 +166,7 @@ main() {
   lcd_init();
   lcd_clear();
 #elif USE_HD44780_LCD
-  lcd_init(TRUE);
+  lcd_init(true);
   lcd_begin(2, 1);
 #endif
 
@@ -190,8 +191,7 @@ main() {
 #endif
   //  TRISC &= ~0b01000000;
 
-  PEIE = 1;
-  GIE = 1;
+  INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   putchar_ptr = &lcd_putch;
@@ -227,7 +227,7 @@ main() {
   for(;;) {
 
     uart_puts("...\r\n");
-    if(LC_SELECT)
+    if(PORTC & (1 << 4))
       measure_capacitance();
     else
       measure_inductance();
@@ -248,9 +248,9 @@ testloop() {
 
   delay10ms(10);
 
-  GIE = 0;
+  INTCON &= ~0x80; // GIE = 0;
   s = seconds;
-  GIE = 1;
+  INTCON |= 0x80; // GIE = 1;
 
 #ifdef USE_SOFTSER
   softuart_puts("XXXX\r\n");

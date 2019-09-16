@@ -17,26 +17,22 @@
 #define NOT_RBPU nRBPU
 #endif
 
-#if defined(__SDCC) || defined(SDCC)
-#define NOP() __asm("NOP")
-#endif
-
 #define C_CAL 1000      // pF
 #define GATE_PERIOD 100 // ms
 #define PI 3.14159265358979323846l
 
 #if PIC18F2550
-#define LC_SELECT OUTC0                   // L or C select (from DPDT switch)
-#define LC_TRIS() TRISC0 = INPUT        // as input
-#define ADD_CCAL() OUTC2 = HIGH           // relay on
-#define REMOVE_CCAL() OUTC2 = LOW         // relay off
+#define LC_SELECT (!!(OUTC & 0b1))                   // L or C select (from DPDT switch)
+#define LC_TRIS() TRISC |= 0b1        // as input
+#define ADD_CCAL() OUTC |= 0b100          // relay on
+#define REMOVE_CCAL() OUTC &= ~0b100          // relay off
 #define RELAY_TRIS() TRISC &= ~(1 << 5) // as output to drive the relay coil
 
 #else
-#define LC_SELECT OUTC4                    // L or C select (from DPDT switch)
+#define LC_SELECT (!!(OUTC & 0b10000))                    // L or C select (from DPDT switch)
 #define LC_TRIS() TRISC |= (1 << 4)      // as input
-#define ADD_CCAL() PORTC |= (1 << 5)     // relay on
-#define REMOVE_CCAL() PORTC &= ~(1 << 5) // relay off
+#define ADD_CCAL() OUTC |= (1 << 5)     // relay on
+#define REMOVE_CCAL() OUTC &= ~(1 << 5) // relay off
 #define RELAY_TRIS() TRISC &= ~(1 << 5)  // as output to drive the relay coil
 
 #endif

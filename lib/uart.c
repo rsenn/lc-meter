@@ -22,7 +22,7 @@ const uint8_t uart_brg = UART_BRG;
 void
 uart_putch(uint8_t byte) {
   /* output one byte */
-  while(!TXIF) {
+  while(!(PIR1 & 0b00010000)) {
     /* set when register is empty */
     continue;
   }
@@ -35,7 +35,7 @@ uart_getch(void) {
   if(uart_poll(UART_TIMEOUT)) {
     uint8_t ch;
     ch = RCREG;
-    RCIF = 0;
+    PIR1 &= ~0b00100000; //  RCIF = 0;
     return (int)ch;
   }
   return -1;
@@ -50,7 +50,7 @@ uart_poll(uint8_t bauds) {
 
   TMR0 = (256 - SOFTSER_BRG_FN(bauds));
   while(TMR0 & (1 << 7)) {
-    if(RCIF)
+    if((PIR1 & 0b00100000))
       return 1;
   }
 
@@ -64,8 +64,8 @@ uart_poll(uint8_t bauds) {
  */
 uint8_t
 uart_isr(void) {
-  if(RCIF) {
-    RCIF = 0;
+    if((PIR1 & 0b00100000)) {
+    PIR1 &= ~0b00100000; //  RCIF = 0;
     return RCREG;
   }
   return 0;
@@ -73,29 +73,31 @@ uart_isr(void) {
 
 void
 uart_enable(void) {
-  RX_TRIS = 1;
-  TX_TRIS = TX_PIN = 0;
-  TXEN = 1;
+  RX_TRIS();
+  TX_TRIS();
+  TX_SET(0);
+  TXSTA |= 0b00100000; //  TXEN = 1;
   RCSTA |= 0x80; // SPEN = 1;
-  RCIE = 0;
+  PIE1 &= ~0b100000; //RCIE = 0;
 }
 
 void
 uart_disable(void) {
-  TXEN = 0;
-  SPEN = 0;
-  RCIE = 0;
-  RX_TRIS = 1;
-  TX_PIN = TX_TRIS = 0;
+  TXSTA &= ~0b00100000; //  TXEN = 0;
+  RCSTA &= ~0b10000000; // SPEN = 0;
+  PIE1 &= ~0b100000; //RCIE = 0;
+  RX_TRIS();
+  TX_TRIS();
+  TX_SET(0);
 }
 
 void
 uart_init(void) {
   /* Initilize baudrate generator and pins */
 
-  RX_TRIS = 1;
-  TX_TRIS = 0;
-  TX_PIN = 0;
+  RX_TRIS();
+  TX_TRIS();
+  TX_SET(0);
   SPBRG = UART_BRG; // UART_BRG;
 
   RCSTA |= 0x90 // CREN = 1;
@@ -105,7 +107,7 @@ uart_init(void) {
   BRGH =  */ (HIGH_SPEED == 1)
                ? 0b100
                : 0b000;
-  TX9 |= (NINE == 1) ? 0b01000000 : 0;
+  TXSTA |= (NINE == 1) ? 0b01000000 : 0;
 
   uart_enable();
 }

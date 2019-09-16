@@ -51,92 +51,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/measure.c",
-			"settings":
-			{
-				"buffer_size": 4717,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/uart.c",
-			"settings":
-			{
-				"buffer_size": 1999,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/timer.c",
-			"settings":
-			{
-				"buffer_size": 2953,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include \"7segment.h\"\n#include \"stdlib.h\"\n\n#ifdef USE_7SEGMENT\n\nvolatile uint8_t button_state, button_flags;\nvolatile uint8_t display_buffer[DISPLAY_DIGITS];\nvolatile uint8_t display_multiplex = 0;\n\nstatic const uint8_t display_digits[] = {\n    DISPLAY_DIGIT_0,\n    DISPLAY_DIGIT_1,\n    DISPLAY_DIGIT_2,\n    DISPLAY_DIGIT_3,\n    DISPLAY_DIGIT_4,\n    DISPLAY_DIGIT_5,\n    DISPLAY_DIGIT_6,\n    DISPLAY_DIGIT_7,\n    DISPLAY_DIGIT_8,\n    DISPLAY_DIGIT_9,\n    DISPLAY_LETTER_A,\n    DISPLAY_LETTER_B,\n    DISPLAY_LETTER_C,\n    DISPLAY_LETTER_D,\n    DISPLAY_LETTER_E,\n    DISPLAY_LETTER_F,\n};\n\nvoid\ndisplay_init() {\n  DISPLAY_SELECT_TRIS &= ~DISPLAY_SELECT_MASK;\n  DISPLAY_DATA_TRIS &= ~DISPLAY_DATA_MASK;\n  DISPLAY_DATA_PORT &= ~DISPLAY_DATA_MASK;\n  BUTTON_TRIS = 1;\n  button_state = 0;\n  button_flags = 0;\n}\n\nvoid\ndisplay_set(uint8_t index, uint8_t segs) {\n  display_buffer[index] = segs;\n}\nvoid\ndisplay_number(int16_t n) {\n  int8_t i;\nv \n  for(i = DISPLAY_DIGITS - 1; i >= 0; --i) {\n    display_set(i, display_digits[n & 0x0f]);\n    n >>= 4;\n  }\n}\n\n#endif\n",
-			"file": "lib/7segment.c",
-			"file_size": 1050,
-			"file_write_time": 132130441482000638,
-			"settings":
-			{
-				"buffer_size": 1052,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#ifndef PICLIB_7SEGMENT_H__\n#define PICLIB_7SEGMENT_H__\n\n#include \"typedef.h\"\n\n#define SEG_A 0x80\n#define SEG_B 0x40\n#define SEG_C 0x20\n#define SEG_D 0x10\n#define SEG_E 0x08\n#define SEG_F 0x04\n#define SEG_G 0x02\n#define SEG_H 0x01\n\n#define DISPLAY_DIGIT_0 (SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F)\n#define DISPLAY_DIGIT_1 (SEG_B | SEG_C)\n#define DISPLAY_DIGIT_2 (SEG_A | SEG_B | SEG_D | SEG_E | SEG_G)\n#define DISPLAY_DIGIT_3 (SEG_A | SEG_B | SEG_C | SEG_D | SEG_G)\n#define DISPLAY_DIGIT_4 (SEG_B | SEG_C | SEG_F | SEG_G)\n#define DISPLAY_DIGIT_5 (SEG_A | SEG_C | SEG_D | SEG_F | SEG_G)\n#define DISPLAY_DIGIT_6 (SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_DIGIT_7 (SEG_A | SEG_B | SEG_C)\n#define DISPLAY_DIGIT_8 (SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_DIGIT_9 (SEG_A | SEG_B | SEG_C | SEG_D | SEG_F | SEG_G)\n\n/*\n *   aaaaaa\n *   aaaaaa\n *  ff    bb\n *  ff    bb\n *  ff    bb\n *   gggggg\n *   gggggg\n *  ee    cc\n *  ee    cc\n *  ee    cc\n *   dddddd\n *   dddddd  hh\n *           hh\n */\n//                         afebgcdh\n#define DISPLAY_LETTER_A (SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_B (SEG_C | SEG_D | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_C (SEG_A | SEG_D | SEG_E | SEG_F)\n#define DISPLAY_LETTER_D (SEG_B | SEG_C | SEG_D | SEG_E | SEG_G)\n#define DISPLAY_LETTER_E (SEG_A | SEG_D | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_F (SEG_A | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_G (SEG_A | SEG_C | SEG_D | SEG_F | SEG_G)\n#define DISPLAY_LETTER_H (SEG_B | SEG_C | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_I (SEG_B | SEG_C)\n#define DISPLAY_LETTER_J (SEG_B | SEG_C | SEG_D | SEG_E)\n#define DISPLAY_LETTER_L (SEG_D | SEG_E | SEG_F)\n#define DISPLAY_LETTER_N (SEG_C | SEG_E | SEG_G)\n#define DISPLAY_LETTER_O (SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F)\n#define DISPLAY_LETTER_P (SEG_A | SEG_B | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_Q (SEG_A | SEG_B | SEG_C | SEG_F | SEG_G)\n#define DISPLAY_LETTER_R (SEG_E | SEG_G)\n#define DISPLAY_LETTER_S (SEG_A | SEG_C | SEG_D | SEG_F | SEG_G)\n#define DISPLAY_LETTER_T (SEG_D | SEG_E | SEG_F | SEG_G)\n#define DISPLAY_LETTER_U (SEG_B | SEG_C | SEG_D | SEG_E | SEG_F)\n#define DISPLAY_LETTER_V (SEG_C | SEG_D | SEG_E)\n#define DISPLAY_LETTER_Y (SEG_B | SEG_C | SEG_F | SEG_G)\n#define DISPLAY_LETTER_Z (SEG_A | SEG_B | SEG_D | SEG_E | SEG_G)\n#define DISPLAY_DEGREE (SEG_A | SEG_B | SEG_F | SEG_G)\n\n#define DISPLAY_EXCLAM (SEG_B | SEG_H)\n#define DISPLAY_DASH (SEG_G)\n\n#define DISPLAY_DIGITS 4\n#define DISPLAY_DATA_PORT PORTB\n#define DISPLAY_DATA_TRIS TRISB\n#define DISPLAY_DATA_MASK (SEG_A | SEG_F | SEG_E | SEG_B | SEG_G | SEG_C | SEG_D | SEG_H)\n\n#define DISPLAY_SELECT_PORT PORTC\n#define DISPLAY_SELECT_TRIS TRISC\n#define DISPLAY_SELECT_SHIFT 4\n\n#define DISPLAY_SELECT_MASK (((1 << DISPLAY_DIGITS) - 1) << DISPLAY_SELECT_SHIFT)\n#define DISPLAY_SELECT_BIT(b) (1 << ((b) + DISPLAY_SELECT_SHIFT))\n\n#define BUTTON_PIN RB0\n#define BUTTON_TRIS TRISB0\n\n#define DISPLAY_INTERRUPT()                                                                                            \\\n  {                                                                                                                    \\\n    DISPLAY_SELECT_PORT &= ~DISPLAY_SELECT_MASK;                                                                       \\\n    DISPLAY_DATA_PORT &= ~DISPLAY_DATA_MASK;                                                                           \\\n    DISPLAY_DATA_PORT |= display_buffer[display_multiplex];                                                            \\\n    DISPLAY_SELECT_PORT |= DISPLAY_SELECT_BIT(display_multiplex);                                                      \\\n    display_multiplex = (display_multiplex + 1) % DISPLAY_DIGITS;                                                      \\\n  }\n\n#define BUTTON_INT()                                                                                                   \\\n  {                                                                                                                    \\\n    if(button_state & (1 << display_multiplex) == 0)                                                                   \\\n      button_flags |= (1 << display_multiplex);                                                                        \\\n    button_state |= (1 << display_multiplex);\n\n#define BUTTON_RBINT()) {                                                                                              \\\n    if(BUTTON_PIN == 0) {                                                                                              \\\n      if(button_state & (1 << display_multiplex) == 0) {                                                               \\\n        button_state |= (1 << display_multiplex);                                                                      \\\n        button_flags |= (1 << display_multiplex);                                                                      \\\n      }                                                                                                                \\\n    } else {                                                                                                           \\\n      button_state &= ~(1 << display_multiplex);                                                                       \\\n    }                                                                                                                  \\\n  }\n\nextern volatile uint8_t display_buffer[DISPLAY_DIGITS];\nextern volatile uint8_t display_multiplex;\nextern volatile uint8_t button_state, button_flags;\n\nstatic uint8_t\nbutton_pressed(uint8_t b) {\n  uint8_t st;\n  st = (button_state & b);\n  if(st) {\n    button_state = 0;\n  }\n  return st;\n}\n\nvoid display_init();\nvoid display_set(uint8_t index, char segs);\nvoid display_number(short n);\n\n#endif // PICLIB_7SEGMENT_H__\n",
-			"file": "lib/7segment.h",
-			"file_size": 5885,
-			"file_write_time": 132130441494880707,
-			"settings":
-			{
-				"buffer_size": 5885,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/config-18f2550.h",
-			"settings":
-			{
-				"buffer_size": 787,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/device.h",
-			"settings":
-			{
-				"buffer_size": 6377,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#ifndef LC_METER_H\n#define LC_METER_H\n\n#include \"device.h\"\n#include \"oscillator.h\"\n#include \"typedef.h\"\n#include \"const.h\"\n\n#ifdef HI_TECH_C\n#include <htc.h> // Required to interface with delay routines\n//# include <pic.h>\n#ifndef nRBPU\n\n// volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;\n//#define nRBPU OPTION_REGbits.nRBPU\n#endif\n#define NOT_RBPU nRBPU\n#endif\n\n#if defined(__SDCC) || defined(SDCC)\n#define NOP() __asm(\"NOP\")\n#endif\n\n#define C_CAL 1000      // pF\n#define GATE_PERIOD 100 // ms\n#define PI 3.14159265358979323846l\n\n#if PIC18F2550\n#define LC_SELECT RC0                   // L or C select (from DPDT switch)\n#define LC_TRIS() TRISC0 = INPUT        // as input\n#define ADD_CCAL() RC2 = HIGH           // relay on\n#define REMOVE_CCAL() RC2 = LOW         // relay off\n#define RELAY_TRIS() TRISC &= ~(1 << 5) // as output to drive the relay coil\n\n#else\n#define LC_SELECT RC4                    // L or C select (from DPDT switch)\n#define LC_TRIS() TRISC |= (1 << 4)      // as input\n#define ADD_CCAL() PORTC |= (1 << 5)     // relay on\n#define REMOVE_CCAL() PORTC &= ~(1 << 5) // relay off\n#define RELAY_TRIS() TRISC &= ~(1 << 5)  // as output to drive the relay coil\n\n#endif\n\n#if PIC18_USB\n#define LED_PIN RC1\n#define LED_TRIS TRISC1\n#else\n#define LED_PIN RC3\n#define LED_TRIS TRISC3\n#endif\n\n/*#define LED2_ANODE RC1\n#define LED2_ANODE_TRIS TRISC1\n*/\n\n#define INIT_LED() LED_TRIS = OUTPUT\n#define SET_LED(b) LED_PIN = ((b) == 0)\n/*\n//#ifdef LED2_CATHODE\n//#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH\n//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT,LED2_CATHODE_TRIS=OUTPUT\n#else\n//#define SET_LED2(b) LED2_ANODE=(!!(b))==0\n//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT\n#endif\n\n*/\n//#define TIMER0_PRESCALER PRESCALE_1_32\nextern double F1, F2, F3, CCal;\n\nvoid delay10ms(unsigned char period_10ms);\n\n#endif // defined(LC_METER_H)\n",
-			"file": "src/LC-meter.h",
-			"file_size": 1899,
-			"file_write_time": 132130441495000708,
-			"settings":
-			{
-				"buffer_size": 1899,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/measure.h",
-			"settings":
-			{
-				"buffer_size": 200,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -322,11 +236,22 @@
 	"expanded_folders":
 	[
 		"/home/roman/Dokumente/Sources/lc-meter",
-		"/home/roman/Dokumente/Sources/lc-meter/lib",
+		"/home/roman/Dokumente/Sources/lc-meter/obj",
 		"/home/roman/Dokumente/Sources/lc-meter/src"
 	],
 	"file_history":
 	[
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/measure.c",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-16f876a.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/uart.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/7segment.c",
+		"/home/roman/Dokumente/Sources/lc-meter/build.cmd",
+		"/home/roman/Dokumente/Sources/lc-meter/gen-mk.sh",
+		"/home/roman/Dokumente/Sources/lc-meter/src/device.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/measure.h",
 		"/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.h",
 		"/home/roman/Dokumente/Sources/lc-meter/src/julznc/main.c",
@@ -336,11 +261,9 @@
 		"/home/roman/Dokumente/Sources/lc-meter/lib/lcd5110.h",
 		"/home/roman/Dokumente/Sources/lc-meter/Makefile",
 		"/home/roman/Dokumente/Sources/lc-meter/build/xc8.mk",
-		"/home/roman/Dokumente/Sources/lc-meter/src/LC-meter.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/format.h",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.c",
 		"/home/roman/Dokumente/Sources/c-utils/dirlist.sublime-project",
 		"/home/roman/Dokumente/Sources/c-utils/list-r.c",
 		"/home/roman/Dokumente/Sources/c-utils/bsdiffcat.c",
@@ -445,16 +368,7 @@
 		"/home/enki/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/home/roman/lotto/static/test.html",
 		"/home/roman/lotto/doc/parsigram/samples/Parsigram.php",
-		"/home/roman/lotto/helpers/model.moon",
-		"/home/enki/lotto/models/user_profiles.moon",
-		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/spec/relations_spec.moon",
-		"/home/enki/lotto/models/users.js",
-		"/home/enki/Sources/lotto/applications/users.moon",
-		"/home/enki/Sources/lotto/models/users.lua",
-		"/home/enki/Sources/lotto/models/user_profiles.moon",
-		"/home/enki/Sources/lotto/test-parsigram.lua",
-		"/home/enki/Sources/lotto/test-parsigram.moon",
-		"/home/enki/Sources/lotto/applications/users.lua"
+		"/home/roman/lotto/helpers/model.moon"
 	],
 	"find":
 	{
@@ -523,278 +437,14 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/measure.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4717,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lib/uart.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1999,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1438.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/timer.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2953,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Rainglow/rainglow/Azure Contrast (rainglow).tmTheme",
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/7segment.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1052,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								933,
-								933
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lib/7segment.h",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 5885,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/config-18f2550.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 787,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/device.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6377,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/LC-meter.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1899,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/measure.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 200,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								59,
-								59
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 30.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -831,7 +481,7 @@
 	"project": "lc-meter.sublime-project",
 	"replace":
 	{
-		"height": 56.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":

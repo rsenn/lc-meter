@@ -12,7 +12,9 @@
 #endif
 #ifdef __18f2550
 #define PIC18 1
+#ifndef SDCC
 extern volatile unsigned char           T0CON               @ 0xFD5;
+#endif
 #endif
 
 #ifndef PIC18
@@ -90,28 +92,29 @@ timer0_read_ps(void) {
 void
 timer1_init(uint8_t ps_mode) {
 
-  /*T1CONbits.*/ T1CKPS0 = (ps_mode & PRESCALE_MASK) & 1; // 1:1 prescaler
-  /*T1CONbits.*/ T1CKPS1 = (ps_mode & PRESCALE_MASK) >> 1;
+  T1CON &= ~0b00111110;
 
-  TMR1CS = !!(ps_mode & TIMER1_FLAGS_EXTCLK); // Internal clock source
+  T1CON |= (ps_mode & PRESCALE_MASK) << 4; 
 
-  if(TMR1CS) {
+  T1CON |= (!!(ps_mode & TIMER1_FLAGS_EXTCLK)) << 1; // Internal clock source
+
+  if(T1CON & 0b00000010) {
 #if defined(__12f1840) || defined(__16f628a)
-    nT1SYNC = !!(ps_mode & TIMER1_FLAGS_SYNC);
+    T1CON |= (!(ps_mode & TIMER1_FLAGS_SYNC)) << 2;
 #else
-    /*T1CONbits.*/ T1SYNC = !(ps_mode & TIMER1_FLAGS_SYNC);
+    T1CON |= (!(ps_mode & TIMER1_FLAGS_SYNC)) << 2;
 #endif
   }
-
-  T1OSCEN = 0;
 
   TMR1H = 0;
   TMR1L = 0;
 
-  /*T1CONbits.*/ TMR1ON = 1;
+  T1CON |= 0b1; // TMR1ON = 1;
 
-  TMR1IF = 0;
-  TMR1IE = !!(ps_mode & TIMER1_FLAGS_INTR);
+   PIR1 &= ~0b1; //  TMR1IF = 0;
+   
+   PIE1 &= ~0b1;
+   PIE1 |= !!(ps_mode & TIMER1_FLAGS_INTR);
 }
 
 #endif // USE_TIMER1
@@ -125,18 +128,17 @@ timer2_init(uint8_t ps_mode) {
   uint8_t postscaler = TIMER2_POSTSCALER;
 
   // Set timer 2 postscaler
-  TOUTPS0 = postscaler & 1;
-  TOUTPS1 = (postscaler >> 1) & 1;
-  TOUTPS2 = (postscaler >> 2) & 1;
+  T2CON &= ~0b01111111;
 
-  /*T2CONbits.*/ T2CKPS0 = (ps >> 1) & 1; // Set timer 2 prescaler to 1:1.
-  /*T2CONbits.*/ T2CKPS1 = (ps >> 2) & 1; // Set timer 2 prescaler to 1:1.
+  T2CON |= (postscaler & 0b1111) << 3;
+  T2CON |= (ps & 0b11); // Set timer 2 prescaler to 1:1.
 
   TIMER2_VALUE = 0;
 
-  /*T2CONbits.*/ TMR2ON = 1; // Enable timer 2.
+  T2CON |= 0b100; // TMR2ON = 1; // Enable timer 2.
 
-  TMR2IF = 0;
-  TMR2IE = !!(ps_mode & TIMER2_FLAGS_INTR);
+  //TMR2IF = 0;
+  PIR1 &= ~0b10; 
+  PIE1 = (!!(ps_mode & TIMER2_FLAGS_INTR)) << 1;
 }
 #endif // USE_TIMER2

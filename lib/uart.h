@@ -38,10 +38,10 @@
 #define RX_PIN OUTB1
 #define RX_TRIS TRISB1
 #else
-#define TX_PIN OUTC6
-#define TX_TRIS TRISC6
+#define TX_SET(b) if(b) OUTC |= 0b01000000; else OUTC &= 0b01000000;
+#define TX_TRIS() TRISC &= ~0b01000000
 #define RX_PIN OUTC7
-#define RX_TRIS TRISC7
+#define RX_TRIS() TRISC |= 0b10000000
 #endif
 
 extern const uint8_t uart_brg;

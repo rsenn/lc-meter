@@ -8,31 +8,25 @@
 #define EN_TRIS TRISB1
 
 #define DATA0_PIN OUTB4
-#define DATA0_TRIS TRISB4
 #define DATA1_PIN OUTB5
-#define DATA1_TRIS TRISB5
 #define DATA2_PIN OUTB6
-#define DATA2_TRIS TRISB6
 #define DATA3_PIN OUTB7
-#define DATA3_TRIS TRISB7
 #else
-#ifndef RS_PIN
-#define RS_PIN OUTB2
-#endif
-#define RS_TRIS TRISB2
-#undef RW_PIN
-#undef RW_TRIS
-#define EN_PIN OUTB3     // activated by a HIGH pulse.
-#define EN_TRIS TRISB3 // activated by a HIGH pulse.
+#define RS_HIGH() LATB |= 0b0100
+#define RS_LOW() LATB &= ~0b0100
+#define RS_TRIS() TRISB &= ~0b0100
+#define RW_HIGH() 
+#define RW_LOW() 
+#define RW_TRIS() 
+#define EN_HIGH() LATB |= 0b1000
+#define EN_LOW() LATB &= ~0b1000
+#define EN_TRIS() TRISB &= ~0b1000
+#define DATA_TRIS() LATB &= ~0b11110000
 
 #define DATA0_PIN OUTB4
-#define DATA0_TRIS TRISB4
 #define DATA1_PIN OUTB5
-#define DATA1_TRIS TRISB5
 #define DATA2_PIN OUTB6
-#define DATA2_TRIS TRISB6
 #define DATA3_PIN OUTB7
-#define DATA3_TRIS TRISB7
 #endif
 
 #ifndef DATABUS_MUX

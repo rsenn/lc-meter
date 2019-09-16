@@ -69,7 +69,7 @@ unsigned short
 measure_freq() {
   uint16_t count;
 
-  TMR0IF = 0;
+  INTCON &= ~0b100; // TMR0IF = 0;
 
   // Enable RA4 output to T0CKI:
   // If pin is set as output, C1OUT will connnect to T0CKI
