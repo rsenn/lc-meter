@@ -1,8 +1,8 @@
 genmakefile -t xc8 -m gmake \
-	-DUSE_UART=1 -DUSE_TIMER{0,1,2}=1 -DUSE_HD44780_LCD=1 \
+	-DUSE_{UART,HD44780_LCD,TIMER{0,1,2}}=1 \
 	"$@" \
-	-I. -Ilib -Isrc \
-	lib/*.c src/*.c LC-meter.? \
+	-Ilib -Isrc \
+	lib src LC-meter.c \
 	--no-create-libs \
 	--debug \
 	-o xc8.mk 
