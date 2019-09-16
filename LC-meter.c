@@ -72,7 +72,11 @@ volatile uint16_t blink = 0;
 
 /* Interrupt routine */
 
+#ifdef __XC
+void interrupt global_int(void) {
+#else
 INTERRUPT_FN() {
+#endif
 
   if(PIR1 & 0b10) {
 
