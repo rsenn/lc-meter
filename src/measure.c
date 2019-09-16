@@ -31,7 +31,7 @@ calibrate() {
   put_str("Calibrating");
 
   lcd_gotoxy(0, 1);
-  uart_puts("\r\n");
+  ser_puts("\r\n");
   put_str("please wait...");
 #endif
 
@@ -59,7 +59,7 @@ calibrate() {
     delay10ms(28);
   }
 #endif
-  uart_puts("\r\n");
+  ser_puts("\r\n");
 }
 
 /*
@@ -131,25 +131,25 @@ measure_capacitance() {
   F3 = (double)var;
 #if USE_SER
   //  putchar_ptr = &ser_putch;
-  uart_puts("var=");
+  ser_puts("var=");
   format_xint32(/*ser_putch,*/ var);
-  uart_puts("\r\nF1=");
+  ser_puts("\r\nF1=");
   format_double(/*ser_putch,*/ F1);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F1);
-  uart_puts("\r\nF2=");
+  ser_puts("\r\nF2=");
   format_double(/*ser_putch,*/ F2);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F2);
-  uart_puts("\r\nF3=");
+  ser_puts("\r\nF3=");
   format_double(/*ser_putch,*/ F3);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&F3);
-  uart_puts("\r\nCCal=");
+  ser_puts("\r\nCCal=");
   format_double(/*ser_putch,*/ CCal);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
-  uart_puts("\r\n");
+  ser_puts("\r\n");
 #endif
 //  putchar_ptr = &output_putch;
 
@@ -160,11 +160,11 @@ measure_capacitance() {
   //  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
 
 #if USE_SER
-  uart_puts("Cin=");
+  ser_puts("Cin=");
   format_double(/*ser_putch,*/ Cin);
   ser_putch(' ');
   format_xint32(/*ser_putch,*/ *(uint32_t*)&Cin);
-  uart_puts("\r\n");
+  ser_puts("\r\n");
 #endif
   if(Cin > 999) {
     if(Cin > (999e+03l)) {

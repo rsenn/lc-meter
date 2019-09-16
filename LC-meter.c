@@ -239,7 +239,7 @@ main() {
 
   for(;;) {
 
-    uart_puts("...\r\n");
+    ser_puts("...\r\n");
     if(LC_SELECT)
       measure_capacitance();
     else
@@ -266,7 +266,7 @@ testloop() {
   INTCON |= 0x80; // GIE = 1;
 
 #ifdef USE_SOFTSER
-  softuart_puts("XXXX\r\n");
+  softser_puts("XXXX\r\n");
 #endif
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
@@ -298,7 +298,7 @@ testloop() {
 #if USE_SER
     format_number(/*ser_putch,*/ s, 10, 0);
     // ser_putch(' ');    put_number(/*ser_putch,*/ bres / 5000, 10, 0);
-    uart_puts("\r\n");
+    ser_puts("\r\n");
 #endif
 
     prev_s = s;
