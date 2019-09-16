@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F2520_H
 #define CONFIG_18F2520_H 1
 
-#ifdef __XC
+#if defined(MCHP_XC8)
 
 #pragma config OSC = HSPLL
 #pragma config PWRT = ON, BOREN = ON, BORV = 3
@@ -14,6 +14,17 @@
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 #pragma config EBTRB = OFF
 
+#elif defined(__XC)
+
+__CONFIG(1, OSC_HS & FCMEN_ON);
+__CONFIG(2, PWRT_ON & BOREN_ON & BORV_3 &WDT_OFF);
+__CONFIG(3, PBADEN_OFF & MCLRE_ON);
+__CONFIG(4, STVREN_ON & LVP_OFF &   XINST_ON & DEBUG_ON); 
+//__CONFIG(5, CPB_ON & CPD_OFF);
+__CONFIG(6, WRTC_ON & WRTB_ON & WRTD_OFF);
+__CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
+
+//
 #elif defined(HI_TECH_C)
 
 // PIC18F2520 Configuration Bit Settings
