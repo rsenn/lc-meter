@@ -5,11 +5,17 @@
 #ifndef SDCC
 #define SDCC 1
 #endif
+#ifdef __16f628a
+#include <pic14/pic16f628a.h>
+#endif
 #ifdef __16f876a
 #include <pic14/pic16f876a.h>
 #endif
 #ifdef __18f252
 #include <pic16/pic18f252.h>
+#endif
+#ifdef __18f2455
+#include <pic16/pic18f2455.h>
 #endif
 #ifdef __18f2520
 #include <pic16/pic18f2520.h>
@@ -48,6 +54,9 @@
 #ifdef __PIC18F252_H
 #define __18f252 1
 #endif
+#ifdef __PIC18F2455_H
+#define __18f2455 1
+#endif
 #ifdef __PIC18F2550_H
 #define __18f2550 1
 #endif
@@ -79,6 +88,9 @@
 #endif
 #ifdef __18f2455
 #include <pic18f2455.h>
+#endif
+#ifdef __18f2520
+#include <pic18f2520.h>
 #endif
 #ifdef __18f2550
 #include <pic18f2550.h>
