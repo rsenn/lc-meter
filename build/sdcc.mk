@@ -79,9 +79,9 @@ ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.s)
 PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 
 #ifneq ($(CODEOFFSET),0)
-#ifneq ($(CODEOFFSET),)
-#LDFLAGS += --codeoffset=$(CODEOFFSET)
-#endif
+ifneq ($(CODEOFFSET),)
+LDFLAGS += --codeoffset=$(CODEOFFSET)
+endif
 #endif
 #
 ifeq ($(OPT),speed)
@@ -111,10 +111,21 @@ _CPPFLAGS += \
 CFLAGS = --use-non-free
 CFLAGS += $(EXTRA_CFLAGS)
 
+
 ifneq ($(chipl),$(chipl:16f%=%))
 CFLAGS +=
 else
 CFLAGS +=
+endif
+
+PIC_TYPE := $(shell echo $(chipl) | head -c 3)
+ifeq ($(PIC_TYPE),16f)
+CFLAGS += -mpic14
+LIBS += -llibm.lib
+endif
+ifeq ($(PIC_TYPE),18f)
+CFLAGS += -mpic16
+LIBS += -llibm18f.lib
 endif
 
 CFLAGS += -p$(chipl)
@@ -153,7 +164,7 @@ dist:
 
 $(HEXFILE): $(OBJECTS)
 	@-$(RM) $(HEXFILE) $(COFFILE)
-	$(SDCC) $(LDFLAGS) $(CFLAGS) -o $@ $^
+	$(SDCC) $(LDFLAGS) $(CFLAGS) -o $@ $^ $(LIBS)
 	#sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
 	@-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })

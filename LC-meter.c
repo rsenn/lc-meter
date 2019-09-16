@@ -141,7 +141,7 @@ main() {
 #if PIC18
   INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
  #else
-OPTION_REG &= ~0b100000;
+ OPTION_REG &= ~0b100000;
 #endif
 #endif
  
