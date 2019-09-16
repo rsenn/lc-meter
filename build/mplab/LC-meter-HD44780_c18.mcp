@@ -101,7 +101,7 @@ file_023=no
 [FILE_INFO]
 file_000=..\..\src\LC-meter.c
 file_001=..\..\src\print.c
-file_002=..\..\lib\uart.c
+file_002=..\..\lib\ser.c
 file_003=..\..\lib\comparator.c
 file_004=..\..\lib\delay.c
 file_005=..\..\lib\timer.c
@@ -119,7 +119,7 @@ file_016=..\..\lib\interrupt.h
 file_017=..\..\lib\lcd5110.h
 file_018=..\..\lib\lcd44780.h
 file_019=..\..\lib\oscillator.h
-file_020=..\..\lib\uart.h
+file_020=..\..\lib\ser.h
 file_021=..\..\lib\timer.h
 file_022=..\..\lib\typedef.h
 file_023=..\..\src\lcd44780-config.h
@@ -130,7 +130,7 @@ suite_state=extended-mode stack-analysis
 TS{DD2213A8-6310-47B1-8376-9430CDFC013F}=/x"$(BINDIR_)$(INFILEBASE).xrf"
 TS{BFD27FBA-4A02-4C0E-A5E5-B812F3E7707C}=/m"$(BINDIR_)$(TARGETBASE).map" /p"18f252" /w /o"$(BINDIR_)$(TARGETBASE).cof"
 TS{BFD27FBA-4A02-4C0E-A5E5-B812F3E7707C}_alt=yes
-TS{C2AF05E7-1416-4625-923D-E114DB6E2B96}=-Oi -D__C18=1 -DUSE_TIMER2=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__18f252=1 -mL -Oa -Ls -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
+TS{C2AF05E7-1416-4625-923D-E114DB6E2B96}=-Oi -D__C18=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__18f252=1 -mL -Oa -Ls -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-
 TS{ADE93A55-C7C7-4D4D-A4BA-59305F7D0391}=
 [INSTRUMENTED_TRACE]
 enable=0

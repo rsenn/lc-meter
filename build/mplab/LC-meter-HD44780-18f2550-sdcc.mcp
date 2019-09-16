@@ -126,7 +126,7 @@ file_005=C:\Users\vboxuser\Desktop\lc-meter\lib\format.c
 file_006=C:\Users\vboxuser\Desktop\lc-meter\lib\lcd5110.c
 file_007=C:\Users\vboxuser\Desktop\lc-meter\lib\lcd44780.c
 file_008=C:\Users\vboxuser\Desktop\lc-meter\lib\timer.c
-file_009=C:\Users\vboxuser\Desktop\lc-meter\lib\uart.c
+file_009=C:\Users\vboxuser\Desktop\lc-meter\lib\ser.c
 file_010=C:\Users\vboxuser\Desktop\lc-meter\LC-meter.c
 file_011=..\..\LC-meter.h
 file_012=..\..\lib\buffer.h
@@ -141,7 +141,7 @@ file_020=..\..\lib\oscillator.h
 file_021=..\..\lib\timer.h
 file_022=..\..\lib\tsmdelay.h
 file_023=..\..\lib\typedef.h
-file_024=..\..\lib\uart.h
+file_024=..\..\lib\ser.h
 file_025=..\..\src\config-18f2550.h
 file_026=..\..\src\config-bits.h
 file_027=..\..\src\lcd44780-config.h
@@ -152,7 +152,7 @@ suite_guid={DF54D7E1-9D91-4801-BE42-E52DCD8F98C9}
 suite_state=
 [TOOL_SETTINGS]
 TS{FFFFF399-0276-44B5-84BD-BC84C079E1C4}=-o;-mpic16 -p;-l
-TS{5DE50065-EB16-4F55-908D-5E8A8AD65C25}=-c -mpic16 -p;-l;--opt-code-size;--extended;--mplab-comp;--optimize-cmp;--optimize-goto;--optimize-df;-I;; -DUSE_UART=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1  -DDEBUG=1 -DPIC18F2550=1 -D__18f2550=1 -DSDCC=1
+TS{5DE50065-EB16-4F55-908D-5E8A8AD65C25}=-c -mpic16 -p;-l;--opt-code-size;--extended;--mplab-comp;--optimize-cmp;--optimize-goto;--optimize-df;-I;; -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1  -DDEBUG=1 -DPIC18F2550=1 -D__18f2550=1 -DSDCC=1
 TS{77C92193-72F0-4E01-91E4-B5C45AEA9417}=-p;-I
 [INSTRUMENTED_TRACE]
 enable=0
