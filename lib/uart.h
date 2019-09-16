@@ -1,6 +1,7 @@
 #ifndef PICLIB_UART_H
 #define PICLIB_UART_H
 
+#include "oscillator.h"
 #include "device.h"
 #include "typedef.h"
 
