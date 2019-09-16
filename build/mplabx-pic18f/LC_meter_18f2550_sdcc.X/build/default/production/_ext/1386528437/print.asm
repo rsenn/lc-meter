@@ -103,10 +103,6 @@
 	extern	_INTCONbits
 	extern	_STKPTRbits
 	extern	_buffer
-	extern	_F1
-	extern	_F2
-	extern	_F3
-	extern	_CCal
 	extern	_putchar_ptr
 	extern	_UFRM
 	extern	_UFRML
@@ -282,7 +278,7 @@ PRODL	equ	0xff3
 
 
 	idata
-_print_unit_units_65536_65	db	LOW(___str_0), HIGH(___str_0), UPPER(___str_0), LOW(___str_1), HIGH(___str_1), UPPER(___str_1), LOW(___str_2), HIGH(___str_2), UPPER(___str_2), LOW(___str_3), HIGH(___str_3), UPPER(___str_3)
+_print_unit_units_65536_64	db	LOW(___str_0), HIGH(___str_0), UPPER(___str_0), LOW(___str_1), HIGH(___str_1), UPPER(___str_1), LOW(___str_2), HIGH(___str_2), UPPER(___str_2), LOW(___str_3), HIGH(___str_3), UPPER(___str_3)
 	db	LOW(___str_4), HIGH(___str_4), UPPER(___str_4), LOW(___str_5), HIGH(___str_5), UPPER(___str_5), LOW(___str_6), HIGH(___str_6), UPPER(___str_6), LOW(___str_7), HIGH(___str_7), UPPER(___str_7)
 
 
@@ -304,7 +300,7 @@ r0x07	res	1
 ; ; Starting pCode block
 S_print__put_str	code
 _put_str:
-;	.line	508; ../../../src/print.c	put_str(const char* s) {
+;	.line	507; ../../../src/print.c	put_str(const char* s) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -321,7 +317,7 @@ _put_str:
 	MOVFF	PLUSW2, r0x01
 	MOVLW	0x04
 	MOVFF	PLUSW2, r0x02
-;	.line	511; ../../../src/print.c	for(i = 0; s[i]; i++) {
+;	.line	510; ../../../src/print.c	for(i = 0; s[i]; i++) {
 	CLRF	r0x03
 	CLRF	r0x04
 _00154_DS_:
@@ -343,17 +339,17 @@ _00154_DS_:
 	MOVWF	r0x05
 	MOVF	r0x05, W
 	BZ	_00156_DS_
-;	.line	512; ../../../src/print.c	output_putch(s[i]);
+;	.line	511; ../../../src/print.c	output_putch(s[i]);
 	MOVF	r0x05, W
 	MOVWF	POSTDEC1
 	CALL	_output_putch
 	MOVF	POSTINC1, F
-;	.line	511; ../../../src/print.c	for(i = 0; s[i]; i++) {
+;	.line	510; ../../../src/print.c	for(i = 0; s[i]; i++) {
 	INFSNZ	r0x03, F
 	INCF	r0x04, F
 	BRA	_00154_DS_
 _00156_DS_:
-;	.line	514; ../../../src/print.c	}
+;	.line	513; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x07
 	MOVFF	PREINC1, r0x06
 	MOVFF	PREINC1, r0x05
@@ -368,18 +364,18 @@ _00156_DS_:
 ; ; Starting pCode block
 S_print__output_putch	code
 _output_putch:
-;	.line	495; ../../../src/print.c	output_putch(char c) {
+;	.line	494; ../../../src/print.c	output_putch(char c) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	497; ../../../src/print.c	lcd_putch(c);
+;	.line	496; ../../../src/print.c	lcd_putch(c);
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_putch
 	MOVF	POSTINC1, F
-;	.line	502; ../../../src/print.c	}
+;	.line	501; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -387,7 +383,7 @@ _output_putch:
 ; ; Starting pCode block
 S_print__indicator	code
 _indicator:
-;	.line	471; ../../../src/print.c	indicator(uint8_t indicate) {
+;	.line	470; ../../../src/print.c	indicator(uint8_t indicate) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -395,7 +391,7 @@ _indicator:
 	MOVFF	r0x02, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	485; ../../../src/print.c	lcd_gotoxy(0, 1);
+;	.line	484; ../../../src/print.c	lcd_gotoxy(0, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -403,10 +399,10 @@ _indicator:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	486; ../../../src/print.c	if(indicate) {
+;	.line	485; ../../../src/print.c	if(indicate) {
 	MOVF	r0x00, W
 	BZ	_00140_DS_
-;	.line	487; ../../../src/print.c	lcd_puts("-*-");
+;	.line	486; ../../../src/print.c	lcd_puts("-*-");
 	MOVLW	HIGH(___str_10)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_10)
@@ -423,7 +419,7 @@ _indicator:
 	ADDWF	FSR1L, F
 	BRA	_00142_DS_
 _00140_DS_:
-;	.line	489; ../../../src/print.c	lcd_puts("   ");
+;	.line	488; ../../../src/print.c	lcd_puts("   ");
 	MOVLW	HIGH(___str_11)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_11)
@@ -439,7 +435,7 @@ _00140_DS_:
 	MOVLW	0x03
 	ADDWF	FSR1L, F
 _00142_DS_:
-;	.line	492; ../../../src/print.c	}
+;	.line	491; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -449,7 +445,7 @@ _00142_DS_:
 ; ; Starting pCode block
 S_print__print_reading	code
 _print_reading:
-;	.line	431; ../../../src/print.c	print_reading(uint16_t measurement) {
+;	.line	430; ../../../src/print.c	print_reading(uint16_t measurement) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -461,7 +457,7 @@ _print_reading:
 	MOVFF	PLUSW2, r0x00
 	MOVLW	0x03
 	MOVFF	PLUSW2, r0x01
-;	.line	458; ../../../src/print.c	lcd_gotoxy(9, 0);
+;	.line	457; ../../../src/print.c	lcd_gotoxy(9, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x09
@@ -469,7 +465,7 @@ _print_reading:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	459; ../../../src/print.c	lcd_puts("     ");
+;	.line	458; ../../../src/print.c	lcd_puts("     ");
 	MOVLW	HIGH(___str_9)
 	MOVWF	r0x03
 	MOVLW	LOW(___str_9)
@@ -484,7 +480,7 @@ _print_reading:
 	CALL	_lcd_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	460; ../../../src/print.c	lcd_gotoxy(9, 0);
+;	.line	459; ../../../src/print.c	lcd_gotoxy(9, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x09
@@ -492,7 +488,7 @@ _print_reading:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	462; ../../../src/print.c	format_number(/*&buffer_putch,*/ measurement / 100, 10, 0);
+;	.line	461; ../../../src/print.c	format_number(/*&buffer_putch,*/ measurement / 100, 10, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x64
@@ -517,7 +513,7 @@ _print_reading:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	464; ../../../src/print.c	format_number(/*&buffer_putch,*/ measurement % 100, 10, 0);
+;	.line	463; ../../../src/print.c	format_number(/*&buffer_putch,*/ measurement % 100, 10, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x64
@@ -542,7 +538,7 @@ _print_reading:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	467; ../../../src/print.c	}
+;	.line	466; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x04
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
@@ -554,13 +550,13 @@ _print_reading:
 ; ; Starting pCode block
 S_print__print_unit	code
 _print_unit:
-;	.line	410; ../../../src/print.c	print_unit(uint8_t unit) {
+;	.line	409; ../../../src/print.c	print_unit(uint8_t unit) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	MOVFF	r0x01, POSTDEC1
 	MOVFF	r0x02, POSTDEC1
-;	.line	419; ../../../src/print.c	lcd_gotoxy(14, 0);
+;	.line	418; ../../../src/print.c	lcd_gotoxy(14, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x0e
@@ -569,7 +565,7 @@ _print_unit:
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
 	BANKSEL	(_buffer + 16)
-;	.line	423; ../../../src/print.c	lcd_gotoxy(16 - BUFFER_LEN(), 0);
+;	.line	422; ../../../src/print.c	lcd_gotoxy(16 - BUFFER_LEN(), 0);
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -590,7 +586,7 @@ _print_unit:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	426; ../../../src/print.c	uart_puts("\r\n");
+;	.line	425; ../../../src/print.c	uart_puts("\r\n");
 	MOVLW	HIGH(___str_8)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_8)
@@ -605,7 +601,7 @@ _print_unit:
 	CALL	_uart_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	428; ../../../src/print.c	}
+;	.line	427; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -615,7 +611,7 @@ _print_unit:
 ; ; Starting pCode block
 S_print__print_digit	code
 _print_digit:
-;	.line	388; ../../../src/print.c	print_digit(uint8_t line, uint8_t column, uint8_t digit) {
+;	.line	387; ../../../src/print.c	print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -624,7 +620,7 @@ _print_digit:
 	MOVFF	PLUSW2, r0x00
 	MOVLW	0x04
 	MOVFF	PLUSW2, r0x01
-;	.line	403; ../../../src/print.c	lcd_gotoxy(column, /*line - 1*/ 0);
+;	.line	402; ../../../src/print.c	lcd_gotoxy(column, /*line - 1*/ 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
@@ -632,14 +628,14 @@ _print_digit:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	404; ../../../src/print.c	lcd_putch('0' + digit);
+;	.line	403; ../../../src/print.c	lcd_putch('0' + digit);
 	MOVLW	0x30
 	ADDWF	r0x01, F
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_putch
 	MOVF	POSTINC1, F
-;	.line	406; ../../../src/print.c	}
+;	.line	405; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
@@ -648,7 +644,7 @@ _print_digit:
 ; ; Starting pCode block
 S_print__lcd_put	code
 _lcd_put:
-;	.line	34; ../../../src/print.c	lcd_put(const char* buf, unsigned n) {
+;	.line	33; ../../../src/print.c	lcd_put(const char* buf, unsigned n) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -669,7 +665,7 @@ _lcd_put:
 	MOVLW	0x06
 	MOVFF	PLUSW2, r0x04
 _00105_DS_:
-;	.line	36; ../../../src/print.c	while(n--) lcd_putch(*buf++);
+;	.line	35; ../../../src/print.c	while(n--) lcd_putch(*buf++);
 	MOVFF	r0x03, r0x05
 	MOVFF	r0x04, r0x06
 	MOVLW	0xff
@@ -694,7 +690,7 @@ _00119_DS_:
 	MOVF	POSTINC1, F
 	BRA	_00105_DS_
 _00108_DS_:
-;	.line	37; ../../../src/print.c	}
+;	.line	36; ../../../src/print.c	}
 	MOVFF	PREINC1, r0x06
 	MOVFF	PREINC1, r0x05
 	MOVFF	PREINC1, r0x04

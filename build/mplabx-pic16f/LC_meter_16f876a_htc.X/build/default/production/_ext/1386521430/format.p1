@@ -803,6 +803,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _pow `(d  0 ef2`d`d ]
 "4 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\math.h
 [v _floor `(d  0 ef1`d ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic16f876a.h: 82: volatile unsigned char INDF @ 0x000;
 [; ;pic16f876a.h: 86: volatile unsigned char TMR0 @ 0x001;
 [; ;pic16f876a.h: 90: volatile unsigned char PCL @ 0x002;
@@ -1584,9 +1585,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 179: typedef uint32_t uintmax_t;
 [; ;stdint.h: 184: typedef int16_t intptr_t;
 [; ;stdint.h: 189: typedef uint16_t uintptr_t;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;format.h: 6: extern putchar_fn* putchar_ptr;
 [; ;format.h: 8: void format_number( uint16_t n, uint8_t base, int8_t pad);
 [; ;format.h: 10: void format_xint32( uint32_t x);

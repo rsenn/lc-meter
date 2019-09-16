@@ -2535,22 +2535,25 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 52 "../../../lib/typedef.h"
+typedef char bool;
+
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
-# 49 "../../../lib/tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
 } dvars;
 
-# 67
+# 68
 extern dvars dvar;
 
-# 77
+# 78
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"
@@ -2559,49 +2562,26 @@ void Delay10KTCYx(unsigned char);
 void Delay10TCYx(unsigned char);
 void Delay1KTCYx(unsigned char);
 
-# 47 "../../../lib/uart.h"
+# 89 "../../../lib/uart.h"
 extern const unsigned char uart_brg;
 
 void uart_putch(unsigned char byte);
 
 int uart_getch(void);
-BOOL uart_poll(unsigned char bauds);
+bool uart_poll(unsigned char bauds);
 
-# 57
+# 99
 void uart_init(void);
 
-# 64
+# 106
 unsigned char uart_isr(void);
 
-# 69
+# 111
 void uart_enable(void);
 
-# 74
+# 116
 void uart_disable(void);
 
 void uart_puts(const char* s);
 void uart_puts2(unsigned char* s);
 
-# 140 "../../../lib/softser.h"
-BOOL softser_poll(unsigned char ticks);
-void softser_recv(void);
-
-unsigned char softser_getch(void);
-void softser_putch(unsigned char byte);
-void softser_puts(const char* s);
-void softser_puts2(unsigned char* s);
-void softser_puthex(unsigned char v);
-void softser_init(void);
-
-extern unsigned char softser_rdata;
-
-# 112 "../../../lib/uart.c"
-void
-uart_puts(const char* s) {
-while(*s) uart_putch(*s++);
-}
-
-void
-uart_puts2(unsigned char* s) {
-while(*s) uart_putch(*s++);
-}

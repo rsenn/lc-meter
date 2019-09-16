@@ -2535,35 +2535,40 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 52 "../../../lib/typedef.h"
+typedef char bool;
+
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
 # 143 "../../../lib/timer.h"
 void timer2_init(unsigned char ps_mode);
 
-# 106 "../../../lib/timer.c"
+# 15 "../../../lib/timer.c"
+extern volatile unsigned char T0CON @0xFD5;
+
+# 124
 void
 timer2_init(unsigned char ps_mode) {
 unsigned char ps = ps_mode & 0b1111;
 unsigned char postscaler = 0;
 
 
-TOUTPS0 = postscaler & 1;
-TOUTPS1 = (postscaler >> 1) & 1;
-TOUTPS2 = (postscaler >> 2) & 1;
+T2CON &= ~0b01111111;
 
-T2CKPS0 = (ps >> 1) & 1;
-T2CKPS1 = (ps >> 2) & 1;
+T2CON |= (postscaler & 0b1111) << 3;
+T2CON |= (ps & 0b11);
 
 TMR2 = 0;
 
-TMR2ON = 1;
+T2CON |= 0b100;
 
-TMR2IF = 0;
-TMR2IE = !!(ps_mode & 0x80);
+
+PIR1 &= ~0b10;
+PIE1 = (!!(ps_mode & 0x80)) << 1;
 }
 

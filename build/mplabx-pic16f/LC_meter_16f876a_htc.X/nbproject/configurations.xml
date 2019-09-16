@@ -7,7 +7,6 @@
       <itemPath>../../../lib/format.h</itemPath>
       <itemPath>../../../lib/interrupt.h</itemPath>
       <itemPath>../../../lib/oscillator.h</itemPath>
-      <itemPath>../../../lib/ser.h</itemPath>
       <itemPath>../../../lib/uart.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -18,7 +17,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>../../../src/print.c</itemPath>
-      <itemPath>../../../lib/ser.c</itemPath>
       <itemPath>../../../lib/timer.c</itemPath>
       <itemPath>../../../lib/format.c</itemPath>
       <itemPath>../../../lib/buffer.c</itemPath>
@@ -78,7 +76,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="define-macros"
-                  value="__HTC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1"/>
+                  value="__HTC=1;USE_TIMER2=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1"/>
         <property key="extra-include-directories"
                   value="../../mplab;.;../../../src;../../../lib"/>
         <property key="identifier-length" value="255"/>

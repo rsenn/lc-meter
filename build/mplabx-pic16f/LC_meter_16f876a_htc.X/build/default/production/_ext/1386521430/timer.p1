@@ -1546,6 +1546,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 27: typedef signed short long int int24_t;
@@ -1574,54 +1575,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 179: typedef uint32_t uintmax_t;
 [; ;stdint.h: 184: typedef int16_t intptr_t;
 [; ;stdint.h: 189: typedef uint16_t uintptr_t;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;timer.h: 143: void timer2_init(uint8_t ps_mode);
-"107 ../../../lib/timer.c
+"125 ../../../lib/timer.c
 [v _timer2_init `(v  1 ef1`uc ]
 {
-[; ;timer.c: 106: void
-[; ;timer.c: 107: timer2_init(uint8_t ps_mode) {
+[; ;timer.c: 124: void
+[; ;timer.c: 125: timer2_init(uint8_t ps_mode) {
 [e :U _timer2_init ]
 [v _ps_mode `uc  1 r1 ]
 [f ]
-"108
+"126
 [v _ps `uc  1 a ]
-[; ;timer.c: 108: uint8_t ps = ps_mode & 0b1111;
+[; ;timer.c: 126: uint8_t ps = ps_mode & 0b1111;
 [e = _ps -> & -> _ps_mode `i -> 15 `i `uc ]
-"109
+"127
 [v _postscaler `uc  1 a ]
-[; ;timer.c: 109: uint8_t postscaler = 0;
+[; ;timer.c: 127: uint8_t postscaler = 0;
 [e = _postscaler -> -> 0 `i `uc ]
-[; ;timer.c: 112: TOUTPS0 = postscaler & 1;
-"112
-[e = _TOUTPS0 -> & -> _postscaler `i -> 1 `i `b ]
-[; ;timer.c: 113: TOUTPS1 = (postscaler >> 1) & 1;
-"113
-[e = _TOUTPS1 -> & >> -> _postscaler `i -> 1 `i -> 1 `i `b ]
-[; ;timer.c: 114: TOUTPS2 = (postscaler >> 2) & 1;
-"114
-[e = _TOUTPS2 -> & >> -> _postscaler `i -> 2 `i -> 1 `i `b ]
-[; ;timer.c: 116: T2CKPS0 = (ps >> 1) & 1;
-"116
-[e = _T2CKPS0 -> & >> -> _ps `i -> 1 `i -> 1 `i `b ]
-[; ;timer.c: 117: T2CKPS1 = (ps >> 2) & 1;
-"117
-[e = _T2CKPS1 -> & >> -> _ps `i -> 2 `i -> 1 `i `b ]
-[; ;timer.c: 119: TMR2 = 0;
-"119
+[; ;timer.c: 130: T2CON &= ~0b01111111;
+"130
+[e =& _T2CON -> ~ -> 127 `i `uc ]
+[; ;timer.c: 132: T2CON |= (postscaler & 0b1111) << 3;
+"132
+[e =| _T2CON -> << & -> _postscaler `i -> 15 `i -> 3 `i `uc ]
+[; ;timer.c: 133: T2CON |= (ps & 0b11);
+"133
+[e =| _T2CON -> & -> _ps `i -> 3 `i `uc ]
+[; ;timer.c: 135: TMR2 = 0;
+"135
 [e = _TMR2 -> -> 0 `i `uc ]
-[; ;timer.c: 121: TMR2ON = 1;
-"121
-[e = _TMR2ON -> -> 1 `i `b ]
-[; ;timer.c: 123: TMR2IF = 0;
-"123
-[e = _TMR2IF -> -> 0 `i `b ]
-[; ;timer.c: 124: TMR2IE = !!(ps_mode & 0x80);
-"124
-[e = _TMR2IE ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i ]
-[; ;timer.c: 125: }
-"125
+[; ;timer.c: 137: T2CON |= 0b100;
+"137
+[e =| _T2CON -> -> 4 `i `uc ]
+[; ;timer.c: 140: PIR1 &= ~0b10;
+"140
+[e =& _PIR1 -> ~ -> 2 `i `uc ]
+[; ;timer.c: 141: PIE1 = (!!(ps_mode & 0x80)) << 1;
+"141
+[e = _PIE1 -> << -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i -> 1 `i `uc ]
+[; ;timer.c: 142: }
+"142
 [e :UE 93 ]
 }

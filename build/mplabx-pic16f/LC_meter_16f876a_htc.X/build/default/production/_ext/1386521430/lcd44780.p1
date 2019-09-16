@@ -1546,6 +1546,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern void _delay(unsigned long);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 27: typedef signed short long int int24_t;
@@ -1574,14 +1575,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 179: typedef uint32_t uintmax_t;
 [; ;stdint.h: 184: typedef int16_t intptr_t;
 [; ;stdint.h: 189: typedef uint16_t uintptr_t;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
-[; ;tsmdelay.h: 49: typedef struct dvars {
-[; ;tsmdelay.h: 50: uint8_t loop_x, loop_b, loop_c;
-[; ;tsmdelay.h: 51: } dvars;
-[; ;tsmdelay.h: 67: extern dvars dvar;
-[; ;tsmdelay.h: 77: void cycle_eater(void);
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;tsmdelay.h: 50: typedef struct dvars {
+[; ;tsmdelay.h: 51: uint8_t loop_x, loop_b, loop_c;
+[; ;tsmdelay.h: 52: } dvars;
+[; ;tsmdelay.h: 68: extern dvars dvar;
+[; ;tsmdelay.h: 78: void cycle_eater(void);
 [; ;delay.h: 46: void Delay100TCYx(uint8_t);
 [; ;delay.h: 47: void Delay10KTCYx(uint8_t);
 [; ;delay.h: 48: void Delay10TCYx(uint8_t);

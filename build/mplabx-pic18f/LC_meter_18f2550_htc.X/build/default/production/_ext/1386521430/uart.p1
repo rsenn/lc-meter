@@ -13,8 +13,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S227 . BDSTAT BDCNT BDADR ]
 "37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
-"49 ../../../lib/uart.h
-[v _uart_putch `(v 0 ef1`uc ]
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
 [; ;pic18f2550.h: 319: extern volatile bit FRM1 @ ((unsigned)&UFRML*8)+1;
@@ -1973,74 +1971,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 166: extern volatile bit BF_x @ ((unsigned)&SSPSTAT*8)+0;
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
-[; ;tsmdelay.h: 49: typedef struct dvars {
-[; ;tsmdelay.h: 50: unsigned char loop_x, loop_b, loop_c;
-[; ;tsmdelay.h: 51: } dvars;
-[; ;tsmdelay.h: 67: extern dvars dvar;
-[; ;tsmdelay.h: 77: void cycle_eater(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;tsmdelay.h: 50: typedef struct dvars {
+[; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
+[; ;tsmdelay.h: 52: } dvars;
+[; ;tsmdelay.h: 68: extern dvars dvar;
+[; ;tsmdelay.h: 78: void cycle_eater(void);
 [; ;delay.h: 46: void Delay100TCYx(unsigned char);
 [; ;delay.h: 47: void Delay10KTCYx(unsigned char);
 [; ;delay.h: 48: void Delay10TCYx(unsigned char);
 [; ;delay.h: 49: void Delay1KTCYx(unsigned char);
-[; ;uart.h: 47: extern const unsigned char uart_brg;
-[; ;uart.h: 49: void uart_putch(unsigned char byte);
-[; ;uart.h: 51: int uart_getch(void);
-[; ;uart.h: 52: BOOL uart_poll(unsigned char bauds);
-[; ;uart.h: 57: void uart_init(void);
-[; ;uart.h: 64: unsigned char uart_isr(void);
-[; ;uart.h: 69: void uart_enable(void);
-[; ;uart.h: 74: void uart_disable(void);
-[; ;uart.h: 76: void uart_puts(const char* s);
-[; ;uart.h: 77: void uart_puts2(unsigned char* s);
-[; ;softser.h: 140: BOOL softser_poll(unsigned char ticks);
-[; ;softser.h: 141: void softser_recv(void);
-[; ;softser.h: 143: unsigned char softser_getch(void);
-[; ;softser.h: 144: void softser_putch(unsigned char byte);
-[; ;softser.h: 145: void softser_puts(const char* s);
-[; ;softser.h: 146: void softser_puts2(unsigned char* s);
-[; ;softser.h: 147: void softser_puthex(unsigned char v);
-[; ;softser.h: 148: void softser_init(void);
-[; ;softser.h: 150: extern unsigned char softser_rdata;
-"113 ../../../lib/uart.c
-[v _uart_puts `(v 1 ef1`*Cuc ]
-{
-[; ;uart.c: 112: void
-[; ;uart.c: 113: uart_puts(const char* s) {
-[e :U _uart_puts ]
-[v _s `*Cuc 1 r1 ]
-[f ]
-[; ;uart.c: 114: while(*s) uart_putch(*s++);
-"114
-[e $U 233  ]
-[e :U 234 ]
-[e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[e :U 233 ]
-[e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 234  ]
-[e :U 235 ]
-[; ;uart.c: 115: }
-"115
-[e :UE 232 ]
-}
-"118
-[v _uart_puts2 `(v 1 ef1`*uc ]
-{
-[; ;uart.c: 117: void
-[; ;uart.c: 118: uart_puts2(unsigned char* s) {
-[e :U _uart_puts2 ]
-[v _s `*uc 1 r1 ]
-[f ]
-[; ;uart.c: 119: while(*s) uart_putch(*s++);
-"119
-[e $U 237  ]
-[e :U 238 ]
-[e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[e :U 237 ]
-[e $ != -> *U _s `i -> -> -> 0 `i `uc `i 238  ]
-[e :U 239 ]
-[; ;uart.c: 120: }
-"120
-[e :UE 236 ]
-}
+[; ;uart.h: 89: extern const unsigned char uart_brg;
+[; ;uart.h: 91: void uart_putch(unsigned char byte);
+[; ;uart.h: 93: int uart_getch(void);
+[; ;uart.h: 94: bool uart_poll(unsigned char bauds);
+[; ;uart.h: 99: void uart_init(void);
+[; ;uart.h: 106: unsigned char uart_isr(void);
+[; ;uart.h: 111: void uart_enable(void);
+[; ;uart.h: 116: void uart_disable(void);
+[; ;uart.h: 118: void uart_puts(const char* s);
+[; ;uart.h: 119: void uart_puts2(unsigned char* s);

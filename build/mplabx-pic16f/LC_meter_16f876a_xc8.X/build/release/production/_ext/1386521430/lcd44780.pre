@@ -1299,22 +1299,22 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 69 "../../../lib/typedef.h"
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
-# 49 "../../../lib/tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
 } dvars;
 
-# 67
+# 68
 extern dvars dvar;
 
-# 77
+# 78
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"
@@ -1428,26 +1428,25 @@ static void
 lcd_write4bits(unsigned char value) {
 
 # 62
-RB4 = value & 1;
-value >>= 1;
-RB5 = value & 1;
-value >>= 1;
-RB6 = value & 1;
-value >>= 1;
-RB7 = value & 1;
+PORTB &= 0b00001111;
+PORTB |= value << 4;
 
-# 74
-RB3 = 1; _delay((unsigned long)((4)*(20000000/4000000.0))); RB3 = 0; _delay((unsigned long)((100)*(20000000/4000000.0)));;
+# 78
+PORTB |= 0b1000; _delay((unsigned long)((4)*(20000000/4000000.0))); PORTB &= ~0b1000; _delay((unsigned long)((100)*(20000000/4000000.0)));;
 
-# 79
+# 83
 }
 
-# 121
+# 125
 static void
 lcd_send(unsigned char value, unsigned char mode) {
-RB2 = mode;
+if(mode) {
+PORTB |= 0b0100;
+} else {
+PORTB &= ~0b0100;
+}
 
-# 130
+# 138
 {
 lcd_write4bits(value >> 4);
 lcd_write4bits(value);
@@ -1476,14 +1475,14 @@ lcd_gotoxy(unsigned char col, unsigned char row) {
 
 unsigned char row_offsets[] = {0x00, 0x40, 0x14, 0x54};
 
-# 165
+# 173
 if(LCD_lines == 1) {
 row_offsets[1] = 0x14;
 row_offsets[2] = 0x28;
 row_offsets[3] = 0x3C;
 }
 
-# 175
+# 183
 lcd_command(0x80 | (col + row_offsets[row]));
 }
 
@@ -1496,12 +1495,12 @@ unsigned char i;
 for(i = 0; string[i]; i++) lcd_putch(string[i]);
 }
 
-# 210
+# 218
 void
 lcd_print_number(unsigned short int n, unsigned char base, signed char pad ) {
 unsigned char buf[8 * sizeof(long)];
 unsigned char di;
-unsigned char i = 0;
+signed char i = 0;
 char padchar = ' ';
 
 if(pad < 0) {
@@ -1509,10 +1508,10 @@ pad = -pad;
 padchar = '0';
 }
 
-# 227
+# 235
 do {
 
-# 231
+# 239
 di = n % base;
 buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
 
@@ -1525,7 +1524,7 @@ for(; i > 0; i--) lcd_putch((char)buf[(signed short int)i - 1]);
 
 }
 
-# 294
+# 302
 void
 lcd_home() {
 lcd_command(0x02);
@@ -1533,7 +1532,7 @@ _delay((unsigned long)((2)*(20000000/4000.0)));
 
 }
 
-# 305
+# 313
 void
 lcd_clear() {
 lcd_command(0x01);
@@ -1541,14 +1540,14 @@ _delay((unsigned long)((2)*(20000000/4000.0)));
 
 }
 
-# 325
+# 333
 void
 lcd_display() {
 LCD_ctrl |= 0x04;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 335
+# 343
 void
 lcd_no_cursor() {
 LCD_ctrl &= ~0x02;
@@ -1564,28 +1563,28 @@ LCD_ctrl |= 0x02;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 363
+# 371
 void
 lcd_blink() {
 LCD_ctrl |= 0x01;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 390
+# 398
 void
 lcd_left_to_right(void) {
 LCD_mode |= 0x02;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 410
+# 418
 void
 lcd_autoscroll(void) {
 LCD_mode |= 0x01;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 429
+# 437
 void
 lcd_begin(unsigned char lines, unsigned char dotsize) {
 if(lines > 1)
@@ -1602,8 +1601,8 @@ LCD_function |= 0x04;
 _delay((unsigned long)((15)*(20000000/4000.0)));
 
 
-RB2 = 0;
-RB3 = 0;
+PORTB &= ~0b0100;
+PORTB &= ~0b1000;
 
 
 if(!(LCD_function & 0x10)) {
@@ -1655,7 +1654,7 @@ LCD_mode = 0x02 | 0x00;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 502
+# 510
 void
 lcd_init(char fourbitmode) {
 
@@ -1666,18 +1665,15 @@ LCD_lines = 0;
 
 LCD_mode = 0;
 
-TRISB2 = 0;
-RB2 = 0;
+TRISB &= ~0b0100;
+PORTB &= ~0b0100;
 
-# 518
-TRISB3 = 0;
-RB3 = 0;
+# 526
+TRISB &= ~0b1000;
+PORTB &= ~0b1000;
 
-TRISB4 = 0;
-TRISB5 = 0;
-TRISB6 = 0;
-TRISB7 = 0;
+PORTB &= ~0b11110000;
 
-# 534
+# 539
 }
 

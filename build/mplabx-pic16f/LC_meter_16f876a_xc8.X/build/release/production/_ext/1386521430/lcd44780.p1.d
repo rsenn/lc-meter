@@ -5,7 +5,7 @@
 ../../../lib/tsmdelay.h  \
 ../../../lib/delay.h  \
 ../../../lib/const.h  \
+../../../lib/device.h  \
 ../../../lib/oscillator.h  \
 ../../../lib/typedef.h  \
-../../../src/device.h  \
 ../../../src/lcd44780-config.h 

@@ -5,6 +5,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _pow `(d ~T0 @X0 0 ef2`d`d ]
 "31
 [v _floor `(d ~T0 @X0 0 ef1`d ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
@@ -928,9 +929,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;format.h: 6: extern putchar_fn* putchar_ptr;
 [; ;format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
 [; ;format.h: 10: void format_xint32( unsigned long int x);

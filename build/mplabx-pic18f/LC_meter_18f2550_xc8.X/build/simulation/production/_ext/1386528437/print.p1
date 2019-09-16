@@ -9,12 +9,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S504 . x p n op ]
 "27
 [v _buffer `S504 ~T0 @X0 0 e ]
-"76 ../../../lib\uart.h
+"118 ../../../lib\uart.h
 [v _uart_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "11 ../../../src/print.h
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "8 ../../../lib\format.h
 [v _format_number `(v ~T0 @X0 0 ef3`us`uc`c ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f2550.h: 49: extern volatile unsigned short UFRM @ 0xF66;
@@ -3731,9 +3732,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;lib\typedef.h: 52: typedef char BOOL;
-[; ;lib\typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;lib\typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;lib\typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;lib\typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;lib\buffer.h: 12: typedef unsigned char len_t;
 [; ;lib\buffer.h: 14: typedef struct {
 [; ;lib\buffer.h: 15: char x[16];
@@ -3756,8 +3756,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.h: 14: void print_reading(unsigned short int measurement);
 [; ;print.h: 15: void indicator(unsigned char indicate);
 [; ;print.h: 17: void print_print_float(float number, unsigned char digits);
-[; ;LC-meter.h: 70: extern double F1, F2, F3, CCal;
-[; ;LC-meter.h: 72: void delay10ms(unsigned char period_10ms);
 [; ;lib\lcd44780.h: 47: void lcd_init(char fourbitmode);
 [; ;lib\lcd44780.h: 48: void lcd_begin(unsigned char l, unsigned char ds);
 [; ;lib\lcd44780.h: 49: void lcd_no_autoscroll(void);
@@ -3779,75 +3777,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lib\lcd44780.h: 65: void lcd_puts(const char* string);
 [; ;lib\lcd44780.h: 67: void lcd_gotoxy(unsigned char col, unsigned char row);
 [; ;lib\lcd44780.h: 68: void lcd_putch(char value);
-[; ;lib\uart.h: 47: extern const unsigned char uart_brg;
-[; ;lib\uart.h: 49: void uart_putch(unsigned char byte);
-[; ;lib\uart.h: 51: int uart_getch(void);
-[; ;lib\uart.h: 52: BOOL uart_poll(unsigned char bauds);
-[; ;lib\uart.h: 57: void uart_init(void);
-[; ;lib\uart.h: 64: unsigned char uart_isr(void);
-[; ;lib\uart.h: 69: void uart_enable(void);
-[; ;lib\uart.h: 74: void uart_disable(void);
-[; ;lib\uart.h: 76: void uart_puts(const char* s);
-[; ;lib\uart.h: 77: void uart_puts2(unsigned char* s);
+[; ;lib\uart.h: 89: extern const unsigned char uart_brg;
+[; ;lib\uart.h: 91: void uart_putch(unsigned char byte);
+[; ;lib\uart.h: 93: int uart_getch(void);
+[; ;lib\uart.h: 94: bool uart_poll(unsigned char bauds);
+[; ;lib\uart.h: 99: void uart_init(void);
+[; ;lib\uart.h: 106: unsigned char uart_isr(void);
+[; ;lib\uart.h: 111: void uart_enable(void);
+[; ;lib\uart.h: 116: void uart_disable(void);
+[; ;lib\uart.h: 118: void uart_puts(const char* s);
+[; ;lib\uart.h: 119: void uart_puts2(unsigned char* s);
 [; ;lib\format.h: 6: extern putchar_fn* putchar_ptr;
 [; ;lib\format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
 [; ;lib\format.h: 10: void format_xint32( unsigned long int x);
 [; ;lib\format.h: 12: void format_double( double num);
-"34 ../../../src/print.c
+"33 ../../../src/print.c
 [v _lcd_put `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
-[; ;print.c: 33: void
-[; ;print.c: 34: lcd_put(const char* buf, unsigned n) {
+[; ;print.c: 32: void
+[; ;print.c: 33: lcd_put(const char* buf, unsigned n) {
 [e :U _lcd_put ]
 [v _buf `*Cuc ~T0 @X0 1 r1 ]
 [v _n `ui ~T0 @X0 1 r2 ]
 [f ]
-"35
+"34
 [v _i `uc ~T0 @X0 1 a ]
-[; ;print.c: 35: unsigned char i;
-[; ;print.c: 36: while(n--) lcd_putch(*buf++);
-"36
+[; ;print.c: 34: unsigned char i;
+[; ;print.c: 35: while(n--) lcd_putch(*buf++);
+"35
 [e $U 506  ]
 [e :U 507 ]
 [e ( _lcd_putch (1 *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x ]
 [e :U 506 ]
 [e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 507  ]
 [e :U 508 ]
-[; ;print.c: 37: }
-"37
+[; ;print.c: 36: }
+"36
 [e :UE 505 ]
 }
-"389
+"387
 [v _print_digit `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;print.c: 388: void
-[; ;print.c: 389: print_digit(unsigned char line, unsigned char column, unsigned char digit) {
+[; ;print.c: 386: void
+[; ;print.c: 387: print_digit(unsigned char line, unsigned char column, unsigned char digit) {
 [e :U _print_digit ]
 [v _line `uc ~T0 @X0 1 r1 ]
 [v _column `uc ~T0 @X0 1 r2 ]
 [v _digit `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;print.c: 404: lcd_gotoxy(column, 0);
-"404
+[; ;print.c: 402: lcd_gotoxy(column, 0);
+"402
 [e ( _lcd_gotoxy (2 , _column -> -> 0 `i `uc ]
-[; ;print.c: 405: lcd_putch('0' + digit);
-"405
+[; ;print.c: 403: lcd_putch('0' + digit);
+"403
 [e ( _lcd_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
-[; ;print.c: 407: }
-"407
+[; ;print.c: 405: }
+"405
 [e :UE 509 ]
 }
-"411
+"409
 [v _print_unit `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 410: void
-[; ;print.c: 411: print_unit(unsigned char unit) {
+[; ;print.c: 408: void
+[; ;print.c: 409: print_unit(unsigned char unit) {
 [e :U _print_unit ]
 [v _unit `uc ~T0 @X0 1 r1 ]
 [f ]
-"419
-[v F4080 `*Cuc ~T0 @X0 -> 8 `i s units ]
-[i F4080
+"417
+[v F4074 `*Cuc ~T0 @X0 -> 8 `i s units ]
+[i F4074
 :U ..
 :s 1C
 :s 2C
@@ -3859,130 +3857,130 @@ Version 3.2 HI-TECH Software Intermediate Code
 :s 8C
 ..
 ]
-[; ;print.c: 419: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
-[; ;print.c: 420: lcd_gotoxy(14, 0);
-"420
+[; ;print.c: 417: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
+[; ;print.c: 418: lcd_gotoxy(14, 0);
+"418
 [e ( _lcd_gotoxy (2 , -> -> 14 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 424: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
-"424
+[; ;print.c: 422: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
+"422
 [e ( _lcd_gotoxy (2 , -> - -> 16 `i - -> . _buffer 2 `i -> . _buffer 1 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 427: uart_puts("\r\n");
-"427
+[; ;print.c: 425: uart_puts("\r\n");
+"425
 [e ( _uart_puts (1 :s 9C ]
-[; ;print.c: 429: }
-"429
+[; ;print.c: 427: }
+"427
 [e :UE 510 ]
 }
-"432
+"430
 [v _print_reading `(v ~T0 @X0 1 ef1`us ]
 {
-[; ;print.c: 431: void
-[; ;print.c: 432: print_reading(unsigned short int measurement) {
+[; ;print.c: 429: void
+[; ;print.c: 430: print_reading(unsigned short int measurement) {
 [e :U _print_reading ]
 [v _measurement `us ~T0 @X0 1 r1 ]
 [f ]
+[; ;print.c: 457: lcd_gotoxy(9, 0);
+"457
+[e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
+[; ;print.c: 458: lcd_puts("     ");
+"458
+[e ( _lcd_puts (1 :s 10C ]
 [; ;print.c: 459: lcd_gotoxy(9, 0);
 "459
 [e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 460: lcd_puts("     ");
-"460
-[e ( _lcd_puts (1 :s 10C ]
-[; ;print.c: 461: lcd_gotoxy(9, 0);
+[; ;print.c: 461: format_number( measurement / 100, 10, 0);
 "461
-[e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 463: format_number( measurement / 100, 10, 0);
-"463
 [e ( _format_number (3 , , -> / -> _measurement `ui -> -> 100 `i `ui `us -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;print.c: 465: format_number( measurement % 100, 10, 0);
-"465
+[; ;print.c: 463: format_number( measurement % 100, 10, 0);
+"463
 [e ( _format_number (3 , , -> % -> _measurement `ui -> -> 100 `i `ui `us -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;print.c: 468: }
-"468
+[; ;print.c: 466: }
+"466
 [e :UE 511 ]
 }
-"472
+"470
 [v _indicator `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 471: void
-[; ;print.c: 472: indicator(unsigned char indicate) {
+[; ;print.c: 469: void
+[; ;print.c: 470: indicator(unsigned char indicate) {
 [e :U _indicator ]
 [v _indicate `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 486: lcd_gotoxy(0, 1);
-"486
+[; ;print.c: 484: lcd_gotoxy(0, 1);
+"484
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;print.c: 487: if(indicate) {
-"487
+[; ;print.c: 485: if(indicate) {
+"485
 [e $ ! != -> _indicate `i -> -> -> 0 `i `uc `i 513  ]
 {
-[; ;print.c: 488: lcd_puts("-*-");
-"488
+[; ;print.c: 486: lcd_puts("-*-");
+"486
 [e ( _lcd_puts (1 :s 11C ]
-"489
+"487
 }
-[; ;print.c: 489: } else {
+[; ;print.c: 487: } else {
 [e $U 514  ]
 [e :U 513 ]
 {
-[; ;print.c: 490: lcd_puts("   ");
-"490
+[; ;print.c: 488: lcd_puts("   ");
+"488
 [e ( _lcd_puts (1 :s 12C ]
-"491
+"489
 }
 [e :U 514 ]
+[; ;print.c: 489: }
 [; ;print.c: 491: }
-[; ;print.c: 493: }
-"493
+"491
 [e :UE 512 ]
 }
-"498
+"494
 [v _output_putch `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 497: void
-[; ;print.c: 498: output_putch(char c) {
+[; ;print.c: 493: void
+[; ;print.c: 494: output_putch(char c) {
 [e :U _output_putch ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 500: lcd_putch(c);
-"500
+[; ;print.c: 496: lcd_putch(c);
+"496
 [e ( _lcd_putch (1 _c ]
-[; ;print.c: 505: }
-"505
+[; ;print.c: 501: }
+"501
 [e :UE 515 ]
 }
-"511
+"507
 [v _put_str `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;print.c: 510: void
-[; ;print.c: 511: put_str(const char* s) {
+[; ;print.c: 506: void
+[; ;print.c: 507: put_str(const char* s) {
 [e :U _put_str ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"512
+"508
 [v _i `i ~T0 @X0 1 a ]
-[; ;print.c: 512: int i;
-[; ;print.c: 514: for(i = 0; s[i]; i++) {
-"514
+[; ;print.c: 508: int i;
+[; ;print.c: 510: for(i = 0; s[i]; i++) {
+"510
 {
 [e = _i -> 0 `i ]
 [e $U 520  ]
 [e :U 517 ]
 {
-[; ;print.c: 515: output_putch(s[i]);
-"515
+[; ;print.c: 511: output_putch(s[i]);
+"511
 [e ( _output_putch (1 *U + _s * -> _i `x -> -> # *U _s `i `x ]
-"516
+"512
 }
-"514
+"510
 [e ++ _i -> 1 `i ]
 [e :U 520 ]
 [e $ != -> *U + _s * -> _i `x -> -> # *U _s `i `x `i -> -> -> 0 `i `Cuc `i 517  ]
 [e :U 518 ]
-"516
+"512
 }
-[; ;print.c: 516: }
-[; ;print.c: 517: }
-"517
+[; ;print.c: 512: }
+[; ;print.c: 513: }
+"513
 [e :UE 516 ]
 }
 [a 3C 117 72 0 ]

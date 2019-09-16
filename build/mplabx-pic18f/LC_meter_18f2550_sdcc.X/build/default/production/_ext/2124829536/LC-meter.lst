@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  1
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ Warning[212]: __CONFIG has been deprecated for PIC18 devices. Use directive CONF
   0000                00049         extern  _UEP5bits
   0000                00050         extern  _UEP6bits
   0000                00051         extern  _UEP7bits
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  2
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00102         extern  _RCONbits
   0000                00103         extern  _WDTCONbits
   0000                00104         extern  _HLVDCONbits
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  3
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00155         extern  _OSCTUNE
   0000                00156         extern  _PIE1
   0000                00157         extern  _PIR1
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  4
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00208         extern  _TMR1L
   0000                00209         extern  _TMR1H
   0000                00210         extern  _RCON
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  5
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00261         extern  _TOSH
   0000                00262         extern  _TOSU
   0000                00263         extern  _lcd_init
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  6
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000005                00314 r0x05   res     1
                       00315 
                       00316 udata_LC_meter_0        udata
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  7
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 00000C 010?           00367         BANKSEL (_seconds + 3)
 00000E 6B??           00368         CLRF    (_seconds + 3), B
 000010 010?           00369         BANKSEL _msecs
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  8
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000066 0EB5           00419         MOVLW   0xb5
 000068 16??           00420         ANDWF   _TRISC, F
                       00421 ;       .line   177; ../../../LC-meter.c        lcd_init(true);
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE  9
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000C0 12??           00472         IORWF   _INTCON, F
                       00473 ;       .line   205; ../../../LC-meter.c        putchar_ptr = &lcd_putch;
 0000C2 0E??           00474         MOVLW   LOW(_lcd_putch)
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 10
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -588,7 +588,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000126 EC?? F0??      00525         CALL    _calibrate
                       00526 ;       .line   226; ../../../LC-meter.c        lcd_clear();
 00012A EC?? F0??      00527         CALL    _lcd_clear
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 11
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -647,7 +647,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00578 ; ; Starting pCode block
                       00579 S_LC_meter__testloop    code
 000000                00580 _testloop:
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 12
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -706,7 +706,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 00006A 6EE5           00631         MOVWF   POSTDEC1
 00006C 0E0A           00632         MOVLW   0x0a
 00006E 6EE5           00633         MOVWF   POSTDEC1
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 13
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 13
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -765,7 +765,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000D6 6E??           00684         MOVWF   r0x05
 0000D8 6A??           00685         CLRF    r0x04
 0000DA C??? F???      00686         MOVFF   _TMR1L, r0x02
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 14
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 14
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -824,7 +824,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000142 0E??           00737         MOVLW   LOW(___str_4)
 000144 6E??           00738         MOVWF   r0x02
 000146 6A??           00739         CLRF    r0x04
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 15
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 15
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -883,7 +883,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0001A6 CFE4 F000      00790         MOVFF   PREINC1, r0x04
 0001AA CFE4 F000      00791         MOVFF   PREINC1, r0x03
 0001AE CFE4 F000      00792         MOVFF   PREINC1, r0x02
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 16
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 16
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -942,7 +942,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000064 C??? F???      00843         MOVFF   _msecpart, r0x00
 000068 C??? F???      00844         MOVFF   (_msecpart + 1), r0x01
 00006C 50??           00845         MOVF    r0x00, W
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 17
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 17
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -1001,7 +1001,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000D4 6A??           00896         CLRF    r0x00
 0000D6 36??           00897         RLCF    r0x00, F
 0000D8 44??           00898         RLNCF   r0x00, W
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 18
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 18
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -1060,7 +1060,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000134 6F??           00949         MOVWF   _seconds, B
 000136 0E00           00950         MOVLW   0x00
 000138 20??           00951         ADDWFC  r0x01, W
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 19
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 19
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -1119,7 +1119,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 00000E 434C 6D2D 7465 01002         DB      0x4c, 0x43, 0x2d, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x20, 0x00
        7265 0020      
                       01003 ; ; Starting pCode block
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 20
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 20
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -1147,7 +1147,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       01022 
                       01023 
                       01024         end
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 21
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 21
 
 
 SYMBOL TABLE
@@ -1206,7 +1206,7 @@ _CCP1DELbits                      EXTERNAL      00000000              0
 _CCP2CON                          EXTERNAL      00000000              0
 _CCP2CONbits                      EXTERNAL      00000000              0
 _CCPR1                            EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 22
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 22
 
 
 SYMBOL TABLE
@@ -1265,7 +1265,7 @@ _IPR2bits                         EXTERNAL      00000000              0
 _LATA                             EXTERNAL      00000000              0
 _LATAbits                         EXTERNAL      00000000              0
 _LATB                             EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 23
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 23
 
 
 SYMBOL TABLE
@@ -1324,7 +1324,7 @@ _RCSTA                            EXTERNAL      00000000              0
 _RCSTAbits                        EXTERNAL      00000000              0
 _SPBRG                            EXTERNAL      00000000              0
 _SPBRGH                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 24
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 24
 
 
 SYMBOL TABLE
@@ -1383,7 +1383,7 @@ _UADDR                            EXTERNAL      00000000              0
 _UADDRbits                        EXTERNAL      00000000              0
 _UCFG                             EXTERNAL      00000000              0
 _UCFGbits                         EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 25
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 25
 
 
 SYMBOL TABLE
@@ -1442,7 +1442,7 @@ _USTATbits                        EXTERNAL      00000000              0
 _WDTCON                           EXTERNAL      00000000              0
 _WDTCONbits                       EXTERNAL      00000000              0
 _WREG                             EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 26
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 26
 
 
 SYMBOL TABLE
@@ -1487,9 +1487,9 @@ __CONFIG_START                    CONSTANT      00300000        3145728
 __EEPROM_END                      CONSTANT      00F000FF       15728895
 __EEPROM_START                    CONSTANT      00F00000       15728640
 __EXTENDED                        CONSTANT      00000001              1
-__GPUTILS_SVN_VERSION             CONSTANT      00000505           1285
+__GPUTILS_SVN_VERSION             CONSTANT      00000000              0
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
-__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MICRO           CONSTANT      00000002              2
 __GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
 __IDLOCS_END                      CONSTANT      00200007        2097159
 __IDLOCS_START                    CONSTANT      00200000        2097152
@@ -1501,7 +1501,7 @@ __WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
 ___str_0                          ADDRESS       0000000E             14
 ___str_1                          ADDRESS       00000018             24
 ___str_2                          ADDRESS       0000001E             30
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:12         PAGE 27
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:42         PAGE 27
 
 
 SYMBOL TABLE

@@ -1,6 +1,9 @@
 
 # 1 "../../../lib/format.c"
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -4839,10 +4842,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
-
-# 77
+# 69 "../../../lib/typedef.h"
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 

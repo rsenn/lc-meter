@@ -7,14 +7,12 @@
       <logicalFolder name="f1" displayName="lib" projectFiles="true">
         <itemPath>../../../lib/format.h</itemPath>
         <itemPath>../../../lib/oscillator.h</itemPath>
-        <itemPath>../../../lib/ser.h</itemPath>
         <itemPath>../../../lib/uart.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="src" projectFiles="true">
         <itemPath>../../../LC-meter.h</itemPath>
         <itemPath>../../../src/config-18f2550.h</itemPath>
         <itemPath>../../../src/config-bits.h</itemPath>
-        <itemPath>../../../src/device.h</itemPath>
         <itemPath>../../../src/lcd44780-config.h</itemPath>
         <itemPath>../../../src/print.h</itemPath>
       </logicalFolder>
@@ -23,7 +21,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="lib" projectFiles="true">
-        <itemPath>../../../lib/ser.c</itemPath>
         <itemPath>../../../lib/lcd44780.c</itemPath>
         <itemPath>../../../lib/comparator.c</itemPath>
         <itemPath>../../../lib/delay.c</itemPath>
@@ -89,7 +86,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="define-macros"
-                  value="__HTC=1;__18f2550=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400"/>
+                  value="__HTC=1;__18f2550=1;USE_TIMER2=1;USE_UART=1;XTAL_FREQ=20000000;BAUD_RATE=38400"/>
         <property key="extra-include-directories" value="..\..\..\lib;..\..\..\src"/>
         <property key="identifier-length" value="31"/>
         <property key="operation-mode" value="pro"/>

@@ -1,6 +1,9 @@
 
 # 1 "../../../src/print.c"
 
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
@@ -4839,10 +4842,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 52 "../../../lib\typedef.h"
-typedef char BOOL;
-
-# 77
+# 69 "../../../lib\typedef.h"
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
@@ -4879,11 +4879,6 @@ void indicator(unsigned char indicate);
 
 void print_print_float(float number, unsigned char digits);
 
-# 70 "../../../src/LC-meter.h"
-extern double F1, F2, F3, CCal;
-
-void delay10ms(unsigned char period_10ms);
-
 # 47 "../../../lib\lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(unsigned char l, unsigned char ds);
@@ -4908,24 +4903,24 @@ void lcd_puts(const char* string);
 void lcd_gotoxy(unsigned char col, unsigned char row);
 void lcd_putch(char value);
 
-# 47 "../../../lib\uart.h"
+# 89 "../../../lib\uart.h"
 extern const unsigned char uart_brg;
 
 void uart_putch(unsigned char byte);
 
 int uart_getch(void);
-BOOL uart_poll(unsigned char bauds);
+bool uart_poll(unsigned char bauds);
 
-# 57
+# 99
 void uart_init(void);
 
-# 64
+# 106
 unsigned char uart_isr(void);
 
-# 69
+# 111
 void uart_enable(void);
 
-# 74
+# 116
 void uart_disable(void);
 
 void uart_puts(const char* s);
@@ -4940,18 +4935,18 @@ void format_xint32( unsigned long int x);
 
 void format_double( double num);
 
-# 33 "../../../src/print.c"
+# 32 "../../../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
 unsigned char i;
 while(n--) lcd_putch(*buf++);
 }
 
-# 388
+# 386
 void
 print_digit(unsigned char line, unsigned char column, unsigned char digit) {
 
-# 404
+# 402
 lcd_gotoxy(column, 0);
 lcd_putch('0' + digit);
 
@@ -4961,11 +4956,11 @@ lcd_putch('0' + digit);
 void
 print_unit(unsigned char unit) {
 
-# 419
+# 417
 static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
 lcd_gotoxy(14, 0);
 
-# 424
+# 422
 lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
 
 
@@ -4976,7 +4971,7 @@ uart_puts("\r\n");
 void
 print_reading(unsigned short int measurement) {
 
-# 459
+# 457
 lcd_gotoxy(9, 0);
 lcd_puts("     ");
 lcd_gotoxy(9, 0);
@@ -4992,7 +4987,7 @@ format_number( measurement % 100, 10, 0);
 void
 indicator(unsigned char indicate) {
 
-# 486
+# 484
 lcd_gotoxy(0, 1);
 if(indicate) {
 lcd_puts("-*-");
@@ -5002,17 +4997,15 @@ lcd_puts("   ");
 
 }
 
-
-
 void
 output_putch(char c) {
 
 lcd_putch(c);
 
-# 505
+# 501
 }
 
-# 510
+# 506
 void
 put_str(const char* s) {
 int i;
@@ -5021,4 +5014,3 @@ for(i = 0; s[i]; i++) {
 output_putch(s[i]);
 }
 }
-

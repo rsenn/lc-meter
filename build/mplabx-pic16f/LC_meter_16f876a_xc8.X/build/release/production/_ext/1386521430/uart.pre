@@ -1299,22 +1299,22 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 69 "../../../lib/typedef.h"
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
-# 49 "../../../lib/tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
 } dvars;
 
-# 67
+# 68
 extern dvars dvar;
 
-# 77
+# 78
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"
@@ -1323,50 +1323,37 @@ void Delay10KTCYx(unsigned char);
 void Delay10TCYx(unsigned char);
 void Delay1KTCYx(unsigned char);
 
-# 47 "../../../lib/uart.h"
+# 89 "../../../lib/uart.h"
 extern const unsigned char uart_brg;
 
 void uart_putch(unsigned char byte);
 
 int uart_getch(void);
-BOOL uart_poll(unsigned char bauds);
+bool uart_poll(unsigned char bauds);
 
-# 57
+# 99
 void uart_init(void);
 
-# 64
+# 106
 unsigned char uart_isr(void);
 
-# 69
+# 111
 void uart_enable(void);
 
-# 74
+# 116
 void uart_disable(void);
 
 void uart_puts(const char* s);
 void uart_puts2(unsigned char* s);
 
-# 140 "../../../lib/softser.h"
-BOOL softser_poll(unsigned char ticks);
-void softser_recv(void);
+# 16 "../../../lib/uart.c"
+const unsigned char uart_brg = 0x41;
 
-unsigned char softser_getch(void);
-void softser_putch(unsigned char byte);
-void softser_puts(const char* s);
-void softser_puts2(unsigned char* s);
-void softser_puthex(unsigned char v);
-void softser_init(void);
-
-extern unsigned char softser_rdata;
-
-# 17 "../../../lib/uart.c"
-const unsigned char uart_brg = ((unsigned short int)((double)(20000000) / (16 * (double)(38400))) - 1);
-
-# 22
+# 21
 void
 uart_putch(unsigned char byte) {
 
-while(!TXIF) {
+while(!(PIR1 & 0b00010000)) {
 
 continue;
 }
@@ -1379,7 +1366,7 @@ uart_getch(void) {
 if(uart_poll(38400)) {
 unsigned char ch;
 ch = RCREG;
-RCIF = 0;
+PIR1 &= ~0b00100000;
 return (int)ch;
 }
 return -1;
@@ -1387,25 +1374,25 @@ return -1;
 
 
 
-BOOL
+bool
 uart_poll(unsigned char bauds) {
 
 
 
 TMR0 = (256 - ((((20000000) / 4) / (1 << (0b000 + 1)) / (bauds)) + 1));
 while(TMR0 & (1 << 7)) {
-if(RCIF)
+if((PIR1 & 0b00100000))
 return 1;
 }
 
 return 0;
 }
 
-# 65
+# 64
 unsigned char
 uart_isr(void) {
-if(RCIF) {
-RCIF = 0;
+if((PIR1 & 0b00100000)) {
+PIR1 &= ~0b00100000;
 return RCREG;
 }
 return 0;
@@ -1413,38 +1400,42 @@ return 0;
 
 void
 uart_enable(void) {
-TRISC7 = 1;
-TRISC6 = RC6 = 0;
-TXEN = 1;
+TRISC |= 0b10000000;
+TRISC &= ~0b01000000;
+if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
+TXSTA |= 0b00100000;
 RCSTA |= 0x80;
-RCIE = 0;
+PIE1 &= ~0b100000;
 }
 
 void
 uart_disable(void) {
-TXEN = 0;
-SPEN = 0;
-RCIE = 0;
-TRISC7 = 1;
-RC6 = TRISC6 = 0;
+TXSTA &= ~0b00100000;
+RCSTA &= ~0b10000000;
+PIE1 &= ~0b100000;
+TRISC |= 0b10000000;
+TRISC &= ~0b01000000;
+if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
 }
 
 void
 uart_init(void) {
 
 
-TRISC7 = 1;
-TRISC6 = 0;
-RC6 = 0;
-SPBRG = ((unsigned short int)((double)(20000000) / (16 * (double)(38400))) - 1);
+TRISC |= 0b10000000;
+TRISC &= ~0b01000000;
+if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
+SPBRG = 0x41;
 
 RCSTA |= 0x90
 | (0 == 1 ? 0b1 : 0);
 
-TXSTA |= (1 == 1) ? 0b100 : 0b000;
+TXSTA |= (1 == 1)
 
-# 106
-TX9 |= (0 == 1) ? 0b01000000 : 0;
+# 107
+? 0b100
+: 0b000;
+TXSTA |= (0 == 1) ? 0b01000000 : 0;
 
 uart_enable();
 }

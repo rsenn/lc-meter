@@ -23,6 +23,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _pow `(d 0 ef2`d`d ]
 "2 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\math.h
 [v _floor `(d 0 ef1`d ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
 [; ;pic18f2550.h: 319: extern volatile bit FRM1 @ ((unsigned)&UFRML*8)+1;
@@ -1981,9 +1982,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 166: extern volatile bit BF_x @ ((unsigned)&SSPSTAT*8)+0;
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;format.h: 6: extern putchar_fn* putchar_ptr;
 [; ;format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
 [; ;format.h: 10: void format_xint32( unsigned long int x);

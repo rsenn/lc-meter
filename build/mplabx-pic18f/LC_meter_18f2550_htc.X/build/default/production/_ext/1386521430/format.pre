@@ -1,6 +1,9 @@
 
 # 1 "../../../lib/format.c"
 
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+typedef unsigned char bool;
+
 # 316 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h"
 extern volatile unsigned char UFRML @ 0xF66;
 
@@ -2536,9 +2539,9 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
 # 52 "../../../lib/typedef.h"
-typedef char BOOL;
+typedef char bool;
 
-# 77
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 

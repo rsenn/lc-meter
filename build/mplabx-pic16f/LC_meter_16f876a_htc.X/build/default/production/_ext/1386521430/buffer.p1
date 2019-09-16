@@ -793,14 +793,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS91  1 e@396 ]
 "1069 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f876a.h
 [v _EECON2 `Vuc  1 e@397 ]
-"78 ../../../lib/typedef.h
+"70 ../../../lib/typedef.h
 [v F1016 `(v  1 tf1`uc ]
 [s S93 `uc -> 16 `i :4 `uc 1 :4 `uc 1 `*F1016 1 ]
 [n S93 . x p n op ]
 "4 ../../../lib/buffer.c
 [v _buffer `S93  1 e ]
-"22 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\string.h
-[v _memcpy `(*v  0 ef3`*v`*Cv`ui ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic16f876a.h: 82: volatile unsigned char INDF @ 0x000;
 [; ;pic16f876a.h: 86: volatile unsigned char TMR0 @ 0x001;
 [; ;pic16f876a.h: 90: volatile unsigned char PCL @ 0x002;
@@ -1582,9 +1581,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 179: typedef uint32_t uintmax_t;
 [; ;stdint.h: 184: typedef int16_t intptr_t;
 [; ;stdint.h: 189: typedef uint16_t uintptr_t;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;buffer.h: 12: typedef uint8_t len_t;
 [; ;buffer.h: 14: typedef struct {
 [; ;buffer.h: 15: char x[16];
@@ -1726,63 +1725,83 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _buf `*Cuc  1 r1 ]
 [v _len `uc  1 r2 ]
 [f ]
-[; ;buffer.c: 34: if(len > 16 - buffer.n) {
 "34
+[v _i `uc  1 a ]
+[; ;buffer.c: 34: len_t i;
+[; ;buffer.c: 35: if(len > 16 - buffer.n) {
+"35
 [e $ ! > -> _len `i - -> 16 `i -> . _buffer 2 `i 102  ]
 {
-[; ;buffer.c: 44: return -1;
-"44
+[; ;buffer.c: 45: return -1;
+"45
 [e ) -> -U -> 1 `i `uc ]
 [e $UE 101  ]
-"45
+"46
 }
 [e :U 102 ]
-[; ;buffer.c: 45: }
-[; ;buffer.c: 47: memcpy(buffer.x + buffer.n, buf, len);
+[; ;buffer.c: 46: }
+[; ;buffer.c: 47: for(i = 0; i < len; i++) {
 "47
-[e ( _memcpy (3 , , -> + &U . _buffer 0 * -> . _buffer 2 `ux -> -> # *U &U . _buffer 0 `ui `ux `*v -> _buf `*Cv -> _len `ui ]
-[; ;buffer.c: 48: buffer.n += len;
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 106  ]
+[e :U 103 ]
+{
+[; ;buffer.c: 48: buffer.x[buffer.n + i] = buf[i];
 "48
-[e =+ . _buffer 2 _len ]
-[; ;buffer.c: 49: return 0;
+[e = *U + &U . _buffer 0 * -> -> + -> . _buffer 2 `i -> _i `i `ui `ux -> -> # *U &U . _buffer 0 `ui `ux *U + _buf * -> _i `ux -> -> # *U _buf `ui `ux ]
 "49
+}
+"47
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 106 ]
+[e $ < -> _i `i -> _len `i 103  ]
+[e :U 104 ]
+"49
+}
+[; ;buffer.c: 49: }
+[; ;buffer.c: 51: buffer.n += len;
+"51
+[e =+ . _buffer 2 _len ]
+[; ;buffer.c: 52: return 0;
+"52
 [e ) -> -> 0 `i `uc ]
 [e $UE 101  ]
-[; ;buffer.c: 50: }
-"50
+[; ;buffer.c: 53: }
+"53
 [e :UE 101 ]
 }
-"53
+"56
 [v _buffer_puts `(uc  1 ef1`*Cuc ]
 {
-[; ;buffer.c: 52: char
-[; ;buffer.c: 53: buffer_puts(const char* x) {
+[; ;buffer.c: 55: char
+[; ;buffer.c: 56: buffer_puts(const char* x) {
 [e :U _buffer_puts ]
 [v _x `*Cuc  1 r1 ]
 [f ]
-[; ;buffer.c: 54: while(*x) {
-"54
-[e $U 104  ]
-[e :U 105 ]
-{
-[; ;buffer.c: 55: buffer_putch(*x);
-"55
-[e ( _buffer_putch (1 *U _x ]
-[; ;buffer.c: 56: ++x;
-"56
-[e =+ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
+[; ;buffer.c: 57: while(*x) {
 "57
-}
-[e :U 104 ]
-"54
-[e $ != -> *U _x `i -> -> -> 0 `i `Cuc `i 105  ]
-[e :U 106 ]
-[; ;buffer.c: 57: }
-[; ;buffer.c: 58: return 0;
+[e $U 108  ]
+[e :U 109 ]
+{
+[; ;buffer.c: 58: buffer_putch(*x);
 "58
-[e ) -> -> 0 `i `uc ]
-[e $UE 103  ]
-[; ;buffer.c: 59: }
+[e ( _buffer_putch (1 *U _x ]
+[; ;buffer.c: 59: ++x;
 "59
-[e :UE 103 ]
+[e =+ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
+"60
+}
+[e :U 108 ]
+"57
+[e $ != -> *U _x `i -> -> -> 0 `i `Cuc `i 109  ]
+[e :U 110 ]
+[; ;buffer.c: 60: }
+[; ;buffer.c: 61: return 0;
+"61
+[e ) -> -> 0 `i `uc ]
+[e $UE 107  ]
+[; ;buffer.c: 62: }
+"62
+[e :UE 107 ]
 }

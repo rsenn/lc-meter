@@ -1,36 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2478 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
-[v _TXIF `Vb ~T0 @X0 0 e@100 ]
+"427 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+[v _PIR1 `Vuc ~T0 @X0 0 e@12 ]
 "933
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"52 ../../../lib/uart.h
+"94 ../../../lib/uart.h
 [v _uart_poll `(uc ~T0 @X0 0 ef1`uc ]
 "939 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"2326
-[v _RCIF `Vb ~T0 @X0 0 e@101 ]
 "55
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"2462
-[v _TRISC7 `Vb ~T0 @X0 0 e@1087 ]
-"2460
-[v _TRISC6 `Vb ~T0 @X0 0 e@1086 ]
-"2312
-[v _RC6 `Vb ~T0 @X0 0 e@62 ]
-"2474
-[v _TXEN `Vb ~T0 @X0 0 e@1221 ]
-"839
-[v _RCSTA `Vuc ~T0 @X0 0 e@24 ]
-"2324
-[v _RCIE `Vb ~T0 @X0 0 e@1125 ]
-"2350
-[v _SPEN `Vb ~T0 @X0 0 e@199 ]
-"1809
-[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
+"1300
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"270
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "1729
 [v _TXSTA `Vuc ~T0 @X0 0 e@152 ]
-"2468
-[v _TX9 `Vb ~T0 @X0 0 e@1222 ]
+"839
+[v _RCSTA `Vuc ~T0 @X0 0 e@24 ]
+"1361
+[v _PIE1 `Vuc ~T0 @X0 0 e@140 ]
+"1809
+[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
@@ -954,200 +944,199 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
-[; ;tsmdelay.h: 49: typedef struct dvars {
-[; ;tsmdelay.h: 50: unsigned char loop_x, loop_b, loop_c;
-[; ;tsmdelay.h: 51: } dvars;
-[; ;tsmdelay.h: 67: extern dvars dvar;
-[; ;tsmdelay.h: 77: void cycle_eater(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;tsmdelay.h: 50: typedef struct dvars {
+[; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
+[; ;tsmdelay.h: 52: } dvars;
+[; ;tsmdelay.h: 68: extern dvars dvar;
+[; ;tsmdelay.h: 78: void cycle_eater(void);
 [; ;delay.h: 46: void Delay100TCYx(unsigned char);
 [; ;delay.h: 47: void Delay10KTCYx(unsigned char);
 [; ;delay.h: 48: void Delay10TCYx(unsigned char);
 [; ;delay.h: 49: void Delay1KTCYx(unsigned char);
-[; ;uart.h: 47: extern const unsigned char uart_brg;
-[; ;uart.h: 49: void uart_putch(unsigned char byte);
-[; ;uart.h: 51: int uart_getch(void);
-[; ;uart.h: 52: BOOL uart_poll(unsigned char bauds);
-[; ;uart.h: 57: void uart_init(void);
-[; ;uart.h: 64: unsigned char uart_isr(void);
-[; ;uart.h: 69: void uart_enable(void);
-[; ;uart.h: 74: void uart_disable(void);
-[; ;uart.h: 76: void uart_puts(const char* s);
-[; ;uart.h: 77: void uart_puts2(unsigned char* s);
-[; ;softser.h: 140: BOOL softser_poll(unsigned char ticks);
-[; ;softser.h: 141: void softser_recv(void);
-[; ;softser.h: 143: unsigned char softser_getch(void);
-[; ;softser.h: 144: void softser_putch(unsigned char byte);
-[; ;softser.h: 145: void softser_puts(const char* s);
-[; ;softser.h: 146: void softser_puts2(unsigned char* s);
-[; ;softser.h: 147: void softser_puthex(unsigned char v);
-[; ;softser.h: 148: void softser_init(void);
-[; ;softser.h: 150: extern unsigned char softser_rdata;
-"17 ../../../lib/uart.c
+[; ;uart.h: 89: extern const unsigned char uart_brg;
+[; ;uart.h: 91: void uart_putch(unsigned char byte);
+[; ;uart.h: 93: int uart_getch(void);
+[; ;uart.h: 94: bool uart_poll(unsigned char bauds);
+[; ;uart.h: 99: void uart_init(void);
+[; ;uart.h: 106: unsigned char uart_isr(void);
+[; ;uart.h: 111: void uart_enable(void);
+[; ;uart.h: 116: void uart_disable(void);
+[; ;uart.h: 118: void uart_puts(const char* s);
+[; ;uart.h: 119: void uart_puts2(unsigned char* s);
+"16 ../../../lib/uart.c
 [v _uart_brg `Cuc ~T0 @X0 1 e ]
 [i _uart_brg
--> - -> -> / -> -> 20000000 `l `d * -> -> 16 `i `d -> -> 38400 `l `d `us `ui -> -> 1 `i `ui `uc
+-> -> 65 `i `uc
 ]
-[; ;uart.c: 17: const unsigned char uart_brg = ((unsigned short int)((double)(20000000) / (16 * (double)(38400))) - 1);
-"23
+[; ;uart.c: 16: const unsigned char uart_brg = 0x41;
+"22
 [v _uart_putch `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;uart.c: 22: void
-[; ;uart.c: 23: uart_putch(unsigned char byte) {
+[; ;uart.c: 21: void
+[; ;uart.c: 22: uart_putch(unsigned char byte) {
 [e :U _uart_putch ]
 [v _byte `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;uart.c: 25: while(!TXIF) {
-"25
+[; ;uart.c: 24: while(!(PIR1 & 0b00010000)) {
+"24
 [e $U 90  ]
 [e :U 91 ]
 {
-[; ;uart.c: 27: continue;
-"27
+[; ;uart.c: 26: continue;
+"26
 [e $U 90  ]
-"28
+"27
 }
 [e :U 90 ]
-"25
-[e $ ! _TXIF 91  ]
+"24
+[e $ ! != & -> _PIR1 `i -> 16 `i -> 0 `i 91  ]
 [e :U 92 ]
-[; ;uart.c: 28: }
-[; ;uart.c: 29: TXREG = (unsigned char)byte;
-"29
+[; ;uart.c: 27: }
+[; ;uart.c: 28: TXREG = (unsigned char)byte;
+"28
 [e = _TXREG _byte ]
-[; ;uart.c: 30: }
-"30
+[; ;uart.c: 29: }
+"29
 [e :UE 89 ]
 }
-"33
+"32
 [v _uart_getch `(i ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 32: int
-[; ;uart.c: 33: uart_getch(void) {
+[; ;uart.c: 31: int
+[; ;uart.c: 32: uart_getch(void) {
 [e :U _uart_getch ]
 [f ]
-[; ;uart.c: 35: if(uart_poll(38400)) {
-"35
+[; ;uart.c: 34: if(uart_poll(38400)) {
+"34
 [e $ ! != -> ( _uart_poll (1 -> -> 38400 `l `uc `i -> -> -> 0 `i `uc `i 94  ]
 {
-"36
+"35
 [v _ch `uc ~T0 @X0 1 a ]
-[; ;uart.c: 36: unsigned char ch;
-[; ;uart.c: 37: ch = RCREG;
-"37
+[; ;uart.c: 35: unsigned char ch;
+[; ;uart.c: 36: ch = RCREG;
+"36
 [e = _ch _RCREG ]
-[; ;uart.c: 38: RCIF = 0;
+[; ;uart.c: 37: PIR1 &= ~0b00100000;
+"37
+[e =& _PIR1 -> ~ -> 32 `i `uc ]
+[; ;uart.c: 38: return (int)ch;
 "38
-[e = _RCIF -> -> 0 `i `b ]
-[; ;uart.c: 39: return (int)ch;
-"39
 [e ) -> _ch `i ]
 [e $UE 93  ]
-"40
+"39
 }
 [e :U 94 ]
-[; ;uart.c: 40: }
-[; ;uart.c: 41: return -1;
-"41
+[; ;uart.c: 39: }
+[; ;uart.c: 40: return -1;
+"40
 [e ) -U -> 1 `i ]
 [e $UE 93  ]
-[; ;uart.c: 42: }
-"42
+[; ;uart.c: 41: }
+"41
 [e :UE 93 ]
 }
-"47
+"46
 [v _uart_poll `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;uart.c: 46: BOOL
-[; ;uart.c: 47: uart_poll(unsigned char bauds) {
+[; ;uart.c: 45: bool
+[; ;uart.c: 46: uart_poll(unsigned char bauds) {
 [e :U _uart_poll ]
 [v _bauds `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;uart.c: 51: TMR0 = (256 - ((((20000000) / 4) / (1 << (0b000 + 1)) / (bauds)) + 1));
-"51
+[; ;uart.c: 50: TMR0 = (256 - ((((20000000) / 4) / (1 << (0b000 + 1)) / (bauds)) + 1));
+"50
 [e = _TMR0 -> - -> -> 256 `i `l + / / / -> 20000000 `l -> -> 4 `i `l -> << -> 1 `i + -> 0 `i -> 1 `i `l -> _bauds `l -> -> 1 `i `l `uc ]
-[; ;uart.c: 52: while(TMR0 & (1 << 7)) {
-"52
+[; ;uart.c: 51: while(TMR0 & (1 << 7)) {
+"51
 [e $U 96  ]
 [e :U 97 ]
 {
-[; ;uart.c: 53: if(RCIF)
+[; ;uart.c: 52: if((PIR1 & 0b00100000))
+"52
+[e $ ! != & -> _PIR1 `i -> 32 `i -> 0 `i 99  ]
+[; ;uart.c: 53: return 1;
 "53
-[e $ ! _RCIF 99  ]
-[; ;uart.c: 54: return 1;
-"54
 [e ) -> -> 1 `i `uc ]
 [e $UE 95  ]
 [e :U 99 ]
-"55
+"54
 }
 [e :U 96 ]
-"52
+"51
 [e $ != & -> _TMR0 `i << -> 1 `i -> 7 `i -> 0 `i 97  ]
 [e :U 98 ]
-[; ;uart.c: 55: }
-[; ;uart.c: 57: return 0;
-"57
+[; ;uart.c: 54: }
+[; ;uart.c: 56: return 0;
+"56
 [e ) -> -> 0 `i `uc ]
 [e $UE 95  ]
-[; ;uart.c: 58: }
-"58
+[; ;uart.c: 57: }
+"57
 [e :UE 95 ]
 }
-"66
+"65
 [v _uart_isr `(uc ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 65: unsigned char
-[; ;uart.c: 66: uart_isr(void) {
+[; ;uart.c: 64: unsigned char
+[; ;uart.c: 65: uart_isr(void) {
 [e :U _uart_isr ]
 [f ]
-[; ;uart.c: 67: if(RCIF) {
-"67
-[e $ ! _RCIF 101  ]
+[; ;uart.c: 66: if((PIR1 & 0b00100000)) {
+"66
+[e $ ! != & -> _PIR1 `i -> 32 `i -> 0 `i 101  ]
 {
-[; ;uart.c: 68: RCIF = 0;
+[; ;uart.c: 67: PIR1 &= ~0b00100000;
+"67
+[e =& _PIR1 -> ~ -> 32 `i `uc ]
+[; ;uart.c: 68: return RCREG;
 "68
-[e = _RCIF -> -> 0 `i `b ]
-[; ;uart.c: 69: return RCREG;
-"69
 [e ) _RCREG ]
 [e $UE 100  ]
-"70
+"69
 }
 [e :U 101 ]
-[; ;uart.c: 70: }
-[; ;uart.c: 71: return 0;
-"71
+[; ;uart.c: 69: }
+[; ;uart.c: 70: return 0;
+"70
 [e ) -> -> 0 `i `uc ]
 [e $UE 100  ]
-[; ;uart.c: 72: }
-"72
+[; ;uart.c: 71: }
+"71
 [e :UE 100 ]
 }
-"75
+"74
 [v _uart_enable `(v ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 74: void
-[; ;uart.c: 75: uart_enable(void) {
+[; ;uart.c: 73: void
+[; ;uart.c: 74: uart_enable(void) {
 [e :U _uart_enable ]
 [f ]
-[; ;uart.c: 76: TRISC7 = 1;
+[; ;uart.c: 75: TRISC |= 0b10000000;
+"75
+[e =| _TRISC -> -> 128 `i `uc ]
+[; ;uart.c: 76: TRISC &= ~0b01000000;
 "76
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;uart.c: 77: TRISC6 = RC6 = 0;
+[e =& _TRISC -> ~ -> 64 `i `uc ]
+[; ;uart.c: 77: if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
 "77
-[e = _TRISC6 = _RC6 -> -> 0 `i `b ]
-[; ;uart.c: 78: TXEN = 1;
+[e $ ! != -> 0 `i -> 0 `i 103  ]
+[e =| _PORTC -> -> 64 `i `uc ]
+[e $U 104  ]
+[e :U 103 ]
+[e =& _PORTC -> -> 64 `i `uc ]
+[e :U 104 ]
+[; ;uart.c: 78: TXSTA |= 0b00100000;
 "78
-[e = _TXEN -> -> 1 `i `b ]
+[e =| _TXSTA -> -> 32 `i `uc ]
 [; ;uart.c: 79: RCSTA |= 0x80;
 "79
 [e =| _RCSTA -> -> 128 `i `uc ]
-[; ;uart.c: 80: RCIE = 0;
+[; ;uart.c: 80: PIE1 &= ~0b100000;
 "80
-[e = _RCIE -> -> 0 `i `b ]
+[e =& _PIE1 -> ~ -> 32 `i `uc ]
 [; ;uart.c: 81: }
 "81
 [e :UE 102 ]
@@ -1159,98 +1148,113 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;uart.c: 84: uart_disable(void) {
 [e :U _uart_disable ]
 [f ]
-[; ;uart.c: 85: TXEN = 0;
+[; ;uart.c: 85: TXSTA &= ~0b00100000;
 "85
-[e = _TXEN -> -> 0 `i `b ]
-[; ;uart.c: 86: SPEN = 0;
+[e =& _TXSTA -> ~ -> 32 `i `uc ]
+[; ;uart.c: 86: RCSTA &= ~0b10000000;
 "86
-[e = _SPEN -> -> 0 `i `b ]
-[; ;uart.c: 87: RCIE = 0;
+[e =& _RCSTA -> ~ -> 128 `i `uc ]
+[; ;uart.c: 87: PIE1 &= ~0b100000;
 "87
-[e = _RCIE -> -> 0 `i `b ]
-[; ;uart.c: 88: TRISC7 = 1;
+[e =& _PIE1 -> ~ -> 32 `i `uc ]
+[; ;uart.c: 88: TRISC |= 0b10000000;
 "88
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;uart.c: 89: RC6 = TRISC6 = 0;
+[e =| _TRISC -> -> 128 `i `uc ]
+[; ;uart.c: 89: TRISC &= ~0b01000000;
 "89
-[e = _RC6 = _TRISC6 -> -> 0 `i `b ]
-[; ;uart.c: 90: }
+[e =& _TRISC -> ~ -> 64 `i `uc ]
+[; ;uart.c: 90: if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
 "90
-[e :UE 103 ]
+[e $ ! != -> 0 `i -> 0 `i 106  ]
+[e =| _PORTC -> -> 64 `i `uc ]
+[e $U 107  ]
+[e :U 106 ]
+[e =& _PORTC -> -> 64 `i `uc ]
+[e :U 107 ]
+[; ;uart.c: 91: }
+"91
+[e :UE 105 ]
 }
-"93
+"94
 [v _uart_init `(v ~T0 @X0 1 ef ]
 {
-[; ;uart.c: 92: void
-[; ;uart.c: 93: uart_init(void) {
+[; ;uart.c: 93: void
+[; ;uart.c: 94: uart_init(void) {
 [e :U _uart_init ]
 [f ]
-[; ;uart.c: 96: TRISC7 = 1;
-"96
-[e = _TRISC7 -> -> 1 `i `b ]
-[; ;uart.c: 97: TRISC6 = 0;
+[; ;uart.c: 97: TRISC |= 0b10000000;
 "97
-[e = _TRISC6 -> -> 0 `i `b ]
-[; ;uart.c: 98: RC6 = 0;
+[e =| _TRISC -> -> 128 `i `uc ]
+[; ;uart.c: 98: TRISC &= ~0b01000000;
 "98
-[e = _RC6 -> -> 0 `i `b ]
-[; ;uart.c: 99: SPBRG = ((unsigned short int)((double)(20000000) / (16 * (double)(38400))) - 1);
+[e =& _TRISC -> ~ -> 64 `i `uc ]
+[; ;uart.c: 99: if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
 "99
-[e = _SPBRG -> - -> -> / -> -> 20000000 `l `d * -> -> 16 `i `d -> -> 38400 `l `d `us `ui -> -> 1 `i `ui `uc ]
-[; ;uart.c: 101: RCSTA |= 0x90
-[; ;uart.c: 102: | (0 == 1 ? 0b1 : 0);
-"102
+[e $ ! != -> 0 `i -> 0 `i 109  ]
+[e =| _PORTC -> -> 64 `i `uc ]
+[e $U 110  ]
+[e :U 109 ]
+[e =& _PORTC -> -> 64 `i `uc ]
+[e :U 110 ]
+[; ;uart.c: 100: SPBRG = 0x41;
+"100
+[e = _SPBRG -> -> 65 `i `uc ]
+[; ;uart.c: 102: RCSTA |= 0x90
+[; ;uart.c: 103: | (0 == 1 ? 0b1 : 0);
+"103
 [e =| _RCSTA -> | -> 144 `i ? == -> 0 `i -> 1 `i : -> 1 `i -> 0 `i `uc ]
-[; ;uart.c: 104: TXSTA |= (1 == 1) ? 0b100 : 0b000;
-"104
-[e =| _TXSTA -> ? == -> 1 `i -> 1 `i : -> 4 `i -> 0 `i `uc ]
-[; ;uart.c: 106: TX9 |= (0 == 1) ? 0b01000000 : 0;
-"106
-[e =| _TX9 -> ? == -> 0 `i -> 1 `i : -> 64 `i -> 0 `i `b ]
-[; ;uart.c: 108: uart_enable();
+[; ;uart.c: 105: TXSTA |= (1 == 1)
+[; ;uart.c: 107: ? 0b100
+[; ;uart.c: 108: : 0b000;
 "108
-[e ( _uart_enable ..  ]
-[; ;uart.c: 109: }
+[e =| _TXSTA -> ? == -> 1 `i -> 1 `i : -> 4 `i -> 0 `i `uc ]
+[; ;uart.c: 109: TXSTA |= (0 == 1) ? 0b01000000 : 0;
 "109
-[e :UE 104 ]
-}
+[e =| _TXSTA -> ? == -> 0 `i -> 1 `i : -> 64 `i -> 0 `i `uc ]
+[; ;uart.c: 111: uart_enable();
+"111
+[e ( _uart_enable ..  ]
+[; ;uart.c: 112: }
 "112
+[e :UE 108 ]
+}
+"115
 [v _uart_puts `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;uart.c: 111: void
-[; ;uart.c: 112: uart_puts(const char* s) {
+[; ;uart.c: 114: void
+[; ;uart.c: 115: uart_puts(const char* s) {
 [e :U _uart_puts ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;uart.c: 113: while(*s) uart_putch(*s++);
-"113
-[e $U 106  ]
-[e :U 107 ]
+[; ;uart.c: 116: while(*s) uart_putch(*s++);
+"116
+[e $U 112  ]
+[e :U 113 ]
 [e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[e :U 106 ]
-[e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 107  ]
-[e :U 108 ]
-[; ;uart.c: 114: }
-"114
-[e :UE 105 ]
-}
+[e :U 112 ]
+[e $ != -> *U _s `i -> -> -> 0 `i `Cuc `i 113  ]
+[e :U 114 ]
+[; ;uart.c: 117: }
 "117
+[e :UE 111 ]
+}
+"120
 [v _uart_puts2 `(v ~T0 @X0 1 ef1`*uc ]
 {
-[; ;uart.c: 116: void
-[; ;uart.c: 117: uart_puts2(unsigned char* s) {
+[; ;uart.c: 119: void
+[; ;uart.c: 120: uart_puts2(unsigned char* s) {
 [e :U _uart_puts2 ]
 [v _s `*uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;uart.c: 118: while(*s) uart_putch(*s++);
-"118
-[e $U 110  ]
-[e :U 111 ]
+[; ;uart.c: 121: while(*s) uart_putch(*s++);
+"121
+[e $U 116  ]
+[e :U 117 ]
 [e ( _uart_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
-[e :U 110 ]
-[e $ != -> *U _s `i -> -> -> 0 `i `uc `i 111  ]
-[e :U 112 ]
-[; ;uart.c: 119: }
-"119
-[e :UE 109 ]
+[e :U 116 ]
+[e $ != -> *U _s `i -> -> -> 0 `i `uc `i 117  ]
+[e :U 118 ]
+[; ;uart.c: 122: }
+"122
+[e :UE 115 ]
 }

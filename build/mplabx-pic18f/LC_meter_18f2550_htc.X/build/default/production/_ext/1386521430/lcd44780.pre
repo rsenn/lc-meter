@@ -2535,22 +2535,25 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 52 "../../../lib/typedef.h"
+typedef char bool;
+
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
-# 49 "../../../lib/tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
 } dvars;
 
-# 67
+# 68
 extern dvars dvar;
 
-# 77
+# 78
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"

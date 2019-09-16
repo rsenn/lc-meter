@@ -1,4 +1,4 @@
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  1
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  1
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -57,7 +57,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00051         extern  _PORTEbits
   0000                00052         extern  _LATAbits
   0000                00053         extern  _LATBbits
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  2
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  2
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -116,7 +116,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00104         extern  _UIR
   0000                00105         extern  _UIE
   0000                00106         extern  _UEIR
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  3
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  3
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -175,7 +175,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00157         extern  _SPBRGH
   0000                00158         extern  _T3CON
   0000                00159         extern  _TMR3
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  4
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  4
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -234,7 +234,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
   0000                00210         extern  _POSTDEC2
   0000                00211         extern  _POSTINC2
   0000                00212         extern  _INDF2
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  5
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  5
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -293,7 +293,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00263 ; Internal registers
                       00264 .registers      udata_ovr       0x0000
 000000                00265 r0x00   res     1
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  6
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  6
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -352,7 +352,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 00004A 84??           00316         BSF     _T2CON, 2
                       00317 ;       .line   140; ../../../lib/timer.c       PIR1 &= ~0b10;
 00004C 92??           00318         BCF     _PIR1, 1
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  7
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  7
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -411,7 +411,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 00002C 50??           00369         MOVF    _T1CON, W
 00002E 6E??           00370         MOVWF   r0x01
 000030 50??           00371         MOVF    r0x02, W
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  8
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  8
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -470,7 +470,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000090 6E??           00421         MOVWF   r0x01
 000092 50??           00422         MOVF    r0x02, W
 000094 10??           00423         IORWF   r0x01, W
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE  9
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE  9
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -529,7 +529,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000014 C??? F???      00474         MOVFF   r0x03, POSTDEC1
 000018 C??? F???      00475         MOVFF   r0x04, POSTDEC1
 00001C C??? F???      00476         MOVFF   r0x05, POSTDEC1
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 10
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 10
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -588,7 +588,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000070 CFE4 F000      00527         MOVFF   PREINC1, r0x04
 000074 CFE4 F000      00528         MOVFF   PREINC1, r0x03
 000078 CFE4 F000      00529         MOVFF   PREINC1, r0x02
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 11
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 11
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -647,7 +647,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 000056 50??           00579         MOVF    r0x02, W
 000058 E0??           00580         BZ      _00111_DS_
 00005A 0E10           00581         MOVLW   0x10
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 12
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 12
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -706,7 +706,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
 0000AA 6E??           00631         MOVWF   r0x00
 0000AC 6A??           00632         CLRF    r0x01
 0000AE D???           00633         BRA     _00116_DS_
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 13
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 13
 
 
 LOC    OBJECT CODE    LINE  SOURCE TEXT
@@ -739,7 +739,7 @@ LOC    OBJECT CODE    LINE  SOURCE TEXT
                       00658 
                       00659 
                       00660         end
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 14
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 14
 
 
 SYMBOL TABLE
@@ -798,7 +798,7 @@ _CCPR2L                           EXTERNAL      00000000              0
 _CMCON                            EXTERNAL      00000000              0
 _CMCONbits                        EXTERNAL      00000000              0
 _CVRCON                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 15
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 15
 
 
 SYMBOL TABLE
@@ -857,7 +857,7 @@ _OSCTUNEbits                      EXTERNAL      00000000              0
 _PC                               EXTERNAL      00000000              0
 _PCL                              EXTERNAL      00000000              0
 _PCLATH                           EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 16
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 16
 
 
 SYMBOL TABLE
@@ -916,7 +916,7 @@ _STATUS                           EXTERNAL      00000000              0
 _STATUSbits                       EXTERNAL      00000000              0
 _STKPTR                           EXTERNAL      00000000              0
 _STKPTRbits                       EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 17
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 17
 
 
 SYMBOL TABLE
@@ -975,7 +975,7 @@ _UEP1                             EXTERNAL      00000000              0
 _UEP1bits                         EXTERNAL      00000000              0
 _UEP2                             EXTERNAL      00000000              0
 _UEP2bits                         EXTERNAL      00000000              0
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 18
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 18
 
 
 SYMBOL TABLE
@@ -1034,7 +1034,7 @@ __BANK_2                          CONSTANT      00000200            512
 __BANK_3                          CONSTANT      00000300            768
 __BANK_4                          CONSTANT      00000400           1024
 __BANK_5                          CONSTANT      00000500           1280
-gpasm-1.5.0 #1285 (Sep 12 2016) build/default   9-16-2019  07:54:07         PAGE 19
+gpasm-1.5.2 #0 (Sep 16 2019) build/default/pr   9-16-2019  10:26:40         PAGE 19
 
 
 SYMBOL TABLE
@@ -1067,9 +1067,9 @@ __CONFIG_START                    CONSTANT      00300000        3145728
 __EEPROM_END                      CONSTANT      00F000FF       15728895
 __EEPROM_START                    CONSTANT      00F00000       15728640
 __EXTENDED                        CONSTANT      00000001              1
-__GPUTILS_SVN_VERSION             CONSTANT      00000505           1285
+__GPUTILS_SVN_VERSION             CONSTANT      00000000              0
 __GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
-__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MICRO           CONSTANT      00000002              2
 __GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
 __IDLOCS_END                      CONSTANT      00200007        2097159
 __IDLOCS_START                    CONSTANT      00200000        2097152

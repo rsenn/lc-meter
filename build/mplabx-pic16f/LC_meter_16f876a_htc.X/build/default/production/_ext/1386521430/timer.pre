@@ -992,6 +992,9 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdbool.h"
+typedef unsigned char bool;
+
 # 13 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdint.h"
 typedef signed char int8_t;
 
@@ -1083,34 +1086,33 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 52 "../../../lib/typedef.h"
-typedef char BOOL;
+typedef char bool;
 
-# 77
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
 # 143 "../../../lib/timer.h"
 void timer2_init(uint8_t ps_mode);
 
-# 106 "../../../lib/timer.c"
+# 124 "../../../lib/timer.c"
 void
 timer2_init(uint8_t ps_mode) {
 uint8_t ps = ps_mode & 0b1111;
 uint8_t postscaler = 0;
 
 
-TOUTPS0 = postscaler & 1;
-TOUTPS1 = (postscaler >> 1) & 1;
-TOUTPS2 = (postscaler >> 2) & 1;
+T2CON &= ~0b01111111;
 
-T2CKPS0 = (ps >> 1) & 1;
-T2CKPS1 = (ps >> 2) & 1;
+T2CON |= (postscaler & 0b1111) << 3;
+T2CON |= (ps & 0b11);
 
 TMR2 = 0;
 
-TMR2ON = 1;
+T2CON |= 0b100;
 
-TMR2IF = 0;
-TMR2IE = !!(ps_mode & 0x80);
+
+PIR1 &= ~0b10;
+PIE1 = (!!(ps_mode & 0x80)) << 1;
 }
 

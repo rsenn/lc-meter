@@ -1,6 +1,9 @@
 
 # 1 "../../../lib/buffer.c"
 
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdbool.h"
+typedef unsigned char bool;
+
 # 82 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f876a.h"
 volatile unsigned char INDF @ 0x000;
 
@@ -1083,9 +1086,9 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 52 "../../../lib/typedef.h"
-typedef char BOOL;
+typedef char bool;
 
-# 77
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
@@ -1179,13 +1182,16 @@ return 1;
 
 char
 buffer_put(const char* buf, len_t len) {
+len_t i;
 if(len > 16 - buffer.n) {
 
-# 44
+# 45
 return -1;
 }
+for(i = 0; i < len; i++) {
+buffer.x[buffer.n + i] = buf[i];
+}
 
-memcpy(buffer.x + buffer.n, buf, len);
 buffer.n += len;
 return 0;
 }

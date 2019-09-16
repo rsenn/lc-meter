@@ -992,6 +992,9 @@ extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsign
 #pragma inline(_delay)
 extern void _delay(unsigned long);
 
+# 12 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdbool.h"
+typedef unsigned char bool;
+
 # 13 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdint.h"
 typedef signed char int8_t;
 
@@ -1083,21 +1086,21 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 52 "../../../lib/typedef.h"
-typedef char BOOL;
+typedef char bool;
 
-# 77
+# 69
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
-# 49 "../../../lib/tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
-# 67
+# 68
 extern dvars dvar;
 
-# 77
+# 78
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"

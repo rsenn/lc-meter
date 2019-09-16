@@ -13,6 +13,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S227 . BDSTAT BDCNT BDADR ]
 "37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
 [; ;pic18f2550.h: 319: extern volatile bit FRM1 @ ((unsigned)&UFRML*8)+1;
@@ -1971,15 +1972,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 166: extern volatile bit BF_x @ ((unsigned)&SSPSTAT*8)+0;
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
-[; ;typedef.h: 52: typedef char BOOL;
-[; ;typedef.h: 77: typedef void(putchar_fn)(char);
-[; ;typedef.h: 78: typedef putchar_fn* putchar_p;
-[; ;tsmdelay.h: 49: typedef struct dvars {
-[; ;tsmdelay.h: 50: unsigned char loop_x, loop_b, loop_c;
-[; ;tsmdelay.h: 51: } dvars;
-[; ;tsmdelay.h: 67: extern dvars dvar;
-[; ;tsmdelay.h: 77: void cycle_eater(void);
-[; ;delay.h: 46: void Delay100TCYx(unsigned char);
-[; ;delay.h: 47: void Delay10KTCYx(unsigned char);
-[; ;delay.h: 48: void Delay10TCYx(unsigned char);
-[; ;delay.h: 49: void Delay1KTCYx(unsigned char);
+[; ;typedef.h: 52: typedef char bool;
+[; ;typedef.h: 69: typedef void(putchar_fn)(char);
+[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;tsmdelay.h: 50: typedef struct dvars {
+[; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
+[; ;tsmdelay.h: 52: } dvars;
+[; ;tsmdelay.h: 68: extern dvars dvar;
+[; ;tsmdelay.h: 78: void cycle_eater(void);

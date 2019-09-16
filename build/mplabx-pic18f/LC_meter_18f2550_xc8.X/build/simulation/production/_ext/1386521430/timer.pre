@@ -4839,10 +4839,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 52 "../../../lib/typedef.h"
-typedef char BOOL;
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
 
-# 77
+# 69 "../../../lib/typedef.h"
 typedef void(putchar_fn)(char);
 typedef putchar_fn* putchar_p;
 
@@ -4858,14 +4858,15 @@ void timer1_init(unsigned char ps_mode);
 # 143
 void timer2_init(unsigned char ps_mode);
 
-# 17 "../../../lib/timer.c"
+# 15 "../../../lib/timer.c"
+extern volatile unsigned char T0CON @0xFD5;
+
+# 26
 void
 timer0_init(unsigned char ps_mode) {
 unsigned char prescaler = ps_mode & 0b1111;
 
 TMR0 = 0;
-
-
 
 
 T0CON |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
@@ -4876,12 +4877,16 @@ T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
 
 T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
 
+T0CON &= ~0b111;
 
 if(prescaler > 0) {
-T0CONbits.T0PS = (prescaler - 1);
+T0CON |= (prescaler - 1) & 0b111;
+
+# 50
 }
 
-# 53
+
+
 INTCON &= ~0x40;
 INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
 }
@@ -4914,53 +4919,53 @@ count = ((prev << 8) + (256 - count));
 return count;
 }
 
-# 90
+# 91
 void
 timer1_init(unsigned char ps_mode) {
 
-T1CKPS0 = (ps_mode & 0b1111) & 1;
-T1CKPS1 = (ps_mode & 0b1111) >> 1;
+T1CON &= ~0b00111110;
 
-T1CONbits.TMR1CS = !!(ps_mode & 0x40);
+T1CON |= (ps_mode & 0b1111) << 4;
 
-if(T1CONbits.TMR1CS) {
+T1CON |= (!!(ps_mode & 0x40)) << 1;
+
+if(T1CON & 0b00000010) {
 
 
 
-T1SYNC = !(ps_mode & 0x20);
+T1CON |= (!(ps_mode & 0x20)) << 2;
 
 }
-
-T1OSCEN = 0;
 
 TMR1H = 0;
 TMR1L = 0;
 
-TMR1ON = 1;
+T1CON |= 0b1;
 
-TMR1IF = 0;
-TMR1IE = !!(ps_mode & 0x80);
+PIR1 &= ~0b1;
+
+PIE1 &= ~0b1;
+PIE1 |= !!(ps_mode & 0x80);
 }
 
-# 122
+# 124
 void
 timer2_init(unsigned char ps_mode) {
 unsigned char ps = ps_mode & 0b1111;
 unsigned char postscaler = 0;
 
 
-TOUTPS0 = postscaler & 1;
-TOUTPS1 = (postscaler >> 1) & 1;
-TOUTPS2 = (postscaler >> 2) & 1;
+T2CON &= ~0b01111111;
 
-T2CKPS0 = (ps >> 1) & 1;
-T2CKPS1 = (ps >> 2) & 1;
+T2CON |= (postscaler & 0b1111) << 3;
+T2CON |= (ps & 0b11);
 
 TMR2 = 0;
 
-TMR2ON = 1;
+T2CON |= 0b100;
 
-TMR2IF = 0;
-TMR2IE = !!(ps_mode & 0x80);
+
+PIR1 &= ~0b10;
+PIE1 = (!!(ps_mode & 0x80)) << 1;
 }
 
