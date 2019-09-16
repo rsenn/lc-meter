@@ -21,15 +21,24 @@
 #define GATE_PERIOD 100 // ms
 #define PI 3.14159265358979323846l
 
-#if PIC18F2550
-#define LC_SELECT (!!(OUTC & 0b1))                   // L or C select (from DPDT switch)
+#if PIC16F628
+#define NO_PORTC 1
+#define LC_SELECT (!!(PORTA & 0b00100000))                   // L or C select (from DPDT switch)
+#define LC_TRIS() TRISA |= 0b00100000        // as input
+#define ADD_CCAL() OUTA |= 0b01000000         // relay on
+#define REMOVE_CCAL() OUTA &= ~0b01000000          // relay off
+#define RELAY_TRIS() TRISA &= ~(1 << 7) // as output to drive the relay coil
+#elif PIC18F2550
+#define NO_PORTC 0
+#define LC_SELECT (!!(PORTC & 0b1))                   // L or C select (from DPDT switch)
 #define LC_TRIS() TRISC |= 0b1        // as input
 #define ADD_CCAL() OUTC |= 0b100          // relay on
 #define REMOVE_CCAL() OUTC &= ~0b100          // relay off
 #define RELAY_TRIS() TRISC &= ~(1 << 5) // as output to drive the relay coil
 
 #else
-#define LC_SELECT (!!(OUTC & 0b10000))                    // L or C select (from DPDT switch)
+#define NO_PORTC 0
+#define LC_SELECT (!!(PORTC & 0b10000))                    // L or C select (from DPDT switch)
 #define LC_TRIS() TRISC |= (1 << 4)      // as input
 #define ADD_CCAL() OUTC |= (1 << 5)     // relay on
 #define REMOVE_CCAL() OUTC &= ~(1 << 5) // relay off
@@ -48,9 +57,13 @@
 /*#define LED2_ANODE OUTC1
 #define LED2_ANODE_TRIS TRISC1
 */
-
+#ifdef __16f628
+#define INIT_LED() TRISA &= ~0b00010000
+#define SET_LED(b) OUTA &= ~0b00010000; OUTA |= (!!(b)) << 1;
+#else
 #define INIT_LED() TRISC &= ~0b00000010
 #define SET_LED(b) OUTC &= ~0b00000010; OUTC |= (!!(b)) << 1;
+#endif
 /*
 //#ifdef LED2_CATHODE
 //#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH

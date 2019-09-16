@@ -147,19 +147,20 @@ main() {
  
   INIT_LED();
   SET_LED(1);
-
-#if PIC18
+/*
+#if PIC18 || defined(__16f628)
   SSPCON1 &= ~0b00100000; //  SSPEN = 0;
 #else
   SSPCON &= ~0b100;
- #endif
+#endif
+*/
 
   // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   //  timer1of = 0;
 
   timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
-#if !NO_PORTC
+#if !NO_PORTC && !defined(__16f628)
   //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
   TRISC &= 0b10110101;
@@ -235,7 +236,7 @@ main() {
   for(;;) {
 
     uart_puts("...\r\n");
-    if(PORTC & (1 << 4))
+    if(LC_SELECT)
       measure_capacitance();
     else
       measure_inductance();
