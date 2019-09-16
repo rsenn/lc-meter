@@ -60,11 +60,11 @@ DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 SOURCEFILES_QUOTED_IF_SPACED=../../../LC-meter.c ../../../src/print.c ../../../lib/delay.c ../../../lib/comparator.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/ser.c ../../../lib/timer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386528437/LC-meter.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386521430/timer.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386528437/LC-meter.o.d ${OBJECTDIR}/_ext/1386528437/print.o.d ${OBJECTDIR}/_ext/1386521430/delay.o.d ${OBJECTDIR}/_ext/1386521430/comparator.o.d ${OBJECTDIR}/_ext/1386521430/format.o.d ${OBJECTDIR}/_ext/1386521430/lcd44780.o.d ${OBJECTDIR}/_ext/1386521430/ser.o.d ${OBJECTDIR}/_ext/1386521430/timer.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/2124829536/LC-meter.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386521430/timer.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/2124829536/LC-meter.o.d ${OBJECTDIR}/_ext/1386528437/print.o.d ${OBJECTDIR}/_ext/1386521430/delay.o.d ${OBJECTDIR}/_ext/1386521430/comparator.o.d ${OBJECTDIR}/_ext/1386521430/format.o.d ${OBJECTDIR}/_ext/1386521430/lcd44780.o.d ${OBJECTDIR}/_ext/1386521430/ser.o.d ${OBJECTDIR}/_ext/1386521430/timer.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386528437/LC-meter.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386521430/timer.o
+OBJECTFILES=${OBJECTDIR}/_ext/2124829536/LC-meter.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386521430/timer.o
 
 # Source Files
 SOURCEFILES=../../../LC-meter.c ../../../src/print.c ../../../lib/delay.c ../../../lib/comparator.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/ser.c ../../../lib/timer.c
@@ -92,10 +92,10 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1386528437/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
-	${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.o 
-	${MP_CC} --use-non-free -D_SDCC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -I"../../../lib" -I"../../../src" --opt-code-size --debug-xtra --debug -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/1386528437/LC-meter.o
+${OBJECTDIR}/_ext/2124829536/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
+	${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.o 
+	${MP_CC} --use-non-free -D_SDCC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -I"../../../lib" -I"../../../src" --opt-code-size --debug-xtra --debug -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
 	
 ${OBJECTDIR}/_ext/1386528437/print.o: ../../../src/print.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
@@ -133,10 +133,10 @@ ${OBJECTDIR}/_ext/1386521430/timer.o: ../../../lib/timer.c  nbproject/Makefile-$
 	${MP_CC} --use-non-free -D_SDCC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -I"../../../lib" -I"../../../src" --opt-code-size --debug-xtra --debug -c -mpic14 -p16f876a ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
 	
 else
-${OBJECTDIR}/_ext/1386528437/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
-	${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.o 
-	${MP_CC} --use-non-free -D_SDCC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -I"../../../lib" -I"../../../src" --opt-code-size --debug-xtra -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/1386528437/LC-meter.o
+${OBJECTDIR}/_ext/2124829536/LC-meter.o: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
+	${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.o 
+	${MP_CC} --use-non-free -D_SDCC=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -I"../../../lib" -I"../../../src" --opt-code-size --debug-xtra -c -mpic14 -p16f876a ../../../LC-meter.c  -o${OBJECTDIR}/_ext/2124829536/LC-meter.o
 	
 ${OBJECTDIR}/_ext/1386528437/print.o: ../../../src/print.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
