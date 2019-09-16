@@ -60,11 +60,11 @@ DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 SOURCEFILES_QUOTED_IF_SPACED=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../LC-meter.c ../../../lib/lcd44780.c ../../../lib/buffer.c ../../../lib/../src/measure.c ../../../lib/uart.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/2037789166/measure.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386528437/print.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d ${OBJECTDIR}/_ext/2037789166/measure.p1.d ${OBJECTDIR}/_ext/1386521430/uart.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/2037789166/measure.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386528437/print.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d ${OBJECTDIR}/_ext/2037789166/measure.p1.d ${OBJECTDIR}/_ext/1386521430/uart.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/2037789166/measure.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1386528437/print.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/2037789166/measure.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1
 
 # Source Files
 SOURCEFILES=../../../src/print.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../LC-meter.c ../../../lib/lcd44780.c ../../../lib/buffer.c ../../../lib/../src/measure.c ../../../lib/uart.c
@@ -125,13 +125,13 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1386528437/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
-	@${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=32 --opt=+asm,+asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -D__XC=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_UART=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DNDEBUG=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" -v --warn=-3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,+osccal,+oscval:0x3400,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ../../../LC-meter.c 
-	@-${MV} ${OBJECTDIR}/_ext/1386528437/LC-meter.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/2124829536/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
+	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=32 --opt=+asm,+asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -D__XC=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_UART=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DNDEBUG=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" -v --warn=-3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,+osccal,+oscval:0x3400,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
+	@-${MV} ${OBJECTDIR}/_ext/2124829536/LC-meter.d ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
@@ -198,13 +198,13 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1386528437/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
-	@${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --opt=+asm,+asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -D__XC=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_UART=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DNDEBUG=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" -v --warn=-3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,+osccal,+oscval:0x3400,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ../../../LC-meter.c 
-	@-${MV} ${OBJECTDIR}/_ext/1386528437/LC-meter.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/2124829536/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
+	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=32 --opt=+asm,+asmfile,+speed,-space,-debug --addrqual=ignore --mode=pro -D__XC=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_UART=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -D__16f876a=1 -DNDEBUG=1 -P -N255 -I"../../mplab" -I"." -I"../../../src" -I"../../../lib" -v --warn=-3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,+osccal,+oscval:0x3400,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
+	@-${MV} ${OBJECTDIR}/_ext/2124829536/LC-meter.d ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
