@@ -1,14 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"55 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"55 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
 "1121
 [v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
 "350
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h
+"28 /opt/microchip/xc8/v1.34/include/pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
-"539 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"539 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _T1CON `Vuc ~T0 @X0 0 e@16 ]
 "533
 [v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
@@ -22,10 +22,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T2CON `Vuc ~T0 @X0 0 e@18 ]
 "613
 [v _TMR2 `Vuc ~T0 @X0 0 e@17 ]
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 25: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"51 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [; ;pic16f876a.h: 51: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f876a.h: 55: extern volatile unsigned char TMR0 @ 0x001;
@@ -946,23 +946,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
-[; ;timer.h: 68: void timer0_init(unsigned char);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;timer.h: 68: void timer0_init(uint8_t);
 [; ;timer.h: 75: unsigned short timer0_read_ps(void);
-[; ;timer.h: 105: void timer1_init(unsigned char ps_mode);
-[; ;timer.h: 143: void timer2_init(unsigned char ps_mode);
+[; ;timer.h: 105: void timer1_init(uint8_t ps_mode);
+[; ;timer.h: 143: void timer2_init(uint8_t ps_mode);
 "27 ../../../lib/timer.c
 [v _timer0_init `(v ~T0 @X0 1 ef1`uc ]
 {
 [; ;timer.c: 26: void
-[; ;timer.c: 27: timer0_init(unsigned char ps_mode) {
+[; ;timer.c: 27: timer0_init(uint8_t ps_mode) {
 [e :U _timer0_init ]
 [v _ps_mode `uc ~T0 @X0 1 r1 ]
 [f ]
 "28
 [v _prescaler `uc ~T0 @X0 1 a ]
-[; ;timer.c: 28: unsigned char prescaler = ps_mode & 0b1111;
+[; ;timer.c: 28: uint8_t prescaler = ps_mode & 0b1111;
 [e = _prescaler -> & -> _ps_mode `i -> 15 `i `uc ]
 [; ;timer.c: 30: TMR0 = 0;
 "30
@@ -1009,12 +1035,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "60
 [v _prev `uc ~T0 @X0 1 a ]
-[; ;timer.c: 60: unsigned char prev = TMR0;
+[; ;timer.c: 60: uint8_t prev = TMR0;
 [e = _prev _TMR0 ]
 "61
-[v _count `us ~T0 @X0 1 a ]
-[; ;timer.c: 61: unsigned short int count = 0;
-[e = _count -> -> 0 `i `us ]
+[v _count `ui ~T0 @X0 1 a ]
+[; ;timer.c: 61: uint16_t count = 0;
+[e = _count -> -> 0 `i `ui ]
 [; ;timer.c: 63: OPTION_REG |= 0x20;
 "63
 [e =| _OPTION_REG -> -> 32 `i `uc ]
@@ -1042,18 +1068,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( ___nop ..  ]
 [; ;timer.c: 77: ++count;
 "77
-[e =+ _count -> -> 1 `i `us ]
+[e =+ _count -> -> 1 `i `ui ]
 "80
 }
 [; ;timer.c: 80: } while(prev == TMR0 && count <= 255);
-[e $ && == -> _prev `i -> _TMR0 `i <= -> _count `ui -> -> 255 `i `ui 93  ]
+[e $ && == -> _prev `i -> _TMR0 `i <= _count -> -> 255 `i `ui 93  ]
 [e :U 92 ]
 [; ;timer.c: 82: count = ((prev << 8) + (256 - count));
 "82
-[e = _count -> + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui -> _count `ui `us ]
+[e = _count + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui _count ]
 [; ;timer.c: 83: return count;
 "83
-[e ) _count ]
+[e ) -> _count `us ]
 [e $UE 90  ]
 [; ;timer.c: 84: }
 "84
@@ -1063,7 +1089,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer1_init `(v ~T0 @X0 1 ef1`uc ]
 {
 [; ;timer.c: 91: void
-[; ;timer.c: 92: timer1_init(unsigned char ps_mode) {
+[; ;timer.c: 92: timer1_init(uint8_t ps_mode) {
 [e :U _timer1_init ]
 [v _ps_mode `uc ~T0 @X0 1 r1 ]
 [f ]
@@ -1113,17 +1139,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer2_init `(v ~T0 @X0 1 ef1`uc ]
 {
 [; ;timer.c: 124: void
-[; ;timer.c: 125: timer2_init(unsigned char ps_mode) {
+[; ;timer.c: 125: timer2_init(uint8_t ps_mode) {
 [e :U _timer2_init ]
 [v _ps_mode `uc ~T0 @X0 1 r1 ]
 [f ]
 "126
 [v _ps `uc ~T0 @X0 1 a ]
-[; ;timer.c: 126: unsigned char ps = ps_mode & 0b1111;
+[; ;timer.c: 126: uint8_t ps = ps_mode & 0b1111;
 [e = _ps -> & -> _ps_mode `i -> 15 `i `uc ]
 "127
 [v _postscaler `uc ~T0 @X0 1 a ]
-[; ;timer.c: 127: unsigned char postscaler = 0;
+[; ;timer.c: 127: uint8_t postscaler = 0;
 [e = _postscaler -> -> 0 `i `uc ]
 [; ;timer.c: 130: T2CON &= ~0b01111111;
 "130

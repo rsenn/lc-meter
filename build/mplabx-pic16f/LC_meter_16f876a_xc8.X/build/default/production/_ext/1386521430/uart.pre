@@ -1,15 +1,15 @@
 
 # 1 "../../../lib/uart.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1276,21 +1276,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1299,16 +1299,102 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
-unsigned char loop_x, loop_b, loop_c;
+uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
 # 68
@@ -1318,135 +1404,31 @@ extern dvars dvar;
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"
-void Delay100TCYx(unsigned char);
-void Delay10KTCYx(unsigned char);
-void Delay10TCYx(unsigned char);
-void Delay1KTCYx(unsigned char);
+void Delay100TCYx(uint8_t);
+void Delay10KTCYx(uint8_t);
+void Delay10TCYx(uint8_t);
+void Delay1KTCYx(uint8_t);
 
-# 89 "../../../lib/uart.h"
-extern const unsigned char uart_brg;
+# 93 "../../../lib/uart.h"
+extern const uint8_t uart_brg;
 
-void uart_putch(unsigned char byte);
+void uart_putch(uint8_t byte);
 
 int uart_getch(void);
-bool uart_poll(unsigned char bauds);
+bool uart_poll(uint8_t bauds);
 
-# 99
+# 103
 void uart_init(void);
 
-# 106
-unsigned char uart_isr(void);
+# 110
+uint8_t uart_isr(void);
 
-# 111
+# 115
 void uart_enable(void);
 
-# 116
+# 120
 void uart_disable(void);
 
 void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
-
-# 16 "../../../lib/uart.c"
-const unsigned char uart_brg = 0x41;
-
-# 21
-void
-uart_putch(unsigned char byte) {
-
-while(!(PIR1 & 0b00010000)) {
-
-continue;
-}
-TXREG = (unsigned char)byte;
-}
-
-int
-uart_getch(void) {
-
-if(uart_poll(38400)) {
-unsigned char ch;
-ch = RCREG;
-PIR1 &= ~0b00100000;
-return (int)ch;
-}
-return -1;
-}
-
-
-
-bool
-uart_poll(unsigned char bauds) {
-
-
-
-TMR0 = (256 - ((((20000000) / 4) / (1 << (0b000 + 1)) / (bauds)) + 1));
-while(TMR0 & (1 << 7)) {
-if((PIR1 & 0b00100000))
-return 1;
-}
-
-return 0;
-}
-
-# 64
-unsigned char
-uart_isr(void) {
-if((PIR1 & 0b00100000)) {
-PIR1 &= ~0b00100000;
-return RCREG;
-}
-return 0;
-}
-
-void
-uart_enable(void) {
-TRISC |= 0b10000000;
-TRISC &= ~0b01000000;
-if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
-TXSTA |= 0b00100000;
-RCSTA |= 0x80;
-PIE1 &= ~0b100000;
-}
-
-void
-uart_disable(void) {
-TXSTA &= ~0b00100000;
-RCSTA &= ~0b10000000;
-PIE1 &= ~0b100000;
-TRISC |= 0b10000000;
-TRISC &= ~0b01000000;
-if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
-}
-
-void
-uart_init(void) {
-
-
-TRISC |= 0b10000000;
-TRISC &= ~0b01000000;
-if(0) PORTC |= 0b01000000; else PORTC &= 0b01000000;;
-SPBRG = 0x41;
-
-RCSTA |= 0x90
-| (0 == 1 ? 0b1 : 0);
-
-TXSTA |= (1 == 1)
-
-# 107
-? 0b100
-: 0b000;
-TXSTA |= (0 == 1) ? 0b01000000 : 0;
-
-uart_enable();
-}
-
-void
-uart_puts(const char* s) {
-while(*s) uart_putch(*s++);
-}
-
-void
-uart_puts2(unsigned char* s) {
-while(*s) uart_putch(*s++);
-}
+void uart_puts2(uint8_t* s);
 

@@ -1,18 +1,18 @@
 
 # 1 "../../../lib/buffer.c"
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f25k50.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic18f25k50.h"
 extern volatile unsigned char SRCON1 @ 0xF57;
 
 asm("SRCON1 equ 0F57h");
@@ -7471,7 +7471,7 @@ extern volatile __bit nW @ (((unsigned) &SSP1STAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSP1STAT)*8) + 2;
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h"
+# 18 "/opt/microchip/xc8/v1.34/include/pic18.h"
 __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 
 
@@ -7488,30 +7488,115 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 12 "../../../lib/buffer.h"
-typedef unsigned char len_t;
+typedef uint8_t len_t;
 
 typedef struct {
 char x[16];
 unsigned p : 4;
 unsigned n : 4;
-putchar_p op;
 } buffer_t;
 
-# 27
+# 26
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
+# 4 "/opt/microchip/xc8/v1.34/include/string.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
@@ -7555,17 +7640,15 @@ extern char * strrichr(const char *, int);
 buffer_t buffer;
 
 void
-buffer_init(putchar_p op) {
+buffer_init(void) {
 buffer.p = 0;
 buffer.n = 0;
-buffer.op = op;
 }
 
 char
 buffer_flush() {
-while(buffer.p < buffer.n) {
-buffer.op(buffer.x[buffer.p++]);
-}
+
+# 17
 buffer.p = 0, buffer.n = 0, 0;
 return 0;
 }
@@ -7585,7 +7668,7 @@ buffer_put(const char* buf, len_t len) {
 len_t i;
 if(len > 16 - buffer.n) {
 
-# 45
+# 44
 return -1;
 }
 for(i = 0; i < len; i++) {

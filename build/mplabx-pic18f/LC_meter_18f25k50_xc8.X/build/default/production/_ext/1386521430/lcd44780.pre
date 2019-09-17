@@ -1,15 +1,15 @@
 
 # 1 "../../../lib/lcd44780.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f25k50.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic18f25k50.h"
 extern volatile unsigned char SRCON1 @ 0xF57;
 
 asm("SRCON1 equ 0F57h");
@@ -7468,7 +7468,7 @@ extern volatile __bit nW @ (((unsigned) &SSP1STAT)*8) + 2;
 
 extern volatile __bit nWRITE @ (((unsigned) &SSP1STAT)*8) + 2;
 
-# 18 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h"
+# 18 "/opt/microchip/xc8/v1.34/include/pic18.h"
 __attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 
 
@@ -7485,16 +7485,102 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
-unsigned char loop_x, loop_b, loop_c;
+uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
 # 68
@@ -7504,14 +7590,14 @@ extern dvars dvar;
 void cycle_eater(void);
 
 # 46 "../../../lib/delay.h"
-void Delay100TCYx(unsigned char);
-void Delay10KTCYx(unsigned char);
-void Delay10TCYx(unsigned char);
-void Delay1KTCYx(unsigned char);
+void Delay100TCYx(uint8_t);
+void Delay10KTCYx(uint8_t);
+void Delay10TCYx(uint8_t);
+void Delay1KTCYx(uint8_t);
 
 # 48 "../../../lib/lcd44780.h"
 void lcd_init(char fourbitmode);
-void lcd_begin(unsigned char l, unsigned char ds);
+void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
 void lcd_right_to_left(void);
@@ -7526,15 +7612,15 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-void lcd_print_float(float number, unsigned char digits);
+void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 
-void lcd_gotoxy(unsigned char col, unsigned char row);
+void lcd_gotoxy(uint8_t col, uint8_t row);
 
-void lcd_send(unsigned char value, unsigned char mode);
+void lcd_send(uint8_t value, uint8_t mode);
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
+# 7 "/opt/microchip/xc8/v1.34/include/stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -7543,7 +7629,7 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 8 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
+# 8 "/opt/microchip/xc8/v1.34/include/stdio.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
@@ -7558,7 +7644,7 @@ char * ptr;
 void (* func)(char);
 };
 
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\conio.h"
+# 17 "/opt/microchip/xc8/v1.34/include/conio.h"
 extern int errno;
 
 
@@ -7575,7 +7661,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 100 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
+# 100 "/opt/microchip/xc8/v1.34/include/stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -7603,7 +7689,7 @@ extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
 # 37 "../../../lib/lcd44780.c"
-static unsigned char LCD_function, LCD_ctrl, LCD_mode
+static uint8_t LCD_function, LCD_ctrl, LCD_mode
 
 ,
 LCD_lines
@@ -7612,7 +7698,7 @@ LCD_lines
 
 # 55
 static void
-lcd_write4bits(unsigned char value) {
+lcd_write4bits(uint8_t value) {
 
 # 61
 LATB &= 0b00001111;
@@ -7626,7 +7712,7 @@ LATB |= 0b1000; _delay((unsigned long)((4)*(20000000/4000000.0))); LATB &= ~0b10
 
 # 124
 void
-lcd_send(unsigned char value, unsigned char mode) {
+lcd_send(uint8_t value, uint8_t mode) {
 if(mode) {
 LATB |= 0b0100;
 } else {
@@ -7642,7 +7728,7 @@ lcd_write4bits(value);
 
 # 148
 static void
-lcd_command(unsigned char value) {
+lcd_command(uint8_t value) {
 lcd_send(value, 0);
 }
 
@@ -7650,9 +7736,9 @@ lcd_send(value, 0);
 
 
 void
-lcd_gotoxy(unsigned char col, unsigned char row) {
+lcd_gotoxy(uint8_t col, uint8_t row) {
 
-unsigned char row_offsets[] = {0x00, 0x40, 0x14, 0x54};
+uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
 
 # 168
 if(LCD_lines == 1) {
@@ -7670,16 +7756,16 @@ lcd_command(0x80 | (col + row_offsets[row]));
 
 void
 lcd_puts(const char* string) {
-unsigned char i;
+uint8_t i;
 for(i = 0; string[i]; i++) lcd_send((string[i]), 1);
 }
 
 # 213
 void
-lcd_print_number(unsigned short int n, unsigned char base, signed char pad ) {
-unsigned char buf[8 * sizeof(long)];
-unsigned char di;
-signed char i = 0;
+lcd_print_number(uint16_t n, uint8_t base, int8_t pad ) {
+uint8_t buf[8 * sizeof(long)];
+uint8_t di;
+int8_t i = 0;
 char padchar = ' ';
 
 if(pad < 0) {
@@ -7692,14 +7778,14 @@ do {
 
 # 234
 di = n % base;
-buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
+buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
 n /= base;
 } while(n > 0);
 
 while(pad-- >= i) lcd_send((padchar), 1);
 
-for(; i > 0; i--) lcd_send(((char)buf[(signed short int)i - 1]), 1);
+for(; i > 0; i--) lcd_send(((char)buf[(int16_t)i - 1]), 1);
 
 }
 
@@ -7765,7 +7851,7 @@ lcd_command(0x04 | LCD_mode);
 
 # 432
 void
-lcd_begin(unsigned char lines, unsigned char dotsize) {
+lcd_begin(uint8_t lines, uint8_t dotsize) {
 if(lines > 1)
 LCD_function |= 0x08;
 

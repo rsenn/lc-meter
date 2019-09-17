@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../lib/delay.c ../../../lib/format.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/uart.c ../../../lib/lcd5110.c ../../../LC-meter.c ../../../src/print.c
+SOURCEFILES_QUOTED_IF_SPACED=../../../lib/delay.c ../../../lib/format.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/ser.c ../../../lib/lcd5110.c ../../../LC-meter.c ../../../src/print.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/delay.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386528437/print.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/delay.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/uart.p1.d ${OBJECTDIR}/_ext/1386521430/lcd5110.p1.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d ${OBJECTDIR}/_ext/1386528437/print.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/delay.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386528437/print.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/delay.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/lcd5110.p1.d ${OBJECTDIR}/_ext/1386528437/LC-meter.p1.d ${OBJECTDIR}/_ext/1386528437/print.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386521430/delay.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/uart.p1 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386528437/print.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1386521430/delay.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1 ${OBJECTDIR}/_ext/1386528437/LC-meter.p1 ${OBJECTDIR}/_ext/1386528437/print.p1
 
 # Source Files
-SOURCEFILES=../../../lib/delay.c ../../../lib/format.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/uart.c ../../../lib/lcd5110.c ../../../LC-meter.c ../../../src/print.c
+SOURCEFILES=../../../lib/delay.c ../../../lib/format.c ../../../lib/ser.c ../../../lib/timer.c ../../../lib/ser.c ../../../lib/lcd5110.c ../../../LC-meter.c ../../../src/print.c
 
 
 CFLAGS=
@@ -119,13 +119,13 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1386521430/uart.p1: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
-	@${RM} ${OBJECTDIR}/_ext/1386521430/uart.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1386521430/uart.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,+debug --addrqual=ignore --mode=pro -D_XTAL_FREQ=20000000 -DUSE_TIMER0=1 -DUSE_SER=1 -DUSE_NOKIA5110_LCD=1 -DUART_BAUD=38400 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -P -N127 -I".." -I"." -I"../../../lib" -I"../../../src" -V --warn=3 --asmlist -DXPRJ_debug=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1386521430/uart.p1  ../../../lib/uart.c 
-	@-${MV} ${OBJECTDIR}/_ext/1386521430/uart.d ${OBJECTDIR}/_ext/1386521430/uart.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,+debug --addrqual=ignore --mode=pro -D_XTAL_FREQ=20000000 -DUSE_TIMER0=1 -DUSE_SER=1 -DUSE_NOKIA5110_LCD=1 -DUART_BAUD=38400 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -P -N127 -I".." -I"." -I"../../../lib" -I"../../../src" -V --warn=3 --asmlist -DXPRJ_debug=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1386521430/ser.p1  ../../../lib/ser.c 
+	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1: ../../../lib/lcd5110.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
@@ -184,13 +184,13 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1386521430/uart.p1: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
-	@${RM} ${OBJECTDIR}/_ext/1386521430/uart.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/1386521430/uart.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,+debug --addrqual=ignore --mode=pro -D_XTAL_FREQ=20000000 -DUSE_TIMER0=1 -DUSE_SER=1 -DUSE_NOKIA5110_LCD=1 -DUART_BAUD=38400 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -P -N127 -I".." -I"." -I"../../../lib" -I"../../../src" -V --warn=3 --asmlist -DXPRJ_debug=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1386521430/uart.p1  ../../../lib/uart.c 
-	@-${MV} ${OBJECTDIR}/_ext/1386521430/uart.d ${OBJECTDIR}/_ext/1386521430/uart.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,+debug --addrqual=ignore --mode=pro -D_XTAL_FREQ=20000000 -DUSE_TIMER0=1 -DUSE_SER=1 -DUSE_NOKIA5110_LCD=1 -DUART_BAUD=38400 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -P -N127 -I".." -I"." -I"../../../lib" -I"../../../src" -V --warn=3 --asmlist -DXPRJ_debug=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1386521430/ser.p1  ../../../lib/ser.c 
+	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/_ext/1386521430/lcd5110.p1: ../../../lib/lcd5110.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
