@@ -7579,11 +7579,9 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 6 "../../../lib/format.h"
-void format_number( uint16_t n, uint8_t base, int8_t pad);
-
-void format_xint32( uint32_t x);
-
-void format_double( double num);
+void format_number(uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(uint32_t x);
+void format_double(double num);
 
 # 12 "../../../lib/buffer.h"
 typedef uint8_t len_t;
@@ -7594,7 +7592,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 26
+# 25
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -7641,7 +7639,7 @@ return;
 
 
 void
-format_number( uint16_t n, uint8_t base, int8_t pad ) {
+format_number(uint16_t n, uint8_t base, int8_t pad ) {
 char buf[8 * sizeof(long)];
 uint8_t di;
 int8_t i = 0;
@@ -7664,8 +7662,10 @@ n /= base;
 
 while(pad-- > i) buffer_putch(padchar);
 
-for(; i > 0; i--) buffer_putch((char)buf[(int16_t)i - 1]);
+for(; i > 0; i--) {
+buffer_putch((char)buf[(int16_t)i - 1]);
 
+}
 }
 
 

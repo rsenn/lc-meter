@@ -3,8 +3,8 @@
 
 #ifdef MCHP_XC8
 
-#pragma config FOSC = INTOSCIO
-#pragma config nPWRTEN = ON, BOREN = ON, BORV = 285
+#pragma config FOSC = HSHP
+#pragma config PWRTEN = OFF, BOREN = ON, BORV = 285
 #pragma config WDTEN = OFF
 #pragma config STVREN = OFF, LVP = ON
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF

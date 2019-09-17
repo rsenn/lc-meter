@@ -3,68 +3,74 @@
 [d edition pro ]
 [d chip 18F25K50 ]
 [d frameptr 4065 ]
-"54 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"58 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _delay10ms delay10ms `(v  1 e 0 0 ]
-"77
+"81
 [v _global_int global_int `II(v  1 e 0 0 ]
-"116
+"113
 [v _main main `(v  1 e 0 0 ]
-"22 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
+"10 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
+[v _buffer_init buffer_init `(v  1 e 0 0 ]
+"30
 [v _buffer_putch buffer_putch `(uc  1 e 1 0 ]
+"57
+[v _buffer_puts buffer_puts `(uc  1 e 1 0 ]
 "15 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
 [v _format_number format_number `(v  1 e 0 0 ]
-"49
+"51
 [v _format_xint32 format_xint32 `(v  1 e 0 0 ]
-"75
+"77
 [v _format_double format_double `(v  1 e 0 0 ]
-"56 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+"34 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _lcd_write4bits lcd_write4bits `(v  1 s 0 lcd_write4bits ]
-"125
+"103
 [v _lcd_send lcd_send `(v  1 e 0 0 ]
-"149
+"127
 [v _lcd_command lcd_command `(v  1 s 0 lcd_command ]
-"157
+"135
 [v _lcd_gotoxy lcd_gotoxy `(v  1 e 0 0 ]
-"185
+"163
 [v _lcd_puts lcd_puts `(v  1 e 0 0 ]
-"309
+"287
 [v _lcd_clear lcd_clear `(v  1 e 0 0 ]
-"433
+"411
 [v _lcd_begin lcd_begin `(v  1 e 0 0 ]
-"506
+"484
 [v _lcd_init lcd_init `(v  1 e 0 0 ]
-"63 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+"31 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
 [v _ser_isrx ser_isrx `(b  1 e 0 0 ]
-"87
+"55
 [v _ser_putch ser_putch `(v  1 e 0 0 ]
-"97
+"65
 [v _ser_puts ser_puts `(v  1 e 0 0 ]
-"130
+"98
 [v _ser_init ser_init `(v  1 e 0 0 ]
 "27 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
 [v _timer0_init timer0_init `(v  1 e 0 0 ]
-"59
+"64
 [v _timer0_read_ps timer0_read_ps `(us  1 e 2 0 ]
-"125
+"130
 [v _timer2_init timer2_init `(v  1 e 0 0 ]
-"24 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
+"25 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _calibrate calibrate `(v  1 e 0 0 ]
-"69
+"68
 [v _measure_freq measure_freq `(us  1 e 2 0 ]
-"118
+"119
 [v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
-"196
+"197
 [v _measure_inductance measure_inductance `(v  1 e 0 0 ]
-"412 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+"123 /home/roman/Dokumente/Sources/lc-meter/src/print.c
 [v _print_unit print_unit `(v  1 e 0 0 ]
-"433
+"144
 [v _print_reading print_reading `(v  1 e 0 0 ]
-"473
-[v _indicator indicator `(v  1 e 0 0 ]
-"497
+"184
+[v _print_indicator print_indicator `(v  1 e 0 0 ]
+"208
 [v _output_putch output_putch `(v  1 e 0 0 ]
-"510
+"221
 [v _put_str put_str `(v  1 e 0 0 ]
+"230
+[v _print_buffer print_buffer `(v  1 e 0 0 ]
 "36 /opt/microchip/xc8/v1.34/sources/common/altofl.c
 [v ___altofl __altofl `(d  1 e 4 0 ]
 "31 /opt/microchip/xc8/v1.34/sources/common/awtofl.c
@@ -132,35 +138,37 @@
 [v _msecs msecs `VEul  1 e 4 0 ]
 "46
 [v _timer1of timer1of `VEul  1 e 4 0 ]
-"62
+"48
+[v _mode mode `uc  1 s 1 mode ]
+"66
 [v _F1 F1 `d  1 e 4 0 ]
 [v _F2 F2 `d  1 e 4 0 ]
 [v _F3 F3 `d  1 e 4 0 ]
 [v _CCal CCal `d  1 e 4 0 ]
-"71
+"75
 [v _blink blink `VEui  1 e 2 0 ]
 [s S21 . 17 `[16]uc 1 x 16 0 `uc 1 p 1 16 :4:0 
 `uc 1 n 1 16 :4:4 
 ]
 "4 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
 [v _buffer buffer `S21  1 e 17 0 ]
-"37 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+"15 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _LCD_function LCD_function `uc  1 s 1 LCD_function ]
 [v _LCD_ctrl LCD_ctrl `uc  1 s 1 LCD_ctrl ]
 [v _LCD_mode LCD_mode `uc  1 s 1 LCD_mode ]
-"40
+"18
 [v _LCD_lines LCD_lines `uc  1 s 1 LCD_lines ]
-"56 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+"24 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
 [v _rxfifo rxfifo `[16]uc  1 e 16 0 ]
-"57
+"25
 [v _rxiptr rxiptr `VEuc  1 e 1 0 ]
 [v _rxoptr rxoptr `VEuc  1 e 1 0 ]
-"58
+"26
 [v _txfifo txfifo `[16]uc  1 e 16 0 ]
-"59
+"27
 [v _txiptr txiptr `VEuc  1 e 1 0 ]
 [v _txoptr txoptr `VEuc  1 e 1 0 ]
-"60
+"28
 [v _ser_tmp ser_tmp `uc  1 e 1 0 ]
 "3308 /opt/microchip/xc8/v1.34/include/pic18f25k50.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
@@ -174,8 +182,6 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "5109
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-"5459
-[v _CM1CON0 CM1CON0 `VEuc  1 e 1 @3992 ]
 "5902
 [v _PIE1 PIE1 `VEuc  1 e 1 @3997 ]
 "6000
@@ -226,91 +232,114 @@
 [v _TXIE TXIE `VEb  1 e 0 @31980 ]
 "15542
 [v _TXIF TXIF `VEb  1 e 0 @31988 ]
-"116 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"113 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _main main `(v  1 e 0 0 ]
 {
-"238
+"215
+[v main@new_mode new_mode `uc  1 a 1 89 ]
+"235
 } 0
-"125 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+"130 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
 [v _timer2_init timer2_init `(v  1 e 0 0 ]
 {
 [v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
-"126
+"131
 [v timer2_init@ps ps `uc  1 a 1 4 ]
-"125
+"130
 [v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
 [v timer2_init@ps_mode ps_mode `uc  1 a 1 6 ]
-"142
+"147
 } 0
 "27
 [v _timer0_init timer0_init `(v  1 e 0 0 ]
 {
 [v timer0_init@ps_mode ps_mode `uc  1 a 1 wreg ]
 "28
-[v timer0_init@prescaler prescaler `uc  1 a 1 11 ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 13 ]
 "27
 [v timer0_init@ps_mode ps_mode `uc  1 a 1 wreg ]
-[v timer0_init@ps_mode ps_mode `uc  1 a 1 12 ]
-"56
+[v timer0_init@ps_mode ps_mode `uc  1 a 1 14 ]
+"61
 } 0
-"130 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+"98 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
 [v _ser_init ser_init `(v  1 e 0 0 ]
 {
-"157
+"125
 } 0
-"196 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
+"184 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _print_indicator print_indicator `(v  1 e 0 0 ]
+{
+[v print_indicator@indicate indicate `uc  1 a 1 wreg ]
+[v print_indicator@indicate indicate `uc  1 a 1 wreg ]
+"198
+[v print_indicator@indicate indicate `uc  1 a 1 13 ]
+"205
+} 0
+"197 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _measure_inductance measure_inductance `(v  1 e 0 0 ]
 {
-"200
+"201
 [v measure_inductance@Lin Lin `d  1 a 4 41 ]
 [v measure_inductance@denominator denominator `d  1 a 4 6 ]
 [v measure_inductance@numerator numerator `d  1 a 4 2 ]
-"198
+"199
 [v measure_inductance@var var `ui  1 a 2 39 ]
-"197
+"198
 [v measure_inductance@unit unit `uc  1 a 1 26 ]
-"239
+"237
 } 0
-"118
+"119
 [v _measure_capacitance measure_capacitance `(v  1 e 0 0 ]
 {
-"122
+"123
 [v measure_capacitance@Cin Cin `d  1 a 4 84 ]
-"120
+"121
 [v measure_capacitance@var var `ui  1 a 2 82 ]
-"119
+"120
 [v measure_capacitance@unit unit `uc  1 a 1 81 ]
-"190
+"191
 } 0
-"412 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+"123 /home/roman/Dokumente/Sources/lc-meter/src/print.c
 [v _print_unit print_unit `(v  1 e 0 0 ]
 {
-"430
+"141
 } 0
-"433
+"144
 [v _print_reading print_reading `(v  1 e 0 0 ]
 {
 [v print_reading@measurement measurement `ui  1 p 2 53 ]
-"469
+"180
 } 0
-"49 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+"163 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_puts lcd_puts `(v  1 e 0 0 ]
+{
+[v lcd_puts@string string `*.31Cuc  1 a 1 wreg ]
+"164
+[v lcd_puts@i i `uc  1 a 1 7 ]
+"163
+[v lcd_puts@string string `*.31Cuc  1 a 1 wreg ]
+"165
+[v lcd_puts@string string `*.31Cuc  1 a 1 8 ]
+"166
+} 0
+"51 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
 [v _format_xint32 format_xint32 `(v  1 e 0 0 ]
 {
 [v format_xint32@x x `ul  1 p 4 53 ]
-"54
+"56
 } 0
-"75
+"77
 [v _format_double format_double `(v  1 e 0 0 ]
 {
-"81
+"83
 [v format_double@weight weight `d  1 a 4 61 ]
-"76
+"78
 [v format_double@m m `s  1 a 2 67 ]
-"77
+"79
 [v format_double@digit digit `s  1 a 2 65 ]
-"75
+"77
 [v format_double@num num `d  1 p 4 49 ]
-"89
+"91
 } 0
 "5 /opt/microchip/xc8/v1.34/sources/common/pow.c
 [v _pow pow `(d  1 e 4 0 ]
@@ -484,118 +513,104 @@
 [v ___awtofl@c c `i  1 p 2 13 ]
 "42
 } 0
-"506 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+"484 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _lcd_init lcd_init `(v  1 e 0 0 ]
 {
 [v lcd_init@fourbitmode fourbitmode `uc  1 a 1 wreg ]
 [v lcd_init@fourbitmode fourbitmode `uc  1 a 1 wreg ]
-"508
+"486
 [v lcd_init@fourbitmode fourbitmode `uc  1 a 1 3 ]
-"534
+"512
 } 0
-"433
+"411
 [v _lcd_begin lcd_begin `(v  1 e 0 0 ]
 {
 [v lcd_begin@lines lines `uc  1 a 1 wreg ]
 [v lcd_begin@lines lines `uc  1 a 1 wreg ]
 [v lcd_begin@dotsize dotsize `uc  1 p 1 7 ]
 [v lcd_begin@lines lines `uc  1 a 1 9 ]
-"499
+"477
 } 0
-"473 /home/roman/Dokumente/Sources/lc-meter/src/print.c
-[v _indicator indicator `(v  1 e 0 0 ]
-{
-[v indicator@indicate indicate `uc  1 a 1 wreg ]
-[v indicator@indicate indicate `uc  1 a 1 wreg ]
-"487
-[v indicator@indicate indicate `uc  1 a 1 13 ]
-"494
-} 0
-"185 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
-[v _lcd_puts lcd_puts `(v  1 e 0 0 ]
-{
-[v lcd_puts@string string `*.31Cuc  1 a 1 wreg ]
-"186
-[v lcd_puts@i i `uc  1 a 1 7 ]
-"185
-[v lcd_puts@string string `*.31Cuc  1 a 1 wreg ]
-"187
-[v lcd_puts@string string `*.31Cuc  1 a 1 8 ]
-"188
-} 0
-"24 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
+"25 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _calibrate calibrate `(v  1 e 0 0 ]
 {
-"25
+"26
 [v calibrate@i i `uc  1 a 1 62 ]
-"63
+"62
 } 0
-"97 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+"221 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _put_str put_str `(v  1 e 0 0 ]
+{
+[v put_str@s s `*.31Cuc  1 a 1 wreg ]
+"222
+[v put_str@i i `i  1 a 2 8 ]
+"221
+[v put_str@s s `*.31Cuc  1 a 1 wreg ]
+"224
+[v put_str@s s `*.31Cuc  1 a 1 10 ]
+"227
+} 0
+"208
+[v _output_putch output_putch `(v  1 e 0 0 ]
+{
+[v output_putch@c c `uc  1 a 1 wreg ]
+[v output_putch@c c `uc  1 a 1 wreg ]
+"210
+[v output_putch@c c `uc  1 a 1 6 ]
+"215
+} 0
+"68 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
+[v _measure_freq measure_freq `(us  1 e 2 0 ]
+{
+"69
+[v measure_freq@count count `ui  1 a 2 56 ]
+"113
+} 0
+"64 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
+[v _timer0_read_ps timer0_read_ps `(us  1 e 2 0 ]
+{
+"66
+[v timer0_read_ps@count count `ui  1 a 2 8 ]
+"65
+[v timer0_read_ps@prev prev `uc  1 a 1 7 ]
+"89
+} 0
+"230 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _print_buffer print_buffer `(v  1 e 0 0 ]
+{
+"231
+[v print_buffer@i i `uc  1 a 1 6 ]
+"236
+} 0
+"65 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
 [v _ser_puts ser_puts `(v  1 e 0 0 ]
 {
 [v ser_puts@s s `*.31Cuc  1 a 1 wreg ]
 [v ser_puts@s s `*.31Cuc  1 a 1 wreg ]
 [v ser_puts@s s `*.31Cuc  1 a 1 4 ]
-"99
+"67
 } 0
-"69 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
-[v _measure_freq measure_freq `(us  1 e 2 0 ]
-{
-"70
-[v measure_freq@count count `ui  1 a 2 56 ]
-"112
-} 0
-"59 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
-[v _timer0_read_ps timer0_read_ps `(us  1 e 2 0 ]
-{
-"61
-[v timer0_read_ps@count count `ui  1 a 2 8 ]
-"60
-[v timer0_read_ps@prev prev `uc  1 a 1 7 ]
-"84
-} 0
-"510 /home/roman/Dokumente/Sources/lc-meter/src/print.c
-[v _put_str put_str `(v  1 e 0 0 ]
-{
-[v put_str@s s `*.31Cuc  1 a 1 wreg ]
-"511
-[v put_str@i i `i  1 a 2 8 ]
-"510
-[v put_str@s s `*.31Cuc  1 a 1 wreg ]
-"513
-[v put_str@s s `*.31Cuc  1 a 1 10 ]
-"516
-} 0
-"497
-[v _output_putch output_putch `(v  1 e 0 0 ]
-{
-[v output_putch@c c `uc  1 a 1 wreg ]
-[v output_putch@c c `uc  1 a 1 wreg ]
-"499
-[v output_putch@c c `uc  1 a 1 6 ]
-"504
-} 0
-"87 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+"55
 [v _ser_putch ser_putch `(v  1 e 0 0 ]
 {
 [v ser_putch@c c `uc  1 a 1 wreg ]
 [v ser_putch@c c `uc  1 a 1 wreg ]
 [v ser_putch@c c `uc  1 a 1 3 ]
-"94
+"62
 } 0
-"157 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+"135 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _lcd_gotoxy lcd_gotoxy `(v  1 e 0 0 ]
 {
 [v lcd_gotoxy@col col `uc  1 a 1 wreg ]
-"159
+"137
 [v lcd_gotoxy@row_offsets row_offsets `[4]uc  1 a 4 9 ]
-"157
+"135
 [v lcd_gotoxy@col col `uc  1 a 1 wreg ]
 [v lcd_gotoxy@row row `uc  1 p 1 7 ]
 [v lcd_gotoxy@F6470 F6470 `[4]uc  1 s 4 F6470 ]
-"159
+"137
 [v lcd_gotoxy@col col `uc  1 a 1 8 ]
-"179
+"157
 } 0
 "15 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
 [v _format_number format_number `(v  1 e 0 0 ]
@@ -612,15 +627,7 @@
 [v format_number@n n `ui  1 p 2 10 ]
 [v format_number@base base `uc  1 p 1 12 ]
 [v format_number@pad pad `c  1 p 1 13 ]
-"45
-} 0
-"22 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
-[v _buffer_putch buffer_putch `(uc  1 e 1 0 ]
-{
-[v buffer_putch@ch ch `uc  1 a 1 wreg ]
-[v buffer_putch@ch ch `uc  1 a 1 wreg ]
-[v buffer_putch@ch ch `uc  1 a 1 5 ]
-"29
+"47
 } 0
 "8 /opt/microchip/xc8/v1.34/sources/common/lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
@@ -644,41 +651,62 @@
 [v ___lwdiv@divisor divisor `ui  1 p 2 5 ]
 "31
 } 0
-"309 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+"57 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
+[v _buffer_puts buffer_puts `(uc  1 e 1 0 ]
+{
+[v buffer_puts@x x `*.31Cuc  1 a 1 wreg ]
+[v buffer_puts@x x `*.31Cuc  1 a 1 wreg ]
+[v buffer_puts@x x `*.31Cuc  1 a 1 6 ]
+"63
+} 0
+"30
+[v _buffer_putch buffer_putch `(uc  1 e 1 0 ]
+{
+[v buffer_putch@ch ch `uc  1 a 1 wreg ]
+[v buffer_putch@ch ch `uc  1 a 1 wreg ]
+[v buffer_putch@ch ch `uc  1 a 1 5 ]
+"36
+} 0
+"10
+[v _buffer_init buffer_init `(v  1 e 0 0 ]
+{
+"13
+} 0
+"287 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _lcd_clear lcd_clear `(v  1 e 0 0 ]
 {
-"313
+"291
 } 0
-"149
+"127
 [v _lcd_command lcd_command `(v  1 s 0 lcd_command ]
 {
 [v lcd_command@value value `uc  1 a 1 wreg ]
 [v lcd_command@value value `uc  1 a 1 wreg ]
 [v lcd_command@value value `uc  1 a 1 6 ]
-"151
+"129
 } 0
-"125
+"103
 [v _lcd_send lcd_send `(v  1 e 0 0 ]
 {
 [v lcd_send@value value `uc  1 a 1 wreg ]
 [v lcd_send@value value `uc  1 a 1 wreg ]
 [v lcd_send@mode mode `uc  1 p 1 4 ]
 [v lcd_send@value value `uc  1 a 1 5 ]
-"141
+"119
 } 0
-"56
+"34
 [v _lcd_write4bits lcd_write4bits `(v  1 s 0 lcd_write4bits ]
 {
 [v lcd_write4bits@value value `uc  1 a 1 wreg ]
 [v lcd_write4bits@value value `uc  1 a 1 wreg ]
-"61
+"39
 [v lcd_write4bits@value value `uc  1 a 1 3 ]
-"82
+"60
 } 0
-"54 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"58 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _delay10ms delay10ms `(v  1 e 0 0 ]
 {
-"58
+"62
 } 0
 "28 /opt/microchip/xc8/v1.34/sources/common/lwtofl.c
 [v ___lwtofl __lwtofl `(d  1 e 4 0 ]
@@ -694,8 +722,8 @@
 [v ___flpack@sign sign `uc  1 p 1 8 ]
 "87
 } 0
-"77 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"81 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _global_int global_int `II(v  1 e 0 0 ]
 {
-"112
+"107
 } 0

@@ -45,6 +45,7 @@ volatile uint16_t msecpart;       // milliseconds modulo 1000
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
+static char mode = -1;
 
 #define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))
 
@@ -105,10 +106,13 @@ INTERRUPT_FN() {
 #endif
 }
 
-/* main routine */
+/**
+ * @brief      { function_description }
+ */
 void
 main() {
   bres = msecpart = msecs = seconds = 0;
+  mode = -1;
 
   CCal = C_CAL;
 
@@ -208,9 +212,16 @@ main() {
    * Blink the print_indicator (-*-) sign after each measurement.
    */
   for(;;) {
+    char new_mode = LC_SELECT;
 
-//    ser_puts("...\r\n");
-    if(LC_SELECT)
+    if(new_mode != mode) {
+      ser_puts(mode ?  "- C (Unit: F) -" : "- L (Unit: H) -");
+      ser_puts("\r\n");
+
+      mode = new_mode;
+    }
+
+    if(mode)
       measure_capacitance();
     else
       measure_inductance();

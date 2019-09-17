@@ -7688,7 +7688,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 37 "../../../lib/lcd44780.c"
+# 15 "../../../lib/lcd44780.c"
 static uint8_t LCD_function, LCD_ctrl, LCD_mode
 
 ,
@@ -7696,21 +7696,21 @@ LCD_lines
 
 ;
 
-# 55
+# 33
 static void
 lcd_write4bits(uint8_t value) {
 
-# 61
+# 39
 LATB &= 0b00001111;
 LATB |= value << 4;
 
-# 77
+# 55
 LATB |= 0b1000; _delay((unsigned long)((4)*(20000000/4000000.0))); LATB &= ~0b1000; _delay((unsigned long)((100)*(20000000/4000000.0)));;
 
-# 82
+# 60
 }
 
-# 124
+# 102
 void
 lcd_send(uint8_t value, uint8_t mode) {
 if(mode) {
@@ -7719,14 +7719,14 @@ LATB |= 0b0100;
 LATB &= ~0b0100;
 }
 
-# 137
+# 115
 {
 lcd_write4bits(value >> 4);
 lcd_write4bits(value);
 }
 }
 
-# 148
+# 126
 static void
 lcd_command(uint8_t value) {
 lcd_send(value, 0);
@@ -7740,14 +7740,14 @@ lcd_gotoxy(uint8_t col, uint8_t row) {
 
 uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
 
-# 168
+# 146
 if(LCD_lines == 1) {
 row_offsets[1] = 0x14;
 row_offsets[2] = 0x28;
 row_offsets[3] = 0x3C;
 }
 
-# 178
+# 156
 lcd_command(0x80 | (col + row_offsets[row]));
 }
 
@@ -7760,7 +7760,7 @@ uint8_t i;
 for(i = 0; string[i]; i++) lcd_send((string[i]), 1);
 }
 
-# 213
+# 191
 void
 lcd_print_number(uint16_t n, uint8_t base, int8_t pad ) {
 uint8_t buf[8 * sizeof(long)];
@@ -7773,10 +7773,10 @@ pad = -pad;
 padchar = '0';
 }
 
-# 230
+# 208
 do {
 
-# 234
+# 212
 di = n % base;
 buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
@@ -7789,7 +7789,7 @@ for(; i > 0; i--) lcd_send(((char)buf[(int16_t)i - 1]), 1);
 
 }
 
-# 297
+# 275
 void
 lcd_home() {
 lcd_command(0x02);
@@ -7797,7 +7797,7 @@ _delay((unsigned long)((2)*(20000000/4000.0)));
 
 }
 
-# 308
+# 286
 void
 lcd_clear() {
 lcd_command(0x01);
@@ -7805,14 +7805,14 @@ _delay((unsigned long)((2)*(20000000/4000.0)));
 
 }
 
-# 328
+# 306
 void
 lcd_display() {
 LCD_ctrl |= 0x04;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 338
+# 316
 void
 lcd_no_cursor() {
 LCD_ctrl &= ~0x02;
@@ -7828,28 +7828,28 @@ LCD_ctrl |= 0x02;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 366
+# 344
 void
 lcd_blink() {
 LCD_ctrl |= 0x01;
 lcd_command(0x08 | LCD_ctrl);
 }
 
-# 393
+# 371
 void
 lcd_left_to_right(void) {
 LCD_mode |= 0x02;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 413
+# 391
 void
 lcd_autoscroll(void) {
 LCD_mode |= 0x01;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 432
+# 410
 void
 lcd_begin(uint8_t lines, uint8_t dotsize) {
 if(lines > 1)
@@ -7919,7 +7919,7 @@ LCD_mode = 0x02 | 0x00;
 lcd_command(0x04 | LCD_mode);
 }
 
-# 505
+# 483
 void
 lcd_init(char fourbitmode) {
 
@@ -7933,12 +7933,12 @@ LCD_mode = 0;
 TRISB &= ~0b0100;
 LATB &= ~0b0100;
 
-# 521
+# 499
 TRISB &= ~0b1000;
 LATB &= ~0b1000;
 
 LATB &= ~0b11110000;
 
-# 534
+# 512
 }
 
