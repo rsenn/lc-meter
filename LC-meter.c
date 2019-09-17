@@ -143,6 +143,13 @@ main() {
 
   INIT_LED();
   SET_LED(1);
+  /*
+  #if PIC18 || defined(__16f628)
+    SSPCON1 &= ~0b00100000; //  SSPEN = 0;
+  #else
+    SSPCON &= ~0b100;
+  #endif
+  */
 
   // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   //  timer1of = 0;
