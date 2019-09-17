@@ -17,8 +17,7 @@ typedef struct {
   unsigned n : BUFFER_PTRSIZE; /* current size of string in buffer */
 } buffer_t;
 
-#define BUFFER_STATIC(op)                                                                                              \
-  { {0}, 0, 0, op }
+#define BUFFER_STATIC(op) { {0}, 0, 0, op }
 #define BUFFER_CLEAR() buffer.p = 0, buffer.n = 0, 0
 #define BUFFER_INIT(op) buffer.op = &(op), BUFFER_CLEAR()
 #define BUFFER_LEN() (buffer.n - buffer.p)
@@ -32,10 +31,5 @@ char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 
 #define buffer_PUTC(c) ((buffer.n < BUFFER_SIZE) ? (buffer.x[buffer.n++] = (c), 0) : buffer_putch(c))
-
-/*int buffer_get(char *x, len_t len);
-int buffer_feed();
-int buffer_getc(char *x);
-int buffer_getn(char *x, len_t len);*/
 
 #endif // defined PICLIB_BUFFER_H

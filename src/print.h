@@ -6,7 +6,7 @@
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c);void lcd_puts(const char*);
+void output_putch(char c); void lcd_puts(const char*);
 void print_digit(uint8_t line, uint8_t column, uint8_t digit);
 void print_unit(uint8_t unit);
 void print_reading(uint16_t measurement); // measurement divide by 100
