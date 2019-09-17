@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [s S226 :1 `Vuc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S226 . EPSTALL EPINEN EPOUTEN EPCONDIS EPHSHK ]
-"34 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"34 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_ENDPOINT `VS226 -> 15 `i e@3952 ]
 [s S229 :2 `Vuc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S229 . BC89 BSTALL DTSEN . DTS UOWN ]
@@ -11,7 +11,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S228 . CPU SIE ]
 [s S227 `S228 1 `Vuc 1 `Vui 1 ]
 [n S227 . BDSTAT BDCNT BDADR ]
-"37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"37 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
@@ -1973,8 +1973,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 [; ;typedef.h: 52: typedef char bool;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;tsmdelay.h: 50: typedef struct dvars {
 [; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
 [; ;tsmdelay.h: 52: } dvars;

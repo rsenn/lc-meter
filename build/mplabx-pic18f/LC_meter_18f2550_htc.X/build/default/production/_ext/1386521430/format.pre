@@ -1,10 +1,10 @@
 
 # 1 "../../../lib/format.c"
 
-# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+# 12 "/opt/hitech/picc-18/9.66/include/stdbool.h"
 typedef unsigned char bool;
 
-# 316 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h"
+# 316 "/opt/hitech/picc-18/9.66/include/pic18f2550.h"
 extern volatile unsigned char UFRML @ 0xF66;
 
 extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -2252,7 +2252,7 @@ volatile unsigned InternalTMR : 16;
 
 extern volatile unsigned char TMR3_Prescale @ 0x1009;
 
-# 3 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h"
+# 3 "/opt/hitech/picc-18/9.66/include/usbregs18.h"
 typedef struct {
 unsigned volatile EPSTALL:1;
 unsigned EPINEN:1;
@@ -2289,7 +2289,7 @@ volatile _USB_ENDPOINT_BITS _USB_ENDPOINT[15] @ ((unsigned)&UEP0);
 
 volatile _BUFFER_DESCRIPTOR_STRUCT _USB_DESCRIPTOR[64] @ 0x400;
 
-# 9 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2550.h"
+# 9 "/opt/hitech/picc-18/9.66/include/legacy/ppic18f2550.h"
 extern volatile near bit NEGATIVE @ ((unsigned)&STATUS*8)+4;
 
 extern near bit T1RD16 @ ((unsigned)&T1CON*8)+7;
@@ -2445,7 +2445,7 @@ extern near bit EPHSHK0 @ ((unsigned)&UEP0*8)+4;
 extern near bit UPP0 @ ((unsigned)&UCFG*8)+0;
 extern near bit UPP1 @ ((unsigned)&UCFG*8)+1;
 
-# 1376 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18.h"
+# 1376 "/opt/hitech/picc-18/9.66/include/pic18.h"
 extern unsigned char idloc_read(unsigned char reg_no);
 extern void idloc_write(unsigned char reg_no,unsigned char data);
 
@@ -2486,7 +2486,7 @@ extern void _delay(unsigned long);
 #pragma inline(_delay3)
 extern void _delay3(unsigned char);
 
-# 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h"
+# 31 "/opt/hitech/picc-18/9.66/include/peripheral/psupport.h"
 extern volatile bit SEN_x @ ((unsigned)&SSPCON2*8)+0;
 extern volatile bit RSEN_x @ ((unsigned)&SSPCON2*8)+1;
 extern volatile bit PEN_x @ ((unsigned)&SSPCON2*8)+2;
@@ -2541,20 +2541,32 @@ extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 6 "../../../lib/format.h"
-extern putchar_fn* putchar_ptr;
-
 void format_number( unsigned short int n, unsigned char base, signed char pad);
 
 void format_xint32( unsigned long int x);
 
 void format_double( double num);
 
-# 1 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\math.h"
+# 12 "../../../lib/buffer.h"
+typedef unsigned char len_t;
+
+typedef struct {
+char x[16];
+unsigned p : 4;
+unsigned n : 4;
+} buffer_t;
+
+# 26
+extern buffer_t buffer;
+
+void buffer_init(void);
+char buffer_flush(void);
+char buffer_putch(char ch);
+char buffer_put(const char* x, len_t len);
+char buffer_puts(const char* x);
+
+# 1 "/opt/hitech/picc-18/9.66/include/math.h"
 extern double fabs(double);
 extern double floor(double);
 extern double ceil(double);
@@ -2582,13 +2594,13 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 5 "../../../lib/format.c"
+# 6 "../../../lib/format.c"
 static void
 format_putchar(char c) {
 return;
 }
 
-putchar_fn* putchar_ptr = format_putchar;
+
 
 
 void
@@ -2603,27 +2615,27 @@ pad = -pad;
 padchar = '0';
 }
 
-# 30
+# 31
 do {
 
-# 34
+# 35
 di = n % base;
 buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
 
 n /= base;
 } while(n > 0);
 
-while(pad-- > i) putchar_ptr(padchar);
+while(pad-- > i) buffer_putch(padchar);
 
-for(; i > 0; i--) putchar_ptr((char)buf[(signed short int)i - 1]);
+for(; i > 0; i--) buffer_putch((char)buf[(signed short int)i - 1]);
 
 }
 
 
 void
 format_xint32( unsigned long int x) {
-putchar_ptr('0');
-putchar_ptr('x');
+buffer_putch('0');
+buffer_putch('x');
 format_number((unsigned short int)(x >> 16), 16, -4);
 format_number((unsigned short int)(x & 0xffff), 16, -4);
 }
@@ -2638,9 +2650,9 @@ while(num > 0 + 3.05176e-05) {
 float weight = pow(10.0l, m);
 digit = (char)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr('0' + digit);
+buffer_putch('0' + digit);
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }
@@ -2656,9 +2668,9 @@ while(num > 0 + 1.19209290e-07) {
 double weight = pow(10.0l, m);
 digit = (short)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr((char)('0' + digit));
+buffer_putch((char)('0' + digit));
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }

@@ -1,7 +1,7 @@
 
 # 1 "../../../LC-meter.c"
 
-# 316 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h"
+# 316 "/opt/hitech/picc-18/9.66/include/pic18f2550.h"
 extern volatile unsigned char UFRML @ 0xF66;
 
 extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -2249,7 +2249,7 @@ volatile unsigned InternalTMR : 16;
 
 extern volatile unsigned char TMR3_Prescale @ 0x1009;
 
-# 3 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h"
+# 3 "/opt/hitech/picc-18/9.66/include/usbregs18.h"
 typedef struct {
 unsigned volatile EPSTALL:1;
 unsigned EPINEN:1;
@@ -2286,7 +2286,7 @@ volatile _USB_ENDPOINT_BITS _USB_ENDPOINT[15] @ ((unsigned)&UEP0);
 
 volatile _BUFFER_DESCRIPTOR_STRUCT _USB_DESCRIPTOR[64] @ 0x400;
 
-# 9 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2550.h"
+# 9 "/opt/hitech/picc-18/9.66/include/legacy/ppic18f2550.h"
 extern volatile near bit NEGATIVE @ ((unsigned)&STATUS*8)+4;
 
 extern near bit T1RD16 @ ((unsigned)&T1CON*8)+7;
@@ -2442,7 +2442,7 @@ extern near bit EPHSHK0 @ ((unsigned)&UEP0*8)+4;
 extern near bit UPP0 @ ((unsigned)&UCFG*8)+0;
 extern near bit UPP1 @ ((unsigned)&UCFG*8)+1;
 
-# 1376 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18.h"
+# 1376 "/opt/hitech/picc-18/9.66/include/pic18.h"
 extern unsigned char idloc_read(unsigned char reg_no);
 extern void idloc_write(unsigned char reg_no,unsigned char data);
 
@@ -2483,7 +2483,7 @@ extern void _delay(unsigned long);
 #pragma inline(_delay3)
 extern void _delay3(unsigned char);
 
-# 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h"
+# 31 "/opt/hitech/picc-18/9.66/include/peripheral/psupport.h"
 extern volatile bit SEN_x @ ((unsigned)&SSPCON2*8)+0;
 extern volatile bit RSEN_x @ ((unsigned)&SSPCON2*8)+1;
 extern volatile bit PEN_x @ ((unsigned)&SSPCON2*8)+2;
@@ -2535,22 +2535,18 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+# 12 "/opt/hitech/picc-18/9.66/include/stdbool.h"
 typedef unsigned char bool;
 
-# 52 "../../../lib\typedef.h"
+# 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
-# 65 "../../../LC-meter.h"
+# 75 "../../../LC-meter.h"
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
 
-# 50 "../../../lib\tsmdelay.h"
+# 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
 } dvars;
@@ -2561,45 +2557,41 @@ extern dvars dvar;
 # 78
 void cycle_eater(void);
 
-# 46 "../../../lib\delay.h"
+# 46 "../../../lib/delay.h"
 void Delay100TCYx(unsigned char);
 void Delay10KTCYx(unsigned char);
 void Delay10TCYx(unsigned char);
 void Delay1KTCYx(unsigned char);
 
-# 143 "../../../lib\timer.h"
+# 143 "../../../lib/timer.h"
 void timer2_init(unsigned char ps_mode);
 
-# 89 "../../../lib\uart.h"
-extern const unsigned char uart_brg;
+# 77 "../../../lib/ser.h"
+bit ser_isrx(void);
+unsigned char ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(unsigned char* s);
+void ser_puthex(unsigned char v);
+void ser_init(void);
 
-void uart_putch(unsigned char byte);
 
-int uart_getch(void);
-bool uart_poll(unsigned char bauds);
+extern unsigned char rxfifo[(unsigned char)16];
+extern volatile unsigned char rxiptr, rxoptr;
+extern unsigned char txfifo[(unsigned char)16];
+extern volatile unsigned char txiptr, txoptr;
+extern unsigned char ser_tmp;
 
-# 99
-void uart_init(void);
+extern unsigned char ser_brg;
 
-# 106
-unsigned char uart_isr(void);
-
-# 111
-void uart_enable(void);
-
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
-
-# 6 "../../../src\measure.h"
+# 6 "../../../src/measure.h"
 void calibrate(void);
 unsigned short measure_freq(void);
 void measure_capacitance(void);
 void measure_inductance(void);
 
-# 6 "../../../src\print.h"
+# 6 "../../../src/print.h"
 extern const char logo_image[504];
 
 void put_str(const char*);
@@ -2613,165 +2605,9 @@ void indicator(unsigned char indicate);
 
 void print_print_float(float number, unsigned char digits);
 
-# 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
-
+# 6 "../../../lib/format.h"
 void format_number( unsigned short int n, unsigned char base, signed char pad);
 
 void format_xint32( unsigned long int x);
 
 void format_double( double num);
-
-# 43 "../../../LC-meter.c"
-volatile unsigned short int bres;
-volatile unsigned short int msecpart;
-volatile unsigned long int seconds, msecs;
-volatile unsigned long int timer1of;
-
-# 53
-void
-delay10ms(unsigned char period_10ms) {
-
-# 58
-}
-
-
-
-double F1, F2, F3, CCal;
-void main();
-void loop();
-void testloop();
-void initialize();
-unsigned long int milliseconds();
-
-void put_number(void (*putchar)(char), unsigned short int n, unsigned char base, signed char pad );
-
-volatile unsigned short int blink = 0;
-
-
-
-interrupt isr() {
-
-if(PIR1 & 0b10) {
-
-bres += 256;
-
-if(bres >= 5000) {
-bres -= 5000;
-msecpart++;
-msecs++;
-
-LATC &= ~0b00000010; LATC |= (!!((blink > 200))) << 1;;
-if(blink >= 400)
-blink -= 400;
-++blink;
-
-
-if(msecpart >= 1000) {
-
-seconds++;
-msecpart -= 1000;
-}
-}
-
-PIR1 &= ~0b10;
-}
-
-# 107
-}
-
-
-void
-main() {
-bres = msecpart = msecs = seconds = 0;
-
-CCal = 1000;
-
-# 123
-TRISA = 0b11001111;
-
-
-timer0_init(0b100 | TIMER0_FLAGS_EXTCLK);
-
-# 139
-RBPU = 1;
-
-# 148
-TRISC &= ~0b00000010;
-LATC &= ~0b00000010; LATC |= (!!(1)) << 1;;
-
-
-SSPCON1 &= ~0b00100000;
-
-# 160
-timer2_init(0b000 | 0x80);
-
-
-
-
-TRISC &= 0b10110101;
-
-# 181
-TRISC |= (1 << 4);
-TRISC &= ~(1 << 5);
-
-LATC &= ~(1 << 5);
-delay10ms(50);
-LATC |= (1 << 5);
-delay10ms(50);
-LATC &= ~(1 << 5);
-delay10ms(50);
-LATC |= (1 << 5);
-delay10ms(50);
-LATC &= ~(1 << 5);
-
-# 198
-uart_init();
-
-
-
-INTCON |= 0xc0;
-
-# 221
-delay10ms(200);
-
-
-calibrate();
-
-# 235
-for(;;) {
-
-uart_puts("...\r\n");
-if(PORTC & (1 << 4))
-measure_capacitance();
-else
-measure_inductance();
-
-indicator(1);
-delay10ms(30);
-indicator(0);
-delay10ms(20);
-}
-}
-
-void
-testloop() {
-
-static char led = 0;
-static unsigned short int prev_s = 0;
-unsigned short int s;
-
-delay10ms(10);
-
-INTCON &= ~0x80;
-s = seconds;
-INTCON |= 0x80;
-
-# 291
-if(s != prev_s) {
-
-# 298
-prev_s = s;
-}
-}
-

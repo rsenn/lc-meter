@@ -1,10 +1,10 @@
 
 # 1 "../../../src/print.c"
 
-# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+# 12 "/opt/hitech/picc-18/9.66/include/stdbool.h"
 typedef unsigned char bool;
 
-# 316 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h"
+# 316 "/opt/hitech/picc-18/9.66/include/pic18f2550.h"
 extern volatile unsigned char UFRML @ 0xF66;
 
 extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -2252,7 +2252,7 @@ volatile unsigned InternalTMR : 16;
 
 extern volatile unsigned char TMR3_Prescale @ 0x1009;
 
-# 3 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h"
+# 3 "/opt/hitech/picc-18/9.66/include/usbregs18.h"
 typedef struct {
 unsigned volatile EPSTALL:1;
 unsigned EPINEN:1;
@@ -2289,7 +2289,7 @@ volatile _USB_ENDPOINT_BITS _USB_ENDPOINT[15] @ ((unsigned)&UEP0);
 
 volatile _BUFFER_DESCRIPTOR_STRUCT _USB_DESCRIPTOR[64] @ 0x400;
 
-# 9 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2550.h"
+# 9 "/opt/hitech/picc-18/9.66/include/legacy/ppic18f2550.h"
 extern volatile near bit NEGATIVE @ ((unsigned)&STATUS*8)+4;
 
 extern near bit T1RD16 @ ((unsigned)&T1CON*8)+7;
@@ -2445,7 +2445,7 @@ extern near bit EPHSHK0 @ ((unsigned)&UEP0*8)+4;
 extern near bit UPP0 @ ((unsigned)&UCFG*8)+0;
 extern near bit UPP1 @ ((unsigned)&UCFG*8)+1;
 
-# 1376 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18.h"
+# 1376 "/opt/hitech/picc-18/9.66/include/pic18.h"
 extern unsigned char idloc_read(unsigned char reg_no);
 extern void idloc_write(unsigned char reg_no,unsigned char data);
 
@@ -2486,7 +2486,7 @@ extern void _delay(unsigned long);
 #pragma inline(_delay3)
 extern void _delay3(unsigned char);
 
-# 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h"
+# 31 "/opt/hitech/picc-18/9.66/include/peripheral/psupport.h"
 extern volatile bit SEN_x @ ((unsigned)&SSPCON2*8)+0;
 extern volatile bit RSEN_x @ ((unsigned)&SSPCON2*8)+1;
 extern volatile bit PEN_x @ ((unsigned)&SSPCON2*8)+2;
@@ -2538,28 +2538,23 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 52 "../../../lib\typedef.h"
+# 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
-# 12 "../../../lib\buffer.h"
+# 12 "../../../lib/buffer.h"
 typedef unsigned char len_t;
 
 typedef struct {
 char x[16];
 unsigned p : 4;
 unsigned n : 4;
-putchar_p op;
 } buffer_t;
 
-# 27
+# 26
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
@@ -2578,88 +2573,75 @@ void indicator(unsigned char indicate);
 
 void print_print_float(float number, unsigned char digits);
 
-# 89 "../../../lib\uart.h"
-extern const unsigned char uart_brg;
+# 77 "../../../lib/ser.h"
+bit ser_isrx(void);
+unsigned char ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(unsigned char* s);
+void ser_puthex(unsigned char v);
+void ser_init(void);
 
-void uart_putch(unsigned char byte);
 
-int uart_getch(void);
-bool uart_poll(unsigned char bauds);
+extern unsigned char rxfifo[(unsigned char)16];
+extern volatile unsigned char rxiptr, rxoptr;
+extern unsigned char txfifo[(unsigned char)16];
+extern volatile unsigned char txiptr, txoptr;
+extern unsigned char ser_tmp;
 
-# 99
-void uart_init(void);
+extern unsigned char ser_brg;
 
-# 106
-unsigned char uart_isr(void);
-
-# 111
-void uart_enable(void);
-
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
-
-# 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
-
+# 6 "../../../lib/format.h"
 void format_number( unsigned short int n, unsigned char base, signed char pad);
 
 void format_xint32( unsigned long int x);
 
 void format_double( double num);
 
-# 23 "../../../src/print.c"
-extern void lcd_putch(char c);
-
-void
-lcd_puts(const char* string) {
-unsigned char i;
-for(i = 0; string[i]; i++) lcd_putch(string[i]);
-}
-
-
+# 32 "../../../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
-unsigned char i;
-while(n--) lcd_putch(*buf++);
+
+# 39
 }
 
-# 386
+# 389
 void
 print_digit(unsigned char line, unsigned char column, unsigned char digit) {
 
-# 405
+# 408
 }
 
 
 void
 print_unit(unsigned char unit) {
 
-# 427
+# 430
 }
 
 void
 print_reading(unsigned short int measurement) {
 
-# 466
+# 469
 }
 
 
 void
 indicator(unsigned char indicate) {
 
-# 491
+# 494
 }
 
 void
 output_putch(char c) {
 
-# 501
+# 502
+ser_putch(c);
+
 }
 
-# 506
+# 509
 void
 put_str(const char* s) {
 int i;

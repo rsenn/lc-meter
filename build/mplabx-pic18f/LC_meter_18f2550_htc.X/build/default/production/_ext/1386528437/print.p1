@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [s S226 :1 `Vuc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S226 . EPSTALL EPINEN EPOUTEN EPCONDIS EPHSHK ]
-"34 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"34 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_ENDPOINT `VS226 -> 15 `i e@3952 ]
 [s S229 :2 `Vuc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S229 . BC89 BSTALL DTSEN . DTS UOWN ]
@@ -11,10 +11,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S228 . CPU SIE ]
 [s S227 `S228 1 `Vuc 1 `Vui 1 ]
 [n S227 . BDSTAT BDCNT BDADR ]
-"37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"37 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
-"23 ../../../src/print.c
-[v _lcd_putch `(v 0 ef1`uc ]
+"79 ../../../lib/ser.h
+[v _ser_putch `(v 0 ef1`uc ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -1974,22 +1974,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 166: extern volatile bit BF_x @ ((unsigned)&SSPSTAT*8)+0;
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
-[; ;lib\typedef.h: 52: typedef char bool;
-[; ;lib\typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;lib\typedef.h: 70: typedef putchar_fn* putchar_p;
-[; ;lib\buffer.h: 12: typedef unsigned char len_t;
-[; ;lib\buffer.h: 14: typedef struct {
-[; ;lib\buffer.h: 15: char x[16];
-[; ;lib\buffer.h: 16: unsigned p : 4;
-[; ;lib\buffer.h: 17: unsigned n : 4;
-[; ;lib\buffer.h: 18: putchar_p op;
-[; ;lib\buffer.h: 19: } buffer_t;
-[; ;lib\buffer.h: 27: extern buffer_t buffer;
-[; ;lib\buffer.h: 29: void buffer_init(putchar_p op);
-[; ;lib\buffer.h: 30: char buffer_flush();
-[; ;lib\buffer.h: 31: char buffer_putch(char ch);
-[; ;lib\buffer.h: 32: char buffer_put(const char* x, len_t len);
-[; ;lib\buffer.h: 33: char buffer_puts(const char* x);
+[; ;typedef.h: 52: typedef char bool;
+[; ;buffer.h: 12: typedef unsigned char len_t;
+[; ;buffer.h: 14: typedef struct {
+[; ;buffer.h: 15: char x[16];
+[; ;buffer.h: 16: unsigned p : 4;
+[; ;buffer.h: 17: unsigned n : 4;
+[; ;buffer.h: 18: } buffer_t;
+[; ;buffer.h: 26: extern buffer_t buffer;
+[; ;buffer.h: 28: void buffer_init(void);
+[; ;buffer.h: 29: char buffer_flush(void);
+[; ;buffer.h: 30: char buffer_putch(char ch);
+[; ;buffer.h: 31: char buffer_put(const char* x, len_t len);
+[; ;buffer.h: 32: char buffer_puts(const char* x);
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void put_str(const char*);
 [; ;print.h: 9: void output_putch(char c);
@@ -1999,49 +1996,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.h: 14: void print_reading(unsigned short int measurement);
 [; ;print.h: 15: void indicator(unsigned char indicate);
 [; ;print.h: 17: void print_print_float(float number, unsigned char digits);
-[; ;lib\uart.h: 89: extern const unsigned char uart_brg;
-[; ;lib\uart.h: 91: void uart_putch(unsigned char byte);
-[; ;lib\uart.h: 93: int uart_getch(void);
-[; ;lib\uart.h: 94: bool uart_poll(unsigned char bauds);
-[; ;lib\uart.h: 99: void uart_init(void);
-[; ;lib\uart.h: 106: unsigned char uart_isr(void);
-[; ;lib\uart.h: 111: void uart_enable(void);
-[; ;lib\uart.h: 116: void uart_disable(void);
-[; ;lib\uart.h: 118: void uart_puts(const char* s);
-[; ;lib\uart.h: 119: void uart_puts2(unsigned char* s);
-[; ;lib\format.h: 6: extern putchar_fn* putchar_ptr;
-[; ;lib\format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
-[; ;lib\format.h: 10: void format_xint32( unsigned long int x);
-[; ;lib\format.h: 12: void format_double( double num);
-[; ;print.c: 23: extern void lcd_putch(char c);
-"26 ../../../src/print.c
-[v _lcd_puts `(v 1 ef1`*Cuc ]
-{
-[; ;print.c: 25: void
-[; ;print.c: 26: lcd_puts(const char* string) {
-[e :U _lcd_puts ]
-[v _string `*Cuc 1 r1 ]
-[f ]
-"27
-[v _i `uc 1 a ]
-[; ;print.c: 27: unsigned char i;
-[; ;print.c: 28: for(i = 0; string[i]; i++) lcd_putch(string[i]);
-"28
-{
-[e = _i -> -> 0 `i `uc ]
-[e $U 236  ]
-[e :U 233 ]
-[e ( _lcd_putch (1 *U + _string * -> _i `ux -> -> # *U _string `ui `ux ]
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 236 ]
-[e $ != -> *U + _string * -> _i `ux -> -> # *U _string `ui `ux `i -> -> -> 0 `i `Cuc `i 233  ]
-[e :U 234 ]
-}
-[; ;print.c: 29: }
-"29
-[e :UE 232 ]
-}
-"33
+[; ;ser.h: 77: bit ser_isrx(void);
+[; ;ser.h: 78: unsigned char ser_getch(void);
+[; ;ser.h: 79: void ser_putch(char byte);
+[; ;ser.h: 80: void ser_put(const char* s, unsigned n);
+[; ;ser.h: 81: void ser_puts(const char* s);
+[; ;ser.h: 82: void ser_puts2(unsigned char* s);
+[; ;ser.h: 83: void ser_puthex(unsigned char v);
+[; ;ser.h: 84: void ser_init(void);
+[; ;ser.h: 87: extern unsigned char rxfifo[(unsigned char)16];
+[; ;ser.h: 88: extern volatile unsigned char rxiptr, rxoptr;
+[; ;ser.h: 89: extern unsigned char txfifo[(unsigned char)16];
+[; ;ser.h: 90: extern volatile unsigned char txiptr, txoptr;
+[; ;ser.h: 91: extern unsigned char ser_tmp;
+[; ;ser.h: 93: extern unsigned char ser_brg;
+[; ;format.h: 6: void format_number( unsigned short int n, unsigned char base, signed char pad);
+[; ;format.h: 8: void format_xint32( unsigned long int x);
+[; ;format.h: 10: void format_double( double num);
+"33 ../../../src/print.c
 [v _lcd_put `(v 1 ef2`*Cuc`ui ]
 {
 [; ;print.c: 32: void
@@ -2050,115 +2022,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _buf `*Cuc 1 r1 ]
 [v _n `ui 1 r2 ]
 [f ]
-"34
-[v _i `uc 1 a ]
-[; ;print.c: 34: unsigned char i;
-[; ;print.c: 35: while(n--) lcd_putch(*buf++);
-"35
-[e $U 238  ]
-[e :U 239 ]
-[e ( _lcd_putch (1 *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x ]
-[e :U 238 ]
-[e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 239  ]
-[e :U 240 ]
-[; ;print.c: 36: }
-"36
-[e :UE 237 ]
+[; ;print.c: 39: }
+"39
+[e :UE 232 ]
 }
-"387
+"390
 [v _print_digit `(v 1 ef3`uc`uc`uc ]
 {
-[; ;print.c: 386: void
-[; ;print.c: 387: print_digit(unsigned char line, unsigned char column, unsigned char digit) {
+[; ;print.c: 389: void
+[; ;print.c: 390: print_digit(unsigned char line, unsigned char column, unsigned char digit) {
 [e :U _print_digit ]
 [v _line `uc 1 r1 ]
 [v _column `uc 1 r2 ]
 [v _digit `uc 1 r3 ]
 [f ]
-[; ;print.c: 405: }
-"405
-[e :UE 241 ]
+[; ;print.c: 408: }
+"408
+[e :UE 233 ]
 }
-"409
+"412
 [v _print_unit `(v 1 ef1`uc ]
 {
-[; ;print.c: 408: void
-[; ;print.c: 409: print_unit(unsigned char unit) {
+[; ;print.c: 411: void
+[; ;print.c: 412: print_unit(unsigned char unit) {
 [e :U _print_unit ]
 [v _unit `uc 1 r1 ]
 [f ]
-[; ;print.c: 427: }
-"427
-[e :UE 242 ]
-}
+[; ;print.c: 430: }
 "430
+[e :UE 234 ]
+}
+"433
 [v _print_reading `(v 1 ef1`us ]
 {
-[; ;print.c: 429: void
-[; ;print.c: 430: print_reading(unsigned short int measurement) {
+[; ;print.c: 432: void
+[; ;print.c: 433: print_reading(unsigned short int measurement) {
 [e :U _print_reading ]
 [v _measurement `us 1 r1 ]
 [f ]
-[; ;print.c: 466: }
-"466
-[e :UE 243 ]
+[; ;print.c: 469: }
+"469
+[e :UE 235 ]
 }
-"470
+"473
 [v _indicator `(v 1 ef1`uc ]
 {
-[; ;print.c: 469: void
-[; ;print.c: 470: indicator(unsigned char indicate) {
+[; ;print.c: 472: void
+[; ;print.c: 473: indicator(unsigned char indicate) {
 [e :U _indicator ]
 [v _indicate `uc 1 r1 ]
 [f ]
-[; ;print.c: 491: }
-"491
-[e :UE 244 ]
-}
+[; ;print.c: 494: }
 "494
+[e :UE 236 ]
+}
+"497
 [v _output_putch `(v 1 ef1`uc ]
 {
-[; ;print.c: 493: void
-[; ;print.c: 494: output_putch(char c) {
+[; ;print.c: 496: void
+[; ;print.c: 497: output_putch(char c) {
 [e :U _output_putch ]
 [v _c `uc 1 r1 ]
 [f ]
-[; ;print.c: 501: }
-"501
-[e :UE 245 ]
+[; ;print.c: 502: ser_putch(c);
+"502
+[e ( _ser_putch (1 _c ]
+[; ;print.c: 504: }
+"504
+[e :UE 237 ]
 }
-"507
+"510
 [v _put_str `(v 1 ef1`*Cuc ]
 {
-[; ;print.c: 506: void
-[; ;print.c: 507: put_str(const char* s) {
+[; ;print.c: 509: void
+[; ;print.c: 510: put_str(const char* s) {
 [e :U _put_str ]
 [v _s `*Cuc 1 r1 ]
 [f ]
-"508
+"511
 [v _i `i 1 a ]
-[; ;print.c: 508: int i;
-[; ;print.c: 510: for(i = 0; s[i]; i++) {
-"510
+[; ;print.c: 511: int i;
+[; ;print.c: 513: for(i = 0; s[i]; i++) {
+"513
 {
 [e = _i -> 0 `i ]
-[e $U 250  ]
-[e :U 247 ]
+[e $U 242  ]
+[e :U 239 ]
 {
-[; ;print.c: 511: output_putch(s[i]);
-"511
+[; ;print.c: 514: output_putch(s[i]);
+"514
 [e ( _output_putch (1 *U + _s * -> _i `x -> -> # *U _s `i `x ]
-"512
+"515
 }
-"510
-[e ++ _i -> 1 `i ]
-[e :U 250 ]
-[e $ != -> *U + _s * -> _i `x -> -> # *U _s `i `x `i -> -> -> 0 `i `Cuc `i 247  ]
-[e :U 248 ]
-"512
-}
-[; ;print.c: 512: }
-[; ;print.c: 513: }
 "513
-[e :UE 246 ]
+[e ++ _i -> 1 `i ]
+[e :U 242 ]
+[e $ != -> *U + _s * -> _i `x -> -> # *U _s `i `x `i -> -> -> 0 `i `Cuc `i 239  ]
+[e :U 240 ]
+"515
+}
+[; ;print.c: 515: }
+[; ;print.c: 516: }
+"516
+[e :UE 238 ]
 }

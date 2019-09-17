@@ -1,7 +1,7 @@
 
 # 1 "../../../lib/timer.c"
 
-# 316 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h"
+# 316 "/opt/hitech/picc-18/9.66/include/pic18f2550.h"
 extern volatile unsigned char UFRML @ 0xF66;
 
 extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -2249,7 +2249,7 @@ volatile unsigned InternalTMR : 16;
 
 extern volatile unsigned char TMR3_Prescale @ 0x1009;
 
-# 3 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h"
+# 3 "/opt/hitech/picc-18/9.66/include/usbregs18.h"
 typedef struct {
 unsigned volatile EPSTALL:1;
 unsigned EPINEN:1;
@@ -2286,7 +2286,7 @@ volatile _USB_ENDPOINT_BITS _USB_ENDPOINT[15] @ ((unsigned)&UEP0);
 
 volatile _BUFFER_DESCRIPTOR_STRUCT _USB_DESCRIPTOR[64] @ 0x400;
 
-# 9 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\legacy/ppic18f2550.h"
+# 9 "/opt/hitech/picc-18/9.66/include/legacy/ppic18f2550.h"
 extern volatile near bit NEGATIVE @ ((unsigned)&STATUS*8)+4;
 
 extern near bit T1RD16 @ ((unsigned)&T1CON*8)+7;
@@ -2442,7 +2442,7 @@ extern near bit EPHSHK0 @ ((unsigned)&UEP0*8)+4;
 extern near bit UPP0 @ ((unsigned)&UCFG*8)+0;
 extern near bit UPP1 @ ((unsigned)&UCFG*8)+1;
 
-# 1376 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18.h"
+# 1376 "/opt/hitech/picc-18/9.66/include/pic18.h"
 extern unsigned char idloc_read(unsigned char reg_no);
 extern void idloc_write(unsigned char reg_no,unsigned char data);
 
@@ -2483,7 +2483,7 @@ extern void _delay(unsigned long);
 #pragma inline(_delay3)
 extern void _delay3(unsigned char);
 
-# 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\peripheral/psupport.h"
+# 31 "/opt/hitech/picc-18/9.66/include/peripheral/psupport.h"
 extern volatile bit SEN_x @ ((unsigned)&SSPCON2*8)+0;
 extern volatile bit RSEN_x @ ((unsigned)&SSPCON2*8)+1;
 extern volatile bit PEN_x @ ((unsigned)&SSPCON2*8)+2;
@@ -2535,15 +2535,11 @@ extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 
 extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 
-# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\stdbool.h"
+# 12 "/opt/hitech/picc-18/9.66/include/stdbool.h"
 typedef unsigned char bool;
 
 # 52 "../../../lib/typedef.h"
 typedef char bool;
-
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
 
 # 143 "../../../lib/timer.h"
 void timer2_init(unsigned char ps_mode);

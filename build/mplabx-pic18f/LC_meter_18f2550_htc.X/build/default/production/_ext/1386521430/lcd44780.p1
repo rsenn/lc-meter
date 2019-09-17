@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [s S226 :1 `Vuc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S226 . EPSTALL EPINEN EPOUTEN EPCONDIS EPHSHK ]
-"34 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"34 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_ENDPOINT `VS226 -> 15 `i e@3952 ]
 [s S229 :2 `Vuc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S229 . BC89 BSTALL DTSEN . DTS UOWN ]
@@ -11,7 +11,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S228 . CPU SIE ]
 [s S227 `S228 1 `Vuc 1 `Vui 1 ]
 [n S227 . BDSTAT BDCNT BDADR ]
-"37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
+"37 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
@@ -1973,8 +1973,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;typedef.h: 52: typedef char bool;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
 [; ;tsmdelay.h: 50: typedef struct dvars {
 [; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
 [; ;tsmdelay.h: 52: } dvars;
@@ -1984,24 +1982,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delay.h: 47: void Delay10KTCYx(unsigned char);
 [; ;delay.h: 48: void Delay10TCYx(unsigned char);
 [; ;delay.h: 49: void Delay1KTCYx(unsigned char);
-[; ;lcd44780.h: 47: void lcd_init(char fourbitmode);
-[; ;lcd44780.h: 48: void lcd_begin(unsigned char l, unsigned char ds);
-[; ;lcd44780.h: 49: void lcd_no_autoscroll(void);
-[; ;lcd44780.h: 50: void lcd_autoscroll(void);
-[; ;lcd44780.h: 51: void lcd_right_to_left(void);
-[; ;lcd44780.h: 52: void lcd_left_to_right(void);
-[; ;lcd44780.h: 53: void lcd_scroll_print_right(void);
-[; ;lcd44780.h: 54: void lcd_scroll_print_left(void);
-[; ;lcd44780.h: 55: void lcd_blink();
-[; ;lcd44780.h: 56: void lcd_no_blink();
-[; ;lcd44780.h: 57: void lcd_cursor();
-[; ;lcd44780.h: 58: void lcd_no_cursor();
-[; ;lcd44780.h: 59: void lcd_display();
-[; ;lcd44780.h: 60: void lcd_no_display();
-[; ;lcd44780.h: 61: void lcd_clear();
-[; ;lcd44780.h: 62: void lcd_home();
-[; ;lcd44780.h: 63: void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-[; ;lcd44780.h: 64: void lcd_print_float(float number, unsigned char digits);
-[; ;lcd44780.h: 65: void lcd_puts(const char* string);
-[; ;lcd44780.h: 67: void lcd_gotoxy(unsigned char col, unsigned char row);
-[; ;lcd44780.h: 68: void lcd_putch(char value);
+[; ;lcd44780.h: 48: void lcd_init(char fourbitmode);
+[; ;lcd44780.h: 49: void lcd_begin(unsigned char l, unsigned char ds);
+[; ;lcd44780.h: 50: void lcd_no_autoscroll(void);
+[; ;lcd44780.h: 51: void lcd_autoscroll(void);
+[; ;lcd44780.h: 52: void lcd_right_to_left(void);
+[; ;lcd44780.h: 53: void lcd_left_to_right(void);
+[; ;lcd44780.h: 54: void lcd_scroll_print_right(void);
+[; ;lcd44780.h: 55: void lcd_scroll_print_left(void);
+[; ;lcd44780.h: 56: void lcd_blink();
+[; ;lcd44780.h: 57: void lcd_no_blink();
+[; ;lcd44780.h: 58: void lcd_cursor();
+[; ;lcd44780.h: 59: void lcd_no_cursor();
+[; ;lcd44780.h: 60: void lcd_display();
+[; ;lcd44780.h: 61: void lcd_no_display();
+[; ;lcd44780.h: 62: void lcd_clear();
+[; ;lcd44780.h: 63: void lcd_home();
+[; ;lcd44780.h: 64: void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
+[; ;lcd44780.h: 65: void lcd_print_float(float number, unsigned char digits);
+[; ;lcd44780.h: 66: void lcd_puts(const char* string);
+[; ;lcd44780.h: 68: void lcd_gotoxy(unsigned char col, unsigned char row);
+[; ;lcd44780.h: 70: void lcd_send(unsigned char value, unsigned char mode);
