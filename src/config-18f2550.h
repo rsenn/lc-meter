@@ -3,8 +3,8 @@
 
 #if defined(MCHP_XC8)
 
-#pragma config FOSC = HSPLL_HS
-#pragma config PWRT = ON, BOR = ON
+#pragma config FOSC = HS
+#pragma config PWRT = ON, BOR = ON, BORV = 3
 #pragma config WDT = OFF
 #pragma config CCP2MX = ON, STVREN = OFF, LVP = OFF
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
