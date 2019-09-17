@@ -1,25 +1,3 @@
-/*  ----------------------------------------------------------------------------
-FILE:        lcd44780.c
-PROJECT:     pinguino8
-PURPOSE:     LCD routines for use with pinguino board,
-        based on LiquidCrystal lib from Arduino project.
-PROGRAMER:     Orignal port by Marcus Fazzi (marcus@fazzi.eng.br)
-Updated - 28 Jan 2011 : lcdprintf by RegisBlanchot (rblanchot@gmail.com)
-Updated - 03 Mar 2012 : Library updated, new function names
-            : lcd44780.pdl updated
-            : LiquidCrystal examples updated
-Updated:    26 May 2012 - M Harper
-        Changed to deal more consistently with single line displays
-        as included in P32 lcd44780.c at x.3 r363.
-        (changes identified by dated comments in code)
-  ----------------------------------------------------------------------------
-LiquidCrystal original Arduino site:
-    http://www.arduino.cc/en/Tutorial/LiquidCrystal by David A. Mellis
-Pins, Schematics and more info:
-    http://pinguino.koocotte.org/index.php/LCD_Example
-      http://www.fazzi.eng.br
-*/
-
 #include "delay.h"
 #include "device.h"
 #include "lcd44780.h"

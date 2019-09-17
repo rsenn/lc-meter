@@ -45,6 +45,9 @@ volatile uint16_t msecpart;       // milliseconds modulo 1000
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
+
+#define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))
+
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
 /*
@@ -80,8 +83,8 @@ INTERRUPT_FN() {
 #endif
   if(PIR1 & 0x02) {
     bres += 256;
-    if(bres >= 5000) {
-      bres -= 5000;
+    if(bres >= CYCLES_FOR_MSEC) {
+      bres -= CYCLES_FOR_MSEC;
       msecpart++;
       SET_LED(msecpart >= 833);
       /* if reached 1 second... */
@@ -204,7 +207,6 @@ main() {
    * Continuously measure capacity/inductance according to switch position.
    * Blink the print_indicator (-*-) sign after each measurement.
    */
-
   for(;;) {
 
 //    ser_puts("...\r\n");
