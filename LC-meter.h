@@ -46,7 +46,6 @@
 
 #endif
 
-
 /*#define LED2_ANODE OUTC1
 #define LED2_ANODE_TRIS TRISC1
 */

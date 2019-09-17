@@ -78,28 +78,17 @@ global_int(void) {
 #else
 INTERRUPT_FN() {
 #endif
-
   if(PIR1 & 0x02) {
-
     bres += 256;
-
     if(bres >= 5000) {
       bres -= 5000;
       msecpart++;
-//      msecs++;
-//
-//      if(blink >= 400)
-//        blink -= 400;
-//      ++blink;
-
+      SET_LED(msecpart >= 833);
       /* if reached 1 second... */
       if(msecpart >= 1000) {
         /* ...update clock, etc */
         seconds++;
         msecpart -= 1000;
-       
-        
-        TOGGLE_LED();
       }
     }
     // Clear timer interrupt bit
@@ -130,7 +119,7 @@ main() {
   TRISA = 0b11001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
