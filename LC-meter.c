@@ -34,7 +34,7 @@
 
 #include "config-bits.h"
 
-#if (defined(__SDCC) || defined(SDCC)) && !PIC18
+#if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
@@ -73,7 +73,8 @@ volatile uint16_t blink = 0;
 /* Interrupt routine */
 
 #ifdef __XC
-void interrupt global_int(void) {
+void interrupt
+global_int(void) {
 #else
 INTERRUPT_FN() {
 #endif
@@ -118,9 +119,9 @@ main() {
   CCal = C_CAL;
 
   // setup comparator
-  /*
   CMCON &= 0b11111000;
-  CMCON |= 0b00000101;*/
+  CMCON |= 0b00000101;
+
 #ifdef __16f876a
   CMCON = 0b00000101;
 #endif
@@ -129,35 +130,19 @@ main() {
   // setup timer0 for frequency counter
   timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
 
-  /// T0CS = 1; // Transition on T0CKI pin
-  //
-   //T0CON |= 0x10; // T0SE = 1; // Increment on high-to-low transition on T0CKI pin
-
-  /*
-  CM0 = 1;
-   CM1 = 0;
-   CM2 = 1;
-  */
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
 #if PIC18
   INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
- #else
- OPTION_REG &= ~0b100000;
+#else
+  OPTION_REG &= ~0b100000;
 #endif
 #endif
- 
+
   INIT_LED();
   SET_LED(1);
-/*
-#if PIC18 || defined(__16f628)
-  SSPCON1 &= ~0b00100000; //  SSPEN = 0;
-#else
-  SSPCON &= ~0b100;
-#endif
-*/
 
   // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
   //  timer1of = 0;
@@ -207,7 +192,7 @@ main() {
   INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-  //putchar_ptr = &lcd_putch;
+  // putchar_ptr = &lcd_putch;
 #endif
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
@@ -288,7 +273,7 @@ testloop() {
   lcd_puts("     ");
   lcd_gotoxy(0, 1);
   lcd_puts("RC4=");
-  
+
 #ifdef USE_HD44780_LCD
   lcd_putch(LC_SELECT != 0 ? '1' : '0');
 #endif

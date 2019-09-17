@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -662,9 +662,9 @@
 <pin name="RA0" x="-20.32" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="RA1" x="-55.88" y="-5.08" length="middle" direction="pas"/>
 <pin name="RA3" x="-55.88" y="5.08" length="middle" direction="pas"/>
-<pin name="RA4" x="0" y="22.86" length="middle" direction="pas" rot="R270"/>
-<pin name="RA5" x="-30.48" y="22.86" length="middle" direction="pas" rot="R270"/>
-<pin name="RB0" x="17.78" y="22.86" length="middle" direction="pas" rot="R270"/>
+<pin name="T0CKI/RA4" x="0" y="22.86" length="middle" direction="pas" rot="R270"/>
+<pin name="C2OUT/RA5" x="-30.48" y="22.86" length="middle" direction="pas" rot="R270"/>
+<pin name="INT/RB0" x="17.78" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="RB2" x="27.94" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="RB3" x="33.02" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="RB4" x="38.1" y="22.86" length="middle" direction="pas" rot="R270"/>
@@ -673,8 +673,8 @@
 <pin name="VDD" x="7.62" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="VSS" x="17.78" y="-22.86" length="middle" direction="pas" rot="R90"/>
 <pin name="VSS_2" x="27.94" y="-22.86" length="middle" direction="pas" rot="R90"/>
-<text x="-50.8" y="22.86" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
-<text x="-50.8" y="20.32" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
+<text x="-50.8" y="30.48" size="2.0828" layer="95" ratio="6" rot="SR0">&gt;NAME</text>
+<text x="-50.8" y="27.94" size="2.0828" layer="96" ratio="6" rot="SR0">&gt;VALUE</text>
 <wire x1="-50.8" y1="17.78" x2="-50.8" y2="-17.78" width="0.254" layer="94"/>
 <wire x1="-50.8" y1="-17.78" x2="58.42" y2="-17.78" width="0.254" layer="94"/>
 <wire x1="58.42" y1="17.78" x2="-50.8" y2="17.78" width="0.254" layer="94"/>
@@ -695,9 +695,9 @@
 <wire x1="-50.8" y1="5.08" x2="-48.26" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="-48.26" y1="2.54" x2="-43.18" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="-43.18" y1="2.54" x2="-40.64" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="2.54" x2="-43.18" y2="6.35" width="0.1524" layer="91"/>
-<wire x1="-43.18" y1="6.35" x2="-17.78" y2="6.35" width="0.1524" layer="91"/>
-<wire x1="-17.78" y1="6.35" x2="-17.78" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="2.54" x2="-43.18" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-43.18" y1="10.16" x2="-17.78" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-17.78" y1="10.16" x2="-17.78" y2="2.54" width="0.1524" layer="91"/>
 <wire x1="-5.08" y1="0" x2="-15.24" y2="5.3975" width="0.254" layer="90"/>
 <wire x1="-15.24" y1="5.3975" x2="-15.24" y2="-5.3975" width="0.254" layer="90"/>
 <wire x1="-15.24" y1="-5.3975" x2="-5.08" y2="0" width="0.254" layer="90"/>
@@ -741,9 +741,9 @@
 <pin name="PGD/RB7" x="53.34" y="22.86" length="middle" direction="pas" rot="R270"/>
 <pin name="RC1/CCP2" x="-38.1" y="-22.86" length="middle" direction="pas" rot="R90"/>
 <pin name="RC2/CCP1" x="-33.02" y="-22.86" length="middle" direction="pas" rot="R90"/>
-<pin name="RC3" x="-27.94" y="-22.86" length="middle" direction="pas" rot="R90"/>
-<pin name="RC4" x="-22.86" y="-22.86" length="middle" direction="pas" rot="R90"/>
-<pin name="RC5" x="-17.78" y="-22.86" length="middle" direction="pas" rot="R90"/>
+<pin name="RC3/SCL/SCK" x="-27.94" y="-22.86" length="middle" direction="pas" rot="R90"/>
+<pin name="RC4/SDI/SDA" x="-22.86" y="-22.86" length="middle" direction="pas" rot="R90"/>
+<pin name="RC5/SDO" x="-17.78" y="-22.86" length="middle" direction="pas" rot="R90"/>
 <pin name="RB1" x="22.86" y="22.86" length="middle" direction="pas" rot="R270"/>
 <circle x="22.86" y="16.51" radius="0.0508" width="0.6096" layer="91"/>
 <wire x1="22.86" y1="16.51" x2="22.86" y2="17.78" width="0.1524" layer="91"/>
@@ -1999,6 +1999,8 @@
 <device name="/V" package="DIL28-3/V">
 <connects>
 <connect gate="G$1" pin="*MCLR/VPP" pad="1"/>
+<connect gate="G$1" pin="C2OUT/RA5" pad="7"/>
+<connect gate="G$1" pin="INT/RB0" pad="21"/>
 <connect gate="G$1" pin="OSC1" pad="9"/>
 <connect gate="G$1" pin="OSC2" pad="10"/>
 <connect gate="G$1" pin="PGC/RB6" pad="27"/>
@@ -2007,9 +2009,6 @@
 <connect gate="G$1" pin="RA1" pad="3"/>
 <connect gate="G$1" pin="RA2" pad="4"/>
 <connect gate="G$1" pin="RA3" pad="5"/>
-<connect gate="G$1" pin="RA4" pad="6"/>
-<connect gate="G$1" pin="RA5" pad="7"/>
-<connect gate="G$1" pin="RB0" pad="21"/>
 <connect gate="G$1" pin="RB1" pad="22"/>
 <connect gate="G$1" pin="RB2" pad="23"/>
 <connect gate="G$1" pin="RB3" pad="24"/>
@@ -2018,11 +2017,12 @@
 <connect gate="G$1" pin="RC0/T1CKI" pad="11"/>
 <connect gate="G$1" pin="RC1/CCP2" pad="12"/>
 <connect gate="G$1" pin="RC2/CCP1" pad="13"/>
-<connect gate="G$1" pin="RC3" pad="14"/>
-<connect gate="G$1" pin="RC4" pad="15"/>
-<connect gate="G$1" pin="RC5" pad="16"/>
+<connect gate="G$1" pin="RC3/SCL/SCK" pad="14"/>
+<connect gate="G$1" pin="RC4/SDI/SDA" pad="15"/>
+<connect gate="G$1" pin="RC5/SDO" pad="16"/>
 <connect gate="G$1" pin="RC6/TX" pad="17"/>
 <connect gate="G$1" pin="RC7/RX" pad="18"/>
+<connect gate="G$1" pin="T0CKI/RA4" pad="6"/>
 <connect gate="G$1" pin="VDD" pad="20"/>
 <connect gate="G$1" pin="VSS" pad="19"/>
 <connect gate="G$1" pin="VSS_2" pad="8"/>
@@ -2034,6 +2034,8 @@
 <device name="" package="DIL28-3">
 <connects>
 <connect gate="G$1" pin="*MCLR/VPP" pad="1"/>
+<connect gate="G$1" pin="C2OUT/RA5" pad="7"/>
+<connect gate="G$1" pin="INT/RB0" pad="21"/>
 <connect gate="G$1" pin="OSC1" pad="9"/>
 <connect gate="G$1" pin="OSC2" pad="10"/>
 <connect gate="G$1" pin="PGC/RB6" pad="27"/>
@@ -2042,9 +2044,6 @@
 <connect gate="G$1" pin="RA1" pad="3"/>
 <connect gate="G$1" pin="RA2" pad="4"/>
 <connect gate="G$1" pin="RA3" pad="5"/>
-<connect gate="G$1" pin="RA4" pad="6"/>
-<connect gate="G$1" pin="RA5" pad="7"/>
-<connect gate="G$1" pin="RB0" pad="21"/>
 <connect gate="G$1" pin="RB1" pad="22"/>
 <connect gate="G$1" pin="RB2" pad="23"/>
 <connect gate="G$1" pin="RB3" pad="24"/>
@@ -2053,11 +2052,12 @@
 <connect gate="G$1" pin="RC0/T1CKI" pad="11"/>
 <connect gate="G$1" pin="RC1/CCP2" pad="12"/>
 <connect gate="G$1" pin="RC2/CCP1" pad="13"/>
-<connect gate="G$1" pin="RC3" pad="14"/>
-<connect gate="G$1" pin="RC4" pad="15"/>
-<connect gate="G$1" pin="RC5" pad="16"/>
+<connect gate="G$1" pin="RC3/SCL/SCK" pad="14"/>
+<connect gate="G$1" pin="RC4/SDI/SDA" pad="15"/>
+<connect gate="G$1" pin="RC5/SDO" pad="16"/>
 <connect gate="G$1" pin="RC6/TX" pad="17"/>
 <connect gate="G$1" pin="RC7/RX" pad="18"/>
+<connect gate="G$1" pin="T0CKI/RA4" pad="6"/>
 <connect gate="G$1" pin="VDD" pad="20"/>
 <connect gate="G$1" pin="VSS" pad="19"/>
 <connect gate="G$1" pin="VSS_2" pad="8"/>
