@@ -139,17 +139,17 @@ main() {
   OPTION_REG &= ~0b100000;
 #endif
 #endif
-
-  INIT_LED();
-  SET_LED(1);
-
-  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
-
 #if !NO_PORTC && !defined(__16f628)
   //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
   TRISC = 0b10111011;
 #endif
+
+
+  INIT_LED();
+  SET_LED(1);
+
+  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 
   // initialize 5110 lcd
