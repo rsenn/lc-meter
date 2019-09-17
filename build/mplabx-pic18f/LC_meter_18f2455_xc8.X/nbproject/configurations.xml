@@ -8,7 +8,6 @@
       <itemPath>../../../lib/interrupt.h</itemPath>
       <itemPath>../../../lib/oscillator.h</itemPath>
       <itemPath>../../../lib/ser.h</itemPath>
-      <itemPath>../../../lib/ser.h</itemPath>
       <itemPath>../../../lib/typedef.h</itemPath>
       <itemPath>../../../lib/lcd44780.h</itemPath>
       <itemPath>../../../lib/buffer.h</itemPath>
@@ -27,6 +26,7 @@
       <itemPath>../../../lib/lcd44780.c</itemPath>
       <itemPath>../../../lib/buffer.c</itemPath>
       <itemPath>../../../LC-meter.c</itemPath>
+      <itemPath>../../../src/measure.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -85,9 +85,10 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__XC=1;__18f2455=1;USE_TIMER1=1;USE_TIMER2=1;USE_SER=1;USE_HD44780_LCD=1;XTAL_FREQ=20000000;BAUD_RATE=38400"/>
+                  value="__XC=1;__18f2455=1;USE_TIMER1=1;USE_TIMER2=1;USE_SER=1;USE_HD44780_LCD=1;XTAL_FREQ=20000000;BAUD_RATE=38400;USE_TIMER0=1"/>
         <property key="disable-optimizations" value="false"/>
-        <property key="extra-include-directories" value="../../../src;../../../lib"/>
+        <property key="extra-include-directories"
+                  value="../../../src;../../../lib;../../.."/>
         <property key="favor-optimization-for" value="+speed,-space"/>
         <property key="garbage-collect-data" value="true"/>
         <property key="garbage-collect-functions" value="true"/>
