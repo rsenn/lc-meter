@@ -1392,16 +1392,16 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 68 "../../../lib/timer.h"
+# 69 "../../../lib/timer.h"
 void timer0_init(uint8_t);
 
-# 75
+# 76
 unsigned short timer0_read_ps(void);
 
-# 105
+# 106
 void timer1_init(uint8_t ps_mode);
 
-# 143
+# 144
 void timer2_init(uint8_t ps_mode);
 
 # 26 "../../../lib/timer.c"
@@ -1412,12 +1412,12 @@ uint8_t prescaler = ps_mode & 0b1111;
 TMR0 = 0;
 
 
-OPTION_REG |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+OPTION_REG |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
 
 
 OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
 
-
+# 44
 OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
 
 OPTION_REG &= ~0b111;
@@ -1425,7 +1425,7 @@ OPTION_REG &= ~0b111;
 if(prescaler > 0) {
 OPTION_REG |= (prescaler - 1) & 0b111;
 
-# 50
+# 55
 }
 
 
@@ -1462,7 +1462,7 @@ count = ((prev << 8) + (256 - count));
 return count;
 }
 
-# 91
+# 96
 void
 timer1_init(uint8_t ps_mode) {
 
@@ -1491,7 +1491,7 @@ PIE1 &= ~0b1;
 PIE1 |= !!(ps_mode & 0x80);
 }
 
-# 124
+# 129
 void
 timer2_init(uint8_t ps_mode) {
 uint8_t ps = ps_mode & 0b1111;

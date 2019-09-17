@@ -1401,7 +1401,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 26
+# 25
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -1453,25 +1453,26 @@ extern char * strrichr(const char *, int);
 # 4 "../../../lib/buffer.c"
 buffer_t buffer;
 
+# 9
 void
 buffer_init(void) {
 buffer.p = 0;
 buffer.n = 0;
 }
 
+# 20
 char
 buffer_flush() {
 
-# 17
+# 25
 buffer.p = 0, buffer.n = 0, 0;
 return 0;
 }
 
 char
 buffer_putch(char ch) {
-if(16 - buffer.n <= 0) {
+if(16 - buffer.n <= 0)
 return 0;
-}
 buffer.x[buffer.n] = ch;
 buffer.n++;
 return 1;
@@ -1480,19 +1481,15 @@ return 1;
 char
 buffer_put(const char* buf, len_t len) {
 len_t i;
-if(len > 16 - buffer.n) {
-
-# 44
+if(len > 16 - buffer.n)
 return -1;
-}
-for(i = 0; i < len; i++) {
+for(i = 0; i < len; i++)
 buffer.x[buffer.n + i] = buf[i];
-}
-
 buffer.n += len;
 return 0;
 }
 
+# 56
 char
 buffer_puts(const char* x) {
 while(*x) {

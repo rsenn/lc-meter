@@ -5,15 +5,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PORTC `Vuc ~T0 @X0 0 e@7 ]
 "2326
 [v _RCIF `Vb ~T0 @X0 0 e@101 ]
-"87 ../../../lib/ser.h
+"58 ../../../lib/ser.h
 [v _rxfifo `uc ~T0 @X0 -> 0 `x e ]
-"88
+"59
 [v _rxiptr `Vuc ~T0 @X0 0 e ]
 "939 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"91 ../../../lib/ser.h
+"62 ../../../lib/ser.h
 [v _ser_tmp `uc ~T0 @X0 0 e ]
-"88
+"59
 [v _rxoptr `Vuc ~T0 @X0 0 e ]
 "2478 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _TXIF `Vb ~T0 @X0 0 e@100 ]
@@ -21,9 +21,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TXIE `Vb ~T0 @X0 0 e@1124 ]
 "933
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"89 ../../../lib/ser.h
+"60 ../../../lib/ser.h
 [v _txfifo `uc ~T0 @X0 -> 0 `x e ]
-"90
+"61
 [v _txoptr `Vuc ~T0 @X0 0 e ]
 [v _txiptr `Vuc ~T0 @X0 0 e ]
 [p mainexit ]
@@ -31,19 +31,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CMCON `Vuc ~T0 @X0 0 e@156 ]
 "1190
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"68 ../../../lib/timer.h
+"69 ../../../lib/timer.h
 [v _timer0_init `(v ~T0 @X0 0 ef1`uc ]
 "1121 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
 "1300
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"143 ../../../lib/timer.h
+"144 ../../../lib/timer.h
 [v _timer2_init `(v ~T0 @X0 0 ef1`uc ]
 "48 ../../../lib/lcd44780.h
 [v _lcd_init `(v ~T0 @X0 0 ef1`uc ]
 "49
 [v _lcd_begin `(v ~T0 @X0 0 ef2`uc`uc ]
-"84 ../../../lib/ser.h
+"55 ../../../lib/ser.h
 [v _ser_init `(v ~T0 @X0 0 ef ]
 "350 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _INTCON `Vuc ~T0 @X0 0 e@11 ]
@@ -51,20 +51,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_gotoxy `(v ~T0 @X0 0 ef2`uc`uc ]
 "66
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"10 ../../../lib/format.h
+"8 ../../../lib/format.h
 [v _format_double `(v ~T0 @X0 0 ef1`d ]
 "6 ../../../src/measure.h
 [v _calibrate `(v ~T0 @X0 0 ef ]
 "62 ../../../lib/lcd44780.h
 [v _lcd_clear `(v ~T0 @X0 0 ef ]
-"81 ../../../lib/ser.h
+"52 ../../../lib/ser.h
 [v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "8 ../../../src/measure.h
 [v _measure_capacitance `(v ~T0 @X0 0 ef ]
 "9
 [v _measure_inductance `(v ~T0 @X0 0 ef ]
-"15 ../../../src/print.h
-[v _indicator `(v ~T0 @X0 0 ef1`uc ]
+"13 ../../../src/print.h
+[v _print_indicator `(v ~T0 @X0 0 ef1`uc ]
 "6 ../../../lib/format.h
 [v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
 "533 /opt/microchip/xc8/v1.34/include/pic16f876a.h
@@ -1025,8 +1025,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;LC-meter.h: 75: extern double F1, F2, F3, CCal;
-[; ;LC-meter.h: 77: void delay10ms(unsigned char period_10ms);
+[; ;LC-meter.h: 65: extern double F1, F2, F3, CCal;
+[; ;LC-meter.h: 67: void delay10ms(unsigned char period_10ms);
 [; ;tsmdelay.h: 50: typedef struct dvars {
 [; ;tsmdelay.h: 51: uint8_t loop_x, loop_b, loop_c;
 [; ;tsmdelay.h: 52: } dvars;
@@ -1057,40 +1057,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd44780.h: 66: void lcd_puts(const char* string);
 [; ;lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
 [; ;lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
-[; ;timer.h: 68: void timer0_init(uint8_t);
-[; ;timer.h: 75: unsigned short timer0_read_ps(void);
-[; ;timer.h: 105: void timer1_init(uint8_t ps_mode);
-[; ;timer.h: 143: void timer2_init(uint8_t ps_mode);
-[; ;ser.h: 77: bit ser_isrx(void);
-[; ;ser.h: 78: uint8_t ser_getch(void);
-[; ;ser.h: 79: void ser_putch(char byte);
-[; ;ser.h: 80: void ser_put(const char* s, unsigned n);
-[; ;ser.h: 81: void ser_puts(const char* s);
-[; ;ser.h: 82: void ser_puts2(uint8_t* s);
-[; ;ser.h: 83: void ser_puthex(uint8_t v);
-[; ;ser.h: 84: void ser_init(void);
-[; ;ser.h: 87: extern uint8_t rxfifo[(uint8_t)16];
-[; ;ser.h: 88: extern volatile uint8_t rxiptr, rxoptr;
-[; ;ser.h: 89: extern uint8_t txfifo[(uint8_t)16];
-[; ;ser.h: 90: extern volatile uint8_t txiptr, txoptr;
-[; ;ser.h: 91: extern uint8_t ser_tmp;
-[; ;ser.h: 93: extern uint8_t ser_brg;
+[; ;timer.h: 69: void timer0_init(uint8_t);
+[; ;timer.h: 76: unsigned short timer0_read_ps(void);
+[; ;timer.h: 106: void timer1_init(uint8_t ps_mode);
+[; ;timer.h: 144: void timer2_init(uint8_t ps_mode);
+[; ;ser.h: 48: bit ser_isrx(void);
+[; ;ser.h: 49: uint8_t ser_getch(void);
+[; ;ser.h: 50: void ser_putch(char byte);
+[; ;ser.h: 51: void ser_put(const char* s, unsigned n);
+[; ;ser.h: 52: void ser_puts(const char* s);
+[; ;ser.h: 53: void ser_puts2(uint8_t* s);
+[; ;ser.h: 54: void ser_puthex(uint8_t v);
+[; ;ser.h: 55: void ser_init(void);
+[; ;ser.h: 58: extern uint8_t rxfifo[(uint8_t)16];
+[; ;ser.h: 59: extern volatile uint8_t rxiptr, rxoptr;
+[; ;ser.h: 60: extern uint8_t txfifo[(uint8_t)16];
+[; ;ser.h: 61: extern volatile uint8_t txiptr, txoptr;
+[; ;ser.h: 62: extern uint8_t ser_tmp;
+[; ;ser.h: 64: extern uint8_t ser_brg;
 [; ;measure.h: 6: void calibrate(void);
 [; ;measure.h: 7: unsigned short measure_freq(void);
 [; ;measure.h: 8: void measure_capacitance(void);
 [; ;measure.h: 9: void measure_inductance(void);
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void put_str(const char*);
-[; ;print.h: 9: void output_putch(char c);
-[; ;print.h: 11: void lcd_puts(const char*);
-[; ;print.h: 12: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
-[; ;print.h: 13: void print_unit(uint8_t unit);
-[; ;print.h: 14: void print_reading(uint16_t measurement);
-[; ;print.h: 15: void indicator(uint8_t indicate);
-[; ;print.h: 17: void print_print_float(float number, uint8_t digits);
-[; ;format.h: 6: void format_number( uint16_t n, uint8_t base, int8_t pad);
-[; ;format.h: 8: void format_xint32( uint32_t x);
-[; ;format.h: 10: void format_double( double num);
+[; ;print.h: 9: void output_putch(char c); void lcd_puts(const char*);
+[; ;print.h: 10: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+[; ;print.h: 11: void print_unit(uint8_t unit);
+[; ;print.h: 12: void print_reading(uint16_t measurement);
+[; ;print.h: 13: void print_indicator(uint8_t indicate);
+[; ;print.h: 14: void print_print_float(float number, uint8_t digits);
+[; ;print.h: 15: void print_buffer(void);
+[; ;format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;format.h: 7: void format_xint32(uint32_t x);
+[; ;format.h: 8: void format_double(double num);
 "6 ../../../src/config-16f876a.h
 [p x FOSC=HS ]
 [p x LVP=OFF ]
@@ -1110,380 +1110,390 @@ Version 3.2 HI-TECH Software Intermediate Code
 "46
 [v _timer1of `Vul ~T0 @X0 1 e ]
 [; ;LC-meter.c: 46: volatile uint32_t timer1of;
-"54
+"48
+[v _mode `uc ~T0 @X0 1 s ]
+[i _mode
+-> -U -> 1 `i `uc
+]
+[; ;LC-meter.c: 48: static char mode = -1;
+"58
 [v _delay10ms `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LC-meter.c: 53: void
-[; ;LC-meter.c: 54: delay10ms(unsigned char period_10ms) {
+[; ;LC-meter.c: 57: void
+[; ;LC-meter.c: 58: delay10ms(unsigned char period_10ms) {
 [e :U _delay10ms ]
 [v _period_10ms `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;LC-meter.c: 58: }
-"58
+[; ;LC-meter.c: 62: }
+"62
 [e :UE 89 ]
 }
-"62
+"66
 [v _F1 `d ~T0 @X0 1 e ]
 [v _F2 `d ~T0 @X0 1 e ]
 [v _F3 `d ~T0 @X0 1 e ]
 [v _CCal `d ~T0 @X0 1 e ]
-[; ;LC-meter.c: 62: double F1, F2, F3, CCal;
-[; ;LC-meter.c: 63: void main();
-[; ;LC-meter.c: 64: void loop();
-[; ;LC-meter.c: 65: void testloop();
-[; ;LC-meter.c: 66: void initialize();
-[; ;LC-meter.c: 67: uint32_t milliseconds();
-[; ;LC-meter.c: 69: void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
-"71
+[; ;LC-meter.c: 66: double F1, F2, F3, CCal;
+[; ;LC-meter.c: 67: void main();
+[; ;LC-meter.c: 68: void loop();
+[; ;LC-meter.c: 69: void testloop();
+[; ;LC-meter.c: 70: void initialize();
+[; ;LC-meter.c: 71: uint32_t milliseconds();
+[; ;LC-meter.c: 73: void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
+"75
 [v _blink `Vui ~T0 @X0 1 e ]
 [i _blink
 -> -> 0 `i `ui
 ]
-[; ;LC-meter.c: 71: volatile uint16_t blink = 0;
-[v F1166 `(v ~T0 @X0 1 tf ]
-"77
-[v _global_int `IF1166 ~T0 @X0 1 e ]
+[; ;LC-meter.c: 75: volatile uint16_t blink = 0;
+[v F1169 `(v ~T0 @X0 1 tf ]
+"81
+[v _global_int `IF1169 ~T0 @X0 1 e ]
 {
-[; ;LC-meter.c: 76: void interrupt
-[; ;LC-meter.c: 77: global_int(void) {
+[; ;LC-meter.c: 80: void interrupt
+[; ;LC-meter.c: 81: global_int(void) {
 [e :U _global_int ]
 [f ]
-[; ;LC-meter.c: 82: if(PIR1 & 0x02) {
-"82
+[; ;LC-meter.c: 85: if(PIR1 & 0x02) {
+"85
 [e $ ! != & -> _PIR1 `i -> 2 `i -> 0 `i 91  ]
 {
-[; ;LC-meter.c: 84: bres += 256;
-"84
-[e =+ _bres -> -> 256 `i `ui ]
-[; ;LC-meter.c: 86: if(bres >= 5000) {
+[; ;LC-meter.c: 86: bres += 256;
 "86
-[e $ ! >= _bres -> -> 5000 `i `ui 92  ]
-{
-[; ;LC-meter.c: 87: bres -= 5000;
+[e =+ _bres -> -> 256 `i `ui ]
+[; ;LC-meter.c: 87: if(bres >= ((unsigned long)((double)((20000000) / 4) / 1000))) {
 "87
-[e =- _bres -> -> 5000 `i `ui ]
-[; ;LC-meter.c: 88: msecpart++;
-"88
-[e ++ _msecpart -> -> 1 `i `ui ]
-[; ;LC-meter.c: 89: msecs++;
-"89
-[e ++ _msecs -> -> -> 1 `i `l `ul ]
-[; ;LC-meter.c: 91: PORTC &= ~0b00000100; PORTC |= (!!((blink > 200))) << 2;;
-"91
-[e =& _PORTC -> ~ -> 4 `i `uc ]
-[e =| _PORTC -> << -> ! ! > _blink -> -> 200 `i `ui `i -> 2 `i `uc ]
-[; ;LC-meter.c: 92: if(blink >= 400)
-"92
-[e $ ! >= _blink -> -> 400 `i `ui 93  ]
-[; ;LC-meter.c: 93: blink -= 400;
-"93
-[e =- _blink -> -> 400 `i `ui ]
-[e :U 93 ]
-[; ;LC-meter.c: 94: ++blink;
-"94
-[e =+ _blink -> -> 1 `i `ui ]
-[; ;LC-meter.c: 97: if(msecpart >= 1000) {
-"97
-[e $ ! >= _msecpart -> -> 1000 `i `ui 94  ]
+[e $ ! >= -> _bres `ul -> / -> / -> 20000000 `l -> -> 4 `i `l `d -> -> 1000 `i `d `ul 92  ]
 {
-[; ;LC-meter.c: 99: seconds++;
-"99
+[; ;LC-meter.c: 88: bres -= ((unsigned long)((double)((20000000) / 4) / 1000));
+"88
+[e =- _bres -> -> / -> / -> 20000000 `l -> -> 4 `i `l `d -> -> 1000 `i `d `ul `ui ]
+[; ;LC-meter.c: 89: msecpart++;
+"89
+[e ++ _msecpart -> -> 1 `i `ui ]
+[; ;LC-meter.c: 90: PORTC &= ~0b00000100; PORTC |= (!!(msecpart >= 833)) << 2;;
+"90
+[e =& _PORTC -> ~ -> 4 `i `uc ]
+[e =| _PORTC -> << -> ! ! >= _msecpart -> -> 833 `i `ui `i -> 2 `i `uc ]
+[; ;LC-meter.c: 92: if(msecpart >= 1000) {
+"92
+[e $ ! >= _msecpart -> -> 1000 `i `ui 93  ]
+{
+[; ;LC-meter.c: 94: seconds++;
+"94
 [e ++ _seconds -> -> -> 1 `i `l `ul ]
-[; ;LC-meter.c: 100: msecpart -= 1000;
-"100
+[; ;LC-meter.c: 95: msecpart -= 1000;
+"95
 [e =- _msecpart -> -> 1000 `i `ui ]
-"101
+"96
 }
-[e :U 94 ]
-"102
+[e :U 93 ]
+"97
 }
 [e :U 92 ]
-[; ;LC-meter.c: 101: }
-[; ;LC-meter.c: 102: }
-[; ;LC-meter.c: 104: PIR1 &= ~0b10;
-"104
+[; ;LC-meter.c: 96: }
+[; ;LC-meter.c: 97: }
+[; ;LC-meter.c: 99: PIR1 &= ~0b10;
+"99
 [e =& _PIR1 -> ~ -> 2 `i `uc ]
-"105
+"100
 }
 [e :U 91 ]
-[; ;LC-meter.c: 105: }
-[; ;LC-meter.c: 107: if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; 
-"107
-[e $ ! _RCIF 95  ]
+[; ;LC-meter.c: 100: }
+[; ;LC-meter.c: 102: if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; 
+"102
+[e $ ! _RCIF 94  ]
 {
 [e = *U + &U _rxfifo * -> _rxiptr `ux -> -> # *U &U _rxfifo `ui `ux _RCREG ]
 [e = _ser_tmp -> & + -> _rxiptr `i -> 1 `i - -> -> -> 16 `i `uc `i -> 1 `i `uc ]
-[e $ ! != -> _ser_tmp `i -> _rxoptr `i 96  ]
+[e $ ! != -> _ser_tmp `i -> _rxoptr `i 95  ]
 [e = _rxiptr _ser_tmp ]
-[e :U 96 ]
-}
 [e :U 95 ]
-[e $ ! && _TXIF _TXIE 97  ]
+}
+[e :U 94 ]
+[e $ ! && _TXIF _TXIE 96  ]
 {
 [e = _TXREG *U + &U _txfifo * -> _txoptr `ux -> -> # *U &U _txfifo `ui `ux ]
 [e =+ _txoptr -> -> 1 `i `uc ]
 [e =& _txoptr -> - -> -> -> 16 `i `uc `i -> 1 `i `uc ]
-[e $ ! == -> _txoptr `i -> _txiptr `i 98  ]
+[e $ ! == -> _txoptr `i -> _txiptr `i 97  ]
 {
 [e = _TXIE -> -> 0 `i `b ]
 }
-[e :U 98 ]
+[e :U 97 ]
 [e = _TXIF -> -> 0 `i `b ]
 }
-[e :U 97 ]
-[; ;LC-meter.c: 112: }
-"112
+[e :U 96 ]
+[; ;LC-meter.c: 107: }
+"107
 [e :UE 90 ]
 }
-"116
+"113
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;LC-meter.c: 115: void
-[; ;LC-meter.c: 116: main() {
+[; ;LC-meter.c: 112: void
+[; ;LC-meter.c: 113: main() {
 [e :U _main ]
 [f ]
-[; ;LC-meter.c: 117: bres = msecpart = msecs = seconds = 0;
-"117
+[; ;LC-meter.c: 114: bres = msecpart = msecs = seconds = 0;
+"114
 [e = _bres = _msecpart -> = _msecs = _seconds -> -> -> 0 `i `l `ul `ui ]
-[; ;LC-meter.c: 119: CCal = 1000;
-"119
+[; ;LC-meter.c: 115: mode = -1;
+"115
+[e = _mode -> -U -> 1 `i `uc ]
+[; ;LC-meter.c: 117: CCal = 1000;
+"117
 [e = _CCal -> -> 1000 `i `d ]
-[; ;LC-meter.c: 122: CMCON &= 0b11111000;
-"122
-[e =& _CMCON -> -> 248 `i `uc ]
-[; ;LC-meter.c: 123: CMCON |= 0b00000101;
-"123
-[e =| _CMCON -> -> 5 `i `uc ]
-[; ;LC-meter.c: 126: CMCON = 0b00000101;
-"126
+[; ;LC-meter.c: 125: CMCON = 0b00000101;
+"125
 [e = _CMCON -> -> 5 `i `uc ]
-[; ;LC-meter.c: 128: TRISA = 0b11001111;
-"128
+[; ;LC-meter.c: 127: TRISA = 0b11001111;
+"127
 [e = _TRISA -> -> 207 `i `uc ]
-[; ;LC-meter.c: 131: timer0_init(0b100 | 0x40);
-"131
-[e ( _timer0_init (1 -> | -> 4 `i -> 64 `i `uc ]
-[; ;LC-meter.c: 140: OPTION_REG &= ~0b100000;
-"140
+[; ;LC-meter.c: 130: timer0_init(0b1000 | 0x20 | 0x40);
+"130
+[e ( _timer0_init (1 -> | | -> 8 `i -> 32 `i -> 64 `i `uc ]
+[; ;LC-meter.c: 139: OPTION_REG &= ~0b100000;
+"139
 [e =& _OPTION_REG -> ~ -> 32 `i `uc ]
-[; ;LC-meter.c: 144: TRISC &= ~0b00000100;
-"144
+[; ;LC-meter.c: 143: TRISC &= ~0b00000100;
+"143
 [e =& _TRISC -> ~ -> 4 `i `uc ]
-[; ;LC-meter.c: 145: PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
-"145
+[; ;LC-meter.c: 144: PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
+"144
 [e =& _PORTC -> ~ -> 4 `i `uc ]
 [e =| _PORTC -> << -> ! ! != -> 1 `i -> 0 `i `i -> 2 `i `uc ]
-[; ;LC-meter.c: 150: timer2_init(0b000 | 0x80);
-"150
+[; ;LC-meter.c: 146: timer2_init(0b000 | 0x80);
+"146
 [e ( _timer2_init (1 -> | -> 0 `i -> 128 `i `uc ]
-[; ;LC-meter.c: 155: TRISC &= 0b10110101;
-"155
-[e =& _TRISC -> -> 181 `i `uc ]
-[; ;LC-meter.c: 167: lcd_init(1);
-"167
+[; ;LC-meter.c: 151: TRISC = 0b10111011;
+"151
+[e = _TRISC -> -> 187 `i `uc ]
+[; ;LC-meter.c: 160: lcd_init(1);
+"160
 [e ( _lcd_init (1 -> -> 1 `i `uc ]
-[; ;LC-meter.c: 168: lcd_begin(2, 1);
-"168
+[; ;LC-meter.c: 161: lcd_begin(2, 1);
+"161
 [e ( _lcd_begin (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 171: TRISC |= (1 << 4);
-"171
+[; ;LC-meter.c: 164: TRISC |= (1 << 4);
+"164
 [e =| _TRISC -> << -> 1 `i -> 4 `i `uc ]
-[; ;LC-meter.c: 172: TRISC &= ~(1 << 5);
-"172
+[; ;LC-meter.c: 165: TRISC &= ~(1 << 5);
+"165
 [e =& _TRISC -> ~ << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 174: PORTC &= ~(1 << 5);
+[; ;LC-meter.c: 167: PORTC &= ~(1 << 5);
+"167
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 168: delay10ms(50);
+"168
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+[; ;LC-meter.c: 169: PORTC |= (1 << 5);
+"169
+[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 170: delay10ms(50);
+"170
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+[; ;LC-meter.c: 171: PORTC &= ~(1 << 5);
+"171
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 172: delay10ms(50);
+"172
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+[; ;LC-meter.c: 173: PORTC |= (1 << 5);
+"173
+[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 174: delay10ms(50);
 "174
-[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 175: delay10ms(50);
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+[; ;LC-meter.c: 175: PORTC &= ~(1 << 5);
 "175
-[e ( _delay10ms (1 -> -> 50 `i `uc ]
-[; ;LC-meter.c: 176: PORTC |= (1 << 5);
-"176
-[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 177: delay10ms(50);
-"177
-[e ( _delay10ms (1 -> -> 50 `i `uc ]
-[; ;LC-meter.c: 178: PORTC &= ~(1 << 5);
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
+[; ;LC-meter.c: 178: ser_init();
 "178
-[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 179: delay10ms(50);
-"179
-[e ( _delay10ms (1 -> -> 50 `i `uc ]
-[; ;LC-meter.c: 180: PORTC |= (1 << 5);
-"180
-[e =| _PORTC -> << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 181: delay10ms(50);
-"181
-[e ( _delay10ms (1 -> -> 50 `i `uc ]
-[; ;LC-meter.c: 182: PORTC &= ~(1 << 5);
-"182
-[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `uc ]
-[; ;LC-meter.c: 185: ser_init();
-"185
 [e ( _ser_init ..  ]
-[; ;LC-meter.c: 192: INTCON |= 0xc0;
-"192
+[; ;LC-meter.c: 185: INTCON |= 0xc0;
+"185
 [e =| _INTCON -> -> 192 `i `uc ]
-[; ;LC-meter.c: 202: lcd_gotoxy(0, 0);
-"202
+[; ;LC-meter.c: 191: lcd_gotoxy(0, 0);
+"191
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LC-meter.c: 204: lcd_puts("LC-meter ");
-"204
+[; ;LC-meter.c: 193: lcd_puts("LC-meter ");
+"193
 [e ( _lcd_puts (1 :s 1C ]
-[; ;LC-meter.c: 205: format_double( CCal);
-"205
+[; ;LC-meter.c: 194: format_double( CCal);
+"194
 [e ( _format_double (1 _CCal ]
-[; ;LC-meter.c: 211: delay10ms(200);
-"211
+[; ;LC-meter.c: 200: delay10ms(200);
+"200
 [e ( _delay10ms (1 -> -> 200 `i `uc ]
-[; ;LC-meter.c: 214: calibrate();
-"214
+[; ;LC-meter.c: 203: calibrate();
+"203
 [e ( _calibrate ..  ]
-[; ;LC-meter.c: 216: lcd_clear();
-"216
+[; ;LC-meter.c: 206: lcd_clear();
+"206
 [e ( _lcd_clear ..  ]
-[; ;LC-meter.c: 225: for(;;) {
+[; ;LC-meter.c: 214: for(;;) {
+"214
+{
+[e :U 99 ]
+{
+"215
+[v _new_mode `uc ~T0 @X0 1 a ]
+[; ;LC-meter.c: 215: char new_mode = (!!(PORTC & 0b10000));
+[e = _new_mode -> -> ! ! != & -> _PORTC `i -> 16 `i -> 0 `i `i `uc ]
+[; ;LC-meter.c: 217: if(new_mode != mode) {
+"217
+[e $ ! != -> _new_mode `i -> _mode `i 102  ]
+{
+[; ;LC-meter.c: 218: ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
+"218
+[e ( _ser_puts (1 ? != -> _mode `i -> -> -> 0 `i `uc `i : :s 2C :s 3C ]
+[; ;LC-meter.c: 219: ser_puts("\r\n");
+"219
+[e ( _ser_puts (1 :s 4C ]
+[; ;LC-meter.c: 221: mode = new_mode;
+"221
+[e = _mode _new_mode ]
+"222
+}
+[e :U 102 ]
+[; ;LC-meter.c: 222: }
+[; ;LC-meter.c: 224: if(mode)
+"224
+[e $ ! != -> _mode `i -> -> -> 0 `i `uc `i 103  ]
+[; ;LC-meter.c: 225: measure_capacitance();
 "225
-{
-[e :U 100 ]
-{
-[; ;LC-meter.c: 227: ser_puts("...\r\n");
-"227
-[e ( _ser_puts (1 :s 2C ]
-[; ;LC-meter.c: 228: if((!!(PORTC & 0b10000)))
-"228
-[e $ ! ! ! != & -> _PORTC `i -> 16 `i -> 0 `i 103  ]
-[; ;LC-meter.c: 229: measure_capacitance();
-"229
 [e ( _measure_capacitance ..  ]
 [e $U 104  ]
-"230
+"226
 [e :U 103 ]
-[; ;LC-meter.c: 230: else
-[; ;LC-meter.c: 231: measure_inductance();
-"231
+[; ;LC-meter.c: 226: else
+[; ;LC-meter.c: 227: measure_inductance();
+"227
 [e ( _measure_inductance ..  ]
 [e :U 104 ]
-[; ;LC-meter.c: 233: indicator(1);
-"233
-[e ( _indicator (1 -> -> 1 `i `uc ]
-[; ;LC-meter.c: 234: delay10ms(30);
-"234
+[; ;LC-meter.c: 229: print_indicator(1);
+"229
+[e ( _print_indicator (1 -> -> 1 `i `uc ]
+[; ;LC-meter.c: 230: delay10ms(30);
+"230
 [e ( _delay10ms (1 -> -> 30 `i `uc ]
-[; ;LC-meter.c: 235: indicator(0);
-"235
-[e ( _indicator (1 -> -> 0 `i `uc ]
-[; ;LC-meter.c: 236: delay10ms(20);
-"236
+[; ;LC-meter.c: 232: print_indicator(0);
+"232
+[e ( _print_indicator (1 -> -> 0 `i `uc ]
+[; ;LC-meter.c: 233: delay10ms(20);
+"233
 [e ( _delay10ms (1 -> -> 20 `i `uc ]
-"237
+"234
 }
-[; ;LC-meter.c: 237: }
-[e $U 100  ]
-[e :U 101 ]
+[; ;LC-meter.c: 234: }
+[e $U 99  ]
+[e :U 100 ]
 }
-[; ;LC-meter.c: 238: }
+[; ;LC-meter.c: 235: }
+"235
+[e :UE 98 ]
+}
 "238
-[e :UE 99 ]
-}
-"241
 [v _testloop `(v ~T0 @X0 1 ef ]
 {
-[; ;LC-meter.c: 240: void
-[; ;LC-meter.c: 241: testloop() {
+[; ;LC-meter.c: 237: void
+[; ;LC-meter.c: 238: testloop() {
 [e :U _testloop ]
 [f ]
-"243
-[v F1169 `uc ~T0 @X0 1 s led ]
-[i F1169
+"240
+[v F1177 `uc ~T0 @X0 1 s led ]
+[i F1177
 -> -> 0 `i `uc
 ]
-"244
-[v F1170 `ui ~T0 @X0 1 s prev_s ]
-[i F1170
+"241
+[v F1178 `ui ~T0 @X0 1 s prev_s ]
+[i F1178
 -> -> 0 `i `ui
 ]
-"245
+"242
 [v _s `ui ~T0 @X0 1 a ]
-[; ;LC-meter.c: 243: static char led = 0;
-[; ;LC-meter.c: 244: static uint16_t prev_s = 0;
-[; ;LC-meter.c: 245: uint16_t s;
-[; ;LC-meter.c: 247: delay10ms(10);
-"247
+[; ;LC-meter.c: 240: static char led = 0;
+[; ;LC-meter.c: 241: static uint16_t prev_s = 0;
+[; ;LC-meter.c: 242: uint16_t s;
+[; ;LC-meter.c: 244: delay10ms(10);
+"244
 [e ( _delay10ms (1 -> -> 10 `i `uc ]
-[; ;LC-meter.c: 249: INTCON &= ~0x80;
-"249
+[; ;LC-meter.c: 246: INTCON &= ~0x80;
+"246
 [e =& _INTCON -> ~ -> 128 `i `uc ]
-[; ;LC-meter.c: 250: s = seconds;
-"250
+[; ;LC-meter.c: 247: s = seconds;
+"247
 [e = _s -> _seconds `ui ]
-[; ;LC-meter.c: 251: INTCON |= 0x80;
-"251
+[; ;LC-meter.c: 248: INTCON |= 0x80;
+"248
 [e =| _INTCON -> -> 128 `i `uc ]
-[; ;LC-meter.c: 261: lcd_gotoxy(10, 0);
-"261
+[; ;LC-meter.c: 258: lcd_gotoxy(10, 0);
+"258
 [e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-[; ;LC-meter.c: 262: lcd_puts("      ");
-"262
-[e ( _lcd_puts (1 :s 3C ]
-[; ;LC-meter.c: 263: lcd_gotoxy(10, 0);
-"263
-[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-[; ;LC-meter.c: 265: format_number( s, 10, 5);
-"265
-[e ( _format_number (3 , , _s -> -> 10 `i `uc -> -> 5 `i `c ]
-[; ;LC-meter.c: 267: lcd_gotoxy(10, 1);
-"267
-[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 268: lcd_puts("      ");
-"268
-[e ( _lcd_puts (1 :s 4C ]
-[; ;LC-meter.c: 269: lcd_gotoxy(10, 1);
-"269
-[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 270: format_number( ((TMR1H << 8) | TMR1L), 10, 5);
-"270
-[e ( _format_number (3 , , -> | << -> _TMR1H `i -> 8 `i -> _TMR1L `i `ui -> -> 10 `i `uc -> -> 5 `i `c ]
-[; ;LC-meter.c: 272: lcd_gotoxy(0, 1);
-"272
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 273: lcd_puts("     ");
-"273
+[; ;LC-meter.c: 259: lcd_puts("      ");
+"259
 [e ( _lcd_puts (1 :s 5C ]
-[; ;LC-meter.c: 274: lcd_gotoxy(0, 1);
-"274
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 275: lcd_puts("RC4=");
-"275
+[; ;LC-meter.c: 260: lcd_gotoxy(10, 0);
+"260
+[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
+[; ;LC-meter.c: 262: format_number(s, 10, 5);
+"262
+[e ( _format_number (3 , , _s -> -> 10 `i `uc -> -> 5 `i `c ]
+[; ;LC-meter.c: 264: lcd_gotoxy(10, 1);
+"264
+[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 1 `i `uc ]
+[; ;LC-meter.c: 265: lcd_puts("      ");
+"265
 [e ( _lcd_puts (1 :s 6C ]
-[; ;LC-meter.c: 278: lcd_send(((!!(PORTC & 0b10000)) != 0 ? '1' : '0'), 1);
-"278
+[; ;LC-meter.c: 266: lcd_gotoxy(10, 1);
+"266
+[e ( _lcd_gotoxy (2 , -> -> 10 `i `uc -> -> 1 `i `uc ]
+[; ;LC-meter.c: 267: format_number(((TMR1H << 8) | TMR1L), 10, 5);
+"267
+[e ( _format_number (3 , , -> | << -> _TMR1H `i -> 8 `i -> _TMR1L `i `ui -> -> 10 `i `uc -> -> 5 `i `c ]
+[; ;LC-meter.c: 269: lcd_gotoxy(0, 1);
+"269
+[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LC-meter.c: 270: lcd_puts("     ");
+"270
+[e ( _lcd_puts (1 :s 7C ]
+[; ;LC-meter.c: 271: lcd_gotoxy(0, 1);
+"271
+[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LC-meter.c: 272: lcd_puts("RC4=");
+"272
+[e ( _lcd_puts (1 :s 8C ]
+[; ;LC-meter.c: 275: lcd_send(((!!(PORTC & 0b10000)) != 0 ? '1' : '0'), 1);
+"275
 [e ( _lcd_send (2 , -> ? != -> ! ! != & -> _PORTC `i -> 16 `i -> 0 `i `i -> 0 `i : -> 49 `ui -> 48 `ui `uc -> -> 1 `i `uc ]
-[; ;LC-meter.c: 282: if(s != prev_s) {
-"282
-[e $ ! != _s F1170 106  ]
+[; ;LC-meter.c: 279: if(s != prev_s) {
+"279
+[e $ ! != _s F1178 106  ]
 {
-[; ;LC-meter.c: 284: format_number( s, 10, 0);
-"284
+[; ;LC-meter.c: 281: format_number(s, 10, 0);
+"281
 [e ( _format_number (3 , , _s -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;LC-meter.c: 286: ser_puts("\r\n");
+[; ;LC-meter.c: 283: ser_puts("\r\n");
+"283
+[e ( _ser_puts (1 :s 9C ]
+[; ;LC-meter.c: 286: prev_s = s;
 "286
-[e ( _ser_puts (1 :s 7C ]
-[; ;LC-meter.c: 289: prev_s = s;
-"289
-[e = F1170 _s ]
-"290
+[e = F1178 _s ]
+"287
 }
 [e :U 106 ]
-[; ;LC-meter.c: 290: }
-[; ;LC-meter.c: 291: }
-"291
+[; ;LC-meter.c: 287: }
+[; ;LC-meter.c: 288: }
+"288
 [e :UE 105 ]
 }
-[a 6C 82 67 52 61 0 ]
+[a 8C 82 67 52 61 0 ]
+[a 3C 45 32 76 32 40 85 110 105 116 58 32 72 41 32 45 0 ]
+[a 2C 45 32 67 32 40 85 110 105 116 58 32 70 41 32 45 0 ]
 [a 1C 76 67 45 109 101 116 101 114 32 0 ]
-[a 3C 32 32 32 32 32 32 0 ]
-[a 4C 32 32 32 32 32 32 0 ]
-[a 5C 32 32 32 32 32 0 ]
-[a 2C 46 46 46 13 10 0 ]
-[a 7C 13 10 0 ]
+[a 5C 32 32 32 32 32 32 0 ]
+[a 6C 32 32 32 32 32 32 0 ]
+[a 7C 32 32 32 32 32 0 ]
+[a 4C 13 10 0 ]
+[a 9C 13 10 0 ]

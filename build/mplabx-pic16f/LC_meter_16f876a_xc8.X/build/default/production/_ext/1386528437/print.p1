@@ -6,15 +6,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "14 ../../../lib/buffer.h
 [s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
 [n S88 . x p n ]
-"26
+"25
 [v _buffer `S88 ~T0 @X0 0 e ]
-"81 ../../../lib/ser.h
+"52 ../../../lib/ser.h
 [v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"11 ../../../src/print.h
+"9 ../../../src/print.h
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "6 ../../../lib/format.h
 [v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
-"79 ../../../lib/ser.h
+"50 ../../../lib/ser.h
 [v _ser_putch `(v ~T0 @X0 0 ef1`uc ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 25: extern const char __xc8_OPTIM_SPEED;
@@ -974,21 +974,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;buffer.h: 16: unsigned p : 4;
 [; ;buffer.h: 17: unsigned n : 4;
 [; ;buffer.h: 18: } buffer_t;
-[; ;buffer.h: 26: extern buffer_t buffer;
-[; ;buffer.h: 28: void buffer_init(void);
-[; ;buffer.h: 29: char buffer_flush(void);
-[; ;buffer.h: 30: char buffer_putch(char ch);
-[; ;buffer.h: 31: char buffer_put(const char* x, len_t len);
-[; ;buffer.h: 32: char buffer_puts(const char* x);
+[; ;buffer.h: 25: extern buffer_t buffer;
+[; ;buffer.h: 27: void buffer_init(void);
+[; ;buffer.h: 28: char buffer_flush(void);
+[; ;buffer.h: 29: char buffer_putch(char ch);
+[; ;buffer.h: 30: char buffer_put(const char* x, len_t len);
+[; ;buffer.h: 31: char buffer_puts(const char* x);
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void put_str(const char*);
-[; ;print.h: 9: void output_putch(char c);
-[; ;print.h: 11: void lcd_puts(const char*);
-[; ;print.h: 12: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
-[; ;print.h: 13: void print_unit(uint8_t unit);
-[; ;print.h: 14: void print_reading(uint16_t measurement);
-[; ;print.h: 15: void indicator(uint8_t indicate);
-[; ;print.h: 17: void print_print_float(float number, uint8_t digits);
+[; ;print.h: 9: void output_putch(char c); void lcd_puts(const char*);
+[; ;print.h: 10: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+[; ;print.h: 11: void print_unit(uint8_t unit);
+[; ;print.h: 12: void print_reading(uint16_t measurement);
+[; ;print.h: 13: void print_indicator(uint8_t indicate);
+[; ;print.h: 14: void print_print_float(float number, uint8_t digits);
+[; ;print.h: 15: void print_buffer(void);
 [; ;lcd44780.h: 48: void lcd_init(char fourbitmode);
 [; ;lcd44780.h: 49: void lcd_begin(uint8_t l, uint8_t ds);
 [; ;lcd44780.h: 50: void lcd_no_autoscroll(void);
@@ -1010,78 +1010,78 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd44780.h: 66: void lcd_puts(const char* string);
 [; ;lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
 [; ;lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
-[; ;ser.h: 77: bit ser_isrx(void);
-[; ;ser.h: 78: uint8_t ser_getch(void);
-[; ;ser.h: 79: void ser_putch(char byte);
-[; ;ser.h: 80: void ser_put(const char* s, unsigned n);
-[; ;ser.h: 81: void ser_puts(const char* s);
-[; ;ser.h: 82: void ser_puts2(uint8_t* s);
-[; ;ser.h: 83: void ser_puthex(uint8_t v);
-[; ;ser.h: 84: void ser_init(void);
-[; ;ser.h: 87: extern uint8_t rxfifo[(uint8_t)16];
-[; ;ser.h: 88: extern volatile uint8_t rxiptr, rxoptr;
-[; ;ser.h: 89: extern uint8_t txfifo[(uint8_t)16];
-[; ;ser.h: 90: extern volatile uint8_t txiptr, txoptr;
-[; ;ser.h: 91: extern uint8_t ser_tmp;
-[; ;ser.h: 93: extern uint8_t ser_brg;
-[; ;format.h: 6: void format_number( uint16_t n, uint8_t base, int8_t pad);
-[; ;format.h: 8: void format_xint32( uint32_t x);
-[; ;format.h: 10: void format_double( double num);
-"33 ../../../src/print.c
+[; ;ser.h: 48: bit ser_isrx(void);
+[; ;ser.h: 49: uint8_t ser_getch(void);
+[; ;ser.h: 50: void ser_putch(char byte);
+[; ;ser.h: 51: void ser_put(const char* s, unsigned n);
+[; ;ser.h: 52: void ser_puts(const char* s);
+[; ;ser.h: 53: void ser_puts2(uint8_t* s);
+[; ;ser.h: 54: void ser_puthex(uint8_t v);
+[; ;ser.h: 55: void ser_init(void);
+[; ;ser.h: 58: extern uint8_t rxfifo[(uint8_t)16];
+[; ;ser.h: 59: extern volatile uint8_t rxiptr, rxoptr;
+[; ;ser.h: 60: extern uint8_t txfifo[(uint8_t)16];
+[; ;ser.h: 61: extern volatile uint8_t txiptr, txoptr;
+[; ;ser.h: 62: extern uint8_t ser_tmp;
+[; ;ser.h: 64: extern uint8_t ser_brg;
+[; ;format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;format.h: 7: void format_xint32(uint32_t x);
+[; ;format.h: 8: void format_double(double num);
+"23 ../../../src/print.c
 [v _lcd_put `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
-[; ;print.c: 32: void
-[; ;print.c: 33: lcd_put(const char* buf, unsigned n) {
+[; ;print.c: 22: void
+[; ;print.c: 23: lcd_put(const char* buf, unsigned n) {
 [e :U _lcd_put ]
 [v _buf `*Cuc ~T0 @X0 1 r1 ]
 [v _n `ui ~T0 @X0 1 r2 ]
 [f ]
-"36
+"25
 [v _i `uc ~T0 @X0 1 a ]
-[; ;print.c: 36: uint8_t i;
-[; ;print.c: 37: while(n--) lcd_send((*buf++), 1);
-"37
+[; ;print.c: 25: uint8_t i;
+[; ;print.c: 26: while(n--) lcd_send((*buf++), 1);
+"26
 [e $U 90  ]
 [e :U 91 ]
 [e ( _lcd_send (2 , *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x -> -> 1 `i `uc ]
 [e :U 90 ]
 [e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 91  ]
 [e :U 92 ]
-[; ;print.c: 39: }
-"39
+[; ;print.c: 28: }
+"28
 [e :UE 89 ]
 }
-"390
+"101
 [v _print_digit `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
-[; ;print.c: 389: void
-[; ;print.c: 390: print_digit(uint8_t line, uint8_t column, uint8_t digit) {
+[; ;print.c: 100: void
+[; ;print.c: 101: print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 [e :U _print_digit ]
 [v _line `uc ~T0 @X0 1 r1 ]
 [v _column `uc ~T0 @X0 1 r2 ]
 [v _digit `uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;print.c: 405: lcd_gotoxy(column, 0);
-"405
+[; ;print.c: 116: lcd_gotoxy(column, 0);
+"116
 [e ( _lcd_gotoxy (2 , _column -> -> 0 `i `uc ]
-[; ;print.c: 406: lcd_send(('0' + digit), 1);
-"406
+[; ;print.c: 117: lcd_send(('0' + digit), 1);
+"117
 [e ( _lcd_send (2 , -> + -> 48 `ui -> _digit `ui `uc -> -> 1 `i `uc ]
-[; ;print.c: 408: }
-"408
+[; ;print.c: 119: }
+"119
 [e :UE 93 ]
 }
-"412
+"123
 [v _print_unit `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 411: void
-[; ;print.c: 412: print_unit(uint8_t unit) {
+[; ;print.c: 122: void
+[; ;print.c: 123: print_unit(uint8_t unit) {
 [e :U _print_unit ]
 [v _unit `uc ~T0 @X0 1 r1 ]
 [f ]
-"420
-[v F1133 `*Cuc ~T0 @X0 -> 8 `i s units ]
-[i F1133
+"131
+[v F1135 `*Cuc ~T0 @X0 -> 8 `i s units ]
+[i F1135
 :U ..
 :s 1C
 :s 2C
@@ -1093,134 +1093,171 @@ Version 3.2 HI-TECH Software Intermediate Code
 :s 8C
 ..
 ]
-[; ;print.c: 420: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
-[; ;print.c: 421: lcd_gotoxy(14, 0);
-"421
+[; ;print.c: 131: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
+[; ;print.c: 132: lcd_gotoxy(14, 0);
+"132
 [e ( _lcd_gotoxy (2 , -> -> 14 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 425: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
-"425
+[; ;print.c: 136: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
+"136
 [e ( _lcd_gotoxy (2 , -> - -> 16 `i - -> . _buffer 2 `i -> . _buffer 1 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 428: ser_puts("\r\n");
-"428
+[; ;print.c: 139: ser_puts("\r\n");
+"139
 [e ( _ser_puts (1 :s 9C ]
-[; ;print.c: 430: }
-"430
+[; ;print.c: 141: }
+"141
 [e :UE 94 ]
 }
-"433
+"144
 [v _print_reading `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;print.c: 432: void
-[; ;print.c: 433: print_reading(uint16_t measurement) {
+[; ;print.c: 143: void
+[; ;print.c: 144: print_reading(uint16_t measurement) {
 [e :U _print_reading ]
 [v _measurement `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 460: lcd_gotoxy(9, 0);
-"460
+[; ;print.c: 171: lcd_gotoxy(9, 0);
+"171
 [e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 461: lcd_puts("     ");
-"461
+[; ;print.c: 172: lcd_puts("     ");
+"172
 [e ( _lcd_puts (1 :s 10C ]
-[; ;print.c: 462: lcd_gotoxy(9, 0);
-"462
+[; ;print.c: 173: lcd_gotoxy(9, 0);
+"173
 [e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 464: format_number( measurement / 100, 10, 0);
-"464
+[; ;print.c: 175: format_number(measurement / 100, 10, 0);
+"175
 [e ( _format_number (3 , , / _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;print.c: 466: format_number( measurement % 100, 10, 0);
-"466
+[; ;print.c: 177: format_number(measurement % 100, 10, 0);
+"177
 [e ( _format_number (3 , , % _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
-[; ;print.c: 469: }
-"469
+[; ;print.c: 180: }
+"180
 [e :UE 95 ]
 }
-"473
-[v _indicator `(v ~T0 @X0 1 ef1`uc ]
+"184
+[v _print_indicator `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 472: void
-[; ;print.c: 473: indicator(uint8_t indicate) {
-[e :U _indicator ]
+[; ;print.c: 183: void
+[; ;print.c: 184: print_indicator(uint8_t indicate) {
+[e :U _print_indicator ]
 [v _indicate `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 487: lcd_gotoxy(0, 1);
-"487
+[; ;print.c: 198: lcd_gotoxy(0, 1);
+"198
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;print.c: 488: if(indicate) {
-"488
+[; ;print.c: 199: if(indicate) {
+"199
 [e $ ! != -> _indicate `i -> -> -> 0 `i `uc `i 97  ]
 {
-[; ;print.c: 489: lcd_puts("-*-");
-"489
+[; ;print.c: 200: lcd_puts("-*-");
+"200
 [e ( _lcd_puts (1 :s 11C ]
-"490
+"201
 }
-[; ;print.c: 490: } else {
+[; ;print.c: 201: } else {
 [e $U 98  ]
 [e :U 97 ]
 {
-[; ;print.c: 491: lcd_puts("   ");
-"491
+[; ;print.c: 202: lcd_puts("   ");
+"202
 [e ( _lcd_puts (1 :s 12C ]
-"492
+"203
 }
 [e :U 98 ]
-[; ;print.c: 492: }
-[; ;print.c: 494: }
-"494
+[; ;print.c: 203: }
+[; ;print.c: 205: }
+"205
 [e :UE 96 ]
 }
-"497
+"208
 [v _output_putch `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;print.c: 496: void
-[; ;print.c: 497: output_putch(char c) {
+[; ;print.c: 207: void
+[; ;print.c: 208: output_putch(char c) {
 [e :U _output_putch ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 499: lcd_send((c), 1);
-"499
+[; ;print.c: 210: lcd_send((c), 1);
+"210
 [e ( _lcd_send (2 , _c -> -> 1 `i `uc ]
-[; ;print.c: 502: ser_putch(c);
-"502
+[; ;print.c: 213: ser_putch(c);
+"213
 [e ( _ser_putch (1 _c ]
-[; ;print.c: 504: }
-"504
+[; ;print.c: 215: }
+"215
 [e :UE 99 ]
 }
-"510
+"221
 [v _put_str `(v ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;print.c: 509: void
-[; ;print.c: 510: put_str(const char* s) {
+[; ;print.c: 220: void
+[; ;print.c: 221: put_str(const char* s) {
 [e :U _put_str ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"511
+"222
 [v _i `i ~T0 @X0 1 a ]
-[; ;print.c: 511: int i;
-[; ;print.c: 513: for(i = 0; s[i]; i++) {
-"513
+[; ;print.c: 222: int i;
+[; ;print.c: 224: for(i = 0; s[i]; i++) {
+"224
 {
 [e = _i -> 0 `i ]
 [e $U 104  ]
 [e :U 101 ]
 {
-[; ;print.c: 514: output_putch(s[i]);
-"514
+[; ;print.c: 225: output_putch(s[i]);
+"225
 [e ( _output_putch (1 *U + _s * -> _i `x -> -> # *U _s `i `x ]
-"515
+"226
 }
-"513
+"224
 [e ++ _i -> 1 `i ]
 [e :U 104 ]
 [e $ != -> *U + _s * -> _i `x -> -> # *U _s `i `x `i -> -> -> 0 `i `Cuc `i 101  ]
 [e :U 102 ]
-"515
+"226
 }
-[; ;print.c: 515: }
-[; ;print.c: 516: }
-"516
+[; ;print.c: 226: }
+[; ;print.c: 227: }
+"227
 [e :UE 100 ]
+}
+"230
+[v _print_buffer `(v ~T0 @X0 1 ef ]
+{
+[; ;print.c: 229: void
+[; ;print.c: 230: print_buffer(void) {
+[e :U _print_buffer ]
+[f ]
+"231
+[v _i `uc ~T0 @X0 1 a ]
+[; ;print.c: 231: uint8_t i;
+[; ;print.c: 232: for(i = 0; i < buffer.n; i++) {
+"232
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 109  ]
+[e :U 106 ]
+{
+[; ;print.c: 233: ser_putch(buffer.x[i]);
+"233
+[e ( _ser_putch (1 *U + &U . _buffer 0 * -> _i `ux -> -> # *U &U . _buffer 0 `ui `ux ]
+"234
+}
+"232
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 109 ]
+[e $ < -> _i `i -> . _buffer 2 `i 106  ]
+[e :U 107 ]
+"234
+}
+[; ;print.c: 234: }
+[; ;print.c: 235: ser_puts("\r\n");
+"235
+[e ( _ser_puts (1 :s 13C ]
+[; ;print.c: 236: }
+"236
+[e :UE 105 ]
 }
 [a 3C 117 72 0 ]
 [a 4C 110 72 0 ]
@@ -1234,3 +1271,4 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 10C 32 32 32 32 32 0 ]
 [a 12C 32 32 32 0 ]
 [a 9C 13 10 0 ]
+[a 13C 13 10 0 ]
