@@ -35,18 +35,23 @@
 #include "device.h"
 #include "oscillator.h"
 #include "ser.h"
-#include "uart.h"
 #include "const.h"
 
-#ifndef SER_BRG
-//# if HIGH_SPEED == 1
-#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
-//# else
-//#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
-//# endif
+#ifndef SER_BAUD
+#define SER_BAUD 38400
 #endif
 
-uint8_t ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
+#define HIGH_SPEED 0
+
+#ifndef SER_BRG
+# if HIGH_SPEED == 1
+#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(SER_BAUD))) - 1)
+# else
+#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(SER_BAUD))) - 1)
+# endif
+#endif
+
+uint8_t ser_brg = SER_BRG;
 
 uint8_t rxfifo[SER_BUFFER_SIZE];
 volatile uint8_t rxiptr, rxoptr;
