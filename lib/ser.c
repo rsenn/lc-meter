@@ -41,7 +41,7 @@
 #define SER_BAUD 38400
 #endif
 
-#define HIGH_SPEED 0
+#define HIGH_SPEED 1
 
 #ifndef SER_BRG
 # if HIGH_SPEED == 1
@@ -133,10 +133,11 @@ ser_init(void) {
   SER_TX_TRIS = INPUT;
   SER_RX_PIN = INPUT;
 
-  BRGH = 1; // high speed
+  BRGH = HIGH_SPEED; // high speed
   //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
   //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //  SPBRG=31;       //38.4K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //  SPBRG=39;       //31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   //	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   SPBRG = ser_brg; // 56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   //	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
