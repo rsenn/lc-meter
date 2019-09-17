@@ -461,9 +461,9 @@ print_reading(uint16_t measurement) {
   lcd_puts("     ");
   lcd_gotoxy(9, 0);
   // putchar_ptr = &buffer_putch;
-  format_number(/*&buffer_putch,*/ measurement / 100, 10, 0);
+  format_number(measurement / 100, 10, 0);
   // buffer_putch('.');
-  format_number(/*&buffer_putch,*/ measurement % 100, 10, 0);
+  format_number(measurement % 100, 10, 0);
 
 #endif // defined(USE_NOKIA5110_LCD)
 }
@@ -513,4 +513,13 @@ put_str(const char* s) {
   for(i = 0; s[i]; i++) {
     output_putch(s[i]);
   }
+}
+
+void
+print_buffer(void) {
+    uint8_t i;
+    for(i = 0; i < buffer.n; i++) {
+        ser_putch(buffer.x[i]);         
+    }
+    ser_puts("\r\n");
 }

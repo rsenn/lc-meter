@@ -16,6 +16,7 @@
 #include "print.h"
 #include "format.h"
 #include "timer.h"
+#include "buffer.h"
 
 /*
  * Calibrate by adding the calibration capacitor into the circuit (by relay)
@@ -104,9 +105,11 @@ measure_freq() {
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_gotoxy(0, 1);
-  put_str("Freq=");
-  format_number(/*lcd_putch,*/ count, 10, 5);
 #endif
+  buffer_init();
+  buffer_puts("Freq=");
+  format_number(count, 10, 5);
+  print_buffer();
 
   return count;
 }
@@ -132,23 +135,23 @@ measure_capacitance() {
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(/*ser_putch,*/ var);
+  format_xint32(var);
   ser_puts("\r\nF1=");
-  format_double(/*ser_putch,*/ F1);
+  format_double(F1);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F1);
+  format_xint32(*(uint32_t*)&F1);
   ser_puts("\r\nF2=");
-  format_double(/*ser_putch,*/ F2);
+  format_double(F2);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F2);
+  format_xint32(*(uint32_t*)&F2);
   ser_puts("\r\nF3=");
-  format_double(/*ser_putch,*/ F3);
+  format_double(F3);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F3);
+  format_xint32(*(uint32_t*)&F3);
   ser_puts("\r\nCCal=");
-  format_double(/*ser_putch,*/ CCal);
+  format_double(CCal);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
+  format_xint32(*(uint32_t*)&CCal);
   ser_puts("\r\n");
 #endif
 //  putchar_ptr = &output_putch;
@@ -161,9 +164,9 @@ measure_capacitance() {
 
 #if USE_SER
   ser_puts("Cin=");
-  format_double(/*ser_putch,*/ Cin);
+  format_double(Cin);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&Cin);
+  format_xint32(*(uint32_t*)&Cin);
   ser_puts("\r\n");
 #endif
   if(Cin > 999) {

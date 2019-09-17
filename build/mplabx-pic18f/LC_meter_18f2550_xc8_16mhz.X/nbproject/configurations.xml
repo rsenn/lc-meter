@@ -4,6 +4,22 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f2" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/buffer.h</itemPath>
+        <itemPath>../../../lib/comparator.h</itemPath>
+        <itemPath>../../../lib/const.h</itemPath>
+        <itemPath>../../../lib/delay.h</itemPath>
+        <itemPath>../../../lib/device.h</itemPath>
+        <itemPath>../../../lib/format.h</itemPath>
+        <itemPath>../../../lib/interrupt.h</itemPath>
+        <itemPath>../../../lib/lcd44780.h</itemPath>
+        <itemPath>../../../lib/oscillator.h</itemPath>
+        <itemPath>../../../lib/ser.h</itemPath>
+        <itemPath>../../../lib/timer.h</itemPath>
+        <itemPath>../../../lib/tsmdelay.h</itemPath>
+        <itemPath>../../../lib/typedef.h</itemPath>
+        <itemPath>../../../lib/uart.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="src" projectFiles="true">
         <itemPath>../../../src/config-18f2550.h</itemPath>
         <itemPath>../../../src/config-bits.h</itemPath>
@@ -12,6 +28,7 @@
         <itemPath>../../../src/measure.h</itemPath>
         <itemPath>../../../src/print.h</itemPath>
       </logicalFolder>
+      <itemPath>../../../LC-meter.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -116,7 +133,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="verbose" value="false"/>
-        <property key="warning-level" value="-3"/>
+        <property key="warning-level" value="0"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>

@@ -86,18 +86,20 @@ INTERRUPT_FN() {
     if(bres >= 5000) {
       bres -= 5000;
       msecpart++;
-      msecs++;
-
-      SET_LED((blink > 200));
-      if(blink >= 400)
-        blink -= 400;
-      ++blink;
+//      msecs++;
+//
+//      if(blink >= 400)
+//        blink -= 400;
+//      ++blink;
 
       /* if reached 1 second... */
       if(msecpart >= 1000) {
         /* ...update clock, etc */
         seconds++;
         msecpart -= 1000;
+       
+        
+        TOGGLE_LED();
       }
     }
     // Clear timer interrupt bit

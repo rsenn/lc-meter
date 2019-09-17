@@ -60,7 +60,9 @@
 #define SET_LED(b)                                                                                                     \
   OUTC &= ~0b00000100;                                                                                                 \
   OUTC |= (!!(b)) << 2;
+#define TOGGLE_LED() OUTC ^= 0b00000100;
 #endif
+
 /*
 //#ifdef LED2_CATHODE
 //#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH
