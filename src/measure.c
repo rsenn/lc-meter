@@ -51,9 +51,7 @@ calibrate() {
   REMOVE_CCAL();
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
   lcd_gotoxy(11, 0);
-
   for(i = 0; i < 6; i++) { // show progress bar
     lcd_putch('=');
     /*    lcd_send(0xfc, LCD_TDATA);*/
@@ -211,11 +209,8 @@ measure_inductance() {
   F3 = (double)var;
   if(F3 > F1)
     F3 = F1; // max freq is F1;
-
   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (GATE_PERIOD * GATE_PERIOD);
-
   denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
-
   Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
 
   if(Lin > 999) {

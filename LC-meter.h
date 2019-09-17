@@ -35,7 +35,6 @@
 #define ADD_CCAL() OUTC |= 0b100        // relay on
 #define REMOVE_CCAL() OUTC &= ~0b100    // relay off
 #define RELAY_TRIS() TRISC &= ~(1 << 5) // as output to drive the relay coil
-
 #else
 #define NO_PORTC 0
 #define LC_SELECT (!!(PORTC & 0b10000)) // L or C select (from DPDT switch)
@@ -62,16 +61,6 @@
 #define TOGGLE_LED() OUTC ^= 0b00000100;
 #endif
 
-/*
-//#ifdef LED2_CATHODE
-//#define SET_LED2(b)  LED2_ANODE=(!!(b)) ? HIGH : LOW, LED2_CATHODE=(!!(b)) ? LOW : HIGH
-//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT,LED2_CATHODE_TRIS=OUTPUT
-#else
-//#define SET_LED2(b) LED2_ANODE=(!!(b))==0
-//#define INIT_LED2() LED2_ANODE_TRIS=OUTPUT
-#endif
-
-*/
 //#define TIMER0_PRESCALER PRESCALE_1_32
 extern double F1, F2, F3, CCal;
 

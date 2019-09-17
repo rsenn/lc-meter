@@ -38,6 +38,7 @@ timer0_init(uint8_t ps_mode) {
 #ifdef PIC18
   T0CON |= (!!(ps_mode & TIMER0_FLAGS_8BIT)) ? 0x40 : 0x00;
 #endif
+
   
   // If a prescaler is to be assigned to the Timer0 module
   T0CON &= (!!prescaler) ? ~0x08 : ~0x00;

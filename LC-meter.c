@@ -110,8 +110,9 @@ main() {
   CCal = C_CAL;
 
   // setup comparator
-  CMCON &= 0b11111000;
-  CMCON |= 0b00000101;
+
+/*  CMCON &= 0b11111000;
+  CMCON |= 0b00000101;*/
 
 #ifdef __16f876a
   CMCON = 0b00000101;
@@ -134,30 +135,17 @@ main() {
 
   INIT_LED();
   SET_LED(1);
-  /*
-  #if PIC18 || defined(__16f628)
-    SSPCON1 &= ~0b00100000; //  SSPEN = 0;
-  #else
-    SSPCON &= ~0b100;
-  #endif
-  */
-
-  // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
-  //  timer1of = 0;
 
   timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
 #if !NO_PORTC && !defined(__16f628)
   //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
-  TRISC &= 0b10110101;
+  TRISC = 0b10110101;
 #endif
-  /*#if !PIC18_USB
-    TRISC3 = OUTPUT;
-  #endif
-    TRISC0 = INPUT;
-    TRISC2 = INPUT;
-  */ // initialize 5110 lcd
+
+
+  // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
@@ -190,10 +178,6 @@ main() {
   INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-  // putchar_ptr = &lcd_putch;
-#endif
-
-#if USE_HD44780_LCD || USE_NOKIA5110_LCD
 #if USE_NOKIA5110_LCD
   lcd_gotoxy(0, 0);
 #else
@@ -210,6 +194,7 @@ main() {
 #endif
 
   calibrate();
+
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_clear();
 #endif
@@ -217,20 +202,21 @@ main() {
   /* main loop:
    *
    * Continuously measure capacity/inductance according to switch position.
-   * Blink the indicator (-*-) sign after each measurement.
+   * Blink the print_indicator (-*-) sign after each measurement.
    */
 
   for(;;) {
 
-    ser_puts("...\r\n");
+//    ser_puts("...\r\n");
     if(LC_SELECT)
       measure_capacitance();
     else
       measure_inductance();
 
-    indicator(1);
+    print_indicator(1);
     delay10ms(30);
-    indicator(0);
+    
+    print_indicator(0);
     delay10ms(20);
   }
 }
@@ -260,12 +246,12 @@ testloop() {
   lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
-  format_number(/*lcd_putch,*/ s, 10, 5);
+  format_number(s, 10, 5);
 
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
   lcd_gotoxy(10, 1);
-  format_number(/*lcd_putch,*/ TIMER1_VALUE, 10, 5);
+  format_number(TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
   lcd_puts("     ");
@@ -279,8 +265,8 @@ testloop() {
 #endif
   if(s != prev_s) {
 #if USE_SER
-    format_number(/*ser_putch,*/ s, 10, 0);
-    // ser_putch(' ');    put_number(/*ser_putch,*/ bres / 5000, 10, 0);
+    format_number(s, 10, 0);
+    // ser_putch(' ');    put_number(bres / 5000, 10, 0);
     ser_puts("\r\n");
 #endif
 
