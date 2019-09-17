@@ -11,7 +11,7 @@
 ../../../lib/timer.h  \
 ../../../LC-meter.h  \
 ../../../lib/typedef.h  \
-../../../lib/uart.h  \
+../../../lib/ser.h  \
 ../../../lib/lcd44780.h  \
 ../../../lib/delay.h  \
 ../../../src/lcd44780-config.h 

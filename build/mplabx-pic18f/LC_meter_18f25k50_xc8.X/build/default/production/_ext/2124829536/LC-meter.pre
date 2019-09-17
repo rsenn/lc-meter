@@ -7488,9 +7488,95 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 69 "../../../lib\typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 78 "../../../LC-meter.h"
 extern double F1, F2, F3, CCal;
@@ -7499,7 +7585,7 @@ void delay10ms(unsigned char period_10ms);
 
 # 50 "../../../lib\tsmdelay.h"
 typedef struct dvars {
-unsigned char loop_x, loop_b, loop_c;
+uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
 # 68
@@ -7509,14 +7595,14 @@ extern dvars dvar;
 void cycle_eater(void);
 
 # 46 "../../../lib\delay.h"
-void Delay100TCYx(unsigned char);
-void Delay10KTCYx(unsigned char);
-void Delay10TCYx(unsigned char);
-void Delay1KTCYx(unsigned char);
+void Delay100TCYx(uint8_t);
+void Delay10KTCYx(uint8_t);
+void Delay10TCYx(uint8_t);
+void Delay1KTCYx(uint8_t);
 
 # 48 "../../../lib\lcd44780.h"
 void lcd_init(char fourbitmode);
-void lcd_begin(unsigned char l, unsigned char ds);
+void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
 void lcd_right_to_left(void);
@@ -7531,48 +7617,44 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-void lcd_print_float(float number, unsigned char digits);
+void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 
-void lcd_gotoxy(unsigned char col, unsigned char row);
+void lcd_gotoxy(uint8_t col, uint8_t row);
 
-void lcd_send(unsigned char value, unsigned char mode);
+void lcd_send(uint8_t value, uint8_t mode);
 
 # 68 "../../../lib\timer.h"
-void timer0_init(unsigned char);
+void timer0_init(uint8_t);
 
 # 75
 unsigned short timer0_read_ps(void);
 
 # 105
-void timer1_init(unsigned char ps_mode);
+void timer1_init(uint8_t ps_mode);
 
 # 143
-void timer2_init(unsigned char ps_mode);
+void timer2_init(uint8_t ps_mode);
 
-# 89 "../../../lib\uart.h"
-extern const unsigned char uart_brg;
+# 77 "../../../lib\ser.h"
+bit ser_isrx(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
 
-void uart_putch(unsigned char byte);
 
-int uart_getch(void);
-bool uart_poll(unsigned char bauds);
+extern uint8_t rxfifo[(uint8_t)16];
+extern volatile uint8_t rxiptr, rxoptr;
+extern uint8_t txfifo[(uint8_t)16];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
 
-# 99
-void uart_init(void);
-
-# 106
-unsigned char uart_isr(void);
-
-# 111
-void uart_enable(void);
-
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
+extern uint8_t ser_brg;
 
 # 6 "../../../src\measure.h"
 void calibrate(void);
@@ -7587,19 +7669,17 @@ void put_str(const char*);
 void output_putch(char c);
 
 void lcd_puts(const char*);
-void print_digit(unsigned char line, unsigned char column, unsigned char digit);
-void print_unit(unsigned char unit);
-void print_reading(unsigned short int measurement);
-void indicator(unsigned char indicate);
+void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+void print_unit(uint8_t unit);
+void print_reading(uint16_t measurement);
+void indicator(uint8_t indicate);
 
-void print_print_float(float number, unsigned char digits);
+void print_print_float(float number, uint8_t digits);
 
 # 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
+void format_number( uint16_t n, uint8_t base, int8_t pad);
 
-void format_number( unsigned short int n, unsigned char base, signed char pad);
-
-void format_xint32( unsigned long int x);
+void format_xint32( uint32_t x);
 
 void format_double( double num);
 
@@ -7613,10 +7693,10 @@ __config("__CONFIG", "pic18", "WRTC_ON & WRTB_ON & WRTD_OFF");
 __config("__CONFIG", "pic18", "EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF");
 
 # 43 "../../../LC-meter.c"
-volatile unsigned short int bres;
-volatile unsigned short int msecpart;
-volatile unsigned long int seconds, msecs;
-volatile unsigned long int timer1of;
+volatile uint16_t bres;
+volatile uint16_t msecpart;
+volatile uint32_t seconds, msecs;
+volatile uint32_t timer1of;
 
 # 53
 void
@@ -7632,17 +7712,19 @@ void main();
 void loop();
 void testloop();
 void initialize();
-unsigned long int milliseconds();
+uint32_t milliseconds();
 
-void put_number(void (*putchar)(char), unsigned short int n, unsigned char base, signed char pad );
+void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
 
-volatile unsigned short int blink = 0;
+volatile uint16_t blink = 0;
 
 
 
-interrupt isr() {
 
-if(PIR1 & 0b10) {
+void interrupt global_int(void) {
+
+# 81
+if(PIR1 & 0x02) {
 
 bres += 256;
 
@@ -7667,7 +7749,9 @@ msecpart -= 1000;
 PIR1 &= ~0b10;
 }
 
-# 107
+if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
+
+# 111
 }
 
 
@@ -7677,20 +7761,20 @@ bres = msecpart = msecs = seconds = 0;
 
 CCal = 1000;
 
-# 123
+# 127
 TRISA = 0b11001111;
 
 
 timer0_init(0b100 | 0x40);
 
-# 142
+# 146
 INTCON2 &= ~0b10000000;
 
-# 148
+# 152
 TRISC &= ~0b00000010;
 LATC &= ~0b00000010; LATC |= (!!(1)) << 1;;
 
-# 161
+# 165
 timer2_init(0b000 | 0x80);
 
 
@@ -7698,7 +7782,7 @@ timer2_init(0b000 | 0x80);
 
 TRISC &= 0b10110101;
 
-# 178
+# 182
 lcd_init(1);
 lcd_begin(2, 1);
 
@@ -7716,20 +7800,19 @@ LATC |= (1 << 5);
 delay10ms(50);
 LATC &= ~(1 << 5);
 
-# 199
-uart_init();
 
+ser_init();
 
-
+# 207
 INTCON |= 0xc0;
 
-# 213
+# 217
 lcd_gotoxy(0, 0);
 
 lcd_puts("LC-meter ");
 format_double( CCal);
 
-# 222
+# 226
 delay10ms(200);
 
 
@@ -7737,10 +7820,10 @@ calibrate();
 
 lcd_clear();
 
-# 236
+# 240
 for(;;) {
 
-uart_puts("...\r\n");
+ser_puts("...\r\n");
 if((!!(PORTC & 0b10000)))
 measure_capacitance();
 else
@@ -7757,8 +7840,8 @@ void
 testloop() {
 
 static char led = 0;
-static unsigned short int prev_s = 0;
-unsigned short int s;
+static uint16_t prev_s = 0;
+uint16_t s;
 
 delay10ms(10);
 
@@ -7766,7 +7849,7 @@ INTCON &= ~0x80;
 s = seconds;
 INTCON |= 0x80;
 
-# 272
+# 276
 lcd_gotoxy(10, 0);
 lcd_puts("      ");
 lcd_gotoxy(10, 0);
@@ -7790,7 +7873,11 @@ lcd_send(((!!(PORTC & 0b10000)) != 0 ? '1' : '0'), 1);
 
 if(s != prev_s) {
 
-# 300
+format_number( s, 10, 0);
+
+ser_puts("\r\n");
+
+
 prev_s = s;
 }
 }

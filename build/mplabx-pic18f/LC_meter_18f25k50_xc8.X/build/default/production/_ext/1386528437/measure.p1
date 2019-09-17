@@ -5,8 +5,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_gotoxy `(v ~T0 @X0 0 ef2`uc`uc ]
 "8 ../../../src/print.h
 [v _put_str `(v ~T0 @X0 0 ef1`*Cuc ]
-"118 ../../../lib\uart.h
-[v _uart_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+"81 ../../../lib\ser.h
+[v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "4188 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f25k50.h
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "78 ../../..\LC-meter.h
@@ -31,19 +31,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
 "75 ../../../lib\timer.h
 [v _timer0_read_ps `(us ~T0 @X0 0 ef ]
-"8 ../../../lib\format.h
-[v _format_number `(v ~T0 @X0 0 ef3`us`uc`c ]
+"6 ../../../lib\format.h
+[v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
 "78 ../../..\LC-meter.h
 [v _F3 `d ~T0 @X0 0 e ]
-[v F6420 `(v ~T0 @X0 1 tf1`uc ]
-"6 ../../../lib\format.h
-[v _putchar_ptr `*F6420 ~T0 @X0 0 e ]
-"9 ../../../src/print.h
-[v _output_putch `(v ~T0 @X0 0 ef1`uc ]
+"8 ../../../lib\format.h
+[v _format_xint32 `(v ~T0 @X0 0 ef1`ul ]
+"10
+[v _format_double `(v ~T0 @X0 0 ef1`d ]
+"79 ../../../lib\ser.h
+[v _ser_putch `(v ~T0 @X0 0 ef1`uc ]
 "78 ../../..\LC-meter.h
 [v _CCal `d ~T0 @X0 0 e ]
 "14 ../../../src/print.h
-[v _print_reading `(v ~T0 @X0 0 ef1`us ]
+[v _print_reading `(v ~T0 @X0 0 ef1`ui ]
 "13
 [v _print_unit `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -5932,31 +5933,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;lib\typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;lib\typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;..\LC-meter.h: 78: extern double F1, F2, F3, CCal;
 [; ;..\LC-meter.h: 80: void delay10ms(unsigned char period_10ms);
 [; ;lib\tsmdelay.h: 50: typedef struct dvars {
-[; ;lib\tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
+[; ;lib\tsmdelay.h: 51: uint8_t loop_x, loop_b, loop_c;
 [; ;lib\tsmdelay.h: 52: } dvars;
 [; ;lib\tsmdelay.h: 68: extern dvars dvar;
 [; ;lib\tsmdelay.h: 78: void cycle_eater(void);
-[; ;lib\delay.h: 46: void Delay100TCYx(unsigned char);
-[; ;lib\delay.h: 47: void Delay10KTCYx(unsigned char);
-[; ;lib\delay.h: 48: void Delay10TCYx(unsigned char);
-[; ;lib\delay.h: 49: void Delay1KTCYx(unsigned char);
-[; ;lib\uart.h: 89: extern const unsigned char uart_brg;
-[; ;lib\uart.h: 91: void uart_putch(unsigned char byte);
-[; ;lib\uart.h: 93: int uart_getch(void);
-[; ;lib\uart.h: 94: bool uart_poll(unsigned char bauds);
-[; ;lib\uart.h: 99: void uart_init(void);
-[; ;lib\uart.h: 106: unsigned char uart_isr(void);
-[; ;lib\uart.h: 111: void uart_enable(void);
-[; ;lib\uart.h: 116: void uart_disable(void);
-[; ;lib\uart.h: 118: void uart_puts(const char* s);
-[; ;lib\uart.h: 119: void uart_puts2(unsigned char* s);
+[; ;lib\delay.h: 46: void Delay100TCYx(uint8_t);
+[; ;lib\delay.h: 47: void Delay10KTCYx(uint8_t);
+[; ;lib\delay.h: 48: void Delay10TCYx(uint8_t);
+[; ;lib\delay.h: 49: void Delay1KTCYx(uint8_t);
+[; ;lib\ser.h: 77: bit ser_isrx(void);
+[; ;lib\ser.h: 78: uint8_t ser_getch(void);
+[; ;lib\ser.h: 79: void ser_putch(char byte);
+[; ;lib\ser.h: 80: void ser_put(const char* s, unsigned n);
+[; ;lib\ser.h: 81: void ser_puts(const char* s);
+[; ;lib\ser.h: 82: void ser_puts2(uint8_t* s);
+[; ;lib\ser.h: 83: void ser_puthex(uint8_t v);
+[; ;lib\ser.h: 84: void ser_init(void);
+[; ;lib\ser.h: 87: extern uint8_t rxfifo[(uint8_t)16];
+[; ;lib\ser.h: 88: extern volatile uint8_t rxiptr, rxoptr;
+[; ;lib\ser.h: 89: extern uint8_t txfifo[(uint8_t)16];
+[; ;lib\ser.h: 90: extern volatile uint8_t txiptr, txoptr;
+[; ;lib\ser.h: 91: extern uint8_t ser_tmp;
+[; ;lib\ser.h: 93: extern uint8_t ser_brg;
 [; ;lib\lcd44780.h: 48: void lcd_init(char fourbitmode);
-[; ;lib\lcd44780.h: 49: void lcd_begin(unsigned char l, unsigned char ds);
+[; ;lib\lcd44780.h: 49: void lcd_begin(uint8_t l, uint8_t ds);
 [; ;lib\lcd44780.h: 50: void lcd_no_autoscroll(void);
 [; ;lib\lcd44780.h: 51: void lcd_autoscroll(void);
 [; ;lib\lcd44780.h: 52: void lcd_right_to_left(void);
@@ -5971,11 +6002,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lib\lcd44780.h: 61: void lcd_no_display();
 [; ;lib\lcd44780.h: 62: void lcd_clear();
 [; ;lib\lcd44780.h: 63: void lcd_home();
-[; ;lib\lcd44780.h: 64: void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-[; ;lib\lcd44780.h: 65: void lcd_print_float(float number, unsigned char digits);
+[; ;lib\lcd44780.h: 64: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;lib\lcd44780.h: 65: void lcd_print_float(float number, uint8_t digits);
 [; ;lib\lcd44780.h: 66: void lcd_puts(const char* string);
-[; ;lib\lcd44780.h: 68: void lcd_gotoxy(unsigned char col, unsigned char row);
-[; ;lib\lcd44780.h: 70: void lcd_send(unsigned char value, unsigned char mode);
+[; ;lib\lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
+[; ;lib\lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
 [; ;measure.h: 6: void calibrate(void);
 [; ;measure.h: 7: unsigned short measure_freq(void);
 [; ;measure.h: 8: void measure_capacitance(void);
@@ -5984,19 +6015,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.h: 8: void put_str(const char*);
 [; ;print.h: 9: void output_putch(char c);
 [; ;print.h: 11: void lcd_puts(const char*);
-[; ;print.h: 12: void print_digit(unsigned char line, unsigned char column, unsigned char digit);
-[; ;print.h: 13: void print_unit(unsigned char unit);
-[; ;print.h: 14: void print_reading(unsigned short int measurement);
-[; ;print.h: 15: void indicator(unsigned char indicate);
-[; ;print.h: 17: void print_print_float(float number, unsigned char digits);
-[; ;lib\format.h: 6: extern putchar_fn* putchar_ptr;
-[; ;lib\format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
-[; ;lib\format.h: 10: void format_xint32( unsigned long int x);
-[; ;lib\format.h: 12: void format_double( double num);
-[; ;lib\timer.h: 68: void timer0_init(unsigned char);
+[; ;print.h: 12: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+[; ;print.h: 13: void print_unit(uint8_t unit);
+[; ;print.h: 14: void print_reading(uint16_t measurement);
+[; ;print.h: 15: void indicator(uint8_t indicate);
+[; ;print.h: 17: void print_print_float(float number, uint8_t digits);
+[; ;lib\format.h: 6: void format_number( uint16_t n, uint8_t base, int8_t pad);
+[; ;lib\format.h: 8: void format_xint32( uint32_t x);
+[; ;lib\format.h: 10: void format_double( double num);
+[; ;lib\timer.h: 68: void timer0_init(uint8_t);
 [; ;lib\timer.h: 75: unsigned short timer0_read_ps(void);
-[; ;lib\timer.h: 105: void timer1_init(unsigned char ps_mode);
-[; ;lib\timer.h: 143: void timer2_init(unsigned char ps_mode);
+[; ;lib\timer.h: 105: void timer1_init(uint8_t ps_mode);
+[; ;lib\timer.h: 143: void timer2_init(uint8_t ps_mode);
 "24 ../../../src/measure.c
 [v _calibrate `(v ~T0 @X0 1 ef ]
 {
@@ -6006,7 +6036,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "25
 [v _i `uc ~T0 @X0 1 a ]
-[; ;measure.c: 25: unsigned char i;
+[; ;measure.c: 25: uint8_t i;
 [; ;measure.c: 28: lcd_clear();
 "28
 [e ( _lcd_clear ..  ]
@@ -6019,9 +6049,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 33: lcd_gotoxy(0, 1);
 "33
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;measure.c: 34: uart_puts("\r\n");
+[; ;measure.c: 34: ser_puts("\r\n");
 "34
-[e ( _uart_puts (1 :s 2C ]
+[e ( _ser_puts (1 :s 2C ]
 [; ;measure.c: 35: put_str("please wait...");
 "35
 [e ( _put_str (1 :s 3C ]
@@ -6078,9 +6108,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 }
 [; ;measure.c: 60: }
-[; ;measure.c: 62: uart_puts("\r\n");
+[; ;measure.c: 62: ser_puts("\r\n");
 "62
-[e ( _uart_puts (1 :s 4C ]
+[e ( _ser_puts (1 :s 4C ]
 [; ;measure.c: 63: }
 "63
 [e :UE 896 ]
@@ -6093,8 +6123,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _measure_freq ]
 [f ]
 "70
-[v _count `us ~T0 @X0 1 a ]
-[; ;measure.c: 70: unsigned short int count;
+[v _count `ui ~T0 @X0 1 a ]
+[; ;measure.c: 70: uint16_t count;
 [; ;measure.c: 72: INTCON &= ~0b100;
 "72
 [e =& _INTCON -> ~ -> 4 `i `uc ]
@@ -6150,7 +6180,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _TRISA -> -> 16 `i `uc ]
 [; ;measure.c: 103: count = timer0_read_ps();
 "103
-[e = _count ( _timer0_read_ps ..  ]
+[e = _count -> ( _timer0_read_ps ..  `ui ]
 [; ;measure.c: 106: lcd_gotoxy(0, 1);
 "106
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
@@ -6162,7 +6192,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _format_number (3 , , _count -> -> 10 `i `uc -> -> 5 `i `c ]
 [; ;measure.c: 111: return count;
 "111
-[e ) _count ]
+[e ) -> _count `us ]
 [e $UE 900  ]
 [; ;measure.c: 112: }
 "112
@@ -6178,11 +6208,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "119
 [v _unit `uc ~T0 @X0 1 a ]
 "120
-[v _var `us ~T0 @X0 1 a ]
+[v _var `ui ~T0 @X0 1 a ]
 "122
 [v _Cin `d ~T0 @X0 1 a ]
-[; ;measure.c: 119: unsigned char unit;
-[; ;measure.c: 120: unsigned short int var;
+[; ;measure.c: 119: uint8_t unit;
+[; ;measure.c: 120: uint16_t var;
 [; ;measure.c: 122: double Cin;
 [; ;measure.c: 126: lcd_gotoxy(0, 0);
 "126
@@ -6192,13 +6222,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _put_str (1 :s 6C ]
 [; ;measure.c: 129: var = measure_freq();
 "129
-[e = _var ( _measure_freq ..  ]
+[e = _var -> ( _measure_freq ..  `ui ]
 [; ;measure.c: 131: F3 = (double)var;
 "131
 [e = _F3 -> _var `d ]
-[; ;measure.c: 154: putchar_ptr = &output_putch;
-"154
-[e = _putchar_ptr &U _output_putch ]
+[; ;measure.c: 134: ser_puts("var=");
+"134
+[e ( _ser_puts (1 :s 7C ]
+[; ;measure.c: 135: format_xint32( var);
+"135
+[e ( _format_xint32 (1 -> _var `ul ]
+[; ;measure.c: 136: ser_puts("\r\nF1=");
+"136
+[e ( _ser_puts (1 :s 8C ]
+[; ;measure.c: 137: format_double( F1);
+"137
+[e ( _format_double (1 _F1 ]
+[; ;measure.c: 138: ser_putch(' ');
+"138
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+[; ;measure.c: 139: format_xint32( *(uint32_t*)&F1);
+"139
+[e ( _format_xint32 (1 *U -> &U _F1 `*ul ]
+[; ;measure.c: 140: ser_puts("\r\nF2=");
+"140
+[e ( _ser_puts (1 :s 9C ]
+[; ;measure.c: 141: format_double( F2);
+"141
+[e ( _format_double (1 _F2 ]
+[; ;measure.c: 142: ser_putch(' ');
+"142
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+[; ;measure.c: 143: format_xint32( *(uint32_t*)&F2);
+"143
+[e ( _format_xint32 (1 *U -> &U _F2 `*ul ]
+[; ;measure.c: 144: ser_puts("\r\nF3=");
+"144
+[e ( _ser_puts (1 :s 10C ]
+[; ;measure.c: 145: format_double( F3);
+"145
+[e ( _format_double (1 _F3 ]
+[; ;measure.c: 146: ser_putch(' ');
+"146
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+[; ;measure.c: 147: format_xint32( *(uint32_t*)&F3);
+"147
+[e ( _format_xint32 (1 *U -> &U _F3 `*ul ]
+[; ;measure.c: 148: ser_puts("\r\nCCal=");
+"148
+[e ( _ser_puts (1 :s 11C ]
+[; ;measure.c: 149: format_double( CCal);
+"149
+[e ( _format_double (1 _CCal ]
+[; ;measure.c: 150: ser_putch(' ');
+"150
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+[; ;measure.c: 151: format_xint32( *(uint32_t*)&CCal);
+"151
+[e ( _format_xint32 (1 *U -> &U _CCal `*ul ]
+[; ;measure.c: 152: ser_puts("\r\n");
+"152
+[e ( _ser_puts (1 :s 12C ]
 [; ;measure.c: 156: if(F3 > F1)
 "156
 [e $ ! > _F3 _F1 902  ]
@@ -6209,6 +6293,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 159: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
 "159
 [e = _Cin * * * _F2 _F2 - * _F1 _F1 * _F3 _F3 _CCal ]
+[; ;measure.c: 163: ser_puts("Cin=");
+"163
+[e ( _ser_puts (1 :s 13C ]
+[; ;measure.c: 164: format_double( Cin);
+"164
+[e ( _format_double (1 _Cin ]
+[; ;measure.c: 165: ser_putch(' ');
+"165
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+[; ;measure.c: 166: format_xint32( *(uint32_t*)&Cin);
+"166
+[e ( _format_xint32 (1 *U -> &U _Cin `*ul ]
+[; ;measure.c: 167: ser_puts("\r\n");
+"167
+[e ( _ser_puts (1 :s 14C ]
 [; ;measure.c: 169: if(Cin > 999) {
 "169
 [e $ ! > _Cin -> -> 999 `i `d 903  ]
@@ -6271,9 +6370,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 185: Cin = Cin * 100;
 "185
 [e = _Cin * _Cin -> -> 100 `i `d ]
-[; ;measure.c: 186: var = (unsigned short int)Cin;
+[; ;measure.c: 186: var = (uint16_t)Cin;
 "186
-[e = _var -> _Cin `us ]
+[e = _var -> _Cin `ui ]
 [; ;measure.c: 188: print_reading(var);
 "188
 [e ( _print_reading (1 _var ]
@@ -6294,23 +6393,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 "197
 [v _unit `uc ~T0 @X0 1 a ]
 "198
-[v _var `us ~T0 @X0 1 a ]
+[v _var `ui ~T0 @X0 1 a ]
 "200
 [v _Lin `d ~T0 @X0 1 a ]
 [v _numerator `d ~T0 @X0 1 a ]
 [v _denominator `d ~T0 @X0 1 a ]
-[; ;measure.c: 197: unsigned char unit;
-[; ;measure.c: 198: unsigned short int var;
+[; ;measure.c: 197: uint8_t unit;
+[; ;measure.c: 198: uint16_t var;
 [; ;measure.c: 200: double Lin, numerator, denominator;
 [; ;measure.c: 203: lcd_gotoxy(0, 0);
 "203
 [e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 [; ;measure.c: 204: put_str("Inductivity ");
 "204
-[e ( _put_str (1 :s 7C ]
+[e ( _put_str (1 :s 15C ]
 [; ;measure.c: 206: var = measure_freq();
 "206
-[e = _var ( _measure_freq ..  ]
+[e = _var -> ( _measure_freq ..  `ui ]
 [; ;measure.c: 208: F3 = (double)var;
 "208
 [e = _F3 -> _var `d ]
@@ -6392,9 +6491,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 234: Lin = Lin * 100;
 "234
 [e = _Lin * _Lin -> -> 100 `i `d ]
-[; ;measure.c: 235: var = (unsigned short int)Lin;
+[; ;measure.c: 235: var = (uint16_t)Lin;
 "235
-[e = _var -> _Lin `us ]
+[e = _var -> _Lin `ui ]
 [; ;measure.c: 237: print_reading(var);
 "237
 [e ( _print_reading (1 _var ]
@@ -6406,9 +6505,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 909 ]
 }
 [a 1C 67 97 108 105 98 114 97 116 105 110 103 0 ]
+[a 7C 118 97 114 61 0 ]
 [a 5C 70 114 101 113 61 0 ]
+[a 13C 67 105 110 61 0 ]
+[a 11C 13 10 67 67 97 108 61 0 ]
+[a 10C 13 10 70 51 61 0 ]
+[a 9C 13 10 70 50 61 0 ]
+[a 8C 13 10 70 49 61 0 ]
 [a 3C 112 108 101 97 115 101 32 119 97 105 116 46 46 46 0 ]
-[a 7C 73 110 100 117 99 116 105 118 105 116 121 32 0 ]
+[a 15C 73 110 100 117 99 116 105 118 105 116 121 32 0 ]
 [a 6C 67 97 112 97 99 105 116 121 32 0 ]
 [a 2C 13 10 0 ]
 [a 4C 13 10 0 ]
+[a 12C 13 10 0 ]
+[a 14C 13 10 0 ]

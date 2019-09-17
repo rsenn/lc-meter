@@ -3,4 +3,5 @@
  ../../../lib/format.c  \
 ../../../lib/format.h  \
 ../../../lib/device.h  \
-../../../lib/typedef.h 
+../../../lib/typedef.h  \
+../../../lib/buffer.h 

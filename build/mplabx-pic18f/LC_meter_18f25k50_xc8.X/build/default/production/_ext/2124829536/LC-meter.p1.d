@@ -13,7 +13,7 @@
 ../../../lib/interrupt.h  \
 ../../../src/print.h  \
 ../../../lib/typedef.h  \
-../../../lib/uart.h  \
+../../../lib/ser.h  \
 ../../../src/config-18f25k50.h  \
 ../../../lib/lcd44780.h  \
 ../../../lib/delay.h  \

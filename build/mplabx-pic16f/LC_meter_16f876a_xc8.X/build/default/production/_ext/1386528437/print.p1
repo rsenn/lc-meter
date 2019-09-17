@@ -1,20 +1,21 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"68 ../../../lib\lcd44780.h
-[v _lcd_putch `(v ~T0 @X0 0 ef1`uc ]
-"67
+"70 ../../../lib\lcd44780.h
+[v _lcd_send `(v ~T0 @X0 0 ef2`uc`uc ]
+"68
 [v _lcd_gotoxy `(v ~T0 @X0 0 ef2`uc`uc ]
-[v F988 `(v ~T0 @X0 1 tf1`uc ]
 "14 ../../../lib\buffer.h
-[s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 `*F988 1 ]
-[n S88 . x p n op ]
-"27
+[s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
+[n S88 . x p n ]
+"26
 [v _buffer `S88 ~T0 @X0 0 e ]
-"118 ../../../lib\uart.h
-[v _uart_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+"81 ../../../lib\ser.h
+[v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 "11 ../../../src/print.h
 [v _lcd_puts `(v ~T0 @X0 0 ef1`*Cuc ]
-"8 ../../../lib\format.h
-[v _format_number `(v ~T0 @X0 0 ef3`us`uc`c ]
+"6 ../../../lib\format.h
+[v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
+"79 ../../../lib\ser.h
+[v _ser_putch `(v ~T0 @X0 0 ef1`uc ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -939,65 +940,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;lib\typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;lib\typedef.h: 70: typedef putchar_fn* putchar_p;
-[; ;lib\buffer.h: 12: typedef unsigned char len_t;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;lib\buffer.h: 12: typedef uint8_t len_t;
 [; ;lib\buffer.h: 14: typedef struct {
 [; ;lib\buffer.h: 15: char x[16];
 [; ;lib\buffer.h: 16: unsigned p : 4;
 [; ;lib\buffer.h: 17: unsigned n : 4;
-[; ;lib\buffer.h: 18: putchar_p op;
-[; ;lib\buffer.h: 19: } buffer_t;
-[; ;lib\buffer.h: 27: extern buffer_t buffer;
-[; ;lib\buffer.h: 29: void buffer_init(putchar_p op);
-[; ;lib\buffer.h: 30: char buffer_flush();
-[; ;lib\buffer.h: 31: char buffer_putch(char ch);
-[; ;lib\buffer.h: 32: char buffer_put(const char* x, len_t len);
-[; ;lib\buffer.h: 33: char buffer_puts(const char* x);
+[; ;lib\buffer.h: 18: } buffer_t;
+[; ;lib\buffer.h: 26: extern buffer_t buffer;
+[; ;lib\buffer.h: 28: void buffer_init(void);
+[; ;lib\buffer.h: 29: char buffer_flush(void);
+[; ;lib\buffer.h: 30: char buffer_putch(char ch);
+[; ;lib\buffer.h: 31: char buffer_put(const char* x, len_t len);
+[; ;lib\buffer.h: 32: char buffer_puts(const char* x);
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void put_str(const char*);
 [; ;print.h: 9: void output_putch(char c);
 [; ;print.h: 11: void lcd_puts(const char*);
-[; ;print.h: 12: void print_digit(unsigned char line, unsigned char column, unsigned char digit);
-[; ;print.h: 13: void print_unit(unsigned char unit);
-[; ;print.h: 14: void print_reading(unsigned short int measurement);
-[; ;print.h: 15: void indicator(unsigned char indicate);
-[; ;print.h: 17: void print_print_float(float number, unsigned char digits);
-[; ;lib\lcd44780.h: 47: void lcd_init(char fourbitmode);
-[; ;lib\lcd44780.h: 48: void lcd_begin(unsigned char l, unsigned char ds);
-[; ;lib\lcd44780.h: 49: void lcd_no_autoscroll(void);
-[; ;lib\lcd44780.h: 50: void lcd_autoscroll(void);
-[; ;lib\lcd44780.h: 51: void lcd_right_to_left(void);
-[; ;lib\lcd44780.h: 52: void lcd_left_to_right(void);
-[; ;lib\lcd44780.h: 53: void lcd_scroll_print_right(void);
-[; ;lib\lcd44780.h: 54: void lcd_scroll_print_left(void);
-[; ;lib\lcd44780.h: 55: void lcd_blink();
-[; ;lib\lcd44780.h: 56: void lcd_no_blink();
-[; ;lib\lcd44780.h: 57: void lcd_cursor();
-[; ;lib\lcd44780.h: 58: void lcd_no_cursor();
-[; ;lib\lcd44780.h: 59: void lcd_display();
-[; ;lib\lcd44780.h: 60: void lcd_no_display();
-[; ;lib\lcd44780.h: 61: void lcd_clear();
-[; ;lib\lcd44780.h: 62: void lcd_home();
-[; ;lib\lcd44780.h: 63: void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-[; ;lib\lcd44780.h: 64: void lcd_print_float(float number, unsigned char digits);
-[; ;lib\lcd44780.h: 65: void lcd_puts(const char* string);
-[; ;lib\lcd44780.h: 67: void lcd_gotoxy(unsigned char col, unsigned char row);
-[; ;lib\lcd44780.h: 68: void lcd_putch(char value);
-[; ;lib\uart.h: 89: extern const unsigned char uart_brg;
-[; ;lib\uart.h: 91: void uart_putch(unsigned char byte);
-[; ;lib\uart.h: 93: int uart_getch(void);
-[; ;lib\uart.h: 94: bool uart_poll(unsigned char bauds);
-[; ;lib\uart.h: 99: void uart_init(void);
-[; ;lib\uart.h: 106: unsigned char uart_isr(void);
-[; ;lib\uart.h: 111: void uart_enable(void);
-[; ;lib\uart.h: 116: void uart_disable(void);
-[; ;lib\uart.h: 118: void uart_puts(const char* s);
-[; ;lib\uart.h: 119: void uart_puts2(unsigned char* s);
-[; ;lib\format.h: 6: extern putchar_fn* putchar_ptr;
-[; ;lib\format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
-[; ;lib\format.h: 10: void format_xint32( unsigned long int x);
-[; ;lib\format.h: 12: void format_double( double num);
+[; ;print.h: 12: void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+[; ;print.h: 13: void print_unit(uint8_t unit);
+[; ;print.h: 14: void print_reading(uint16_t measurement);
+[; ;print.h: 15: void indicator(uint8_t indicate);
+[; ;print.h: 17: void print_print_float(float number, uint8_t digits);
+[; ;lib\lcd44780.h: 48: void lcd_init(char fourbitmode);
+[; ;lib\lcd44780.h: 49: void lcd_begin(uint8_t l, uint8_t ds);
+[; ;lib\lcd44780.h: 50: void lcd_no_autoscroll(void);
+[; ;lib\lcd44780.h: 51: void lcd_autoscroll(void);
+[; ;lib\lcd44780.h: 52: void lcd_right_to_left(void);
+[; ;lib\lcd44780.h: 53: void lcd_left_to_right(void);
+[; ;lib\lcd44780.h: 54: void lcd_scroll_print_right(void);
+[; ;lib\lcd44780.h: 55: void lcd_scroll_print_left(void);
+[; ;lib\lcd44780.h: 56: void lcd_blink();
+[; ;lib\lcd44780.h: 57: void lcd_no_blink();
+[; ;lib\lcd44780.h: 58: void lcd_cursor();
+[; ;lib\lcd44780.h: 59: void lcd_no_cursor();
+[; ;lib\lcd44780.h: 60: void lcd_display();
+[; ;lib\lcd44780.h: 61: void lcd_no_display();
+[; ;lib\lcd44780.h: 62: void lcd_clear();
+[; ;lib\lcd44780.h: 63: void lcd_home();
+[; ;lib\lcd44780.h: 64: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;lib\lcd44780.h: 65: void lcd_print_float(float number, uint8_t digits);
+[; ;lib\lcd44780.h: 66: void lcd_puts(const char* string);
+[; ;lib\lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
+[; ;lib\lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
+[; ;lib\ser.h: 77: bit ser_isrx(void);
+[; ;lib\ser.h: 78: uint8_t ser_getch(void);
+[; ;lib\ser.h: 79: void ser_putch(char byte);
+[; ;lib\ser.h: 80: void ser_put(const char* s, unsigned n);
+[; ;lib\ser.h: 81: void ser_puts(const char* s);
+[; ;lib\ser.h: 82: void ser_puts2(uint8_t* s);
+[; ;lib\ser.h: 83: void ser_puthex(uint8_t v);
+[; ;lib\ser.h: 84: void ser_init(void);
+[; ;lib\ser.h: 87: extern uint8_t rxfifo[(uint8_t)16];
+[; ;lib\ser.h: 88: extern volatile uint8_t rxiptr, rxoptr;
+[; ;lib\ser.h: 89: extern uint8_t txfifo[(uint8_t)16];
+[; ;lib\ser.h: 90: extern volatile uint8_t txiptr, txoptr;
+[; ;lib\ser.h: 91: extern uint8_t ser_tmp;
+[; ;lib\ser.h: 93: extern uint8_t ser_brg;
+[; ;lib\format.h: 6: void format_number( uint16_t n, uint8_t base, int8_t pad);
+[; ;lib\format.h: 8: void format_xint32( uint32_t x);
+[; ;lib\format.h: 10: void format_double( double num);
 "33 ../../../src/print.c
 [v _lcd_put `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
@@ -1009,12 +1038,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "36
 [v _i `uc ~T0 @X0 1 a ]
-[; ;print.c: 36: unsigned char i;
-[; ;print.c: 37: while(n--) lcd_putch(*buf++);
+[; ;print.c: 36: uint8_t i;
+[; ;print.c: 37: while(n--) lcd_send((*buf++), 1);
 "37
 [e $U 90  ]
 [e :U 91 ]
-[e ( _lcd_putch (1 *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x ]
+[e ( _lcd_send (2 , *U ++ _buf * -> -> 1 `i `x -> -> # *U _buf `i `x -> -> 1 `i `uc ]
 [e :U 90 ]
 [e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 91  ]
 [e :U 92 ]
@@ -1026,7 +1055,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _print_digit `(v ~T0 @X0 1 ef3`uc`uc`uc ]
 {
 [; ;print.c: 389: void
-[; ;print.c: 390: print_digit(unsigned char line, unsigned char column, unsigned char digit) {
+[; ;print.c: 390: print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 [e :U _print_digit ]
 [v _line `uc ~T0 @X0 1 r1 ]
 [v _column `uc ~T0 @X0 1 r2 ]
@@ -1035,9 +1064,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.c: 405: lcd_gotoxy(column, 0);
 "405
 [e ( _lcd_gotoxy (2 , _column -> -> 0 `i `uc ]
-[; ;print.c: 406: lcd_putch('0' + digit);
+[; ;print.c: 406: lcd_send(('0' + digit), 1);
 "406
-[e ( _lcd_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+[e ( _lcd_send (2 , -> + -> 48 `ui -> _digit `ui `uc -> -> 1 `i `uc ]
 [; ;print.c: 408: }
 "408
 [e :UE 93 ]
@@ -1046,13 +1075,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _print_unit `(v ~T0 @X0 1 ef1`uc ]
 {
 [; ;print.c: 411: void
-[; ;print.c: 412: print_unit(unsigned char unit) {
+[; ;print.c: 412: print_unit(uint8_t unit) {
 [e :U _print_unit ]
 [v _unit `uc ~T0 @X0 1 r1 ]
 [f ]
 "420
-[v F1102 `*Cuc ~T0 @X0 -> 8 `i s units ]
-[i F1102
+[v F1133 `*Cuc ~T0 @X0 -> 8 `i s units ]
+[i F1133
 :U ..
 :s 1C
 :s 2C
@@ -1071,20 +1100,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.c: 425: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
 "425
 [e ( _lcd_gotoxy (2 , -> - -> 16 `i - -> . _buffer 2 `i -> . _buffer 1 `i `uc -> -> 0 `i `uc ]
-[; ;print.c: 428: uart_puts("\r\n");
+[; ;print.c: 428: ser_puts("\r\n");
 "428
-[e ( _uart_puts (1 :s 9C ]
+[e ( _ser_puts (1 :s 9C ]
 [; ;print.c: 430: }
 "430
 [e :UE 94 ]
 }
 "433
-[v _print_reading `(v ~T0 @X0 1 ef1`us ]
+[v _print_reading `(v ~T0 @X0 1 ef1`ui ]
 {
 [; ;print.c: 432: void
-[; ;print.c: 433: print_reading(unsigned short int measurement) {
+[; ;print.c: 433: print_reading(uint16_t measurement) {
 [e :U _print_reading ]
-[v _measurement `us ~T0 @X0 1 r1 ]
+[v _measurement `ui ~T0 @X0 1 r1 ]
 [f ]
 [; ;print.c: 460: lcd_gotoxy(9, 0);
 "460
@@ -1097,10 +1126,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _lcd_gotoxy (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
 [; ;print.c: 464: format_number( measurement / 100, 10, 0);
 "464
-[e ( _format_number (3 , , -> / -> _measurement `ui -> -> 100 `i `ui `us -> -> 10 `i `uc -> -> 0 `i `c ]
+[e ( _format_number (3 , , / _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
 [; ;print.c: 466: format_number( measurement % 100, 10, 0);
 "466
-[e ( _format_number (3 , , -> % -> _measurement `ui -> -> 100 `i `ui `us -> -> 10 `i `uc -> -> 0 `i `c ]
+[e ( _format_number (3 , , % _measurement -> -> 100 `i `ui -> -> 10 `i `uc -> -> 0 `i `c ]
 [; ;print.c: 469: }
 "469
 [e :UE 95 ]
@@ -1109,7 +1138,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _indicator `(v ~T0 @X0 1 ef1`uc ]
 {
 [; ;print.c: 472: void
-[; ;print.c: 473: indicator(unsigned char indicate) {
+[; ;print.c: 473: indicator(uint8_t indicate) {
 [e :U _indicator ]
 [v _indicate `uc ~T0 @X0 1 r1 ]
 [f ]
@@ -1148,9 +1177,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _output_putch ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;print.c: 499: lcd_putch(c);
+[; ;print.c: 499: lcd_send((c), 1);
 "499
-[e ( _lcd_putch (1 _c ]
+[e ( _lcd_send (2 , _c -> -> 1 `i `uc ]
+[; ;print.c: 502: ser_putch(c);
+"502
+[e ( _ser_putch (1 _c ]
 [; ;print.c: 504: }
 "504
 [e :UE 99 ]

@@ -7,6 +7,6 @@
 ../../../lib/device.h  \
 ../../../lib/buffer.h  \
 ../../../lib/typedef.h  \
-../../../lib/uart.h  \
+../../../lib/ser.h  \
 ../../../lib/lcd44780.h  \
 ../../../src/lcd44780-config.h 

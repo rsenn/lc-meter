@@ -19,7 +19,7 @@
         <itemPath>../../../lib/format.c</itemPath>
         <itemPath>../../../lib/lcd44780.c</itemPath>
         <itemPath>../../../lib/timer.c</itemPath>
-        <itemPath>../../../lib/uart.c</itemPath>
+        <itemPath>../../../lib/ser.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="src" projectFiles="true">
         <itemPath>../../../src/measure.c</itemPath>
@@ -107,7 +107,7 @@
         <property key="undefine-macros" value=""/>
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
-        <property key="verbose" value="false"/>
+        <property key="verbose" value="true"/>
         <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
       </HI-TECH-COMP>
@@ -134,7 +134,7 @@
         <property key="display-class-usage" value="false"/>
         <property key="display-hex-usage" value="false"/>
         <property key="display-overall-usage" value="true"/>
-        <property key="display-psect-usage" value="false"/>
+        <property key="display-psect-usage" value="true"/>
         <property key="extra-lib-directories" value=""/>
         <property key="fill-flash-options-addr" value=""/>
         <property key="fill-flash-options-const" value=""/>
@@ -158,7 +158,7 @@
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <VSMViewerPlatformTool>
-        <property key="design.file" value=""/>
+        <property key="design.file" value="../../../proteus/LCmeter18f25k50.pdsprj"/>
         <property key="target.ip.address" value="localhost"/>
         <property key="target.ip.port" value="8001"/>
       </VSMViewerPlatformTool>

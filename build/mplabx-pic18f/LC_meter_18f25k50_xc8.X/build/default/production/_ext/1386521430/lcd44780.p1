@@ -5893,19 +5893,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;tsmdelay.h: 50: typedef struct dvars {
-[; ;tsmdelay.h: 51: unsigned char loop_x, loop_b, loop_c;
+[; ;tsmdelay.h: 51: uint8_t loop_x, loop_b, loop_c;
 [; ;tsmdelay.h: 52: } dvars;
 [; ;tsmdelay.h: 68: extern dvars dvar;
 [; ;tsmdelay.h: 78: void cycle_eater(void);
-[; ;delay.h: 46: void Delay100TCYx(unsigned char);
-[; ;delay.h: 47: void Delay10KTCYx(unsigned char);
-[; ;delay.h: 48: void Delay10TCYx(unsigned char);
-[; ;delay.h: 49: void Delay1KTCYx(unsigned char);
+[; ;delay.h: 46: void Delay100TCYx(uint8_t);
+[; ;delay.h: 47: void Delay10KTCYx(uint8_t);
+[; ;delay.h: 48: void Delay10TCYx(uint8_t);
+[; ;delay.h: 49: void Delay1KTCYx(uint8_t);
 [; ;lcd44780.h: 48: void lcd_init(char fourbitmode);
-[; ;lcd44780.h: 49: void lcd_begin(unsigned char l, unsigned char ds);
+[; ;lcd44780.h: 49: void lcd_begin(uint8_t l, uint8_t ds);
 [; ;lcd44780.h: 50: void lcd_no_autoscroll(void);
 [; ;lcd44780.h: 51: void lcd_autoscroll(void);
 [; ;lcd44780.h: 52: void lcd_right_to_left(void);
@@ -5920,11 +5946,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd44780.h: 61: void lcd_no_display();
 [; ;lcd44780.h: 62: void lcd_clear();
 [; ;lcd44780.h: 63: void lcd_home();
-[; ;lcd44780.h: 64: void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-[; ;lcd44780.h: 65: void lcd_print_float(float number, unsigned char digits);
+[; ;lcd44780.h: 64: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;lcd44780.h: 65: void lcd_print_float(float number, uint8_t digits);
 [; ;lcd44780.h: 66: void lcd_puts(const char* string);
-[; ;lcd44780.h: 68: void lcd_gotoxy(unsigned char col, unsigned char row);
-[; ;lcd44780.h: 70: void lcd_send(unsigned char value, unsigned char mode);
+[; ;lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
+[; ;lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -5964,7 +5990,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCD_mode `uc ~T0 @X0 1 s ]
 "40
 [v _LCD_lines `uc ~T0 @X0 1 s ]
-[; ;lcd44780.c: 37: static unsigned char LCD_function, LCD_ctrl, LCD_mode
+[; ;lcd44780.c: 37: static uint8_t LCD_function, LCD_ctrl, LCD_mode
 [; ;lcd44780.c: 39: ,
 [; ;lcd44780.c: 40: LCD_lines
 [; ;lcd44780.c: 42: ;
@@ -5972,7 +5998,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_write4bits `(v ~T0 @X0 1 sf1`uc ]
 {
 [; ;lcd44780.c: 55: static void
-[; ;lcd44780.c: 56: lcd_write4bits(unsigned char value) {
+[; ;lcd44780.c: 56: lcd_write4bits(uint8_t value) {
 [e :U _lcd_write4bits ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [f ]
@@ -5996,7 +6022,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_send `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [; ;lcd44780.c: 124: void
-[; ;lcd44780.c: 125: lcd_send(unsigned char value, unsigned char mode) {
+[; ;lcd44780.c: 125: lcd_send(uint8_t value, uint8_t mode) {
 [e :U _lcd_send ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [v _mode `uc ~T0 @X0 1 r2 ]
@@ -6041,7 +6067,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_command `(v ~T0 @X0 1 sf1`uc ]
 {
 [; ;lcd44780.c: 148: static void
-[; ;lcd44780.c: 149: lcd_command(unsigned char value) {
+[; ;lcd44780.c: 149: lcd_command(uint8_t value) {
 [e :U _lcd_command ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [f ]
@@ -6056,13 +6082,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_gotoxy `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [; ;lcd44780.c: 156: void
-[; ;lcd44780.c: 157: lcd_gotoxy(unsigned char col, unsigned char row) {
+[; ;lcd44780.c: 157: lcd_gotoxy(uint8_t col, uint8_t row) {
 [e :U _lcd_gotoxy ]
 [v _col `uc ~T0 @X0 1 r1 ]
 [v _row `uc ~T0 @X0 1 r2 ]
 [f ]
-[v F6446 `uc ~T0 @X0 -> 0 `x s ]
-[i F6446
+[v F6470 `uc ~T0 @X0 -> 0 `x s ]
+[i F6470
 :U ..
 "159
 -> -> 0 `i `uc
@@ -6072,8 +6098,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _row_offsets `uc ~T0 @X0 4  a ]
-[; ;lcd44780.c: 159: unsigned char row_offsets[] = {0x00, 0x40, 0x14, 0x54};
-[e = _row_offsets F6446 ]
+[; ;lcd44780.c: 159: uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
+[e = _row_offsets F6470 ]
 [; ;lcd44780.c: 168: if(LCD_lines == 1) {
 "168
 [e $ ! == -> _LCD_lines `i -> 1 `i 903  ]
@@ -6108,7 +6134,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 "186
 [v _i `uc ~T0 @X0 1 a ]
-[; ;lcd44780.c: 186: unsigned char i;
+[; ;lcd44780.c: 186: uint8_t i;
 [; ;lcd44780.c: 187: for(i = 0; string[i]; i++) lcd_send((string[i]), 1);
 "187
 {
@@ -6126,12 +6152,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 904 ]
 }
 "214
-[v _lcd_print_number `(v ~T0 @X0 1 ef3`us`uc`c ]
+[v _lcd_print_number `(v ~T0 @X0 1 ef3`ui`uc`c ]
 {
 [; ;lcd44780.c: 213: void
-[; ;lcd44780.c: 214: lcd_print_number(unsigned short int n, unsigned char base, signed char pad ) {
+[; ;lcd44780.c: 214: lcd_print_number(uint16_t n, uint8_t base, int8_t pad ) {
 [e :U _lcd_print_number ]
-[v _n `us ~T0 @X0 1 r1 ]
+[v _n `ui ~T0 @X0 1 r1 ]
 [v _base `uc ~T0 @X0 1 r2 ]
 [v _pad `c ~T0 @X0 1 r3 ]
 [f ]
@@ -6141,9 +6167,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _di `uc ~T0 @X0 1 a ]
 "217
 [v _i `c ~T0 @X0 1 a ]
-[; ;lcd44780.c: 215: unsigned char buf[8 * sizeof(long)];
-[; ;lcd44780.c: 216: unsigned char di;
-[; ;lcd44780.c: 217: signed char i = 0;
+[; ;lcd44780.c: 215: uint8_t buf[8 * sizeof(long)];
+[; ;lcd44780.c: 216: uint8_t di;
+[; ;lcd44780.c: 217: int8_t i = 0;
 [e = _i -> -> 0 `i `c ]
 "218
 [v _padchar `uc ~T0 @X0 1 a ]
@@ -6169,17 +6195,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;lcd44780.c: 234: di = n % base;
 "234
-[e = _di -> % -> _n `ui -> _base `ui `uc ]
-[; ;lcd44780.c: 235: buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
+[e = _di -> % _n -> _base `ui `uc ]
+[; ;lcd44780.c: 235: buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 "235
 [e = *U + &U _buf * -> -> ++ _i -> -> 1 `i `c `uc `ux -> -> # *U &U _buf `ui `ux -> ? < -> _di `i -> 10 `i : + -> -> -> 48 `ui `uc `i -> _di `i - + -> -> -> 65 `ui `uc `i -> _di `i -> 10 `i `uc ]
 [; ;lcd44780.c: 237: n /= base;
 "237
-[e =/ _n -> _base `us ]
+[e =/ _n -> _base `ui ]
 "238
 }
 [; ;lcd44780.c: 238: } while(n > 0);
-[e $ > -> _n `ui -> -> 0 `i `ui 913  ]
+[e $ > _n -> -> 0 `i `ui 913  ]
 [e :U 912 ]
 [; ;lcd44780.c: 240: while(pad-- >= i) lcd_send((padchar), 1);
 "240
@@ -6189,13 +6215,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 914 ]
 [e $ >= -> -- _pad -> -> 1 `i `c `i -> _i `i 915  ]
 [e :U 916 ]
-[; ;lcd44780.c: 242: for(; i > 0; i--) lcd_send(((char)buf[(signed short int)i - 1]), 1);
+[; ;lcd44780.c: 242: for(; i > 0; i--) lcd_send(((char)buf[(int16_t)i - 1]), 1);
 "242
 {
 [e $ > -> _i `i -> 0 `i 917  ]
 [e $U 918  ]
 [e :U 917 ]
-[e ( _lcd_send (2 , *U + &U _buf * -> -> - -> -> _i `s `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux -> -> 1 `i `uc ]
+[e ( _lcd_send (2 , *U + &U _buf * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux -> -> 1 `i `uc ]
 [e -- _i -> -> 1 `i `c ]
 [e $ > -> _i `i -> 0 `i 917  ]
 [e :U 918 ]
@@ -6344,7 +6370,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _lcd_begin `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [; ;lcd44780.c: 432: void
-[; ;lcd44780.c: 433: lcd_begin(unsigned char lines, unsigned char dotsize) {
+[; ;lcd44780.c: 433: lcd_begin(uint8_t lines, uint8_t dotsize) {
 [e :U _lcd_begin ]
 [v _lines `uc ~T0 @X0 1 r1 ]
 [v _dotsize `uc ~T0 @X0 1 r2 ]

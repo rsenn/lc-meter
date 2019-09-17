@@ -1302,26 +1302,112 @@ extern __bit __timeout;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 68 "../../../lib/timer.h"
-void timer0_init(unsigned char);
+void timer0_init(uint8_t);
 
 # 75
 unsigned short timer0_read_ps(void);
 
 # 105
-void timer1_init(unsigned char ps_mode);
+void timer1_init(uint8_t ps_mode);
 
 # 143
-void timer2_init(unsigned char ps_mode);
+void timer2_init(uint8_t ps_mode);
 
 # 26 "../../../lib/timer.c"
 void
-timer0_init(unsigned char ps_mode) {
-unsigned char prescaler = ps_mode & 0b1111;
+timer0_init(uint8_t ps_mode) {
+uint8_t prescaler = ps_mode & 0b1111;
 
 TMR0 = 0;
 
@@ -1350,8 +1436,8 @@ INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
 
 unsigned short
 timer0_read_ps(void) {
-unsigned char prev = TMR0;
-unsigned short int count = 0;
+uint8_t prev = TMR0;
+uint16_t count = 0;
 
 OPTION_REG |= 0x20;
 
@@ -1378,7 +1464,7 @@ return count;
 
 # 91
 void
-timer1_init(unsigned char ps_mode) {
+timer1_init(uint8_t ps_mode) {
 
 T1CON &= ~0b00111110;
 
@@ -1407,9 +1493,9 @@ PIE1 |= !!(ps_mode & 0x80);
 
 # 124
 void
-timer2_init(unsigned char ps_mode) {
-unsigned char ps = ps_mode & 0b1111;
-unsigned char postscaler = 0;
+timer2_init(uint8_t ps_mode) {
+uint8_t ps = ps_mode & 0b1111;
+uint8_t postscaler = 0;
 
 
 T2CON &= ~0b01111111;
