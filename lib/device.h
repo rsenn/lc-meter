@@ -399,6 +399,22 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #if defined(__SDCC) || defined(SDCC)
 #define NOP() __asm nop __endasm
+
+#define GIE INTCONbits.GIE
+#define PEIE INTCONbits.PEIE
+#define RCIF PIR1bits.RCIF
+#define TXIF PIR1bits.TXIF
+#define RCIE PIE1bits.RCIE
+#define TXIE PIE1bits.TXIE
+#define RCEN RCSTAbits.RCEN
+#define RX9 RCSTAbits.RX9
+#define OERR RCSTAbits.OERR
+#define CREN RCSTAbits.CREN
+#define SPEN RCSTAbits.SPEN
+#define TXEN TXSTAbits.TXEN
+#define TX9 TXSTAbits.TX9
+#define BRGH TXSTAbits.BRGH
+#define SYNC TXSTAbits.SYNC
 #endif
 
 #endif /* DEVICE_H */

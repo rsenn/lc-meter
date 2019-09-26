@@ -17,9 +17,9 @@
 #define SER_RX_TRIS TRISB1
 #else
 #define SER_TX_PIN OUTC6
-#define SER_TX_TRIS TRISC6
+#define SER_TX_TRIS() TRISC &= ~0x40
 #define SER_RX_PIN OUTC7
-#define SER_RX_TRIS TRISC7
+#define SER_RX_TRIS() TRISC |= 0x80
 #endif
 
 /* Valid buffer size value are only power of 2 (ex: 2,4,..,64,128) */

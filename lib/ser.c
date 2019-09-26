@@ -96,10 +96,9 @@ ser_puthex(uint8_t v) {
 
 void
 ser_init(void) {
-  /*SER_TX_TRIS =  OUTPUT;
-  SER_TX_PIN = LOW;*/
-  SER_TX_TRIS = INPUT;
-  SER_RX_PIN = INPUT;
+  SER_TX_TRIS();
+  //SER_TX_PIN = LOW;
+  SER_RX_TRIS();
 
   BRGH = HIGH_SPEED; // high speed
   //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
