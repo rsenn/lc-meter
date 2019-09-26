@@ -5,7 +5,6 @@ _print_reading 1DF1 0 CODE 0
 _F1 1BC 0 BANK3 1
 _F2 190 0 BANK3 1
 _F3 194 0 BANK3 1
-_RC7 3F 0 ABS 0
 __S0 2008 0 ABS 0
 __S1 1E4 0 ABS 0
 __S2 0 0 ABS 0
@@ -83,7 +82,6 @@ lcd_puts@i 25 0 BANK0 1
 __size_of_frexp 0 0 ABS 0
 ___fldiv@f1 2F 0 BANK0 1
 _LCD_mode 1A8 0 BANK3 1
-_log10$1020 AE 0 BANK1 1
 __size_of_log 0 0 ABS 0
 log@coeff 183A 0 STRCODE 0
 put_str@s 24 0 BANK0 1
@@ -124,9 +122,9 @@ wtemp6 7F 0 ABS 0
 ___fldiv@f2 2B 0 BANK0 1
 ?___flneg 21 0 BANK0 1
 _lcd_send FEE 0 CODE 0
+_print_reading$1003 53 0 BANK0 1
 interrupt_function 4 0 CODE 0
-_print_reading$1004 53 0 BANK0 1
-_print_reading$1005 55 0 BANK0 1
+_print_reading$1004 55 0 BANK0 1
 __Hconfig 2008 0 CONFIG 0
 __Lconfig 2007 0 CONFIG 0
 measure_inductance@Lin E3 0 BANK1 1
@@ -144,12 +142,13 @@ __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 pow@yi EB 0 BANK1 1
 _blink 1A4 0 BANK3 1
-__end_of_timer2_init 1BFA 0 CODE 0
+__end_of_timer2_init 1BFC 0 CODE 0
 ___flge@ff1 21 0 BANK0 1
 __end_of_lcd_puts 1E87 0 CODE 0
 _msecs 198 0 BANK3 1
 __size_of_lcd_command 0 0 ABS 0
 __size_of_measure_capacitance 0 0 ABS 0
+_ldexp$660 AC 0 BANK1 1
 _ldexp 1D40 0 CODE 0
 _floor 5B2 0 CODE 0
 ___altofl 79C 0 CODE 0
@@ -159,7 +158,6 @@ ___awtofl 16FD 0 CODE 0
 ___flmul@cntr 4F 0 BANK0 1
 ___lwtofl 17ED 0 CODE 0
 ___fldiv@cntr 3B 0 BANK0 1
-_ldexp$661 AC 0 BANK1 1
 _lcd_write4bits 3D5 0 CODE 0
 __end_of_print_indicator 1DF1 0 CODE 0
 __Hfunctab 0 0 CODE 0
@@ -168,7 +166,6 @@ _LCD_ctrl 1A6 0 BANK3 1
 _delay10ms 2CA 0 CODE 0
 ___flge@ff2 25 0 BANK0 1
 ?_log10 AA 0 BANK1 1
-_TRISC6 43E 0 ABS 0
 ?___fltol B2 0 BANK1 1
 measure_capacitance@Cin 13F 0 BANK2 1
 _OPTION_REG 81 0 ABS 0
@@ -182,7 +179,7 @@ ___int_sp 0 0 STACK 2
 ?___fldiv 2B 0 BANK0 1
 _lcd_init 18 0 CODE 0
 measure_capacitance@var 13D 0 BANK2 1
-_ser_init 1BFA 0 CODE 0
+_ser_init 1BFC 0 CODE 0
 print_reading@measurement 51 0 BANK0 1
 ser_puts@s 21 0 BANK0 1
 ?___lwdiv 21 0 BANK0 1
@@ -217,6 +214,7 @@ ___fladd@sign 5D 0 BANK0 1
 format_number@di 4F 0 BANK0 1
 __Hcode 0 0 ABS 0
 __Lcode 0 0 ABS 0
+_log10$1019 AE 0 BANK1 1
 ___flge F30 0 CODE 0
 measure_inductance@unit D4 0 BANK1 1
 floor@x C1 0 BANK1 1
@@ -236,13 +234,13 @@ __Hinit 11 0 CODE 0
 __Linit E 0 CODE 0
 _lcd_clear 2CB 0 CODE 0
 lcd_gotoxy@col 25 0 BANK0 1
+_exp$754 D3 0 BANK1 1
 __end_of_main 13C 0 CODE 0
 ?_ldexp A4 0 BANK1 1
 __size_of___lwtofl 0 0 ABS 0
 format_double@weight 1CC 0 BANK3 1
 ?_floor C1 0 BANK1 1
 ?___altofl BC 0 BANK1 1
-_exp$755 D3 0 BANK1 1
 ?_frexp 21 0 BANK0 1
 _timer0_init$115 23 0 BANK0 1
 __end_of_ldexp 1DD7 0 CODE 0
@@ -297,12 +295,12 @@ ___latbits 2 0 ABS 0
 ___fldiv@exp 3C 0 BANK0 1
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 1BE3 0 CODE 0
+__ptext1 1BE5 0 CODE 0
 __ptext2 1C3D 0 CODE 0
 __HdataBANK3 0 0 ABS 0
 __LdataBANK3 0 0 ABS 0
 lcd_send@mode 21 0 BANK0 1
-__ptext3 1BFA 0 CODE 0
+__ptext3 1BFC 0 CODE 0
 __pdataBANK3 1DF 0 BANK3 1
 __ptext4 1DD7 0 CODE 0
 __ptext5 9A4 0 CODE 0
@@ -317,7 +315,7 @@ _timer0_init 1C3D 0 CODE 0
 __size_of___altofl 0 0 ABS 0
 __ptext9 1E60 0 CODE 0
 __pcstackBANK1 A0 0 BANK1 1
-_timer2_init 1BE3 0 CODE 0
+_timer2_init 1BE5 0 CODE 0
 __size_of_lcd_init 0 0 ABS 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
@@ -336,18 +334,18 @@ measure_inductance@denominator C0 0 BANK1 1
 ___fladd 8C5 0 CODE 0
 _buffer_init 2DB 0 CODE 0
 __end_of_frexp 79C 0 CODE 0
+_pow$1020 E2 0 BANK1 1
 _timer0_read_ps 302 0 CODE 0
-_pow$1021 E2 0 BANK1 1
+_pow$1021 E6 0 BANK1 1
 ldexp@value A4 0 BANK1 1
 __end_of___flpack 17ED 0 CODE 0
 frexp@value 21 0 BANK0 1
 __end_of_exp 5B2 0 CODE 0
 __end_of_lcd_gotoxy FAD 0 CODE 0
-_pow$1022 E6 0 BANK1 1
+_exp$1022 CF 0 BANK1 1
 __Hidloc 0 0 IDLOC 0
 __Lidloc 0 0 IDLOC 0
 __size_of_pow 0 0 ABS 0
-_exp$1023 CF 0 BANK1 1
 ___flneg 7D4 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
@@ -494,8 +492,8 @@ __Hend_init 14 0 CODE 0
 __Lend_init 11 0 CODE 0
 ___flpack@exp 25 0 BANK0 1
 __size_of_measure_freq 0 0 ABS 0
-_format_double$1008 1C4 0 BANK3 1
-_format_double$1009 1C8 0 BANK3 1
+_format_double$1007 1C4 0 BANK3 1
+_format_double$1008 1C8 0 BANK3 1
 ___lwdiv@divisor 21 0 BANK0 1
 __end_of_buffer_init 2E2 0 CODE 0
 __end_of_pow 1FE9 0 CODE 0
@@ -537,26 +535,25 @@ print_buffer@i 75 0 COMMON 1
 _lcd_command 3CE 0 CODE 0
 __end_of_ser_putch 1456 0 CODE 0
 __size_of_lcd_begin 0 0 ABS 0
-_measure_capacitance$1010 130 0 BANK2 1
-_measure_inductance$1013 C4 0 BANK1 1
-_measure_inductance$1014 D5 0 BANK1 1
+_measure_inductance$1012 C4 0 BANK1 1
+_measure_capacitance$1010 134 0 BANK2 1
+_measure_inductance$1013 D5 0 BANK1 1
+_measure_inductance$1014 D9 0 BANK1 1
 __size_of___flpack 0 0 ABS 0
-_measure_capacitance$1011 134 0 BANK2 1
-_measure_inductance$1015 D9 0 BANK1 1
+_measure_capacitance$1011 138 0 BANK2 1
+_measure_inductance$1015 DD 0 BANK1 1
 __size_of___lwmod 0 0 ABS 0
 __size_of___fltol 0 0 ABS 0
-_measure_inductance$1016 DD 0 BANK1 1
-_measure_capacitance$1012 138 0 BANK2 1
+_measure_inductance$1016 C8 0 BANK1 1
 __HidataBANK3 0 0 ABS 0
 __LidataBANK3 0 0 ABS 0
 __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
-_measure_inductance$1017 C8 0 BANK1 1
+_measure_inductance$1017 CC 0 BANK1 1
 __pidataBANK3 0 0 CODE 0
-_measure_inductance$1018 CC 0 BANK1 1
+_measure_inductance$1018 D0 0 BANK1 1
 __pcstackCOMMON 70 0 COMMON 1
 timer2_init@ps 22 0 BANK0 1
-_measure_inductance$1019 D0 0 BANK1 1
 __end_of_print_reading 1E36 0 CODE 0
 format_number@pad 2B 0 BANK0 1
 __CFG_CPD$OFF 0 0 ABS 0
@@ -570,6 +567,7 @@ __end_of_format_double 15F9 0 CODE 0
 __end_of_format_number 179E 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
+_measure_capacitance$1009 130 0 BANK2 1
 __pmaintext 38 0 CODE 0
 ?_eval_poly 60 0 BANK0 1
 timer0_read_ps@count 26 0 BANK0 1
@@ -619,8 +617,8 @@ text22 38FA 397B CODE 38FA 0
 text2 387A 38F9 CODE 387A 0
 text7 3828 3879 CODE 3828 0
 text30 30 6F CODE 30 0
-text3 37F4 3827 CODE 37F4 0
-text1 37C6 37F3 CODE 37C6 0
+text3 37F8 3827 CODE 37F8 0
+text1 37CA 37F7 CODE 37CA 0
 clrtext 2008 2017 CODE 2008 0
 %locals
 dist/debug_vsm/production/startup.obj
@@ -641,56 +639,56 @@ dist/debug_vsm/production/startup.as
 110 11 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.obj
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1606 7DD 0 CODE 0
-1609 7DD 0 CODE 0
-1709 7DD 0 CODE 0
-1710 7DE 0 CODE 0
-1711 7DF 0 CODE 0
-1712 7E0 0 CODE 0
-1715 7E1 0 CODE 0
-1716 7E2 0 CODE 0
-1717 7E3 0 CODE 0
-1718 7E4 0 CODE 0
-1719 7E5 0 CODE 0
-1722 7EA 0 CODE 0
-1723 7EB 0 CODE 0
-1724 7EC 0 CODE 0
-1725 7ED 0 CODE 0
-1730 7F0 0 CODE 0
-1731 7F1 0 CODE 0
+1602 7DD 0 CODE 0
+1605 7DD 0 CODE 0
+1705 7DD 0 CODE 0
+1706 7DE 0 CODE 0
+1707 7DF 0 CODE 0
+1708 7E0 0 CODE 0
+1711 7E1 0 CODE 0
+1712 7E2 0 CODE 0
+1713 7E3 0 CODE 0
+1714 7E4 0 CODE 0
+1715 7E5 0 CODE 0
+1718 7EA 0 CODE 0
+1719 7EB 0 CODE 0
+1720 7EC 0 CODE 0
+1721 7ED 0 CODE 0
+1726 7F0 0 CODE 0
+1727 7F1 0 CODE 0
 ../../../lib/lcd44780.c
 135 7F2 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1733 7F3 0 CODE 0
+1729 7F3 0 CODE 0
 ../../../lib/lcd44780.c
 135 7F4 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1735 7F5 0 CODE 0
+1731 7F5 0 CODE 0
 ../../../lib/lcd44780.c
 135 7F6 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1737 7F7 0 CODE 0
+1733 7F7 0 CODE 0
 ../../../lib/lcd44780.c
 135 7F8 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1739 7F9 0 CODE 0
+1735 7F9 0 CODE 0
 ../../../LC-meter.c
 48 7FA 0 CODE 0
 dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
-1741 7FB 0 CODE 0
-1747 7FC 0 CODE 0
-1748 7FC 0 CODE 0
-1749 7FD 0 CODE 0
-1696 1004 0 CODE 0
-1697 1004 0 CODE 0
-1698 1005 0 CODE 0
-1699 1005 0 CODE 0
-1700 1006 0 CODE 0
-1701 1007 0 CODE 0
-1702 1008 0 CODE 0
-1703 1009 0 CODE 0
-1704 100A 0 CODE 0
-1705 100B 0 CODE 0
+1737 7FB 0 CODE 0
+1743 7FC 0 CODE 0
+1744 7FC 0 CODE 0
+1745 7FD 0 CODE 0
+1692 1004 0 CODE 0
+1693 1004 0 CODE 0
+1694 1005 0 CODE 0
+1695 1005 0 CODE 0
+1696 1006 0 CODE 0
+1697 1007 0 CODE 0
+1698 1008 0 CODE 0
+1699 1009 0 CODE 0
+1700 100A 0 CODE 0
+1701 100B 0 CODE 0
 ../../../LC-meter.c
 113 38 0 CODE 0
 114 38 0 CODE 0
@@ -741,16 +739,16 @@ dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
 233 135 0 CODE 0
 234 13B 0 CODE 0
 ../../../lib/timer.c
-130 1BE3 0 CODE 0
-131 1BE4 0 CODE 0
-135 1BE7 0 CODE 0
-137 1BE9 0 CODE 0
-138 1BEA 0 CODE 0
-140 1BED 0 CODE 0
-142 1BEE 0 CODE 0
-145 1BEF 0 CODE 0
-146 1BF0 0 CODE 0
-147 1BF9 0 CODE 0
+130 1BE5 0 CODE 0
+131 1BE6 0 CODE 0
+135 1BE9 0 CODE 0
+137 1BEB 0 CODE 0
+138 1BEC 0 CODE 0
+140 1BEF 0 CODE 0
+142 1BF0 0 CODE 0
+145 1BF1 0 CODE 0
+146 1BF2 0 CODE 0
+147 1BFB 0 CODE 0
 27 1C3D 0 CODE 0
 28 1C3F 0 CODE 0
 30 1C42 0 CODE 0
@@ -764,21 +762,21 @@ dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as
 60 1C72 0 CODE 0
 61 1C7C 0 CODE 0
 ../../../lib/ser.c
-98 1BFA 0 CODE 0
-101 1BFA 0 CODE 0
-102 1BFC 0 CODE 0
-104 1BFE 0 CODE 0
-110 1C00 0 CODE 0
-113 1C02 0 CODE 0
-114 1C03 0 CODE 0
-116 1C05 0 CODE 0
-117 1C07 0 CODE 0
-118 1C09 0 CODE 0
-119 1C0A 0 CODE 0
-121 1C0C 0 CODE 0
-122 1C0D 0 CODE 0
-124 1C0E 0 CODE 0
-125 1C13 0 CODE 0
+98 1BFC 0 CODE 0
+99 1BFC 0 CODE 0
+101 1BFE 0 CODE 0
+103 1BFF 0 CODE 0
+109 1C00 0 CODE 0
+112 1C02 0 CODE 0
+113 1C03 0 CODE 0
+115 1C05 0 CODE 0
+116 1C07 0 CODE 0
+117 1C09 0 CODE 0
+118 1C0A 0 CODE 0
+120 1C0C 0 CODE 0
+121 1C0D 0 CODE 0
+123 1C0E 0 CODE 0
+124 1C13 0 CODE 0
 ../../../src/print.c
 184 1DD7 0 CODE 0
 198 1DDA 0 CODE 0

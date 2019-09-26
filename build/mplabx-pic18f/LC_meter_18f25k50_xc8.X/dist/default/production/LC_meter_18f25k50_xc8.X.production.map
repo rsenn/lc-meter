@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.34/dat/en_msgs.txt -cs \
   -h+dist/default/production/LC_meter_18f25k50_xc8.X.production.sym \
   --cmf=dist/default/production/LC_meter_18f25k50_xc8.X.production.cmf -z \
-  -Q18F25K50 -o/tmp/cgt02l9LR \
+  -Q18F25K50 -o/tmp/cgtRlVzr3 \
   -Mdist/default/production/LC_meter_18f25k50_xc8.X.production.map -E1 \
   -ver=XC8 -ASTACK=0120h-07ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/cgtUOLMJ7.obj \
+  /tmp/cgtdKlPir.obj \
   dist/default/production/LC_meter_18f25k50_xc8.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtUOLMJ7.obj
+/tmp/cgtdKlPir.obj
                 end_init                             C2       C2        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -298,23 +298,23 @@ UNUSED ADDRESS RANGES
 ?_timer0_read_ps               cstackCOMRAM 000004
 PL10                           text6        001102
 PL12                           text28       0017F8
-PL14                           text6        001118
-PL16                           text26       0020B8
-PL18                           text27       001E8E
+PL14                           text26       0020B8
+PL16                           text27       001E8E
+PL18                           text6        001118
 PL2                            text5        000D26
 PL20                           text6        00112A
 PL22                           text6        00113C
-PL24                           text9        0027FA
-PL26                           text24       001924
-PL28                           text6        00114E
-PL30                           text33       002824
-PL32                           text6        00115E
+PL24                           text24       001924
+PL26                           text6        00114E
+PL28                           text33       002824
+PL30                           text6        00115E
+PL32                           text9        0027FA
 PL34                           text6        00116E
 PL36                           text27       001EA0
 PL38                           text53       001F64
 PL4                            text6        0010BE
-PL40                           text38       002952
-PL42                           text44       002970
+PL40                           text44       002970
+PL42                           text38       002952
 PL6                            text6        0010E0
 PL8                            text5        000D48
 _BRGH                          (abs)        007D62
@@ -328,7 +328,6 @@ _INTCON                        (abs)        000FF2
 _INTCON2                       (abs)        000FF1
 _LATB                          (abs)        000F8A
 _LATC                          (abs)        000F8B
-_LATC7                         (abs)        007C5F
 _LCD_ctrl                      bssBANK0     0000D0
 _LCD_function                  bssCOMRAM    00005A
 _LCD_lines                     bssBANK0     0000D1
@@ -350,7 +349,6 @@ _TMR2                          (abs)        000FBC
 _TRISA                         (abs)        000F92
 _TRISB                         (abs)        000F93
 _TRISC                         (abs)        000F94
-_TRISC6                        (abs)        007CA6
 _TX9                           (abs)        007D66
 _TXEN                          (abs)        007D65
 _TXIE                          (abs)        007CEC
@@ -679,23 +677,23 @@ __accesstop                    (abs)        000060
 __activetblptr                 (abs)        000001
 __end_ofPL10                   text6        001118
 __end_ofPL12                   text28       00180C
-__end_ofPL14                   text6        00112A
-__end_ofPL16                   text26       0020CA
-__end_ofPL18                   text27       001EA0
+__end_ofPL14                   text26       0020CA
+__end_ofPL16                   text27       001EA0
+__end_ofPL18                   text6        00112A
 __end_ofPL2                    text5        000D48
 __end_ofPL20                   text6        00113C
 __end_ofPL22                   text6        00114E
-__end_ofPL24                   text9        00280A
-__end_ofPL26                   text24       001934
-__end_ofPL28                   text6        00115E
-__end_ofPL30                   text33       002834
-__end_ofPL32                   text6        00116E
+__end_ofPL24                   text24       001934
+__end_ofPL26                   text6        00115E
+__end_ofPL28                   text33       002834
+__end_ofPL30                   text6        00116E
+__end_ofPL32                   text9        00280A
 __end_ofPL34                   text6        00117C
 __end_ofPL36                   text27       001EAE
 __end_ofPL38                   text53       001F70
 __end_ofPL4                    text6        0010E0
-__end_ofPL40                   text38       00295C
-__end_ofPL42                   text44       00297A
+__end_ofPL40                   text44       00297A
+__end_ofPL42                   text38       00295C
 __end_ofPL6                    text6        001102
 __end_ofPL8                    text5        000D5E
 __end_of___altofl              text18       002632
@@ -890,11 +888,11 @@ _calibrate                     text32       001C34
 _delay10ms                     text51       0029F6
 _eval_poly                     text26       002020
 _exp                           text13       00117C
-_exp$1123                      cstackBANK0  000075
+_exp$1122                      cstackBANK0  000075
 _floor                         text15       001B42
 _format_double                 text11       00152A
-_format_double$1106            cstackBANK0  000095
-_format_double$1107            cstackBANK0  000099
+_format_double$1105            cstackBANK0  000095
+_format_double$1106            cstackBANK0  000099
 _format_number                 text41       0020CA
 _format_number$68              cstackCOMRAM 000031
 _format_xint32                 text10       002724
@@ -912,34 +910,34 @@ _lcd_write4bits                text50       0028FC
 _ldexp                         text14       002172
 _log                           text24       00180C
 _log10                         text23       00241A
-_log10$1120                    cstackCOMRAM 00004E
+_log10$1119                    cstackCOMRAM 00004E
 _main                          text0        001934
-_main$404                      cstackBANK0  0000B8
+_main$403                      cstackBANK0  0000B8
 _measure_capacitance           text6        000D5E
-_measure_capacitance$1108      cstackBANK0  0000A5
-_measure_capacitance$1109      cstackBANK0  0000A9
-_measure_capacitance$1110      cstackBANK0  0000AD
+_measure_capacitance$1107      cstackBANK0  0000A5
+_measure_capacitance$1108      cstackBANK0  0000A9
+_measure_capacitance$1109      cstackBANK0  0000AD
 _measure_freq                  text35       001A48
 _measure_inductance            text5        0008FC
-_measure_inductance$1111       cstackBANK0  00006A
-_measure_inductance$1112       cstackBANK0  00007B
-_measure_inductance$1113       cstackBANK0  00007F
-_measure_inductance$1114       cstackBANK0  000083
-_measure_inductance$1115       cstackBANK0  00006E
-_measure_inductance$1116       cstackBANK0  000072
-_measure_inductance$1117       cstackBANK0  000076
+_measure_inductance$1110       cstackBANK0  00006A
+_measure_inductance$1111       cstackBANK0  00007B
+_measure_inductance$1112       cstackBANK0  00007F
+_measure_inductance$1113       cstackBANK0  000083
+_measure_inductance$1114       cstackBANK0  00006E
+_measure_inductance$1115       cstackBANK0  000072
+_measure_inductance$1116       cstackBANK0  000076
 _mode                          dataBANK0    0000F7
 _msecpart                      nvBANK0      0000F1
 _msecs                         bssBANK0     0000C2
 _output_putch                  text34       0029C6
 _pow                           text12       001398
-_pow$1121                      cstackBANK0  000084
-_pow$1122                      cstackBANK0  000088
+_pow$1120                      cstackBANK0  000084
+_pow$1121                      cstackBANK0  000088
 _print_buffer                  text37       002886
 _print_indicator               text4        00297A
 _print_reading                 text8        0023AC
-_print_reading$1118            cstackCOMRAM 000038
-_print_reading$1119            cstackCOMRAM 00003A
+_print_reading$1117            cstackCOMRAM 000038
+_print_reading$1118            cstackCOMRAM 00003A
 _print_unit                    text7        00285E
 _put_str                       text33       00280A
 _rxfifo                        bssBANK1     000100
@@ -1166,7 +1164,7 @@ Total ram usage:       12 bytes
  Return value:  Size  Location     Type
 		None               void
  Registers used:
-		wreg, status,2
+		wreg, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -3067,17 +3065,17 @@ shared
 		PL12           		CODE           	17F8	0000	21
 		PL8            		CODE           	0D48	0000	23
 		PL22           		CODE           	113C	0000	19
-		PL32           		CODE           	115E	0000	17
-		PL42           		CODE           	2970	0000	11
+		PL32           		CODE           	27FA	0000	17
+		PL42           		CODE           	2952	0000	11
 		exp@coeff      		SMALLCONST     	0801	0000	41
-		PL14           		CODE           	1118	0000	19
-		PL24           		CODE           	27FA	0000	17
+		PL14           		CODE           	20B8	0000	19
+		PL24           		CODE           	1924	0000	17
 		PL34           		CODE           	116E	0000	15
-		PL16           		CODE           	20B8	0000	19
-		PL26           		CODE           	1924	0000	17
+		PL16           		CODE           	1E8E	0000	19
+		PL26           		CODE           	114E	0000	17
 		PL36           		CODE           	1EA0	0000	15
-		PL18           		CODE           	1E8E	0000	19
-		PL28           		CODE           	114E	0000	17
+		PL18           		CODE           	1118	0000	19
+		PL28           		CODE           	2824	0000	17
 		PL38           		CODE           	1F64	0000	13
 		__initializatio		CODE           	2474	0000	63
 		log@coeff      		SMALLCONST     	0829	0000	37
@@ -3085,9 +3083,9 @@ shared
 		PL10           		CODE           	1102	0000	23
 		PL4            		CODE           	10BE	0000	35
 		PL20           		CODE           	112A	0000	19
-		PL30           		CODE           	2824	0000	17
+		PL30           		CODE           	115E	0000	17
 		PL6            		CODE           	10E0	0000	35
-		PL40           		CODE           	2952	0000	11
+		PL40           		CODE           	2970	0000	11
 
 shared estimated size: 558
 

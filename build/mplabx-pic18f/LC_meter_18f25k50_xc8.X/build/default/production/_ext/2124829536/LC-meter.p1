@@ -6235,19 +6235,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 137: INTCON2 &= ~0b10000000;
 "137
 [e =& _INTCON2 -> ~ -> 128 `i `uc ]
-[; ;LC-meter.c: 143: TRISC &= ~0b00000100;
-"143
+[; ;LC-meter.c: 145: TRISC = 0b10111011;
+"145
+[e = _TRISC -> -> 187 `i `uc ]
+[; ;LC-meter.c: 149: TRISC &= ~0b00000100;
+"149
 [e =& _TRISC -> ~ -> 4 `i `uc ]
-[; ;LC-meter.c: 144: LATC &= ~0b00000100; LATC |= (!!(1)) << 2;;
-"144
+[; ;LC-meter.c: 150: LATC &= ~0b00000100; LATC |= (!!(1)) << 2;;
+"150
 [e =& _LATC -> ~ -> 4 `i `uc ]
 [e =| _LATC -> << -> ! ! != -> 1 `i -> 0 `i `i -> 2 `i `uc ]
-[; ;LC-meter.c: 146: timer2_init(0b000 | 0x80);
-"146
+[; ;LC-meter.c: 152: timer2_init(0b000 | 0x80);
+"152
 [e ( _timer2_init (1 -> | -> 0 `i -> 128 `i `uc ]
-[; ;LC-meter.c: 151: TRISC = 0b10110101;
-"151
-[e = _TRISC -> -> 181 `i `uc ]
 [; ;LC-meter.c: 160: lcd_init(1);
 "160
 [e ( _lcd_init (1 -> -> 1 `i `uc ]

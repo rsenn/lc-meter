@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=/opt/microchip/xc8/v1.34/dat/en_msgs.txt -cs \
   -h+dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.sym \
   --cmf=dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.cmf -z \
-  -Q16F876A -o/tmp/cgtpq8Pr6 \
+  -Q16F876A -o/tmp/cgtfFNICO \
   -Mdist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.map -E1 \
   -ver=XC8 -ASTACK=0143h-016fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -47,9 +47,9 @@ dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.obj
                 text7                              1C14     1C14       29     3828       0
                 text6                              100C     100C      7F4     2018       0
                 text4                              1DD7     1DD7       D4     3BAE       0
-                text3                              1BFA     1BFA       1A     37F4       0
+                text3                              1BFC     1BFC       18     37F8       0
                 text2                              1C3D     1C3D       40     387A       0
-                text1                              1BE3     1BE3       17     37C6       0
+                text1                              1BE5     1BE5       17     37CA       0
                 maintext                             38       38      104       70       0
                 cstackBANK0                          21       21       4F       21       1
                 cstackCOMMON                         70       70        6       70       1
@@ -84,9 +84,9 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text7                              1C14     1C14       29         0
                 text6                              100C     100C      7F4         0
                 text4                              1DD7     1DD7       D4         0
-                text3                              1BFA     1BFA       1A         0
+                text3                              1BFC     1BFC       18         0
                 text2                              1C3D     1C3D       40         0
-                text1                              1BE3     1BE3       17         0
+                text1                              1BE5     1BE5       17         0
                 maintext                             38       38      104         0
                 clrtext                            1004     1004        8         0
 
@@ -159,8 +159,8 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 clrtext                        001004  000008  00100C      2008       0  CODE        2
                 text6                          00100C  0007F4  001800      2018       0  CODE        2
                 stringtext                     001800  00010C  00190C        30       0  STRCODE     2
-                text1                          001BE3  000017  001BFA      37C6       0  CODE        2
-                text3                          001BFA  00001A  001C14      37F4       0  CODE        2
+                text1                          001BE5  000017  001BFC      37CA       0  CODE        2
+                text3                          001BFC  000018  001C14      37F8       0  CODE        2
                 text7                          001C14  000029  001C3D      3828       0  CODE        2
                 text2                          001C3D  000040  001C7D      387A       0  CODE        2
                 text22                         001C7D  000041  001CBE      38FA       0  CODE        2
@@ -180,17 +180,17 @@ UNUSED ADDRESS RANGES
         CODE             0014-0017              4           2
                          0800-0805              6
                          1000-1003              4
-                         190C-1BE2            2D7
+                         190C-1BE4            2D9
         COMMON           007A-007D              4           1
         CONST            0014-0017              4           2
                          0800-0805              6
                          1000-1003              4
-                         190C-1BE2            100
+                         190C-1BE4            100
         EEDATA           2100-21FF            100           2
         ENTRY            0014-0017              4           2
                          0800-0805              6
                          1000-1003              4
-                         190C-1BE2            100
+                         190C-1BE4            100
         IDLOC            2000-2003              4           2
         RAM              00EF-00EF              1           1
                          0143-016F             2D
@@ -203,11 +203,11 @@ UNUSED ADDRESS RANGES
         STRCODE          0014-0017              4           2
                          0800-0805              6
                          1000-1003              4
-                         190C-1BE2            2D7
+                         190C-1BE4            2D9
         STRING           0014-0017              4           2
                          0800-0805              6
                          1000-1003              4
-                         190C-1BE2            100
+                         190C-1BE4            100
 
                                   Symbol Table
 
@@ -253,7 +253,6 @@ _PIE1                          (abs)        008C
 _PIR1                          (abs)        000C
 _PORTB                         (abs)        0006
 _PORTC                         (abs)        0007
-_RC7                           (abs)        003F
 _RCIF                          (abs)        0065
 _RCREG                         (abs)        001A
 _RX9                           (abs)        00C6
@@ -266,7 +265,6 @@ _TMR2                          (abs)        0011
 _TRISA                         (abs)        0085
 _TRISB                         (abs)        0086
 _TRISC                         (abs)        0087
-_TRISC6                        (abs)        043E
 _TX9                           (abs)        04C6
 _TXEN                          (abs)        04C5
 _TXIE                          (abs)        0464
@@ -486,7 +484,7 @@ __end_of_ser_putch             text6        1456
 __end_of_ser_puts              text6        1440
 __end_of_timer0_init           text2        1C7D
 __end_of_timer0_read_ps        text32       033C
-__end_of_timer2_init           text1        1BFA
+__end_of_timer2_init           text1        1BFC
 __end_ofexp@coeff              stringtext   183A
 __end_oflog@coeff              stringtext   185E
 __initialization               cinit        07DD
@@ -504,7 +502,7 @@ __pintentry                    intentry     0004
 __pmaintext                    maintext     0038
 __pnvBANK3                     nvBANK3      01D7
 __pstringtext                  stringtext   1800
-__ptext1                       text1        1BE3
+__ptext1                       text1        1BE5
 __ptext10                      text6        1456
 __ptext11                      text6        1474
 __ptext12                      text12       1EAB
@@ -526,7 +524,7 @@ __ptext26                      text25       0E98
 __ptext27                      text25       08C5
 __ptext28                      text25       0F30
 __ptext29                      text6        16FD
-__ptext3                       text3        1BFA
+__ptext3                       text3        1BFC
 __ptext30                      text30       0018
 __ptext31                      text32       033C
 __ptext32                      text32       013C
@@ -625,12 +623,12 @@ _calibrate                     text32       013C
 _delay10ms                     text32       02CA
 _eval_poly                     text25       0806
 _exp                           text13       0409
-_exp$1023                      cstackBANK1  00CF
-_exp$755                       cstackBANK1  00D3
+_exp$1022                      cstackBANK1  00CF
+_exp$754                       cstackBANK1  00D3
 _floor                         text13       05B2
 _format_double                 text6        1474
-_format_double$1008            cstackBANK3  01C4
-_format_double$1009            cstackBANK3  01C8
+_format_double$1007            cstackBANK3  01C4
+_format_double$1008            cstackBANK3  01C8
 _format_number                 text6        173E
 _format_number$158             cstackBANK0  004D
 _format_xint32                 text6        1456
@@ -646,44 +644,44 @@ _lcd_puts                      text4        1E60
 _lcd_send                      text25       0FEE
 _lcd_write4bits                text32       03D5
 _ldexp                         text14       1D40
-_ldexp$661                     cstackBANK1  00AC
+_ldexp$660                     cstackBANK1  00AC
 _log                           text13       0670
 _log10                         text22       1C7D
-_log10$1020                    cstackBANK1  00AE
+_log10$1019                    cstackBANK1  00AE
 _main                          maintext     0038
 _main$257                      cstackBANK3  01D4
 _measure_capacitance           text6        100C
-_measure_capacitance$1010      cstackBANK2  0130
-_measure_capacitance$1011      cstackBANK2  0134
-_measure_capacitance$1012      cstackBANK2  0138
+_measure_capacitance$1009      cstackBANK2  0130
+_measure_capacitance$1010      cstackBANK2  0134
+_measure_capacitance$1011      cstackBANK2  0138
 _measure_freq                  text32       0220
 _measure_inductance            text25       09A4
-_measure_inductance$1013       cstackBANK1  00C4
-_measure_inductance$1014       cstackBANK1  00D5
-_measure_inductance$1015       cstackBANK1  00D9
-_measure_inductance$1016       cstackBANK1  00DD
-_measure_inductance$1017       cstackBANK1  00C8
-_measure_inductance$1018       cstackBANK1  00CC
-_measure_inductance$1019       cstackBANK1  00D0
+_measure_inductance$1012       cstackBANK1  00C4
+_measure_inductance$1013       cstackBANK1  00D5
+_measure_inductance$1014       cstackBANK1  00D9
+_measure_inductance$1015       cstackBANK1  00DD
+_measure_inductance$1016       cstackBANK1  00C8
+_measure_inductance$1017       cstackBANK1  00CC
+_measure_inductance$1018       cstackBANK1  00D0
 _mode                          dataBANK3    01E3
 _msecpart                      nvBANK3      01DD
 _msecs                         bssBANK3     0198
 _output_putch                  text25       0FE4
 _pow                           text12       1EAB
-_pow$1021                      cstackBANK1  00E2
-_pow$1022                      cstackBANK1  00E6
+_pow$1020                      cstackBANK1  00E2
+_pow$1021                      cstackBANK1  00E6
 _print_buffer                  text32       03EC
 _print_indicator               text4        1DD7
 _print_reading                 text4        1DF1
-_print_reading$1004            cstackBANK0  0053
-_print_reading$1005            cstackBANK0  0055
+_print_reading$1003            cstackBANK0  0053
+_print_reading$1004            cstackBANK0  0055
 _print_unit                    text7        1C14
 _put_str                       text25       0FAD
 _rxfifo                        bssBANK2     0110
 _rxiptr                        bssCOMMON    0077
 _rxoptr                        bssBANK3     01A9
 _seconds                       bssBANK3     019C
-_ser_init                      text3        1BFA
+_ser_init                      text3        1BFC
 _ser_putch                     text6        1440
 _ser_puts                      text6        1423
 _ser_tmp                       bssBANK3     01AA
@@ -694,7 +692,7 @@ _timer0_init$116               cstackBANK0  0025
 _timer0_init$117               cstackBANK0  0027
 _timer0_read_ps                text32       0302
 _timer1of                      bssBANK3     01A0
-_timer2_init                   text1        1BE3
+_timer2_init                   text1        1BE5
 _txfifo                        bssBANK2     0120
 _txiptr                        bssCOMMON    0078
 _txoptr                        bssCOMMON    0079
@@ -2783,11 +2781,11 @@ Module		Function		Class		Link	Load	Size
 /opt/microchip/xc8/v1.34/sources/common/lwmod.c estimated size: 37
 
 ../../../lib/ser.c
-		_ser_init      		CODE           	1BFA	0000	27
+		_ser_init      		CODE           	1BFC	0000	25
 		_ser_puts      		CODE           	1423	0000	30
 		_ser_putch     		CODE           	1440	0000	23
 
-../../../lib/ser.c estimated size: 80
+../../../lib/ser.c estimated size: 78
 
 /opt/microchip/xc8/v1.34/sources/common/flmul.c
 		___flmul       		CODE           	0E98	0000	153
@@ -2829,7 +2827,7 @@ shared
 shared estimated size: 129
 
 ../../../lib/timer.c
-		_timer2_init   		CODE           	1BE3	0000	24
+		_timer2_init   		CODE           	1BE5	0000	24
 		_timer0_init   		CODE           	1C3D	0000	65
 		_timer0_read_ps		CODE           	0302	0000	59
 
