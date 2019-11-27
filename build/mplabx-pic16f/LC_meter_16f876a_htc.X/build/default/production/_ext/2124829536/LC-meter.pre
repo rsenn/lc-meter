@@ -1119,28 +1119,24 @@ unsigned short timer0_read_ps(void);
 # 143
 void timer2_init(uint8_t ps_mode);
 
-# 91 "../../../lib\uart.h"
-extern const uint8_t uart_brg;
+# 77 "../../../lib\ser.h"
+bit ser_isrx(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
 
-void uart_putch(uint8_t byte);
 
-int uart_getch(void);
-bool uart_poll(uint8_t bauds);
+extern uint8_t rxfifo[(uint8_t)16];
+extern volatile uint8_t rxiptr, rxoptr;
+extern uint8_t txfifo[(uint8_t)16];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
 
-# 101
-void uart_init(void);
-
-# 108
-uint8_t uart_isr(void);
-
-# 113
-void uart_enable(void);
-
-# 118
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(uint8_t* s);
+extern uint8_t ser_brg;
 
 # 6 "../../../src\measure.h"
 void calibrate(void);
@@ -1227,6 +1223,8 @@ msecpart -= 1000;
 PIR1 &= ~0b10;
 }
 
+if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
+
 # 111
 }
 
@@ -1275,11 +1273,10 @@ PORTC |= (1 << 5);
 delay10ms(50);
 PORTC &= ~(1 << 5);
 
-# 203
-uart_init();
 
+ser_init();
 
-
+# 207
 INTCON |= 0xc0;
 
 # 226
@@ -1320,7 +1317,11 @@ INTCON |= 0x80;
 # 297
 if(s != prev_s) {
 
-# 304
+format_number( s, 10, 0);
+
+ser_puts("\r\n");
+
+
 prev_s = s;
 }
 }
