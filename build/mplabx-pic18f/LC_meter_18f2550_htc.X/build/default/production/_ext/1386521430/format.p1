@@ -13,10 +13,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S227 . BDSTAT BDCNT BDADR ]
 "37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
-"6 ../../../lib/format.h
-[v F2580 `(v 1 tf1`uc ]
-"10 ../../../lib/format.c
-[v _putchar_ptr `*F2580 1 e ]
+"30 ../../../lib/buffer.h
+[v _buffer_putch `(uc 0 ef1`uc ]
 "15 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\math.h
 [v _log10 `(d 0 ef1`d ]
 "16 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\math.h
@@ -1983,12 +1981,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 171: extern volatile bit R_W_x @ ((unsigned)&SSPSTAT*8)+2;
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 [; ;typedef.h: 52: typedef char bool;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
-[; ;format.h: 6: extern putchar_fn* putchar_ptr;
-[; ;format.h: 8: void format_number( unsigned short int n, unsigned char base, signed char pad);
-[; ;format.h: 10: void format_xint32( unsigned long int x);
-[; ;format.h: 12: void format_double( double num);
+[; ;format.h: 6: void format_number( unsigned short int n, unsigned char base, signed char pad);
+[; ;format.h: 8: void format_xint32( unsigned long int x);
+[; ;format.h: 10: void format_double( double num);
+[; ;buffer.h: 12: typedef unsigned char len_t;
+[; ;buffer.h: 14: typedef struct {
+[; ;buffer.h: 15: char x[16];
+[; ;buffer.h: 16: unsigned p : 4;
+[; ;buffer.h: 17: unsigned n : 4;
+[; ;buffer.h: 18: } buffer_t;
+[; ;buffer.h: 26: extern buffer_t buffer;
+[; ;buffer.h: 28: void buffer_init(void);
+[; ;buffer.h: 29: char buffer_flush(void);
+[; ;buffer.h: 30: char buffer_putch(char ch);
+[; ;buffer.h: 31: char buffer_put(const char* x, len_t len);
+[; ;buffer.h: 32: char buffer_puts(const char* x);
 [; ;math.h: 1: extern double fabs(double);
 [; ;math.h: 2: extern double floor(double);
 [; ;math.h: 3: extern double ceil(double);
@@ -2015,234 +2022,229 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 24: extern double fmod(double, double);
 [; ;math.h: 25: extern double trunc(double);
 [; ;math.h: 26: extern double round(double);
-"6 ../../../lib/format.c
+"7 ../../../lib/format.c
 [v _format_putchar `(v 1 sf1`uc ]
 {
-[; ;format.c: 5: static void
-[; ;format.c: 6: format_putchar(char c) {
+[; ;format.c: 6: static void
+[; ;format.c: 7: format_putchar(char c) {
 [e :U _format_putchar ]
 [v _c `uc 1 r1 ]
 [f ]
-[; ;format.c: 7: return;
-"7
-[e $UE 231  ]
-[; ;format.c: 8: }
+[; ;format.c: 8: return;
 "8
-[e :UE 231 ]
+[e $UE 232  ]
+[; ;format.c: 9: }
+"9
+[e :UE 232 ]
 }
-[i _putchar_ptr
-"10
-&U _format_putchar
-]
-[; ;format.c: 10: putchar_fn* putchar_ptr = format_putchar;
-"14
+"15
 [v _format_number `(v 1 ef3`us`uc`c ]
 {
-[; ;format.c: 13: void
-[; ;format.c: 14: format_number( unsigned short int n, unsigned char base, signed char pad ) {
+[; ;format.c: 14: void
+[; ;format.c: 15: format_number( unsigned short int n, unsigned char base, signed char pad ) {
 [e :U _format_number ]
 [v _n `us 1 r1 ]
 [v _base `uc 1 r2 ]
 [v _pad `c 1 r3 ]
 [f ]
-"15
-[v _buf `uc * -> -> 8 `i `ui -> # `l `ui a ]
 "16
-[v _di `uc 1 a ]
+[v _buf `uc * -> -> 8 `i `ui -> # `l `ui a ]
 "17
-[v _i `c 1 a ]
-[; ;format.c: 15: char buf[8 * sizeof(long)];
-[; ;format.c: 16: unsigned char di;
-[; ;format.c: 17: signed char i = 0;
-[e = _i -> -> 0 `i `c ]
+[v _di `uc 1 a ]
 "18
+[v _i `c 1 a ]
+[; ;format.c: 16: char buf[8 * sizeof(long)];
+[; ;format.c: 17: unsigned char di;
+[; ;format.c: 18: signed char i = 0;
+[e = _i -> -> 0 `i `c ]
+"19
 [v _padchar `uc 1 a ]
-[; ;format.c: 18: char padchar = ' ';
+[; ;format.c: 19: char padchar = ' ';
 [e = _padchar -> -> 32 `ui `uc ]
-[; ;format.c: 20: if(pad < 0) {
-"20
-[e $ ! < -> _pad `i -> 0 `i 233  ]
-{
-[; ;format.c: 21: pad = -pad;
+[; ;format.c: 21: if(pad < 0) {
 "21
-[e = _pad -> -U -> _pad `i `c ]
-[; ;format.c: 22: padchar = '0';
+[e $ ! < -> _pad `i -> 0 `i 234  ]
+{
+[; ;format.c: 22: pad = -pad;
 "22
-[e = _padchar -> -> 48 `ui `uc ]
+[e = _pad -> -U -> _pad `i `c ]
+[; ;format.c: 23: padchar = '0';
 "23
+[e = _padchar -> -> 48 `ui `uc ]
+"24
 }
-[e :U 233 ]
-[; ;format.c: 23: }
-[; ;format.c: 30: do {
-"30
-[e :U 236 ]
-{
-[; ;format.c: 34: di = n % base;
-"34
-[e = _di -> % -> _n `ui -> _base `ui `uc ]
-[; ;format.c: 35: buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
-"35
-[e = *U + &U _buf * -> -> ++ _i -> -> 1 `i `c `uc `ux -> -> # *U &U _buf `ui `ux -> ? < -> _di `i -> 10 `i : + -> -> -> 48 `ui `uc `i -> _di `i - + -> -> -> 65 `ui `uc `i -> _di `i -> 10 `i `uc ]
-[; ;format.c: 37: n /= base;
-"37
-[e =/ _n -> _base `ui ]
-"38
-}
-[; ;format.c: 38: } while(n > 0);
-[e $ > -> _n `ui -> -> 0 `i `ui 236  ]
-[e :U 235 ]
-[; ;format.c: 40: while(pad-- > i) putchar_ptr(padchar);
-"40
-[e $U 237  ]
-[e :U 238 ]
-[e ( *U _putchar_ptr (1 _padchar ]
+[e :U 234 ]
+[; ;format.c: 24: }
+[; ;format.c: 31: do {
+"31
 [e :U 237 ]
-[e $ > -> -- _pad -> -> 1 `i `c `i -> _i `i 238  ]
-[e :U 239 ]
-[; ;format.c: 42: for(; i > 0; i--) putchar_ptr((char)buf[(signed short int)i - 1]);
-"42
 {
-[e $ > -> _i `i -> 0 `i 240  ]
-[e $U 241  ]
+[; ;format.c: 35: di = n % base;
+"35
+[e = _di -> % -> _n `ui -> _base `ui `uc ]
+[; ;format.c: 36: buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
+"36
+[e = *U + &U _buf * -> -> ++ _i -> -> 1 `i `c `uc `ux -> -> # *U &U _buf `ui `ux -> ? < -> _di `i -> 10 `i : + -> -> -> 48 `ui `uc `i -> _di `i - + -> -> -> 65 `ui `uc `i -> _di `i -> 10 `i `uc ]
+[; ;format.c: 38: n /= base;
+"38
+[e =/ _n -> _base `ui ]
+"39
+}
+[; ;format.c: 39: } while(n > 0);
+[e $ > -> _n `ui -> -> 0 `i `ui 237  ]
+[e :U 236 ]
+[; ;format.c: 41: while(pad-- > i) buffer_putch(padchar);
+"41
+[e $U 238  ]
+[e :U 239 ]
+[e ( _buffer_putch (1 _padchar ]
+[e :U 238 ]
+[e $ > -> -- _pad -> -> 1 `i `c `i -> _i `i 239  ]
 [e :U 240 ]
-[e ( *U _putchar_ptr (1 *U + &U _buf * -> -> - -> -> _i `s `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
-[e -- _i -> -> 1 `i `c ]
-[e $ > -> _i `i -> 0 `i 240  ]
+[; ;format.c: 43: for(; i > 0; i--) buffer_putch((char)buf[(signed short int)i - 1]);
+"43
+{
+[e $ > -> _i `i -> 0 `i 241  ]
+[e $U 242  ]
 [e :U 241 ]
+[e ( _buffer_putch (1 *U + &U _buf * -> -> - -> -> _i `s `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
+[e -- _i -> -> 1 `i `c ]
+[e $ > -> _i `i -> 0 `i 241  ]
+[e :U 242 ]
 }
-[; ;format.c: 44: }
-"44
-[e :UE 232 ]
+[; ;format.c: 45: }
+"45
+[e :UE 233 ]
 }
-"48
+"49
 [v _format_xint32 `(v 1 ef1`ul ]
 {
-[; ;format.c: 47: void
-[; ;format.c: 48: format_xint32( unsigned long int x) {
+[; ;format.c: 48: void
+[; ;format.c: 49: format_xint32( unsigned long int x) {
 [e :U _format_xint32 ]
 [v _x `ul 1 r1 ]
 [f ]
-[; ;format.c: 49: putchar_ptr('0');
-"49
-[e ( *U _putchar_ptr (1 -> -> 48 `ui `uc ]
-[; ;format.c: 50: putchar_ptr('x');
+[; ;format.c: 50: buffer_putch('0');
 "50
-[e ( *U _putchar_ptr (1 -> -> 120 `ui `uc ]
-[; ;format.c: 51: format_number((unsigned short int)(x >> 16), 16, -4);
+[e ( _buffer_putch (1 -> -> 48 `ui `uc ]
+[; ;format.c: 51: buffer_putch('x');
 "51
-[e ( _format_number (3 , , -> >> _x -> 16 `i `us -> -> 16 `i `uc -> -U -> 4 `i `c ]
-[; ;format.c: 52: format_number((unsigned short int)(x & 0xffff), 16, -4);
+[e ( _buffer_putch (1 -> -> 120 `ui `uc ]
+[; ;format.c: 52: format_number((unsigned short int)(x >> 16), 16, -4);
 "52
-[e ( _format_number (3 , , -> & _x -> -> 65535 `ui `ul `us -> -> 16 `i `uc -> -U -> 4 `i `c ]
-[; ;format.c: 53: }
+[e ( _format_number (3 , , -> >> _x -> 16 `i `us -> -> 16 `i `uc -> -U -> 4 `i `c ]
+[; ;format.c: 53: format_number((unsigned short int)(x & 0xffff), 16, -4);
 "53
-[e :UE 243 ]
+[e ( _format_number (3 , , -> & _x -> -> 65535 `ui `ul `us -> -> 16 `i `uc -> -U -> 4 `i `c ]
+[; ;format.c: 54: }
+"54
+[e :UE 244 ]
 }
-"56
+"57
 [v _format_float `(v 1 ef1`f ]
 {
-[; ;format.c: 55: void
-[; ;format.c: 56: format_float( float num) {
+[; ;format.c: 56: void
+[; ;format.c: 57: format_float( float num) {
 [e :U _format_float ]
 [v _num `f 1 r1 ]
 [f ]
-"57
-[v _m `s 1 a ]
-[; ;format.c: 57: short m = (int)log10(num);
-[e = _m -> -> ( _log10 (1 -> _num `d `i `s ]
 "58
+[v _m `s 1 a ]
+[; ;format.c: 58: short m = (int)log10(num);
+[e = _m -> -> ( _log10 (1 -> _num `d `i `s ]
+"59
 [v _digit `uc 1 a ]
-[; ;format.c: 58: char digit;
-[; ;format.c: 61: while(num > 0 + 3.05176e-05) {
-"61
-[e $U 245  ]
-[e :U 246 ]
-{
+[; ;format.c: 59: char digit;
+[; ;format.c: 62: while(num > 0 + 3.05176e-05) {
 "62
-[v _weight `f 1 a ]
-[; ;format.c: 62: float weight = pow(10.0l, m);
-[e = _weight -> ( _pow (2 , .10.0 -> _m `d `f ]
-[; ;format.c: 63: digit = (char)floor(num / weight);
-"63
-[e = _digit -> ( _floor (1 -> / _num _weight `d `uc ]
-[; ;format.c: 64: num -= (digit * weight);
-"64
-[e =- _num * -> _digit `f _weight ]
-[; ;format.c: 65: putchar_ptr('0' + digit);
-"65
-[e ( *U _putchar_ptr (1 -> + -> 48 `ui -> _digit `ui `uc ]
-[; ;format.c: 66: if(m == 0)
-"66
-[e $ ! == -> _m `i -> 0 `i 248  ]
-[; ;format.c: 67: putchar_ptr('.');
-"67
-[e ( *U _putchar_ptr (1 -> -> 46 `ui `uc ]
-[e :U 248 ]
-[; ;format.c: 68: m--;
-"68
-[e -- _m -> -> 1 `i `s ]
-"69
-}
-[e :U 245 ]
-"61
-[e $ > -> _num `d + -> -> 0 `i `d .3.05176e-05 246  ]
+[e $U 246  ]
 [e :U 247 ]
-[; ;format.c: 69: }
-[; ;format.c: 70: }
+{
+"63
+[v _weight `f 1 a ]
+[; ;format.c: 63: float weight = pow(10.0l, m);
+[e = _weight -> ( _pow (2 , .10.0 -> _m `d `f ]
+[; ;format.c: 64: digit = (char)floor(num / weight);
+"64
+[e = _digit -> ( _floor (1 -> / _num _weight `d `uc ]
+[; ;format.c: 65: num -= (digit * weight);
+"65
+[e =- _num * -> _digit `f _weight ]
+[; ;format.c: 66: buffer_putch('0' + digit);
+"66
+[e ( _buffer_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+[; ;format.c: 67: if(m == 0)
+"67
+[e $ ! == -> _m `i -> 0 `i 249  ]
+[; ;format.c: 68: buffer_putch('.');
+"68
+[e ( _buffer_putch (1 -> -> 46 `ui `uc ]
+[e :U 249 ]
+[; ;format.c: 69: m--;
+"69
+[e -- _m -> -> 1 `i `s ]
 "70
-[e :UE 244 ]
 }
-"74
+[e :U 246 ]
+"62
+[e $ > -> _num `d + -> -> 0 `i `d .3.05176e-05 247  ]
+[e :U 248 ]
+[; ;format.c: 70: }
+[; ;format.c: 71: }
+"71
+[e :UE 245 ]
+}
+"75
 [v _format_double `(v 1 ef1`d ]
 {
-[; ;format.c: 73: void
-[; ;format.c: 74: format_double(double num) {
+[; ;format.c: 74: void
+[; ;format.c: 75: format_double(double num) {
 [e :U _format_double ]
 [v _num `d 1 r1 ]
 [f ]
-"75
-[v _m `s 1 a ]
-[; ;format.c: 75: short m = (short)log10(num);
-[e = _m -> ( _log10 (1 _num `s ]
 "76
+[v _m `s 1 a ]
+[; ;format.c: 76: short m = (short)log10(num);
+[e = _m -> ( _log10 (1 _num `s ]
+"77
 [v _digit `s 1 a ]
-[; ;format.c: 76: short digit;
-[; ;format.c: 79: while(num > 0 + 1.19209290e-07) {
-"79
-[e $U 250  ]
-[e :U 251 ]
-{
+[; ;format.c: 77: short digit;
+[; ;format.c: 80: while(num > 0 + 1.19209290e-07) {
 "80
-[v _weight `d 1 a ]
-[; ;format.c: 80: double weight = pow(10.0l, m);
-[e = _weight ( _pow (2 , .10.0 -> _m `d ]
-[; ;format.c: 81: digit = (short)floor(num / weight);
-"81
-[e = _digit -> ( _floor (1 / _num _weight `s ]
-[; ;format.c: 82: num -= (digit * weight);
-"82
-[e =- _num * -> _digit `d _weight ]
-[; ;format.c: 83: putchar_ptr((char)('0' + digit));
-"83
-[e ( *U _putchar_ptr (1 -> + -> 48 `ui -> _digit `ui `uc ]
-[; ;format.c: 84: if(m == 0)
-"84
-[e $ ! == -> _m `i -> 0 `i 253  ]
-[; ;format.c: 85: putchar_ptr('.');
-"85
-[e ( *U _putchar_ptr (1 -> -> 46 `ui `uc ]
-[e :U 253 ]
-[; ;format.c: 86: m--;
-"86
-[e -- _m -> -> 1 `i `s ]
-"87
-}
-[e :U 250 ]
-"79
-[e $ > _num + -> -> 0 `i `d .1.19209290e-07 251  ]
+[e $U 251  ]
 [e :U 252 ]
-[; ;format.c: 87: }
-[; ;format.c: 88: }
+{
+"81
+[v _weight `d 1 a ]
+[; ;format.c: 81: double weight = pow(10.0l, m);
+[e = _weight ( _pow (2 , .10.0 -> _m `d ]
+[; ;format.c: 82: digit = (short)floor(num / weight);
+"82
+[e = _digit -> ( _floor (1 / _num _weight `s ]
+[; ;format.c: 83: num -= (digit * weight);
+"83
+[e =- _num * -> _digit `d _weight ]
+[; ;format.c: 84: buffer_putch((char)('0' + digit));
+"84
+[e ( _buffer_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+[; ;format.c: 85: if(m == 0)
+"85
+[e $ ! == -> _m `i -> 0 `i 254  ]
+[; ;format.c: 86: buffer_putch('.');
+"86
+[e ( _buffer_putch (1 -> -> 46 `ui `uc ]
+[e :U 254 ]
+[; ;format.c: 87: m--;
+"87
+[e -- _m -> -> 1 `i `s ]
 "88
-[e :UE 249 ]
+}
+[e :U 251 ]
+"80
+[e $ > _num + -> -> 0 `i `d .1.19209290e-07 252  ]
+[e :U 253 ]
+[; ;format.c: 88: }
+[; ;format.c: 89: }
+"89
+[e :UE 250 ]
 }

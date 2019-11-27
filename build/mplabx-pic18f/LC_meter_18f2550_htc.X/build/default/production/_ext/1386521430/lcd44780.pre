@@ -2541,10 +2541,6 @@ typedef unsigned char bool;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;
@@ -2562,7 +2558,7 @@ void Delay10KTCYx(unsigned char);
 void Delay10TCYx(unsigned char);
 void Delay1KTCYx(unsigned char);
 
-# 47 "../../../lib/lcd44780.h"
+# 48 "../../../lib/lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(unsigned char l, unsigned char ds);
 void lcd_no_autoscroll(void);
@@ -2584,5 +2580,6 @@ void lcd_print_float(float number, unsigned char digits);
 void lcd_puts(const char* string);
 
 void lcd_gotoxy(unsigned char col, unsigned char row);
-void lcd_putch(char value);
+
+void lcd_send(unsigned char value, unsigned char mode);
 

@@ -2541,10 +2541,6 @@ extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 unsigned char loop_x, loop_b, loop_c;

@@ -2541,11 +2541,7 @@ typedef unsigned char bool;
 # 52 "../../../lib\typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
-# 65 "../../../LC-meter.h"
+# 78 "../../../LC-meter.h"
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
@@ -2570,28 +2566,24 @@ void Delay1KTCYx(unsigned char);
 # 143 "../../../lib\timer.h"
 void timer2_init(unsigned char ps_mode);
 
-# 89 "../../../lib\uart.h"
-extern const unsigned char uart_brg;
+# 77 "../../../lib\ser.h"
+bit ser_isrx(void);
+unsigned char ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(unsigned char* s);
+void ser_puthex(unsigned char v);
+void ser_init(void);
 
-void uart_putch(unsigned char byte);
 
-int uart_getch(void);
-bool uart_poll(unsigned char bauds);
+extern unsigned char rxfifo[(unsigned char)16];
+extern volatile unsigned char rxiptr, rxoptr;
+extern unsigned char txfifo[(unsigned char)16];
+extern volatile unsigned char txiptr, txoptr;
+extern unsigned char ser_tmp;
 
-# 99
-void uart_init(void);
-
-# 106
-unsigned char uart_isr(void);
-
-# 111
-void uart_enable(void);
-
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
+extern unsigned char ser_brg;
 
 # 6 "../../../src\measure.h"
 void calibrate(void);
@@ -2614,13 +2606,16 @@ void indicator(unsigned char indicate);
 void print_print_float(float number, unsigned char digits);
 
 # 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
-
 void format_number( unsigned short int n, unsigned char base, signed char pad);
 
 void format_xint32( unsigned long int x);
 
 void format_double( double num);
+
+# 42 "../../../src\config-18f2550.h"
+asm("\tglobal __config" "__CONFIG1L"); asm("\t__config" "__CONFIG1L" " equ " "0xFFFF");
+asm("\tglobal __config" "__CONFIG1H"); asm("\t__config" "__CONFIG1H" " equ " "_FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H");
+asm("\tglobal __config" "__CONFIG4L"); asm("\t__config" "__CONFIG4L" " equ " "_XINST_OFF_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L");
 
 # 43 "../../../LC-meter.c"
 volatile unsigned short int bres;
@@ -2648,11 +2643,11 @@ void put_number(void (*putchar)(char), unsigned short int n, unsigned char base,
 
 volatile unsigned short int blink = 0;
 
-
-
+# 78
 interrupt isr() {
 
-if(PIR1 & 0b10) {
+
+if(PIR1 & 0x02) {
 
 bres += 256;
 
@@ -2677,7 +2672,9 @@ msecpart -= 1000;
 PIR1 &= ~0b10;
 }
 
-# 107
+if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((unsigned char)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((unsigned char)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
+
+# 111
 }
 
 
@@ -2687,23 +2684,20 @@ bres = msecpart = msecs = seconds = 0;
 
 CCal = 1000;
 
-# 123
+# 127
 TRISA = 0b11001111;
 
 
 timer0_init(0b100 | TIMER0_FLAGS_EXTCLK);
 
-# 139
+# 143
 RBPU = 1;
 
-# 148
+# 152
 TRISC &= ~0b00000010;
 LATC &= ~0b00000010; LATC |= (!!(1)) << 1;;
 
-
-SSPCON1 &= ~0b00100000;
-
-# 160
+# 165
 timer2_init(0b000 | 0x80);
 
 
@@ -2711,7 +2705,7 @@ timer2_init(0b000 | 0x80);
 
 TRISC &= 0b10110101;
 
-# 181
+# 186
 TRISC |= (1 << 4);
 TRISC &= ~(1 << 5);
 
@@ -2725,24 +2719,23 @@ LATC |= (1 << 5);
 delay10ms(50);
 LATC &= ~(1 << 5);
 
-# 198
-uart_init();
 
+ser_init();
 
-
+# 207
 INTCON |= 0xc0;
 
-# 221
+# 226
 delay10ms(200);
 
 
 calibrate();
 
-# 235
+# 240
 for(;;) {
 
-uart_puts("...\r\n");
-if(PORTC & (1 << 4))
+ser_puts("...\r\n");
+if((!!(PORTC & 0b10000)))
 measure_capacitance();
 else
 measure_inductance();
@@ -2767,10 +2760,14 @@ INTCON &= ~0x80;
 s = seconds;
 INTCON |= 0x80;
 
-# 291
+# 297
 if(s != prev_s) {
 
-# 298
+format_number( s, 10, 0);
+
+ser_puts("\r\n");
+
+
 prev_s = s;
 }
 }

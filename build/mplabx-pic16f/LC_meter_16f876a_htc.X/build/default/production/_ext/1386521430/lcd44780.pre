@@ -1088,10 +1088,6 @@ typedef uint16_t uintptr_t;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
@@ -1109,7 +1105,7 @@ void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
 
-# 47 "../../../lib/lcd44780.h"
+# 48 "../../../lib/lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
@@ -1131,5 +1127,6 @@ void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 
 void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
+
+void lcd_send(uint8_t value, uint8_t mode);
 

@@ -1088,10 +1088,6 @@ typedef uint16_t uintptr_t;
 # 52 "../../../lib\typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 12 "../../../lib\buffer.h"
 typedef uint8_t len_t;
 
@@ -1099,14 +1095,13 @@ typedef struct {
 char x[16];
 unsigned p : 4;
 unsigned n : 4;
-putchar_p op;
 } buffer_t;
 
-# 27
+# 26
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
@@ -1125,88 +1120,75 @@ void indicator(uint8_t indicate);
 
 void print_print_float(float number, uint8_t digits);
 
-# 89 "../../../lib\uart.h"
-extern const uint8_t uart_brg;
+# 77 "../../../lib\ser.h"
+bit ser_isrx(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
 
-void uart_putch(uint8_t byte);
 
-int uart_getch(void);
-bool uart_poll(uint8_t bauds);
+extern uint8_t rxfifo[(uint8_t)16];
+extern volatile uint8_t rxiptr, rxoptr;
+extern uint8_t txfifo[(uint8_t)16];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
 
-# 99
-void uart_init(void);
-
-# 106
-uint8_t uart_isr(void);
-
-# 111
-void uart_enable(void);
-
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(uint8_t* s);
+extern uint8_t ser_brg;
 
 # 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
-
 void format_number( uint16_t n, uint8_t base, int8_t pad);
 
 void format_xint32( uint32_t x);
 
 void format_double( double num);
 
-# 23 "../../../src/print.c"
-extern void lcd_putch(char c);
-
-void
-lcd_puts(const char* string) {
-uint8_t i;
-for(i = 0; string[i]; i++) lcd_putch(string[i]);
-}
-
-
+# 32 "../../../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
-uint8_t i;
-while(n--) lcd_putch(*buf++);
+
+# 39
 }
 
-# 386
+# 389
 void
 print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 
-# 405
+# 408
 }
 
 
 void
 print_unit(uint8_t unit) {
 
-# 427
+# 430
 }
 
 void
 print_reading(uint16_t measurement) {
 
-# 466
+# 469
 }
 
 
 void
 indicator(uint8_t indicate) {
 
-# 491
+# 494
 }
 
 void
 output_putch(char c) {
 
-# 501
+# 502
+ser_putch(c);
+
 }
 
-# 506
+# 509
 void
 put_str(const char* s) {
 int i;

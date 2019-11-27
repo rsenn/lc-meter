@@ -2541,18 +2541,30 @@ extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 6 "../../../lib/format.h"
-extern putchar_fn* putchar_ptr;
-
 void format_number( unsigned short int n, unsigned char base, signed char pad);
 
 void format_xint32( unsigned long int x);
 
 void format_double( double num);
+
+# 12 "../../../lib/buffer.h"
+typedef unsigned char len_t;
+
+typedef struct {
+char x[16];
+unsigned p : 4;
+unsigned n : 4;
+} buffer_t;
+
+# 26
+extern buffer_t buffer;
+
+void buffer_init(void);
+char buffer_flush(void);
+char buffer_putch(char ch);
+char buffer_put(const char* x, len_t len);
+char buffer_puts(const char* x);
 
 # 1 "C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\math.h"
 extern double fabs(double);
@@ -2582,13 +2594,13 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 5 "../../../lib/format.c"
+# 6 "../../../lib/format.c"
 static void
 format_putchar(char c) {
 return;
 }
 
-putchar_fn* putchar_ptr = format_putchar;
+
 
 
 void
@@ -2603,27 +2615,27 @@ pad = -pad;
 padchar = '0';
 }
 
-# 30
+# 31
 do {
 
-# 34
+# 35
 di = n % base;
 buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
 
 n /= base;
 } while(n > 0);
 
-while(pad-- > i) putchar_ptr(padchar);
+while(pad-- > i) buffer_putch(padchar);
 
-for(; i > 0; i--) putchar_ptr((char)buf[(signed short int)i - 1]);
+for(; i > 0; i--) buffer_putch((char)buf[(signed short int)i - 1]);
 
 }
 
 
 void
 format_xint32( unsigned long int x) {
-putchar_ptr('0');
-putchar_ptr('x');
+buffer_putch('0');
+buffer_putch('x');
 format_number((unsigned short int)(x >> 16), 16, -4);
 format_number((unsigned short int)(x & 0xffff), 16, -4);
 }
@@ -2638,9 +2650,9 @@ while(num > 0 + 3.05176e-05) {
 float weight = pow(10.0l, m);
 digit = (char)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr('0' + digit);
+buffer_putch('0' + digit);
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }
@@ -2656,9 +2668,9 @@ while(num > 0 + 1.19209290e-07) {
 double weight = pow(10.0l, m);
 digit = (short)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr((char)('0' + digit));
+buffer_putch((char)('0' + digit));
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }
