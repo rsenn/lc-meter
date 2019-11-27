@@ -27,10 +27,13 @@
         <itemPath>../../../lib/format.c</itemPath>
         <itemPath>../../../lib/timer.c</itemPath>
         <itemPath>../../../lib/uart.c</itemPath>
+        <itemPath>../../../lib/ser.c</itemPath>
+        <itemPath>../../../lib/buffer.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="src" projectFiles="true">
         <itemPath>../../../src/print.c</itemPath>
         <itemPath>../../../LC-meter.c</itemPath>
+        <itemPath>../../../src/measure.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -41,8 +44,7 @@
     <itemPath>../../../lib/interrupt.h</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../../src</Elem>
-    <Elem>../../../lib</Elem>
+    <Elem>../../..</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -86,8 +88,9 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="define-macros"
-                  value="__HTC=1;__18f2550=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400"/>
-        <property key="extra-include-directories" value="..\..\..\lib;..\..\..\src"/>
+                  value="__HTC=1;__18f2550=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;USE_TIMER0=1"/>
+        <property key="extra-include-directories"
+                  value="../../../lib;../../../src;../../.."/>
         <property key="identifier-length" value="31"/>
         <property key="operation-mode" value="pro"/>
         <property key="optimization-assembler" value="true"/>

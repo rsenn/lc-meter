@@ -2541,11 +2541,75 @@ typedef unsigned char bool;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 143 "../../../lib/timer.h"
+# 68 "../../../lib/timer.h"
+void timer0_init(unsigned char);
+
+# 75
+unsigned short timer0_read_ps(void);
+
+# 143
 void timer2_init(unsigned char ps_mode);
 
 # 15 "../../../lib/timer.c"
 extern volatile unsigned char T0CON @0xFD5;
+
+# 26
+void
+timer0_init(unsigned char ps_mode) {
+unsigned char prescaler = ps_mode & 0b1111;
+
+TMR0 = 0;
+
+
+T0CON |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+
+
+T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+
+
+T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
+
+T0CON &= ~0b111;
+
+if(prescaler > 0) {
+T0CON |= (prescaler - 1) & 0b111;
+
+# 50
+}
+
+
+
+INTCON &= ~0x40;
+INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+}
+
+unsigned short
+timer0_read_ps(void) {
+unsigned char prev = TMR0;
+unsigned short int count = 0;
+
+T0CON |= 0x20;
+
+do {
+
+T0CON |= 0x10;
+
+asm(" nop");
+asm(" nop");
+
+T0CON &= ~0x10;
+
+asm(" nop");
+asm(" nop");
+
+++count;
+
+
+} while(prev == TMR0 && count <= 255);
+
+count = ((prev << 8) + (256 - count));
+return count;
+}
 
 # 124
 void

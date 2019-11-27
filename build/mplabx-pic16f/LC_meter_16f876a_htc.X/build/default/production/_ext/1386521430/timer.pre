@@ -1088,10 +1088,74 @@ typedef uint16_t uintptr_t;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 143 "../../../lib/timer.h"
+# 68 "../../../lib/timer.h"
+void timer0_init(uint8_t);
+
+# 75
+unsigned short timer0_read_ps(void);
+
+# 143
 void timer2_init(uint8_t ps_mode);
 
-# 124 "../../../lib/timer.c"
+# 26 "../../../lib/timer.c"
+void
+timer0_init(uint8_t ps_mode) {
+uint8_t prescaler = ps_mode & 0b1111;
+
+TMR0 = 0;
+
+
+OPTION_REG |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+
+
+OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+
+
+OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
+
+OPTION_REG &= ~0b111;
+
+if(prescaler > 0) {
+OPTION_REG |= (prescaler - 1) & 0b111;
+
+# 50
+}
+
+
+
+INTCON &= ~0x40;
+INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+}
+
+unsigned short
+timer0_read_ps(void) {
+uint8_t prev = TMR0;
+uint16_t count = 0;
+
+OPTION_REG |= 0x20;
+
+do {
+
+OPTION_REG |= 0x10;
+
+_nop();
+_nop();
+
+OPTION_REG &= ~0x10;
+
+_nop();
+_nop();
+
+++count;
+
+
+} while(prev == TMR0 && count <= 255);
+
+count = ((prev << 8) + (256 - count));
+return count;
+}
+
+# 124
 void
 timer2_init(uint8_t ps_mode) {
 uint8_t ps = ps_mode & 0b1111;

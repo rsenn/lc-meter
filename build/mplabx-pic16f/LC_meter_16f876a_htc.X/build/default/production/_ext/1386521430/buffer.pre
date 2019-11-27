@@ -1088,10 +1088,6 @@ typedef uint16_t uintptr_t;
 # 52 "../../../lib/typedef.h"
 typedef char bool;
 
-# 69
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
-
 # 12 "../../../lib/buffer.h"
 typedef uint8_t len_t;
 
@@ -1099,14 +1095,13 @@ typedef struct {
 char x[16];
 unsigned p : 4;
 unsigned n : 4;
-putchar_p op;
 } buffer_t;
 
-# 27
+# 26
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
@@ -1155,17 +1150,15 @@ extern char * strrichr(const char *, int);
 buffer_t buffer;
 
 void
-buffer_init(putchar_p op) {
+buffer_init(void) {
 buffer.p = 0;
 buffer.n = 0;
-buffer.op = op;
 }
 
 char
 buffer_flush() {
-while(buffer.p < buffer.n) {
-buffer.op(buffer.x[buffer.p++]);
-}
+
+# 17
 buffer.p = 0, buffer.n = 0, 0;
 return 0;
 }
@@ -1185,7 +1178,7 @@ buffer_put(const char* buf, len_t len) {
 len_t i;
 if(len > 16 - buffer.n) {
 
-# 45
+# 44
 return -1;
 }
 for(i = 0; i < len; i++) {

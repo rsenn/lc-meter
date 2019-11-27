@@ -13,6 +13,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S227 . BDSTAT BDCNT BDADR ]
 "37 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
+"2213 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _TMR0 `Vui 0 e@4054 ]
+"2177 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _T0CON `Vuc 0 e@4053 ]
+"2426 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
+[v _INTCON `Vuc 0 e@4082 ]
 "1951 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _T2CON `Vuc 0 e@4042 ]
 "1993 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
@@ -1981,9 +1987,118 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;typedef.h: 52: typedef char bool;
+[; ;timer.h: 68: void timer0_init(unsigned char);
+[; ;timer.h: 75: unsigned short timer0_read_ps(void);
 [; ;timer.h: 143: void timer2_init(unsigned char ps_mode);
 [; ;timer.c: 15: extern volatile unsigned char T0CON @0xFD5;
-"125 ../../../lib/timer.c
+"27 ../../../lib/timer.c
+[v _timer0_init `(v 1 ef1`uc ]
+{
+[; ;timer.c: 26: void
+[; ;timer.c: 27: timer0_init(unsigned char ps_mode) {
+[e :U _timer0_init ]
+[v _ps_mode `uc 1 r1 ]
+[f ]
+"28
+[v _prescaler `uc 1 a ]
+[; ;timer.c: 28: unsigned char prescaler = ps_mode & 0b1111;
+[e = _prescaler -> & -> _ps_mode `i -> 15 `i `uc ]
+[; ;timer.c: 30: TMR0 = 0;
+"30
+[e = _TMR0 -> -> 0 `i `ui ]
+[; ;timer.c: 33: T0CON |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+"33
+[e =| _T0CON -> ? ! ! != & -> _ps_mode `i -> 64 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 36: T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+"36
+[e =| _T0CON -> ? ! ! != & -> _ps_mode `i -> 16 `i -> 0 `i : -> 16 `i -> 0 `i `uc ]
+[; ;timer.c: 39: T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
+"39
+[e =& _T0CON -> ? ! ! != -> _prescaler `i -> -> -> 0 `i `uc `i : ~ -> 8 `i ~ -> 0 `i `uc ]
+[; ;timer.c: 41: T0CON &= ~0b111;
+"41
+[e =& _T0CON -> ~ -> 7 `i `uc ]
+[; ;timer.c: 43: if(prescaler > 0) {
+"43
+[e $ ! > -> _prescaler `i -> 0 `i 232  ]
+{
+[; ;timer.c: 44: T0CON |= (prescaler - 1) & 0b111;
+"44
+[e =| _T0CON -> & - -> _prescaler `i -> 1 `i -> 7 `i `uc ]
+"50
+}
+[e :U 232 ]
+[; ;timer.c: 50: }
+[; ;timer.c: 54: INTCON &= ~0x40;
+"54
+[e =& _INTCON -> ~ -> 64 `i `uc ]
+[; ;timer.c: 55: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+"55
+[e =| _INTCON -> ? ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 56: }
+"56
+[e :UE 231 ]
+}
+"59
+[v _timer0_read_ps `(us 1 ef ]
+{
+[; ;timer.c: 58: unsigned short
+[; ;timer.c: 59: timer0_read_ps(void) {
+[e :U _timer0_read_ps ]
+[f ]
+"60
+[v _prev `uc 1 a ]
+[; ;timer.c: 60: unsigned char prev = TMR0;
+[e = _prev -> _TMR0 `uc ]
+"61
+[v _count `us 1 a ]
+[; ;timer.c: 61: unsigned short int count = 0;
+[e = _count -> -> 0 `i `us ]
+[; ;timer.c: 63: T0CON |= 0x20;
+"63
+[e =| _T0CON -> -> 32 `i `uc ]
+[; ;timer.c: 65: do {
+"65
+[e :U 236 ]
+{
+[; ;timer.c: 67: T0CON |= 0x10;
+"67
+[e =| _T0CON -> -> 16 `i `uc ]
+[; ;timer.c: 69: asm(" nop");
+"69
+[;  nop ;#
+[; ;timer.c: 70: asm(" nop");
+"70
+[;  nop ;#
+[; ;timer.c: 72: T0CON &= ~0x10;
+"72
+[e =& _T0CON -> ~ -> 16 `i `uc ]
+[; ;timer.c: 74: asm(" nop");
+"74
+[;  nop ;#
+[; ;timer.c: 75: asm(" nop");
+"75
+[;  nop ;#
+[; ;timer.c: 77: ++count;
+"77
+[e =+ _count -> -> 1 `i `us ]
+"80
+}
+[; ;timer.c: 80: } while(prev == TMR0 && count <= 255);
+[e $ && == -> _prev `ui _TMR0 <= -> _count `ui -> -> 255 `i `ui 236  ]
+[e :U 235 ]
+[; ;timer.c: 82: count = ((prev << 8) + (256 - count));
+"82
+[e = _count -> + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui -> _count `ui `us ]
+[; ;timer.c: 83: return count;
+"83
+[e ) _count ]
+[e $UE 233  ]
+[; ;timer.c: 84: }
+"84
+[e :UE 233 ]
+}
+"125
 [v _timer2_init `(v 1 ef1`uc ]
 {
 [; ;timer.c: 124: void
@@ -2022,5 +2137,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _PIE1 -> << -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i -> 1 `i `uc ]
 [; ;timer.c: 142: }
 "142
-[e :UE 231 ]
+[e :UE 237 ]
 }

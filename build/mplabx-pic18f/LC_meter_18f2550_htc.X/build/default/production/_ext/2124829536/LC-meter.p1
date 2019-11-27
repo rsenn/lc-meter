@@ -64,8 +64,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "1047 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _TRISA `Vuc 0 e@3986 ]
-"130 ../../../LC-meter.c
-[v _timer0_init `(i 0 ef ]
+"68 ../../../lib\timer.h
+[v _timer0_init `(v 0 ef1`uc ]
 "2405 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
 [v _RBPU `Vb 0 e@32655 ]
 "1129 C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\include\pic18f2550.h
@@ -2061,6 +2061,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lib\delay.h: 47: void Delay10KTCYx(unsigned char);
 [; ;lib\delay.h: 48: void Delay10TCYx(unsigned char);
 [; ;lib\delay.h: 49: void Delay1KTCYx(unsigned char);
+[; ;lib\timer.h: 68: void timer0_init(unsigned char);
+[; ;lib\timer.h: 75: unsigned short timer0_read_ps(void);
 [; ;lib\timer.h: 143: void timer2_init(unsigned char ps_mode);
 [; ;lib\ser.h: 77: bit ser_isrx(void);
 [; ;lib\ser.h: 78: unsigned char ser_getch(void);
@@ -2097,13 +2099,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; 	global __config__CONFIG1L ;#
 [; 	__config__CONFIG1L equ 0xFFFF ;#
 "43
-[; ;src\config-18f2550.h: 43: asm("\tglobal __config" "__CONFIG1H"); asm("\t__config" "__CONFIG1H" " equ " "_FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H");
+[; ;src\config-18f2550.h: 43: asm("\tglobal __config" "__CONFIG1H"); asm("\t__config" "__CONFIG1H" " equ " "0xF6FF & 0xBFFF & 0xFFFF");
 [; 	global __config__CONFIG1H ;#
-[; 	__config__CONFIG1H equ _FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H ;#
+[; 	__config__CONFIG1H equ 0xF6FF & 0xBFFF & 0xFFFF ;#
 "44
-[; ;src\config-18f2550.h: 44: asm("\tglobal __config" "__CONFIG4L"); asm("\t__config" "__CONFIG4L" " equ " "_XINST_OFF_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L");
+[; ;src\config-18f2550.h: 44: asm("\tglobal __config" "__CONFIG4L"); asm("\t__config" "__CONFIG4L" " equ " "0xFFFF & 0xFFFF & 0xFF7F & 0xFFFB");
 [; 	global __config__CONFIG4L ;#
-[; 	__config__CONFIG4L equ _XINST_OFF_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L ;#
+[; 	__config__CONFIG4L equ 0xFFFF & 0xFFFF & 0xFF7F & 0xFFFB ;#
 [; ;LC-meter.c: 43: volatile unsigned short int bres;
 [; ;LC-meter.c: 44: volatile unsigned short int msecpart;
 [; ;LC-meter.c: 45: volatile unsigned long int seconds, msecs;
@@ -2133,8 +2135,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;LC-meter.c: 71: volatile unsigned short int blink = 0;
 "78
-[v F2682 `(i 1 tf ]
-[v _isr `IF2682 1 e ]
+[v F2686 `(i 1 tf ]
+[v _isr `IF2686 1 e ]
 {
 [; ;LC-meter.c: 78: interrupt isr() {
 [e :U _isr ]
@@ -2242,10 +2244,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 127: TRISA = 0b11001111;
 "127
 [e = _TRISA -> -> 207 `i `uc ]
-[; ;LC-meter.c: 130: timer0_init(0b100 | TIMER0_FLAGS_EXTCLK);
-[v _TIMER0_FLAGS_EXTCLK `i 1 s ]
+[; ;LC-meter.c: 130: timer0_init(0b100 | 0x40);
 "130
-[e ( _timer0_init | -> 4 `i _TIMER0_FLAGS_EXTCLK ]
+[e ( _timer0_init (1 -> | -> 4 `i -> 64 `i `uc ]
 [; ;LC-meter.c: 143: RBPU = 1;
 "143
 [e = _RBPU -> -> 1 `i `b ]
@@ -2359,13 +2360,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _testloop ]
 [f ]
 "258
-[v F2687 `uc 1 s led ]
-[i F2687
+[v F2689 `uc 1 s led ]
+[i F2689
 -> -> 0 `i `uc
 ]
 "259
-[v F2688 `us 1 s prev_s ]
-[i F2688
+[v F2690 `us 1 s prev_s ]
+[i F2690
 -> -> 0 `i `us
 ]
 "260
@@ -2387,7 +2388,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e =| _INTCON -> -> 128 `i `uc ]
 [; ;LC-meter.c: 297: if(s != prev_s) {
 "297
-[e $ ! != -> _s `ui -> F2688 `ui 249  ]
+[e $ ! != -> _s `ui -> F2690 `ui 249  ]
 {
 [; ;LC-meter.c: 299: format_number( s, 10, 0);
 "299
@@ -2397,7 +2398,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _ser_puts (1 :s 2C ]
 [; ;LC-meter.c: 304: prev_s = s;
 "304
-[e = F2688 _s ]
+[e = F2690 _s ]
 "305
 }
 [e :U 249 ]

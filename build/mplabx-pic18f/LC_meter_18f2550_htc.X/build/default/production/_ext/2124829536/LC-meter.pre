@@ -2563,7 +2563,13 @@ void Delay10KTCYx(unsigned char);
 void Delay10TCYx(unsigned char);
 void Delay1KTCYx(unsigned char);
 
-# 143 "../../../lib\timer.h"
+# 68 "../../../lib\timer.h"
+void timer0_init(unsigned char);
+
+# 75
+unsigned short timer0_read_ps(void);
+
+# 143
 void timer2_init(unsigned char ps_mode);
 
 # 77 "../../../lib\ser.h"
@@ -2614,8 +2620,8 @@ void format_double( double num);
 
 # 42 "../../../src\config-18f2550.h"
 asm("\tglobal __config" "__CONFIG1L"); asm("\t__config" "__CONFIG1L" " equ " "0xFFFF");
-asm("\tglobal __config" "__CONFIG1H"); asm("\t__config" "__CONFIG1H" " equ " "_FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H");
-asm("\tglobal __config" "__CONFIG4L"); asm("\t__config" "__CONFIG4L" " equ " "_XINST_OFF_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L");
+asm("\tglobal __config" "__CONFIG1H"); asm("\t__config" "__CONFIG1H" " equ " "0xF6FF & 0xBFFF & 0xFFFF");
+asm("\tglobal __config" "__CONFIG4L"); asm("\t__config" "__CONFIG4L" " equ " "0xFFFF & 0xFFFF & 0xFF7F & 0xFFFB");
 
 # 43 "../../../LC-meter.c"
 volatile unsigned short int bres;
@@ -2688,7 +2694,7 @@ CCal = 1000;
 TRISA = 0b11001111;
 
 
-timer0_init(0b100 | TIMER0_FLAGS_EXTCLK);
+timer0_init(0b100 | 0x40);
 
 # 143
 RBPU = 1;

@@ -793,6 +793,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EECON1bits `VS91  1 e@396 ]
 "1069 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic16f876a.h
 [v _EECON2 `Vuc  1 e@397 ]
+"28 C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\pic.h
+[v __nop `(v  0 ef ]
+[p i __nop ]
 [; ;pic16f876a.h: 82: volatile unsigned char INDF @ 0x000;
 [; ;pic16f876a.h: 86: volatile unsigned char TMR0 @ 0x001;
 [; ;pic16f876a.h: 90: volatile unsigned char PCL @ 0x002;
@@ -1576,8 +1579,117 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 184: typedef int16_t intptr_t;
 [; ;stdint.h: 189: typedef uint16_t uintptr_t;
 [; ;typedef.h: 52: typedef char bool;
+[; ;timer.h: 68: void timer0_init(uint8_t);
+[; ;timer.h: 75: unsigned short timer0_read_ps(void);
 [; ;timer.h: 143: void timer2_init(uint8_t ps_mode);
-"125 ../../../lib/timer.c
+"27 ../../../lib/timer.c
+[v _timer0_init `(v  1 ef1`uc ]
+{
+[; ;timer.c: 26: void
+[; ;timer.c: 27: timer0_init(uint8_t ps_mode) {
+[e :U _timer0_init ]
+[v _ps_mode `uc  1 r1 ]
+[f ]
+"28
+[v _prescaler `uc  1 a ]
+[; ;timer.c: 28: uint8_t prescaler = ps_mode & 0b1111;
+[e = _prescaler -> & -> _ps_mode `i -> 15 `i `uc ]
+[; ;timer.c: 30: TMR0 = 0;
+"30
+[e = _TMR0 -> -> 0 `i `uc ]
+[; ;timer.c: 33: OPTION_REG |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+"33
+[e =| _OPTION_REG -> ? ! ! != & -> _ps_mode `i -> 64 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 36: OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+"36
+[e =| _OPTION_REG -> ? ! ! != & -> _ps_mode `i -> 16 `i -> 0 `i : -> 16 `i -> 0 `i `uc ]
+[; ;timer.c: 39: OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
+"39
+[e =& _OPTION_REG -> ? ! ! != -> _prescaler `i -> -> -> 0 `i `uc `i : ~ -> 8 `i ~ -> 0 `i `uc ]
+[; ;timer.c: 41: OPTION_REG &= ~0b111;
+"41
+[e =& _OPTION_REG -> ~ -> 7 `i `uc ]
+[; ;timer.c: 43: if(prescaler > 0) {
+"43
+[e $ ! > -> _prescaler `i -> 0 `i 94  ]
+{
+[; ;timer.c: 44: OPTION_REG |= (prescaler - 1) & 0b111;
+"44
+[e =| _OPTION_REG -> & - -> _prescaler `i -> 1 `i -> 7 `i `uc ]
+"50
+}
+[e :U 94 ]
+[; ;timer.c: 50: }
+[; ;timer.c: 54: INTCON &= ~0x40;
+"54
+[e =& _INTCON -> ~ -> 64 `i `uc ]
+[; ;timer.c: 55: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+"55
+[e =| _INTCON -> ? ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 56: }
+"56
+[e :UE 93 ]
+}
+"59
+[v _timer0_read_ps `(us  1 ef ]
+{
+[; ;timer.c: 58: unsigned short
+[; ;timer.c: 59: timer0_read_ps(void) {
+[e :U _timer0_read_ps ]
+[f ]
+"60
+[v _prev `uc  1 a ]
+[; ;timer.c: 60: uint8_t prev = TMR0;
+[e = _prev _TMR0 ]
+"61
+[v _count `ui  1 a ]
+[; ;timer.c: 61: uint16_t count = 0;
+[e = _count -> -> 0 `i `ui ]
+[; ;timer.c: 63: OPTION_REG |= 0x20;
+"63
+[e =| _OPTION_REG -> -> 32 `i `uc ]
+[; ;timer.c: 65: do {
+"65
+[e :U 98 ]
+{
+[; ;timer.c: 67: OPTION_REG |= 0x10;
+"67
+[e =| _OPTION_REG -> -> 16 `i `uc ]
+[; ;timer.c: 69: _nop();
+"69
+[e ( __nop ..  ]
+[; ;timer.c: 70: _nop();
+"70
+[e ( __nop ..  ]
+[; ;timer.c: 72: OPTION_REG &= ~0x10;
+"72
+[e =& _OPTION_REG -> ~ -> 16 `i `uc ]
+[; ;timer.c: 74: _nop();
+"74
+[e ( __nop ..  ]
+[; ;timer.c: 75: _nop();
+"75
+[e ( __nop ..  ]
+[; ;timer.c: 77: ++count;
+"77
+[e =+ _count -> -> 1 `i `ui ]
+"80
+}
+[; ;timer.c: 80: } while(prev == TMR0 && count <= 255);
+[e $ && == -> _prev `i -> _TMR0 `i <= _count -> -> 255 `i `ui 98  ]
+[e :U 97 ]
+[; ;timer.c: 82: count = ((prev << 8) + (256 - count));
+"82
+[e = _count + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui _count ]
+[; ;timer.c: 83: return count;
+"83
+[e ) -> _count `us ]
+[e $UE 95  ]
+[; ;timer.c: 84: }
+"84
+[e :UE 95 ]
+}
+"125
 [v _timer2_init `(v  1 ef1`uc ]
 {
 [; ;timer.c: 124: void
@@ -1616,5 +1728,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _PIE1 -> << -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i -> 1 `i `uc ]
 [; ;timer.c: 142: }
 "142
-[e :UE 93 ]
+[e :UE 99 ]
 }
