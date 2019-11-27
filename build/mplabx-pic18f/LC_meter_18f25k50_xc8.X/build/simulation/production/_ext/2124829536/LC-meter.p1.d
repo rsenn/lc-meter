@@ -1,0 +1,20 @@
+ build/simulation/production/_ext/2124829536/LC-meter.d  \
+ build/simulation/production/_ext/2124829536/LC-meter.p1:  \
+ ../../../LC-meter.c  \
+../../../lib/const.h  \
+../../../LC-meter.h  \
+../../../lib/tsmdelay.h  \
+../../../lib/format.h  \
+../../../src/measure.h  \
+../../../src/config-bits.h  \
+../../../lib/oscillator.h  \
+../../../lib/device.h  \
+../../../lib/timer.h  \
+../../../lib/interrupt.h  \
+../../../src/print.h  \
+../../../lib/typedef.h  \
+../../../lib/ser.h  \
+../../../src/config-18f25k50.h  \
+../../../lib/lcd44780.h  \
+../../../lib/delay.h  \
+../../../src/lcd44780-config.h 
