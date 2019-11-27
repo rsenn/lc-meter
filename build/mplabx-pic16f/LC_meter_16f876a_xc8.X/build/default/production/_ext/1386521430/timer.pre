@@ -1,15 +1,15 @@
 
 # 1 "../../../lib/timer.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1276,21 +1276,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1299,39 +1299,119 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
 
-# 68 "../../../lib/timer.h"
-void timer0_init(unsigned char);
+# 20
+typedef signed int int16_t;
 
-# 75
-unsigned short timer0_read_ps(void);
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 86
+typedef signed long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
 
 # 105
-void timer1_init(unsigned char ps_mode);
+typedef unsigned char uint_least8_t;
 
-# 143
-void timer2_init(unsigned char ps_mode);
+# 111
+typedef unsigned int uint_least16_t;
+
+# 118
+typedef unsigned long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 152
+typedef signed long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 184
+typedef unsigned long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 69 "../../../lib/timer.h"
+void timer0_init(uint8_t);
+
+# 76
+unsigned short timer0_read_ps(void);
+
+# 106
+void timer1_init(uint8_t ps_mode);
+
+# 144
+void timer2_init(uint8_t ps_mode);
 
 # 26 "../../../lib/timer.c"
 void
-timer0_init(unsigned char ps_mode) {
-unsigned char prescaler = ps_mode & 0b1111;
+timer0_init(uint8_t ps_mode) {
+uint8_t prescaler = ps_mode & 0b1111;
 
 TMR0 = 0;
 
 
-OPTION_REG |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
+OPTION_REG |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
 
 
 OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
 
-
+# 44
 OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
 
 OPTION_REG &= ~0b111;
@@ -1339,7 +1419,7 @@ OPTION_REG &= ~0b111;
 if(prescaler > 0) {
 OPTION_REG |= (prescaler - 1) & 0b111;
 
-# 50
+# 55
 }
 
 
@@ -1350,8 +1430,8 @@ INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
 
 unsigned short
 timer0_read_ps(void) {
-unsigned char prev = TMR0;
-unsigned short int count = 0;
+uint8_t prev = TMR0;
+uint16_t count = 0;
 
 OPTION_REG |= 0x20;
 
@@ -1376,9 +1456,9 @@ count = ((prev << 8) + (256 - count));
 return count;
 }
 
-# 91
+# 96
 void
-timer1_init(unsigned char ps_mode) {
+timer1_init(uint8_t ps_mode) {
 
 T1CON &= ~0b00111110;
 
@@ -1405,11 +1485,11 @@ PIE1 &= ~0b1;
 PIE1 |= !!(ps_mode & 0x80);
 }
 
-# 124
+# 129
 void
-timer2_init(unsigned char ps_mode) {
-unsigned char ps = ps_mode & 0b1111;
-unsigned char postscaler = 0;
+timer2_init(uint8_t ps_mode) {
+uint8_t ps = ps_mode & 0b1111;
+uint8_t postscaler = 0;
 
 
 T2CON &= ~0b01111111;

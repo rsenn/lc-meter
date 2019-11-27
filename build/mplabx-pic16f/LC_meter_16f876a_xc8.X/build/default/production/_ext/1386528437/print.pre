@@ -1,18 +1,18 @@
 
 # 1 "../../../src/print.c"
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1279,21 +1279,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1302,25 +1302,104 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 69 "../../../lib\typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
 
-# 12 "../../../lib\buffer.h"
-typedef unsigned char len_t;
+# 20
+typedef signed int int16_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 86
+typedef signed long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 118
+typedef unsigned long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 152
+typedef signed long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 184
+typedef unsigned long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "../../../lib/buffer.h"
+typedef uint8_t len_t;
 
 typedef struct {
 char x[16];
 unsigned p : 4;
 unsigned n : 4;
-putchar_p op;
 } buffer_t;
 
-# 27
+# 25
 extern buffer_t buffer;
 
-void buffer_init(putchar_p op);
-char buffer_flush();
+void buffer_init(void);
+char buffer_flush(void);
 char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
@@ -1329,19 +1408,17 @@ char buffer_puts(const char* x);
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c);
+void output_putch(char c); void lcd_puts(const char*);
+void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+void print_unit(uint8_t unit);
+void print_reading(uint16_t measurement);
+void print_indicator(uint8_t indicate);
+void print_print_float(float number, uint8_t digits);
+void print_buffer(void);
 
-void lcd_puts(const char*);
-void print_digit(unsigned char line, unsigned char column, unsigned char digit);
-void print_unit(unsigned char unit);
-void print_reading(unsigned short int measurement);
-void indicator(unsigned char indicate);
-
-void print_print_float(float number, unsigned char digits);
-
-# 47 "../../../lib\lcd44780.h"
+# 48 "../../../lib/lcd44780.h"
 void lcd_init(char fourbitmode);
-void lcd_begin(unsigned char l, unsigned char ds);
+void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
 void lcd_autoscroll(void);
 void lcd_right_to_left(void);
@@ -1356,101 +1433,93 @@ void lcd_display();
 void lcd_no_display();
 void lcd_clear();
 void lcd_home();
-void lcd_print_number(unsigned short int n, unsigned char base, signed char pad);
-void lcd_print_float(float number, unsigned char digits);
+void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 
-void lcd_gotoxy(unsigned char col, unsigned char row);
-void lcd_putch(char value);
+void lcd_gotoxy(uint8_t col, uint8_t row);
 
-# 89 "../../../lib\uart.h"
-extern const unsigned char uart_brg;
+void lcd_send(uint8_t value, uint8_t mode);
 
-void uart_putch(unsigned char byte);
+# 48 "../../../lib/ser.h"
+bit ser_isrx(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
 
-int uart_getch(void);
-bool uart_poll(unsigned char bauds);
 
-# 99
-void uart_init(void);
+extern uint8_t rxfifo[(uint8_t)16];
+extern volatile uint8_t rxiptr, rxoptr;
+extern uint8_t txfifo[(uint8_t)16];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
 
-# 106
-unsigned char uart_isr(void);
+extern uint8_t ser_brg;
 
-# 111
-void uart_enable(void);
+# 6 "../../../lib/format.h"
+void format_number(uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(uint32_t x);
+void format_double(double num);
 
-# 116
-void uart_disable(void);
-
-void uart_puts(const char* s);
-void uart_puts2(unsigned char* s);
-
-# 6 "../../../lib\format.h"
-extern putchar_fn* putchar_ptr;
-
-void format_number( unsigned short int n, unsigned char base, signed char pad);
-
-void format_xint32( unsigned long int x);
-
-void format_double( double num);
-
-# 32 "../../../src/print.c"
+# 22 "../../../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
 
-
-unsigned char i;
-while(n--) lcd_putch(*buf++);
+uint8_t i;
+while(n--) lcd_send((*buf++), 1);
 
 }
 
-# 389
+# 100
 void
-print_digit(unsigned char line, unsigned char column, unsigned char digit) {
+print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 
-# 405
+# 116
 lcd_gotoxy(column, 0);
-lcd_putch('0' + digit);
+lcd_send(('0' + digit), 1);
 
 }
 
 
 void
-print_unit(unsigned char unit) {
+print_unit(uint8_t unit) {
 
-# 420
+# 131
 static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
 lcd_gotoxy(14, 0);
 
-# 425
+# 136
 lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
 
 
-uart_puts("\r\n");
+ser_puts("\r\n");
 
 }
 
 void
-print_reading(unsigned short int measurement) {
+print_reading(uint16_t measurement) {
 
-# 460
+# 171
 lcd_gotoxy(9, 0);
 lcd_puts("     ");
 lcd_gotoxy(9, 0);
 
-format_number( measurement / 100, 10, 0);
+format_number(measurement / 100, 10, 0);
 
-format_number( measurement % 100, 10, 0);
+format_number(measurement % 100, 10, 0);
 
 
 }
 
 
 void
-indicator(unsigned char indicate) {
+print_indicator(uint8_t indicate) {
 
-# 487
+# 198
 lcd_gotoxy(0, 1);
 if(indicate) {
 lcd_puts("-*-");
@@ -1463,12 +1532,14 @@ lcd_puts("   ");
 void
 output_putch(char c) {
 
-lcd_putch(c);
+lcd_send((c), 1);
 
-# 504
+
+ser_putch(c);
+
 }
 
-# 509
+# 220
 void
 put_str(const char* s) {
 int i;
@@ -1476,4 +1547,13 @@ int i;
 for(i = 0; s[i]; i++) {
 output_putch(s[i]);
 }
+}
+
+void
+print_buffer(void) {
+uint8_t i;
+for(i = 0; i < buffer.n; i++) {
+ser_putch(buffer.x[i]);
+}
+ser_puts("\r\n");
 }

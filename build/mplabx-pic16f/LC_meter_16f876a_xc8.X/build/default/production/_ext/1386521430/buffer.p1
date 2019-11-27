@@ -1,13 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F988 `(v ~T0 @X0 1 tf1`uc ]
 "14 ../../../lib/buffer.h
-[s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 `*F988 1 ]
-[n S88 . x p n op ]
+[s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
+[n S88 . x p n ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 25: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"51 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [; ;pic16f876a.h: 51: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f876a.h: 55: extern volatile unsigned char TMR0 @ 0x001;
@@ -927,21 +926,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;typedef.h: 69: typedef void(putchar_fn)(char);
-[; ;typedef.h: 70: typedef putchar_fn* putchar_p;
-[; ;buffer.h: 12: typedef unsigned char len_t;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 86: typedef signed long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 118: typedef unsigned long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 152: typedef signed long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 184: typedef unsigned long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;buffer.h: 12: typedef uint8_t len_t;
 [; ;buffer.h: 14: typedef struct {
 [; ;buffer.h: 15: char x[16];
 [; ;buffer.h: 16: unsigned p : 4;
 [; ;buffer.h: 17: unsigned n : 4;
-[; ;buffer.h: 18: putchar_p op;
-[; ;buffer.h: 19: } buffer_t;
-[; ;buffer.h: 27: extern buffer_t buffer;
-[; ;buffer.h: 29: void buffer_init(putchar_p op);
-[; ;buffer.h: 30: char buffer_flush();
-[; ;buffer.h: 31: char buffer_putch(char ch);
-[; ;buffer.h: 32: char buffer_put(const char* x, len_t len);
-[; ;buffer.h: 33: char buffer_puts(const char* x);
+[; ;buffer.h: 18: } buffer_t;
+[; ;buffer.h: 25: extern buffer_t buffer;
+[; ;buffer.h: 27: void buffer_init(void);
+[; ;buffer.h: 28: char buffer_flush(void);
+[; ;buffer.h: 29: char buffer_putch(char ch);
+[; ;buffer.h: 30: char buffer_put(const char* x, len_t len);
+[; ;buffer.h: 31: char buffer_puts(const char* x);
 [; ;string.h: 4: typedef int ptrdiff_t;
 [; ;string.h: 5: typedef unsigned size_t;
 [; ;string.h: 6: typedef unsigned short wchar_t;
@@ -975,180 +997,149 @@ Version 3.2 HI-TECH Software Intermediate Code
 "4 ../../../lib/buffer.c
 [v _buffer `S88 ~T0 @X0 1 e ]
 [; ;buffer.c: 4: buffer_t buffer;
-"7
-[v _buffer_init `(v ~T0 @X0 1 ef1`*F988 ]
-{
-[; ;buffer.c: 6: void
-[; ;buffer.c: 7: buffer_init(putchar_p op) {
-[e :U _buffer_init ]
-[v _op `*F988 ~T0 @X0 1 r1 ]
-[f ]
-[; ;buffer.c: 8: buffer.p = 0;
-"8
-[e = . _buffer 1 -> -> 0 `i `uc ]
-[; ;buffer.c: 9: buffer.n = 0;
-"9
-[e = . _buffer 2 -> -> 0 `i `uc ]
-[; ;buffer.c: 10: buffer.op = op;
 "10
-[e = . _buffer 3 _op ]
-[; ;buffer.c: 11: }
+[v _buffer_init `(v ~T0 @X0 1 ef ]
+{
+[; ;buffer.c: 9: void
+[; ;buffer.c: 10: buffer_init(void) {
+[e :U _buffer_init ]
+[f ]
+[; ;buffer.c: 11: buffer.p = 0;
 "11
+[e = . _buffer 1 -> -> 0 `i `uc ]
+[; ;buffer.c: 12: buffer.n = 0;
+"12
+[e = . _buffer 2 -> -> 0 `i `uc ]
+[; ;buffer.c: 13: }
+"13
 [e :UE 89 ]
 }
-"14
+"21
 [v _buffer_flush `(uc ~T0 @X0 1 ef ]
 {
-[; ;buffer.c: 13: char
-[; ;buffer.c: 14: buffer_flush() {
+[; ;buffer.c: 20: char
+[; ;buffer.c: 21: buffer_flush() {
 [e :U _buffer_flush ]
 [f ]
-[; ;buffer.c: 15: while(buffer.p < buffer.n) {
-"15
-[e $U 91  ]
-[e :U 92 ]
-{
-[; ;buffer.c: 16: buffer.op(buffer.x[buffer.p++]);
-"16
-[e ( *U . _buffer 3 (1 *U + &U . _buffer 0 * -> ++ . _buffer 1 -> -> 1 `i `uc `ux -> -> # *U &U . _buffer 0 `ui `ux ]
-"17
-}
-[e :U 91 ]
-"15
-[e $ < -> . _buffer 1 `i -> . _buffer 2 `i 92  ]
-[e :U 93 ]
-[; ;buffer.c: 17: }
-[; ;buffer.c: 18: buffer.p = 0, buffer.n = 0, 0;
-"18
+[; ;buffer.c: 25: buffer.p = 0, buffer.n = 0, 0;
+"25
 [e ; ; = . _buffer 1 -> -> 0 `i `uc = . _buffer 2 -> -> 0 `i `uc -> 0 `i ]
-[; ;buffer.c: 19: return 0;
-"19
+[; ;buffer.c: 26: return 0;
+"26
 [e ) -> -> 0 `i `uc ]
 [e $UE 90  ]
-[; ;buffer.c: 20: }
-"20
+[; ;buffer.c: 27: }
+"27
 [e :UE 90 ]
 }
-"23
+"30
 [v _buffer_putch `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;buffer.c: 22: char
-[; ;buffer.c: 23: buffer_putch(char ch) {
+[; ;buffer.c: 29: char
+[; ;buffer.c: 30: buffer_putch(char ch) {
 [e :U _buffer_putch ]
 [v _ch `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;buffer.c: 24: if(16 - buffer.n <= 0) {
-"24
-[e $ ! <= - -> 16 `i -> . _buffer 2 `i -> 0 `i 95  ]
-{
-[; ;buffer.c: 25: return 0;
-"25
+[; ;buffer.c: 31: if(16 - buffer.n <= 0)
+"31
+[e $ ! <= - -> 16 `i -> . _buffer 2 `i -> 0 `i 92  ]
+[; ;buffer.c: 32: return 0;
+"32
 [e ) -> -> 0 `i `uc ]
-[e $UE 94  ]
-"26
-}
-[e :U 95 ]
-[; ;buffer.c: 26: }
-[; ;buffer.c: 27: buffer.x[buffer.n] = ch;
-"27
-[e = *U + &U . _buffer 0 * -> . _buffer 2 `ux -> -> # *U &U . _buffer 0 `ui `ux _ch ]
-[; ;buffer.c: 28: buffer.n++;
-"28
-[e ++ . _buffer 2 -> -> 1 `i `uc ]
-[; ;buffer.c: 29: return 1;
-"29
-[e ) -> -> 1 `i `uc ]
-[e $UE 94  ]
-[; ;buffer.c: 30: }
-"30
-[e :UE 94 ]
-}
+[e $UE 91  ]
+[e :U 92 ]
+[; ;buffer.c: 33: buffer.x[buffer.n] = ch;
 "33
+[e = *U + &U . _buffer 0 * -> . _buffer 2 `ux -> -> # *U &U . _buffer 0 `ui `ux _ch ]
+[; ;buffer.c: 34: buffer.n++;
+"34
+[e ++ . _buffer 2 -> -> 1 `i `uc ]
+[; ;buffer.c: 35: return 1;
+"35
+[e ) -> -> 1 `i `uc ]
+[e $UE 91  ]
+[; ;buffer.c: 36: }
+"36
+[e :UE 91 ]
+}
+"39
 [v _buffer_put `(uc ~T0 @X0 1 ef2`*Cuc`uc ]
 {
-[; ;buffer.c: 32: char
-[; ;buffer.c: 33: buffer_put(const char* buf, len_t len) {
+[; ;buffer.c: 38: char
+[; ;buffer.c: 39: buffer_put(const char* buf, len_t len) {
 [e :U _buffer_put ]
 [v _buf `*Cuc ~T0 @X0 1 r1 ]
 [v _len `uc ~T0 @X0 1 r2 ]
 [f ]
-"34
+"40
 [v _i `uc ~T0 @X0 1 a ]
-[; ;buffer.c: 34: len_t i;
-[; ;buffer.c: 35: if(len > 16 - buffer.n) {
-"35
-[e $ ! > -> _len `i - -> 16 `i -> . _buffer 2 `i 97  ]
-{
-[; ;buffer.c: 45: return -1;
-"45
+[; ;buffer.c: 40: len_t i;
+[; ;buffer.c: 41: if(len > 16 - buffer.n)
+"41
+[e $ ! > -> _len `i - -> 16 `i -> . _buffer 2 `i 94  ]
+[; ;buffer.c: 42: return -1;
+"42
 [e ) -> -U -> 1 `i `uc ]
-[e $UE 96  ]
-"46
-}
-[e :U 97 ]
-[; ;buffer.c: 46: }
-[; ;buffer.c: 47: for(i = 0; i < len; i++) {
-"47
+[e $UE 93  ]
+[e :U 94 ]
+[; ;buffer.c: 43: for(i = 0; i < len; i++)
+"43
 {
 [e = _i -> -> 0 `i `uc ]
-[e $U 101  ]
-[e :U 98 ]
-{
-[; ;buffer.c: 48: buffer.x[buffer.n + i] = buf[i];
-"48
+[e $U 98  ]
+"44
+[e :U 95 ]
+[; ;buffer.c: 44: buffer.x[buffer.n + i] = buf[i];
 [e = *U + &U . _buffer 0 * -> -> + -> . _buffer 2 `i -> _i `i `ui `ux -> -> # *U &U . _buffer 0 `ui `ux *U + _buf * -> _i `ux -> -> # *U _buf `ui `ux ]
-"49
-}
-"47
+"43
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 101 ]
-[e $ < -> _i `i -> _len `i 98  ]
-[e :U 99 ]
-"49
+[e :U 98 ]
+[e $ < -> _i `i -> _len `i 95  ]
+[e :U 96 ]
+"44
 }
-[; ;buffer.c: 49: }
-[; ;buffer.c: 51: buffer.n += len;
-"51
+[; ;buffer.c: 45: buffer.n += len;
+"45
 [e =+ . _buffer 2 _len ]
-[; ;buffer.c: 52: return 0;
-"52
+[; ;buffer.c: 46: return 0;
+"46
 [e ) -> -> 0 `i `uc ]
-[e $UE 96  ]
-[; ;buffer.c: 53: }
-"53
-[e :UE 96 ]
+[e $UE 93  ]
+[; ;buffer.c: 47: }
+"47
+[e :UE 93 ]
 }
-"56
+"57
 [v _buffer_puts `(uc ~T0 @X0 1 ef1`*Cuc ]
 {
-[; ;buffer.c: 55: char
-[; ;buffer.c: 56: buffer_puts(const char* x) {
+[; ;buffer.c: 56: char
+[; ;buffer.c: 57: buffer_puts(const char* x) {
 [e :U _buffer_puts ]
 [v _x `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-[; ;buffer.c: 57: while(*x) {
-"57
-[e $U 103  ]
-[e :U 104 ]
-{
-[; ;buffer.c: 58: buffer_putch(*x);
+[; ;buffer.c: 58: while(*x) {
 "58
-[e ( _buffer_putch (1 *U _x ]
-[; ;buffer.c: 59: ++x;
+[e $U 100  ]
+[e :U 101 ]
+{
+[; ;buffer.c: 59: buffer_putch(*x);
 "59
-[e =+ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
+[e ( _buffer_putch (1 *U _x ]
+[; ;buffer.c: 60: ++x;
 "60
-}
-[e :U 103 ]
-"57
-[e $ != -> *U _x `i -> -> -> 0 `i `Cuc `i 104  ]
-[e :U 105 ]
-[; ;buffer.c: 60: }
-[; ;buffer.c: 61: return 0;
+[e =+ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
 "61
-[e ) -> -> 0 `i `uc ]
-[e $UE 102  ]
-[; ;buffer.c: 62: }
+}
+[e :U 100 ]
+"58
+[e $ != -> *U _x `i -> -> -> 0 `i `Cuc `i 101  ]
+[e :U 102 ]
+[; ;buffer.c: 61: }
+[; ;buffer.c: 62: return 0;
 "62
-[e :UE 102 ]
+[e ) -> -> 0 `i `uc ]
+[e $UE 99  ]
+[; ;buffer.c: 63: }
+"63
+[e :UE 99 ]
 }

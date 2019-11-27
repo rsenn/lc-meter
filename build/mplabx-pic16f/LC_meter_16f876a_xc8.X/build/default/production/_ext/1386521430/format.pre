@@ -1,18 +1,18 @@
 
 # 1 "../../../lib/format.c"
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
 typedef unsigned char bool;
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1279,21 +1279,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1302,20 +1302,114 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 69 "../../../lib/typedef.h"
-typedef void(putchar_fn)(char);
-typedef putchar_fn* putchar_p;
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 86
+typedef signed long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 118
+typedef unsigned long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 152
+typedef signed long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 184
+typedef unsigned long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
 
 # 6 "../../../lib/format.h"
-extern putchar_fn* putchar_ptr;
+void format_number(uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(uint32_t x);
+void format_double(double num);
 
-void format_number( unsigned short int n, unsigned char base, signed char pad);
+# 12 "../../../lib/buffer.h"
+typedef uint8_t len_t;
 
-void format_xint32( unsigned long int x);
+typedef struct {
+char x[16];
+unsigned p : 4;
+unsigned n : 4;
+} buffer_t;
 
-void format_double( double num);
+# 25
+extern buffer_t buffer;
 
-# 30 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\math.h"
+void buffer_init(void);
+char buffer_flush(void);
+char buffer_putch(char ch);
+char buffer_put(const char* x, len_t len);
+char buffer_puts(const char* x);
+
+# 30 "/opt/microchip/xc8/v1.34/include/math.h"
 extern double fabs(double);
 extern double floor(double);
 extern double ceil(double);
@@ -1343,20 +1437,20 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 5 "../../../lib/format.c"
+# 6 "../../../lib/format.c"
 static void
 format_putchar(char c) {
 return;
 }
 
-putchar_fn* putchar_ptr = format_putchar;
+
 
 
 void
-format_number( unsigned short int n, unsigned char base, signed char pad ) {
+format_number(uint16_t n, uint8_t base, int8_t pad ) {
 char buf[8 * sizeof(long)];
-unsigned char di;
-signed char i = 0;
+uint8_t di;
+int8_t i = 0;
 char padchar = ' ';
 
 if(pad < 0) {
@@ -1364,29 +1458,31 @@ pad = -pad;
 padchar = '0';
 }
 
-# 30
+# 31
 do {
 
-# 34
+# 35
 di = n % base;
-buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
+buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 
 n /= base;
 } while(n > 0);
 
-while(pad-- > i) putchar_ptr(padchar);
+while(pad-- > i) buffer_putch(padchar);
 
-for(; i > 0; i--) putchar_ptr((char)buf[(signed short int)i - 1]);
+for(; i > 0; i--) {
+buffer_putch((char)buf[(int16_t)i - 1]);
 
+}
 }
 
 
 void
-format_xint32( unsigned long int x) {
-putchar_ptr('0');
-putchar_ptr('x');
-format_number((unsigned short int)(x >> 16), 16, -4);
-format_number((unsigned short int)(x & 0xffff), 16, -4);
+format_xint32( uint32_t x) {
+buffer_putch('0');
+buffer_putch('x');
+format_number((uint16_t)(x >> 16), 16, -4);
+format_number((uint16_t)(x & 0xffff), 16, -4);
 }
 
 void
@@ -1399,9 +1495,9 @@ while(num > 0 + 3.05176e-05) {
 float weight = pow(10.0l, m);
 digit = (char)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr('0' + digit);
+buffer_putch('0' + digit);
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }
@@ -1417,9 +1513,9 @@ while(num > 0 + (sizeof(double) == sizeof(float) ? 3.05176e-05 : 1.19209290e-07)
 double weight = pow(10.0l, m);
 digit = (short)floor(num / weight);
 num -= (digit * weight);
-putchar_ptr((char)('0' + digit));
+buffer_putch((char)('0' + digit));
 if(m == 0)
-putchar_ptr('.');
+buffer_putch('.');
 m--;
 }
 }
