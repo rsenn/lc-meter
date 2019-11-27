@@ -3,8 +3,8 @@
 
 #if defined(MCHP_XC8)
 
-#pragma config FOSC = HSPLL_HS
-#pragma config PWRT = ON, BOR = ON
+#pragma config FOSC = HS
+#pragma config PWRT = ON, BOR = ON, BORV = 3
 #pragma config WDT = OFF
 #pragma config CCP2MX = ON, STVREN = OFF, LVP = OFF
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
@@ -20,9 +20,9 @@
 __CONFIG(1, FOSC_HS & FCMEN_ON);
 __CONFIG(2, PWRT_ON & BOR_ON & BORV_3 & VREGEN_ON &WDT_OFF);
 __CONFIG(3, PBADEN_OFF & MCLRE_ON & CCP2MX_ON);
-__CONFIG(4, STVREN_ON & LVP_OFF &   XINST_OFF & DEBUG_ON); 
+__CONFIG(4, STVREN_ON & LVP_OFF &   XINST_OFF & DEBUG_ON);
 //__CONFIG(5, CPB_ON & CPD_OFF);
-__CONFIG(6, WRTC_ON & WRTB_ON & WRTD_OFF);
+__CONFIG(6, WRTC_OFF & WRTB_OFF & WRTD_OFF);
 __CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
 
 //

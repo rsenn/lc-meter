@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=LC_meter_16f876a_xc8.X
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=debug_vsm
 CONF=${DEFAULTCONF}
 
 # All Configurations

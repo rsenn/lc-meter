@@ -69,7 +69,7 @@ baud() {
 
   : ${XTAL:=20000000}
   : ${FOSC:=$((XTAL))}
-  : ${UART_BAUD:=9600}
+  : ${UART_BAUD:=38400}
   
   
   

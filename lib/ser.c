@@ -1,52 +1,25 @@
-/*
- * Distributed by www.microchipC.com - one of the web's largest
- * repositories of C source code for Microchip PIC micros.
- *
- * ser.c
- *
- * Interrupt Driven Serial Routines with Circular FIFO
- * Copyright (c) 2006, Regulus Berdin
- * All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or
- * sell copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT.  IN NO EVENT SHALL REGULUS BERDIN BE LIABLE FOR
- * ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- */
 #ifdef USE_SER
 #define _SER_C_
 #include "device.h"
 #include "oscillator.h"
 #include "ser.h"
-#include "uart.h"
 #include "const.h"
 
-#ifndef SER_BRG
-//# if HIGH_SPEED == 1
-#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(UART_BAUD))) - 1)
-//# else
-//#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(UART_BAUD))) - 1)
-//# endif
+#ifndef SER_BAUD
+#define SER_BAUD 38400
 #endif
 
-uint8_t ser_brg = ((_XTAL_FREQ) / (16 * (UART_BAUD))) - 1;
+#define HIGH_SPEED 1
+
+#ifndef SER_BRG
+# if HIGH_SPEED == 1
+#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(SER_BAUD))) - 1)
+# else
+#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(SER_BAUD))) - 1)
+# endif
+#endif
+
+uint8_t ser_brg = SER_BRG;
 
 uint8_t rxfifo[SER_BUFFER_SIZE];
 volatile uint8_t rxiptr, rxoptr;
@@ -123,15 +96,15 @@ ser_puthex(uint8_t v) {
 
 void
 ser_init(void) {
-  /*SER_TX_TRIS =  OUTPUT;
-  SER_TX_PIN = LOW;*/
-  SER_TX_TRIS = INPUT;
-  SER_RX_PIN = INPUT;
+  SER_TX_TRIS();
+  //SER_TX_PIN = LOW;
+  SER_RX_TRIS();
 
-  BRGH = 1; // high speed
+  BRGH = HIGH_SPEED; // high speed
   //	SPBRG=25;				//9,600 @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
   //	SPBRG=12;				//19.2K @ 4MHz, SPBRG = (4MHz/(16*BAUD_RATE))-1;
-  //	SPBRG=39;				//31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //  SPBRG=31;       //38.4K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
+  //  SPBRG=39;       //31.25K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   //	SPBRG=64;				//19.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   SPBRG = ser_brg; // 56.7K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;
   //	SPBRG=10;				//115.2K @ 20MHz, SPBRG = (20MHz/(16*BAUD_RATE))-1;

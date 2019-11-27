@@ -16,6 +16,8 @@
 #endif
 
 
+#define HIGH_SPEED 0
+
 #if OSC_4 == 5000000
 #if UART_BAUD == 9600
 #define UART_PS 0b001 // prescaler 1:4

@@ -14,11 +14,11 @@ BUILD_TYPES := debug release
 endif
 
 ifeq ($(XTAL_FREQS),)
-XTAL_FREQS := 20000000
+XTAL_FREQS := 16000000 20000000 24000000
 endif
 
 ifeq ($(BAUD_RATES),)
-BAUD_RATES := 38400
+BAUD_RATES := 19200 38400
 endif
 
 ifeq ($(BUILD_TYPE),debug)

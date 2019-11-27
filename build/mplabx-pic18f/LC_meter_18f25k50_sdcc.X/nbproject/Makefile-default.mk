@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../lib/buffer.c ../../../lib/comparator.c ../../../lib/delay.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/timer.c ../../../lib/uart.c ../../../src/measure.c ../../../src/print.c ../../../LC-meter.c
+SOURCEFILES_QUOTED_IF_SPACED=../../../lib/buffer.c ../../../lib/comparator.c ../../../lib/delay.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/timer.c ../../../lib/ser.c ../../../src/measure.c ../../../src/print.c ../../../LC-meter.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/buffer.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/timer.o ${OBJECTDIR}/_ext/1386521430/uart.o ${OBJECTDIR}/_ext/1386528437/measure.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/2124829536/LC-meter.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/buffer.o.d ${OBJECTDIR}/_ext/1386521430/comparator.o.d ${OBJECTDIR}/_ext/1386521430/delay.o.d ${OBJECTDIR}/_ext/1386521430/format.o.d ${OBJECTDIR}/_ext/1386521430/lcd44780.o.d ${OBJECTDIR}/_ext/1386521430/timer.o.d ${OBJECTDIR}/_ext/1386521430/uart.o.d ${OBJECTDIR}/_ext/1386528437/measure.o.d ${OBJECTDIR}/_ext/1386528437/print.o.d ${OBJECTDIR}/_ext/2124829536/LC-meter.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/buffer.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/timer.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386528437/measure.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/2124829536/LC-meter.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/buffer.o.d ${OBJECTDIR}/_ext/1386521430/comparator.o.d ${OBJECTDIR}/_ext/1386521430/delay.o.d ${OBJECTDIR}/_ext/1386521430/format.o.d ${OBJECTDIR}/_ext/1386521430/lcd44780.o.d ${OBJECTDIR}/_ext/1386521430/timer.o.d ${OBJECTDIR}/_ext/1386521430/ser.o.d ${OBJECTDIR}/_ext/1386528437/measure.o.d ${OBJECTDIR}/_ext/1386528437/print.o.d ${OBJECTDIR}/_ext/2124829536/LC-meter.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386521430/buffer.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/timer.o ${OBJECTDIR}/_ext/1386521430/uart.o ${OBJECTDIR}/_ext/1386528437/measure.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/2124829536/LC-meter.o
+OBJECTFILES=${OBJECTDIR}/_ext/1386521430/buffer.o ${OBJECTDIR}/_ext/1386521430/comparator.o ${OBJECTDIR}/_ext/1386521430/delay.o ${OBJECTDIR}/_ext/1386521430/format.o ${OBJECTDIR}/_ext/1386521430/lcd44780.o ${OBJECTDIR}/_ext/1386521430/timer.o ${OBJECTDIR}/_ext/1386521430/ser.o ${OBJECTDIR}/_ext/1386528437/measure.o ${OBJECTDIR}/_ext/1386528437/print.o ${OBJECTDIR}/_ext/2124829536/LC-meter.o
 
 # Source Files
-SOURCEFILES=../../../lib/buffer.c ../../../lib/comparator.c ../../../lib/delay.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/timer.c ../../../lib/uart.c ../../../src/measure.c ../../../src/print.c ../../../LC-meter.c
+SOURCEFILES=../../../lib/buffer.c ../../../lib/comparator.c ../../../lib/delay.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/timer.c ../../../lib/ser.c ../../../src/measure.c ../../../src/print.c ../../../LC-meter.c
 
 
 CFLAGS=
@@ -122,10 +122,10 @@ ${OBJECTDIR}/_ext/1386521430/timer.o: ../../../lib/timer.c  nbproject/Makefile-$
 	${RM} ${OBJECTDIR}/_ext/1386521430/timer.o 
 	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib --debug -c -mpic16 -p18f25k50 ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
 	
-${OBJECTDIR}/_ext/1386521430/uart.o: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1386521430/ser.o: ../../../lib/ser.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
-	${RM} ${OBJECTDIR}/_ext/1386521430/uart.o 
-	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib --debug -c -mpic16 -p18f25k50 ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
+	${RM} ${OBJECTDIR}/_ext/1386521430/ser.o 
+	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib --debug -c -mpic16 -p18f25k50 ../../../lib/ser.c  -o${OBJECTDIR}/_ext/1386521430/ser.o
 	
 ${OBJECTDIR}/_ext/1386528437/measure.o: ../../../src/measure.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
@@ -173,10 +173,10 @@ ${OBJECTDIR}/_ext/1386521430/timer.o: ../../../lib/timer.c  nbproject/Makefile-$
 	${RM} ${OBJECTDIR}/_ext/1386521430/timer.o 
 	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib -c -mpic16 -p18f25k50 ../../../lib/timer.c  -o${OBJECTDIR}/_ext/1386521430/timer.o
 	
-${OBJECTDIR}/_ext/1386521430/uart.o: ../../../lib/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/_ext/1386521430/ser.o: ../../../lib/ser.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
-	${RM} ${OBJECTDIR}/_ext/1386521430/uart.o 
-	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib -c -mpic16 -p18f25k50 ../../../lib/uart.c  -o${OBJECTDIR}/_ext/1386521430/uart.o
+	${RM} ${OBJECTDIR}/_ext/1386521430/ser.o 
+	${MP_CC} --use-non-free -D__18f25k50=1 -DPIC18F25K50=1 -DSDCC=1 -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -I"../../../lib" -I"../../../src" -I"../../.." --pstack-model=large -llibm18f.lib -c -mpic16 -p18f25k50 ../../../lib/ser.c  -o${OBJECTDIR}/_ext/1386521430/ser.o
 	
 ${OBJECTDIR}/_ext/1386528437/measure.o: ../../../src/measure.c  nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} "${OBJECTDIR}/_ext/1386528437" 

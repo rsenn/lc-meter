@@ -76,6 +76,14 @@
 #include "config-18f252.h"
 #endif // defined __18f252
 
+#ifdef __18f2450
+#include "config-18f2450.h"
+#endif // defined __18f2450
+
+#ifdef __18f2455
+#include "config-18f2455.h"
+#endif // defined __18f2455
+
 #ifdef __18f2520
 #include "config-18f2520.h"
 #endif // defined __18f2520

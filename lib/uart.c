@@ -30,7 +30,6 @@ uart_putch(uint8_t byte) {
 
 int
 uart_getch(void) {
-
   if(uart_poll(UART_TIMEOUT)) {
     uint8_t ch;
     ch = RCREG;
@@ -44,15 +43,12 @@ uart_getch(void) {
 //---------------------------------------------------------
 bool
 uart_poll(uint8_t bauds) {
-
   // TMR0 -= UART_BRG;            // load corrected baud value
-
   TMR0 = (256 - UART_BRG_FN(bauds));
   while(TMR0 & (1 << 7)) {
     if((PIR1 & 0b00100000))
       return 1;
   }
-
   return 0;
 }
 
@@ -93,21 +89,17 @@ uart_disable(void) {
 void
 uart_init(void) {
   /* Initilize baudrate generator and pins */
-
   RX_TRIS();
   TX_TRIS();
   TX_SET(0);
   SPBRG = UART_BRG; // UART_BRG;
-
   RCSTA |= 0x90 // CREN = 1;
            | /*RX9D =*/(NINE == 1 ? 0b1 : 0);
-
   TXSTA |= /*
   BRGH =  */ (HIGH_SPEED == 1)
                ? 0b100
                : 0b000;
   TXSTA |= (NINE == 1) ? 0b01000000 : 0;
-
   uart_enable();
 }
 

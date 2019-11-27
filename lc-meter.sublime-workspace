@@ -52,85 +52,19 @@
 	"buffers":
 	[
 		{
-			"file": "lib/delay.c",
+			"file": "LC-meter.c",
 			"settings":
 			{
-				"buffer_size": 447,
+				"buffer_size": 5636,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lib/oscillator.h",
+			"file": "lib/ser.c",
 			"settings":
 			{
-				"buffer_size": 679,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/buffer.c",
-			"settings":
-			{
-				"buffer_size": 938,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/tsmdelay.h",
-			"settings":
-			{
-				"buffer_size": 8493,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 639 files for \"DELAY_SMALL_TCY\" (case sensitive)\n\n/home/roman/Dokumente/Sources/lc-meter/lib/delay.h:\n   13:       DELAY_SMALL_TCY(C);                                                                                              \\\n\n/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h:\n  135: #define DELAY_SMALL_TCY(X)                                                                                             \\\n  165: #define DELAY_SMALL_US(X) DELAY_SMALL_TCY(US_CYCLES(X))\n\n/home/roman/Dokumente/Sources/lc-meter/lib/delay.h:\n   13:       DELAY_SMALL_TCY(C);                                                                                              \\\n\n/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h:\n  135: #define DELAY_SMALL_TCY(X)                                                                                             \\\n  165: #define DELAY_SMALL_US(X) DELAY_SMALL_TCY(US_CYCLES(X))\n\n6 matches across 4 files\n\n\nSearching 639 files for \"DELAY_SMALL_US\" (case sensitive)\n\n/home/roman/Dokumente/Sources/lc-meter/lib/delay.h:\n   20:       DELAY_SMALL_US(X);                                                                                               \\\n\n/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h:\n  165: #define DELAY_SMALL_US(X) DELAY_SMALL_TCY(US_CYCLES(X))\n\n/home/roman/Dokumente/Sources/lc-meter/lib/delay.h:\n   20:       DELAY_SMALL_US(X);                                                                                               \\\n\n/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h:\n  165: #define DELAY_SMALL_US(X) DELAY_SMALL_TCY(US_CYCLES(X))\n\n4 matches across 4 files\n",
-			"settings":
-			{
-				"buffer_size": 1627,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "lib/delay.h",
-			"settings":
-			{
-				"buffer_size": 2781,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#ifndef CONFIG_18F2550_H\n#define CONFIG_18F2550_H 1\n\n#if defined(MCHP_XC8)\n\n#pragma config FOSC = HSPLL_HS\n#pragma config PWRT = ON, BOR = ON\n#pragma config WDT = OFF\n#pragma config CCP2MX = ON, STVREN = OFF, LVP = OFF\n#pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF\n#pragma config CPB = OFF, CPD = OFF\n#pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF\n#pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF\n#pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF\n#pragma config EBTRB = OFF\n#pragma config XINST = ON\n//\n#elif defined(__XC)\n\n__CONFIG(1, FOSC_HS & FCMEN_ON);\n__CONFIG(2, PWRT_ON & BOR_ON & BORV_3 & VREGEN_ON &WDT_OFF);\n__CONFIG(3, PBADEN_OFF & MCLRE_ON & CCP2MX_ON);\n__CONFIG(4, STVREN_ON & LVP_OFF &   XINST_ON & DEBUG_ON); \n//__CONFIG(5, CPB_ON & CPD_OFF);\n__CONFIG(6, WRTC_ON & WRTB_ON & WRTD_OFF);\n__CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);\n\n//\n//\n//// PIC18F2550 Configuration Bit Settings\n//\n//// 'C' source line config statements\n//\n//\n\n#ifndef OSC_HSPLL\n#define OSC_HSPLL 0xFEFF\n#endif\n\n#elif defined(HI_TECH_C)\n#include <pic18fregs.h>\n\n__CONFIG(__CONFIG1L, 0xFFFF);\n__CONFIG(__CONFIG1H, _FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H);\n__CONFIG(__CONFIG4L, _XINST_ON_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L);\n#endif\n\n#endif // defined CONFIG_18F2550_H\n",
-			"file": "src/config-18f2550.h",
-			"file_size": 1323,
-			"file_write_time": 132131022674039156,
-			"settings":
-			{
-				"buffer_size": 1324,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/config-18f2520.h",
-			"settings":
-			{
-				"buffer_size": 1041,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/config-18f25k50.h",
-			"settings":
-			{
-				"buffer_size": 1080,
-				"encoding": "UTF-8",
+				"buffer_size": 2388,
 				"line_ending": "Unix"
 			}
 		}
@@ -319,36 +253,64 @@
 	"expanded_folders":
 	[
 		"/home/roman/Dokumente/Sources/lc-meter",
-		"/home/roman/Dokumente/Sources/lc-meter/Attic",
 		"/home/roman/Dokumente/Sources/lc-meter/lib",
-		"/home/roman/Dokumente/Sources/lc-meter/obj",
 		"/home/roman/Dokumente/Sources/lc-meter/src"
 	],
 	"file_history":
 	[
-		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h",
-		"/home/roman/Dokumente/Sources/lc-meter/src/measure.c",
-		"/home/roman/Dokumente/Sources/lc-meter/src/config-16f876a.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/device.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-bits.h",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/warpPerspective_demo.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/pibilight.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/homography_from_camera_displacement.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/perspective_correction.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/findLaserPoint.cpp",
+		"/home/roman/.cache/.fr-yBoH6t/send.php",
+		"/home/roman/.cache/.fr-PnF0a2/verify.php",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/oscillator.h",
+		"/home/roman/Dokumente/Sources/lc-meter/Attic/julznc/main.h",
+		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.h",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/src/homography.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/utils.cpp",
+		"/home/roman/Dokumente/Sources/contours/plot-cv/findLaserPoint.cpp",
+		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
+		"/home/roman/Dokumente/Sources/lc-meter/src/print.c",
+		"/home/roman/Dokumente/Sources/lc-meter/src/print.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/buffer.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/const.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/delay.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/format.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/hd44780.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/ser.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/ser.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/uart.c",
+		"/home/roman/Dokumente/Sources/lc-meter/src/measure.c",
+		"/home/roman/Dokumente/Sources/lc-meter/src/measure.h",
+		"/home/roman/Dokumente/Sources/lc-meter/Cap-meter.c",
+		"/home/roman/Dokumente/Sources/lc-meter/Attic/ser.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/uart.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/delay.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.c",
+		"/home/roman/Dokumente/Sources/lc-meter/lc-meter.code-workspace",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2520.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f25k50.h",
+		"/home/roman/Dokumente/Sources/lc-meter/src/config-16f876a.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/7segment.c",
 		"/home/roman/Dokumente/Sources/lc-meter/build.cmd",
 		"/home/roman/Dokumente/Sources/lc-meter/gen-mk.sh",
 		"/home/roman/Dokumente/Sources/lc-meter/src/device.h",
-		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.h",
-		"/home/roman/Dokumente/Sources/lc-meter/src/measure.h",
-		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.h",
 		"/home/roman/Dokumente/Sources/lc-meter/src/julznc/main.c",
 		"/home/roman/Dokumente/Sources/lc-meter/build/targets.mk",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/ser.c",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/ser.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/lcd5110.h",
 		"/home/roman/Dokumente/Sources/lc-meter/Makefile",
 		"/home/roman/Dokumente/Sources/lc-meter/build/xc8.mk",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.h",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/format.h",
 		"/home/roman/Dokumente/Sources/c-utils/dirlist.sublime-project",
 		"/home/roman/Dokumente/Sources/c-utils/list-r.c",
 		"/home/roman/Dokumente/Sources/c-utils/bsdiffcat.c",
@@ -423,37 +385,7 @@
 		"/home/roman/lotto/test-parsigram.lua",
 		"/home/roman/lotto/applications/payment.moon",
 		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/application.lua",
-		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/application.moon",
-		"/home/roman/lotto/helpers/json.lua",
-		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/validate.moon",
-		"/home/roman/lotto/applications/games.moon",
-		"/home/roman/lotto/helpers/validate.lua",
-		"/home/roman/lotto/models/games.moon",
-		"/home/roman/lotto/helpers/app.lua",
-		"/home/enki/lotto/helpers/bitcoin2.moon",
-		"/home/roman/lotto/applications/users.lua",
-		"/home/roman/lotto/helpers/models.lua",
-		"/home/roman/lotto/nginx.conf",
-		"/home/roman/lotto/doc/parsigram/hazarat.live.txt",
-		"/home/roman/lotto/static/shetab-deposit.html",
-		"/home/enki/Documents/Sources/c-utils/proxy.c",
-		"/home/roman/lotto/helpers/parsigram.lua",
-		"/home/roman/lotto/static/parsigram.min.html",
-		"/home/roman/lotto/doc/parsigram/api.html",
-		"/home/roman/lotto/doc/parsigram/wire.html",
-		"/home/roman/lotto/doc/parsigram/gateway.html",
-		"/home/enki/lotto/doc/parsigram/api.html",
-		"/home/enki/lotto/doc/parsigram/parspay.html",
-		"/home/enki/Desktop/hazarat-parsipardakhtia-live.dump",
-		"/home/enki/lotto/doc/parsigram/samples/Parsigram.php",
-		"/home/enki/lotto/doc/parsigram/gateway.html",
-		"/home/enki/lotto/doc/parsigram/gateway.min.html",
-		"/home/enki/.config/sublime-text-3/Packages/User/.jsbeautifyrc",
-		"/home/enki/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc.defaults.json",
-		"/home/enki/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
-		"/home/roman/lotto/static/test.html",
-		"/home/roman/lotto/doc/parsigram/samples/Parsigram.php",
-		"/home/roman/lotto/helpers/model.moon"
+		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/application.moon"
 	],
 	"find":
 	{
@@ -464,6 +396,7 @@
 		"height": 258.0,
 		"where_history":
 		[
+			"/home/roman/Dokumente/Sources/lc-meter,/home/roman/Dokumente/Sources/lc-meter/lib,*.c,*.h",
 			"/home/roman/Dokumente/Sources/lc-meter,/home/roman/Dokumente/Sources/lc-meter/lib,-*.mk,-*.sdb,-*.adb,-*.lst,-*.sym,-*.asm,-*.map,-*.cof,-*.elf,-*.cmf,-*.obj,-*.rlf,-*.p1,-*.pre",
 			"/home/roman/Dokumente/Sources/lc-meter/src,/home/roman/Dokumente/Sources/lc-meter/lib,-*.mk,-*.sdb,-*.adb,-*.lst,-*.sym,-*.asm,-*.map,-*.cof,-*.elf,-*.cmf,-*.obj,-*.rlf,-*.p1,-*.pre",
 			"/home/roman/Dokumente/Sources/lc-meter,-*.mk,-*.sdb,-*.adb,-*.lst,-*.sym,-*.asm,-*.map,-*.cof,-*.elf,-*.cmf,-*.obj,-*.rlf,-*.p1,-*.pre",
@@ -484,6 +417,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"XTAL",
+			"PICLIB_PICLIB",
+			"HD44780_H",
+			"/*putchar_fn* pc,*/ ",
+			"/*lcd_putch,*/ ",
+			"/*ser_putch,*/ ",
+			"define.*PORTC",
+			"define PORTC",
+			"0x40",
+			"UART_",
 			"BOREN",
 			"DELAY_SMALL_US",
 			"DELAY_SMALL_TCY",
@@ -517,6 +460,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			"PICLIB",
+			"PICLIB_HD44780_H",
+			"",
+			"s",
+			"",
+			"SER_"
 		],
 		"reverse": false,
 		"show_context": false,
@@ -527,24 +476,24 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lib/delay.c",
+					"file": "LC-meter.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 447,
+						"buffer_size": 5636,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2807,
+								2807
 							]
 						],
 						"settings":
@@ -554,55 +503,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2023.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "lib/oscillator.h",
+					"file": "lib/ser.c",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 679,
+						"buffer_size": 2388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/buffer.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 938,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								271,
-								271
+								2388,
+								2388
 							]
 						],
 						"settings":
@@ -612,237 +533,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/tsmdelay.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8493,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1847.0,
+						"translation.y": 1924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1627,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										125,
-										140
-									],
-									[
-										311,
-										326
-									],
-									[
-										457,
-										472
-									],
-									[
-										553,
-										568
-									],
-									[
-										739,
-										754
-									],
-									[
-										885,
-										900
-									],
-									[
-										1067,
-										1081
-									],
-									[
-										1253,
-										1267
-									],
-									[
-										1367,
-										1381
-									],
-									[
-										1553,
-										1567
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								1079,
-								1079
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 2,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 378.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "lib/delay.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2328,
-								2328
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/config-18f2550.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1324,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1281,
-								1281
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "src/config-18f2520.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1041,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								667,
-								667
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/config-18f25k50.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1080,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								668,
-								668
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -887,7 +581,7 @@
 	"project": "lc-meter.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -896,6 +590,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"device.h",
+				"lib/device.h"
+			],
+			[
+				"oscil",
+				"lib/oscillator.h"
+			],
+			[
+				"LC-meter",
+				"LC-meter.c"
+			],
+			[
+				"print.c",
+				"src/print.c"
+			],
 			[
 				"delay.c",
 				"lib/delay.c"

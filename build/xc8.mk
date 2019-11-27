@@ -22,7 +22,8 @@ endef
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
-CCVER = v1.34
+#CCVER = v1.34
+CCVER = v1.43
 
 PROGRAMFILES = C:/Program Files (x86)
 
@@ -32,7 +33,7 @@ OS = $(shell uname -o)
 
 ifeq ($(PICC),)
 ifeq ($(OS),GNU/Linux)
-CCDIR = /opt/microchip/xc8/v1.34
+CCDIR = /opt/microchip/xc8/$(CCVER)
 else
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
 endif

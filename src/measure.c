@@ -16,6 +16,7 @@
 #include "print.h"
 #include "format.h"
 #include "timer.h"
+#include "buffer.h"
 
 /*
  * Calibrate by adding the calibration capacitor into the circuit (by relay)
@@ -50,9 +51,7 @@ calibrate() {
   REMOVE_CCAL();
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-
   lcd_gotoxy(11, 0);
-
   for(i = 0; i < 6; i++) { // show progress bar
     lcd_putch('=');
     /*    lcd_send(0xfc, LCD_TDATA);*/
@@ -80,7 +79,7 @@ measure_freq() {
   // reset timer0 & prescaler
   TMR0 = 0x00;
 
-  SET_LED(1);
+//  SET_LED(1);
 
   // Wait fixed period (100ms)
   __delay_ms(10);
@@ -94,7 +93,7 @@ measure_freq() {
   __delay_ms(10);
   __delay_ms(10);
 
-  SET_LED(0);
+//  SET_LED(0);
 
   // Disable RA4 output to T0CKI
   TRISA |= 0b00010000;
@@ -104,9 +103,11 @@ measure_freq() {
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_gotoxy(0, 1);
-  put_str("Freq=");
-  format_number(/*lcd_putch,*/ count, 10, 5);
 #endif
+  buffer_init();
+  buffer_puts("Freq=");
+  format_number(count, 10, 5);
+  print_buffer();
 
   return count;
 }
@@ -132,23 +133,23 @@ measure_capacitance() {
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(/*ser_putch,*/ var);
+  format_xint32(var);
   ser_puts("\r\nF1=");
-  format_double(/*ser_putch,*/ F1);
+  format_double(F1);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F1);
+  format_xint32(*(uint32_t*)&F1);
   ser_puts("\r\nF2=");
-  format_double(/*ser_putch,*/ F2);
+  format_double(F2);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F2);
+  format_xint32(*(uint32_t*)&F2);
   ser_puts("\r\nF3=");
-  format_double(/*ser_putch,*/ F3);
+  format_double(F3);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&F3);
+  format_xint32(*(uint32_t*)&F3);
   ser_puts("\r\nCCal=");
-  format_double(/*ser_putch,*/ CCal);
+  format_double(CCal);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&CCal);
+  format_xint32(*(uint32_t*)&CCal);
   ser_puts("\r\n");
 #endif
 //  putchar_ptr = &output_putch;
@@ -161,9 +162,9 @@ measure_capacitance() {
 
 #if USE_SER
   ser_puts("Cin=");
-  format_double(/*ser_putch,*/ Cin);
+  format_double(Cin);
   ser_putch(' ');
-  format_xint32(/*ser_putch,*/ *(uint32_t*)&Cin);
+  format_xint32(*(uint32_t*)&Cin);
   ser_puts("\r\n");
 #endif
   if(Cin > 999) {
@@ -208,11 +209,8 @@ measure_inductance() {
   F3 = (double)var;
   if(F3 > F1)
     F3 = F1; // max freq is F1;
-
   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (GATE_PERIOD * GATE_PERIOD);
-
   denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
-
   Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
 
   if(Lin > 999) {

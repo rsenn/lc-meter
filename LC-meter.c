@@ -34,7 +34,7 @@
 
 #include "config-bits.h"
 
-#if (defined(__SDCC) || defined(SDCC)) && !PIC18
+#if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
@@ -44,6 +44,10 @@ volatile uint16_t bres;           // bresenham count
 volatile uint16_t msecpart;       // milliseconds modulo 1000
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
+
+static char mode = -1;
+
+#define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
 
@@ -73,25 +77,17 @@ volatile uint16_t blink = 0;
 /* Interrupt routine */
 
 #ifdef __XC
-void interrupt global_int(void) {
+void interrupt
+global_int(void) {
 #else
 INTERRUPT_FN() {
 #endif
-
   if(PIR1 & 0x02) {
-
     bres += 256;
-
-    if(bres >= 5000) {
-      bres -= 5000;
+    if(bres >= CYCLES_FOR_MSEC) {
+      bres -= CYCLES_FOR_MSEC;
       msecpart++;
-      msecs++;
-
-      SET_LED((blink > 200));
-      if(blink >= 400)
-        blink -= 400;
-      ++blink;
-
+      SET_LED(msecpart >= 833);
       /* if reached 1 second... */
       if(msecpart >= 1000) {
         /* ...update clock, etc */
@@ -110,71 +106,53 @@ INTERRUPT_FN() {
 #endif
 }
 
-/* main routine */
+/**
+ * @brief      { function_description }
+ */
 void
 main() {
   bres = msecpart = msecs = seconds = 0;
+  mode = -1;
 
   CCal = C_CAL;
 
   // setup comparator
-  /*
-  CMCON &= 0b11111000;
+
+/*  CMCON &= 0b11111000;
   CMCON |= 0b00000101;*/
+
 #ifdef __16f876a
   CMCON = 0b00000101;
 #endif
   TRISA = 0b11001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
 
-  /// T0CS = 1; // Transition on T0CKI pin
-  //
-   //T0CON |= 0x10; // T0SE = 1; // Increment on high-to-low transition on T0CKI pin
-
-  /*
-  CM0 = 1;
-   CM1 = 0;
-   CM2 = 1;
-  */
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
 #if PIC18
   INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
- #else
- OPTION_REG &= ~0b100000;
-#endif
-#endif
- 
-  INIT_LED();
-  SET_LED(1);
-/*
-#if PIC18 || defined(__16f628)
-  SSPCON1 &= ~0b00100000; //  SSPEN = 0;
 #else
-  SSPCON &= ~0b100;
+  OPTION_REG &= ~0b100000;
 #endif
-*/
-
-  // timer1_init(PRESCALE_1_1 | TIMER1_FLAGS_EXTCLK);
-  //  timer1of = 0;
-
-  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
-
+#endif
 #if !NO_PORTC && !defined(__16f628)
   //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
-  TRISC &= 0b10110101;
+  TRISC = 0b10111011;
 #endif
-  /*#if !PIC18_USB
-    TRISC3 = OUTPUT;
-  #endif
-    TRISC0 = INPUT;
-    TRISC2 = INPUT;
-  */ // initialize 5110 lcd
+
+
+  INIT_LED();
+  SET_LED(1);
+
+  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+
+
+  // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
   lcd_init();
   lcd_clear();
@@ -207,10 +185,6 @@ main() {
   INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
-  //putchar_ptr = &lcd_putch;
-#endif
-
-#if USE_HD44780_LCD || USE_NOKIA5110_LCD
 #if USE_NOKIA5110_LCD
   lcd_gotoxy(0, 0);
 #else
@@ -227,6 +201,7 @@ main() {
 #endif
 
   calibrate();
+
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_clear();
 #endif
@@ -234,20 +209,27 @@ main() {
   /* main loop:
    *
    * Continuously measure capacity/inductance according to switch position.
-   * Blink the indicator (-*-) sign after each measurement.
+   * Blink the print_indicator (-*-) sign after each measurement.
    */
-
   for(;;) {
+    char new_mode = LC_SELECT;
 
-    ser_puts("...\r\n");
-    if(LC_SELECT)
+    if(new_mode != mode) {
+      ser_puts(mode ?  "- C (Unit: F) -" : "- L (Unit: H) -");
+      ser_puts("\r\n");
+
+      mode = new_mode;
+    }
+
+    if(mode)
       measure_capacitance();
     else
       measure_inductance();
 
-    indicator(1);
+    print_indicator(1);
     delay10ms(30);
-    indicator(0);
+    
+    print_indicator(0);
     delay10ms(20);
   }
 }
@@ -277,18 +259,18 @@ testloop() {
   lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
-  format_number(/*lcd_putch,*/ s, 10, 5);
+  format_number(s, 10, 5);
 
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
   lcd_gotoxy(10, 1);
-  format_number(/*lcd_putch,*/ TIMER1_VALUE, 10, 5);
+  format_number(TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
   lcd_puts("     ");
   lcd_gotoxy(0, 1);
   lcd_puts("RC4=");
-  
+
 #ifdef USE_HD44780_LCD
   lcd_putch(LC_SELECT != 0 ? '1' : '0');
 #endif
@@ -296,8 +278,8 @@ testloop() {
 #endif
   if(s != prev_s) {
 #if USE_SER
-    format_number(/*ser_putch,*/ s, 10, 0);
-    // ser_putch(' ');    put_number(/*ser_putch,*/ bres / 5000, 10, 0);
+    format_number(s, 10, 0);
+    // ser_putch(' ');    put_number(bres / 5000, 10, 0);
     ser_puts("\r\n");
 #endif
 

@@ -17,6 +17,9 @@
 #ifdef __18f2455
 #include <pic16/pic18f2455.h>
 #endif
+#ifdef __18f2450
+#include <pic16/pic18f2450.h>
+#endif
 #ifdef __18f2520
 #include <pic16/pic18f2520.h>
 #endif
@@ -54,6 +57,9 @@
 #ifdef __PIC18F252_H
 #define __18f252 1
 #endif
+#ifdef __PIC18F2450_H
+#define __18f2450 1
+#endif
 #ifdef __PIC18F2455_H
 #define __18f2455 1
 #endif
@@ -85,6 +91,9 @@
 #endif
 #ifdef __18f252
 #include <pic18f252.h>
+#endif
+#ifdef __18f2450
+#include <pic18f2450.h>
 #endif
 #ifdef __18f2455
 #include <pic18f2455.h>
@@ -146,7 +155,7 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #endif
 
-#if defined(__18f252) || defined(__18f2520) || defined(__18f2455) || defined(__18f2550) || defined(__18f14k50) || defined(__18f25k22) ||      \
+#if defined(__18f252) || defined(__18f2520) || defined(__18f2450) || defined(__18f2455) || defined(__18f2550) || defined(__18f14k50) || defined(__18f25k22) ||      \
     defined(__18f25k50)
 #ifndef PIC18
 #define PIC18 1
@@ -390,6 +399,22 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #if defined(__SDCC) || defined(SDCC)
 #define NOP() __asm nop __endasm
+
+#define GIE INTCONbits.GIE
+#define PEIE INTCONbits.PEIE
+#define RCIF PIR1bits.RCIF
+#define TXIF PIR1bits.TXIF
+#define RCIE PIE1bits.RCIE
+#define TXIE PIE1bits.TXIE
+#define RCEN RCSTAbits.RCEN
+#define RX9 RCSTAbits.RX9
+#define OERR RCSTAbits.OERR
+#define CREN RCSTAbits.CREN
+#define SPEN RCSTAbits.SPEN
+#define TXEN TXSTAbits.TXEN
+#define TX9 TXSTAbits.TX9
+#define BRGH TXSTAbits.BRGH
+#define SYNC TXSTAbits.SYNC
 #endif
 
 #endif /* DEVICE_H */

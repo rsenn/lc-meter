@@ -39,906 +39,905 @@ fsr0	equ	4
 c	equ	1
 z	equ	0
 pclath	equ	10
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
-# 51 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 51 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INDF equ 00h ;# 
-# 57 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 57 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR0 equ 01h ;# 
-# 63 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 63 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCL equ 02h ;# 
-# 69 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 69 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 STATUS equ 03h ;# 
-# 156 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 156 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 FSR equ 04h ;# 
-# 162 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 162 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTA equ 05h ;# 
-# 211 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 211 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTB equ 06h ;# 
-# 272 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 272 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PORTC equ 07h ;# 
-# 333 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 333 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCLATH equ 0Ah ;# 
-# 352 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 352 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 INTCON equ 0Bh ;# 
-# 429 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 429 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR1 equ 0Ch ;# 
-# 484 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 484 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIR2 equ 0Dh ;# 
-# 523 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 523 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1 equ 0Eh ;# 
-# 529 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 529 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1L equ 0Eh ;# 
-# 535 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 535 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR1H equ 0Fh ;# 
-# 541 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 541 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T1CON equ 010h ;# 
-# 615 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 615 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TMR2 equ 011h ;# 
-# 621 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 621 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 T2CON equ 012h ;# 
-# 691 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 691 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPBUF equ 013h ;# 
-# 697 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 697 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON equ 014h ;# 
-# 766 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 766 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1 equ 015h ;# 
-# 772 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 772 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1L equ 015h ;# 
-# 778 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 778 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR1H equ 016h ;# 
-# 784 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 784 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP1CON equ 017h ;# 
-# 841 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 841 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCSTA equ 018h ;# 
-# 935 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 935 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXREG equ 019h ;# 
-# 941 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 941 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 RCREG equ 01Ah ;# 
-# 947 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 947 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2 equ 01Bh ;# 
-# 953 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 953 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2L equ 01Bh ;# 
-# 959 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 959 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCPR2H equ 01Ch ;# 
-# 965 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 965 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CCP2CON equ 01Dh ;# 
-# 1022 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1022 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESH equ 01Eh ;# 
-# 1028 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1028 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON0 equ 01Fh ;# 
-# 1123 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1123 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 OPTION_REG equ 081h ;# 
-# 1192 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1192 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISA equ 085h ;# 
-# 1241 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1241 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISB equ 086h ;# 
-# 1302 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1302 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TRISC equ 087h ;# 
-# 1363 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1363 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE1 equ 08Ch ;# 
-# 1418 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1418 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PIE2 equ 08Dh ;# 
-# 1457 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1457 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PCON equ 08Eh ;# 
-# 1490 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1490 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPCON2 equ 091h ;# 
-# 1551 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1551 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 PR2 equ 092h ;# 
-# 1557 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1557 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPADD equ 093h ;# 
-# 1563 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1563 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SSPSTAT equ 094h ;# 
-# 1731 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1731 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 TXSTA equ 098h ;# 
-# 1811 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1811 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 SPBRG equ 099h ;# 
-# 1817 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1817 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CMCON equ 09Ch ;# 
-# 1886 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1886 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 CVRCON equ 09Dh ;# 
-# 1950 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1950 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADRESL equ 09Eh ;# 
-# 1956 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 1956 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 ADCON1 equ 09Fh ;# 
-# 2014 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2014 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATA equ 010Ch ;# 
-# 2020 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2020 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADR equ 010Dh ;# 
-# 2026 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2026 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEDATH equ 010Eh ;# 
-# 2032 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2032 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EEADRH equ 010Fh ;# 
-# 2038 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2038 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON1 equ 018Ch ;# 
-# 2082 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 2082 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 EECON2 equ 018Dh ;# 
 	FNCALL	_main,_calibrate
 	FNCALL	_main,_delay10ms
 	FNCALL	_main,_format_double
-	FNCALL	_main,_indicator
 	FNCALL	_main,_lcd_begin
 	FNCALL	_main,_lcd_clear
 	FNCALL	_main,_lcd_gotoxy
@@ -946,11 +945,13 @@ EECON2 equ 018Dh ;#
 	FNCALL	_main,_lcd_puts
 	FNCALL	_main,_measure_capacitance
 	FNCALL	_main,_measure_inductance
+	FNCALL	_main,_print_indicator
+	FNCALL	_main,_ser_init
+	FNCALL	_main,_ser_puts
 	FNCALL	_main,_timer0_init
 	FNCALL	_main,_timer2_init
-	FNCALL	_main,_uart_init
-	FNCALL	_main,_uart_puts
-	FNCALL	_uart_init,_uart_enable
+	FNCALL	_print_indicator,_lcd_gotoxy
+	FNCALL	_print_indicator,_lcd_puts
 	FNCALL	_measure_inductance,___fldiv
 	FNCALL	_measure_inductance,___flge
 	FNCALL	_measure_inductance,___flmul
@@ -968,34 +969,34 @@ EECON2 equ 018Dh ;#
 	FNCALL	_measure_capacitance,___flsub
 	FNCALL	_measure_capacitance,___fltol
 	FNCALL	_measure_capacitance,___lwtofl
+	FNCALL	_measure_capacitance,_format_double
+	FNCALL	_measure_capacitance,_format_xint32
 	FNCALL	_measure_capacitance,_lcd_gotoxy
 	FNCALL	_measure_capacitance,_measure_freq
 	FNCALL	_measure_capacitance,_print_reading
 	FNCALL	_measure_capacitance,_print_unit
 	FNCALL	_measure_capacitance,_put_str
+	FNCALL	_measure_capacitance,_ser_putch
+	FNCALL	_measure_capacitance,_ser_puts
 	FNCALL	_print_unit,_lcd_gotoxy
-	FNCALL	_print_unit,_uart_puts
+	FNCALL	_print_unit,_ser_puts
 	FNCALL	_print_reading,___lwdiv
 	FNCALL	_print_reading,___lwmod
 	FNCALL	_print_reading,_format_number
 	FNCALL	_print_reading,_lcd_gotoxy
 	FNCALL	_print_reading,_lcd_puts
-	FNCALL	_lcd_begin,_lcd_command
-	FNCALL	_lcd_begin,_lcd_write4bits
-	FNCALL	_indicator,_lcd_gotoxy
-	FNCALL	_indicator,_lcd_puts
-	FNCALL	_lcd_puts,_lcd_putch
+	FNCALL	_lcd_puts,_lcd_send
+	FNCALL	_format_xint32,_buffer_putch
+	FNCALL	_format_xint32,_format_number
 	FNCALL	_format_double,___awtofl
 	FNCALL	_format_double,___fldiv
 	FNCALL	_format_double,___flge
 	FNCALL	_format_double,___flmul
 	FNCALL	_format_double,___flsub
 	FNCALL	_format_double,___fltol
+	FNCALL	_format_double,_buffer_putch
 	FNCALL	_format_double,_floor
-	FNCALL	_format_double,_format_putchar
-	FNCALL	_format_double,_lcd_putch
 	FNCALL	_format_double,_log10
-	FNCALL	_format_double,_output_putch
 	FNCALL	_format_double,_pow
 	FNCALL	_pow,___flge
 	FNCALL	_pow,___flmul
@@ -1038,78 +1039,91 @@ EECON2 equ 018Dh ;#
 	FNCALL	___flmul,___flpack
 	FNCALL	___fladd,___flpack
 	FNCALL	___awtofl,___flpack
+	FNCALL	_lcd_begin,_lcd_command
+	FNCALL	_lcd_begin,_lcd_write4bits
 	FNCALL	_calibrate,___lwtofl
 	FNCALL	_calibrate,_delay10ms
 	FNCALL	_calibrate,_lcd_clear
 	FNCALL	_calibrate,_lcd_gotoxy
-	FNCALL	_calibrate,_lcd_putch
+	FNCALL	_calibrate,_lcd_send
 	FNCALL	_calibrate,_measure_freq
 	FNCALL	_calibrate,_put_str
-	FNCALL	_calibrate,_uart_puts
-	FNCALL	_uart_puts,_uart_putch
+	FNCALL	_calibrate,_ser_puts
+	FNCALL	_put_str,_output_putch
+	FNCALL	_output_putch,_lcd_send
+	FNCALL	_output_putch,_ser_putch
+	FNCALL	_measure_freq,_buffer_init
+	FNCALL	_measure_freq,_buffer_puts
 	FNCALL	_measure_freq,_format_number
 	FNCALL	_measure_freq,_lcd_gotoxy
-	FNCALL	_measure_freq,_put_str
+	FNCALL	_measure_freq,_print_buffer
 	FNCALL	_measure_freq,_timer0_read_ps
-	FNCALL	_put_str,_output_putch
+	FNCALL	_print_buffer,_ser_putch
+	FNCALL	_print_buffer,_ser_puts
+	FNCALL	_ser_puts,_ser_putch
 	FNCALL	_lcd_gotoxy,_lcd_command
 	FNCALL	_format_number,___lwdiv
 	FNCALL	_format_number,___lwmod
-	FNCALL	_format_number,_format_putchar
-	FNCALL	_format_number,_lcd_putch
-	FNCALL	_format_number,_output_putch
-	FNCALL	_output_putch,_lcd_putch
-	FNCALL	_lcd_putch,_lcd_send
+	FNCALL	_format_number,_buffer_putch
+	FNCALL	_buffer_puts,_buffer_putch
 	FNCALL	_lcd_clear,_lcd_command
 	FNCALL	_lcd_command,_lcd_send
 	FNCALL	_lcd_send,_lcd_write4bits
 	FNCALL	___lwtofl,___flpack
 	FNROOT	_main
-	FNCALL	intlevel1,_isr
+	FNCALL	intlevel1,_global_int
 	global	intlevel1
 	FNROOT	intlevel1
-	global	_putchar_ptr
-	global	lcd_gotoxy@F1126
-psect	idataCOMMON,class=CODE,space=0,delta=2,noexec
-global __pidataCOMMON
-__pidataCOMMON:
-	file	"../../../lib/format.c"
-	line	10
-
-;initializer for _putchar_ptr
-	retlw	low((fp__format_putchar-fpbase))
+	global	lcd_gotoxy@F1148
+	global	_mode
 psect	idataBANK3,class=CODE,space=0,delta=2,noexec
 global __pidataBANK3
 __pidataBANK3:
 	file	"../../../lib/lcd44780.c"
-	line	154
+	line	135
 
-;initializer for lcd_gotoxy@F1126
+;initializer for lcd_gotoxy@F1148
 	retlw	low(0)
 	retlw	040h
 	retlw	014h
 	retlw	054h
+	file	"../../../LC-meter.c"
+	line	48
+
+;initializer for _mode
+	retlw	0FFh
 	global	exp@coeff
-psect	strings,class=STRING,delta=2,noexec
-global __pstrings
-__pstrings:
+psect	stringtext,class=STRCODE,delta=2,reloc=256,noexec
+global __pstringtext
+__pstringtext:
 stringtab:
 	global    __stringtab
 __stringtab:
-;	String table - string pointers are 1 byte each
-stringcode:stringdir:
-movlw high(stringdir)
-movwf pclath
-movf fsr,w
+;	String table - string pointers are 2 bytes each
+	btfsc	(btemp+1),7
+	ljmp	stringcode
+	bcf	status,7
+	btfsc	(btemp+1),0
+	bsf	status,7
+	movf	indf,w
+	incf fsr
+skipnz
+incf btemp+1
+	return
+stringcode:
+	movf btemp+1,w
+andlw 7Fh
+movwf	pclath
+	movf	fsr,w
 incf fsr
-	addwf pc
+skipnz
+incf btemp+1
+	movwf pc
 	global __stringbase
 __stringbase:
-	retlw	0
-psect	strings
 	global    __end_of__stringtab
 __end_of__stringtab:
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c"
+	file	"/opt/microchip/xc8/v1.34/sources/common/exp.c"
 	line	17
 exp@coeff:
 	retlw	0x0
@@ -1165,8 +1179,8 @@ exp@coeff:
 	global __end_ofexp@coeff
 __end_ofexp@coeff:
 	global	log@coeff
-psect	strings
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+psect	stringtext
+	file	"/opt/microchip/xc8/v1.34/sources/common/log.c"
 	line	9
 log@coeff:
 	retlw	0x0
@@ -1219,17 +1233,24 @@ __end_oflog@coeff:
 	global	exp@coeff
 	global	log@coeff
 	global	_LCD_function
-	global	_F3
-	global	_blink
-	global	_LCD_ctrl
-	global	_F1
+	global	_rxiptr
+	global	_txiptr
+	global	_txoptr
+	global	_rxfifo
+	global	_txfifo
 	global	_F2
+	global	_F3
 	global	_msecs
 	global	_seconds
 	global	_timer1of
+	global	_blink
+	global	_LCD_ctrl
 	global	_LCD_lines
 	global	_LCD_mode
+	global	_rxoptr
+	global	_ser_tmp
 	global	_buffer
+	global	_F1
 	global	_CCal
 psect	nvBANK3,class=BANK3,space=1,noexec
 global __pnvBANK3
@@ -1247,103 +1268,101 @@ _msecpart:
 
 	global	_INTCON
 _INTCON	set	0xB
+	global	_PIR1
+_PIR1	set	0xC
+	global	_PORTB
+_PORTB	set	0x6
 	global	_PORTC
 _PORTC	set	0x7
-	global	_RCSTA
-_RCSTA	set	0x18
+	global	_RCREG
+_RCREG	set	0x1A
+	global	_T2CON
+_T2CON	set	0x12
 	global	_TMR0
 _TMR0	set	0x1
 	global	_TMR2
 _TMR2	set	0x11
 	global	_TXREG
 _TXREG	set	0x19
+	global	_CREN
+_CREN	set	0xC4
 	global	_GIE
 _GIE	set	0x5F
 	global	_PEIE
 _PEIE	set	0x5E
-	global	_RB2
-_RB2	set	0x32
-	global	_RB3
-_RB3	set	0x33
-	global	_RB4
-_RB4	set	0x34
-	global	_RB5
-_RB5	set	0x35
-	global	_RB6
-_RB6	set	0x36
-	global	_RB7
-_RB7	set	0x37
-	global	_RC3
-_RC3	set	0x3B
-	global	_RC4
-_RC4	set	0x3C
-	global	_RC6
-_RC6	set	0x3E
-	global	_SSPEN
-_SSPEN	set	0xA5
-	global	_T2CKPS0
-_T2CKPS0	set	0x90
-	global	_T2CKPS1
-_T2CKPS1	set	0x91
-	global	_TMR0IF
-_TMR0IF	set	0x5A
-	global	_TMR2IF
-_TMR2IF	set	0x61
-	global	_TMR2ON
-_TMR2ON	set	0x92
-	global	_TOUTPS0
-_TOUTPS0	set	0x93
-	global	_TOUTPS1
-_TOUTPS1	set	0x94
-	global	_TOUTPS2
-_TOUTPS2	set	0x95
+	global	_RCIF
+_RCIF	set	0x65
+	global	_RX9
+_RX9	set	0xC6
+	global	_SPEN
+_SPEN	set	0xC7
 	global	_TXIF
 _TXIF	set	0x64
 	global	_CMCON
 _CMCON	set	0x9C
 	global	_OPTION_REG
 _OPTION_REG	set	0x81
+	global	_PIE1
+_PIE1	set	0x8C
 	global	_SPBRG
 _SPBRG	set	0x99
 	global	_TRISA
 _TRISA	set	0x85
+	global	_TRISB
+_TRISB	set	0x86
 	global	_TRISC
 _TRISC	set	0x87
-	global	_TXSTA
-_TXSTA	set	0x98
-	global	_RCIE
-_RCIE	set	0x465
-	global	_T0SE
-_T0SE	set	0x40C
-	global	_TMR2IE
-_TMR2IE	set	0x461
-	global	_TRISB2
-_TRISB2	set	0x432
-	global	_TRISB3
-_TRISB3	set	0x433
-	global	_TRISB4
-_TRISB4	set	0x434
-	global	_TRISB5
-_TRISB5	set	0x435
-	global	_TRISB6
-_TRISB6	set	0x436
-	global	_TRISB7
-_TRISB7	set	0x437
-	global	_TRISC3
-_TRISC3	set	0x43B
-	global	_TRISC6
-_TRISC6	set	0x43E
-	global	_TRISC7
-_TRISC7	set	0x43F
+	global	_BRGH
+_BRGH	set	0x4C2
+	global	_SYNC
+_SYNC	set	0x4C4
 	global	_TX9
 _TX9	set	0x4C6
 	global	_TXEN
 _TXEN	set	0x4C5
-	global	_nRBPU
-_nRBPU	set	0x40F
-psect	strings
+	global	_TXIE
+_TXIE	set	0x464
+psect	stringtext
 	
-STR_21:	
+STR_15:	
+	retlw	45	;'-'
+	retlw	32	;' '
+	retlw	67	;'C'
+	retlw	32	;' '
+	retlw	40	;'('
+	retlw	85	;'U'
+	retlw	110	;'n'
+	retlw	105	;'i'
+	retlw	116	;'t'
+	retlw	58	;':'
+	retlw	32	;' '
+	retlw	70	;'F'
+	retlw	41	;')'
+	retlw	32	;' '
+	retlw	45	;'-'
+	retlw	0
+psect	stringtext
+	
+STR_16:	
+	retlw	45	;'-'
+	retlw	32	;' '
+	retlw	76	;'L'
+	retlw	32	;' '
+	retlw	40	;'('
+	retlw	85	;'U'
+	retlw	110	;'n'
+	retlw	105	;'i'
+	retlw	116	;'t'
+	retlw	58	;':'
+	retlw	32	;' '
+	retlw	72	;'H'
+	retlw	41	;')'
+	retlw	32	;' '
+	retlw	45	;'-'
+	retlw	0
+psect	stringtext
+	
+STR_25:	
 	retlw	112	;'p'
 	retlw	108	;'l'
 	retlw	101	;'e'
@@ -1359,9 +1378,9 @@ STR_21:
 	retlw	46	;'.'
 	retlw	46	;'.'
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_25:	
+STR_37:	
 	retlw	73	;'I'
 	retlw	110	;'n'
 	retlw	100	;'d'
@@ -1375,9 +1394,9 @@ STR_25:
 	retlw	121	;'y'
 	retlw	32	;' '
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_19:	
+STR_23:	
 	retlw	67	;'C'
 	retlw	97	;'a'
 	retlw	108	;'l'
@@ -1390,9 +1409,9 @@ STR_19:
 	retlw	110	;'n'
 	retlw	103	;'g'
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_24:	
+STR_28:	
 	retlw	67	;'C'
 	retlw	97	;'a'
 	retlw	112	;'p'
@@ -1403,9 +1422,9 @@ STR_24:
 	retlw	121	;'y'
 	retlw	32	;' '
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_13:	
+STR_14:	
 	retlw	76	;'L'
 	retlw	67	;'C'
 	retlw	45	;'-'
@@ -1416,9 +1435,20 @@ STR_13:
 	retlw	114	;'r'
 	retlw	32	;' '
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_15:	
+STR_33:	
+	retlw	13
+	retlw	10
+	retlw	67	;'C'
+	retlw	67	;'C'
+	retlw	97	;'a'
+	retlw	108	;'l'
+	retlw	61	;'='
+	retlw	0
+psect	stringtext
+	
+STR_18:	
 	retlw	32	;' '
 	retlw	32	;' '
 	retlw	32	;' '
@@ -1426,90 +1456,134 @@ STR_15:
 	retlw	32	;' '
 	retlw	32	;' '
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_23:	
+STR_30:	
+	retlw	13
+	retlw	10
+	retlw	70	;'F'
+	retlw	49	;'1'
+	retlw	61	;'='
+	retlw	0
+psect	stringtext
+	
+STR_31:	
+	retlw	13
+	retlw	10
+	retlw	70	;'F'
+	retlw	50	;'2'
+	retlw	61	;'='
+	retlw	0
+psect	stringtext
+	
+STR_32:	
+	retlw	13
+	retlw	10
+	retlw	70	;'F'
+	retlw	51	;'3'
+	retlw	61	;'='
+	retlw	0
+psect	stringtext
+	
+STR_27:	
 	retlw	70	;'F'
 	retlw	114	;'r'
 	retlw	101	;'e'
 	retlw	113	;'q'
 	retlw	61	;'='
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_14:	
-	retlw	46	;'.'
-	retlw	46	;'.'
-	retlw	46	;'.'
-	retlw	13
-	retlw	10
+STR_35:	
+	retlw	67	;'C'
+	retlw	105	;'i'
+	retlw	110	;'n'
+	retlw	61	;'='
 	retlw	0
-psect	strings
+psect	stringtext
 	
-STR_18:	
+STR_29:	
+	retlw	118	;'v'
+	retlw	97	;'a'
+	retlw	114	;'r'
+	retlw	61	;'='
+	retlw	0
+psect	stringtext
+	
+STR_21:	
 	retlw	82	;'R'
 	retlw	67	;'C'
 	retlw	52	;'4'
 	retlw	61	;'='
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_11:	
 	retlw	45	;'-'
 	retlw	42	;'*'
 	retlw	45	;'-'
 	retlw	0
-psect	strings
+psect	stringtext
+	
+STR_9:	
+	retlw	13
+	retlw	10
+	retlw	0
+psect	stringtext
 	
 STR_5:	
 	retlw	109	;'m'
 	retlw	70	;'F'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_7:	
 	retlw	110	;'n'
 	retlw	70	;'F'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_8:	
 	retlw	112	;'p'
 	retlw	70	;'F'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_6:	
 	retlw	117	;'u'
 	retlw	70	;'F'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_2:	
 	retlw	109	;'m'
 	retlw	72	;'H'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_4:	
 	retlw	110	;'n'
 	retlw	72	;'H'
 	retlw	0
-psect	strings
+psect	stringtext
 	
 STR_3:	
 	retlw	117	;'u'
 	retlw	72	;'H'
 	retlw	0
-psect	strings
+psect	stringtext
 STR_1	equ	STR_2+1
-STR_16	equ	STR_15+0
-STR_10	equ	STR_15+1
-STR_17	equ	STR_15+1
-STR_12	equ	STR_15+3
-STR_9	equ	STR_14+3
-STR_20	equ	STR_14+3
-STR_22	equ	STR_14+3
+STR_19	equ	STR_18+0
+STR_10	equ	STR_18+1
+STR_20	equ	STR_18+1
+STR_12	equ	STR_18+3
+STR_13	equ	STR_9+0
+STR_17	equ	STR_9+0
+STR_22	equ	STR_9+0
+STR_24	equ	STR_9+0
+STR_26	equ	STR_9+0
+STR_34	equ	STR_9+0
+STR_36	equ	STR_9+0
 ; #config settings
 global __CFG_WDTE$OFF
 __CFG_WDTE$OFF equ 0x0
@@ -1521,7 +1595,7 @@ global __CFG_CPD$OFF
 __CFG_CPD$OFF equ 0x0
 global __CFG_FOSC$HS
 __CFG_FOSC$HS equ 0x0
-	file	"dist/debug_vsm/production\LC_meter_16f876a_xc8.X.production.as"
+	file	"dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as"
 	line	#
 psect cinit,class=CODE,delta=2
 global start_initialization
@@ -1535,33 +1609,22 @@ __pbssCOMMON:
 _LCD_function:
        ds      1
 
-psect	dataCOMMON,class=COMMON,space=1,noexec
-global __pdataCOMMON
-__pdataCOMMON:
-	file	"../../../lib/format.c"
-	line	10
-_putchar_ptr:
+_rxiptr:
        ds      1
 
-psect	bssBANK1,class=BANK1,space=1,noexec
-global __pbssBANK1
-__pbssBANK1:
-_F3:
-       ds      4
-
-_blink:
-       ds      2
-
-_LCD_ctrl:
+_txiptr:
        ds      1
 
-_F1:
-       ds      4
+_txoptr:
+       ds      1
 
 psect	bssBANK3,class=BANK3,space=1,noexec
 global __pbssBANK3
 __pbssBANK3:
 _F2:
+       ds      4
+
+_F3:
        ds      4
 
 _msecs:
@@ -1573,24 +1636,54 @@ _seconds:
 _timer1of:
        ds      4
 
+_blink:
+       ds      2
+
+_LCD_ctrl:
+       ds      1
+
 _LCD_lines:
        ds      1
 
 _LCD_mode:
        ds      1
 
+_rxoptr:
+       ds      1
+
+_ser_tmp:
+       ds      1
+
 _buffer:
-       ds      18
+       ds      17
+
+_F1:
+       ds      4
 
 psect	dataBANK3,class=BANK3,space=1,noexec
 global __pdataBANK3
 __pdataBANK3:
 	file	"../../../lib/lcd44780.c"
-	line	154
-lcd_gotoxy@F1126:
+	line	135
+lcd_gotoxy@F1148:
        ds      4
 
-	file	"dist/debug_vsm/production\LC_meter_16f876a_xc8.X.production.as"
+psect	dataBANK3
+	file	"../../../LC-meter.c"
+	line	48
+_mode:
+       ds      1
+
+psect	bssBANK2,class=BANK2,space=1,noexec
+global __pbssBANK2
+__pbssBANK2:
+_rxfifo:
+       ds      16
+
+_txfifo:
+       ds      16
+
+	file	"dist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.as"
 	line	#
 psect clrtext,class=CODE,delta=2
 global clear_ram0
@@ -1610,19 +1703,21 @@ clrloop0:
 ; Clear objects allocated to COMMON
 psect cinit,class=CODE,delta=2,merge=1
 	clrf	((__pbssCOMMON)+0)&07Fh
-; Clear objects allocated to BANK1
-psect cinit,class=CODE,delta=2,merge=1
-	bcf	status, 7	;select IRP bank0
-	movlw	low(__pbssBANK1)
-	movwf	fsr
-	movlw	low((__pbssBANK1)+0Bh)
-	fcall	clear_ram0
+	clrf	((__pbssCOMMON)+1)&07Fh
+	clrf	((__pbssCOMMON)+2)&07Fh
+	clrf	((__pbssCOMMON)+3)&07Fh
 ; Clear objects allocated to BANK3
 psect cinit,class=CODE,delta=2,merge=1
 	bsf	status, 7	;select IRP bank2
 	movlw	low(__pbssBANK3)
 	movwf	fsr
-	movlw	low((__pbssBANK3)+024h)
+	movlw	low((__pbssBANK3)+030h)
+	fcall	clear_ram0
+; Clear objects allocated to BANK2
+psect cinit,class=CODE,delta=2,merge=1
+	movlw	low(__pbssBANK2)
+	movwf	fsr
+	movlw	low((__pbssBANK2)+020h)
 	fcall	clear_ram0
 	line	#
 ; Initialize objects allocated to BANK3
@@ -1638,11 +1733,8 @@ psect cinit,class=CODE,delta=2,merge=1
 	movwf	__pdataBANK3+2&07fh		
 	fcall	__pidataBANK3+3		;fetch initializer
 	movwf	__pdataBANK3+3&07fh		
-; Initialize objects allocated to COMMON
-	global __pidataCOMMON
-psect cinit,class=CODE,delta=2,merge=1
-	fcall	__pidataCOMMON+0		;fetch initializer
-	movwf	__pdataCOMMON+0&07fh		
+	fcall	__pidataBANK3+4		;fetch initializer
+	movwf	__pdataBANK3+4&07fh		
 psect cinit,class=CODE,delta=2,merge=1
 global end_of_initialization,__end_of__initialization
 
@@ -1658,11 +1750,11 @@ __pcstackBANK3:
 	global	format_double@num
 format_double@num:	; 4 bytes @ 0x0
 	ds	4
-	global	_format_double$1046
-_format_double$1046:	; 4 bytes @ 0x4
+	global	_format_double$1007
+_format_double$1007:	; 4 bytes @ 0x4
 	ds	4
-	global	_format_double$1047
-_format_double$1047:	; 4 bytes @ 0x8
+	global	_format_double$1008
+_format_double$1008:	; 4 bytes @ 0x8
 	ds	4
 	global	format_double@weight
 format_double@weight:	; 4 bytes @ 0xC
@@ -1673,635 +1765,646 @@ format_double@digit:	; 2 bytes @ 0x10
 	global	format_double@m
 format_double@m:	; 2 bytes @ 0x12
 	ds	2
+	global	_main$257
+_main$257:	; 2 bytes @ 0x14
+	ds	2
+	global	main@new_mode
+main@new_mode:	; 1 bytes @ 0x16
+	ds	1
+psect	cstackBANK2,class=BANK2,space=1,noexec
+global __pcstackBANK2
+__pcstackBANK2:
+	global	_measure_capacitance$1009
+_measure_capacitance$1009:	; 4 bytes @ 0x0
+	ds	4
+	global	_measure_capacitance$1010
+_measure_capacitance$1010:	; 4 bytes @ 0x4
+	ds	4
+	global	_measure_capacitance$1011
+_measure_capacitance$1011:	; 4 bytes @ 0x8
+	ds	4
+	global	measure_capacitance@unit
+measure_capacitance@unit:	; 1 bytes @ 0xC
+	ds	1
+	global	measure_capacitance@var
+measure_capacitance@var:	; 2 bytes @ 0xD
+	ds	2
+	global	measure_capacitance@Cin
+measure_capacitance@Cin:	; 4 bytes @ 0xF
+	ds	4
 psect	cstackBANK1,class=BANK1,space=1,noexec
 global __pcstackBANK1
 __pcstackBANK1:
-??_ldexp:	; 0 bytes @ 0x0
+	global	eval_poly@res
+eval_poly@res:	; 4 bytes @ 0x0
+	ds	4
+	global	?_ldexp
+?_ldexp:	; 4 bytes @ 0x4
+	global	?_log
+?_log:	; 4 bytes @ 0x4
+	global	ldexp@value
+ldexp@value:	; 4 bytes @ 0x4
+	global	log@x
+log@x:	; 4 bytes @ 0x4
+	ds	4
+	global	ldexp@newexp
+ldexp@newexp:	; 2 bytes @ 0x8
+	global	log@exponent
+log@exponent:	; 2 bytes @ 0x8
+	ds	2
+??_ldexp:	; 0 bytes @ 0xA
 	global	?_log10
-?_log10:	; 4 bytes @ 0x0
+?_log10:	; 4 bytes @ 0xA
 	global	log10@x
-log10@x:	; 4 bytes @ 0x0
+log10@x:	; 4 bytes @ 0xA
 	ds	2
-	global	_ldexp$686
-_ldexp$686:	; 4 bytes @ 0x2
+	global	_ldexp$660
+_ldexp$660:	; 4 bytes @ 0xC
 	ds	2
-	global	_log10$1058
-_log10$1058:	; 4 bytes @ 0x4
+	global	_log10$1019
+_log10$1019:	; 4 bytes @ 0xE
 	ds	4
 	global	?___fltol
-?___fltol:	; 4 bytes @ 0x8
+?___fltol:	; 4 bytes @ 0x12
 	global	___fltol@f1
-___fltol@f1:	; 4 bytes @ 0x8
+___fltol@f1:	; 4 bytes @ 0x12
 	ds	4
-??___fltol:	; 0 bytes @ 0xC
+??___fltol:	; 0 bytes @ 0x16
 	ds	4
 	global	___fltol@sign1
-___fltol@sign1:	; 1 bytes @ 0x10
+___fltol@sign1:	; 1 bytes @ 0x1A
 	ds	1
 	global	___fltol@exp1
-___fltol@exp1:	; 1 bytes @ 0x11
+___fltol@exp1:	; 1 bytes @ 0x1B
 	ds	1
 	global	?___altofl
-?___altofl:	; 4 bytes @ 0x12
+?___altofl:	; 4 bytes @ 0x1C
 	global	measure_inductance@numerator
-measure_inductance@numerator:	; 4 bytes @ 0x12
+measure_inductance@numerator:	; 4 bytes @ 0x1C
 	global	___altofl@c
-___altofl@c:	; 4 bytes @ 0x12
-	global	_measure_capacitance$1048
-_measure_capacitance$1048:	; 4 bytes @ 0x12
+___altofl@c:	; 4 bytes @ 0x1C
 	ds	4
 	global	___altofl@sign
-___altofl@sign:	; 1 bytes @ 0x16
+___altofl@sign:	; 1 bytes @ 0x20
 	global	measure_inductance@denominator
-measure_inductance@denominator:	; 4 bytes @ 0x16
-	global	_measure_capacitance$1049
-_measure_capacitance$1049:	; 4 bytes @ 0x16
+measure_inductance@denominator:	; 4 bytes @ 0x20
 	ds	1
 	global	?_floor
-?_floor:	; 4 bytes @ 0x17
+?_floor:	; 4 bytes @ 0x21
 	global	floor@x
-floor@x:	; 4 bytes @ 0x17
+floor@x:	; 4 bytes @ 0x21
 	ds	3
-	global	_measure_capacitance$1050
-_measure_capacitance$1050:	; 4 bytes @ 0x1A
-	global	_measure_inductance$1051
-_measure_inductance$1051:	; 4 bytes @ 0x1A
+	global	_measure_inductance$1012
+_measure_inductance$1012:	; 4 bytes @ 0x24
 	ds	1
 	global	floor@i
-floor@i:	; 4 bytes @ 0x1B
+floor@i:	; 4 bytes @ 0x25
 	ds	3
-	global	measure_capacitance@unit
-measure_capacitance@unit:	; 1 bytes @ 0x1E
-	global	_measure_inductance$1055
-_measure_inductance$1055:	; 4 bytes @ 0x1E
+	global	_measure_inductance$1016
+_measure_inductance$1016:	; 4 bytes @ 0x28
 	ds	1
-	global	measure_capacitance@var
-measure_capacitance@var:	; 2 bytes @ 0x1F
 	global	floor@expon
-floor@expon:	; 2 bytes @ 0x1F
+floor@expon:	; 2 bytes @ 0x29
 	ds	2
 	global	?_exp
-?_exp:	; 4 bytes @ 0x21
-	global	measure_capacitance@Cin
-measure_capacitance@Cin:	; 4 bytes @ 0x21
+?_exp:	; 4 bytes @ 0x2B
 	global	exp@x
-exp@x:	; 4 bytes @ 0x21
+exp@x:	; 4 bytes @ 0x2B
 	ds	1
-	global	_measure_inductance$1056
-_measure_inductance$1056:	; 4 bytes @ 0x22
+	global	_measure_inductance$1017
+_measure_inductance$1017:	; 4 bytes @ 0x2C
 	ds	3
-	global	_exp$1061
-_exp$1061:	; 4 bytes @ 0x25
+	global	_exp$1022
+_exp$1022:	; 4 bytes @ 0x2F
 	ds	1
-	global	_measure_inductance$1057
-_measure_inductance$1057:	; 4 bytes @ 0x26
+	global	_measure_inductance$1018
+_measure_inductance$1018:	; 4 bytes @ 0x30
 	ds	3
-	global	_exp$786
-_exp$786:	; 4 bytes @ 0x29
+	global	_exp$754
+_exp$754:	; 4 bytes @ 0x33
 	ds	1
 	global	measure_inductance@unit
-measure_inductance@unit:	; 1 bytes @ 0x2A
+measure_inductance@unit:	; 1 bytes @ 0x34
 	ds	1
-	global	_measure_inductance$1052
-_measure_inductance$1052:	; 4 bytes @ 0x2B
+	global	_measure_inductance$1013
+_measure_inductance$1013:	; 4 bytes @ 0x35
 	ds	2
 	global	exp@exponent
-exp@exponent:	; 2 bytes @ 0x2D
+exp@exponent:	; 2 bytes @ 0x37
 	ds	2
 	global	exp@sign
-exp@sign:	; 1 bytes @ 0x2F
-	global	_measure_inductance$1053
-_measure_inductance$1053:	; 4 bytes @ 0x2F
+exp@sign:	; 1 bytes @ 0x39
+	global	_measure_inductance$1014
+_measure_inductance$1014:	; 4 bytes @ 0x39
 	ds	1
 	global	?_pow
-?_pow:	; 4 bytes @ 0x30
+?_pow:	; 4 bytes @ 0x3A
 	global	pow@x
-pow@x:	; 4 bytes @ 0x30
+pow@x:	; 4 bytes @ 0x3A
 	ds	3
-	global	_measure_inductance$1054
-_measure_inductance$1054:	; 4 bytes @ 0x33
+	global	_measure_inductance$1015
+_measure_inductance$1015:	; 4 bytes @ 0x3D
 	ds	1
 	global	pow@y
-pow@y:	; 4 bytes @ 0x34
+pow@y:	; 4 bytes @ 0x3E
 	ds	3
 	global	measure_inductance@var
-measure_inductance@var:	; 2 bytes @ 0x37
+measure_inductance@var:	; 2 bytes @ 0x41
 	ds	1
-	global	_pow$1059
-_pow$1059:	; 4 bytes @ 0x38
+	global	_pow$1020
+_pow$1020:	; 4 bytes @ 0x42
 	ds	1
 	global	measure_inductance@Lin
-measure_inductance@Lin:	; 4 bytes @ 0x39
+measure_inductance@Lin:	; 4 bytes @ 0x43
 	ds	3
-	global	_pow$1060
-_pow$1060:	; 4 bytes @ 0x3C
+	global	_pow$1021
+_pow$1021:	; 4 bytes @ 0x46
 	ds	4
 	global	pow@sign
-pow@sign:	; 1 bytes @ 0x40
+pow@sign:	; 1 bytes @ 0x4A
 	ds	1
 	global	pow@yi
-pow@yi:	; 4 bytes @ 0x41
+pow@yi:	; 4 bytes @ 0x4B
 	ds	4
 psect	cstackCOMMON,class=COMMON,space=1,noexec
 global __pcstackCOMMON
 __pcstackCOMMON:
-?_uart_puts:	; 0 bytes @ 0x0
-?_lcd_puts:	; 0 bytes @ 0x0
+?_ser_putch:	; 0 bytes @ 0x0
 ?_lcd_init:	; 0 bytes @ 0x0
-?_uart_init:	; 0 bytes @ 0x0
+?_ser_init:	; 0 bytes @ 0x0
 ?_calibrate:	; 0 bytes @ 0x0
 ?_lcd_clear:	; 0 bytes @ 0x0
 ?_measure_capacitance:	; 0 bytes @ 0x0
 ?_measure_inductance:	; 0 bytes @ 0x0
 ?_print_unit:	; 0 bytes @ 0x0
-?_indicator:	; 0 bytes @ 0x0
-?_put_str:	; 0 bytes @ 0x0
+?_print_indicator:	; 0 bytes @ 0x0
+?_output_putch:	; 0 bytes @ 0x0
+?_print_buffer:	; 0 bytes @ 0x0
 ?_timer0_init:	; 0 bytes @ 0x0
 ?_timer2_init:	; 0 bytes @ 0x0
 ?_delay10ms:	; 0 bytes @ 0x0
-??_isr:	; 0 bytes @ 0x0
+?_global_int:	; 0 bytes @ 0x0
+??_global_int:	; 0 bytes @ 0x0
 ?_main:	; 0 bytes @ 0x0
 ?_lcd_write4bits:	; 0 bytes @ 0x0
 ?_lcd_command:	; 0 bytes @ 0x0
-?_uart_putch:	; 0 bytes @ 0x0
-?_uart_enable:	; 0 bytes @ 0x0
-?_isr:	; 2 bytes @ 0x0
+?_buffer_init:	; 0 bytes @ 0x0
+?_buffer_putch:	; 1 bytes @ 0x0
 print_unit@unit:	; 1 bytes @ 0x0
 delay10ms@period_10ms:	; 1 bytes @ 0x0
-	ds	2
-??_lcd_init:	; 0 bytes @ 0x2
-??_uart_init:	; 0 bytes @ 0x2
-??_timer0_init:	; 0 bytes @ 0x2
-??_timer2_init:	; 0 bytes @ 0x2
-??_delay10ms:	; 0 bytes @ 0x2
-??_lcd_write4bits:	; 0 bytes @ 0x2
-??_uart_putch:	; 0 bytes @ 0x2
-??_uart_enable:	; 0 bytes @ 0x2
-?___flge:	; 1 bit 
+	ds	4
+??_ser_putch:	; 0 bytes @ 0x4
+??_lcd_init:	; 0 bytes @ 0x4
+??_ser_init:	; 0 bytes @ 0x4
+??_frexp:	; 0 bytes @ 0x4
+??_timer0_init:	; 0 bytes @ 0x4
+??_timer2_init:	; 0 bytes @ 0x4
+??_delay10ms:	; 0 bytes @ 0x4
+??_lcd_write4bits:	; 0 bytes @ 0x4
+??_buffer_init:	; 0 bytes @ 0x4
+??___awtofl:	; 0 bytes @ 0x4
+??___flneg:	; 0 bytes @ 0x4
+??___lltofl:	; 0 bytes @ 0x4
+??___lwdiv:	; 0 bytes @ 0x4
+??___lwmod:	; 0 bytes @ 0x4
 	global	?_timer0_read_ps
-?_timer0_read_ps:	; 2 bytes @ 0x2
-	global	?___lwdiv
-?___lwdiv:	; 2 bytes @ 0x2
-	global	?___lwmod
-?___lwmod:	; 2 bytes @ 0x2
-	global	?___flpack
-?___flpack:	; 4 bytes @ 0x2
-	global	?_frexp
-?_frexp:	; 4 bytes @ 0x2
-	global	?___flneg
-?___flneg:	; 4 bytes @ 0x2
-	global	lcd_init@fourbitmode
-lcd_init@fourbitmode:	; 1 bytes @ 0x2
-	global	uart_putch@byte
-uart_putch@byte:	; 1 bytes @ 0x2
-	global	___lwdiv@divisor
-___lwdiv@divisor:	; 2 bytes @ 0x2
-	global	___lwmod@divisor
-___lwmod@divisor:	; 2 bytes @ 0x2
-	global	___flpack@arg
-___flpack@arg:	; 4 bytes @ 0x2
-	global	___flge@ff1
-___flge@ff1:	; 4 bytes @ 0x2
-	global	___flneg@f1
-___flneg@f1:	; 4 bytes @ 0x2
-	global	frexp@value
-frexp@value:	; 4 bytes @ 0x2
-	ds	1
-??_uart_puts:	; 0 bytes @ 0x3
-	global	timer2_init@ps_mode
-timer2_init@ps_mode:	; 1 bytes @ 0x3
-	global	lcd_write4bits@value
-lcd_write4bits@value:	; 1 bytes @ 0x3
-	global	uart_puts@s
-uart_puts@s:	; 1 bytes @ 0x3
-	global	_lcd_init$338
-_lcd_init$338:	; 2 bytes @ 0x3
-	ds	1
-??_timer0_read_ps:	; 0 bytes @ 0x4
-?_lcd_send:	; 0 bytes @ 0x4
-	global	timer2_init@ps
-timer2_init@ps:	; 1 bytes @ 0x4
-	global	lcd_send@mode
-lcd_send@mode:	; 1 bytes @ 0x4
-	global	___lwdiv@dividend
-___lwdiv@dividend:	; 2 bytes @ 0x4
-	global	___lwmod@dividend
-___lwmod@dividend:	; 2 bytes @ 0x4
-	ds	1
-??_lcd_send:	; 0 bytes @ 0x5
-	global	lcd_send@value
-lcd_send@value:	; 1 bytes @ 0x5
-	ds	1
-??_lcd_command:	; 0 bytes @ 0x6
-??___flneg:	; 0 bytes @ 0x6
-??___lwdiv:	; 0 bytes @ 0x6
-??___lwmod:	; 0 bytes @ 0x6
-	global	lcd_command@value
-lcd_command@value:	; 1 bytes @ 0x6
-	global	___flpack@exp
-___flpack@exp:	; 1 bytes @ 0x6
-	global	frexp@eptr
-frexp@eptr:	; 1 bytes @ 0x6
-	global	___lwmod@counter
-___lwmod@counter:	; 1 bytes @ 0x6
-	global	___lwdiv@quotient
-___lwdiv@quotient:	; 2 bytes @ 0x6
-	global	___flge@ff2
-___flge@ff2:	; 4 bytes @ 0x6
-	ds	1
-?_lcd_putch:	; 0 bytes @ 0x7
-??_lcd_putch:	; 0 bytes @ 0x7
-?_lcd_gotoxy:	; 0 bytes @ 0x7
-?_lcd_begin:	; 0 bytes @ 0x7
-??_lcd_clear:	; 0 bytes @ 0x7
-??_frexp:	; 0 bytes @ 0x7
-?_output_putch:	; 0 bytes @ 0x7
-?_format_putchar:	; 0 bytes @ 0x7
-	global	output_putch@c
-output_putch@c:	; 1 bytes @ 0x7
-	global	format_putchar@c
-format_putchar@c:	; 1 bytes @ 0x7
-	global	lcd_putch@value
-lcd_putch@value:	; 1 bytes @ 0x7
-	global	lcd_gotoxy@row
-lcd_gotoxy@row:	; 1 bytes @ 0x7
-	global	lcd_begin@dotsize
-lcd_begin@dotsize:	; 1 bytes @ 0x7
-	global	___flpack@sign
-___flpack@sign:	; 1 bytes @ 0x7
-	ds	1
-??_lcd_gotoxy:	; 0 bytes @ 0x8
-??_lcd_puts:	; 0 bytes @ 0x8
-??_lcd_begin:	; 0 bytes @ 0x8
-??_print_unit:	; 0 bytes @ 0x8
-??_output_putch:	; 0 bytes @ 0x8
-??_put_str:	; 0 bytes @ 0x8
-??_format_putchar:	; 0 bytes @ 0x8
-??___awtofl:	; 0 bytes @ 0x8
-??___lltofl:	; 0 bytes @ 0x8
-	global	lcd_puts@i
-lcd_puts@i:	; 1 bytes @ 0x8
+?_timer0_read_ps:	; 2 bytes @ 0x4
+	global	buffer_putch@ch
+buffer_putch@ch:	; 1 bytes @ 0x4
+	global	ser_putch@c
+ser_putch@c:	; 1 bytes @ 0x4
 	global	___awtofl@sign
-___awtofl@sign:	; 1 bytes @ 0x8
-	global	___lwdiv@counter
-___lwdiv@counter:	; 1 bytes @ 0x8
+___awtofl@sign:	; 1 bytes @ 0x4
+	global	___lwmod@counter
+___lwmod@counter:	; 1 bytes @ 0x4
 	ds	1
-??_format_number:	; 0 bytes @ 0x9
-??___flsub:	; 0 bytes @ 0x9
-	global	lcd_puts@string
-lcd_puts@string:	; 1 bytes @ 0x9
+??_ser_puts:	; 0 bytes @ 0x5
+??_format_number:	; 0 bytes @ 0x5
+??_print_buffer:	; 0 bytes @ 0x5
+??_buffer_puts:	; 0 bytes @ 0x5
+	global	print_buffer@i
+print_buffer@i:	; 1 bytes @ 0x5
+	global	lcd_write4bits@value
+lcd_write4bits@value:	; 1 bytes @ 0x5
 	ds	1
-??_log10:	; 0 bytes @ 0xA
-??_pow:	; 0 bytes @ 0xA
-??_floor:	; 0 bytes @ 0xA
-??_calibrate:	; 0 bytes @ 0xA
-??_measure_capacitance:	; 0 bytes @ 0xA
-??_measure_inductance:	; 0 bytes @ 0xA
-??_exp:	; 0 bytes @ 0xA
-??_print_reading:	; 0 bytes @ 0xA
-??_indicator:	; 0 bytes @ 0xA
-??_format_double:	; 0 bytes @ 0xA
-??_main:	; 0 bytes @ 0xA
-??___altofl:	; 0 bytes @ 0xA
-??_log:	; 0 bytes @ 0xA
-??___lwtofl:	; 0 bytes @ 0xA
+??_lcd_send:	; 0 bytes @ 0x6
+??_lcd_gotoxy:	; 0 bytes @ 0x6
+??_lcd_puts:	; 0 bytes @ 0x6
+??_log10:	; 0 bytes @ 0x6
+??_pow:	; 0 bytes @ 0x6
+??_floor:	; 0 bytes @ 0x6
+??_calibrate:	; 0 bytes @ 0x6
+??_measure_capacitance:	; 0 bytes @ 0x6
+??_measure_inductance:	; 0 bytes @ 0x6
+??_exp:	; 0 bytes @ 0x6
+??_print_reading:	; 0 bytes @ 0x6
+??_print_indicator:	; 0 bytes @ 0x6
+??_output_putch:	; 0 bytes @ 0x6
+??_format_xint32:	; 0 bytes @ 0x6
+??_format_double:	; 0 bytes @ 0x6
+??_main:	; 0 bytes @ 0x6
+??_lcd_command:	; 0 bytes @ 0x6
+??___altofl:	; 0 bytes @ 0x6
+??___flsub:	; 0 bytes @ 0x6
+??_log:	; 0 bytes @ 0x6
+??___lwtofl:	; 0 bytes @ 0x6
 psect	cstackBANK0,class=BANK0,space=1,noexec
 global __pcstackBANK0
 __pcstackBANK0:
-?_format_number:	; 0 bytes @ 0x0
-??___flpack:	; 0 bytes @ 0x0
-??___flge:	; 0 bytes @ 0x0
-	global	timer0_read_ps@prev
-timer0_read_ps@prev:	; 1 bytes @ 0x0
-	global	lcd_gotoxy@col
-lcd_gotoxy@col:	; 1 bytes @ 0x0
-	global	lcd_begin@lines
-lcd_begin@lines:	; 1 bytes @ 0x0
-	global	put_str@i
-put_str@i:	; 2 bytes @ 0x0
-	global	_timer0_init$124
-_timer0_init$124:	; 2 bytes @ 0x0
-	global	format_number@n
-format_number@n:	; 2 bytes @ 0x0
+?_lcd_send:	; 0 bytes @ 0x0
+?_ser_puts:	; 0 bytes @ 0x0
+??_buffer_putch:	; 0 bytes @ 0x0
+??_timer0_read_ps:	; 0 bytes @ 0x0
+?___flge:	; 1 bit 
+	global	?___lwdiv
+?___lwdiv:	; 2 bytes @ 0x0
+	global	?___lwmod
+?___lwmod:	; 2 bytes @ 0x0
+	global	?___flpack
+?___flpack:	; 4 bytes @ 0x0
+	global	?_frexp
+?_frexp:	; 4 bytes @ 0x0
+	global	?___flneg
+?___flneg:	; 4 bytes @ 0x0
+	global	lcd_send@mode
+lcd_send@mode:	; 1 bytes @ 0x0
+	global	lcd_init@fourbitmode
+lcd_init@fourbitmode:	; 1 bytes @ 0x0
+	global	_timer0_init$114
+_timer0_init$114:	; 2 bytes @ 0x0
+	global	ser_puts@s
+ser_puts@s:	; 2 bytes @ 0x0
+	global	___lwdiv@divisor
+___lwdiv@divisor:	; 2 bytes @ 0x0
+	global	___lwmod@divisor
+___lwmod@divisor:	; 2 bytes @ 0x0
+	global	___flpack@arg
+___flpack@arg:	; 4 bytes @ 0x0
+	global	___flge@ff1
+___flge@ff1:	; 4 bytes @ 0x0
+	global	___flneg@f1
+___flneg@f1:	; 4 bytes @ 0x0
+	global	frexp@value
+frexp@value:	; 4 bytes @ 0x0
 	ds	1
-	global	timer0_read_ps@count
-timer0_read_ps@count:	; 2 bytes @ 0x1
-	global	lcd_gotoxy@row_offsets
-lcd_gotoxy@row_offsets:	; 4 bytes @ 0x1
+	global	timer2_init@ps
+timer2_init@ps:	; 1 bytes @ 0x1
+	global	lcd_send@value
+lcd_send@value:	; 1 bytes @ 0x1
+	global	_lcd_init$321
+_lcd_init$321:	; 2 bytes @ 0x1
 	ds	1
+?_lcd_puts:	; 0 bytes @ 0x2
+	global	output_putch@c
+output_putch@c:	; 1 bytes @ 0x2
+	global	timer2_init@ps_mode
+timer2_init@ps_mode:	; 1 bytes @ 0x2
+	global	lcd_command@value
+lcd_command@value:	; 1 bytes @ 0x2
+	global	_timer0_init$115
+_timer0_init$115:	; 2 bytes @ 0x2
+	global	lcd_puts@string
+lcd_puts@string:	; 2 bytes @ 0x2
+	global	___lwdiv@dividend
+___lwdiv@dividend:	; 2 bytes @ 0x2
+	global	___lwmod@dividend
+___lwmod@dividend:	; 2 bytes @ 0x2
+	ds	1
+?_lcd_gotoxy:	; 0 bytes @ 0x3
+?_lcd_begin:	; 0 bytes @ 0x3
+??_lcd_clear:	; 0 bytes @ 0x3
+?_put_str:	; 0 bytes @ 0x3
+?_buffer_puts:	; 1 bytes @ 0x3
+	global	lcd_gotoxy@row
+lcd_gotoxy@row:	; 1 bytes @ 0x3
+	global	lcd_begin@dotsize
+lcd_begin@dotsize:	; 1 bytes @ 0x3
 	global	put_str@s
-put_str@s:	; 1 bytes @ 0x2
-	global	format_number@base
-format_number@base:	; 1 bytes @ 0x2
-	global	_timer0_init$125
-_timer0_init$125:	; 2 bytes @ 0x2
+put_str@s:	; 2 bytes @ 0x3
+	global	buffer_puts@x
+buffer_puts@x:	; 2 bytes @ 0x3
 	ds	1
-	global	format_number@pad
-format_number@pad:	; 1 bytes @ 0x3
+??_lcd_begin:	; 0 bytes @ 0x4
+	global	timer0_read_ps@prev
+timer0_read_ps@prev:	; 1 bytes @ 0x4
+	global	lcd_gotoxy@col
+lcd_gotoxy@col:	; 1 bytes @ 0x4
+	global	lcd_puts@i
+lcd_puts@i:	; 1 bytes @ 0x4
+	global	___flpack@exp
+___flpack@exp:	; 1 bytes @ 0x4
+	global	frexp@eptr
+frexp@eptr:	; 1 bytes @ 0x4
+	global	___lwdiv@counter
+___lwdiv@counter:	; 1 bytes @ 0x4
+	global	_timer0_init$116
+_timer0_init$116:	; 2 bytes @ 0x4
+	global	___flge@ff2
+___flge@ff2:	; 4 bytes @ 0x4
 	ds	1
-	global	?___awtofl
-?___awtofl:	; 4 bytes @ 0x4
-	global	?___fldiv
-?___fldiv:	; 4 bytes @ 0x4
-	global	?___lltofl
-?___lltofl:	; 4 bytes @ 0x4
-	global	_timer0_init$126
-_timer0_init$126:	; 2 bytes @ 0x4
-	global	___awtofl@c
-___awtofl@c:	; 2 bytes @ 0x4
-	global	___fldiv@f2
-___fldiv@f2:	; 4 bytes @ 0x4
-	global	___lltofl@c
-___lltofl@c:	; 4 bytes @ 0x4
-	global	format_number@buf
-format_number@buf:	; 32 bytes @ 0x4
+??_put_str:	; 0 bytes @ 0x5
+	global	___flpack@sign
+___flpack@sign:	; 1 bytes @ 0x5
+	global	timer0_read_ps@count
+timer0_read_ps@count:	; 2 bytes @ 0x5
+	global	___lwdiv@quotient
+___lwdiv@quotient:	; 2 bytes @ 0x5
+	global	lcd_gotoxy@row_offsets
+lcd_gotoxy@row_offsets:	; 4 bytes @ 0x5
 	ds	1
-	global	indicator@indicate
-indicator@indicate:	; 1 bytes @ 0x5
+??___flpack:	; 0 bytes @ 0x6
+	global	lcd_begin@lines
+lcd_begin@lines:	; 1 bytes @ 0x6
+	global	_timer0_init$117
+_timer0_init$117:	; 2 bytes @ 0x6
 	ds	1
-	global	_timer0_init$127
-_timer0_init$127:	; 2 bytes @ 0x6
-	ds	2
+?_format_number:	; 0 bytes @ 0x7
+	global	format_number@n
+format_number@n:	; 2 bytes @ 0x7
+	ds	1
+??___flge:	; 0 bytes @ 0x8
 	global	timer0_init@prescaler
 timer0_init@prescaler:	; 1 bytes @ 0x8
-	global	___fldiv@f1
-___fldiv@f1:	; 4 bytes @ 0x8
+	global	put_str@i
+put_str@i:	; 2 bytes @ 0x8
 	ds	1
+??_print_unit:	; 0 bytes @ 0x9
+	global	print_indicator@indicate
+print_indicator@indicate:	; 1 bytes @ 0x9
 	global	timer0_init@ps_mode
 timer0_init@ps_mode:	; 1 bytes @ 0x9
+	global	format_number@base
+format_number@base:	; 1 bytes @ 0x9
+	ds	1
+	global	?___awtofl
+?___awtofl:	; 4 bytes @ 0xA
+	global	?___fldiv
+?___fldiv:	; 4 bytes @ 0xA
+	global	?___lltofl
+?___lltofl:	; 4 bytes @ 0xA
+	global	format_number@pad
+format_number@pad:	; 1 bytes @ 0xA
+	global	___awtofl@c
+___awtofl@c:	; 2 bytes @ 0xA
+	global	___fldiv@f2
+___fldiv@f2:	; 4 bytes @ 0xA
+	global	___lltofl@c
+___lltofl@c:	; 4 bytes @ 0xA
+	ds	1
+	global	format_number@buf
+format_number@buf:	; 32 bytes @ 0xB
 	ds	3
-??___fldiv:	; 0 bytes @ 0xC
+	global	___fldiv@f1
+___fldiv@f1:	; 4 bytes @ 0xE
+	ds	4
+??___fldiv:	; 0 bytes @ 0x12
 	ds	4
 	global	___fldiv@f3
-___fldiv@f3:	; 4 bytes @ 0x10
+___fldiv@f3:	; 4 bytes @ 0x16
 	ds	4
 	global	___fldiv@cntr
-___fldiv@cntr:	; 1 bytes @ 0x14
+___fldiv@cntr:	; 1 bytes @ 0x1A
 	ds	1
 	global	___fldiv@exp
-___fldiv@exp:	; 1 bytes @ 0x15
+___fldiv@exp:	; 1 bytes @ 0x1B
 	ds	1
 	global	___fldiv@sign
-___fldiv@sign:	; 1 bytes @ 0x16
+___fldiv@sign:	; 1 bytes @ 0x1C
 	ds	1
 	global	?___flmul
-?___flmul:	; 4 bytes @ 0x17
+?___flmul:	; 4 bytes @ 0x1D
 	global	___flmul@f1
-___flmul@f1:	; 4 bytes @ 0x17
+___flmul@f1:	; 4 bytes @ 0x1D
 	ds	4
 	global	___flmul@f2
-___flmul@f2:	; 4 bytes @ 0x1B
+___flmul@f2:	; 4 bytes @ 0x21
 	ds	4
-??___flmul:	; 0 bytes @ 0x1F
+??___flmul:	; 0 bytes @ 0x25
 	ds	4
 	global	___flmul@exp
-___flmul@exp:	; 1 bytes @ 0x23
+___flmul@exp:	; 1 bytes @ 0x29
+	ds	1
+	global	___flmul@f3_as_product
+___flmul@f3_as_product:	; 4 bytes @ 0x2A
 	ds	1
 	global	format_number@padchar
-format_number@padchar:	; 1 bytes @ 0x24
-	global	___flmul@f3_as_product
-___flmul@f3_as_product:	; 4 bytes @ 0x24
+format_number@padchar:	; 1 bytes @ 0x2B
 	ds	1
-	global	_format_number$169
-_format_number$169:	; 2 bytes @ 0x25
+	global	_format_number$158
+_format_number$158:	; 2 bytes @ 0x2C
 	ds	2
 	global	format_number@di
-format_number@di:	; 1 bytes @ 0x27
+format_number@di:	; 1 bytes @ 0x2E
+	global	___flmul@cntr
+___flmul@cntr:	; 1 bytes @ 0x2E
 	ds	1
 	global	format_number@i
-format_number@i:	; 1 bytes @ 0x28
-	global	___flmul@cntr
-___flmul@cntr:	; 1 bytes @ 0x28
-	ds	1
-?_print_reading:	; 0 bytes @ 0x29
-	global	?_measure_freq
-?_measure_freq:	; 2 bytes @ 0x29
+format_number@i:	; 1 bytes @ 0x2F
 	global	___flmul@sign
-___flmul@sign:	; 1 bytes @ 0x29
-	global	print_reading@measurement
-print_reading@measurement:	; 2 bytes @ 0x29
+___flmul@sign:	; 1 bytes @ 0x2F
 	ds	1
+?_print_reading:	; 0 bytes @ 0x30
+?_format_xint32:	; 0 bytes @ 0x30
+	global	?_measure_freq
+?_measure_freq:	; 2 bytes @ 0x30
 	global	?___fladd
-?___fladd:	; 4 bytes @ 0x2A
+?___fladd:	; 4 bytes @ 0x30
+	global	print_reading@measurement
+print_reading@measurement:	; 2 bytes @ 0x30
+	global	format_xint32@x
+format_xint32@x:	; 4 bytes @ 0x30
 	global	___fladd@f1
-___fladd@f1:	; 4 bytes @ 0x2A
-	ds	1
-??_measure_freq:	; 0 bytes @ 0x2B
-	global	_print_reading$1042
-_print_reading$1042:	; 2 bytes @ 0x2B
+___fladd@f1:	; 4 bytes @ 0x30
+	ds	2
+??_measure_freq:	; 0 bytes @ 0x32
+	global	_print_reading$1003
+_print_reading$1003:	; 2 bytes @ 0x32
 	ds	2
 	global	measure_freq@count
-measure_freq@count:	; 2 bytes @ 0x2D
-	global	_print_reading$1043
-_print_reading$1043:	; 2 bytes @ 0x2D
-	ds	1
+measure_freq@count:	; 2 bytes @ 0x34
+	global	_print_reading$1004
+_print_reading$1004:	; 2 bytes @ 0x34
 	global	___fladd@f2
-___fladd@f2:	; 4 bytes @ 0x2E
-	ds	1
+___fladd@f2:	; 4 bytes @ 0x34
+	ds	2
 	global	?___lwtofl
-?___lwtofl:	; 4 bytes @ 0x2F
+?___lwtofl:	; 4 bytes @ 0x36
 	global	___lwtofl@c
-___lwtofl@c:	; 2 bytes @ 0x2F
-	ds	3
-??___fladd:	; 0 bytes @ 0x32
-	ds	1
+___lwtofl@c:	; 2 bytes @ 0x36
+	ds	2
+??___fladd:	; 0 bytes @ 0x38
+	ds	2
 	global	calibrate@i
-calibrate@i:	; 1 bytes @ 0x33
-	ds	3
+calibrate@i:	; 1 bytes @ 0x3A
+	ds	2
 	global	___fladd@sign
-___fladd@sign:	; 1 bytes @ 0x36
+___fladd@sign:	; 1 bytes @ 0x3C
 	ds	1
 	global	___fladd@exp2
-___fladd@exp2:	; 1 bytes @ 0x37
+___fladd@exp2:	; 1 bytes @ 0x3D
 	ds	1
 	global	___fladd@exp1
-___fladd@exp1:	; 1 bytes @ 0x38
+___fladd@exp1:	; 1 bytes @ 0x3E
 	ds	1
 	global	?_eval_poly
-?_eval_poly:	; 4 bytes @ 0x39
+?_eval_poly:	; 4 bytes @ 0x3F
 	global	?___flsub
-?___flsub:	; 4 bytes @ 0x39
+?___flsub:	; 4 bytes @ 0x3F
 	global	___flsub@f2
-___flsub@f2:	; 4 bytes @ 0x39
+___flsub@f2:	; 4 bytes @ 0x3F
 	global	eval_poly@x
-eval_poly@x:	; 4 bytes @ 0x39
+eval_poly@x:	; 4 bytes @ 0x3F
 	ds	4
 	global	eval_poly@d
-eval_poly@d:	; 1 bytes @ 0x3D
+eval_poly@d:	; 2 bytes @ 0x43
 	global	___flsub@f1
-___flsub@f1:	; 4 bytes @ 0x3D
-	ds	1
+___flsub@f1:	; 4 bytes @ 0x43
+	ds	2
 	global	eval_poly@n
-eval_poly@n:	; 2 bytes @ 0x3E
+eval_poly@n:	; 2 bytes @ 0x45
 	ds	2
-??_eval_poly:	; 0 bytes @ 0x40
-	ds	5
-	global	eval_poly@res
-eval_poly@res:	; 4 bytes @ 0x45
-	ds	4
-	global	?_ldexp
-?_ldexp:	; 4 bytes @ 0x49
-	global	?_log
-?_log:	; 4 bytes @ 0x49
-	global	ldexp@value
-ldexp@value:	; 4 bytes @ 0x49
-	global	log@x
-log@x:	; 4 bytes @ 0x49
-	ds	4
-	global	ldexp@newexp
-ldexp@newexp:	; 2 bytes @ 0x4D
-	global	log@exponent
-log@exponent:	; 2 bytes @ 0x4D
-	ds	2
+??_eval_poly:	; 0 bytes @ 0x47
+	ds	8
 ;!
 ;!Data Sizes:
-;!    Strings     109
+;!    Strings     174
 ;!    Constant    76
 ;!    Data        5
-;!    BSS         48
+;!    BSS         84
 ;!    Persistent  8
 ;!    Stack       0
 ;!
 ;!Auto Spaces:
 ;!    Space          Size  Autos    Used
-;!    COMMON           14     10      12
+;!    COMMON           14      6      10
 ;!    BANK0            79     79      79
-;!    BANK1            80     69      80
-;!    BANK3            96     20      68
-;!    BANK2            96      0       0
+;!    BANK1            80     79      79
+;!    BANK3            96     23      84
+;!    BANK2            96     19      51
 
 ;!
 ;!Pointer List with Targets:
 ;!
-;!    eval_poly@d	PTR const  size(1) Largest target is 40
+;!    eval_poly@d	PTR const  size(2) Largest target is 40
 ;!		 -> exp@coeff(CODE[40]), log@coeff(CODE[36]), 
 ;!
 ;!    frexp@eptr	PTR int  size(1) Largest target is 2
-;!		 -> log@exponent(BANK0[2]), floor@expon(BANK1[2]), 
+;!		 -> log@exponent(BANK1[2]), floor@expon(BANK1[2]), 
 ;!
-;!    uart_puts@s	PTR const unsigned char  size(1) Largest target is 6
-;!		 -> STR_22(CODE[3]), STR_20(CODE[3]), STR_14(CODE[6]), STR_9(CODE[3]), 
+;!    ser_puts@s	PTR const unsigned char  size(2) Largest target is 16
+;!		 -> STR_36(CODE[3]), STR_35(CODE[5]), STR_34(CODE[3]), STR_33(CODE[8]), 
+;!		 -> STR_32(CODE[6]), STR_31(CODE[6]), STR_30(CODE[6]), STR_29(CODE[5]), 
+;!		 -> STR_26(CODE[3]), STR_24(CODE[3]), STR_22(CODE[3]), STR_17(CODE[3]), 
+;!		 -> STR_16(CODE[16]), STR_15(CODE[16]), STR_13(CODE[3]), STR_9(CODE[3]), 
 ;!
-;!    sp__memcpy	PTR void  size(1) Largest target is 18
-;!		 -> buffer.x(BANK3[16]), buffer(BANK3[18]), 
+;!    buffer_puts@x	PTR const unsigned char  size(2) Largest target is 6
+;!		 -> STR_27(CODE[6]), 
 ;!
-;!    lcd_puts@string	PTR const unsigned char  size(1) Largest target is 10
-;!		 -> STR_18(CODE[5]), STR_17(CODE[6]), STR_16(CODE[7]), STR_15(CODE[7]), 
-;!		 -> STR_13(CODE[10]), STR_12(CODE[4]), STR_11(CODE[4]), STR_10(CODE[6]), 
+;!    lcd_puts@string	PTR const unsigned char  size(2) Largest target is 10
+;!		 -> STR_21(CODE[5]), STR_20(CODE[6]), STR_19(CODE[7]), STR_18(CODE[7]), 
+;!		 -> STR_14(CODE[10]), STR_12(CODE[4]), STR_11(CODE[4]), STR_10(CODE[6]), 
 ;!
-;!    putchar_ptr	PTR FTN(unsigned char ,)void  size(1) Largest target is 0
-;!		 -> format_putchar(), output_putch(), lcd_putch(), 
+;!    main$257	PTR const unsigned char  size(2) Largest target is 16
+;!		 -> STR_16(CODE[16]), STR_15(CODE[16]), 
 ;!
-;!    put_str@s	PTR const unsigned char  size(1) Largest target is 15
-;!		 -> STR_25(CODE[13]), STR_24(CODE[10]), STR_23(CODE[6]), STR_21(CODE[15]), 
-;!		 -> STR_19(CODE[12]), 
+;!    put_str@s	PTR const unsigned char  size(2) Largest target is 15
+;!		 -> STR_37(CODE[13]), STR_28(CODE[10]), STR_25(CODE[15]), STR_23(CODE[12]), 
 ;!
-;!    print_unit@units	PTR const unsigned char [8] size(1) Largest target is 3
+;!    print_unit@units	PTR const unsigned char [8] size(2) Largest target is 3
 ;!		 -> STR_8(CODE[3]), STR_7(CODE[3]), STR_6(CODE[3]), STR_5(CODE[3]), 
 ;!		 -> STR_4(CODE[3]), STR_3(CODE[3]), STR_2(CODE[3]), STR_1(CODE[2]), 
-;!
-;!    S31$op	PTR FTN(unsigned char ,)void  size(1) Largest target is 0
-;!
-;!    buffer.op	PTR FTN(unsigned char ,)void  size(1) Largest target is 0
 ;!
 
 
 ;!
 ;!Critical Paths under _main in COMMON
 ;!
-;!    _main->_lcd_begin
-;!    _main->_lcd_puts
-;!    _measure_inductance->___flge
-;!    _measure_inductance->_print_unit
-;!    _measure_capacitance->___flge
-;!    _measure_capacitance->_print_unit
-;!    _print_unit->_lcd_gotoxy
 ;!    _print_reading->_format_number
-;!    _print_reading->_lcd_puts
-;!    _lcd_begin->_lcd_command
-;!    _indicator->_lcd_puts
-;!    _lcd_puts->_lcd_putch
-;!    _format_double->___flge
-;!    _pow->___flge
-;!    _exp->___flge
-;!    _ldexp->___flge
-;!    _floor->___flge
-;!    ___flsub->___awtofl
-;!    ___fldiv->___flpack
-;!    ___lltofl->___flpack
-;!    _log->___flge
-;!    ___flmul->___awtofl
+;!    _format_xint32->_format_number
+;!    _floor->_frexp
+;!    _log->_frexp
 ;!    ___flmul->_frexp
-;!    ___fladd->___awtofl
 ;!    ___fladd->_frexp
-;!    ___awtofl->___flpack
-;!    _uart_puts->_uart_putch
+;!    _lcd_begin->_lcd_write4bits
 ;!    _measure_freq->_format_number
-;!    _put_str->_output_putch
-;!    _lcd_gotoxy->_lcd_command
-;!    _format_number->___lwdiv
-;!    _lcd_clear->_lcd_command
-;!    _lcd_command->_lcd_send
+;!    _measure_freq->_print_buffer
+;!    _measure_freq->_timer0_read_ps
+;!    _print_buffer->_ser_putch
+;!    _ser_puts->_ser_putch
+;!    _format_number->___lwmod
+;!    _format_number->_buffer_putch
+;!    _buffer_puts->_buffer_putch
 ;!    _lcd_send->_lcd_write4bits
 ;!
-;!Critical Paths under _isr in COMMON
+;!Critical Paths under _global_int in COMMON
 ;!
 ;!    None.
 ;!
 ;!Critical Paths under _main in BANK0
 ;!
+;!    _print_indicator->_lcd_gotoxy
 ;!    _print_unit->_lcd_gotoxy
 ;!    _print_reading->_format_number
-;!    _indicator->_lcd_gotoxy
-;!    _pow->_log
-;!    _exp->_ldexp
-;!    _exp->_log
+;!    _lcd_puts->_lcd_send
+;!    _format_xint32->_format_number
+;!    _exp->_eval_poly
 ;!    _ldexp->_eval_poly
 ;!    ___flsub->___fladd
 ;!    ___fldiv->___flpack
 ;!    ___lltofl->___flpack
-;!    _log10->_log
 ;!    _log->_eval_poly
 ;!    _eval_poly->___fladd
 ;!    ___flmul->___fldiv
 ;!    ___fladd->___flmul
 ;!    ___awtofl->___flpack
+;!    _lcd_begin->_lcd_command
 ;!    _calibrate->___lwtofl
+;!    _put_str->_output_putch
+;!    _output_putch->_lcd_send
 ;!    _measure_freq->_format_number
+;!    _print_buffer->_ser_puts
+;!    _lcd_gotoxy->_lcd_command
+;!    _format_number->___lwdiv
+;!    _buffer_puts->_buffer_putch
+;!    _lcd_clear->_lcd_command
+;!    _lcd_command->_lcd_send
 ;!    ___lwtofl->_measure_freq
 ;!
-;!Critical Paths under _isr in BANK0
+;!Critical Paths under _global_int in BANK0
 ;!
 ;!    None.
 ;!
 ;!Critical Paths under _main in BANK1
 ;!
 ;!    _measure_inductance->___fltol
-;!    _measure_capacitance->___fltol
 ;!    _format_double->_pow
 ;!    _pow->_exp
 ;!    _exp->_floor
+;!    _ldexp->_eval_poly
 ;!    _floor->___altofl
 ;!    ___fltol->_log10
 ;!    ___altofl->___fltol
+;!    _log10->_log
+;!    _log->_eval_poly
 ;!
-;!Critical Paths under _isr in BANK1
+;!Critical Paths under _global_int in BANK1
 ;!
 ;!    None.
 ;!
 ;!Critical Paths under _main in BANK3
 ;!
 ;!    _main->_format_double
+;!    _measure_capacitance->_format_double
 ;!
-;!Critical Paths under _isr in BANK3
+;!Critical Paths under _global_int in BANK3
 ;!
 ;!    None.
 ;!
 ;!Critical Paths under _main in BANK2
 ;!
-;!    None.
+;!    _main->_measure_capacitance
 ;!
-;!Critical Paths under _isr in BANK2
+;!Critical Paths under _global_int in BANK2
 ;!
 ;!    None.
 
@@ -2315,11 +2418,11 @@ log@exponent:	; 2 bytes @ 0x4D
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (0) _main                                                 0     0      0  258740
+;! (0) _main                                                 3     3      0  429679
+;!                                             20 BANK3      3     3      0
 ;!                          _calibrate
 ;!                          _delay10ms
 ;!                      _format_double
-;!                          _indicator
 ;!                          _lcd_begin
 ;!                          _lcd_clear
 ;!                         _lcd_gotoxy
@@ -2327,25 +2430,28 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                           _lcd_puts
 ;!                _measure_capacitance
 ;!                 _measure_inductance
+;!                    _print_indicator
+;!                           _ser_init
+;!                           _ser_puts
 ;!                        _timer0_init
 ;!                        _timer2_init
-;!                          _uart_init
-;!                          _uart_puts
 ;! ---------------------------------------------------------------------------------
-;! (1) _uart_init                                            4     4      0      48
-;!                                              2 COMMON     4     4      0
-;!                        _uart_enable
-;! ---------------------------------------------------------------------------------
-;! (2) _uart_enable                                          0     0      0       0
-;! ---------------------------------------------------------------------------------
-;! (1) _timer2_init                                          4     4      0     157
-;!                                              2 COMMON     4     4      0
+;! (1) _timer2_init                                          4     4      0     133
+;!                                              4 COMMON     1     1      0
+;!                                              0 BANK0      3     3      0
 ;! ---------------------------------------------------------------------------------
 ;! (1) _timer0_init                                         10    10      0     371
 ;!                                              0 BANK0     10    10      0
 ;! ---------------------------------------------------------------------------------
-;! (1) _measure_inductance                                  55    55      0   42294
-;!                                             18 BANK1     43    43      0
+;! (1) _ser_init                                             0     0      0       0
+;! ---------------------------------------------------------------------------------
+;! (1) _print_indicator                                      1     1      0    3155
+;!                                              9 BANK0      1     1      0
+;!                         _lcd_gotoxy
+;!                           _lcd_puts
+;! ---------------------------------------------------------------------------------
+;! (1) _measure_inductance                                  55    55      0   43103
+;!                                             28 BANK1     43    43      0
 ;!                            ___fldiv
 ;!                             ___flge
 ;!                            ___flmul
@@ -2358,52 +2464,47 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                         _print_unit
 ;!                            _put_str
 ;! ---------------------------------------------------------------------------------
-;! (1) _measure_capacitance                                 19    19      0   41784
-;!                                             18 BANK1     19    19      0
+;! (1) _measure_capacitance                                 19    19      0  204882
+;!                                              0 BANK2     19    19      0
 ;!                            ___fldiv
 ;!                             ___flge
 ;!                            ___flmul
 ;!                            ___flsub
 ;!                            ___fltol
 ;!                           ___lwtofl
+;!                      _format_double
+;!                      _format_xint32
 ;!                         _lcd_gotoxy
 ;!                       _measure_freq
 ;!                      _print_reading
 ;!                         _print_unit
 ;!                            _put_str
+;!                          _ser_putch
+;!                           _ser_puts
 ;! ---------------------------------------------------------------------------------
-;! (2) _print_unit                                           3     3      0    1867
-;!                                              8 COMMON     2     2      0
+;! (2) _print_unit                                           3     3      0    2996
+;!                                              9 BANK0      2     2      0
 ;!                         _lcd_gotoxy
-;!                          _uart_puts
+;!                           _ser_puts
 ;! ---------------------------------------------------------------------------------
-;! (2) _print_reading                                        6     4      2    8384
-;!                                             41 BANK0      6     4      2
+;! (2) _print_reading                                        6     4      2    7806
+;!                                             48 BANK0      6     4      2
 ;!                            ___lwdiv
 ;!                            ___lwmod
 ;!                      _format_number
 ;!                         _lcd_gotoxy
 ;!                           _lcd_puts
 ;! ---------------------------------------------------------------------------------
-;! (1) _lcd_init                                             3     3      0      46
-;!                                              2 COMMON     3     3      0
+;! (2) _lcd_puts                                             3     1      2    1179
+;!                                              2 BANK0      3     1      2
+;!                           _lcd_send
 ;! ---------------------------------------------------------------------------------
-;! (1) _lcd_begin                                            4     3      1     709
-;!                                              7 COMMON     3     2      1
-;!                                              0 BANK0      1     1      0
-;!                        _lcd_command
-;!                     _lcd_write4bits
+;! (2) _format_xint32                                        4     0      4    3735
+;!                                             48 BANK0      4     0      4
+;!                       _buffer_putch
+;!                      _format_number
 ;! ---------------------------------------------------------------------------------
-;! (1) _indicator                                            1     1      0    2812
-;!                                              5 BANK0      1     1      0
-;!                         _lcd_gotoxy
-;!                           _lcd_puts
-;! ---------------------------------------------------------------------------------
-;! (3) _lcd_puts                                             2     2      0    1089
-;!                                              8 COMMON     2     2      0
-;!                          _lcd_putch
-;! ---------------------------------------------------------------------------------
-;! (1) _format_double                                       20    16      4  152936
+;! (2) _format_double                                       20    16      4  157379
 ;!                                              0 BANK3     20    16      4
 ;!                           ___awtofl
 ;!                            ___fldiv
@@ -2411,15 +2512,13 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                            ___flmul
 ;!                            ___flsub
 ;!                            ___fltol
+;!                       _buffer_putch
 ;!                              _floor
-;!                     _format_putchar *
-;!                          _lcd_putch *
 ;!                              _log10
-;!                       _output_putch *
 ;!                                _pow
 ;! ---------------------------------------------------------------------------------
-;! (2) _pow                                                 21    13      8   85814
-;!                                             48 BANK1     21    13      8
+;! (3) _pow                                                 21    13      8   89436
+;!                                             58 BANK1     21    13      8
 ;!                             ___flge
 ;!                            ___flmul
 ;!                            ___flneg
@@ -2428,8 +2527,8 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                                _exp
 ;!                                _log
 ;! ---------------------------------------------------------------------------------
-;! (3) _exp                                                 15    11      4   46127
-;!                                             33 BANK1     15    11      4
+;! (4) _exp                                                 15    11      4   48325
+;!                                             43 BANK1     15    11      4
 ;!                           ___awtofl
 ;!                            ___fldiv
 ;!                             ___flge
@@ -2442,18 +2541,17 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                              _ldexp
 ;!                                _log (ARG)
 ;! ---------------------------------------------------------------------------------
-;! (4) _ldexp                                               12     6      6    2907
-;!                                             73 BANK0      6     0      6
-;!                                              0 BANK1      6     6      0
+;! (5) _ldexp                                               12     6      6    3479
+;!                                              4 BANK1     12     6      6
 ;!                             ___flge
 ;!                            ___flneg
 ;!                          _eval_poly (ARG)
 ;! ---------------------------------------------------------------------------------
-;! (5) ___flneg                                              4     0      4     257
-;!                                              2 COMMON     4     0      4
+;! (6) ___flneg                                              4     0      4     325
+;!                                              0 BANK0      4     0      4
 ;! ---------------------------------------------------------------------------------
-;! (4) _floor                                               10     6      4   10352
-;!                                             23 BANK1     10     6      4
+;! (5) _floor                                               10     6      4   11204
+;!                                             33 BANK1     10     6      4
 ;!                           ___altofl
 ;!                            ___fladd
 ;!                            ___fldiv (ARG)
@@ -2461,37 +2559,37 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                            ___fltol
 ;!                              _frexp
 ;! ---------------------------------------------------------------------------------
-;! (2) ___fltol                                             10     6      4     680
-;!                                              8 BANK1     10     6      4
+;! (2) ___fltol                                             10     6      4     882
+;!                                             18 BANK1     10     6      4
 ;!                            ___fldiv (ARG)
 ;!                              _log10 (ARG)
 ;! ---------------------------------------------------------------------------------
-;! (5) ___altofl                                             5     1      4    2446
-;!                                             18 BANK1      5     1      4
+;! (6) ___altofl                                             5     1      4    2446
+;!                                             28 BANK1      5     1      4
 ;!                           ___flpack
 ;!                            ___fltol (ARG)
 ;! ---------------------------------------------------------------------------------
 ;! (2) ___flsub                                              8     0      8    5089
-;!                                             57 BANK0      8     0      8
+;!                                             63 BANK0      8     0      8
 ;!                           ___awtofl (ARG)
 ;!                            ___fladd
 ;!                            ___flmul (ARG)
 ;! ---------------------------------------------------------------------------------
 ;! (2) ___fldiv                                             19    11      8    3931
-;!                                              4 BANK0     19    11      8
+;!                                             10 BANK0     19    11      8
 ;!                           ___flpack
 ;! ---------------------------------------------------------------------------------
-;! (3) ___lltofl                                             4     0      4    2344
-;!                                              4 BANK0      4     0      4
+;! (4) ___lltofl                                             4     0      4    2344
+;!                                             10 BANK0      4     0      4
 ;!                           ___flpack
 ;! ---------------------------------------------------------------------------------
-;! (2) _log10                                                8     4      4   33717
-;!                                              0 BANK1      8     4      4
+;! (3) _log10                                                8     4      4   34367
+;!                                             10 BANK1      8     4      4
 ;!                            ___flmul
 ;!                                _log
 ;! ---------------------------------------------------------------------------------
-;! (3) _log                                                  6     2      4   27200
-;!                                             73 BANK0      6     2      4
+;! (4) _log                                                  6     2      4   27850
+;!                                              4 BANK1      6     2      4
 ;!                           ___awtofl
 ;!                            ___fladd
 ;!                             ___flge
@@ -2499,133 +2597,150 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                          _eval_poly
 ;!                              _frexp
 ;! ---------------------------------------------------------------------------------
-;! (4) _frexp                                                7     2      5     436
-;!                                              2 COMMON     7     2      5
+;! (5) _frexp                                                7     2      5     582
+;!                                              4 COMMON     2     2      0
+;!                                              0 BANK0      5     0      5
 ;! ---------------------------------------------------------------------------------
-;! (4) _eval_poly                                           16     9      7   11109
-;!                                             57 BANK0     16     9      7
+;! (5) _eval_poly                                           20    12      8   11109
+;!                                             63 BANK0     16     8      8
+;!                                              0 BANK1      4     4      0
 ;!                            ___fladd
 ;!                            ___flmul
 ;! ---------------------------------------------------------------------------------
 ;! (2) ___flmul                                             19    11      8    6342
-;!                                             23 BANK0     19    11      8
+;!                                             29 BANK0     19    11      8
 ;!                           ___awtofl (ARG)
 ;!                            ___fldiv (ARG)
 ;!                           ___flpack
 ;!                              _frexp (ARG)
 ;! ---------------------------------------------------------------------------------
 ;! (3) ___fladd                                             15     7      8    4123
-;!                                             42 BANK0     15     7      8
+;!                                             48 BANK0     15     7      8
 ;!                           ___awtofl (ARG)
 ;!                            ___flmul (ARG)
 ;!                           ___flpack
 ;!                              _frexp (ARG)
 ;! ---------------------------------------------------------------------------------
-;! (2) ___flge                                              12     4      8    2124
-;!                                              2 COMMON     8     0      8
-;!                                              0 BANK0      4     4      0
+;! (2) ___flge                                              12     4      8    2628
+;!                                              0 BANK0     12     4      8
 ;! ---------------------------------------------------------------------------------
-;! (4) ___awtofl                                             9     5      4    2686
-;!                                              8 COMMON     1     1      0
-;!                                              4 BANK0      4     0      4
+;! (5) ___awtofl                                             9     5      4    2686
+;!                                              4 COMMON     1     1      0
+;!                                             10 BANK0      4     0      4
 ;!                           ___flpack
 ;! ---------------------------------------------------------------------------------
-;! (1) _calibrate                                            1     1      0   14240
-;!                                             51 BANK0      1     1      0
+;! (1) _lcd_init                                             3     3      0      68
+;!                                              0 BANK0      3     3      0
+;! ---------------------------------------------------------------------------------
+;! (1) _lcd_begin                                            4     3      1     860
+;!                                              3 BANK0      4     3      1
+;!                        _lcd_command
+;!                     _lcd_write4bits
+;! ---------------------------------------------------------------------------------
+;! (1) _calibrate                                            1     1      0   14811
+;!                                             58 BANK0      1     1      0
 ;!                           ___lwtofl
 ;!                          _delay10ms
 ;!                          _lcd_clear
 ;!                         _lcd_gotoxy
-;!                          _lcd_putch
+;!                           _lcd_send
 ;!                       _measure_freq
 ;!                            _put_str
-;!                          _uart_puts
+;!                           _ser_puts
 ;! ---------------------------------------------------------------------------------
-;! (1) _uart_puts                                            1     1      0     175
-;!                                              3 COMMON     1     1      0
-;!                         _uart_putch
+;! (2) _put_str                                              7     5      2    1092
+;!                                              3 BANK0      7     5      2
+;!                       _output_putch
 ;! ---------------------------------------------------------------------------------
-;! (2) _uart_putch                                           1     1      0      22
-;!                                              2 COMMON     1     1      0
+;! (3) _output_putch                                         1     1      0     702
+;!                                              2 BANK0      1     1      0
+;!                           _lcd_send
+;!                          _ser_putch
 ;! ---------------------------------------------------------------------------------
-;! (2) _measure_freq                                         6     4      2    7446
-;!                                             41 BANK0      6     4      2
+;! (2) _measure_freq                                         6     4      2    6737
+;!                                             48 BANK0      6     4      2
+;!                        _buffer_init
+;!                        _buffer_puts
 ;!                      _format_number
 ;!                         _lcd_gotoxy
-;!                            _put_str
+;!                       _print_buffer
 ;!                     _timer0_read_ps
 ;! ---------------------------------------------------------------------------------
 ;! (3) _timer0_read_ps                                       9     7      2     167
-;!                                              2 COMMON     6     4      2
-;!                                              0 BANK0      3     3      0
+;!                                              4 COMMON     2     0      2
+;!                                              0 BANK0      7     7      0
 ;! ---------------------------------------------------------------------------------
-;! (2) _put_str                                              3     3      0    1084
-;!                                              0 BANK0      3     3      0
-;!                       _output_putch
+;! (3) _print_buffer                                         1     1      0    1150
+;!                                              5 COMMON     1     1      0
+;!                          _ser_putch
+;!                           _ser_puts
 ;! ---------------------------------------------------------------------------------
-;! (3) _lcd_gotoxy                                           6     5      1    1692
-;!                                              7 COMMON     1     0      1
-;!                                              0 BANK0      5     5      0
+;! (1) _ser_puts                                             2     0      2    1051
+;!                                              0 BANK0      2     0      2
+;!                          _ser_putch
+;! ---------------------------------------------------------------------------------
+;! (2) _ser_putch                                            1     1      0      31
+;!                                              4 COMMON     1     1      0
+;! ---------------------------------------------------------------------------------
+;! (2) _lcd_gotoxy                                           6     5      1    1945
+;!                                              3 BANK0      6     5      1
 ;!                        _lcd_command
 ;! ---------------------------------------------------------------------------------
-;! (3) _format_number                                       42    38      4    4438
-;!                                              9 COMMON     1     1      0
-;!                                              0 BANK0     41    37      4
+;! (3) _format_number                                       42    38      4    3249
+;!                                              5 COMMON     1     1      0
+;!                                              7 BANK0     41    37      4
 ;!                            ___lwdiv
 ;!                            ___lwmod
-;!                     _format_putchar *
-;!                          _lcd_putch *
-;!                       _output_putch *
+;!                       _buffer_putch
 ;! ---------------------------------------------------------------------------------
-;! (3) _output_putch                                         1     0      1     804
-;!                                              7 COMMON     1     0      1
-;!                          _lcd_putch
+;! (4) ___lwmod                                              5     1      4     582
+;!                                              4 COMMON     1     1      0
+;!                                              0 BANK0      4     0      4
 ;! ---------------------------------------------------------------------------------
-;! (4) _lcd_putch                                            1     0      1     719
-;!                                              7 COMMON     1     0      1
-;!                           _lcd_send
+;! (4) ___lwdiv                                              7     3      4     591
+;!                                              0 BANK0      7     3      4
 ;! ---------------------------------------------------------------------------------
-;! (4) _format_putchar                                       1     0      1     220
-;!                                              7 COMMON     1     0      1
+;! (3) _buffer_puts                                          2     0      2     161
+;!                                              3 BANK0      2     0      2
+;!                       _buffer_putch
 ;! ---------------------------------------------------------------------------------
-;! (4) ___lwmod                                              5     1      4     451
-;!                                              2 COMMON     5     1      4
+;! (4) _buffer_putch                                         4     4      0      31
+;!                                              4 COMMON     1     1      0
+;!                                              0 BANK0      3     3      0
 ;! ---------------------------------------------------------------------------------
-;! (4) ___lwdiv                                              7     3      4     454
-;!                                              2 COMMON     7     3      4
+;! (3) _buffer_init                                          0     0      0       0
 ;! ---------------------------------------------------------------------------------
-;! (1) _lcd_clear                                            2     2      0     387
-;!                                              7 COMMON     2     2      0
+;! (1) _lcd_clear                                            2     2      0     640
+;!                                              3 BANK0      2     2      0
 ;!                        _lcd_command
 ;! ---------------------------------------------------------------------------------
-;! (4) _lcd_command                                          1     1      0     387
-;!                                              6 COMMON     1     1      0
+;! (3) _lcd_command                                          1     1      0     640
+;!                                              2 BANK0      1     1      0
 ;!                           _lcd_send
 ;! ---------------------------------------------------------------------------------
-;! (5) _lcd_send                                             2     1      1     356
-;!                                              4 COMMON     2     1      1
+;! (3) _lcd_send                                             2     1      1     609
+;!                                              0 BANK0      2     1      1
 ;!                     _lcd_write4bits
 ;! ---------------------------------------------------------------------------------
-;! (6) _lcd_write4bits                                       2     2      0     133
-;!                                              2 COMMON     2     2      0
+;! (4) _lcd_write4bits                                       2     2      0      31
+;!                                              4 COMMON     2     2      0
 ;! ---------------------------------------------------------------------------------
 ;! (1) _delay10ms                                            1     1      0       0
 ;! ---------------------------------------------------------------------------------
 ;! (2) ___lwtofl                                             4     0      4    2669
-;!                                             47 BANK0      4     0      4
+;!                                             54 BANK0      4     0      4
 ;!                           ___flpack
 ;!                       _measure_freq (ARG)
 ;! ---------------------------------------------------------------------------------
 ;! (3) ___flpack                                            10     4      6    2248
-;!                                              2 COMMON     6     0      6
-;!                                              0 BANK0      4     4      0
+;!                                              0 BANK0     10     4      6
 ;! ---------------------------------------------------------------------------------
 ;! Estimated maximum stack depth 6
 ;! ---------------------------------------------------------------------------------
 ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
 ;! ---------------------------------------------------------------------------------
-;! (8) _isr                                                  2     2      0       0
-;!                                              0 COMMON     2     2      0
+;! (8) _global_int                                           4     4      0       0
+;!                                              0 COMMON     4     4      0
 ;! ---------------------------------------------------------------------------------
 ;! Estimated maximum stack depth 8
 ;! ---------------------------------------------------------------------------------
@@ -2637,26 +2752,21 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!     ___lwtofl
 ;!       ___flpack
 ;!       _measure_freq (ARG)
+;!         _buffer_init
+;!         _buffer_puts
+;!           _buffer_putch
 ;!         _format_number
 ;!           ___lwdiv
 ;!           ___lwmod
-;!           _format_putchar *
-;!           _lcd_putch *
-;!             _lcd_send
-;!               _lcd_write4bits
-;!           _output_putch *
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!           _buffer_putch
 ;!         _lcd_gotoxy
 ;!           _lcd_command
 ;!             _lcd_send
 ;!               _lcd_write4bits
-;!         _put_str
-;!           _output_putch
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!         _print_buffer
+;!           _ser_putch
+;!           _ser_puts
+;!             _ser_putch
 ;!         _timer0_read_ps
 ;!     _delay10ms
 ;!     _lcd_clear
@@ -2667,38 +2777,32 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!       _lcd_command
 ;!         _lcd_send
 ;!           _lcd_write4bits
-;!     _lcd_putch
-;!       _lcd_send
-;!         _lcd_write4bits
+;!     _lcd_send
+;!       _lcd_write4bits
 ;!     _measure_freq
+;!       _buffer_init
+;!       _buffer_puts
+;!         _buffer_putch
 ;!       _format_number
 ;!         ___lwdiv
 ;!         ___lwmod
-;!         _format_putchar *
-;!         _lcd_putch *
-;!           _lcd_send
-;!             _lcd_write4bits
-;!         _output_putch *
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!         _buffer_putch
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
-;!       _put_str
-;!         _output_putch
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!       _print_buffer
+;!         _ser_putch
+;!         _ser_puts
+;!           _ser_putch
 ;!       _timer0_read_ps
 ;!     _put_str
 ;!       _output_putch
-;!         _lcd_putch
-;!           _lcd_send
-;!             _lcd_write4bits
-;!     _uart_puts
-;!       _uart_putch
+;!         _lcd_send
+;!           _lcd_write4bits
+;!         _ser_putch
+;!     _ser_puts
+;!       _ser_putch
 ;!   _delay10ms
 ;!   _format_double
 ;!     ___awtofl
@@ -2790,6 +2894,7 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!               ___flpack (ARG)
 ;!               _frexp (ARG)
 ;!           _frexp
+;!     _buffer_putch
 ;!     _floor
 ;!       ___altofl
 ;!         ___flpack
@@ -2919,11 +3024,7 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!                 _frexp (ARG)
 ;!             _frexp
 ;!       _frexp (ARG)
-;!     _format_putchar *
-;!     _lcd_putch *
-;!       _lcd_send
-;!         _lcd_write4bits
-;!     _log10 *
+;!     _log10
 ;!       ___flmul
 ;!         ___awtofl (ARG)
 ;!           ___flpack
@@ -2975,11 +3076,7 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!             ___flpack (ARG)
 ;!             _frexp (ARG)
 ;!         _frexp
-;!     _output_putch *
-;!       _lcd_putch
-;!         _lcd_send
-;!           _lcd_write4bits
-;!     _pow *
+;!     _pow
 ;!       ___flge
 ;!       ___flmul
 ;!         ___awtofl (ARG)
@@ -3397,15 +3494,6 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!             ___flpack (ARG)
 ;!             _frexp (ARG)
 ;!         _frexp
-;!   _indicator
-;!     _lcd_gotoxy
-;!       _lcd_command
-;!         _lcd_send
-;!           _lcd_write4bits
-;!     _lcd_puts
-;!       _lcd_putch
-;!         _lcd_send
-;!           _lcd_write4bits
 ;!   _lcd_begin
 ;!     _lcd_command
 ;!       _lcd_send
@@ -3421,9 +3509,8 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!         _lcd_write4bits
 ;!   _lcd_init
 ;!   _lcd_puts
-;!     _lcd_putch
-;!       _lcd_send
-;!         _lcd_write4bits
+;!     _lcd_send
+;!       _lcd_write4bits
 ;!   _measure_capacitance
 ;!     ___fldiv
 ;!       ___flpack
@@ -3515,52 +3602,738 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!     ___lwtofl
 ;!       ___flpack
 ;!       _measure_freq (ARG)
+;!         _buffer_init
+;!         _buffer_puts
+;!           _buffer_putch
 ;!         _format_number
 ;!           ___lwdiv
 ;!           ___lwmod
-;!           _format_putchar *
-;!           _lcd_putch *
-;!             _lcd_send
-;!               _lcd_write4bits
-;!           _output_putch *
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!           _buffer_putch
 ;!         _lcd_gotoxy
 ;!           _lcd_command
 ;!             _lcd_send
 ;!               _lcd_write4bits
-;!         _put_str
-;!           _output_putch
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!         _print_buffer
+;!           _ser_putch
+;!           _ser_puts
+;!             _ser_putch
 ;!         _timer0_read_ps
+;!     _format_double
+;!       ___awtofl
+;!         ___flpack
+;!       ___fldiv
+;!         ___flpack
+;!       ___flge
+;!       ___flmul
+;!         ___awtofl (ARG)
+;!           ___flpack
+;!         ___fldiv (ARG)
+;!           ___flpack
+;!         ___flpack (ARG)
+;!         _frexp (ARG)
+;!       ___flsub
+;!         ___awtofl (ARG)
+;!           ___flpack
+;!         ___fladd (ARG)
+;!           ___awtofl (ARG)
+;!             ___flpack
+;!           ___flmul (ARG)
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           ___flpack (ARG)
+;!           _frexp (ARG)
+;!         ___flmul (ARG)
+;!           ___awtofl (ARG)
+;!             ___flpack
+;!           ___fldiv (ARG)
+;!             ___flpack
+;!           ___flpack (ARG)
+;!           _frexp (ARG)
+;!       ___fltol
+;!         ___fldiv (ARG)
+;!           ___flpack
+;!         _log10 (ARG)
+;!           ___flmul
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           _log
+;!             ___awtofl
+;!               ___flpack
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flge
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             _eval_poly
+;!               ___fladd
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___flmul (ARG)
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!             _frexp
+;!       _buffer_putch
+;!       _floor
+;!         ___altofl
+;!           ___flpack
+;!           ___fltol (ARG)
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             _log10 (ARG)
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               _log
+;!                 ___awtofl
+;!                   ___flpack
+;!                 ___fladd
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___flmul (ARG)
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flge
+;!                 ___flmul
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 _eval_poly
+;!                   ___fladd
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___flmul (ARG)
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___fldiv (ARG)
+;!                         ___flpack
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flmul
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                 _frexp
+;!         ___fladd
+;!           ___awtofl (ARG)
+;!             ___flpack
+;!           ___flmul (ARG)
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           ___flpack (ARG)
+;!           _frexp (ARG)
+;!         ___fldiv (ARG)
+;!           ___flpack
+;!         ___flge (ARG)
+;!         ___fltol (ARG)
+;!           ___fldiv (ARG)
+;!             ___flpack
+;!           _log10 (ARG)
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             _log
+;!               ___awtofl
+;!                 ___flpack
+;!               ___fladd
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___flmul (ARG)
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flge
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               _eval_poly
+;!                 ___fladd
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___flmul (ARG)
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flmul
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!               _frexp
+;!         _frexp (ARG)
+;!       _log10
+;!         ___flmul
+;!           ___awtofl (ARG)
+;!             ___flpack
+;!           ___fldiv (ARG)
+;!             ___flpack
+;!           ___flpack (ARG)
+;!           _frexp (ARG)
+;!         _log
+;!           ___awtofl
+;!             ___flpack
+;!           ___fladd
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___flmul (ARG)
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           ___flge
+;!           ___flmul
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           _eval_poly
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!           _frexp
+;!       _pow
+;!         ___flge
+;!         ___flmul
+;!           ___awtofl (ARG)
+;!             ___flpack
+;!           ___fldiv (ARG)
+;!             ___flpack
+;!           ___flpack (ARG)
+;!           _frexp (ARG)
+;!         ___flneg
+;!         ___fltol
+;!           ___fldiv (ARG)
+;!             ___flpack
+;!           _log10 (ARG)
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             _log
+;!               ___awtofl
+;!                 ___flpack
+;!               ___fladd
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___flmul (ARG)
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flge
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               _eval_poly
+;!                 ___fladd
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___flmul (ARG)
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flmul
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!               _frexp
+;!         ___lltofl
+;!           ___flpack
+;!         _exp
+;!           ___awtofl
+;!             ___flpack
+;!           ___fldiv
+;!             ___flpack
+;!           ___flge
+;!           ___flmul
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           ___flneg
+;!           ___flsub
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fladd (ARG)
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flmul (ARG)
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!           ___fltol
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             _log10 (ARG)
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               _log
+;!                 ___awtofl
+;!                   ___flpack
+;!                 ___fladd
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___flmul (ARG)
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flge
+;!                 ___flmul
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 _eval_poly
+;!                   ___fladd
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___flmul (ARG)
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___fldiv (ARG)
+;!                         ___flpack
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flmul
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                 _frexp
+;!           _eval_poly
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!           _floor
+;!             ___altofl
+;!               ___flpack
+;!               ___fltol (ARG)
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 _log10 (ARG)
+;!                   ___flmul
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   _log
+;!                     ___awtofl
+;!                       ___flpack
+;!                     ___fladd
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___flmul (ARG)
+;!                         ___awtofl (ARG)
+;!                           ___flpack
+;!                         ___fldiv (ARG)
+;!                           ___flpack
+;!                         ___flpack (ARG)
+;!                         _frexp (ARG)
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     ___flge
+;!                     ___flmul
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___fldiv (ARG)
+;!                         ___flpack
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     _eval_poly
+;!                       ___fladd
+;!                         ___awtofl (ARG)
+;!                           ___flpack
+;!                         ___flmul (ARG)
+;!                           ___awtofl (ARG)
+;!                             ___flpack
+;!                           ___fldiv (ARG)
+;!                             ___flpack
+;!                           ___flpack (ARG)
+;!                           _frexp (ARG)
+;!                         ___flpack (ARG)
+;!                         _frexp (ARG)
+;!                       ___flmul
+;!                         ___awtofl (ARG)
+;!                           ___flpack
+;!                         ___fldiv (ARG)
+;!                           ___flpack
+;!                         ___flpack (ARG)
+;!                         _frexp (ARG)
+;!                     _frexp
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flge (ARG)
+;!             ___fltol (ARG)
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               _log10 (ARG)
+;!                 ___flmul
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 _log
+;!                   ___awtofl
+;!                     ___flpack
+;!                   ___fladd
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___flmul (ARG)
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___fldiv (ARG)
+;!                         ___flpack
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   ___flge
+;!                   ___flmul
+;!                     ___awtofl (ARG)
+;!                       ___flpack
+;!                     ___fldiv (ARG)
+;!                       ___flpack
+;!                     ___flpack (ARG)
+;!                     _frexp (ARG)
+;!                   _eval_poly
+;!                     ___fladd
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___flmul (ARG)
+;!                         ___awtofl (ARG)
+;!                           ___flpack
+;!                         ___fldiv (ARG)
+;!                           ___flpack
+;!                         ___flpack (ARG)
+;!                         _frexp (ARG)
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                     ___flmul
+;!                       ___awtofl (ARG)
+;!                         ___flpack
+;!                       ___fldiv (ARG)
+;!                         ___flpack
+;!                       ___flpack (ARG)
+;!                       _frexp (ARG)
+;!                   _frexp
+;!             _frexp (ARG)
+;!           _ldexp
+;!             ___flge
+;!             ___flneg
+;!             _eval_poly (ARG)
+;!               ___fladd
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___flmul (ARG)
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!           _log (ARG)
+;!             ___awtofl
+;!               ___flpack
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flge
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             _eval_poly
+;!               ___fladd
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___flmul (ARG)
+;!                   ___awtofl (ARG)
+;!                     ___flpack
+;!                   ___fldiv (ARG)
+;!                     ___flpack
+;!                   ___flpack (ARG)
+;!                   _frexp (ARG)
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flmul
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!             _frexp
+;!         _log
+;!           ___awtofl
+;!             ___flpack
+;!           ___fladd
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___flmul (ARG)
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           ___flge
+;!           ___flmul
+;!             ___awtofl (ARG)
+;!               ___flpack
+;!             ___fldiv (ARG)
+;!               ___flpack
+;!             ___flpack (ARG)
+;!             _frexp (ARG)
+;!           _eval_poly
+;!             ___fladd
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___flmul (ARG)
+;!                 ___awtofl (ARG)
+;!                   ___flpack
+;!                 ___fldiv (ARG)
+;!                   ___flpack
+;!                 ___flpack (ARG)
+;!                 _frexp (ARG)
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!             ___flmul
+;!               ___awtofl (ARG)
+;!                 ___flpack
+;!               ___fldiv (ARG)
+;!                 ___flpack
+;!               ___flpack (ARG)
+;!               _frexp (ARG)
+;!           _frexp
+;!     _format_xint32
+;!       _buffer_putch
+;!       _format_number
+;!         ___lwdiv
+;!         ___lwmod
+;!         _buffer_putch
 ;!     _lcd_gotoxy
 ;!       _lcd_command
 ;!         _lcd_send
 ;!           _lcd_write4bits
 ;!     _measure_freq
+;!       _buffer_init
+;!       _buffer_puts
+;!         _buffer_putch
 ;!       _format_number
 ;!         ___lwdiv
 ;!         ___lwmod
-;!         _format_putchar *
-;!         _lcd_putch *
-;!           _lcd_send
-;!             _lcd_write4bits
-;!         _output_putch *
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!         _buffer_putch
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
-;!       _put_str
-;!         _output_putch
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!       _print_buffer
+;!         _ser_putch
+;!         _ser_puts
+;!           _ser_putch
 ;!       _timer0_read_ps
 ;!     _print_reading
 ;!       ___lwdiv
@@ -3568,34 +4341,29 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!       _format_number
 ;!         ___lwdiv
 ;!         ___lwmod
-;!         _format_putchar *
-;!         _lcd_putch *
-;!           _lcd_send
-;!             _lcd_write4bits
-;!         _output_putch *
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!         _buffer_putch
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
 ;!       _lcd_puts
-;!         _lcd_putch
-;!           _lcd_send
-;!             _lcd_write4bits
+;!         _lcd_send
+;!           _lcd_write4bits
 ;!     _print_unit
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
-;!       _uart_puts
-;!         _uart_putch
+;!       _ser_puts
+;!         _ser_putch
 ;!     _put_str
 ;!       _output_putch
-;!         _lcd_putch
-;!           _lcd_send
-;!             _lcd_write4bits
+;!         _lcd_send
+;!           _lcd_write4bits
+;!         _ser_putch
+;!     _ser_putch
+;!     _ser_puts
+;!       _ser_putch
 ;!   _measure_inductance
 ;!     ___fldiv
 ;!       ___flpack
@@ -3687,52 +4455,42 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!     ___lwtofl
 ;!       ___flpack
 ;!       _measure_freq (ARG)
+;!         _buffer_init
+;!         _buffer_puts
+;!           _buffer_putch
 ;!         _format_number
 ;!           ___lwdiv
 ;!           ___lwmod
-;!           _format_putchar *
-;!           _lcd_putch *
-;!             _lcd_send
-;!               _lcd_write4bits
-;!           _output_putch *
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!           _buffer_putch
 ;!         _lcd_gotoxy
 ;!           _lcd_command
 ;!             _lcd_send
 ;!               _lcd_write4bits
-;!         _put_str
-;!           _output_putch
-;!             _lcd_putch
-;!               _lcd_send
-;!                 _lcd_write4bits
+;!         _print_buffer
+;!           _ser_putch
+;!           _ser_puts
+;!             _ser_putch
 ;!         _timer0_read_ps
 ;!     _lcd_gotoxy
 ;!       _lcd_command
 ;!         _lcd_send
 ;!           _lcd_write4bits
 ;!     _measure_freq
+;!       _buffer_init
+;!       _buffer_puts
+;!         _buffer_putch
 ;!       _format_number
 ;!         ___lwdiv
 ;!         ___lwmod
-;!         _format_putchar *
-;!         _lcd_putch *
-;!           _lcd_send
-;!             _lcd_write4bits
-;!         _output_putch *
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!         _buffer_putch
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
-;!       _put_str
-;!         _output_putch
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!       _print_buffer
+;!         _ser_putch
+;!         _ser_puts
+;!           _ser_putch
 ;!       _timer0_read_ps
 ;!     _print_reading
 ;!       ___lwdiv
@@ -3740,56 +4498,55 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!       _format_number
 ;!         ___lwdiv
 ;!         ___lwmod
-;!         _format_putchar *
-;!         _lcd_putch *
-;!           _lcd_send
-;!             _lcd_write4bits
-;!         _output_putch *
-;!           _lcd_putch
-;!             _lcd_send
-;!               _lcd_write4bits
+;!         _buffer_putch
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
 ;!       _lcd_puts
-;!         _lcd_putch
-;!           _lcd_send
-;!             _lcd_write4bits
+;!         _lcd_send
+;!           _lcd_write4bits
 ;!     _print_unit
 ;!       _lcd_gotoxy
 ;!         _lcd_command
 ;!           _lcd_send
 ;!             _lcd_write4bits
-;!       _uart_puts
-;!         _uart_putch
+;!       _ser_puts
+;!         _ser_putch
 ;!     _put_str
 ;!       _output_putch
-;!         _lcd_putch
-;!           _lcd_send
-;!             _lcd_write4bits
+;!         _lcd_send
+;!           _lcd_write4bits
+;!         _ser_putch
+;!   _print_indicator
+;!     _lcd_gotoxy
+;!       _lcd_command
+;!         _lcd_send
+;!           _lcd_write4bits
+;!     _lcd_puts
+;!       _lcd_send
+;!         _lcd_write4bits
+;!   _ser_init
+;!   _ser_puts
+;!     _ser_putch
 ;!   _timer0_init
 ;!   _timer2_init
-;!   _uart_init
-;!     _uart_enable
-;!   _uart_puts
-;!     _uart_putch
 ;!
-;! _isr (ROOT)
+;! _global_int (ROOT)
 ;!
 
 ;! Address spaces:
 
 ;!Name               Size   Autos  Total    Cost      Usage
-;!BANK3               60     14      44       8       70.8%
+;!BANK3               60     17      54       8       87.5%
 ;!BITBANK3            60      0       0       7        0.0%
 ;!SFR3                 0      0       0       4        0.0%
 ;!BITSFR3              0      0       0       4        0.0%
-;!BANK2               60      0       0       9        0.0%
+;!BANK2               60     13      33       9       53.1%
 ;!BITBANK2            60      0       0      12        0.0%
 ;!SFR2                 0      0       0       5        0.0%
 ;!BITSFR2              0      0       0       5        0.0%
-;!BANK1               50     45      50       6      100.0%
+;!BANK1               50     4F      4F       6       98.8%
 ;!BITBANK1            50      0       0       5        0.0%
 ;!SFR1                 0      0       0       2        0.0%
 ;!BITSFR1              0      0       0       2        0.0%
@@ -3797,11 +4554,11 @@ log@exponent:	; 2 bytes @ 0x4D
 ;!BITBANK0            4F      0       0       3        0.0%
 ;!SFR0                 0      0       0       1        0.0%
 ;!BITSFR0              0      0       0       1        0.0%
-;!COMMON               E      A       C       1       85.7%
+;!COMMON               E      6       A       1       71.4%
 ;!BITCOMMON            E      0       0       0        0.0%
 ;!CODE                 0      0       0       0        0.0%
-;!DATA                 0      0      EF      11        0.0%
-;!ABS                  0      0      EF      10        0.0%
+;!DATA                 0      0     12F      11        0.0%
+;!ABS                  0      0     12F      10        0.0%
 ;!NULL                 0      0       0       0        0.0%
 ;!STACK                0      0       0       2        0.0%
 ;!EEDATA             100      0       0       0        0.0%
@@ -3810,11 +4567,11 @@ log@exponent:	; 2 bytes @ 0x4D
 
 ;; *************** function _main *****************
 ;; Defined at:
-;;		line 112 in file "../../../src/LC-meter.c"
+;;		line 113 in file "../../../LC-meter.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;		None
+;;  new_mode        1   22[BANK3 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
@@ -3825,16 +4582,15 @@ log@exponent:	; 2 bytes @ 0x4D
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       0       0       0       0
+;;      Locals:         0       0       0       3       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         0       0       0       0       0
-;;Total ram usage:        0 bytes
+;;      Totals:         0       0       0       3       0
+;;Total ram usage:        3 bytes
 ;; Hardware stack levels required when called:    8
 ;; This function calls:
 ;;		_calibrate
 ;;		_delay10ms
 ;;		_format_double
-;;		_indicator
 ;;		_lcd_begin
 ;;		_lcd_clear
 ;;		_lcd_gotoxy
@@ -3842,22 +4598,23 @@ log@exponent:	; 2 bytes @ 0x4D
 ;;		_lcd_puts
 ;;		_measure_capacitance
 ;;		_measure_inductance
+;;		_print_indicator
+;;		_ser_init
+;;		_ser_puts
 ;;		_timer0_init
 ;;		_timer2_init
-;;		_uart_init
-;;		_uart_puts
 ;; This function is called by:
 ;;		Startup code after reset
 ;; This function uses a non-reentrant model
 ;;
 psect	maintext,global,class=CODE,delta=2,split=1
-	file	"../../../src/LC-meter.c"
-	line	112
+	file	"../../../LC-meter.c"
+	line	113
 global __pmaintext
 __pmaintext:	;psect for function _main
 psect	maintext
-	file	"../../../src/LC-meter.c"
-	line	112
+	file	"../../../LC-meter.c"
+	line	113
 	global	__size_of_main
 	__size_of_main	equ	__end_of_main-_main
 	
@@ -3865,10 +4622,10 @@ _main:
 ;incstack = 0
 	opt	stack 0
 ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	113
+	line	114
 	
-l4345:	
-;LC-meter.c: 113: bres = msecpart = msecs = seconds = 0;
+l4850:	
+;LC-meter.c: 114: bres = msecpart = msecs = seconds = 0;
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	clrf	(_seconds)^0180h	;volatile
@@ -3893,7 +4650,11 @@ l4345:
 	movf	((_msecpart)^0180h),w	;volatile
 	movwf	(_bres)^0180h	;volatile
 	line	115
-;LC-meter.c: 115: CCal = 1000;
+;LC-meter.c: 115: mode = -1;
+	movlw	low(0FFh)
+	movwf	(_mode)^0180h
+	line	117
+;LC-meter.c: 117: CCal = 1000;
 	movlw	0x44
 	movwf	(_CCal+3)^0180h
 	movlw	0x7a
@@ -3903,182 +4664,156 @@ l4345:
 	movlw	0x0
 	movwf	(_CCal)^0180h
 
-	line	122
-;LC-meter.c: 122: CMCON = 0b00000101;
+	line	125
+;LC-meter.c: 125: CMCON = 0b00000101;
 	movlw	low(05h)
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(156)^080h	;volatile
-	line	124
-;LC-meter.c: 124: TRISA = 0b11001111;
+	line	127
+;LC-meter.c: 127: TRISA = 0b11001111;
 	movlw	low(0CFh)
 	movwf	(133)^080h	;volatile
-	line	127
-	
-l4347:	
-;LC-meter.c: 127: timer0_init(0b100 | 0x40);
-	movlw	low(044h)
-	fcall	_timer0_init
 	line	130
 	
-l4349:	
-;LC-meter.c: 130: T0SE = 1;
+l4852:	
+;LC-meter.c: 130: timer0_init(0b1000 | 0x20 | 0x40);
+	movlw	low(068h)
+	fcall	_timer0_init
+	line	139
+	
+l4854:	
+;LC-meter.c: 139: OPTION_REG &= ~0b100000;
 	bsf	status, 5	;RP0=1, select bank1
-	bsf	(1036/8)^080h,(1036)&7	;volatile
-	line	141
-	
-l4351:	
-;LC-meter.c: 141: nRBPU = 0;
-	bcf	(1039/8)^080h,(1039)&7	;volatile
-	line	144
-	
-l4353:	
-;LC-meter.c: 144: TRISC3 = 0;
-	bcf	(1083/8)^080h,(1083)&7	;volatile
+	bcf	(129)^080h+(5/8),(5)&7	;volatile
 	line	145
 	
-l4355:	
-;LC-meter.c: 145: RC3 = ((1) == 0);
+l4856:	
+;LC-meter.c: 145: TRISC = 0b10111011;
+	movlw	low(0BBh)
+	movwf	(135)^080h	;volatile
+	line	149
+	
+l4858:	
+;LC-meter.c: 149: TRISC &= ~0b00000100;
+	bcf	(135)^080h+(2/8),(2)&7	;volatile
+	line	150
+	
+l4860:	
+;LC-meter.c: 150: PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
 	bcf	status, 5	;RP0=0, select bank0
-	bcf	(59/8),(59)&7	;volatile
-	line	147
+	bcf	(7)+(2/8),(2)&7	;volatile
 	
-l4357:	
-;LC-meter.c: 147: SSPEN = 0;
-	bcf	(165/8),(165)&7	;volatile
+l4862:	
+	bsf	(7)+(2/8),(2)&7	;volatile
 	line	152
-	
-l4359:	
 ;LC-meter.c: 152: timer2_init(0b000 | 0x80);
 	movlw	low(080h)
 	fcall	_timer2_init
-	line	157
-	
-l4361:	
-;LC-meter.c: 157: TRISC &= 0b10110101;
-	movlw	low(0B5h)
-	andwf	(135)^080h,f	;volatile
-	line	169
-	
-l4363:	
-;LC-meter.c: 169: lcd_init(!0);
+	line	160
+;LC-meter.c: 160: lcd_init(1);
 	movlw	low(01h)
 	fcall	_lcd_init
-	line	170
-	
-l4365:	
-;LC-meter.c: 170: lcd_begin(2, 1);
+	line	161
+;LC-meter.c: 161: lcd_begin(2, 1);
 	clrf	(lcd_begin@dotsize)
 	incf	(lcd_begin@dotsize),f
 	movlw	low(02h)
 	fcall	_lcd_begin
-	line	173
+	line	164
 	
-l4367:	
-;LC-meter.c: 173: TRISC |= (1 << 4);
+l4864:	
+;LC-meter.c: 164: TRISC |= (1 << 4);
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bsf	(135)^080h+(4/8),(4)&7	;volatile
-	line	174
+	line	165
 	
-l4369:	
-;LC-meter.c: 174: TRISC &= ~(1 << 5);
+l4866:	
+;LC-meter.c: 165: TRISC &= ~(1 << 5);
 	bcf	(135)^080h+(5/8),(5)&7	;volatile
-	line	176
+	line	167
 	
-l4371:	
-;LC-meter.c: 176: PORTC &= ~(1 << 5);
+l4868:	
+;LC-meter.c: 167: PORTC &= ~(1 << 5);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	(7)+(5/8),(5)&7	;volatile
-	line	177
-	
-l4373:	
-;LC-meter.c: 177: delay10ms(50);
+	line	168
+;LC-meter.c: 168: delay10ms(50);
 	movlw	low(032h)
 	fcall	_delay10ms
+	line	169
+	
+l4870:	
+;LC-meter.c: 169: PORTC |= (1 << 5);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(7)+(5/8),(5)&7	;volatile
+	line	170
+;LC-meter.c: 170: delay10ms(50);
+	movlw	low(032h)
+	fcall	_delay10ms
+	line	171
+	
+l4872:	
+;LC-meter.c: 171: PORTC &= ~(1 << 5);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(7)+(5/8),(5)&7	;volatile
+	line	172
+;LC-meter.c: 172: delay10ms(50);
+	movlw	low(032h)
+	fcall	_delay10ms
+	line	173
+	
+l4874:	
+;LC-meter.c: 173: PORTC |= (1 << 5);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bsf	(7)+(5/8),(5)&7	;volatile
+	line	174
+;LC-meter.c: 174: delay10ms(50);
+	movlw	low(032h)
+	fcall	_delay10ms
+	line	175
+	
+l4876:	
+;LC-meter.c: 175: PORTC &= ~(1 << 5);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(7)+(5/8),(5)&7	;volatile
 	line	178
+;LC-meter.c: 178: ser_init();
+	fcall	_ser_init
+	line	185
 	
-l4375:	
-;LC-meter.c: 178: PORTC |= (1 << 5);
+l4878:	
+;LC-meter.c: 185: INTCON |= 0xc0;
+	movlw	low(0C0h)
+	iorwf	(11),f	;volatile
+	line	191
+	
+l4880:	
+;LC-meter.c: 191: lcd_gotoxy(0, 0);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bsf	(7)+(5/8),(5)&7	;volatile
-	line	179
-	
-l4377:	
-;LC-meter.c: 179: delay10ms(50);
-	movlw	low(032h)
-	fcall	_delay10ms
-	line	180
-	
-l4379:	
-;LC-meter.c: 180: PORTC &= ~(1 << 5);
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(7)+(5/8),(5)&7	;volatile
-	line	181
-	
-l4381:	
-;LC-meter.c: 181: delay10ms(50);
-	movlw	low(032h)
-	fcall	_delay10ms
-	line	182
-	
-l4383:	
-;LC-meter.c: 182: PORTC |= (1 << 5);
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(7)+(5/8),(5)&7	;volatile
-	line	183
-	
-l4385:	
-;LC-meter.c: 183: delay10ms(50);
-	movlw	low(032h)
-	fcall	_delay10ms
-	line	184
-	
-l4387:	
-;LC-meter.c: 184: PORTC &= ~(1 << 5);
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(7)+(5/8),(5)&7	;volatile
-	line	190
-	
-l4389:	
-;LC-meter.c: 190: uart_init();
-	fcall	_uart_init
-	line	194
-	
-l4391:	
-;LC-meter.c: 194: PEIE = 1;
-	bsf	(94/8),(94)&7	;volatile
-	line	195
-	
-l4393:	
-;LC-meter.c: 195: GIE = 1;
-	bsf	(95/8),(95)&7	;volatile
-	line	198
-	
-l4395:	
-;LC-meter.c: 198: putchar_ptr = &lcd_putch;
-	movlw	(low((fp__lcd_putch-fpbase)))&0ffh
-	movwf	(_putchar_ptr)
-	line	205
-	
-l4397:	
-;LC-meter.c: 205: lcd_gotoxy(0, 0);
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0)
 	fcall	_lcd_gotoxy
-	line	207
+	line	193
 	
-l4399:	
-;LC-meter.c: 207: lcd_puts("LC-meter ");
-	movlw	(low((((STR_13)-__stringbase)|8000h)))&0ffh
+l4882:	
+;LC-meter.c: 193: lcd_puts("LC-meter ");
+	movlw	low(((STR_14)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(lcd_puts@string)
+	movlw	high(((STR_14)|8000h))
+	movwf	((lcd_puts@string))+1
 	fcall	_lcd_puts
-	line	208
+	line	194
 	
-l4401:	
-;LC-meter.c: 208: format_double( CCal);
+l4884:	
+;LC-meter.c: 194: format_double( CCal);
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(_CCal+3)^0180h,w
@@ -4091,286 +4826,185 @@ l4401:
 	movwf	(format_double@num)^0180h
 
 	fcall	_format_double
-	line	214
+	line	200
 	
-l4403:	
-;LC-meter.c: 214: delay10ms(200);
+l4886:	
+;LC-meter.c: 200: delay10ms(200);
 	movlw	low(0C8h)
 	fcall	_delay10ms
-	line	217
+	line	203
 	
-l4405:	
-;LC-meter.c: 217: calibrate();
+l4888:	
+;LC-meter.c: 203: calibrate();
 	fcall	_calibrate
-	line	219
+	line	206
 	
-l4407:	
-;LC-meter.c: 219: lcd_clear();
+l4890:	
+;LC-meter.c: 206: lcd_clear();
 	fcall	_lcd_clear
-	line	230
+	line	215
 	
-l4409:	
-;LC-meter.c: 230: uart_puts("...\r\n");
-	movlw	(low((((STR_14)-__stringbase)|8000h)))&0ffh
-	fcall	_uart_puts
-	line	231
-	
-l4411:	
-;LC-meter.c: 231: if(RC4)
+l4892:	
+;LC-meter.c: 215: char new_mode = (!!(PORTC & 0b10000));
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	btfss	(60/8),(60)&7	;volatile
-	goto	u4091
-	goto	u4090
-u4091:
-	goto	l4415
-u4090:
-	line	232
+	btfsc	(7),(4)&7	;volatile
+	goto	u4351
+	goto	u4350
+u4351:
+	movlw	1
+	goto	u4360
+u4350:
+	movlw	0
+u4360:
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(main@new_mode)^0180h
+	line	217
 	
-l4413:	
-;LC-meter.c: 232: measure_capacitance();
+l4894:	
+;LC-meter.c: 217: if(new_mode != mode) {
+	movf	(main@new_mode)^0180h,w
+	xorwf	(_mode)^0180h,w
+	skipnz
+	goto	u4371
+	goto	u4370
+u4371:
+	goto	l4906
+u4370:
+	line	218
+	
+l4896:	
+;LC-meter.c: 218: ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
+	movf	((_mode)^0180h),w
+	btfss	status,2
+	goto	u4381
+	goto	u4380
+u4381:
+	goto	l4900
+u4380:
+	
+l4898:	
+	movlw	low(((STR_16)|8000h))
+	movwf	(_main$257)^0180h
+	movlw	high(((STR_16)|8000h))
+	movwf	((_main$257)^0180h)+1
+	goto	l4902
+	
+l4900:	
+	movlw	low(((STR_15)|8000h))
+	movwf	(_main$257)^0180h
+	movlw	high(((STR_15)|8000h))
+	movwf	((_main$257)^0180h)+1
+	
+l4902:	
+	movf	(_main$257)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(ser_puts@s)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+movf	(_main$257+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	(ser_puts@s+1)
+
+	fcall	_ser_puts
+	line	219
+	
+l4904:	
+;LC-meter.c: 219: ser_puts("\r\n");
+	movlw	low(((STR_17)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_17)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	221
+;LC-meter.c: 221: mode = new_mode;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(main@new_mode)^0180h,w
+	movwf	(_mode)^0180h
+	line	224
+	
+l4906:	
+;LC-meter.c: 222: }
+;LC-meter.c: 224: if(mode)
+	movf	((_mode)^0180h),w
+	btfsc	status,2
+	goto	u4391
+	goto	u4390
+u4391:
+	goto	l4910
+u4390:
+	line	225
+	
+l4908:	
+;LC-meter.c: 225: measure_capacitance();
 	fcall	_measure_capacitance
-	goto	l4417
-	line	234
+	goto	l269
+	line	227
 	
-l4415:	
-;LC-meter.c: 233: else
-;LC-meter.c: 234: measure_inductance();
+l4910:	
+;LC-meter.c: 226: else
+;LC-meter.c: 227: measure_inductance();
 	fcall	_measure_inductance
-	line	236
 	
-l4417:	
-;LC-meter.c: 236: indicator(1);
+l269:	
+	line	229
+;LC-meter.c: 229: print_indicator(1);
 	movlw	low(01h)
-	fcall	_indicator
-	line	237
+	fcall	_print_indicator
+	line	230
 	
-l4419:	
-;LC-meter.c: 237: delay10ms(30);
+l4912:	
+;LC-meter.c: 230: delay10ms(30);
 	movlw	low(01Eh)
 	fcall	_delay10ms
-	line	238
+	line	232
 	
-l4421:	
-;LC-meter.c: 238: indicator(0);
+l4914:	
+;LC-meter.c: 232: print_indicator(0);
 	movlw	low(0)
-	fcall	_indicator
-	line	239
-	
-l4423:	
-;LC-meter.c: 239: delay10ms(20);
+	fcall	_print_indicator
+	line	233
+;LC-meter.c: 233: delay10ms(20);
 	movlw	low(014h)
 	fcall	_delay10ms
-	line	240
-;LC-meter.c: 240: }
-	goto	l4409
+	line	234
+;LC-meter.c: 234: }
+	goto	l4892
 	global	start
 	ljmp	start
 	opt stack 0
-	line	241
+	line	235
 GLOBAL	__end_of_main
 	__end_of_main:
 	signat	_main,88
-	global	_uart_init
-
-;; *************** function _uart_init *****************
-;; Defined at:
-;;		line 93 in file "../../../lib/uart.c"
-;; Parameters:    Size  Location     Type
-;;		None
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 300/0
-;;		On exit  : 300/100
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         4       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         4       0       0       0       0
-;;Total ram usage:        4 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    2
-;; This function calls:
-;;		_uart_enable
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text1,local,class=CODE,delta=2,merge=1
-	file	"../../../lib/uart.c"
-	line	93
-global __ptext1
-__ptext1:	;psect for function _uart_init
-psect	text1
-	file	"../../../lib/uart.c"
-	line	93
-	global	__size_of_uart_init
-	__size_of_uart_init	equ	__end_of_uart_init-_uart_init
-	
-_uart_init:	
-;incstack = 0
-	opt	stack 5
-; Regs used in _uart_init: [wreg+status,2+status,0+pclath+cstack]
-	line	96
-	
-l3211:	
-;uart.c: 96: TRISC7 = 1;
-	bsf	status, 5	;RP0=1, select bank1
-	bsf	(1087/8)^080h,(1087)&7	;volatile
-	line	97
-;uart.c: 97: TRISC6 = 0;
-	bcf	(1086/8)^080h,(1086)&7	;volatile
-	line	98
-;uart.c: 98: RC6 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(62/8),(62)&7	;volatile
-	line	99
-	
-l3213:	
-;uart.c: 99: SPBRG = ((unsigned short int)((double)(20000000) / (16 * (double)(38400))) - 1);
-	movlw	low(01Fh)
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(153)^080h	;volatile
-	line	102
-	
-l3215:	
-;uart.c: 101: RCSTA |= 0x90
-;uart.c: 102: | (0 == 1 ? 0b1 : 0);
-	movlw	low(090h)
-	bcf	status, 5	;RP0=0, select bank0
-	iorwf	(24),f	;volatile
-	line	104
-;uart.c: 104: TXSTA |= (1 == 1) ? 0b100 : 0b000;
-	
-l3219:	
-	
-l3221:	
-;uart.c: 106: TX9 |= (0 == 1) ? 0b01000000 : 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bsf	(152)^080h+(2/8),(2)&7	;volatile
-	line	106
-	
-l3223:	
-	
-l3227:	
-	line	108
-	
-l3229:	
-;uart.c: 108: uart_enable();
-	fcall	_uart_enable
-	line	109
-	
-l563:	
-	return
-	opt stack 0
-GLOBAL	__end_of_uart_init
-	__end_of_uart_init:
-	signat	_uart_init,88
-	global	_uart_enable
-
-;; *************** function _uart_enable *****************
-;; Defined at:
-;;		line 75 in file "../../../lib/uart.c"
-;; Parameters:    Size  Location     Type
-;;		None
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		None
-;; Tracked objects:
-;;		On entry : 300/100
-;;		On exit  : 300/100
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         0       0       0       0       0
-;;Total ram usage:        0 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_uart_init
-;; This function uses a non-reentrant model
-;;
-psect	text2,local,class=CODE,delta=2,merge=1
-	line	75
-global __ptext2
-__ptext2:	;psect for function _uart_enable
-psect	text2
-	file	"../../../lib/uart.c"
-	line	75
-	global	__size_of_uart_enable
-	__size_of_uart_enable	equ	__end_of_uart_enable-_uart_enable
-	
-_uart_enable:	
-;incstack = 0
-	opt	stack 5
-; Regs used in _uart_enable: []
-	line	76
-	
-l3035:	
-;uart.c: 76: TRISC7 = 1;
-	bsf	(1087/8)^080h,(1087)&7	;volatile
-	line	77
-;uart.c: 77: TRISC6 = RC6 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(62/8),(62)&7	;volatile
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1086/8)^080h,(1086)&7	;volatile
-	line	78
-;uart.c: 78: TXEN = 1;
-	bsf	(1221/8)^080h,(1221)&7	;volatile
-	line	79
-;uart.c: 79: RCSTA |= 0x80;
-	bcf	status, 5	;RP0=0, select bank0
-	bsf	(24)+(7/8),(7)&7	;volatile
-	line	80
-;uart.c: 80: RCIE = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1125/8)^080h,(1125)&7	;volatile
-	line	81
-	
-l549:	
-	return
-	opt stack 0
-GLOBAL	__end_of_uart_enable
-	__end_of_uart_enable:
-	signat	_uart_enable,88
 	global	_timer2_init
 
 ;; *************** function _timer2_init *****************
 ;; Defined at:
-;;		line 110 in file "../../../lib/timer.c"
+;;		line 130 in file "../../../lib/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;  ps_mode         1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  ps_mode         1    3[COMMON] unsigned char 
+;;  ps_mode         1    2[BANK0 ] unsigned char 
+;;  ps              1    1[BANK0 ] unsigned char 
 ;;  postscaler      1    0        unsigned char 
-;;  ps              1    4[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
 ;;		On entry : B00/0
-;;		On exit  : 300/100
-;;		Unchanged: 0/0
+;;		On exit  : B00/100
+;;		Unchanged: 800/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         3       0       0       0       0
+;;      Locals:         0       3       0       0       0
 ;;      Temps:          1       0       0       0       0
-;;      Totals:         4       0       0       0       0
+;;      Totals:         1       3       0       0       0
 ;;Total ram usage:        4 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -4380,14 +5014,14 @@ GLOBAL	__end_of_uart_enable
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text3,local,class=CODE,delta=2,merge=1
+psect	text1,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/timer.c"
-	line	110
-global __ptext3
-__ptext3:	;psect for function _timer2_init
-psect	text3
+	line	130
+global __ptext1
+__ptext1:	;psect for function _timer2_init
+psect	text1
 	file	"../../../lib/timer.c"
-	line	110
+	line	130
 	global	__size_of_timer2_init
 	__size_of_timer2_init	equ	__end_of_timer2_init-_timer2_init
 	
@@ -4397,116 +5031,72 @@ _timer2_init:
 ; Regs used in _timer2_init: [wreg+status,2+status,0]
 ;timer2_init@ps_mode stored from wreg
 	movwf	(timer2_init@ps_mode)
-	line	111
+	line	131
 	
-l3095:	
-;timer.c: 111: unsigned char ps = ps_mode & 0b1111;
+l4534:	
+;timer.c: 131: uint8_t ps = ps_mode & 0b1111;
 	movf	(timer2_init@ps_mode),w
 	movwf	(timer2_init@ps)
 	
-l3097:	
+l4536:	
 	movlw	low(0Fh)
 	andwf	(timer2_init@ps),f
-	line	112
+	line	132
 	
-l3099:	
-	line	115
+l4538:	
+	line	135
 	
-l3101:	
-;timer.c: 115: TOUTPS0 = postscaler & 1;
-	bcf	(147/8),(147)&7	;volatile
-	line	116
+l4540:	
+;timer.c: 135: T2CON &= ~0b01111111;
+	movlw	low(080h)
+	andwf	(18),f	;volatile
+	line	137
 	
-l3103:	
-;timer.c: 116: TOUTPS1 = (postscaler >> 1) & 1;
-	bcf	(148/8),(148)&7	;volatile
-	line	117
+l4542:	
+;timer.c: 137: T2CON |= (postscaler & 0b1111) << 3;
+	movf	(18),w	;volatile
+	line	138
 	
-l3105:	
-;timer.c: 117: TOUTPS2 = (postscaler >> 2) & 1;
-	bcf	(149/8),(149)&7	;volatile
-	line	119
-	
-l3107:	
-;timer.c: 119: T2CKPS0 = (ps >> 1) & 1;
+l4544:	
+;timer.c: 138: T2CON |= (ps & 0b11);
 	movf	(timer2_init@ps),w
-	movwf	(??_timer2_init+0)+0
-	clrc
-	rrf	(??_timer2_init+0)+0,f
-	btfsc	0+(??_timer2_init+0)+0,0
-	goto	u2701
-	goto	u2700
+	andlw	03h
+	iorwf	(18),f	;volatile
+	line	140
 	
-u2701:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(144/8),(144)&7	;volatile
-	goto	u2714
-u2700:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(144/8),(144)&7	;volatile
-u2714:
-	line	120
-	
-l3109:	
-;timer.c: 120: T2CKPS1 = (ps >> 2) & 1;
-	movf	(timer2_init@ps),w
-	movwf	(??_timer2_init+0)+0
-	clrc
-	rrf	(??_timer2_init+0)+0,f
-	clrc
-	rrf	(??_timer2_init+0)+0,f
-	btfsc	0+(??_timer2_init+0)+0,0
-	goto	u2721
-	goto	u2720
-	
-u2721:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(145/8),(145)&7	;volatile
-	goto	u2734
-u2720:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(145/8),(145)&7	;volatile
-u2734:
-	line	122
-	
-l3111:	
-;timer.c: 122: TMR2 = 0;
+l4546:	
+;timer.c: 140: TMR2 = 0;
 	clrf	(17)	;volatile
-	line	124
+	line	142
 	
-l3113:	
-;timer.c: 124: TMR2ON = 1;
-	bsf	(146/8),(146)&7	;volatile
-	line	126
+l4548:	
+;timer.c: 142: T2CON |= 0b100;
+	bsf	(18)+(2/8),(2)&7	;volatile
+	line	145
 	
-l3115:	
-;timer.c: 126: TMR2IF = 0;
-	bcf	(97/8),(97)&7	;volatile
-	line	127
+l4550:	
+;timer.c: 145: PIR1 &= ~0b10;
+	bcf	(12)+(1/8),(1)&7	;volatile
+	line	146
 	
-l3117:	
-;timer.c: 127: TMR2IE = !!(ps_mode & 0x80);
+l4552:	
+;timer.c: 146: PIE1 = (!!(ps_mode & 0x80)) << 1;
 	btfsc	(timer2_init@ps_mode),(7)&7
-	goto	u2741
-	goto	u2740
-	
-u2741:
+	goto	u4191
+	goto	u4190
+u4191:
+	movlw	1
+	goto	u4200
+u4190:
+	movlw	0
+u4200:
+	movwf	(??_timer2_init+0)+0
+	addwf	(??_timer2_init+0)+0,w
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	bsf	(1121/8)^080h,(1121)&7	;volatile
-	goto	u2754
-u2740:
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	bcf	(1121/8)^080h,(1121)&7	;volatile
-u2754:
-	line	128
+	movwf	(140)^080h	;volatile
+	line	147
 	
-l123:	
+l107:	
 	return
 	opt stack 0
 GLOBAL	__end_of_timer2_init
@@ -4516,7 +5106,7 @@ GLOBAL	__end_of_timer2_init
 
 ;; *************** function _timer0_init *****************
 ;; Defined at:
-;;		line 7 in file "../../../lib/timer.c"
+;;		line 27 in file "../../../lib/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;  ps_mode         1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -4544,13 +5134,13 @@ GLOBAL	__end_of_timer2_init
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
-psect	text4,local,class=CODE,delta=2,merge=1
-	line	7
-global __ptext4
-__ptext4:	;psect for function _timer0_init
-psect	text4
+psect	text2,local,class=CODE,delta=2,merge=1
+	line	27
+global __ptext2
+__ptext2:	;psect for function _timer0_init
+psect	text2
 	file	"../../../lib/timer.c"
-	line	7
+	line	27
 	global	__size_of_timer0_init
 	__size_of_timer0_init	equ	__end_of_timer0_init-_timer0_init
 	
@@ -4561,188 +5151,414 @@ _timer0_init:
 ;timer0_init@ps_mode stored from wreg
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(timer0_init@ps_mode)
-	line	8
+	line	28
 	
-l4079:	
-;timer.c: 8: unsigned char prescaler = ps_mode & 0b1111;
+l4488:	
+;timer.c: 28: uint8_t prescaler = ps_mode & 0b1111;
 	movf	(timer0_init@ps_mode),w
 	movwf	(timer0_init@prescaler)
 	
-l4081:	
+l4490:	
 	movlw	low(0Fh)
 	andwf	(timer0_init@prescaler),f
-	line	10
+	line	30
 	
-l4083:	
-;timer.c: 10: TMR0 = 0;
+l4492:	
+;timer.c: 30: TMR0 = 0;
 	clrf	(1)	;volatile
-	line	13
+	line	33
 	
-l4085:	
-;timer.c: 13: OPTION_REG |= (!!(ps_mode & 0x40)) ? 0x20 : 0x00;
-	btfsc	(timer0_init@ps_mode),(6)&7
-	goto	u3891
-	goto	u3890
-u3891:
-	goto	l4089
-u3890:
+l4494:	
+;timer.c: 33: OPTION_REG |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
+	btfsc	(timer0_init@ps_mode),(5)&7
+	goto	u4141
+	goto	u4140
+u4141:
+	goto	l4498
+u4140:
 	
-l4087:	
-	clrf	(_timer0_init$124)
-	clrf	(_timer0_init$124+1)
-	goto	l4091
+l4496:	
+	clrf	(_timer0_init$114)
+	clrf	(_timer0_init$114+1)
+	goto	l4500
 	
-l4089:	
+l4498:	
 	movlw	020h
-	movwf	(_timer0_init$124)
-	clrf	(_timer0_init$124+1)
+	movwf	(_timer0_init$114)
+	clrf	(_timer0_init$114+1)
 	
-l4091:	
-	movf	(_timer0_init$124),w
+l4500:	
+	movf	(_timer0_init$114),w
 	bsf	status, 5	;RP0=1, select bank1
 	iorwf	(129)^080h,f	;volatile
-	line	16
+	line	36
 	
-l4093:	
-;timer.c: 16: OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+l4502:	
+;timer.c: 36: OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
 	bcf	status, 5	;RP0=0, select bank0
 	btfsc	(timer0_init@ps_mode),(4)&7
-	goto	u3901
-	goto	u3900
-u3901:
-	goto	l4097
-u3900:
+	goto	u4151
+	goto	u4150
+u4151:
+	goto	l4506
+u4150:
 	
-l4095:	
-	clrf	(_timer0_init$125)
-	clrf	(_timer0_init$125+1)
-	goto	l4099
+l4504:	
+	clrf	(_timer0_init$115)
+	clrf	(_timer0_init$115+1)
+	goto	l4508
 	
-l4097:	
+l4506:	
 	movlw	010h
-	movwf	(_timer0_init$125)
-	clrf	(_timer0_init$125+1)
+	movwf	(_timer0_init$115)
+	clrf	(_timer0_init$115+1)
 	
-l4099:	
-	movf	(_timer0_init$125),w
+l4508:	
+	movf	(_timer0_init$115),w
 	bsf	status, 5	;RP0=1, select bank1
 	iorwf	(129)^080h,f	;volatile
-	line	19
+	line	44
 	
-l4101:	
-;timer.c: 19: OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
+l4510:	
+;timer.c: 44: OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
 	bcf	status, 5	;RP0=0, select bank0
 	movf	((timer0_init@prescaler)),w
 	btfss	status,2
-	goto	u3911
-	goto	u3910
-u3911:
-	goto	l4105
-u3910:
+	goto	u4161
+	goto	u4160
+u4161:
+	goto	l4514
+u4160:
 	
-l4103:	
+l4512:	
 	movlw	0FFh
-	movwf	(_timer0_init$126)
+	movwf	(_timer0_init$116)
 	movlw	0FFh
-	movwf	((_timer0_init$126))+1
-	goto	l4107
+	movwf	((_timer0_init$116))+1
+	goto	l4516
 	
-l4105:	
+l4514:	
 	movlw	0F7h
-	movwf	(_timer0_init$126)
+	movwf	(_timer0_init$116)
 	movlw	0FFh
-	movwf	((_timer0_init$126))+1
+	movwf	((_timer0_init$116))+1
 	
-l4107:	
-	movf	(_timer0_init$126),w
+l4516:	
+	movf	(_timer0_init$116),w
 	bsf	status, 5	;RP0=1, select bank1
 	andwf	(129)^080h,f	;volatile
-	line	26
+	line	46
 	
-l4109:	
-;timer.c: 26: OPTION_REG &= ~0b111;
+l4518:	
+;timer.c: 46: OPTION_REG &= ~0b111;
 	movlw	low(0F8h)
 	andwf	(129)^080h,f	;volatile
-	line	28
+	line	48
 	
-l4111:	
-;timer.c: 28: if(prescaler > 0) {
+l4520:	
+;timer.c: 48: if(prescaler > 0) {
 	bcf	status, 5	;RP0=0, select bank0
 	movf	((timer0_init@prescaler)),w
 	btfsc	status,2
-	goto	u3921
-	goto	u3920
-u3921:
-	goto	l4115
-u3920:
-	line	29
+	goto	u4171
+	goto	u4170
+u4171:
+	goto	l4524
+u4170:
+	line	49
 	
-l4113:	
-;timer.c: 29: OPTION_REG |= (prescaler - 1) & 0b111;
+l4522:	
+;timer.c: 49: OPTION_REG |= (prescaler - 1) & 0b111;
 	movf	(timer0_init@prescaler),w
 	addlw	0FFh
 	andlw	07h
 	bsf	status, 5	;RP0=1, select bank1
 	iorwf	(129)^080h,f	;volatile
-	line	40
+	line	59
 	
-l4115:	
-;timer.c: 35: }
-;timer.c: 40: INTCON &= ~0x40;
+l4524:	
+;timer.c: 55: }
+;timer.c: 59: INTCON &= ~0x40;
 	bcf	(11)+(6/8),(6)&7	;volatile
-	line	41
+	line	60
 	
-l4117:	
-;timer.c: 41: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+l4526:	
+;timer.c: 60: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
 	bcf	status, 5	;RP0=0, select bank0
 	btfsc	(timer0_init@ps_mode),(7)&7
-	goto	u3931
-	goto	u3930
-u3931:
-	goto	l4121
-u3930:
+	goto	u4181
+	goto	u4180
+u4181:
+	goto	l4530
+u4180:
 	
-l4119:	
-	clrf	(_timer0_init$127)
-	clrf	(_timer0_init$127+1)
-	goto	l4123
+l4528:	
+	clrf	(_timer0_init$117)
+	clrf	(_timer0_init$117+1)
+	goto	l4532
 	
-l4121:	
+l4530:	
 	movlw	020h
-	movwf	(_timer0_init$127)
-	clrf	(_timer0_init$127+1)
+	movwf	(_timer0_init$117)
+	clrf	(_timer0_init$117+1)
 	
-l4123:	
-	movf	(_timer0_init$127),w
+l4532:	
+	movf	(_timer0_init$117),w
 	iorwf	(11),f	;volatile
-	line	42
+	line	61
 	
-l109:	
+l93:	
 	return
 	opt stack 0
 GLOBAL	__end_of_timer0_init
 	__end_of_timer0_init:
 	signat	_timer0_init,4216
-	global	_measure_inductance
+	global	_ser_init
 
-;; *************** function _measure_inductance *****************
+;; *************** function _ser_init *****************
 ;; Defined at:
-;;		line 192 in file "../../../lib/../src/measure.c"
+;;		line 98 in file "../../../lib/ser.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  Lin             4   57[BANK1 ] unsigned char 
-;;  denominator     4   22[BANK1 ] unsigned char 
-;;  numerator       4   18[BANK1 ] unsigned char 
-;;  var             2   55[BANK1 ] unsigned short 
-;;  unit            1   42[BANK1 ] unsigned char 
+;;		None
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2
+;; Tracked objects:
+;;		On entry : 300/0
+;;		On exit  : 300/300
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       0       0       0       0
+;;Total ram usage:        0 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_main
+;; This function uses a non-reentrant model
+;;
+psect	text3,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/ser.c"
+	line	98
+global __ptext3
+__ptext3:	;psect for function _ser_init
+psect	text3
+	file	"../../../lib/ser.c"
+	line	98
+	global	__size_of_ser_init
+	__size_of_ser_init	equ	__end_of_ser_init-_ser_init
+	
+_ser_init:	
+;incstack = 0
+	opt	stack 6
+; Regs used in _ser_init: [wreg+status,2]
+	line	99
+	
+l4624:	
+;ser.c: 99: TRISC &= ~0x40;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	(135)^080h+(6/8),(6)&7	;volatile
+	line	101
+;ser.c: 101: TRISC |= 0x80;
+	bsf	(135)^080h+(7/8),(7)&7	;volatile
+	line	103
+;ser.c: 103: BRGH = 1;
+	bsf	(1218/8)^080h,(1218)&7	;volatile
+	line	109
+	
+l4626:	
+;ser.c: 109: SPBRG = ser_brg;
+	movlw	low(01Fh)
+	movwf	(153)^080h	;volatile
+	line	112
+	
+l4628:	
+;ser.c: 112: TX9 = 0;
+	bcf	(1222/8)^080h,(1222)&7	;volatile
+	line	113
+	
+l4630:	
+;ser.c: 113: RX9 = 0;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	(198/8),(198)&7	;volatile
+	line	115
+	
+l4632:	
+;ser.c: 115: SYNC = 0;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	(1220/8)^080h,(1220)&7	;volatile
+	line	116
+	
+l4634:	
+;ser.c: 116: SPEN = 1;
+	bcf	status, 5	;RP0=0, select bank0
+	bsf	(199/8),(199)&7	;volatile
+	line	117
+	
+l4636:	
+;ser.c: 117: CREN = 1;
+	bsf	(196/8),(196)&7	;volatile
+	line	118
+	
+l4638:	
+;ser.c: 118: TXIE = 0;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	(1124/8)^080h,(1124)&7	;volatile
+	line	120
+	
+l4640:	
+;ser.c: 120: TXEN = 1;
+	bsf	(1221/8)^080h,(1221)&7	;volatile
+	line	121
+	
+l4642:	
+;ser.c: 121: PEIE = 1;
+	bsf	(94/8),(94)&7	;volatile
+	line	123
+	
+l4644:	
+;ser.c: 123: rxiptr = rxoptr = txiptr = txoptr = 0;
+	clrf	(_txoptr)	;volatile
+	clrf	(_txiptr)	;volatile
+	bsf	status, 6	;RP1=1, select bank3
+	clrf	(_rxoptr)^0180h	;volatile
+	clrf	(_rxiptr)	;volatile
+	line	124
+	
+l564:	
+	return
+	opt stack 0
+GLOBAL	__end_of_ser_init
+	__end_of_ser_init:
+	signat	_ser_init,88
+	global	_print_indicator
+
+;; *************** function _print_indicator *****************
+;; Defined at:
+;;		line 184 in file "../../../src/print.c"
+;; Parameters:    Size  Location     Type
+;;  indicate        1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  indicate        1    9[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/0
-;;		On exit  : 0/0
+;;		On entry : 0/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       1       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       1       0       0       0
+;;Total ram usage:        1 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    5
+;; This function calls:
+;;		_lcd_gotoxy
+;;		_lcd_puts
+;; This function is called by:
+;;		_main
+;; This function uses a non-reentrant model
+;;
+psect	text4,local,class=CODE,delta=2,merge=1
+	file	"../../../src/print.c"
+	line	184
+global __ptext4
+__ptext4:	;psect for function _print_indicator
+psect	text4
+	file	"../../../src/print.c"
+	line	184
+	global	__size_of_print_indicator
+	__size_of_print_indicator	equ	__end_of_print_indicator-_print_indicator
+	
+_print_indicator:	
+;incstack = 0
+	opt	stack 2
+; Regs used in _print_indicator: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+;print_indicator@indicate stored from wreg
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(print_indicator@indicate)
+	line	198
+	
+l4480:	
+;print.c: 198: lcd_gotoxy(0, 1);
+	clrf	(lcd_gotoxy@row)
+	incf	(lcd_gotoxy@row),f
+	movlw	low(0)
+	fcall	_lcd_gotoxy
+	line	199
+	
+l4482:	
+;print.c: 199: if(indicate) {
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	((print_indicator@indicate)),w
+	btfsc	status,2
+	goto	u4131
+	goto	u4130
+u4131:
+	goto	l4486
+u4130:
+	line	200
+	
+l4484:	
+;print.c: 200: lcd_puts("-*-");
+	movlw	low(((STR_11)|8000h))
+	movwf	(lcd_puts@string)
+	movlw	high(((STR_11)|8000h))
+	movwf	((lcd_puts@string))+1
+	fcall	_lcd_puts
+	line	201
+;print.c: 201: } else {
+	goto	l36
+	line	202
+	
+l4486:	
+;print.c: 202: lcd_puts("   ");
+	movlw	low(((STR_12)|8000h))
+	movwf	(lcd_puts@string)
+	movlw	high(((STR_12)|8000h))
+	movwf	((lcd_puts@string))+1
+	fcall	_lcd_puts
+	line	205
+	
+l36:	
+	return
+	opt stack 0
+GLOBAL	__end_of_print_indicator
+	__end_of_print_indicator:
+	signat	_print_indicator,4216
+	global	_measure_inductance
+
+;; *************** function _measure_inductance *****************
+;; Defined at:
+;;		line 197 in file "../../../lib/../src/measure.c"
+;; Parameters:    Size  Location     Type
+;;		None
+;; Auto vars:     Size  Location     Type
+;;  Lin             4   67[BANK1 ] unsigned char 
+;;  denominator     4   32[BANK1 ] unsigned char 
+;;  numerator       4   28[BANK1 ] unsigned char 
+;;  var             2   65[BANK1 ] unsigned int 
+;;  unit            1   52[BANK1 ] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 300/300
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
@@ -4751,7 +5567,7 @@ GLOBAL	__end_of_timer0_init
 ;;      Totals:         0       0      43       0       0
 ;;Total ram usage:       43 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    7
+;; Hardware stack levels required when called:    6
 ;; This function calls:
 ;;		___fldiv
 ;;		___flge
@@ -4770,37 +5586,46 @@ GLOBAL	__end_of_timer0_init
 ;;
 psect	text5,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/../src/measure.c"
-	line	192
+	line	197
 global __ptext5
 __ptext5:	;psect for function _measure_inductance
 psect	text5
 	file	"../../../lib/../src/measure.c"
-	line	192
+	line	197
 	global	__size_of_measure_inductance
 	__size_of_measure_inductance	equ	__end_of_measure_inductance-_measure_inductance
 	
 _measure_inductance:	
 ;incstack = 0
-	opt	stack 0
+	opt	stack 1
 ; Regs used in _measure_inductance: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	199
+	line	204
 	
-l4281:	
-;measure.c: 193: unsigned char unit;
-;measure.c: 194: unsigned short int var;
-;measure.c: 196: double Lin, numerator, denominator;
-;measure.c: 199: lcd_gotoxy(0, 0);
+l4784:	
+;measure.c: 198: uint8_t unit;
+;measure.c: 199: uint16_t var;
+;measure.c: 201: double Lin, numerator, denominator;
+;measure.c: 204: lcd_gotoxy(0, 0);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0)
 	fcall	_lcd_gotoxy
-	line	200
-;measure.c: 200: put_str("Inductivity ");
-	movlw	(low((((STR_25)-__stringbase)|8000h)))&0ffh
-	fcall	_put_str
-	line	202
+	line	205
 	
-l4283:	
-;measure.c: 202: var = measure_freq();
+l4786:	
+;measure.c: 205: put_str("Inductivity ");
+	movlw	low(((STR_37)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(put_str@s)
+	movlw	high(((STR_37)|8000h))
+	movwf	((put_str@s))+1
+	fcall	_put_str
+	line	207
+	
+l4788:	
+;measure.c: 207: var = measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
 	bsf	status, 5	;RP0=1, select bank1
@@ -4809,10 +5634,10 @@ l4283:
 	movf	(0+(?_measure_freq)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@var)^080h
-	line	204
+	line	209
 	
-l4285:	
-;measure.c: 204: F3 = (double)var;
+l4790:	
+;measure.c: 209: F3 = (double)var;
 	movf	(measure_inductance@var+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___lwtofl@c+1)
@@ -4822,69 +5647,106 @@ l4285:
 	movwf	(___lwtofl@c)
 	fcall	___lwtofl
 	movf	(3+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+3)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+2)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+2)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+1)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3)^0180h
 
-	line	205
+	line	210
 	
-l4287:	
-;measure.c: 205: if(F3 > F1)
-	movf	(_F1+3)^080h,w
+l4792:	
+;measure.c: 210: if(F3 > F1)
+	movf	(_F1+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+3)
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+2)
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+1)
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1)
 
-	movf	(_F3+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4051
-	goto	u4050
-u4051:
-	goto	l4291
-u4050:
-	line	206
+	goto	u4311
+	goto	u4310
+u4311:
+	goto	l4796
+u4310:
+	line	211
 	
-l4289:	
-;measure.c: 206: F3 = F1;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movf	(_F1+3)^080h,w
-	movwf	(_F3+3)^080h
-	movf	(_F1+2)^080h,w
-	movwf	(_F3+2)^080h
-	movf	(_F1+1)^080h,w
-	movwf	(_F3+1)^080h
-	movf	(_F1)^080h,w
-	movwf	(_F3)^080h
+l4794:	
+;measure.c: 211: F3 = F1;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
+	movwf	(_F3+3)^0180h
+	movf	(_F1+2)^0180h,w
+	movwf	(_F3+2)^0180h
+	movf	(_F1+1)^0180h,w
+	movwf	(_F3+1)^0180h
+	movf	(_F1)^0180h,w
+	movwf	(_F3)^0180h
 
-	line	208
+	line	212
 	
-l4291:	
-;measure.c: 208: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+l4796:	
+;measure.c: 212: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(_F2+3)^0180h,w
@@ -4938,71 +5800,87 @@ l4291:
 	fcall	___flsub
 	movf	(3+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1051+3)^080h
+	movwf	(_measure_inductance$1012+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1051+2)^080h
+	movwf	(_measure_inductance$1012+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1051+1)^080h
+	movwf	(_measure_inductance$1012+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1051)^080h
+	movwf	(_measure_inductance$1012)^080h
 
 	
-l4293:	
-;measure.c: 208: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
-	movf	(_measure_inductance$1051+3)^080h,w
+l4798:	
+;measure.c: 212: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+	movf	(_measure_inductance$1012+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flsub@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1051+2)^080h,w
+	movf	(_measure_inductance$1012+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flsub@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1051+1)^080h,w
+	movf	(_measure_inductance$1012+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flsub@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1051)^080h,w
+	movf	(_measure_inductance$1012)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flsub@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
@@ -5018,54 +5896,70 @@ l4293:
 	fcall	___flsub
 	movf	(3+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+3)^080h
+	movwf	(_measure_inductance$1013+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+2)^080h
+	movwf	(_measure_inductance$1013+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+1)^080h
+	movwf	(_measure_inductance$1013+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052)^080h
+	movwf	(_measure_inductance$1013)^080h
 
 	
-l4295:	
-;measure.c: 208: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
-	movf	(_F3+3)^080h,w
+l4800:	
+;measure.c: 212: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
@@ -5078,38 +5972,54 @@ l4295:
 	movf	(0+(?___flmul)),w
 	movwf	(___flsub@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
@@ -5125,76 +6035,76 @@ l4295:
 	fcall	___flsub
 	movf	(3+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+3)^080h
+	movwf	(_measure_inductance$1014+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+2)^080h
+	movwf	(_measure_inductance$1014+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+1)^080h
+	movwf	(_measure_inductance$1014+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flsub)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053)^080h
+	movwf	(_measure_inductance$1014)^080h
 
 	
-l4297:	
-;measure.c: 208: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
-	movf	(_measure_inductance$1052+3)^080h,w
+l4802:	
+;measure.c: 212: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+	movf	(_measure_inductance$1013+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052+2)^080h,w
+	movf	(_measure_inductance$1013+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052+1)^080h,w
+	movf	(_measure_inductance$1013+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052)^080h,w
+	movf	(_measure_inductance$1013)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+3)^080h,w
+	movf	(_measure_inductance$1014+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+2)^080h,w
+	movf	(_measure_inductance$1014+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+1)^080h,w
+	movf	(_measure_inductance$1014+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053)^080h,w
+	movf	(_measure_inductance$1014)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+3)^080h
+	movwf	(_measure_inductance$1015+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+2)^080h
+	movwf	(_measure_inductance$1015+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+1)^080h
+	movwf	(_measure_inductance$1015+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054)^080h
+	movwf	(_measure_inductance$1015)^080h
 
 	
-l4299:	
-;measure.c: 208: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+l4804:	
+;measure.c: 212: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
 	movlw	0x46
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -5206,19 +6116,19 @@ l4299:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+3)^080h,w
+	movf	(_measure_inductance$1015+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+2)^080h,w
+	movf	(_measure_inductance$1015+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+1)^080h,w
+	movf	(_measure_inductance$1015+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054)^080h,w
+	movf	(_measure_inductance$1015)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
@@ -5239,63 +6149,79 @@ l4299:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@numerator)^080h
 
-	line	210
+	line	213
 	
-l4301:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
-	movf	(_F1+3)^080h,w
+l4806:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1055+3)^080h
+	movwf	(_measure_inductance$1016+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1055+2)^080h
+	movwf	(_measure_inductance$1016+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1055+1)^080h
+	movwf	(_measure_inductance$1016+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1055)^080h
+	movwf	(_measure_inductance$1016)^080h
 
 	
-l4303:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+l4808:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(_F2+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
@@ -5321,42 +6247,42 @@ l4303:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1055+3)^080h,w
+	movf	(_measure_inductance$1016+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1055+2)^080h,w
+	movf	(_measure_inductance$1016+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1055+1)^080h,w
+	movf	(_measure_inductance$1016+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1055)^080h,w
+	movf	(_measure_inductance$1016)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+3)^080h
+	movwf	(_measure_inductance$1013+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+2)^080h
+	movwf	(_measure_inductance$1013+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052+1)^080h
+	movwf	(_measure_inductance$1013+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1052)^080h
+	movwf	(_measure_inductance$1013)^080h
 
 	
-l4305:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+l4810:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(_F2+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
@@ -5382,148 +6308,164 @@ l4305:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052+3)^080h,w
+	movf	(_measure_inductance$1013+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052+2)^080h,w
+	movf	(_measure_inductance$1013+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052+1)^080h,w
+	movf	(_measure_inductance$1013+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1052)^080h,w
+	movf	(_measure_inductance$1013)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+3)^080h
+	movwf	(_measure_inductance$1014+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+2)^080h
+	movwf	(_measure_inductance$1014+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053+1)^080h
+	movwf	(_measure_inductance$1014+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1053)^080h
+	movwf	(_measure_inductance$1014)^080h
 
 	
-l4307:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
-	movf	(_F3+3)^080h,w
+l4812:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+3)^080h,w
+	movf	(_measure_inductance$1014+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+2)^080h,w
+	movf	(_measure_inductance$1014+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053+1)^080h,w
+	movf	(_measure_inductance$1014+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1053)^080h,w
+	movf	(_measure_inductance$1014)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+3)^080h
+	movwf	(_measure_inductance$1015+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+2)^080h
+	movwf	(_measure_inductance$1015+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054+1)^080h
+	movwf	(_measure_inductance$1015+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1054)^080h
+	movwf	(_measure_inductance$1015)^080h
 
 	
-l4309:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
-	movf	(_F3+3)^080h,w
+l4814:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+3)^080h,w
+	movf	(_measure_inductance$1015+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+2)^080h,w
+	movf	(_measure_inductance$1015+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054+1)^080h,w
+	movf	(_measure_inductance$1015+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1054)^080h,w
+	movf	(_measure_inductance$1015)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1056+3)^080h
+	movwf	(_measure_inductance$1017+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1056+2)^080h
+	movwf	(_measure_inductance$1017+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1056+1)^080h
+	movwf	(_measure_inductance$1017+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1056)^080h
+	movwf	(_measure_inductance$1017)^080h
 
 	
-l4311:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+l4816:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(_CCal+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
@@ -5549,42 +6491,42 @@ l4311:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1056+3)^080h,w
+	movf	(_measure_inductance$1017+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1056+2)^080h,w
+	movf	(_measure_inductance$1017+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1056+1)^080h,w
+	movf	(_measure_inductance$1017+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1056)^080h,w
+	movf	(_measure_inductance$1017)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1057+3)^080h
+	movwf	(_measure_inductance$1018+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1057+2)^080h
+	movwf	(_measure_inductance$1018+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1057+1)^080h
+	movwf	(_measure_inductance$1018+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_inductance$1057)^080h
+	movwf	(_measure_inductance$1018)^080h
 
 	
-l4313:	
-;measure.c: 210: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+l4818:	
+;measure.c: 213: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 	movlw	0x42
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -5596,19 +6538,19 @@ l4313:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1057+3)^080h,w
+	movf	(_measure_inductance$1018+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1057+2)^080h,w
+	movf	(_measure_inductance$1018+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1057+1)^080h,w
+	movf	(_measure_inductance$1018+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_inductance$1057)^080h,w
+	movf	(_measure_inductance$1018)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
@@ -5629,10 +6571,10 @@ l4313:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@denominator)^080h
 
-	line	212
+	line	214
 	
-l4315:	
-;measure.c: 212: Lin = (numerator / denominator) * 1e+15l;
+l4820:	
+;measure.c: 214: Lin = (numerator / denominator) * 1e+15l;
 	movlw	0x58
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -5704,11 +6646,12 @@ l4315:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@Lin)^080h
 
-	line	214
+	line	216
 	
-l4317:	
-;measure.c: 214: if(Lin > 999) {
+l4822:	
+;measure.c: 216: if(Lin > 999) {
 	movlw	0x44
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
 	movlw	0x79
 	movwf	(___flge@ff1+2)
@@ -5717,26 +6660,34 @@ l4317:
 	movlw	0x0
 	movwf	(___flge@ff1)
 
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4061
-	goto	u4060
-u4061:
-	goto	l4335
-u4060:
-	line	215
+	goto	u4321
+	goto	u4320
+u4321:
+	goto	l4840
+u4320:
+	line	217
 	
-l4319:	
-;measure.c: 215: if(Lin > (999e+03l)) {
+l4824:	
+;measure.c: 217: if(Lin > (999e+03l)) {
 	movlw	0x49
 	movwf	(___flge@ff1+3)
 	movlw	0x73
@@ -5747,27 +6698,33 @@ l4319:
 	movwf	(___flge@ff1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(measure_inductance@Lin+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4071
-	goto	u4070
-u4071:
-	goto	l4331
-u4070:
-	line	216
+	goto	u4331
+	goto	u4330
+u4331:
+	goto	l4836
+u4330:
+	line	218
 	
-l4321:	
-;measure.c: 216: if(Lin > (999e+06l)) {
+l4826:	
+;measure.c: 218: if(Lin > (999e+06l)) {
 	movlw	0x4e
 	movwf	(___flge@ff1+3)
 	movlw	0x6e
@@ -5778,30 +6735,34 @@ l4321:
 	movwf	(___flge@ff1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(measure_inductance@Lin+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@Lin)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4081
-	goto	u4080
-u4081:
-	goto	l4327
-u4080:
-	line	217
+	goto	u4341
+	goto	u4340
+u4341:
+	goto	l4832
+u4340:
+	line	219
 	
-l4323:	
-;measure.c: 217: Lin = Lin / (1e+09l);
+l4828:	
+;measure.c: 219: Lin = Lin / (1e+09l);
 	movlw	0x4e
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f2+3)
 	movlw	0x6e
 	movwf	(___fldiv@f2+2)
@@ -5844,21 +6805,19 @@ l4323:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@Lin)^080h
 
-	line	218
-	
-l4325:	
-;measure.c: 218: unit = 0;
-	clrf	(measure_inductance@unit)^080h
-	line	219
-;measure.c: 219: } else {
-	goto	l4337
 	line	220
 	
-l4327:	
-;measure.c: 220: Lin = Lin / (1e+06l);
+l4830:	
+;measure.c: 220: unit = 0;
+	clrf	(measure_inductance@unit)^080h
+	line	221
+;measure.c: 221: } else {
+	goto	l4842
+	line	222
+	
+l4832:	
+;measure.c: 222: Lin = Lin / (1e+06l);
 	movlw	0x49
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f2+3)
 	movlw	0x74
 	movwf	(___fldiv@f2+2)
@@ -5901,20 +6860,18 @@ l4327:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@Lin)^080h
 
-	line	221
+	line	223
 	
-l4329:	
-;measure.c: 221: unit = 1;
+l4834:	
+;measure.c: 223: unit = 1;
 	clrf	(measure_inductance@unit)^080h
 	incf	(measure_inductance@unit)^080h,f
-	goto	l4337
-	line	224
+	goto	l4842
+	line	226
 	
-l4331:	
-;measure.c: 224: Lin = Lin / 1e+03l;
+l4836:	
+;measure.c: 226: Lin = Lin / 1e+03l;
 	movlw	0x44
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f2+3)
 	movlw	0x7a
 	movwf	(___fldiv@f2+2)
@@ -5957,25 +6914,24 @@ l4331:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@Lin)^080h
 
-	line	225
+	line	227
 	
-l4333:	
-;measure.c: 225: unit = 2;
+l4838:	
+;measure.c: 227: unit = 2;
 	movlw	low(02h)
 	movwf	(measure_inductance@unit)^080h
-	goto	l4337
-	line	228
-	
-l4335:	
-;measure.c: 228: unit = 3;
-	movlw	low(03h)
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(measure_inductance@unit)^080h
+	goto	l4842
 	line	230
 	
-l4337:	
-;measure.c: 230: Lin = Lin * 100;
+l4840:	
+;measure.c: 230: unit = 3;
+	movlw	low(03h)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(measure_inductance@unit)^080h
+	line	232
+	
+l4842:	
+;measure.c: 232: Lin = Lin * 100;
 	movlw	0x42
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -6020,10 +6976,10 @@ l4337:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(measure_inductance@Lin)^080h
 
-	line	231
+	line	233
 	
-l4339:	
-;measure.c: 231: var = (unsigned short int)Lin;
+l4844:	
+;measure.c: 233: var = (uint16_t)Lin;
 	movf	(measure_inductance@Lin+3)^080h,w
 	movwf	(___fltol@f1+3)^080h
 	movf	(measure_inductance@Lin+2)^080h,w
@@ -6038,10 +6994,10 @@ l4339:
 	movwf	(measure_inductance@var+1)^080h
 	movf	0+(((0+(?___fltol))^080h)),w
 	movwf	(measure_inductance@var)^080h
-	line	233
+	line	235
 	
-l4341:	
-;measure.c: 233: print_reading(var);
+l4846:	
+;measure.c: 235: print_reading(var);
 	movf	(measure_inductance@var+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(print_reading@measurement+1)
@@ -6050,16 +7006,16 @@ l4341:
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(print_reading@measurement)
 	fcall	_print_reading
-	line	234
+	line	236
 	
-l4343:	
-;measure.c: 234: print_unit(unit);
+l4848:	
+;measure.c: 236: print_unit(unit);
 	bsf	status, 5	;RP0=1, select bank1
 	movf	(measure_inductance@unit)^080h,w
 	fcall	_print_unit
-	line	235
+	line	237
 	
-l491:	
+l478:	
 	return
 	opt stack 0
 GLOBAL	__end_of_measure_inductance
@@ -6069,26 +7025,26 @@ GLOBAL	__end_of_measure_inductance
 
 ;; *************** function _measure_capacitance *****************
 ;; Defined at:
-;;		line 113 in file "../../../lib/../src/measure.c"
+;;		line 119 in file "../../../lib/../src/measure.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  Cin             4   33[BANK1 ] unsigned char 
-;;  var             2   31[BANK1 ] unsigned short 
-;;  unit            1   30[BANK1 ] unsigned char 
+;;  Cin             4   15[BANK2 ] unsigned char 
+;;  var             2   13[BANK2 ] unsigned int 
+;;  unit            1   12[BANK2 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/0
-;;		On exit  : 0/0
+;;		On entry : 300/300
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       0      19       0       0
+;;      Locals:         0       0       0       0      19
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         0       0      19       0       0
+;;      Totals:         0       0       0       0      19
 ;;Total ram usage:       19 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    7
@@ -6099,22 +7055,26 @@ GLOBAL	__end_of_measure_inductance
 ;;		___flsub
 ;;		___fltol
 ;;		___lwtofl
+;;		_format_double
+;;		_format_xint32
 ;;		_lcd_gotoxy
 ;;		_measure_freq
 ;;		_print_reading
 ;;		_print_unit
 ;;		_put_str
+;;		_ser_putch
+;;		_ser_puts
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
 psect	text6,local,class=CODE,delta=2,merge=1
-	line	113
+	line	119
 global __ptext6
 __ptext6:	;psect for function _measure_capacitance
 psect	text6
 	file	"../../../lib/../src/measure.c"
-	line	113
+	line	119
 	global	__size_of_measure_capacitance
 	__size_of_measure_capacitance	equ	__end_of_measure_capacitance-_measure_capacitance
 	
@@ -6122,147 +7082,479 @@ _measure_capacitance:
 ;incstack = 0
 	opt	stack 0
 ; Regs used in _measure_capacitance: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	121
+	line	127
 	
-l4233:	
-;measure.c: 114: unsigned char unit;
-;measure.c: 115: unsigned short int var;
-;measure.c: 117: double Cin;
-;measure.c: 121: lcd_gotoxy(0, 0);
+l4688:	
+;measure.c: 120: uint8_t unit;
+;measure.c: 121: uint16_t var;
+;measure.c: 123: double Cin;
+;measure.c: 127: lcd_gotoxy(0, 0);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0)
 	fcall	_lcd_gotoxy
-	line	122
-;measure.c: 122: put_str("Capacity ");
-	movlw	(low((((STR_24)-__stringbase)|8000h)))&0ffh
-	fcall	_put_str
-	line	124
+	line	128
 	
-l4235:	
-;measure.c: 124: var = measure_freq();
+l4690:	
+;measure.c: 128: put_str("Capacity ");
+	movlw	low(((STR_28)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(put_str@s)
+	movlw	high(((STR_28)|8000h))
+	movwf	((put_str@s))+1
+	fcall	_put_str
+	line	130
+	
+l4692:	
+;measure.c: 130: var = measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@var+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@var+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?_measure_freq)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@var)^080h
-	line	126
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@var)^0100h
+	line	132
 	
-l4237:	
-;measure.c: 126: F3 = (double)var;
-	movf	(measure_capacitance@var+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+l4694:	
+;measure.c: 132: F3 = (double)var;
+	movf	(measure_capacitance@var+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___lwtofl@c+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@var)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@var)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___lwtofl@c)
 	fcall	___lwtofl
 	movf	(3+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+3)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+2)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+2)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3+1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3+1)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F3)^0180h
 
+	line	135
+	
+l4696:	
+;measure.c: 135: ser_puts("var=");
+	movlw	low(((STR_29)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(ser_puts@s)
+	movlw	high(((STR_29)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	136
+	
+l4698:	
+;measure.c: 136: format_xint32(var);
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@var)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@var+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	((format_xint32@x))+1
+	clrf	2+((format_xint32@x))
+	clrf	3+((format_xint32@x))
+	fcall	_format_xint32
+	line	137
+	
+l4700:	
+;measure.c: 137: ser_puts("\r\nF1=");
+	movlw	low(((STR_30)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_30)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	138
+	
+l4702:	
+;measure.c: 138: format_double(F1);
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
+	movwf	(format_double@num+3)^0180h
+	movf	(_F1+2)^0180h,w
+	movwf	(format_double@num+2)^0180h
+	movf	(_F1+1)^0180h,w
+	movwf	(format_double@num+1)^0180h
+	movf	(_F1)^0180h,w
+	movwf	(format_double@num)^0180h
+
+	fcall	_format_double
+	line	139
+	
+l4704:	
+;measure.c: 139: ser_putch(' ');
+	movlw	low(020h)
+	fcall	_ser_putch
+	line	140
+	
+l4706:	
+;measure.c: 140: format_xint32(*(uint32_t*)&F1);
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+3)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+2)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+
+	fcall	_format_xint32
+	line	141
+	
+l4708:	
+;measure.c: 141: ser_puts("\r\nF2=");
+	movlw	low(((STR_31)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_31)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	142
+	
+l4710:	
+;measure.c: 142: format_double(F2);
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F2+3)^0180h,w
+	movwf	(format_double@num+3)^0180h
+	movf	(_F2+2)^0180h,w
+	movwf	(format_double@num+2)^0180h
+	movf	(_F2+1)^0180h,w
+	movwf	(format_double@num+1)^0180h
+	movf	(_F2)^0180h,w
+	movwf	(format_double@num)^0180h
+
+	fcall	_format_double
+	line	143
+	
+l4712:	
+;measure.c: 143: ser_putch(' ');
+	movlw	low(020h)
+	fcall	_ser_putch
+	line	144
+	
+l4714:	
+;measure.c: 144: format_xint32(*(uint32_t*)&F2);
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F2+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+3)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F2+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+2)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F2+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+
+	fcall	_format_xint32
+	line	145
+	
+l4716:	
+;measure.c: 145: ser_puts("\r\nF3=");
+	movlw	low(((STR_32)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_32)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	146
+	
+l4718:	
+;measure.c: 146: format_double(F3);
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
+	movwf	(format_double@num+3)^0180h
+	movf	(_F3+2)^0180h,w
+	movwf	(format_double@num+2)^0180h
+	movf	(_F3+1)^0180h,w
+	movwf	(format_double@num+1)^0180h
+	movf	(_F3)^0180h,w
+	movwf	(format_double@num)^0180h
+
+	fcall	_format_double
+	line	147
+	
+l4720:	
+;measure.c: 147: ser_putch(' ');
+	movlw	low(020h)
+	fcall	_ser_putch
+	line	148
+	
+l4722:	
+;measure.c: 148: format_xint32(*(uint32_t*)&F3);
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+3)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+2)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+
+	fcall	_format_xint32
 	line	149
 	
-l4239:	
-;measure.c: 149: putchar_ptr = &output_putch;
-	movlw	(low((fp__output_putch-fpbase)))&0ffh
-	movwf	(_putchar_ptr)
+l4724:	
+;measure.c: 149: ser_puts("\r\nCCal=");
+	movlw	low(((STR_33)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_33)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	150
+	
+l4726:	
+;measure.c: 150: format_double(CCal);
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_CCal+3)^0180h,w
+	movwf	(format_double@num+3)^0180h
+	movf	(_CCal+2)^0180h,w
+	movwf	(format_double@num+2)^0180h
+	movf	(_CCal+1)^0180h,w
+	movwf	(format_double@num+1)^0180h
+	movf	(_CCal)^0180h,w
+	movwf	(format_double@num)^0180h
+
+	fcall	_format_double
 	line	151
 	
-l4241:	
-;measure.c: 151: if(F3 > F1)
-	movf	(_F1+3)^080h,w
+l4728:	
+;measure.c: 151: ser_putch(' ');
+	movlw	low(020h)
+	fcall	_ser_putch
+	line	152
+	
+l4730:	
+;measure.c: 152: format_xint32(*(uint32_t*)&CCal);
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_CCal+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+3)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_CCal+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+2)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_CCal+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_CCal)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+
+	fcall	_format_xint32
+	line	153
+	
+l4732:	
+;measure.c: 153: ser_puts("\r\n");
+	movlw	low(((STR_34)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_34)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	157
+	
+l4734:	
+;measure.c: 157: if(F3 > F1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+3)
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+2)
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+1)
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1)
 
-	movf	(_F3+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4011
-	goto	u4010
-u4011:
-	goto	l4245
-u4010:
-	line	152
+	goto	u4271
+	goto	u4270
+u4271:
+	goto	l4738
+u4270:
+	line	158
 	
-l4243:	
-;measure.c: 152: F3 = F1;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movf	(_F1+3)^080h,w
-	movwf	(_F3+3)^080h
-	movf	(_F1+2)^080h,w
-	movwf	(_F3+2)^080h
-	movf	(_F1+1)^080h,w
-	movwf	(_F3+1)^080h
-	movf	(_F1)^080h,w
-	movwf	(_F3)^080h
+l4736:	
+;measure.c: 158: F3 = F1;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
+	movwf	(_F3+3)^0180h
+	movf	(_F1+2)^0180h,w
+	movwf	(_F3+2)^0180h
+	movf	(_F1+1)^0180h,w
+	movwf	(_F3+1)^0180h
+	movf	(_F1)^0180h,w
+	movwf	(_F3)^0180h
 
-	line	154
+	line	160
 	
-l4245:	
-;measure.c: 154: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movf	(_F3+3)^080h,w
+l4738:	
+;measure.c: 160: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
@@ -6275,38 +7567,54 @@ l4245:
 	movf	(0+(?___flmul)),w
 	movwf	(___flsub@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+3)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_F1)^080h,w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	(_F1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
@@ -6321,25 +7629,25 @@ l4245:
 
 	fcall	___flsub
 	movf	(3+(?___flsub)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1048+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1009+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___flsub)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1048+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1009+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___flsub)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1048+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1009+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___flsub)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1048)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1009)^0100h
 
 	
-l4247:	
-;measure.c: 154: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-	bsf	status, 6	;RP1=1, select bank3
+l4740:	
+;measure.c: 160: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+	bsf	status, 5	;RP0=1, select bank3
 	movf	(_F2+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -6363,44 +7671,44 @@ l4247:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1048+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1009+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1048+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1009+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1048+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1009+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1048)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1009)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1049+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1010+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1049+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1010+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1049+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1010+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1049)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1010)^0100h
 
 	
-l4249:	
-;measure.c: 154: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-	bsf	status, 6	;RP1=1, select bank3
+l4742:	
+;measure.c: 160: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+	bsf	status, 5	;RP0=1, select bank3
 	movf	(_F2+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -6424,44 +7732,44 @@ l4249:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1049+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1010+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1049+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1010+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1049+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1010+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1049)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1010)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1050+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1011+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1050+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1011+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1050+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1011+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_measure_capacitance$1050)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(_measure_capacitance$1011)^0100h
 
 	
-l4251:	
-;measure.c: 154: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-	bsf	status, 6	;RP1=1, select bank3
+l4744:	
+;measure.c: 160: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+	bsf	status, 5	;RP0=1, select bank3
 	movf	(_CCal+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -6485,44 +7793,114 @@ l4251:
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1050+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1011+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1050+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1011+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1050+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1011+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(_measure_capacitance$1050)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(_measure_capacitance$1011)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin)^0100h
 
 	line	164
 	
-l4253:	
-;measure.c: 164: if(Cin > 999) {
+l4746:	
+;measure.c: 164: ser_puts("Cin=");
+	movlw	low(((STR_35)|8000h))
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(ser_puts@s)
+	movlw	high(((STR_35)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	165
+	
+l4748:	
+;measure.c: 165: format_double(Cin);
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bsf	status, 5	;RP0=1, select bank3
+	movwf	(format_double@num+3)^0180h
+	bcf	status, 5	;RP0=0, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bsf	status, 5	;RP0=1, select bank3
+	movwf	(format_double@num+2)^0180h
+	bcf	status, 5	;RP0=0, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bsf	status, 5	;RP0=1, select bank3
+	movwf	(format_double@num+1)^0180h
+	bcf	status, 5	;RP0=0, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bsf	status, 5	;RP0=1, select bank3
+	movwf	(format_double@num)^0180h
+
+	fcall	_format_double
+	line	166
+	
+l4750:	
+;measure.c: 166: ser_putch(' ');
+	movlw	low(020h)
+	fcall	_ser_putch
+	line	167
+	
+l4752:	
+;measure.c: 167: format_xint32(*(uint32_t*)&Cin);
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+3)
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+2)
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x+1)
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(format_xint32@x)
+
+	fcall	_format_xint32
+	line	168
+	
+l4754:	
+;measure.c: 168: ser_puts("\r\n");
+	movlw	low(((STR_36)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_36)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	170
+	
+l4756:	
+;measure.c: 170: if(Cin > 999) {
 	movlw	0x44
 	movwf	(___flge@ff1+3)
 	movlw	0x79
@@ -6532,26 +7910,34 @@ l4253:
 	movlw	0x0
 	movwf	(___flge@ff1)
 
-	movf	(measure_capacitance@Cin+3)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
-	movf	(measure_capacitance@Cin+2)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
-	movf	(measure_capacitance@Cin+1)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
-	movf	(measure_capacitance@Cin)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4021
-	goto	u4020
-u4021:
-	goto	l4271
-u4020:
-	line	165
+	goto	u4281
+	goto	u4280
+u4281:
+	goto	l4774
+u4280:
+	line	171
 	
-l4255:	
-;measure.c: 165: if(Cin > (999e+03l)) {
+l4758:	
+;measure.c: 171: if(Cin > (999e+03l)) {
 	movlw	0x49
 	movwf	(___flge@ff1+3)
 	movlw	0x73
@@ -6561,28 +7947,34 @@ l4255:
 	movlw	0x80
 	movwf	(___flge@ff1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
-	movf	(measure_capacitance@Cin+2)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
-	movf	(measure_capacitance@Cin+1)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
-	movf	(measure_capacitance@Cin)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4031
-	goto	u4030
-u4031:
-	goto	l4267
-u4030:
-	line	166
+	goto	u4291
+	goto	u4290
+u4291:
+	goto	l4770
+u4290:
+	line	172
 	
-l4257:	
-;measure.c: 166: if(Cin > (999e+06l)) {
+l4760:	
+;measure.c: 172: if(Cin > (999e+06l)) {
 	movlw	0x4e
 	movwf	(___flge@ff1+3)
 	movlw	0x6e
@@ -6592,31 +7984,35 @@ l4257:
 	movlw	0x1f
 	movwf	(___flge@ff1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
-	movf	(measure_capacitance@Cin+2)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
-	movf	(measure_capacitance@Cin+1)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
-	movf	(measure_capacitance@Cin)^080h,w
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u4041
-	goto	u4040
-u4041:
-	goto	l4263
-u4040:
-	line	167
+	goto	u4301
+	goto	u4300
+u4301:
+	goto	l4766
+u4300:
+	line	173
 	
-l4259:	
-;measure.c: 167: Cin = Cin / (1e+09);
+l4762:	
+;measure.c: 173: Cin = Cin / (1e+09);
 	movlw	0x4e
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f2+3)
 	movlw	0x6e
 	movwf	(___fldiv@f2+2)
@@ -6625,56 +8021,54 @@ l4259:
 	movlw	0x28
 	movwf	(___fldiv@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1)
 
 	fcall	___fldiv
 	movf	(3+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(2+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(1+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(0+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin)^080h
-
-	line	168
-	
-l4261:	
-;measure.c: 168: unit = 4;
-	movlw	low(04h)
-	movwf	(measure_capacitance@unit)^080h
-	line	169
-;measure.c: 169: } else {
-	goto	l4273
-	line	170
-	
-l4263:	
-;measure.c: 170: Cin = Cin / (1e+06);
-	movlw	0x49
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+3)^0100h
 	bcf	status, 6	;RP1=0, select bank0
+	movf	(2+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(1+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(0+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin)^0100h
+
+	line	174
+	
+l4764:	
+;measure.c: 174: unit = 4;
+	movlw	low(04h)
+	movwf	(measure_capacitance@unit)^0100h
+	line	175
+;measure.c: 175: } else {
+	goto	l4776
+	line	176
+	
+l4766:	
+;measure.c: 176: Cin = Cin / (1e+06);
+	movlw	0x49
 	movwf	(___fldiv@f2+3)
 	movlw	0x74
 	movwf	(___fldiv@f2+2)
@@ -6683,54 +8077,52 @@ l4263:
 	movlw	0x0
 	movwf	(___fldiv@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1)
 
 	fcall	___fldiv
 	movf	(3+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(2+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(1+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(0+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin)^080h
-
-	line	171
-	
-l4265:	
-;measure.c: 171: unit = 5;
-	movlw	low(05h)
-	movwf	(measure_capacitance@unit)^080h
-	goto	l4273
-	line	174
-	
-l4267:	
-;measure.c: 174: Cin = Cin / 1e+03;
-	movlw	0x44
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+3)^0100h
 	bcf	status, 6	;RP1=0, select bank0
+	movf	(2+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(1+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(0+(?___fldiv)),w
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin)^0100h
+
+	line	177
+	
+l4768:	
+;measure.c: 177: unit = 5;
+	movlw	low(05h)
+	movwf	(measure_capacitance@unit)^0100h
+	goto	l4776
+	line	180
+	
+l4770:	
+;measure.c: 180: Cin = Cin / 1e+03;
+	movlw	0x44
 	movwf	(___fldiv@f2+3)
 	movlw	0x7a
 	movwf	(___fldiv@f2+2)
@@ -6739,61 +8131,60 @@ l4267:
 	movlw	0x0
 	movwf	(___fldiv@f2)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fldiv@f1)
 
 	fcall	___fldiv
 	movf	(3+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___fldiv)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin)^0100h
 
-	line	175
+	line	181
 	
-l4269:	
-;measure.c: 175: unit = 6;
+l4772:	
+;measure.c: 181: unit = 6;
 	movlw	low(06h)
-	movwf	(measure_capacitance@unit)^080h
-	goto	l4273
-	line	178
+	movwf	(measure_capacitance@unit)^0100h
+	goto	l4776
+	line	184
 	
-l4271:	
-;measure.c: 178: unit = 7;
+l4774:	
+;measure.c: 184: unit = 7;
 	movlw	low(07h)
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(measure_capacitance@unit)^080h
-	line	180
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@unit)^0100h
+	line	186
 	
-l4273:	
-;measure.c: 180: Cin = Cin * 100;
+l4776:	
+;measure.c: 186: Cin = Cin * 100;
 	movlw	0x42
-	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f1+3)
 	movlw	0xc8
 	movwf	(___flmul@f1+2)
@@ -6802,80 +8193,100 @@ l4273:
 	movlw	0x0
 	movwf	(___flmul@f1)
 
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+3)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+2)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2+1)
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@Cin)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+3)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+2)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin+1)^0100h
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___flmul)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(measure_capacitance@Cin)^080h
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@Cin)^0100h
 
-	line	181
+	line	187
 	
-l4275:	
-;measure.c: 181: var = (unsigned short int)Cin;
-	movf	(measure_capacitance@Cin+3)^080h,w
+l4778:	
+;measure.c: 187: var = (uint16_t)Cin;
+	movf	(measure_capacitance@Cin+3)^0100h,w
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+3)^080h
-	movf	(measure_capacitance@Cin+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+2)^0100h,w
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+2)^080h
-	movf	(measure_capacitance@Cin+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin+1)^0100h,w
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+1)^080h
-	movf	(measure_capacitance@Cin)^080h,w
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@Cin)^0100h,w
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1)^080h
 
 	fcall	___fltol
 	movf	1+(((0+(?___fltol))^080h)),w
-	movwf	(measure_capacitance@var+1)^080h
-	movf	0+(((0+(?___fltol))^080h)),w
-	movwf	(measure_capacitance@var)^080h
-	line	183
-	
-l4277:	
-;measure.c: 183: print_reading(var);
-	movf	(measure_capacitance@var+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(print_reading@measurement+1)
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@var+1)^0100h
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@var)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank1
+	movf	0+(((0+(?___fltol))^080h)),w
+	bcf	status, 5	;RP0=0, select bank2
+	bsf	status, 6	;RP1=1, select bank2
+	movwf	(measure_capacitance@var)^0100h
+	line	189
+	
+l4780:	
+;measure.c: 189: print_reading(var);
+	movf	(measure_capacitance@var+1)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(print_reading@measurement+1)
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@var)^0100h,w
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(print_reading@measurement)
 	fcall	_print_reading
-	line	184
+	line	190
 	
-l4279:	
-;measure.c: 184: print_unit(unit);
-	bsf	status, 5	;RP0=1, select bank1
-	movf	(measure_capacitance@unit)^080h,w
+l4782:	
+;measure.c: 190: print_unit(unit);
+	bsf	status, 6	;RP1=1, select bank2
+	movf	(measure_capacitance@unit)^0100h,w
 	fcall	_print_unit
-	line	185
+	line	191
 	
-l481:	
+l468:	
 	return
 	opt stack 0
 GLOBAL	__end_of_measure_capacitance
@@ -6885,7 +8296,7 @@ GLOBAL	__end_of_measure_capacitance
 
 ;; *************** function _print_unit *****************
 ;; Defined at:
-;;		line 411 in file "../../../src/print.c"
+;;		line 123 in file "../../../src/print.c"
 ;; Parameters:    Size  Location     Type
 ;;  unit            1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -6893,22 +8304,22 @@ GLOBAL	__end_of_measure_capacitance
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/100
-;;		On exit  : 0/0
+;;		On entry : 0/100
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
 ;;      Locals:         0       0       0       0       0
-;;      Temps:          2       0       0       0       0
-;;      Totals:         2       0       0       0       0
+;;      Temps:          0       2       0       0       0
+;;      Totals:         0       2       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    5
 ;; This function calls:
 ;;		_lcd_gotoxy
-;;		_uart_puts
+;;		_ser_puts
 ;; This function is called by:
 ;;		_measure_capacitance
 ;;		_measure_inductance
@@ -6916,49 +8327,66 @@ GLOBAL	__end_of_measure_capacitance
 ;;
 psect	text7,local,class=CODE,delta=2,merge=1
 	file	"../../../src/print.c"
-	line	411
+	line	123
 global __ptext7
 __ptext7:	;psect for function _print_unit
 psect	text7
 	file	"../../../src/print.c"
-	line	411
+	line	123
 	global	__size_of_print_unit
 	__size_of_print_unit	equ	__end_of_print_unit-_print_unit
 	
 _print_unit:	
 ;incstack = 0
 	opt	stack 1
-; Regs used in _print_unit: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-	line	420
+; Regs used in _print_unit: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	132
 	
-l3969:	
-;print.c: 419: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
-;print.c: 420: lcd_gotoxy(14, 0);
+l4384:	
+;print.c: 131: static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
+;print.c: 132: lcd_gotoxy(14, 0);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0Eh)
 	fcall	_lcd_gotoxy
-	line	424
-;print.c: 424: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
+	line	136
+;print.c: 136: lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	clrf	(lcd_gotoxy@row)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	swapf	0+(_buffer)^0180h+010h,w
 	andlw	(1<<4)-1
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_print_unit+0)+0
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
 	movf	0+(_buffer)^0180h+010h,w
 	andlw	(1<<4)-1
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(??_print_unit+1)+0
 	movf	(??_print_unit+0)+0,w
 	subwf	(??_print_unit+1)+0,w
 	addlw	010h
 	fcall	_lcd_gotoxy
-	line	427
-;print.c: 427: uart_puts("\r\n");
-	movlw	(low((((STR_9)-__stringbase)|8000h)))&0ffh
-	fcall	_uart_puts
-	line	429
+	line	139
 	
-l26:	
+l4386:	
+;print.c: 139: ser_puts("\r\n");
+	movlw	low(((STR_9)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(ser_puts@s)
+	movlw	high(((STR_9)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	141
+	
+l28:	
 	return
 	opt stack 0
 GLOBAL	__end_of_print_unit
@@ -6968,15 +8396,15 @@ GLOBAL	__end_of_print_unit
 
 ;; *************** function _print_reading *****************
 ;; Defined at:
-;;		line 432 in file "../../../src/print.c"
+;;		line 144 in file "../../../src/print.c"
 ;; Parameters:    Size  Location     Type
-;;  measurement     2   41[BANK0 ] unsigned short 
+;;  measurement     2   48[BANK0 ] unsigned int 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 300/0
 ;;		On exit  : 300/0
@@ -6988,7 +8416,7 @@ GLOBAL	__end_of_print_unit
 ;;      Totals:         0       6       0       0       0
 ;;Total ram usage:        6 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    6
+;; Hardware stack levels required when called:    5
 ;; This function calls:
 ;;		___lwdiv
 ;;		___lwmod
@@ -7001,66 +8429,75 @@ GLOBAL	__end_of_print_unit
 ;; This function uses a non-reentrant model
 ;;
 psect	text8,local,class=CODE,delta=2,merge=1
-	line	432
+	line	144
 global __ptext8
 __ptext8:	;psect for function _print_reading
 psect	text8
 	file	"../../../src/print.c"
-	line	432
+	line	144
 	global	__size_of_print_reading
 	__size_of_print_reading	equ	__end_of_print_reading-_print_reading
 	
 _print_reading:	
 ;incstack = 0
-	opt	stack 0
-; Regs used in _print_reading: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-	line	459
+	opt	stack 1
+; Regs used in _print_reading: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	171
 	
-l3971:	
-;print.c: 459: lcd_gotoxy(9, 0);
+l4388:	
+;print.c: 171: lcd_gotoxy(9, 0);
 	clrf	(lcd_gotoxy@row)
 	movlw	low(09h)
 	fcall	_lcd_gotoxy
-	line	460
-;print.c: 460: lcd_puts("     ");
-	movlw	(low((((STR_10)-__stringbase)|8000h)))&0ffh
-	fcall	_lcd_puts
-	line	461
-;print.c: 461: lcd_gotoxy(9, 0);
-	clrf	(lcd_gotoxy@row)
-	movlw	low(09h)
-	fcall	_lcd_gotoxy
-	line	463
+	line	172
 	
-l3973:	
-;print.c: 463: format_number( measurement / 100, 10, 0);
-	movlw	064h
-	movwf	(___lwdiv@divisor)
-	clrf	(___lwdiv@divisor+1)
+l4390:	
+;print.c: 172: lcd_puts("     ");
+	movlw	low(((STR_10)|8000h))
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
+	movwf	(lcd_puts@string)
+	movlw	high(((STR_10)|8000h))
+	movwf	((lcd_puts@string))+1
+	fcall	_lcd_puts
+	line	173
+	
+l4392:	
+;print.c: 173: lcd_gotoxy(9, 0);
+	clrf	(lcd_gotoxy@row)
+	movlw	low(09h)
+	fcall	_lcd_gotoxy
+	line	175
+	
+l4394:	
+;print.c: 175: format_number(measurement / 100, 10, 0);
+	movlw	064h
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(___lwdiv@divisor)
+	clrf	(___lwdiv@divisor+1)
 	movf	(print_reading@measurement+1),w
 	movwf	(___lwdiv@dividend+1)
 	movf	(print_reading@measurement),w
 	movwf	(___lwdiv@dividend)
 	fcall	___lwdiv
 	movf	(1+(?___lwdiv)),w
-	movwf	(_print_reading$1042+1)
+	movwf	(_print_reading$1003+1)
 	movf	(0+(?___lwdiv)),w
-	movwf	(_print_reading$1042)
+	movwf	(_print_reading$1003)
 	
-l3975:	
-;print.c: 463: format_number( measurement / 100, 10, 0);
-	movf	(_print_reading$1042+1),w
+l4396:	
+;print.c: 175: format_number(measurement / 100, 10, 0);
+	movf	(_print_reading$1003+1),w
 	movwf	(format_number@n+1)
-	movf	(_print_reading$1042),w
+	movf	(_print_reading$1003),w
 	movwf	(format_number@n)
 	movlw	low(0Ah)
 	movwf	(format_number@base)
 	clrf	(format_number@pad)
 	fcall	_format_number
-	line	465
-;print.c: 465: format_number( measurement % 100, 10, 0);
+	line	177
+;print.c: 177: format_number(measurement % 100, 10, 0);
 	movlw	064h
 	movwf	(___lwmod@divisor)
 	clrf	(___lwmod@divisor+1)
@@ -7070,692 +8507,226 @@ l3975:
 	movwf	(___lwmod@dividend)
 	fcall	___lwmod
 	movf	(1+(?___lwmod)),w
-	movwf	(_print_reading$1043+1)
+	movwf	(_print_reading$1004+1)
 	movf	(0+(?___lwmod)),w
-	movwf	(_print_reading$1043)
+	movwf	(_print_reading$1004)
 	
-l3977:	
-;print.c: 465: format_number( measurement % 100, 10, 0);
-	movf	(_print_reading$1043+1),w
+l4398:	
+;print.c: 177: format_number(measurement % 100, 10, 0);
+	movf	(_print_reading$1004+1),w
 	movwf	(format_number@n+1)
-	movf	(_print_reading$1043),w
+	movf	(_print_reading$1004),w
 	movwf	(format_number@n)
 	movlw	low(0Ah)
 	movwf	(format_number@base)
 	clrf	(format_number@pad)
 	fcall	_format_number
-	line	468
+	line	180
 	
-l29:	
+l31:	
 	return
 	opt stack 0
 GLOBAL	__end_of_print_reading
 	__end_of_print_reading:
 	signat	_print_reading,4216
-	global	_lcd_init
+	global	_lcd_puts
 
-;; *************** function _lcd_init *****************
+;; *************** function _lcd_puts *****************
 ;; Defined at:
-;;		line 503 in file "../../../lib/lcd44780.c"
+;;		line 163 in file "../../../lib/lcd44780.c"
 ;; Parameters:    Size  Location     Type
-;;  fourbitmode     1    wreg     unsigned char 
+;;  string          2    2[BANK0 ] PTR const unsigned char 
+;;		 -> STR_21(5), STR_20(6), STR_19(7), STR_18(7), 
+;;		 -> STR_14(10), STR_12(4), STR_11(4), STR_10(6), 
 ;; Auto vars:     Size  Location     Type
-;;  fourbitmode     1    2[COMMON] unsigned char 
+;;  i               1    4[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, status,2, status,0
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/100
-;;		On exit  : 300/100
+;;		On entry : 300/0
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         3       0       0       0       0
+;;      Params:         0       2       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         3       0       0       0       0
+;;      Totals:         0       3       0       0       0
 ;;Total ram usage:        3 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
+;; Hardware stack levels required when called:    3
 ;; This function calls:
-;;		Nothing
+;;		_lcd_send
 ;; This function is called by:
+;;		_print_reading
+;;		_print_indicator
 ;;		_main
 ;; This function uses a non-reentrant model
 ;;
 psect	text9,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/lcd44780.c"
-	line	503
+	line	163
 global __ptext9
-__ptext9:	;psect for function _lcd_init
+__ptext9:	;psect for function _lcd_puts
 psect	text9
 	file	"../../../lib/lcd44780.c"
-	line	503
-	global	__size_of_lcd_init
-	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
-	
-_lcd_init:	
-;incstack = 0
-	opt	stack 6
-; Regs used in _lcd_init: [wreg+status,2+status,0]
-;lcd_init@fourbitmode stored from wreg
-	movwf	(lcd_init@fourbitmode)
-	line	505
-	
-l3135:	
-;lcd44780.c: 505: LCD_ctrl = 0;
-	clrf	(_LCD_ctrl)^080h
-	line	506
-	
-l3137:	
-;lcd44780.c: 506: LCD_function = (fourbitmode ? 0x00 : 0x10);
-	movf	((lcd_init@fourbitmode)),w
-	btfss	status,2
-	goto	u2781
-	goto	u2780
-u2781:
-	goto	l3141
-u2780:
-	
-l3139:	
-	movlw	010h
-	movwf	(_lcd_init$338)
-	clrf	(_lcd_init$338+1)
-	goto	l3143
-	
-l3141:	
-	clrf	(_lcd_init$338)
-	clrf	(_lcd_init$338+1)
-	
-l3143:	
-	movf	(_lcd_init$338),w
-	movwf	(_LCD_function)
-	line	508
-	
-l3145:	
-;lcd44780.c: 508: LCD_lines = 0;
-	bsf	status, 6	;RP1=1, select bank3
-	clrf	(_LCD_lines)^0180h
-	line	510
-	
-l3147:	
-;lcd44780.c: 510: LCD_mode = 0;
-	clrf	(_LCD_mode)^0180h
-	line	512
-	
-l3149:	
-;lcd44780.c: 512: TRISB2 = 0;
-	bcf	status, 6	;RP1=0, select bank1
-	bcf	(1074/8)^080h,(1074)&7	;volatile
-	line	513
-	
-l3151:	
-;lcd44780.c: 513: RB2 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(50/8),(50)&7	;volatile
-	line	518
-	
-l3153:	
-;lcd44780.c: 518: TRISB3 = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1075/8)^080h,(1075)&7	;volatile
-	line	519
-	
-l3155:	
-;lcd44780.c: 519: RB3 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	(51/8),(51)&7	;volatile
-	line	521
-	
-l3157:	
-;lcd44780.c: 521: TRISB4 = 0;
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	(1076/8)^080h,(1076)&7	;volatile
-	line	522
-	
-l3159:	
-;lcd44780.c: 522: TRISB5 = 0;
-	bcf	(1077/8)^080h,(1077)&7	;volatile
-	line	523
-	
-l3161:	
-;lcd44780.c: 523: TRISB6 = 0;
-	bcf	(1078/8)^080h,(1078)&7	;volatile
-	line	524
-	
-l3163:	
-;lcd44780.c: 524: TRISB7 = 0;
-	bcf	(1079/8)^080h,(1079)&7	;volatile
-	line	534
-	
-l390:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_init
-	__end_of_lcd_init:
-	signat	_lcd_init,4216
-	global	_lcd_begin
-
-;; *************** function _lcd_begin *****************
-;; Defined at:
-;;		line 430 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  lines           1    wreg     unsigned char 
-;;  dotsize         1    7[COMMON] unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  lines           1    0[BANK0 ] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 300/100
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
-;;      Locals:         0       1       0       0       0
-;;      Temps:          2       0       0       0       0
-;;      Totals:         3       1       0       0       0
-;;Total ram usage:        4 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
-;; This function calls:
-;;		_lcd_command
-;;		_lcd_write4bits
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text10,local,class=CODE,delta=2,merge=1
-	line	430
-global __ptext10
-__ptext10:	;psect for function _lcd_begin
-psect	text10
-	file	"../../../lib/lcd44780.c"
-	line	430
-	global	__size_of_lcd_begin
-	__size_of_lcd_begin	equ	__end_of_lcd_begin-_lcd_begin
-	
-_lcd_begin:	
-;incstack = 0
-	opt	stack 3
-; Regs used in _lcd_begin: [wreg+status,2+status,0+pclath+cstack]
-;lcd_begin@lines stored from wreg
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(lcd_begin@lines)
-	line	431
-	
-l4141:	
-;lcd44780.c: 431: if(lines > 1)
-	movlw	low(02h)
-	subwf	(lcd_begin@lines),w
-	skipc
-	goto	u3961
-	goto	u3960
-u3961:
-	goto	l4145
-u3960:
-	line	432
-	
-l4143:	
-;lcd44780.c: 432: LCD_function |= 0x08;
-	bsf	(_LCD_function)+(3/8),(3)&7
-	line	435
-	
-l4145:	
-;lcd44780.c: 435: LCD_lines = lines;
-	movf	(lcd_begin@lines),w
-	bsf	status, 5	;RP0=1, select bank3
-	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_LCD_lines)^0180h
-	line	439
-	
-l4147:	
-;lcd44780.c: 439: if((dotsize != 0) && (lines == 1))
-	movf	((lcd_begin@dotsize)),w
-	btfsc	status,2
-	goto	u3971
-	goto	u3970
-u3971:
-	goto	l4153
-u3970:
-	
-l4149:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-		decf	((lcd_begin@lines)),w
-	btfss	status,2
-	goto	u3981
-	goto	u3980
-u3981:
-	goto	l4153
-u3980:
-	line	440
-	
-l4151:	
-;lcd44780.c: 440: LCD_function |= 0x04;
-	bsf	(_LCD_function)+(2/8),(2)&7
-	line	442
-	
-l4153:	
-;lcd44780.c: 442: _delay((unsigned long)((15)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	98
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	101
-movwf	((??_lcd_begin+0)+0),f
-u4107:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u4107
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u4107
-	nop2
-opt asmopt_on
-
-	line	445
-	
-l4155:	
-;lcd44780.c: 445: RB2 = 0;
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(50/8),(50)&7	;volatile
-	line	446
-	
-l4157:	
-;lcd44780.c: 446: RB3 = 0;
-	bcf	(51/8),(51)&7	;volatile
-	line	449
-	
-l4159:	
-;lcd44780.c: 449: if(!(LCD_function & 0x10)) {
-	btfsc	(_LCD_function),(4)&7
-	goto	u3991
-	goto	u3990
-u3991:
-	goto	l4171
-u3990:
-	line	453
-	
-l4161:	
-;lcd44780.c: 453: lcd_write4bits(0x03);
-	movlw	low(03h)
-	fcall	_lcd_write4bits
-	line	454
-	
-l4163:	
-;lcd44780.c: 454: _delay((unsigned long)((5)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	33
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u4117:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u4117
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u4117
-	nop
-opt asmopt_on
-
-	line	456
-	
-l4165:	
-;lcd44780.c: 456: lcd_write4bits(0x03);
-	movlw	low(03h)
-	fcall	_lcd_write4bits
-	line	457
-;lcd44780.c: 457: _delay((unsigned long)((150)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	249
-movwf	(??_lcd_begin+0)+0,f
-u4127:
-decfsz	(??_lcd_begin+0)+0,f
-	goto	u4127
-	nop2	;nop
-opt asmopt_on
-
-	line	459
-	
-l4167:	
-;lcd44780.c: 459: lcd_write4bits(0x03);
-	movlw	low(03h)
-	fcall	_lcd_write4bits
-	line	460
-	
-l4169:	
-;lcd44780.c: 460: _delay((unsigned long)((150)*(20000000/4000000.0)));
-	opt asmopt_off
-movlw	249
-movwf	(??_lcd_begin+0)+0,f
-u4137:
-decfsz	(??_lcd_begin+0)+0,f
-	goto	u4137
-	nop2	;nop
-opt asmopt_on
-
-	line	462
-;lcd44780.c: 462: lcd_write4bits(0x02);
-	movlw	low(02h)
-	fcall	_lcd_write4bits
-	line	463
-;lcd44780.c: 463: }
-	goto	l4179
-	line	469
-	
-l4171:	
-;lcd44780.c: 465: else {
-;lcd44780.c: 469: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	470
-	
-l4173:	
-;lcd44780.c: 470: _delay((unsigned long)((5)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	33
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u4147:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u4147
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u4147
-	nop
-opt asmopt_on
-
-	line	473
-	
-l4175:	
-;lcd44780.c: 473: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	474
-;lcd44780.c: 474: _delay((unsigned long)((5)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	33
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	118
-movwf	((??_lcd_begin+0)+0),f
-u4157:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u4157
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u4157
-	nop
-opt asmopt_on
-
-	line	478
-	
-l4177:	
-;lcd44780.c: 478: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	482
-	
-l4179:	
-;lcd44780.c: 479: }
-;lcd44780.c: 482: lcd_command(0x20 | LCD_function);
-	movf	(_LCD_function),w
-	iorlw	020h
-	fcall	_lcd_command
-	line	485
-;lcd44780.c: 485: LCD_ctrl = 0x04 | 0x00 | 0x00;
-	movlw	low(04h)
-	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(_LCD_ctrl)^080h
-	line	486
-	
-l4181:	
-;lcd44780.c: 486: lcd_command(0x08 | LCD_ctrl);
-	movf	(_LCD_ctrl)^080h,w
-	iorlw	08h
-	fcall	_lcd_command
-	line	489
-	
-l4183:	
-;lcd44780.c: 489: lcd_command(0x01);
-	movlw	low(01h)
-	fcall	_lcd_command
-	line	490
-;lcd44780.c: 490: _delay((unsigned long)((2)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	13
-movwf	((??_lcd_begin+0)+0+1),f
-	movlw	251
-movwf	((??_lcd_begin+0)+0),f
-u4167:
-	decfsz	((??_lcd_begin+0)+0),f
-	goto	u4167
-	decfsz	((??_lcd_begin+0)+0+1),f
-	goto	u4167
-	nop2
-opt asmopt_on
-
-	line	493
-;lcd44780.c: 493: LCD_mode = 0x02 | 0x00;
-	movlw	low(02h)
-	bsf	status, 5	;RP0=1, select bank3
-	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_LCD_mode)^0180h
-	line	495
-	
-l4185:	
-;lcd44780.c: 495: lcd_command(0x04 | LCD_mode);
-	movf	(_LCD_mode)^0180h,w
-	iorlw	04h
-	fcall	_lcd_command
-	line	496
-	
-l383:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_begin
-	__end_of_lcd_begin:
-	signat	_lcd_begin,8312
-	global	_indicator
-
-;; *************** function _indicator *****************
-;; Defined at:
-;;		line 472 in file "../../../src/print.c"
-;; Parameters:    Size  Location     Type
-;;  indicate        1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  indicate        1    5[BANK0 ] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/0
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         0       1       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         0       1       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
-;; This function calls:
-;;		_lcd_gotoxy
-;;		_lcd_puts
-;; This function is called by:
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text11,local,class=CODE,delta=2,merge=1
-	file	"../../../src/print.c"
-	line	472
-global __ptext11
-__ptext11:	;psect for function _indicator
-psect	text11
-	file	"../../../src/print.c"
-	line	472
-	global	__size_of_indicator
-	__size_of_indicator	equ	__end_of_indicator-_indicator
-	
-_indicator:	
-;incstack = 0
-	opt	stack 2
-; Regs used in _indicator: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;indicator@indicate stored from wreg
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(indicator@indicate)
-	line	486
-	
-l4071:	
-;print.c: 486: lcd_gotoxy(0, 1);
-	clrf	(lcd_gotoxy@row)
-	incf	(lcd_gotoxy@row),f
-	movlw	low(0)
-	fcall	_lcd_gotoxy
-	line	487
-	
-l4073:	
-;print.c: 487: if(indicate) {
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	((indicator@indicate)),w
-	btfsc	status,2
-	goto	u3881
-	goto	u3880
-u3881:
-	goto	l4077
-u3880:
-	line	488
-	
-l4075:	
-;print.c: 488: lcd_puts("-*-");
-	movlw	(low((((STR_11)-__stringbase)|8000h)))&0ffh
-	fcall	_lcd_puts
-	line	489
-;print.c: 489: } else {
-	goto	l34
-	line	490
-	
-l4077:	
-;print.c: 490: lcd_puts("   ");
-	movlw	(low((((STR_12)-__stringbase)|8000h)))&0ffh
-	fcall	_lcd_puts
-	line	493
-	
-l34:	
-	return
-	opt stack 0
-GLOBAL	__end_of_indicator
-	__end_of_indicator:
-	signat	_indicator,4216
-	global	_lcd_puts
-
-;; *************** function _lcd_puts *****************
-;; Defined at:
-;;		line 182 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  string          1    wreg     PTR const unsigned char 
-;;		 -> STR_18(5), STR_17(6), STR_16(7), STR_15(7), 
-;;		 -> STR_13(10), STR_12(4), STR_11(4), STR_10(6), 
-;; Auto vars:     Size  Location     Type
-;;  string          1    9[COMMON] PTR const unsigned char 
-;;		 -> STR_18(5), STR_17(6), STR_16(7), STR_15(7), 
-;;		 -> STR_13(10), STR_12(4), STR_11(4), STR_10(6), 
-;;  i               1    8[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         2       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         2       0       0       0       0
-;;Total ram usage:        2 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
-;; This function calls:
-;;		_lcd_putch
-;; This function is called by:
-;;		_print_reading
-;;		_indicator
-;;		_main
-;; This function uses a non-reentrant model
-;;
-psect	text12,local,class=CODE,delta=2,merge=1
-	file	"../../../lib/lcd44780.c"
-	line	182
-global __ptext12
-__ptext12:	;psect for function _lcd_puts
-psect	text12
-	file	"../../../lib/lcd44780.c"
-	line	182
+	line	163
 	global	__size_of_lcd_puts
 	__size_of_lcd_puts	equ	__end_of_lcd_puts-_lcd_puts
 	
 _lcd_puts:	
 ;incstack = 0
-	opt	stack 1
-; Regs used in _lcd_puts: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;lcd_puts@string stored from wreg
-	movwf	(lcd_puts@string)
-	line	184
+	opt	stack 3
+; Regs used in _lcd_puts: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	165
 	
-l3811:	
-;lcd44780.c: 183: unsigned char i;
-;lcd44780.c: 184: for(i = 0; string[i]; i++) lcd_putch(string[i]);
+l4242:	
+;lcd44780.c: 164: uint8_t i;
+;lcd44780.c: 165: for(i = 0; string[i]; i++) lcd_send((string[i]), 1);
 	clrf	(lcd_puts@i)
-	goto	l3817
+	goto	l4248
 	
-l3813:	
+l4244:	
+	clrf	(lcd_send@mode)
+	incf	(lcd_send@mode),f
 	movf	(lcd_puts@i),w
 	addwf	(lcd_puts@string),w
 	movwf	fsr0
-	fcall	stringdir
-	movwf	(lcd_putch@value)
-	fcall	_lcd_putch
+	movf	(lcd_puts@string+1),w
+	skipnc
+	incf	(lcd_puts@string+1),w
+	movwf	btemp+1
+	fcall	stringtab
+	fcall	_lcd_send
 	
-l3815:	
+l4246:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	incf	(lcd_puts@i),f
 	
-l3817:	
+l4248:	
 	movf	(lcd_puts@i),w
 	addwf	(lcd_puts@string),w
 	movwf	fsr0
-	fcall	stringdir
+	movf	(lcd_puts@string+1),w
+	skipnc
+	incf	(lcd_puts@string+1),w
+	movwf	btemp+1
+	fcall	stringtab
 	xorlw	0
 	skipz
-	goto	u3641
-	goto	u3640
-u3641:
-	goto	l3813
-u3640:
-	line	185
+	goto	u3931
+	goto	u3930
+u3931:
+	goto	l4244
+u3930:
+	line	166
 	
-l337:	
+l320:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_puts
 	__end_of_lcd_puts:
 	signat	_lcd_puts,4216
+	global	_format_xint32
+
+;; *************** function _format_xint32 *****************
+;; Defined at:
+;;		line 51 in file "../../../lib/format.c"
+;; Parameters:    Size  Location     Type
+;;  x               4   48[BANK0 ] unsigned long 
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 300/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       4       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       4       0       0       0
+;;Total ram usage:        4 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    3
+;; This function calls:
+;;		_buffer_putch
+;;		_format_number
+;; This function is called by:
+;;		_measure_capacitance
+;; This function uses a non-reentrant model
+;;
+psect	text10,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/format.c"
+	line	51
+global __ptext10
+__ptext10:	;psect for function _format_xint32
+psect	text10
+	file	"../../../lib/format.c"
+	line	51
+	global	__size_of_format_xint32
+	__size_of_format_xint32	equ	__end_of_format_xint32-_format_xint32
+	
+_format_xint32:	
+;incstack = 0
+	opt	stack 3
+; Regs used in _format_xint32: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	52
+	
+l4408:	
+;format.c: 52: buffer_putch('0');
+	movlw	low(030h)
+	fcall	_buffer_putch
+	line	53
+;format.c: 53: buffer_putch('x');
+	movlw	low(078h)
+	fcall	_buffer_putch
+	line	54
+;format.c: 54: format_number((uint16_t)(x >> 16), 16, -4);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	1+(format_xint32@x)+02h,w
+	movwf	(format_number@n+1)
+	movf	0+(format_xint32@x)+02h,w
+	movwf	(format_number@n)
+	movlw	low(010h)
+	movwf	(format_number@base)
+	movlw	low(-4)
+	movwf	(format_number@pad)
+	fcall	_format_number
+	line	55
+;format.c: 55: format_number((uint16_t)(x & 0xffff), 16, -4);
+	movf	(format_xint32@x+1),w
+	movwf	(format_number@n+1)
+	movf	(format_xint32@x),w
+	movwf	(format_number@n)
+	movlw	low(010h)
+	movwf	(format_number@base)
+	movlw	low(-4)
+	movwf	(format_number@pad)
+	fcall	_format_number
+	line	56
+	
+l136:	
+	return
+	opt stack 0
+GLOBAL	__end_of_format_xint32
+	__end_of_format_xint32:
+	signat	_format_xint32,4216
 	global	_format_double
 
 ;; *************** function _format_double *****************
 ;; Defined at:
-;;		line 74 in file "../../../lib/format.c"
+;;		line 77 in file "../../../lib/format.c"
 ;; Parameters:    Size  Location     Type
-;;  num             4    0[BANK3 ] unsigned char 
+;;  num             4    0[BANK3 ] unsigned long 
 ;; Auto vars:     Size  Location     Type
-;;  weight          4   12[BANK3 ] unsigned char 
+;;  weight          4   12[BANK3 ] unsigned long 
 ;;  m               2   18[BANK3 ] short 
 ;;  digit           2   16[BANK3 ] short 
 ;; Return value:  Size  Location     Type
@@ -7764,7 +8735,7 @@ GLOBAL	__end_of_lcd_puts
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 300/300
-;;		On exit  : 0/0
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       4       0
@@ -7781,35 +8752,33 @@ GLOBAL	__end_of_lcd_puts
 ;;		___flmul
 ;;		___flsub
 ;;		___fltol
+;;		_buffer_putch
 ;;		_floor
-;;		_format_putchar
-;;		_lcd_putch
 ;;		_log10
-;;		_output_putch
 ;;		_pow
 ;; This function is called by:
 ;;		_main
+;;		_measure_capacitance
 ;; This function uses a non-reentrant model
 ;;
-psect	text13,local,class=CODE,delta=2,merge=1
+psect	text11,local,class=CODE,delta=2,merge=1
+	line	77
+global __ptext11
+__ptext11:	;psect for function _format_double
+psect	text11
 	file	"../../../lib/format.c"
-	line	74
-global __ptext13
-__ptext13:	;psect for function _format_double
-psect	text13
-	file	"../../../lib/format.c"
-	line	74
+	line	77
 	global	__size_of_format_double
 	__size_of_format_double	equ	__end_of_format_double-_format_double
 	
 _format_double:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _format_double: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	75
+	line	78
 	
-l4125:	
-;format.c: 75: short m = (short)log10(num);
+l4410:	
+;format.c: 78: short m = (short)log10(num);
 	movf	(format_double@num+3)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(log10@x+3)^080h
@@ -7844,14 +8813,14 @@ l4125:
 	movf	0+(((0+(?___fltol))^080h)),w
 	bsf	status, 6	;RP1=1, select bank3
 	movwf	(format_double@m)^0180h
-	line	79
-;format.c: 76: short digit;
-;format.c: 79: while(num > 0 + (sizeof(double) == sizeof(float) ? 3.05176e-05 : 1.19209290e-07)) {
-	goto	l4139
-	line	80
+	line	82
+;format.c: 79: short digit;
+;format.c: 82: while(num > 0 + (sizeof(double) == sizeof(float) ? 3.05176e-05 : 1.19209290e-07)) {
+	goto	l4426
+	line	83
 	
-l4127:	
-;format.c: 80: double weight = pow(10.0l, m);
+l4412:	
+;format.c: 83: double weight = pow(10.0l, m);
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	movf	(format_double@m+1)^0180h,w
@@ -7868,29 +8837,29 @@ l4127:
 	movf	(3+(?___awtofl)),w
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1046+3)^0180h
+	movwf	(_format_double$1007+3)^0180h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___awtofl)),w
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1046+2)^0180h
+	movwf	(_format_double$1007+2)^0180h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___awtofl)),w
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1046+1)^0180h
+	movwf	(_format_double$1007+1)^0180h
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___awtofl)),w
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1046)^0180h
+	movwf	(_format_double$1007)^0180h
 
 	
-l4129:	
-;format.c: 80: double weight = pow(10.0l, m);
+l4414:	
+;format.c: 83: double weight = pow(10.0l, m);
 	movlw	0x41
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(pow@x+3)^080h
@@ -7902,19 +8871,19 @@ l4129:
 	movwf	(pow@x)^080h
 
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1046+3)^0180h,w
+	movf	(_format_double$1007+3)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(pow@y+3)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1046+2)^0180h,w
+	movf	(_format_double$1007+2)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(pow@y+2)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1046+1)^0180h,w
+	movf	(_format_double$1007+1)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(pow@y+1)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1046)^0180h,w
+	movf	(_format_double$1007)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(pow@y)^080h
 
@@ -7935,10 +8904,10 @@ l4129:
 	bsf	status, 6	;RP1=1, select bank3
 	movwf	(format_double@weight)^0180h
 
-	line	81
+	line	84
 	
-l4131:	
-;format.c: 81: digit = (short)floor(num / weight);
+l4416:	
+;format.c: 84: digit = (short)floor(num / weight);
 	movf	(format_double@num+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -8007,34 +8976,34 @@ l4131:
 	fcall	_floor
 	movf	(3+(?_floor))^080h,w
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1047+3)^0180h
+	movwf	(_format_double$1008+3)^0180h
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(2+(?_floor))^080h,w
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1047+2)^0180h
+	movwf	(_format_double$1008+2)^0180h
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(1+(?_floor))^080h,w
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1047+1)^0180h
+	movwf	(_format_double$1008+1)^0180h
 	bcf	status, 6	;RP1=0, select bank1
 	movf	(0+(?_floor))^080h,w
 	bsf	status, 6	;RP1=1, select bank3
-	movwf	(_format_double$1047)^0180h
+	movwf	(_format_double$1008)^0180h
 
-;format.c: 81: digit = (short)floor(num / weight);
-	movf	(_format_double$1047+3)^0180h,w
+;format.c: 84: digit = (short)floor(num / weight);
+	movf	(_format_double$1008+3)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+3)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1047+2)^0180h,w
+	movf	(_format_double$1008+2)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+2)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1047+1)^0180h,w
+	movf	(_format_double$1008+1)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1+1)^080h
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(_format_double$1047)^0180h,w
+	movf	(_format_double$1008)^0180h,w
 	bcf	status, 6	;RP1=0, select bank1
 	movwf	(___fltol@f1)^080h
 
@@ -8046,8 +9015,8 @@ l4131:
 	movf	0+(((0+(?___fltol))^080h)),w
 	bsf	status, 6	;RP1=1, select bank3
 	movwf	(format_double@digit)^0180h
-	line	82
-;format.c: 82: num -= (digit * weight);
+	line	85
+;format.c: 85: num -= (digit * weight);
 	movf	(format_double@digit+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
@@ -8152,49 +9121,49 @@ l4131:
 	bsf	status, 6	;RP1=1, select bank3
 	movwf	(format_double@num)^0180h
 
-	line	83
-;format.c: 83: putchar_ptr((char)('0' + digit));
+	line	86
+	
+l4418:	
+;format.c: 86: buffer_putch((char)('0' + digit));
 	movf	(format_double@digit)^0180h,w
 	addlw	030h
-	movwf	(format_putchar@c)
-	movf	(_putchar_ptr),w
-	fcall	fptable
-	line	84
+	fcall	_buffer_putch
+	line	87
 	
-l4133:	
-;format.c: 84: if(m == 0)
+l4420:	
+;format.c: 87: if(m == 0)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	movf	((format_double@m)^0180h),w
 iorwf	((format_double@m+1)^0180h),w
 	btfss	status,2
-	goto	u3941
-	goto	u3940
-u3941:
-	goto	l4137
-u3940:
-	line	85
+	goto	u4111
+	goto	u4110
+u4111:
+	goto	l4424
+u4110:
+	line	88
 	
-l4135:	
-;format.c: 85: putchar_ptr('.');
+l4422:	
+;format.c: 88: buffer_putch('.');
 	movlw	low(02Eh)
-	movwf	(format_putchar@c)
-	movf	(_putchar_ptr),w
-	fcall	fptable
-	line	86
+	fcall	_buffer_putch
+	line	89
 	
-l4137:	
-;format.c: 86: m--;
+l4424:	
+;format.c: 89: m--;
 	movlw	-1
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	addwf	(format_double@m)^0180h,f
 	skipc
 	decf	(format_double@m+1)^0180h,f
-	line	79
+	line	82
 	
-l4139:	
+l4426:	
 	movlw	0x38
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff1+3)
 	movlw	0x0
 	movwf	(___flge@ff1+2)
@@ -8203,25 +9172,41 @@ l4139:
 	movlw	0x6
 	movwf	(___flge@ff1)
 
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
 	movf	(format_double@num+3)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
 	movf	(format_double@num+2)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
 	movf	(format_double@num+1)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
 	movf	(format_double@num)^0180h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfss	status,0
-	goto	u3951
-	goto	u3950
-u3951:
-	goto	l4127
-u3950:
-	line	88
+	goto	u4121
+	goto	u4120
+u4121:
+	goto	l4412
+u4120:
+	line	91
 	
-l166:	
+l150:	
 	return
 	opt stack 0
 GLOBAL	__end_of_format_double
@@ -8231,15 +9216,15 @@ GLOBAL	__end_of_format_double
 
 ;; *************** function _pow *****************
 ;; Defined at:
-;;		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c"
+;;		line 5 in file "/opt/microchip/xc8/v1.34/sources/common/pow.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4   48[BANK1 ] short 
-;;  y               4   52[BANK1 ] short 
+;;  x               4   58[BANK1 ] short 
+;;  y               4   62[BANK1 ] short 
 ;; Auto vars:     Size  Location     Type
-;;  yi              4   65[BANK1 ] unsigned long 
-;;  sign            1   64[BANK1 ] unsigned char 
+;;  yi              4   75[BANK1 ] unsigned long 
+;;  sign            1   74[BANK1 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4   48[BANK1 ] unsigned char 
+;;                  4   58[BANK1 ] unsigned char 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -8266,82 +9251,90 @@ GLOBAL	__end_of_format_double
 ;;		_format_double
 ;; This function uses a non-reentrant model
 ;;
-psect	text14,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c"
+psect	text12,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/pow.c"
 	line	5
-global __ptext14
-__ptext14:	;psect for function _pow
-psect	text14
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\pow.c"
+global __ptext12
+__ptext12:	;psect for function _pow
+psect	text12
+	file	"/opt/microchip/xc8/v1.34/sources/common/pow.c"
 	line	5
 	global	__size_of_pow
 	__size_of_pow	equ	__end_of_pow-_pow
 	
 _pow:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _pow: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	7
 	
-l3985:	
+l4340:	
 	clrf	(pow@sign)^080h
 	line	10
 	
-l3987:	
+l4342:	
 	movf	(pow@x+3)^080h,w
 	iorwf	(pow@x+2)^080h,w
 	iorwf	(pow@x+1)^080h,w
 	iorwf	(pow@x)^080h,w
 	skipz
-	goto	u3831
-	goto	u3830
-u3831:
-	goto	l3991
-u3830:
+	goto	u4021
+	goto	u4020
+u4021:
+	goto	l4346
+u4020:
 	line	11
 	
-l3989:	
+l4344:	
+	bcf	status, 5	;RP0=0, select bank0
 	clrf	(___flge@ff1)
 	clrf	(___flge@ff1+1)
 	clrf	(___flge@ff1+2)
 	clrf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	line	13
 	
-l1077:	
+l1060:	
 	line	14
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	clrf	(?_pow)^080h
 	clrf	(?_pow+1)^080h
 	clrf	(?_pow+2)^080h
 	clrf	(?_pow+3)^080h
-	goto	l1078
+	goto	l1061
 	line	16
 	
-l3991:	
+l4346:	
 	movf	(pow@y+3)^080h,w
 	iorwf	(pow@y+2)^080h,w
 	iorwf	(pow@y+1)^080h,w
 	iorwf	(pow@y)^080h,w
 	skipz
-	goto	u3841
-	goto	u3840
-u3841:
-	goto	l3997
-u3840:
+	goto	u4031
+	goto	u4030
+u4031:
+	goto	l4352
+u4030:
 	line	17
 	
-l3993:	
+l4348:	
 	movlw	0x3f
 	movwf	(?_pow+3)^080h
 	movlw	0x80
@@ -8351,17 +9344,24 @@ l3993:
 	movlw	0x0
 	movwf	(?_pow)^080h
 
-	goto	l1078
+	goto	l1061
 	line	18
 	
-l3997:	
+l4352:	
 	movf	(pow@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	clrf	(___flge@ff2)
@@ -8370,16 +9370,15 @@ l3997:
 	clrf	(___flge@ff2+3)
 	fcall	___flge
 	btfsc	status,0
-	goto	u3851
-	goto	u3850
-u3851:
-	goto	l4009
-u3850:
+	goto	u4041
+	goto	u4040
+u4041:
+	goto	l4364
+u4040:
 	line	19
 	
-l3999:	
+l4354:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(pow@y+3)^080h,w
 	movwf	(___fltol@f1+3)^080h
 	movf	(pow@y+2)^080h,w
@@ -8422,111 +9421,110 @@ l3999:
 	bcf	status, 5	;RP0=0, select bank0
 	xorwf	(3+(?___lltofl)),w
 	skipz
-	goto	u3865
+	goto	u4055
 	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	xorwf	(2+(?___lltofl)),w
 	skipz
-	goto	u3865
+	goto	u4055
 	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	xorwf	(1+(?___lltofl)),w
 	skipz
-	goto	u3865
+	goto	u4055
 	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@y)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	xorwf	(0+(?___lltofl)),w
-u3865:
+u4055:
 	skipnz
-	goto	u3861
-	goto	u3860
-u3861:
-	goto	l4003
-u3860:
+	goto	u4051
+	goto	u4050
+u4051:
+	goto	l4358
+u4050:
 	line	22
 	
-l4001:	
+l4356:	
 	bsf	status, 5	;RP0=1, select bank1
 	clrf	(?_pow)^080h
 	clrf	(?_pow+1)^080h
 	clrf	(?_pow+2)^080h
 	clrf	(?_pow+3)^080h
-	goto	l1078
+	goto	l1061
 	line	24
 	
-l4003:	
+l4358:	
 	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@yi)^080h,w
 	movwf	(pow@sign)^080h
 	
-l4005:	
+l4360:	
 	movlw	low(01h)
 	andwf	(pow@sign)^080h,f
 	line	25
 	
-l4007:	
+l4362:	
 	movf	(pow@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1)
 
 	fcall	___flneg
 	movf	(3+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(pow@x+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(pow@x+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(pow@x+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(pow@x)^080h
 
 	line	27
 	
-l4009:	
+l4364:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(pow@x+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+3)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+3)^080h
 	movf	(pow@x+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+2)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+2)^080h
 	movf	(pow@x+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+1)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+1)^080h
 	movf	(pow@x)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x)
+	movwf	(log@x)^080h
 
 	fcall	_log
-	movf	(3+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1059+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(2+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1059+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(1+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1059+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(0+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1059)^080h
+	movf	(3+(?_log))^080h,w
+	movwf	(_pow$1020+3)^080h
+	movf	(2+(?_log))^080h,w
+	movwf	(_pow$1020+2)^080h
+	movf	(1+(?_log))^080h,w
+	movwf	(_pow$1020+1)^080h
+	movf	(0+(?_log))^080h,w
+	movwf	(_pow$1020)^080h
 
 	
-l4011:	
+l4366:	
 	movf	(pow@y+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -8544,46 +9542,46 @@ l4011:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_pow$1059+3)^080h,w
+	movf	(_pow$1020+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_pow$1059+2)^080h,w
+	movf	(_pow$1020+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_pow$1059+1)^080h,w
+	movf	(_pow$1020+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_pow$1059)^080h,w
+	movf	(_pow$1020)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
 	fcall	___flmul
 	movf	(3+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1060+3)^080h
+	movwf	(_pow$1021+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1060+2)^080h
+	movwf	(_pow$1021+2)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1060+1)^080h
+	movwf	(_pow$1021+1)^080h
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flmul)),w
 	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_pow$1060)^080h
+	movwf	(_pow$1021)^080h
 
-	movf	(_pow$1060+3)^080h,w
+	movf	(_pow$1021+3)^080h,w
 	movwf	(exp@x+3)^080h
-	movf	(_pow$1060+2)^080h,w
+	movf	(_pow$1021+2)^080h,w
 	movwf	(exp@x+2)^080h
-	movf	(_pow$1060+1)^080h,w
+	movf	(_pow$1021+1)^080h,w
 	movwf	(exp@x+1)^080h
-	movf	(_pow$1060)^080h,w
+	movf	(_pow$1021)^080h,w
 	movwf	(exp@x)^080h
 
 	fcall	_exp
@@ -8598,43 +9596,57 @@ l4011:
 
 	line	28
 	
-l4013:	
+l4368:	
 	movf	((pow@sign)^080h),w
 	btfsc	status,2
-	goto	u3871
-	goto	u3870
-u3871:
-	goto	l1082
-u3870:
+	goto	u4061
+	goto	u4060
+u4061:
+	goto	l1065
+u4060:
 	line	29
 	
-l4015:	
+l4370:	
 	movf	(pow@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(pow@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1)
 
 	fcall	___flneg
 	movf	(3+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_pow+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_pow+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_pow+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_pow)^080h
 
-	goto	l1078
+	goto	l1061
 	
-l1082:	
+l1065:	
 	line	30
 	line	31
 	
-l1078:	
+l1061:	
 	return
 	opt stack 0
 GLOBAL	__end_of_pow
@@ -8644,14 +9656,14 @@ GLOBAL	__end_of_pow
 
 ;; *************** function _exp *****************
 ;; Defined at:
-;;		line 12 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c"
+;;		line 12 in file "/opt/microchip/xc8/v1.34/sources/common/exp.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4   33[BANK1 ] unsigned char 
+;;  x               4   43[BANK1 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  exponent        2   45[BANK1 ] int 
-;;  sign            1   47[BANK1 ] unsigned char 
+;;  exponent        2   55[BANK1 ] int 
+;;  sign            1   57[BANK1 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4   33[BANK1 ] unsigned char 
+;;                  4   43[BANK1 ] unsigned char 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -8681,37 +9693,37 @@ GLOBAL	__end_of_pow
 ;;		_pow
 ;; This function uses a non-reentrant model
 ;;
-psect	text15,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c"
+psect	text13,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/exp.c"
 	line	12
-global __ptext15
-__ptext15:	;psect for function _exp
-psect	text15
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\exp.c"
+global __ptext13
+__ptext13:	;psect for function _exp
+psect	text13
+	file	"/opt/microchip/xc8/v1.34/sources/common/exp.c"
 	line	12
 	global	__size_of_exp
 	__size_of_exp	equ	__end_of_exp-_exp
 	
 _exp:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _exp: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	31
 	
-l3919:	
+l4184:	
 	movf	(exp@x+3)^080h,w
 	iorwf	(exp@x+2)^080h,w
 	iorwf	(exp@x+1)^080h,w
 	iorwf	(exp@x)^080h,w
 	skipz
-	goto	u3751
-	goto	u3750
-u3751:
-	goto	l3925
-u3750:
+	goto	u3841
+	goto	u3840
+u3841:
+	goto	l4190
+u3840:
 	line	32
 	
-l3921:	
+l4186:	
 	movlw	0x3f
 	movwf	(?_exp+3)^080h
 	movlw	0x80
@@ -8721,11 +9733,12 @@ l3921:
 	movlw	0x0
 	movwf	(?_exp)^080h
 
-	goto	l1104
+	goto	l1087
 	line	34
 	
-l3925:	
+l4190:	
 	movlw	0x44
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
 	movlw	0x31
 	movwf	(___flge@ff1+2)
@@ -8734,28 +9747,35 @@ l3925:
 	movlw	0x18
 	movwf	(___flge@ff1)
 
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u3761
-	goto	u3760
-u3761:
-	goto	l3935
-u3760:
+	goto	u3851
+	goto	u3850
+u3851:
+	goto	l4200
+u3850:
 	line	36
 	
-l3931:	
+l4196:	
 	movlw	0x7f
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movwf	(?_exp+3)^080h
 	movlw	0x7f
 	movwf	(?_exp+2)^080h
@@ -8764,19 +9784,25 @@ l3931:
 	movlw	0xf7
 	movwf	(?_exp)^080h
 
-	goto	l1104
+	goto	l1087
 	line	38
 	
-l3935:	
+l4200:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(exp@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	movlw	0xc4
@@ -8790,33 +9816,38 @@ l3935:
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u3771
-	goto	u3770
-u3771:
-	goto	l3939
-u3770:
+	goto	u3861
+	goto	u3860
+u3861:
+	goto	l4204
+u3860:
 	line	40
 	
-l3937:	
+l4202:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	clrf	(?_exp)^080h
 	clrf	(?_exp+1)^080h
 	clrf	(?_exp+2)^080h
 	clrf	(?_exp+3)^080h
-	goto	l1104
+	goto	l1087
 	line	43
 	
-l3939:	
+l4204:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(exp@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	clrf	(___flge@ff2)
@@ -8825,52 +9856,65 @@ l3939:
 	clrf	(___flge@ff2+3)
 	fcall	___flge
 	btfss	status,0
-	goto	u3781
-	goto	u3780
-u3781:
+	goto	u3871
+	goto	u3870
+u3871:
 	movlw	1
-	goto	u3790
-u3780:
+	goto	u3880
+u3870:
 	movlw	0
-u3790:
+u3880:
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movwf	(exp@sign)^080h
 	line	44
 	
-l3941:	
+l4206:	
 	movf	((exp@sign)^080h),w
 	btfsc	status,2
-	goto	u3801
-	goto	u3800
-u3801:
-	goto	l3945
-u3800:
+	goto	u3891
+	goto	u3890
+u3891:
+	goto	l4210
+u3890:
 	line	45
 	
-l3943:	
+l4208:	
 	movf	(exp@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1)
 
 	fcall	___flneg
 	movf	(3+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(exp@x+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(exp@x+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(exp@x+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(exp@x)^080h
 
 	line	46
 	
-l3945:	
+l4210:	
 	movlw	0x3f
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -8917,7 +9961,7 @@ l3945:
 
 	line	47
 	
-l3947:	
+l4212:	
 	movf	(exp@x+3)^080h,w
 	movwf	(floor@x+3)^080h
 	movf	(exp@x+2)^080h,w
@@ -8929,23 +9973,23 @@ l3947:
 
 	fcall	_floor
 	movf	(3+(?_floor))^080h,w
-	movwf	(_exp$1061+3)^080h
+	movwf	(_exp$1022+3)^080h
 	movf	(2+(?_floor))^080h,w
-	movwf	(_exp$1061+2)^080h
+	movwf	(_exp$1022+2)^080h
 	movf	(1+(?_floor))^080h,w
-	movwf	(_exp$1061+1)^080h
+	movwf	(_exp$1022+1)^080h
 	movf	(0+(?_floor))^080h,w
-	movwf	(_exp$1061)^080h
+	movwf	(_exp$1022)^080h
 
 	
-l3949:	
-	movf	(_exp$1061+3)^080h,w
+l4214:	
+	movf	(_exp$1022+3)^080h,w
 	movwf	(___fltol@f1+3)^080h
-	movf	(_exp$1061+2)^080h,w
+	movf	(_exp$1022+2)^080h,w
 	movwf	(___fltol@f1+2)^080h
-	movf	(_exp$1061+1)^080h,w
+	movf	(_exp$1022+1)^080h,w
 	movwf	(___fltol@f1+1)^080h
-	movf	(_exp$1061)^080h,w
+	movf	(_exp$1022)^080h,w
 	movwf	(___fltol@f1)^080h
 
 	fcall	___fltol
@@ -8955,7 +9999,7 @@ l3949:
 	movwf	(exp@exponent)^080h
 	line	48
 	
-l3951:	
+l4216:	
 	movf	(exp@exponent+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___awtofl@c+1)
@@ -9009,7 +10053,7 @@ l3951:
 
 	line	49
 	
-l3953:	
+l4218:	
 	movf	(exp@x+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x+3)
@@ -9026,102 +10070,100 @@ l3953:
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x)
 
-	movlw	(low((((exp@coeff)-__stringbase)|8000h)))&0ffh
+	movlw	low(((exp@coeff)|8000h))
 	movwf	(eval_poly@d)
+	movlw	high(((exp@coeff)|8000h))
+	movwf	((eval_poly@d))+1
 	movlw	09h
 	movwf	(eval_poly@n)
 	clrf	(eval_poly@n+1)
 	fcall	_eval_poly
 	movf	(3+(?_eval_poly)),w
-	movwf	(ldexp@value+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(ldexp@value+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?_eval_poly)),w
-	movwf	(ldexp@value+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(ldexp@value+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?_eval_poly)),w
-	movwf	(ldexp@value+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(ldexp@value+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?_eval_poly)),w
-	movwf	(ldexp@value)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(ldexp@value)^080h
 
-	bsf	status, 5	;RP0=1, select bank1
 	movf	(exp@exponent+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(ldexp@newexp+1)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(ldexp@newexp+1)^080h
 	movf	(exp@exponent)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(ldexp@newexp)
+	movwf	(ldexp@newexp)^080h
 	fcall	_ldexp
-	movf	(3+(?_ldexp)),w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	(3+(?_ldexp))^080h,w
 	movwf	(exp@x+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(2+(?_ldexp)),w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	(2+(?_ldexp))^080h,w
 	movwf	(exp@x+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(1+(?_ldexp)),w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	(1+(?_ldexp))^080h,w
 	movwf	(exp@x+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(0+(?_ldexp)),w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	(0+(?_ldexp))^080h,w
 	movwf	(exp@x)^080h
 
 	line	50
 	
-l3955:	
+l4220:	
 	movf	((exp@sign)^080h),w
 	btfsc	status,2
-	goto	u3811
-	goto	u3810
-u3811:
-	goto	l1112
-u3810:
+	goto	u3901
+	goto	u3900
+u3901:
+	goto	l1095
+u3900:
 	line	52
 	
-l3961:	
+l4226:	
 	movlw	0x7f
-	movwf	(_exp$786+3)^080h
+	movwf	(_exp$754+3)^080h
 	movlw	0x7f
-	movwf	(_exp$786+2)^080h
+	movwf	(_exp$754+2)^080h
 	movlw	0xfe
-	movwf	(_exp$786+1)^080h
+	movwf	(_exp$754+1)^080h
 	movlw	0xf7
-	movwf	(_exp$786)^080h
+	movwf	(_exp$754)^080h
 
 	
-l1117:	
+l1100:	
 	movf	(exp@x+3)^080h,w
-	xorwf	(_exp$786+3)^080h,w
+	xorwf	(_exp$754+3)^080h,w
 	skipz
-	goto	u3825
+	goto	u3915
 	movf	(exp@x+2)^080h,w
-	xorwf	(_exp$786+2)^080h,w
+	xorwf	(_exp$754+2)^080h,w
 	skipz
-	goto	u3825
+	goto	u3915
 	movf	(exp@x+1)^080h,w
-	xorwf	(_exp$786+1)^080h,w
+	xorwf	(_exp$754+1)^080h,w
 	skipz
-	goto	u3825
+	goto	u3915
 	movf	(exp@x)^080h,w
-	xorwf	(_exp$786)^080h,w
-u3825:
+	xorwf	(_exp$754)^080h,w
+u3915:
 	skipz
-	goto	u3821
-	goto	u3820
-u3821:
-	goto	l3965
-u3820:
+	goto	u3911
+	goto	u3910
+u3911:
+	goto	l4230
+u3910:
 	line	53
 	
-l3963:	
+l4228:	
 	clrf	(?_exp)^080h
 	clrf	(?_exp+1)^080h
 	clrf	(?_exp+2)^080h
 	clrf	(?_exp+3)^080h
-	goto	l1104
+	goto	l1087
 	line	54
 	
-l3965:	
+l4230:	
 	movf	(exp@x+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fldiv@f2+3)
@@ -9164,14 +10206,14 @@ l3965:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_exp)^080h
 
-	goto	l1104
+	goto	l1087
 	line	55
 	
-l1112:	
+l1095:	
 	line	56
 	line	57
 	
-l1104:	
+l1087:	
 	return
 	opt stack 0
 GLOBAL	__end_of_exp
@@ -9181,25 +10223,25 @@ GLOBAL	__end_of_exp
 
 ;; *************** function _ldexp *****************
 ;; Defined at:
-;;		line 277 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+;;		line 277 in file "/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 ;; Parameters:    Size  Location     Type
-;;  value           4   73[BANK0 ] unsigned char 
-;;  newexp          2   77[BANK0 ] int 
+;;  value           4    4[BANK1 ] unsigned char 
+;;  newexp          2    8[BANK1 ] int 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4   73[BANK0 ] int 
+;;                  4    4[BANK1 ] int 
 ;; Registers used:
 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/0
-;;		On exit  : 300/0
+;;		On entry : 300/100
+;;		On exit  : 300/100
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       6       0       0       0
+;;      Params:         0       0       6       0       0
 ;;      Locals:         0       0       4       0       0
 ;;      Temps:          0       0       2       0       0
-;;      Totals:         0       6       6       0       0
+;;      Totals:         0       0      12       0       0
 ;;Total ram usage:       12 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    2
@@ -9210,118 +10252,121 @@ GLOBAL	__end_of_exp
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text16,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+psect	text14,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 	line	277
-global __ptext16
-__ptext16:	;psect for function _ldexp
-psect	text16
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+global __ptext14
+__ptext14:	;psect for function _ldexp
+psect	text14
+	file	"/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 	line	277
 	global	__size_of_ldexp
 	__size_of_ldexp	equ	__end_of_ldexp-_ldexp
 	
 _ldexp:	
 ;incstack = 0
-	opt	stack 2
+	opt	stack 1
 ; Regs used in _ldexp: [wreg+status,2+status,0+btemp+1+pclath+cstack]
 	line	279
 	
-l3753:	
-	movf	(ldexp@value+3),w
-	iorwf	(ldexp@value+2),w
-	iorwf	(ldexp@value+1),w
-	iorwf	(ldexp@value),w
+l4046:	
+	movf	(ldexp@value+3)^080h,w
+	iorwf	(ldexp@value+2)^080h,w
+	iorwf	(ldexp@value+1)^080h,w
+	iorwf	(ldexp@value)^080h,w
 	skipz
-	goto	u3561
-	goto	u3560
-u3561:
-	goto	l3757
-u3560:
+	goto	u3651
+	goto	u3650
+u3651:
+	goto	l4050
+u3650:
 	line	280
 	
-l3755:	
-	clrf	(?_ldexp)
-	clrf	(?_ldexp+1)
-	clrf	(?_ldexp+2)
-	clrf	(?_ldexp+3)
-	goto	l935
+l4048:	
+	clrf	(?_ldexp)^080h
+	clrf	(?_ldexp+1)^080h
+	clrf	(?_ldexp+2)^080h
+	clrf	(?_ldexp+3)^080h
+	goto	l924
 	line	282
 	
-l3757:	
-	movf	0+(ldexp@value)+03h,w
+l4050:	
+	movf	0+(ldexp@value)^080h+03h,w
 	andlw	(1<<7)-1
-	bsf	status, 5	;RP0=1, select bank1
 	movwf	(??_ldexp+0)^080h+0
 	clrf	(??_ldexp+0)^080h+0+1
 	clrc
 	rlf	(??_ldexp+0)^080h+0,f
 	rlf	(??_ldexp+0)^080h+1,f
 	movf	0+(??_ldexp+0)^080h+0,w
-	bcf	status, 5	;RP0=0, select bank0
-	addwf	(ldexp@newexp),f
+	addwf	(ldexp@newexp)^080h,f
 	skipnc
-	incf	(ldexp@newexp+1),f
-	bsf	status, 5	;RP0=1, select bank1
+	incf	(ldexp@newexp+1)^080h,f
 	movf	1+(??_ldexp+0)^080h+0,w
-	bcf	status, 5	;RP0=0, select bank0
-	addwf	(ldexp@newexp+1),f
+	addwf	(ldexp@newexp+1)^080h,f
 	line	283
-	rlf	0+(ldexp@value)+02h,w
-	rlf	0+(ldexp@value)+02h,w
+	rlf	0+(ldexp@value)^080h+02h,w
+	rlf	0+(ldexp@value)^080h+02h,w
 	andlw	1
-	addwf	(ldexp@newexp),f
+	addwf	(ldexp@newexp)^080h,f
 	skipnc
-	incf	(ldexp@newexp+1),f
+	incf	(ldexp@newexp+1)^080h,f
 	line	287
 	
-l3759:	
-	btfss	(ldexp@newexp+1),7
-	goto	u3571
-	goto	u3570
-u3571:
-	goto	l3765
-u3570:
+l4052:	
+	btfss	(ldexp@newexp+1)^080h,7
+	goto	u3661
+	goto	u3660
+u3661:
+	goto	l4058
+u3660:
 	line	289
 	
-l3761:	
-	clrf	(?_ldexp)
-	clrf	(?_ldexp+1)
-	clrf	(?_ldexp+2)
-	clrf	(?_ldexp+3)
-	goto	l935
+l4054:	
+	clrf	(?_ldexp)^080h
+	clrf	(?_ldexp+1)^080h
+	clrf	(?_ldexp+2)^080h
+	clrf	(?_ldexp+3)^080h
+	goto	l924
 	line	291
 	
-l3765:	
-	movf	(ldexp@newexp+1),w
+l4058:	
+	movf	(ldexp@newexp+1)^080h,w
 	xorlw	80h
 	movwf	btemp+1
 	movlw	(01h)^80h
 	subwf	btemp+1,w
 	skipz
-	goto	u3585
+	goto	u3675
 	movlw	0
-	subwf	(ldexp@newexp),w
-u3585:
+	subwf	(ldexp@newexp)^080h,w
+u3675:
 
 	skipc
-	goto	u3581
-	goto	u3580
-u3581:
-	goto	l3787
-u3580:
+	goto	u3671
+	goto	u3670
+u3671:
+	goto	l4080
+u3670:
 	line	293
 	
-l3767:	
+l4060:	
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	movf	(ldexp@value+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(ldexp@value+3),w
 	movwf	(___flge@ff1+3)
-	movf	(ldexp@value+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(ldexp@value+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
-	movf	(ldexp@value+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(ldexp@value+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
-	movf	(ldexp@value),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(ldexp@value)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	clrf	(___flge@ff2)
@@ -9330,107 +10375,108 @@ l3767:
 	clrf	(___flge@ff2+3)
 	fcall	___flge
 	btfsc	status,0
-	goto	u3591
-	goto	u3590
-u3591:
-	goto	l3783
-u3590:
+	goto	u3681
+	goto	u3680
+u3681:
+	goto	l4076
+u3680:
 	line	294
 	
-l3773:	
+l4066:	
 	movlw	0x7f
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
-	movwf	(_ldexp$686+3)^080h
+	movwf	(_ldexp$660+3)^080h
 	movlw	0x7f
-	movwf	(_ldexp$686+2)^080h
+	movwf	(_ldexp$660+2)^080h
 	movlw	0xfe
-	movwf	(_ldexp$686+1)^080h
+	movwf	(_ldexp$660+1)^080h
 	movlw	0xf7
-	movwf	(_ldexp$686)^080h
+	movwf	(_ldexp$660)^080h
 
 	
-l3775:	
-	movf	(_ldexp$686+3)^080h,w
+l4068:	
+	movf	(_ldexp$660+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+3)
-	movf	(_ldexp$686+2)^080h,w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(_ldexp$660+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+2)
-	movf	(_ldexp$686+1)^080h,w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(_ldexp$660+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1+1)
-	movf	(_ldexp$686)^080h,w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(_ldexp$660)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flneg@f1)
 
 	fcall	___flneg
 	movf	(3+(?___flneg)),w
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_ldexp+3)^080h
 	bcf	status, 5	;RP0=0, select bank0
-	movwf	(?_ldexp+3)
 	movf	(2+(?___flneg)),w
-	movwf	(?_ldexp+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_ldexp+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flneg)),w
-	movwf	(?_ldexp+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_ldexp+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flneg)),w
-	movwf	(?_ldexp)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_ldexp)^080h
 
-	goto	l935
+	goto	l924
 	line	296
 	
-l3783:	
+l4076:	
 	movlw	0x7f
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movwf	(?_ldexp+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_ldexp+3)^080h
 	movlw	0x7f
-	movwf	(?_ldexp+2)
+	movwf	(?_ldexp+2)^080h
 	movlw	0xfe
-	movwf	(?_ldexp+1)
+	movwf	(?_ldexp+1)^080h
 	movlw	0xf7
-	movwf	(?_ldexp)
+	movwf	(?_ldexp)^080h
 
-	goto	l935
+	goto	l924
 	line	300
 	
-l3787:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(ldexp@newexp+1),w
+l4080:	
 	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	movf	(ldexp@newexp+1)^080h,w
 	movwf	(??_ldexp+0)^080h+0+1
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(ldexp@newexp),w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	(ldexp@newexp)^080h,w
 	movwf	(??_ldexp+0)^080h+0
 	rlf	(??_ldexp+0)^080h+1,w
 	rrf	(??_ldexp+0)^080h+1,f
 	rrf	(??_ldexp+0)^080h+0,f
-	bcf	status, 5	;RP0=0, select bank0
-	movf	0+(ldexp@value)+03h,w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	0+(ldexp@value)^080h+03h,w
 	xorwf	0+(??_ldexp+0)^080h+0,w
 	andlw	not ((1<<7)-1)
 	xorwf	0+(??_ldexp+0)^080h+0,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	0+(ldexp@value)+03h
+	movwf	0+(ldexp@value)^080h+03h
 	line	301
-	movf	(ldexp@newexp),w
+	movf	(ldexp@newexp)^080h,w
 	andlw	01h
-	bsf	status, 5	;RP0=1, select bank1
 	movwf	(??_ldexp+0)^080h+0
 	rrf	(??_ldexp+0)^080h+0,f
 	rrf	(??_ldexp+0)^080h+0,f
-	bcf	status, 5	;RP0=0, select bank0
-	movf	0+(ldexp@value)+02h,w
-	bsf	status, 5	;RP0=1, select bank1
+	movf	0+(ldexp@value)^080h+02h,w
 	xorwf	(??_ldexp+0)^080h+0,w
 	andlw	not (((1<<1)-1)<<7)
 	xorwf	(??_ldexp+0)^080h+0,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	0+(ldexp@value)+02h
+	movwf	0+(ldexp@value)^080h+02h
 	line	306
 	
-l3789:	
+l4082:	
 	line	307
 	
-l935:	
+l924:	
 	return
 	opt stack 0
 GLOBAL	__end_of_ldexp
@@ -9440,24 +10486,24 @@ GLOBAL	__end_of_ldexp
 
 ;; *************** function ___flneg *****************
 ;; Defined at:
-;;		line 15 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c"
+;;		line 15 in file "/opt/microchip/xc8/v1.34/sources/common/flneg.c"
 ;; Parameters:    Size  Location     Type
-;;  f1              4    2[COMMON] int 
+;;  f1              4    0[BANK0 ] int 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    2[COMMON] int 
+;;                  4    0[BANK0 ] int 
 ;; Registers used:
 ;;		wreg
 ;; Tracked objects:
-;;		On entry : 300/100
-;;		On exit  : 300/100
-;;		Unchanged: 300/0
+;;		On entry : 300/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         4       0       0       0       0
+;;      Params:         0       4       0       0       0
 ;;      Locals:         0       0       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         4       0       0       0       0
+;;      Totals:         0       4       0       0       0
 ;;Total ram usage:        4 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -9469,45 +10515,45 @@ GLOBAL	__end_of_ldexp
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text17,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c"
+psect	text15,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/flneg.c"
 	line	15
-global __ptext17
-__ptext17:	;psect for function ___flneg
-psect	text17
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flneg.c"
+global __ptext15
+__ptext15:	;psect for function ___flneg
+psect	text15
+	file	"/opt/microchip/xc8/v1.34/sources/common/flneg.c"
 	line	15
 	global	__size_of___flneg
 	__size_of___flneg	equ	__end_of___flneg-___flneg
 	
 ___flneg:	
 ;incstack = 0
-	opt	stack 2
+	opt	stack 1
 ; Regs used in ___flneg: [wreg]
 	line	17
 	
-l2513:	
+l3882:	
 	movf	(___flneg@f1+3),w
 	iorwf	(___flneg@f1+2),w
 	iorwf	(___flneg@f1+1),w
 	iorwf	(___flneg@f1),w
 	skipnz
-	goto	u2021
-	goto	u2020
-u2021:
-	goto	l2517
-u2020:
+	goto	u3431
+	goto	u3430
+u3431:
+	goto	l3886
+u3430:
 	line	18
 	
-l2515:	
+l3884:	
 	movlw	080h
 	xorwf	(___flneg@f1+3),f
 	line	19
 	
-l2517:	
+l3886:	
 	line	20
 	
-l896:	
+l885:	
 	return
 	opt stack 0
 GLOBAL	__end_of___flneg
@@ -9517,14 +10563,14 @@ GLOBAL	__end_of___flneg
 
 ;; *************** function _floor *****************
 ;; Defined at:
-;;		line 13 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c"
+;;		line 13 in file "/opt/microchip/xc8/v1.34/sources/common/floor.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4   23[BANK1 ] int 
+;;  x               4   33[BANK1 ] int 
 ;; Auto vars:     Size  Location     Type
-;;  i               4   27[BANK1 ] int 
-;;  expon           2   31[BANK1 ] int 
+;;  i               4   37[BANK1 ] int 
+;;  expon           2   41[BANK1 ] int 
 ;; Return value:  Size  Location     Type
-;;                  4   23[BANK1 ] int 
+;;                  4   33[BANK1 ] int 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -9550,31 +10596,38 @@ GLOBAL	__end_of___flneg
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text18,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c"
+psect	text16,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/floor.c"
 	line	13
-global __ptext18
-__ptext18:	;psect for function _floor
-psect	text18
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\floor.c"
+global __ptext16
+__ptext16:	;psect for function _floor
+psect	text16
+	file	"/opt/microchip/xc8/v1.34/sources/common/floor.c"
 	line	13
 	global	__size_of_floor
 	__size_of_floor	equ	__end_of_floor-_floor
 	
 _floor:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _floor: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	18
 	
-l3669:	
+l3964:	
 	movf	(floor@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value)
 
 	movlw	(low(floor@expon|((0x0)<<8)))&0ffh
@@ -9582,24 +10635,31 @@ l3669:
 	fcall	_frexp
 	line	19
 	
-l3671:	
+l3966:	
 	bsf	status, 5	;RP0=1, select bank1
 	btfss	(floor@expon+1)^080h,7
-	goto	u3461
-	goto	u3460
-u3461:
-	goto	l3679
-u3460:
+	goto	u3551
+	goto	u3550
+u3551:
+	goto	l3974
+u3550:
 	line	20
 	
-l3673:	
+l3968:	
 	movf	(floor@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	clrf	(___flge@ff2)
@@ -9608,17 +10668,16 @@ l3673:
 	clrf	(___flge@ff2+3)
 	fcall	___flge
 	btfsc	status,0
-	goto	u3471
-	goto	u3470
-u3471:
-	goto	l902
-u3470:
+	goto	u3561
+	goto	u3560
+u3561:
+	goto	l891
+u3560:
 	line	21
 	
-l3675:	
+l3970:	
 	movlw	0xbf
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movwf	(?_floor+3)^080h
 	movlw	0x80
 	movwf	(?_floor+2)^080h
@@ -9627,38 +10686,37 @@ l3675:
 	movlw	0x0
 	movwf	(?_floor)^080h
 
-	goto	l903
+	goto	l892
 	
-l902:	
+l891:	
 	line	22
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	clrf	(?_floor)^080h
 	clrf	(?_floor+1)^080h
 	clrf	(?_floor+2)^080h
 	clrf	(?_floor+3)^080h
-	goto	l903
+	goto	l892
 	line	24
 	
-l3679:	
+l3974:	
 	movlw	0
 	subwf	(floor@expon+1)^080h,w
 	movlw	01Dh
 	skipnz
 	subwf	(floor@expon)^080h,w
 	skipc
-	goto	u3481
-	goto	u3480
-u3481:
-	goto	l3683
-u3480:
+	goto	u3571
+	goto	u3570
+u3571:
+	goto	l3978
+u3570:
 	line	25
 	
-l3681:	
-	goto	l903
+l3976:	
+	goto	l892
 	line	26
 	
-l3683:	
+l3978:	
 	movf	(floor@x+3)^080h,w
 	movwf	(___fltol@f1+3)^080h
 	movf	(floor@x+2)^080h,w
@@ -9690,36 +10748,49 @@ l3683:
 
 	line	27
 	movf	(floor@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@i+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@i+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@i+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(floor@i)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff2)
 
 	fcall	___flge
 	btfsc	status,0
-	goto	u3491
-	goto	u3490
-u3491:
-	goto	l3689
-u3490:
+	goto	u3581
+	goto	u3580
+u3581:
+	goto	l3984
+u3580:
 	line	28
 	
-l3685:	
+l3980:	
 	movlw	0xbf
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(___fladd@f1+3)
 	movlw	0x80
 	movwf	(___fladd@f1+2)
@@ -9762,12 +10833,11 @@ l3685:
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?_floor)^080h
 
-	goto	l903
+	goto	l892
 	line	29
 	
-l3689:	
+l3984:	
 	bsf	status, 5	;RP0=1, select bank1
-	bcf	status, 6	;RP1=0, select bank1
 	movf	(floor@i+3)^080h,w
 	movwf	(?_floor+3)^080h
 	movf	(floor@i+2)^080h,w
@@ -9779,7 +10849,7 @@ l3689:
 
 	line	30
 	
-l903:	
+l892:	
 	return
 	opt stack 0
 GLOBAL	__end_of_floor
@@ -9789,14 +10859,14 @@ GLOBAL	__end_of_floor
 
 ;; *************** function ___fltol *****************
 ;; Defined at:
-;;		line 43 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c"
+;;		line 43 in file "/opt/microchip/xc8/v1.34/sources/common/fltol.c"
 ;; Parameters:    Size  Location     Type
-;;  f1              4    8[BANK1 ] int 
+;;  f1              4   18[BANK1 ] int 
 ;; Auto vars:     Size  Location     Type
-;;  exp1            1   17[BANK1 ] unsigned char 
-;;  sign1           1   16[BANK1 ] unsigned char 
+;;  exp1            1   27[BANK1 ] unsigned char 
+;;  sign1           1   26[BANK1 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4    8[BANK1 ] long 
+;;                  4   18[BANK1 ] long 
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
@@ -9822,13 +10892,13 @@ GLOBAL	__end_of_floor
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text19,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c"
+psect	text17,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/fltol.c"
 	line	43
-global __ptext19
-__ptext19:	;psect for function ___fltol
-psect	text19
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fltol.c"
+global __ptext17
+__ptext17:	;psect for function ___fltol
+psect	text17
+	file	"/opt/microchip/xc8/v1.34/sources/common/fltol.c"
 	line	43
 	global	__size_of___fltol
 	__size_of___fltol	equ	__end_of___fltol-___fltol
@@ -9839,7 +10909,7 @@ ___fltol:
 ; Regs used in ___fltol: [wreg+status,2+status,0]
 	line	47
 	
-l2541:	
+l3910:	
 	movf	(___fltol@f1)^080h,w
 	movwf	(??___fltol+0)^080h+0
 	movf	(___fltol@f1+1)^080h,w
@@ -9854,22 +10924,22 @@ l2541:
 	movwf	(___fltol@exp1)^080h
 	movf	(((___fltol@exp1)^080h)),w
 	btfss	status,2
-	goto	u2041
-	goto	u2040
-u2041:
-	goto	l2545
-u2040:
+	goto	u3451
+	goto	u3450
+u3451:
+	goto	l3914
+u3450:
 	line	48
 	
-l2543:	
+l3912:	
 	clrf	(?___fltol)^080h
 	clrf	(?___fltol+1)^080h
 	clrf	(?___fltol+2)^080h
 	clrf	(?___fltol+3)^080h
-	goto	l915
+	goto	l904
 	line	49
 	
-l2545:	
+l3914:	
 	movf	(___fltol@f1)^080h,w
 	movwf	(??___fltol+0)^080h+0
 	movf	(___fltol@f1+1)^080h,w
@@ -9879,25 +10949,25 @@ l2545:
 	movf	(___fltol@f1+3)^080h,w
 	movwf	((??___fltol+0)^080h+0+3)
 	movlw	01Fh
-u2055:
+u3465:
 	clrc
 	rrf	(??___fltol+0)^080h+3,f
 	rrf	(??___fltol+0)^080h+2,f
 	rrf	(??___fltol+0)^080h+1,f
 	rrf	(??___fltol+0)^080h+0,f
-u2050:
+u3460:
 	addlw	-1
 	skipz
-	goto	u2055
+	goto	u3465
 	movf	0+(??___fltol+0)^080h+0,w
 	movwf	(___fltol@sign1)^080h
 	line	50
 	
-l2547:	
+l3916:	
 	bsf	(___fltol@f1)^080h+(23/8),(23)&7
 	line	51
 	
-l2549:	
+l3918:	
 	movlw	0FFh
 	andwf	(___fltol@f1)^080h,f
 	movlw	0FFh
@@ -9908,34 +10978,34 @@ l2549:
 	andwf	(___fltol@f1+3)^080h,f
 	line	52
 	
-l2551:	
+l3920:	
 	movlw	096h
 	subwf	(___fltol@exp1)^080h,f
 	line	53
 	
-l2553:	
+l3922:	
 	btfss	(___fltol@exp1)^080h,7
-	goto	u2061
-	goto	u2060
-u2061:
-	goto	l2563
-u2060:
+	goto	u3471
+	goto	u3470
+u3471:
+	goto	l3932
+u3470:
 	line	54
 	
-l2555:	
+l3924:	
 	movf	(___fltol@exp1)^080h,w
 	xorlw	80h
 	addlw	-((-23)^80h)
 	skipnc
-	goto	u2071
-	goto	u2070
-u2071:
-	goto	l2559
-u2070:
-	goto	l2543
+	goto	u3481
+	goto	u3480
+u3481:
+	goto	l3928
+u3480:
+	goto	l3912
 	line	57
 	
-l2559:	
+l3928:	
 	clrc
 	rrf	(___fltol@f1+3)^080h,f
 	rrf	(___fltol@f1+2)^080h,f
@@ -9943,29 +11013,29 @@ l2559:
 	rrf	(___fltol@f1)^080h,f
 	line	58
 	
-l2561:	
+l3930:	
 	incfsz	(___fltol@exp1)^080h,f
-	goto	u2081
-	goto	u2080
-u2081:
-	goto	l2559
-u2080:
-	goto	l2571
+	goto	u3491
+	goto	u3490
+u3491:
+	goto	l3928
+u3490:
+	goto	l3940
 	line	60
 	
-l2563:	
+l3932:	
 	movlw	low(020h)
 	subwf	(___fltol@exp1)^080h,w
 	skipc
-	goto	u2091
-	goto	u2090
-u2091:
-	goto	l2569
-u2090:
-	goto	l2543
+	goto	u3501
+	goto	u3500
+u3501:
+	goto	l3938
+u3500:
+	goto	l3912
 	line	63
 	
-l2567:	
+l3936:	
 	clrc
 	rlf	(___fltol@f1)^080h,f
 	rlf	(___fltol@f1+1)^080h,f
@@ -9975,27 +11045,27 @@ l2567:
 	decf	(___fltol@exp1)^080h,f
 	line	62
 	
-l2569:	
+l3938:	
 	movf	((___fltol@exp1)^080h),w
 	btfss	status,2
-	goto	u2101
-	goto	u2100
-u2101:
-	goto	l2567
-u2100:
+	goto	u3511
+	goto	u3510
+u3511:
+	goto	l3936
+u3510:
 	line	67
 	
-l2571:	
+l3940:	
 	movf	((___fltol@sign1)^080h),w
 	btfsc	status,2
-	goto	u2111
-	goto	u2110
-u2111:
-	goto	l925
-u2110:
+	goto	u3521
+	goto	u3520
+u3521:
+	goto	l914
+u3520:
 	line	68
 	
-l2573:	
+l3942:	
 	comf	(___fltol@f1)^080h,f
 	comf	(___fltol@f1+1)^080h,f
 	comf	(___fltol@f1+2)^080h,f
@@ -10008,11 +11078,11 @@ l2573:
 	skipnz
 	incf	(___fltol@f1+3)^080h,f
 	
-l925:	
+l914:	
 	line	69
 	line	70
 	
-l915:	
+l904:	
 	return
 	opt stack 0
 GLOBAL	__end_of___fltol
@@ -10022,13 +11092,13 @@ GLOBAL	__end_of___fltol
 
 ;; *************** function ___altofl *****************
 ;; Defined at:
-;;		line 36 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c"
+;;		line 36 in file "/opt/microchip/xc8/v1.34/sources/common/altofl.c"
 ;; Parameters:    Size  Location     Type
-;;  c               4   18[BANK1 ] long 
+;;  c               4   28[BANK1 ] long 
 ;; Auto vars:     Size  Location     Type
-;;  sign            1   22[BANK1 ] unsigned char 
+;;  sign            1   32[BANK1 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4   18[BANK1 ] unsigned char 
+;;                  4   28[BANK1 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -10049,37 +11119,37 @@ GLOBAL	__end_of___fltol
 ;;		_floor
 ;; This function uses a non-reentrant model
 ;;
-psect	text20,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c"
+psect	text18,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/altofl.c"
 	line	36
-global __ptext20
-__ptext20:	;psect for function ___altofl
-psect	text20
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altofl.c"
+global __ptext18
+__ptext18:	;psect for function ___altofl
+psect	text18
+	file	"/opt/microchip/xc8/v1.34/sources/common/altofl.c"
 	line	36
 	global	__size_of___altofl
 	__size_of___altofl	equ	__end_of___altofl-___altofl
 	
 ___altofl:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in ___altofl: [wreg+status,2+status,0+pclath+cstack]
 	line	40
 	
-l3529:	
+l3730:	
 	clrf	(___altofl@sign)^080h
 	line	41
 	
-l3531:	
+l3732:	
 	btfss	(___altofl@c+3)^080h,7
-	goto	u3171
-	goto	u3170
-u3171:
-	goto	l3535
-u3170:
+	goto	u3091
+	goto	u3090
+u3091:
+	goto	l3736
+u3090:
 	line	42
 	
-l3533:	
+l3734:	
 	comf	(___altofl@c)^080h,f
 	comf	(___altofl@c+1)^080h,f
 	comf	(___altofl@c+2)^080h,f
@@ -10096,34 +11166,49 @@ l3533:
 	incf	(___altofl@sign)^080h,f
 	line	45
 	
-l3535:	
+l3736:	
 	movf	(___altofl@c+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flpack@arg+3)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(___altofl@c+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flpack@arg+2)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(___altofl@c+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flpack@arg+1)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(___altofl@c)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flpack@arg)
 
 	movlw	low(096h)
 	movwf	(___flpack@exp)
+	bsf	status, 5	;RP0=1, select bank1
 	movf	(___altofl@sign)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
 	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?___altofl+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___flpack)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?___altofl+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___flpack)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?___altofl+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___flpack)),w
+	bsf	status, 5	;RP0=1, select bank1
 	movwf	(?___altofl)^080h
 
 	line	46
 	
-l748:	
+l737:	
 	return
 	opt stack 0
 GLOBAL	__end_of___altofl
@@ -10133,14 +11218,14 @@ GLOBAL	__end_of___altofl
 
 ;; *************** function ___flsub *****************
 ;; Defined at:
-;;		line 18 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c"
+;;		line 18 in file "/opt/microchip/xc8/v1.34/sources/common/flsub.c"
 ;; Parameters:    Size  Location     Type
-;;  f2              4   57[BANK0 ] unsigned char 
-;;  f1              4   61[BANK0 ] unsigned char 
+;;  f2              4   63[BANK0 ] unsigned char 
+;;  f1              4   67[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4   57[BANK0 ] unsigned char 
+;;                  4   63[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -10164,13 +11249,13 @@ GLOBAL	__end_of___altofl
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text21,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c"
+psect	text19,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/flsub.c"
 	line	18
-global __ptext21
-__ptext21:	;psect for function ___flsub
-psect	text21
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c"
+global __ptext19
+__ptext19:	;psect for function ___flsub
+psect	text19
+	file	"/opt/microchip/xc8/v1.34/sources/common/flsub.c"
 	line	18
 	global	__size_of___flsub
 	__size_of___flsub	equ	__end_of___flsub-___flsub
@@ -10181,25 +11266,25 @@ ___flsub:
 ; Regs used in ___flsub: [wreg+status,2+status,0+pclath+cstack]
 	line	23
 	
-l3745:	
+l4038:	
 	movf	(___flsub@f2+3),w
 	iorwf	(___flsub@f2+2),w
 	iorwf	(___flsub@f2+1),w
 	iorwf	(___flsub@f2),w
 	skipnz
-	goto	u3551
-	goto	u3550
-u3551:
-	goto	l3749
-u3550:
+	goto	u3641
+	goto	u3640
+u3641:
+	goto	l4042
+u3640:
 	line	24
 	
-l3747:	
+l4040:	
 	movlw	080h
 	xorwf	(___flsub@f2+3),f
 	line	28
 	
-l3749:	
+l4042:	
 	movf	(___flsub@f2+3),w
 	movwf	(___fladd@f1+3)
 	movf	(___flsub@f2+2),w
@@ -10230,7 +11315,7 @@ l3749:
 
 	line	32
 	
-l911:	
+l900:	
 	return
 	opt stack 0
 GLOBAL	__end_of___flsub
@@ -10240,17 +11325,17 @@ GLOBAL	__end_of___flsub
 
 ;; *************** function ___fldiv *****************
 ;; Defined at:
-;;		line 56 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c"
+;;		line 56 in file "/opt/microchip/xc8/v1.34/sources/common/fldiv.c"
 ;; Parameters:    Size  Location     Type
-;;  f2              4    4[BANK0 ] unsigned char 
-;;  f1              4    8[BANK0 ] unsigned char 
+;;  f2              4   10[BANK0 ] unsigned char 
+;;  f1              4   14[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  f3              4   16[BANK0 ] unsigned char 
-;;  sign            1   22[BANK0 ] unsigned char 
-;;  exp             1   21[BANK0 ] unsigned char 
-;;  cntr            1   20[BANK0 ] unsigned char 
+;;  f3              4   22[BANK0 ] unsigned char 
+;;  sign            1   28[BANK0 ] unsigned char 
+;;  exp             1   27[BANK0 ] unsigned char 
+;;  cntr            1   26[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4    4[BANK0 ] unsigned char 
+;;                  4   10[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -10274,13 +11359,13 @@ GLOBAL	__end_of___flsub
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text22,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c"
+psect	text20,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/fldiv.c"
 	line	56
-global __ptext22
-__ptext22:	;psect for function ___fldiv
-psect	text22
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c"
+global __ptext20
+__ptext20:	;psect for function ___fldiv
+psect	text20
+	file	"/opt/microchip/xc8/v1.34/sources/common/fldiv.c"
 	line	56
 	global	__size_of___fldiv
 	__size_of___fldiv	equ	__end_of___fldiv-___fldiv
@@ -10291,7 +11376,7 @@ ___fldiv:
 ; Regs used in ___fldiv: [wreg+status,2+status,0+pclath+cstack]
 	line	63
 	
-l3705:	
+l3998:	
 	movf	(___fldiv@f1),w
 	movwf	(??___fldiv+0)+0
 	movf	(___fldiv@f1+1),w
@@ -10306,22 +11391,22 @@ l3705:
 	movwf	(___fldiv@exp)
 	movf	(((___fldiv@exp))),w
 	btfss	status,2
-	goto	u3511
-	goto	u3510
-u3511:
-	goto	l3709
-u3510:
+	goto	u3601
+	goto	u3600
+u3601:
+	goto	l4002
+u3600:
 	line	64
 	
-l3707:	
+l4000:	
 	clrf	(?___fldiv)
 	clrf	(?___fldiv+1)
 	clrf	(?___fldiv+2)
 	clrf	(?___fldiv+3)
-	goto	l870
+	goto	l859
 	line	65
 	
-l3709:	
+l4002:	
 	movf	(___fldiv@f2),w
 	movwf	(??___fldiv+0)+0
 	movf	(___fldiv@f2+1),w
@@ -10336,22 +11421,22 @@ l3709:
 	movwf	(___fldiv@sign)
 	movf	(((___fldiv@sign))),w
 	btfss	status,2
-	goto	u3521
-	goto	u3520
-u3521:
-	goto	l3713
-u3520:
+	goto	u3611
+	goto	u3610
+u3611:
+	goto	l4006
+u3610:
 	line	66
 	
-l3711:	
+l4004:	
 	clrf	(?___fldiv)
 	clrf	(?___fldiv+1)
 	clrf	(?___fldiv+2)
 	clrf	(?___fldiv+3)
-	goto	l870
+	goto	l859
 	line	67
 	
-l3713:	
+l4006:	
 	movlw	low(089h)
 	addwf	(___fldiv@sign),w
 	movwf	(??___fldiv+0)+0
@@ -10359,26 +11444,26 @@ l3713:
 	subwf	(___fldiv@exp),f
 	line	68
 	
-l3715:	
+l4008:	
 	movf	0+(___fldiv@f1)+03h,w
 	movwf	(___fldiv@sign)
 	line	69
 	
-l3717:	
+l4010:	
 	movf	0+(___fldiv@f2)+03h,w
 	xorwf	(___fldiv@sign),f
 	line	70
 	
-l3719:	
+l4012:	
 	movlw	low(080h)
 	andwf	(___fldiv@sign),f
 	line	71
 	
-l3721:	
+l4014:	
 	bsf	(___fldiv@f1)+(23/8),(23)&7
 	line	72
 	
-l3723:	
+l4016:	
 	movlw	0FFh
 	andwf	(___fldiv@f1),f
 	movlw	0FFh
@@ -10389,11 +11474,11 @@ l3723:
 	andwf	(___fldiv@f1+3),f
 	line	73
 	
-l3725:	
+l4018:	
 	bsf	(___fldiv@f2)+(23/8),(23)&7
 	line	74
 	
-l3727:	
+l4020:	
 	movlw	0FFh
 	andwf	(___fldiv@f2),f
 	movlw	0FFh
@@ -10404,12 +11489,12 @@ l3727:
 	andwf	(___fldiv@f2+3),f
 	line	75
 	
-l3729:	
+l4022:	
 	movlw	low(020h)
 	movwf	(___fldiv@cntr)
 	line	77
 	
-l3731:	
+l4024:	
 	clrc
 	rlf	(___fldiv@f3),f
 	rlf	(___fldiv@f3+1),f
@@ -10419,27 +11504,27 @@ l3731:
 	movf	(___fldiv@f2+3),w
 	subwf	(___fldiv@f1+3),w
 	skipz
-	goto	u3535
+	goto	u3625
 	movf	(___fldiv@f2+2),w
 	subwf	(___fldiv@f1+2),w
 	skipz
-	goto	u3535
+	goto	u3625
 	movf	(___fldiv@f2+1),w
 	subwf	(___fldiv@f1+1),w
 	skipz
-	goto	u3535
+	goto	u3625
 	movf	(___fldiv@f2),w
 	subwf	(___fldiv@f1),w
-u3535:
+u3625:
 	skipc
-	goto	u3531
-	goto	u3530
-u3531:
-	goto	l3737
-u3530:
+	goto	u3621
+	goto	u3620
+u3621:
+	goto	l4030
+u3620:
 	line	79
 	
-l3733:	
+l4026:	
 	movf	(___fldiv@f2),w
 	subwf	(___fldiv@f1),f
 	movf	(___fldiv@f2+1),w
@@ -10456,11 +11541,11 @@ l3733:
 	subwf	(___fldiv@f1+3),f
 	line	80
 	
-l3735:	
+l4028:	
 	bsf	(___fldiv@f3)+(0/8),(0)&7
 	line	82
 	
-l3737:	
+l4030:	
 	clrc
 	rlf	(___fldiv@f1),f
 	rlf	(___fldiv@f1+1),f
@@ -10468,16 +11553,16 @@ l3737:
 	rlf	(___fldiv@f1+3),f
 	line	83
 	
-l3739:	
+l4032:	
 	decfsz	(___fldiv@cntr),f
-	goto	u3541
-	goto	u3540
-u3541:
-	goto	l3731
-u3540:
+	goto	u3631
+	goto	u3630
+u3631:
+	goto	l4024
+u3630:
 	line	84
 	
-l3741:	
+l4034:	
 	movf	(___fldiv@f3+3),w
 	movwf	(___flpack@arg+3)
 	movf	(___fldiv@f3+2),w
@@ -10493,7 +11578,6 @@ l3741:
 	movwf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___fldiv+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___fldiv+2)
@@ -10504,7 +11588,7 @@ l3741:
 
 	line	85
 	
-l870:	
+l859:	
 	return
 	opt stack 0
 GLOBAL	__end_of___fldiv
@@ -10514,13 +11598,13 @@ GLOBAL	__end_of___fldiv
 
 ;; *************** function ___lltofl *****************
 ;; Defined at:
-;;		line 30 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c"
+;;		line 30 in file "/opt/microchip/xc8/v1.34/sources/common/lltofl.c"
 ;; Parameters:    Size  Location     Type
-;;  c               4    4[BANK0 ] unsigned long 
+;;  c               4   10[BANK0 ] unsigned long 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    4[BANK0 ] unsigned long 
+;;                  4   10[BANK0 ] unsigned long 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -10541,24 +11625,24 @@ GLOBAL	__end_of___fldiv
 ;;		_pow
 ;; This function uses a non-reentrant model
 ;;
-psect	text23,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c"
+psect	text21,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/lltofl.c"
 	line	30
-global __ptext23
-__ptext23:	;psect for function ___lltofl
-psect	text23
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltofl.c"
+global __ptext21
+__ptext21:	;psect for function ___lltofl
+psect	text21
+	file	"/opt/microchip/xc8/v1.34/sources/common/lltofl.c"
 	line	30
 	global	__size_of___lltofl
 	__size_of___lltofl	equ	__end_of___lltofl-___lltofl
 	
 ___lltofl:	
 ;incstack = 0
-	opt	stack 3
+	opt	stack 2
 ; Regs used in ___lltofl: [wreg+status,2+status,0+pclath+cstack]
 	line	32
 	
-l3897:	
+l4116:	
 	movf	(___lltofl@c+3),w
 	movwf	(___flpack@arg+3)
 	movf	(___lltofl@c+2),w
@@ -10573,7 +11657,6 @@ l3897:
 	clrf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___lltofl+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___lltofl+2)
@@ -10584,7 +11667,7 @@ l3897:
 
 	line	33
 	
-l995:	
+l984:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lltofl
@@ -10594,13 +11677,13 @@ GLOBAL	__end_of___lltofl
 
 ;; *************** function _log10 *****************
 ;; Defined at:
-;;		line 39 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+;;		line 39 in file "/opt/microchip/xc8/v1.34/sources/common/log.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4    0[BANK1 ] unsigned long 
+;;  x               4   10[BANK1 ] unsigned long 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    0[BANK1 ] unsigned long 
+;;                  4   10[BANK1 ] unsigned long 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -10622,59 +11705,45 @@ GLOBAL	__end_of___lltofl
 ;;		_format_double
 ;; This function uses a non-reentrant model
 ;;
-psect	text24,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+psect	text22,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/log.c"
 	line	39
-global __ptext24
-__ptext24:	;psect for function _log10
-psect	text24
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+global __ptext22
+__ptext22:	;psect for function _log10
+psect	text22
+	file	"/opt/microchip/xc8/v1.34/sources/common/log.c"
 	line	39
 	global	__size_of_log10
 	__size_of_log10	equ	__end_of_log10-_log10
 	
 _log10:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _log10: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	41
 	
-l3979:	
+l4334:	
 	movf	(log10@x+3)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+3)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+3)^080h
 	movf	(log10@x+2)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+2)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+2)^080h
 	movf	(log10@x+1)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x+1)
-	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+1)^080h
 	movf	(log10@x)^080h,w
-	bcf	status, 5	;RP0=0, select bank0
-	movwf	(log@x)
+	movwf	(log@x)^080h
 
 	fcall	_log
-	movf	(3+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_log10$1058+3)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(2+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_log10$1058+2)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(1+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_log10$1058+1)^080h
-	bcf	status, 5	;RP0=0, select bank0
-	movf	(0+(?_log)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_log10$1058)^080h
+	movf	(3+(?_log))^080h,w
+	movwf	(_log10$1019+3)^080h
+	movf	(2+(?_log))^080h,w
+	movwf	(_log10$1019+2)^080h
+	movf	(1+(?_log))^080h,w
+	movwf	(_log10$1019+1)^080h
+	movf	(0+(?_log))^080h,w
+	movwf	(_log10$1019)^080h
 
 	
-l3981:	
+l4336:	
 	movlw	0x3e
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
@@ -10686,19 +11755,19 @@ l3981:
 	movwf	(___flmul@f1)
 
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_log10$1058+3)^080h,w
+	movf	(_log10$1019+3)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_log10$1058+2)^080h,w
+	movf	(_log10$1019+2)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+2)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_log10$1058+1)^080h,w
+	movf	(_log10$1019+1)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+1)
 	bsf	status, 5	;RP0=1, select bank1
-	movf	(_log10$1058)^080h,w
+	movf	(_log10$1019)^080h,w
 	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2)
 
@@ -10721,7 +11790,7 @@ l3981:
 
 	line	42
 	
-l1011:	
+l1000:	
 	return
 	opt stack 0
 GLOBAL	__end_of_log10
@@ -10731,24 +11800,24 @@ GLOBAL	__end_of_log10
 
 ;; *************** function _log *****************
 ;; Defined at:
-;;		line 5 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+;;		line 5 in file "/opt/microchip/xc8/v1.34/sources/common/log.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4   73[BANK0 ] unsigned long 
+;;  x               4    4[BANK1 ] unsigned long 
 ;; Auto vars:     Size  Location     Type
-;;  exponent        2   77[BANK0 ] int 
+;;  exponent        2    8[BANK1 ] int 
 ;; Return value:  Size  Location     Type
-;;                  4   73[BANK0 ] int 
+;;                  4    4[BANK1 ] int 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 300/0
-;;		On exit  : 300/0
+;;		On entry : 300/100
+;;		On exit  : 300/100
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       4       0       0       0
-;;      Locals:         0       2       0       0       0
+;;      Params:         0       0       4       0       0
+;;      Locals:         0       0       2       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         0       6       0       0       0
+;;      Totals:         0       0       6       0       0
 ;;Total ram usage:        6 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    4
@@ -10764,30 +11833,37 @@ GLOBAL	__end_of_log10
 ;;		_pow
 ;; This function uses a non-reentrant model
 ;;
-psect	text25,local,class=CODE,delta=2,merge=1
+psect	text23,local,class=CODE,delta=2,merge=1
 	line	5
-global __ptext25
-__ptext25:	;psect for function _log
-psect	text25
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c"
+global __ptext23
+__ptext23:	;psect for function _log
+psect	text23
+	file	"/opt/microchip/xc8/v1.34/sources/common/log.c"
 	line	5
 	global	__size_of_log
 	__size_of_log	equ	__end_of_log-_log
 	
 _log:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 0
 ; Regs used in _log: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	24
 	
-l3901:	
-	movf	(log@x+3),w
+l4120:	
+	movf	(log@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+3)
-	movf	(log@x+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+2)
-	movf	(log@x+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1+1)
-	movf	(log@x),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flge@ff1)
 
 	clrf	(___flge@ff2)
@@ -10796,48 +11872,47 @@ l3901:
 	clrf	(___flge@ff2+3)
 	fcall	___flge
 	btfsc	status,0
-	goto	u3731
-	goto	u3730
-u3731:
-	goto	l3905
-u3730:
-	line	26
-	
-l3903:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	clrf	(?_log)
-	clrf	(?_log+1)
-	clrf	(?_log+2)
-	clrf	(?_log+3)
-	goto	l1007
-	line	28
-	
-l3905:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	movf	(log@x+3),w
-	iorwf	(log@x+2),w
-	iorwf	(log@x+1),w
-	iorwf	(log@x),w
-	skipz
 	goto	u3741
 	goto	u3740
 u3741:
-	goto	l3909
+	goto	l4124
 u3740:
+	line	26
+	
+l4122:	
+	bsf	status, 5	;RP0=1, select bank1
+	clrf	(?_log)^080h
+	clrf	(?_log+1)^080h
+	clrf	(?_log+2)^080h
+	clrf	(?_log+3)^080h
+	goto	l996
+	line	28
+	
+l4124:	
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+3)^080h,w
+	iorwf	(log@x+2)^080h,w
+	iorwf	(log@x+1)^080h,w
+	iorwf	(log@x)^080h,w
+	skipz
+	goto	u3751
+	goto	u3750
+u3751:
+	goto	l4128
+u3750:
 	line	30
 	
-l3907:	
-	clrf	(?_log)
-	clrf	(?_log+1)
-	clrf	(?_log+2)
-	clrf	(?_log+3)
-	goto	l1007
+l4126:	
+	clrf	(?_log)^080h
+	clrf	(?_log+1)^080h
+	clrf	(?_log+2)^080h
+	clrf	(?_log+3)^080h
+	goto	l996
 	line	32
 	
-l3909:	
+l4128:	
 	movlw	0xbf
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fladd@f1+3)
 	movlw	0x80
 	movwf	(___fladd@f1+2)
@@ -10857,18 +11932,25 @@ l3909:
 
 	movlw	(low(log@exponent|((0x0)<<8)))&0ffh
 	movwf	(frexp@eptr)
-	movf	(log@x+3),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+3)
-	movf	(log@x+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+2)
-	movf	(log@x+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value+1)
-	movf	(log@x),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(frexp@value)
 
 	fcall	_frexp
 	movf	(3+(?_frexp)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f2+3)
 	movf	(2+(?_frexp)),w
 	movwf	(___flmul@f2+2)
@@ -10889,58 +11971,88 @@ l3909:
 
 	fcall	___fladd
 	movf	(3+(?___fladd)),w
-	movwf	(log@x+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___fladd)),w
-	movwf	(log@x+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___fladd)),w
-	movwf	(log@x+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___fladd)),w
-	movwf	(log@x)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x)^080h
 
 	line	33
 	
-l3911:	
+l4130:	
 	movlw	-1
-	addwf	(log@exponent),f
+	addwf	(log@exponent)^080h,f
 	skipc
-	decf	(log@exponent+1),f
+	decf	(log@exponent+1)^080h,f
 	line	34
 	
-l3913:	
-	movf	(log@x+3),w
+l4132:	
+	movf	(log@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x+3)
-	movf	(log@x+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x+2)
-	movf	(log@x+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x+1)
-	movf	(log@x),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(eval_poly@x)
 
-	movlw	(low((((log@coeff)-__stringbase)|8000h)))&0ffh
+	movlw	low(((log@coeff)|8000h))
 	movwf	(eval_poly@d)
+	movlw	high(((log@coeff)|8000h))
+	movwf	((eval_poly@d))+1
 	movlw	08h
 	movwf	(eval_poly@n)
 	clrf	(eval_poly@n+1)
 	fcall	_eval_poly
 	movf	(3+(?_eval_poly)),w
-	movwf	(log@x+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?_eval_poly)),w
-	movwf	(log@x+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?_eval_poly)),w
-	movwf	(log@x+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?_eval_poly)),w
-	movwf	(log@x)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(log@x)^080h
 
 	line	35
 	
-l3915:	
-	movf	(log@x+3),w
+l4134:	
+	movf	(log@x+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fladd@f1+3)
-	movf	(log@x+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fladd@f1+2)
-	movf	(log@x+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fladd@f1+1)
-	movf	(log@x),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@x)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___fladd@f1)
 
 	movlw	0x3f
@@ -10952,9 +12064,13 @@ l3915:
 	movlw	0x18
 	movwf	(___flmul@f1)
 
-	movf	(log@exponent+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@exponent+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___awtofl@c+1)
-	movf	(log@exponent),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(log@exponent)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___awtofl@c)
 	fcall	___awtofl
 	movf	(3+(?___awtofl)),w
@@ -10978,17 +12094,24 @@ l3915:
 
 	fcall	___fladd
 	movf	(3+(?___fladd)),w
-	movwf	(?_log+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_log+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___fladd)),w
-	movwf	(?_log+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_log+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___fladd)),w
-	movwf	(?_log+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_log+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___fladd)),w
-	movwf	(?_log)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(?_log)^080h
 
 	line	36
 	
-l1007:	
+l996:	
 	return
 	opt stack 0
 GLOBAL	__end_of_log
@@ -10998,26 +12121,26 @@ GLOBAL	__end_of_log
 
 ;; *************** function _frexp *****************
 ;; Defined at:
-;;		line 254 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+;;		line 254 in file "/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 ;; Parameters:    Size  Location     Type
-;;  value           4    2[COMMON] int 
-;;  eptr            1    6[COMMON] PTR int 
+;;  value           4    0[BANK0 ] int 
+;;  eptr            1    4[BANK0 ] PTR int 
 ;;		 -> log@exponent(2), floor@expon(2), 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    2[COMMON] PTR int 
+;;                  4    0[BANK0 ] PTR int 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
 ;; Tracked objects:
-;;		On entry : 200/100
-;;		On exit  : A00/0
-;;		Unchanged: 200/0
+;;		On entry : 300/0
+;;		On exit  : B00/0
+;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         5       0       0       0       0
+;;      Params:         0       5       0       0       0
 ;;      Locals:         0       0       0       0       0
 ;;      Temps:          2       0       0       0       0
-;;      Totals:         7       0       0       0       0
+;;      Totals:         2       5       0       0       0
 ;;Total ram usage:        7 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -11028,37 +12151,37 @@ GLOBAL	__end_of_log
 ;;		_log
 ;; This function uses a non-reentrant model
 ;;
-psect	text26,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+psect	text24,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 	line	254
-global __ptext26
-__ptext26:	;psect for function _frexp
-psect	text26
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c"
+global __ptext24
+__ptext24:	;psect for function _frexp
+psect	text24
+	file	"/opt/microchip/xc8/v1.34/sources/common/frexp.c"
 	line	254
 	global	__size_of_frexp
 	__size_of_frexp	equ	__end_of_frexp-_frexp
 	
 _frexp:	
 ;incstack = 0
-	opt	stack 3
+	opt	stack 2
 ; Regs used in _frexp: [wreg-fsr0h+status,2+status,0+btemp+1]
 	line	256
 	
-l2521:	
+l3890:	
 	movf	(frexp@value+3),w
 	iorwf	(frexp@value+2),w
 	iorwf	(frexp@value+1),w
 	iorwf	(frexp@value),w
 	skipz
-	goto	u2031
-	goto	u2030
-u2031:
-	goto	l2529
-u2030:
+	goto	u3441
+	goto	u3440
+u3441:
+	goto	l3898
+u3440:
 	line	257
 	
-l2523:	
+l3892:	
 	movf	(frexp@eptr),w
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
@@ -11067,15 +12190,15 @@ l2523:
 	clrf	indf
 	line	258
 	
-l2525:	
+l3894:	
 	clrf	(?_frexp)
 	clrf	(?_frexp+1)
 	clrf	(?_frexp+2)
 	clrf	(?_frexp+3)
-	goto	l931
+	goto	l920
 	line	261
 	
-l2529:	
+l3898:	
 	movf	0+(frexp@value)+03h,w
 	andlw	(1<<7)-1
 	movwf	(??_frexp+0)+0
@@ -11106,7 +12229,7 @@ l2529:
 	iorwf	indf,f
 	line	263
 	
-l2531:	
+l3900:	
 	movf	(frexp@eptr),w
 	movwf	fsr0
 	movlw	082h
@@ -11122,21 +12245,21 @@ l2531:
 	decf	fsr0,f
 	line	268
 	
-l2533:	
+l3902:	
 	movf	0+(frexp@value)+03h,w
 	andlw	not (((1<<7)-1)<<0)
 	iorlw	(03Fh & ((1<<7)-1))<<0
 	movwf	0+(frexp@value)+03h
 	line	269
 	
-l2535:	
+l3904:	
 	bcf	0+(frexp@value)+02h,7
 	line	273
 	
-l2537:	
+l3906:	
 	line	274
 	
-l931:	
+l920:	
 	return
 	opt stack 0
 GLOBAL	__end_of_frexp
@@ -11146,28 +12269,28 @@ GLOBAL	__end_of_frexp
 
 ;; *************** function _eval_poly *****************
 ;; Defined at:
-;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c"
+;;		line 4 in file "/opt/microchip/xc8/v1.34/sources/common/evalpoly.c"
 ;; Parameters:    Size  Location     Type
-;;  x               4   57[BANK0 ] PTR int 
-;;  d               1   61[BANK0 ] PTR const 
+;;  x               4   63[BANK0 ] PTR int 
+;;  d               2   67[BANK0 ] PTR const 
 ;;		 -> exp@coeff(40), log@coeff(36), 
-;;  n               2   62[BANK0 ] int 
+;;  n               2   69[BANK0 ] int 
 ;; Auto vars:     Size  Location     Type
-;;  res             4   69[BANK0 ] int 
+;;  res             4    0[BANK1 ] int 
 ;; Return value:  Size  Location     Type
-;;                  4   57[BANK0 ] int 
+;;                  4   63[BANK0 ] int 
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 300/0
 ;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       7       0       0       0
-;;      Locals:         0       4       0       0       0
-;;      Temps:          0       5       0       0       0
-;;      Totals:         0      16       0       0       0
-;;Total ram usage:       16 bytes
+;;      Params:         0       8       0       0       0
+;;      Locals:         0       0       4       0       0
+;;      Temps:          0       8       0       0       0
+;;      Totals:         0      16       4       0       0
+;;Total ram usage:       20 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    3
 ;; This function calls:
@@ -11178,100 +12301,140 @@ GLOBAL	__end_of_frexp
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text27,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c"
+psect	text25,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/evalpoly.c"
 	line	4
-global __ptext27
-__ptext27:	;psect for function _eval_poly
-psect	text27
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c"
+global __ptext25
+__ptext25:	;psect for function _eval_poly
+psect	text25
+	file	"/opt/microchip/xc8/v1.34/sources/common/evalpoly.c"
 	line	4
 	global	__size_of_eval_poly
 	__size_of_eval_poly	equ	__end_of_eval_poly-_eval_poly
 	
 _eval_poly:	
 ;incstack = 0
+;; using string table level
 	opt	stack 1
-; Regs used in _eval_poly: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+; Regs used in _eval_poly: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	8
 	
-l3793:	
+l4086:	
 	movf	(eval_poly@n),w
 	movwf	(??_eval_poly+0)+0
-	movlw	(02h)-1
-u3605:
 	clrc
 	rlf	(??_eval_poly+0)+0,f
-	addlw	-1
-	skipz
-	goto	u3605
 	clrc
-	rlf	(??_eval_poly+0)+0,w
+	rlf	(??_eval_poly+0)+0,f
+	movf	0+(??_eval_poly+0)+0,w
 	addwf	(eval_poly@d),w
+	movwf	(??_eval_poly+2)+0
+	movf	(eval_poly@d+1),w
+	movwf	(??_eval_poly+1)+0
+	skipnc
+	incf	(??_eval_poly+1)+0,f
+	btfss	0+(??_eval_poly+0)+0,7
+	goto	u3690
+	decf	(??_eval_poly+1)+0,f
+u3690:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(??_eval_poly+1)+0,w
+	movwf	0+((??_eval_poly+2)+0)+1
+	movf	1+(??_eval_poly+2)+0,w
+	movwf	btemp+1
+	movf	0+(??_eval_poly+2)+0,w
 	movwf	fsr0
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+1)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+2)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+3)
-	movf	3+(??_eval_poly+1)+0,w
-	movwf	(eval_poly@res+3)
-	movf	2+(??_eval_poly+1)+0,w
-	movwf	(eval_poly@res+2)
-	movf	1+(??_eval_poly+1)+0,w
-	movwf	(eval_poly@res+1)
-	movf	0+(??_eval_poly+1)+0,w
-	movwf	(eval_poly@res)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+1)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+2)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+3)
+	movf	3+(??_eval_poly+4)+0,w
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
+	movf	2+(??_eval_poly+4)+0,w
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
+	movf	1+(??_eval_poly+4)+0,w
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
+	movf	0+(??_eval_poly+4)+0,w
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res)^080h
 
 	line	9
-	goto	l3797
+	goto	l4090
 	line	10
 	
-l3795:	
+l4088:	
 	movlw	-1
 	addwf	(eval_poly@n),f
 	skipc
 	decf	(eval_poly@n+1),f
 	movf	((eval_poly@n)),w
 	movwf	(??_eval_poly+0)+0
-	movlw	(02h)-1
-u3615:
 	clrc
 	rlf	(??_eval_poly+0)+0,f
-	addlw	-1
-	skipz
-	goto	u3615
 	clrc
-	rlf	(??_eval_poly+0)+0,w
+	rlf	(??_eval_poly+0)+0,f
+	movf	0+(??_eval_poly+0)+0,w
 	addwf	(eval_poly@d),w
+	movwf	(??_eval_poly+2)+0
+	movf	(eval_poly@d+1),w
+	movwf	(??_eval_poly+1)+0
+	skipnc
+	incf	(??_eval_poly+1)+0,f
+	btfss	0+(??_eval_poly+0)+0,7
+	goto	u3700
+	decf	(??_eval_poly+1)+0,f
+u3700:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(??_eval_poly+1)+0,w
+	movwf	0+((??_eval_poly+2)+0)+1
+	movf	1+(??_eval_poly+2)+0,w
+	movwf	btemp+1
+	movf	0+(??_eval_poly+2)+0,w
 	movwf	fsr0
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+1)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+2)
-	fcall	stringdir
-	movwf	((??_eval_poly+1)+0+3)
-	movf	3+(??_eval_poly+1)+0,w
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+1)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+2)
+	fcall	stringtab
+	movwf	((??_eval_poly+4)+0+3)
+	movf	3+(??_eval_poly+4)+0,w
 	movwf	(___fladd@f1+3)
-	movf	2+(??_eval_poly+1)+0,w
+	movf	2+(??_eval_poly+4)+0,w
 	movwf	(___fladd@f1+2)
-	movf	1+(??_eval_poly+1)+0,w
+	movf	1+(??_eval_poly+4)+0,w
 	movwf	(___fladd@f1+1)
-	movf	0+(??_eval_poly+1)+0,w
+	movf	0+(??_eval_poly+4)+0,w
 	movwf	(___fladd@f1)
 
-	movf	(eval_poly@res+3),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+3)
-	movf	(eval_poly@res+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+2)
-	movf	(eval_poly@res+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1+1)
-	movf	(eval_poly@res),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(___flmul@f1)
 
 	movf	(eval_poly@x+3),w
@@ -11295,40 +12458,56 @@ u3615:
 
 	fcall	___fladd
 	movf	(3+(?___fladd)),w
-	movwf	(eval_poly@res+3)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+3)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(2+(?___fladd)),w
-	movwf	(eval_poly@res+2)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+2)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(1+(?___fladd)),w
-	movwf	(eval_poly@res+1)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res+1)^080h
+	bcf	status, 5	;RP0=0, select bank0
 	movf	(0+(?___fladd)),w
-	movwf	(eval_poly@res)
+	bsf	status, 5	;RP0=1, select bank1
+	movwf	(eval_poly@res)^080h
 
 	line	9
 	
-l3797:	
+l4090:	
+	bcf	status, 5	;RP0=0, select bank0
 	movf	((eval_poly@n)),w
 iorwf	((eval_poly@n+1)),w
 	btfss	status,2
-	goto	u3621
-	goto	u3620
-u3621:
-	goto	l3795
-u3620:
+	goto	u3711
+	goto	u3710
+u3711:
+	goto	l4088
+u3710:
 	line	11
 	
-l3799:	
-	movf	(eval_poly@res+3),w
+l4092:	
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+3)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?_eval_poly+3)
-	movf	(eval_poly@res+2),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+2)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?_eval_poly+2)
-	movf	(eval_poly@res+1),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res+1)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?_eval_poly+1)
-	movf	(eval_poly@res),w
+	bsf	status, 5	;RP0=1, select bank1
+	movf	(eval_poly@res)^080h,w
+	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?_eval_poly)
 
 	line	12
 	
-l1090:	
+l1073:	
 	return
 	opt stack 0
 GLOBAL	__end_of_eval_poly
@@ -11338,17 +12517,17 @@ GLOBAL	__end_of_eval_poly
 
 ;; *************** function ___flmul *****************
 ;; Defined at:
-;;		line 62 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c"
+;;		line 62 in file "/opt/microchip/xc8/v1.34/sources/common/flmul.c"
 ;; Parameters:    Size  Location     Type
-;;  f1              4   23[BANK0 ] int 
-;;  f2              4   27[BANK0 ] int 
+;;  f1              4   29[BANK0 ] int 
+;;  f2              4   33[BANK0 ] int 
 ;; Auto vars:     Size  Location     Type
-;;  f3_as_produc    4   36[BANK0 ] unsigned long 
-;;  sign            1   41[BANK0 ] unsigned char 
-;;  cntr            1   40[BANK0 ] unsigned char 
-;;  exp             1   35[BANK0 ] unsigned char 
+;;  f3_as_produc    4   42[BANK0 ] unsigned long 
+;;  sign            1   47[BANK0 ] unsigned char 
+;;  cntr            1   46[BANK0 ] unsigned char 
+;;  exp             1   41[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4   23[BANK0 ] unsigned char 
+;;                  4   29[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -11376,13 +12555,13 @@ GLOBAL	__end_of_eval_poly
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text28,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c"
+psect	text26,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/flmul.c"
 	line	62
-global __ptext28
-__ptext28:	;psect for function ___flmul
-psect	text28
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c"
+global __ptext26
+__ptext26:	;psect for function ___flmul
+psect	text26
+	file	"/opt/microchip/xc8/v1.34/sources/common/flmul.c"
 	line	62
 	global	__size_of___flmul
 	__size_of___flmul	equ	__end_of___flmul-___flmul
@@ -11393,7 +12572,7 @@ ___flmul:
 ; Regs used in ___flmul: [wreg+status,2+status,0+pclath+cstack]
 	line	67
 	
-l3615:	
+l3830:	
 	movf	(___flmul@f1),w
 	movwf	(??___flmul+0)+0
 	movf	(___flmul@f1+1),w
@@ -11408,22 +12587,22 @@ l3615:
 	movwf	(___flmul@exp)
 	movf	(((___flmul@exp))),w
 	btfss	status,2
-	goto	u3381
-	goto	u3380
-u3381:
-	goto	l3619
-u3380:
+	goto	u3351
+	goto	u3350
+u3351:
+	goto	l3834
+u3350:
 	line	68
 	
-l3617:	
+l3832:	
 	clrf	(?___flmul)
 	clrf	(?___flmul+1)
 	clrf	(?___flmul+2)
 	clrf	(?___flmul+3)
-	goto	l885
+	goto	l874
 	line	69
 	
-l3619:	
+l3834:	
 	movf	(___flmul@f2),w
 	movwf	(??___flmul+0)+0
 	movf	(___flmul@f2+1),w
@@ -11438,51 +12617,51 @@ l3619:
 	movwf	(___flmul@sign)
 	movf	(((___flmul@sign))),w
 	btfss	status,2
-	goto	u3391
-	goto	u3390
-u3391:
-	goto	l3623
-u3390:
+	goto	u3361
+	goto	u3360
+u3361:
+	goto	l3838
+u3360:
 	line	70
 	
-l3621:	
+l3836:	
 	clrf	(?___flmul)
 	clrf	(?___flmul+1)
 	clrf	(?___flmul+2)
 	clrf	(?___flmul+3)
-	goto	l885
+	goto	l874
 	line	71
 	
-l3623:	
+l3838:	
 	movf	(___flmul@sign),w
 	addlw	07Bh
 	addwf	(___flmul@exp),f
 	line	72
 	
-l3625:	
+l3840:	
 	movf	0+(___flmul@f1)+03h,w
 	movwf	(___flmul@sign)
 	line	73
 	
-l3627:	
+l3842:	
 	movf	0+(___flmul@f2)+03h,w
 	xorwf	(___flmul@sign),f
 	line	74
 	
-l3629:	
+l3844:	
 	movlw	low(080h)
 	andwf	(___flmul@sign),f
 	line	75
 	
-l3631:	
+l3846:	
 	bsf	(___flmul@f1)+(23/8),(23)&7
 	line	77
 	
-l3633:	
+l3848:	
 	bsf	(___flmul@f2)+(23/8),(23)&7
 	line	78
 	
-l3635:	
+l3850:	
 	movlw	0FFh
 	andwf	(___flmul@f2),f
 	movlw	0FFh
@@ -11493,28 +12672,97 @@ l3635:
 	andwf	(___flmul@f2+3),f
 	line	79
 	
-l3637:	
+l3852:	
 	clrf	(___flmul@f3_as_product)
 	clrf	(___flmul@f3_as_product+1)
 	clrf	(___flmul@f3_as_product+2)
 	clrf	(___flmul@f3_as_product+3)
 	line	197
 	
-l3639:	
+l3854:	
 	movlw	low(07h)
 	movwf	(___flmul@cntr)
 	line	199
 	
-l3641:	
+l3856:	
+	btfss	(___flmul@f1),(0)&7
+	goto	u3371
+	goto	u3370
+u3371:
+	goto	l3860
+u3370:
+	line	200
+	
+l3858:	
+	movf	(___flmul@f2),w
+	addwf	(___flmul@f3_as_product),f
+	movf	(___flmul@f2+1),w
+	clrz
+	skipnc
+	addlw	1
+	skipnz
+	goto	u3381
+	addwf	(___flmul@f3_as_product+1),f
+u3381:
+	movf	(___flmul@f2+2),w
+	clrz
+	skipnc
+	addlw	1
+	skipnz
+	goto	u3382
+	addwf	(___flmul@f3_as_product+2),f
+u3382:
+	movf	(___flmul@f2+3),w
+	clrz
+	skipnc
+	addlw	1
+	skipnz
+	goto	u3383
+	addwf	(___flmul@f3_as_product+3),f
+u3383:
+
+	line	201
+	
+l3860:	
+	clrc
+	rrf	(___flmul@f1+3),f
+	rrf	(___flmul@f1+2),f
+	rrf	(___flmul@f1+1),f
+	rrf	(___flmul@f1),f
+	line	202
+	
+l3862:	
+	clrc
+	rlf	(___flmul@f2),f
+	rlf	(___flmul@f2+1),f
+	rlf	(___flmul@f2+2),f
+	rlf	(___flmul@f2+3),f
+	line	203
+	
+l3864:	
+	decfsz	(___flmul@cntr),f
+	goto	u3391
+	goto	u3390
+u3391:
+	goto	l3856
+u3390:
+	line	206
+	
+l3866:	
+	movlw	low(011h)
+	movwf	(___flmul@cntr)
+	line	208
+	
+l3868:	
 	btfss	(___flmul@f1),(0)&7
 	goto	u3401
 	goto	u3400
 u3401:
-	goto	l3645
+	goto	l3872
 u3400:
-	line	200
+	line	209
 	
-l3643:	
+l3870:	
 	movf	(___flmul@f2),w
 	addwf	(___flmul@f3_as_product),f
 	movf	(___flmul@f2+1),w
@@ -11542,78 +12790,9 @@ u3412:
 	addwf	(___flmul@f3_as_product+3),f
 u3413:
 
-	line	201
-	
-l3645:	
-	clrc
-	rrf	(___flmul@f1+3),f
-	rrf	(___flmul@f1+2),f
-	rrf	(___flmul@f1+1),f
-	rrf	(___flmul@f1),f
-	line	202
-	
-l3647:	
-	clrc
-	rlf	(___flmul@f2),f
-	rlf	(___flmul@f2+1),f
-	rlf	(___flmul@f2+2),f
-	rlf	(___flmul@f2+3),f
-	line	203
-	
-l3649:	
-	decfsz	(___flmul@cntr),f
-	goto	u3421
-	goto	u3420
-u3421:
-	goto	l3641
-u3420:
-	line	206
-	
-l3651:	
-	movlw	low(011h)
-	movwf	(___flmul@cntr)
-	line	208
-	
-l3653:	
-	btfss	(___flmul@f1),(0)&7
-	goto	u3431
-	goto	u3430
-u3431:
-	goto	l3657
-u3430:
-	line	209
-	
-l3655:	
-	movf	(___flmul@f2),w
-	addwf	(___flmul@f3_as_product),f
-	movf	(___flmul@f2+1),w
-	clrz
-	skipnc
-	addlw	1
-	skipnz
-	goto	u3441
-	addwf	(___flmul@f3_as_product+1),f
-u3441:
-	movf	(___flmul@f2+2),w
-	clrz
-	skipnc
-	addlw	1
-	skipnz
-	goto	u3442
-	addwf	(___flmul@f3_as_product+2),f
-u3442:
-	movf	(___flmul@f2+3),w
-	clrz
-	skipnc
-	addlw	1
-	skipnz
-	goto	u3443
-	addwf	(___flmul@f3_as_product+3),f
-u3443:
-
 	line	210
 	
-l3657:	
+l3872:	
 	clrc
 	rrf	(___flmul@f1+3),f
 	rrf	(___flmul@f1+2),f
@@ -11621,7 +12800,7 @@ l3657:
 	rrf	(___flmul@f1),f
 	line	211
 	
-l3659:	
+l3874:	
 	clrc
 	rrf	(___flmul@f3_as_product+3),f
 	rrf	(___flmul@f3_as_product+2),f
@@ -11629,16 +12808,16 @@ l3659:
 	rrf	(___flmul@f3_as_product),f
 	line	212
 	
-l3661:	
+l3876:	
 	decfsz	(___flmul@cntr),f
-	goto	u3451
-	goto	u3450
-u3451:
-	goto	l3653
-u3450:
+	goto	u3421
+	goto	u3420
+u3421:
+	goto	l3868
+u3420:
 	line	219
 	
-l3663:	
+l3878:	
 	movf	(___flmul@f3_as_product+3),w
 	movwf	(___flpack@arg+3)
 	movf	(___flmul@f3_as_product+2),w
@@ -11654,7 +12833,6 @@ l3663:
 	movwf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___flmul+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___flmul+2)
@@ -11665,7 +12843,7 @@ l3663:
 
 	line	220
 	
-l885:	
+l874:	
 	return
 	opt stack 0
 GLOBAL	__end_of___flmul
@@ -11675,16 +12853,16 @@ GLOBAL	__end_of___flmul
 
 ;; *************** function ___fladd *****************
 ;; Defined at:
-;;		line 88 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c"
+;;		line 88 in file "/opt/microchip/xc8/v1.34/sources/common/fladd.c"
 ;; Parameters:    Size  Location     Type
-;;  f1              4   42[BANK0 ] unsigned char 
-;;  f2              4   46[BANK0 ] unsigned char 
+;;  f1              4   48[BANK0 ] unsigned char 
+;;  f2              4   52[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  exp1            1   56[BANK0 ] unsigned char 
-;;  exp2            1   55[BANK0 ] unsigned char 
-;;  sign            1   54[BANK0 ] unsigned char 
+;;  exp1            1   62[BANK0 ] unsigned char 
+;;  exp2            1   61[BANK0 ] unsigned char 
+;;  sign            1   60[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4   42[BANK0 ] unsigned char 
+;;                  4   48[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -11708,13 +12886,13 @@ GLOBAL	__end_of___flmul
 ;;		_eval_poly
 ;; This function uses a non-reentrant model
 ;;
-psect	text29,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c"
+psect	text27,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/fladd.c"
 	line	88
-global __ptext29
-__ptext29:	;psect for function ___fladd
-psect	text29
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c"
+global __ptext27
+__ptext27:	;psect for function ___fladd
+psect	text27
+	file	"/opt/microchip/xc8/v1.34/sources/common/fladd.c"
 	line	88
 	global	__size_of___fladd
 	__size_of___fladd	equ	__end_of___fladd-___fladd
@@ -11725,7 +12903,7 @@ ___fladd:
 ; Regs used in ___fladd: [wreg+status,2+status,0+pclath+cstack]
 	line	92
 	
-l3539:	
+l3740:	
 	movf	(___fladd@f1),w
 	movwf	(??___fladd+0)+0
 	movf	(___fladd@f1+1),w
@@ -11754,23 +12932,23 @@ l3539:
 	line	94
 	movf	((___fladd@exp1)),w
 	btfsc	status,2
-	goto	u3181
-	goto	u3180
-u3181:
-	goto	l3545
-u3180:
+	goto	u3101
+	goto	u3100
+u3101:
+	goto	l3746
+u3100:
 	
-l3541:	
+l3742:	
 	movf	(___fladd@exp2),w
 	subwf	(___fladd@exp1),w
 	skipnc
-	goto	u3191
-	goto	u3190
-u3191:
-	goto	l3549
-u3190:
+	goto	u3111
+	goto	u3110
+u3111:
+	goto	l3750
+u3110:
 	
-l3543:	
+l3744:	
 	movf	(___fladd@exp2),w
 	movwf	(??___fladd+0)+0
 	movf	(___fladd@exp1),w
@@ -11778,14 +12956,14 @@ l3543:
 	movlw	low(021h)
 	subwf	0+(??___fladd+0)+0,w
 	skipc
-	goto	u3201
-	goto	u3200
-u3201:
-	goto	l3549
-u3200:
+	goto	u3121
+	goto	u3120
+u3121:
+	goto	l3750
+u3120:
 	line	95
 	
-l3545:	
+l3746:	
 	movf	(___fladd@f2+3),w
 	movwf	(?___fladd+3)
 	movf	(___fladd@f2+2),w
@@ -11795,29 +12973,29 @@ l3545:
 	movf	(___fladd@f2),w
 	movwf	(?___fladd)
 
-	goto	l839
+	goto	l828
 	line	96
 	
-l3549:	
+l3750:	
 	movf	((___fladd@exp2)),w
 	btfsc	status,2
-	goto	u3211
-	goto	u3210
-u3211:
-	goto	l842
-u3210:
+	goto	u3131
+	goto	u3130
+u3131:
+	goto	l831
+u3130:
 	
-l3551:	
+l3752:	
 	movf	(___fladd@exp1),w
 	subwf	(___fladd@exp2),w
 	skipnc
-	goto	u3221
-	goto	u3220
-u3221:
-	goto	l3555
-u3220:
+	goto	u3141
+	goto	u3140
+u3141:
+	goto	l3756
+u3140:
 	
-l3553:	
+l3754:	
 	movf	(___fladd@exp1),w
 	movwf	(??___fladd+0)+0
 	movf	(___fladd@exp2),w
@@ -11825,53 +13003,53 @@ l3553:
 	movlw	low(021h)
 	subwf	0+(??___fladd+0)+0,w
 	skipc
-	goto	u3231
-	goto	u3230
-u3231:
-	goto	l3555
-u3230:
+	goto	u3151
+	goto	u3150
+u3151:
+	goto	l3756
+u3150:
 	
-l842:	
+l831:	
 	line	97
-	goto	l839
+	goto	l828
 	line	98
 	
-l3555:	
+l3756:	
 	movlw	low(06h)
 	movwf	(___fladd@sign)
 	line	99
 	
-l3557:	
+l3758:	
 	btfss	(___fladd@f1+3),(31)&7
-	goto	u3241
-	goto	u3240
-u3241:
-	goto	l843
-u3240:
+	goto	u3161
+	goto	u3160
+u3161:
+	goto	l832
+u3160:
 	line	100
 	
-l3559:	
+l3760:	
 	bsf	(___fladd@sign)+(7/8),(7)&7
 	
-l843:	
+l832:	
 	line	101
 	btfss	(___fladd@f2+3),(31)&7
-	goto	u3251
-	goto	u3250
-u3251:
-	goto	l844
-u3250:
+	goto	u3171
+	goto	u3170
+u3171:
+	goto	l833
+u3170:
 	line	102
 	
-l3561:	
+l3762:	
 	bsf	(___fladd@sign)+(6/8),(6)&7
 	
-l844:	
+l833:	
 	line	103
 	bsf	(___fladd@f1)+(23/8),(23)&7
 	line	104
 	
-l3563:	
+l3764:	
 	movlw	0FFh
 	andwf	(___fladd@f1),f
 	movlw	0FFh
@@ -11882,7 +13060,7 @@ l3563:
 	andwf	(___fladd@f1+3),f
 	line	105
 	
-l3565:	
+l3766:	
 	bsf	(___fladd@f2)+(23/8),(23)&7
 	line	106
 	movlw	0FFh
@@ -11897,14 +13075,14 @@ l3565:
 	movf	(___fladd@exp2),w
 	subwf	(___fladd@exp1),w
 	skipnc
-	goto	u3261
-	goto	u3260
-u3261:
-	goto	l3577
-u3260:
+	goto	u3181
+	goto	u3180
+u3181:
+	goto	l3778
+u3180:
 	line	112
 	
-l3567:	
+l3768:	
 	clrc
 	rlf	(___fladd@f2),f
 	rlf	(___fladd@f2+1),f
@@ -11914,30 +13092,30 @@ l3567:
 	decf	(___fladd@exp2),f
 	line	114
 	
-l3569:	
+l3770:	
 	movf	(___fladd@exp2),w
 	xorwf	(___fladd@exp1),w
 	skipnz
-	goto	u3271
-	goto	u3270
-u3271:
-	goto	l3575
-u3270:
+	goto	u3191
+	goto	u3190
+u3191:
+	goto	l3776
+u3190:
 	
-l3571:	
+l3772:	
 	decf	(___fladd@sign),f
 	movf	((___fladd@sign)),w
 	andlw	07h
 	btfss	status,2
-	goto	u3281
-	goto	u3280
-u3281:
-	goto	l3567
-u3280:
-	goto	l3575
+	goto	u3201
+	goto	u3200
+u3201:
+	goto	l3768
+u3200:
+	goto	l3776
 	line	116
 	
-l3573:	
+l3774:	
 	clrc
 	rrf	(___fladd@f1+3),f
 	rrf	(___fladd@f1+2),f
@@ -11947,30 +13125,30 @@ l3573:
 	incf	(___fladd@exp1),f
 	line	115
 	
-l3575:	
+l3776:	
 	movf	(___fladd@exp1),w
 	xorwf	(___fladd@exp2),w
 	skipz
-	goto	u3291
-	goto	u3290
-u3291:
-	goto	l3573
-u3290:
-	goto	l853
+	goto	u3211
+	goto	u3210
+u3211:
+	goto	l3774
+u3210:
+	goto	l842
 	line	119
 	
-l3577:	
+l3778:	
 	movf	(___fladd@exp1),w
 	subwf	(___fladd@exp2),w
 	skipnc
-	goto	u3301
-	goto	u3300
-u3301:
-	goto	l853
-u3300:
+	goto	u3221
+	goto	u3220
+u3221:
+	goto	l842
+u3220:
 	line	123
 	
-l3579:	
+l3780:	
 	clrc
 	rlf	(___fladd@f1),f
 	rlf	(___fladd@f1+1),f
@@ -11980,30 +13158,30 @@ l3579:
 	decf	(___fladd@exp1),f
 	line	125
 	
-l3581:	
+l3782:	
 	movf	(___fladd@exp2),w
 	xorwf	(___fladd@exp1),w
 	skipnz
-	goto	u3311
-	goto	u3310
-u3311:
-	goto	l3587
-u3310:
+	goto	u3231
+	goto	u3230
+u3231:
+	goto	l3788
+u3230:
 	
-l3583:	
+l3784:	
 	decf	(___fladd@sign),f
 	movf	((___fladd@sign)),w
 	andlw	07h
 	btfss	status,2
-	goto	u3321
-	goto	u3320
-u3321:
-	goto	l3579
-u3320:
-	goto	l3587
+	goto	u3241
+	goto	u3240
+u3241:
+	goto	l3780
+u3240:
+	goto	l3788
 	line	127
 	
-l3585:	
+l3786:	
 	clrc
 	rrf	(___fladd@f2+3),f
 	rrf	(___fladd@f2+2),f
@@ -12013,27 +13191,27 @@ l3585:
 	incf	(___fladd@exp2),f
 	line	126
 	
-l3587:	
+l3788:	
 	movf	(___fladd@exp1),w
 	xorwf	(___fladd@exp2),w
 	skipz
-	goto	u3331
-	goto	u3330
-u3331:
-	goto	l3585
-u3330:
+	goto	u3251
+	goto	u3250
+u3251:
+	goto	l3786
+u3250:
 	line	131
 	
-l853:	
+l842:	
 	btfss	(___fladd@sign),(7)&7
-	goto	u3341
-	goto	u3340
-u3341:
-	goto	l3593
-u3340:
+	goto	u3261
+	goto	u3260
+u3261:
+	goto	l3794
+u3260:
 	line	133
 	
-l3589:	
+l3790:	
 	movlw	0FFh
 	xorwf	(___fladd@f1),f
 	movlw	0FFh
@@ -12044,7 +13222,7 @@ l3589:
 	xorwf	(___fladd@f1+3),f
 	line	134
 	
-l3591:	
+l3792:	
 	incf	(___fladd@f1),f
 	skipnz
 	incf	(___fladd@f1+1),f
@@ -12054,16 +13232,16 @@ l3591:
 	incf	(___fladd@f1+3),f
 	line	136
 	
-l3593:	
+l3794:	
 	btfss	(___fladd@sign),(6)&7
-	goto	u3351
-	goto	u3350
-u3351:
-	goto	l3599
-u3350:
+	goto	u3271
+	goto	u3270
+u3271:
+	goto	l3800
+u3270:
 	line	138
 	
-l3595:	
+l3796:	
 	movlw	0FFh
 	xorwf	(___fladd@f2),f
 	movlw	0FFh
@@ -12074,7 +13252,7 @@ l3595:
 	xorwf	(___fladd@f2+3),f
 	line	139
 	
-l3597:	
+l3798:	
 	incf	(___fladd@f2),f
 	skipnz
 	incf	(___fladd@f2+1),f
@@ -12084,11 +13262,11 @@ l3597:
 	incf	(___fladd@f2+3),f
 	line	141
 	
-l3599:	
+l3800:	
 	clrf	(___fladd@sign)
 	line	142
 	
-l3601:	
+l3802:	
 	movf	(___fladd@f1),w
 	addwf	(___fladd@f2),f
 	movf	(___fladd@f1+1),w
@@ -12096,38 +13274,38 @@ l3601:
 	skipnc
 	addlw	1
 	skipnz
-	goto	u3361
+	goto	u3281
 	addwf	(___fladd@f2+1),f
-u3361:
+u3281:
 	movf	(___fladd@f1+2),w
 	clrz
 	skipnc
 	addlw	1
 	skipnz
-	goto	u3362
+	goto	u3282
 	addwf	(___fladd@f2+2),f
-u3362:
+u3282:
 	movf	(___fladd@f1+3),w
 	clrz
 	skipnc
 	addlw	1
 	skipnz
-	goto	u3363
+	goto	u3283
 	addwf	(___fladd@f2+3),f
-u3363:
+u3283:
 
 	line	143
 	
-l3603:	
+l3804:	
 	btfss	(___fladd@f2+3),(31)&7
-	goto	u3371
-	goto	u3370
-u3371:
-	goto	l3611
-u3370:
+	goto	u3291
+	goto	u3290
+u3291:
+	goto	l3812
+u3290:
 	line	144
 	
-l3605:	
+l3806:	
 	movlw	0FFh
 	xorwf	(___fladd@f2),f
 	movlw	0FFh
@@ -12138,7 +13316,7 @@ l3605:
 	xorwf	(___fladd@f2+3),f
 	line	145
 	
-l3607:	
+l3808:	
 	incf	(___fladd@f2),f
 	skipnz
 	incf	(___fladd@f2+1),f
@@ -12148,12 +13326,12 @@ l3607:
 	incf	(___fladd@f2+3),f
 	line	146
 	
-l3609:	
+l3810:	
 	clrf	(___fladd@sign)
 	incf	(___fladd@sign),f
 	line	148
 	
-l3611:	
+l3812:	
 	movf	(___fladd@f2+3),w
 	movwf	(___flpack@arg+3)
 	movf	(___fladd@f2+2),w
@@ -12169,7 +13347,6 @@ l3611:
 	movwf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___fladd+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___fladd+2)
@@ -12180,7 +13357,7 @@ l3611:
 
 	line	149
 	
-l839:	
+l828:	
 	return
 	opt stack 0
 GLOBAL	__end_of___fladd
@@ -12190,10 +13367,10 @@ GLOBAL	__end_of___fladd
 
 ;; *************** function ___flge *****************
 ;; Defined at:
-;;		line 4 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c"
+;;		line 4 in file "/opt/microchip/xc8/v1.34/sources/common/flge.c"
 ;; Parameters:    Size  Location     Type
-;;  ff1             4    2[COMMON] unsigned char 
-;;  ff2             4    6[COMMON] unsigned char 
+;;  ff1             4    0[BANK0 ] unsigned char 
+;;  ff2             4    4[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
@@ -12201,14 +13378,14 @@ GLOBAL	__end_of___fladd
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
+;;		On entry : 300/0
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         8       0       0       0       0
+;;      Params:         0       8       0       0       0
 ;;      Locals:         0       0       0       0       0
 ;;      Temps:          0       4       0       0       0
-;;      Totals:         8       4       0       0       0
+;;      Totals:         0      12       0       0       0
 ;;Total ram usage:       12 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -12225,13 +13402,13 @@ GLOBAL	__end_of___fladd
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text30,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c"
+psect	text28,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/flge.c"
 	line	4
-global __ptext30
-__ptext30:	;psect for function ___flge
-psect	text30
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flge.c"
+global __ptext28
+__ptext28:	;psect for function ___flge
+psect	text28
+	file	"/opt/microchip/xc8/v1.34/sources/common/flge.c"
 	line	4
 	global	__size_of___flge
 	__size_of___flge	equ	__end_of___flge-___flge
@@ -12242,19 +13419,17 @@ ___flge:
 ; Regs used in ___flge: [wreg+status,2+status,0]
 	line	6
 	
-l2447:	
+l3816:	
 	btfss	(___flge@ff1+3),(31)&7
-	goto	u1891
-	goto	u1890
-u1891:
-	goto	l2451
-u1890:
+	goto	u3301
+	goto	u3300
+u3301:
+	goto	l3820
+u3300:
 	line	7
 	
-l2449:	
+l3818:	
 	movlw	0
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	((??___flge+0)+0)
 	movlw	0
 	movwf	((??___flge+0)+0+1)
@@ -12267,27 +13442,27 @@ l2449:
 	movf	(___flge@ff1+1),w
 	skipc
 	incfsz	(___flge@ff1+1),w
-	goto	u1901
-	goto	u1902
-u1901:
+	goto	u3311
+	goto	u3312
+u3311:
 	subwf	(??___flge+0)+1,f
-u1902:
+u3312:
 	movf	(___flge@ff1+2),w
 	skipc
 	incfsz	(___flge@ff1+2),w
-	goto	u1903
-	goto	u1904
-u1903:
+	goto	u3313
+	goto	u3314
+u3313:
 	subwf	(??___flge+0)+2,f
-u1904:
+u3314:
 	movf	(___flge@ff1+3),w
 	skipc
 	incfsz	(___flge@ff1+3),w
-	goto	u1905
-	goto	u1906
-u1905:
+	goto	u3315
+	goto	u3316
+u3315:
 	subwf	(??___flge+0)+3,f
-u1906:
+u3316:
 
 	movf	3+(??___flge+0)+0,w
 	movwf	(___flge@ff1+3)
@@ -12300,19 +13475,17 @@ u1906:
 
 	line	8
 	
-l2451:	
+l3820:	
 	btfss	(___flge@ff2+3),(31)&7
-	goto	u1911
-	goto	u1910
-u1911:
-	goto	l878
-u1910:
+	goto	u3321
+	goto	u3320
+u3321:
+	goto	l867
+u3320:
 	line	9
 	
-l2453:	
+l3822:	
 	movlw	0
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	((??___flge+0)+0)
 	movlw	0
 	movwf	((??___flge+0)+0+1)
@@ -12325,27 +13498,27 @@ l2453:
 	movf	(___flge@ff2+1),w
 	skipc
 	incfsz	(___flge@ff2+1),w
-	goto	u1921
-	goto	u1922
-u1921:
+	goto	u3331
+	goto	u3332
+u3331:
 	subwf	(??___flge+0)+1,f
-u1922:
+u3332:
 	movf	(___flge@ff2+2),w
 	skipc
 	incfsz	(___flge@ff2+2),w
-	goto	u1923
-	goto	u1924
-u1923:
+	goto	u3333
+	goto	u3334
+u3333:
 	subwf	(??___flge+0)+2,f
-u1924:
+u3334:
 	movf	(___flge@ff2+3),w
 	skipc
 	incfsz	(___flge@ff2+3),w
-	goto	u1925
-	goto	u1926
-u1925:
+	goto	u3335
+	goto	u3336
+u3335:
 	subwf	(??___flge+0)+3,f
-u1926:
+u3336:
 
 	movf	3+(??___flge+0)+0,w
 	movwf	(___flge@ff2+3)
@@ -12357,7 +13530,7 @@ u1926:
 	movwf	(___flge@ff2)
 
 	
-l878:	
+l867:	
 	line	10
 	movlw	080h
 	xorwf	(___flge@ff1+3),f
@@ -12368,36 +13541,36 @@ l878:
 	movf	(___flge@ff2+3),w
 	subwf	(___flge@ff1+3),w
 	skipz
-	goto	u1935
+	goto	u3345
 	movf	(___flge@ff2+2),w
 	subwf	(___flge@ff1+2),w
 	skipz
-	goto	u1935
+	goto	u3345
 	movf	(___flge@ff2+1),w
 	subwf	(___flge@ff1+1),w
 	skipz
-	goto	u1935
+	goto	u3345
 	movf	(___flge@ff2),w
 	subwf	(___flge@ff1),w
-u1935:
+u3345:
 	skipnc
-	goto	u1931
-	goto	u1930
-u1931:
-	goto	l2457
-u1930:
+	goto	u3341
+	goto	u3340
+u3341:
+	goto	l3826
+u3340:
 	
-l2455:	
+l3824:	
 	clrc
 	
-	goto	l879
+	goto	l868
 	
-l2457:	
+l3826:	
 	setc
 	
 	line	13
 	
-l879:	
+l868:	
 	return
 	opt stack 0
 GLOBAL	__end_of___flge
@@ -12407,14 +13580,14 @@ GLOBAL	__end_of___flge
 
 ;; *************** function ___awtofl *****************
 ;; Defined at:
-;;		line 31 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c"
+;;		line 31 in file "/opt/microchip/xc8/v1.34/sources/common/awtofl.c"
 ;; Parameters:    Size  Location     Type
-;;  c               2    4[BANK0 ] int 
+;;  c               2   10[BANK0 ] int 
 ;; Auto vars:     Size  Location     Type
 ;;  f1              4    0        int 
-;;  sign            1    8[COMMON] unsigned char 
+;;  sign            1    4[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  4    4[BANK0 ] unsigned char 
+;;                  4   10[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -12437,37 +13610,37 @@ GLOBAL	__end_of___flge
 ;;		_exp
 ;; This function uses a non-reentrant model
 ;;
-psect	text31,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c"
+psect	text29,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/awtofl.c"
 	line	31
-global __ptext31
-__ptext31:	;psect for function ___awtofl
-psect	text31
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtofl.c"
+global __ptext29
+__ptext29:	;psect for function ___awtofl
+psect	text29
+	file	"/opt/microchip/xc8/v1.34/sources/common/awtofl.c"
 	line	31
 	global	__size_of___awtofl
 	__size_of___awtofl	equ	__end_of___awtofl-___awtofl
 	
 ___awtofl:	
 ;incstack = 0
-	opt	stack 2
+	opt	stack 1
 ; Regs used in ___awtofl: [wreg+status,2+status,0+pclath+cstack]
 	line	36
 	
-l3695:	
+l3988:	
 	clrf	(___awtofl@sign)
 	line	37
 	
-l3697:	
+l3990:	
 	btfss	(___awtofl@c+1),7
-	goto	u3501
-	goto	u3500
-u3501:
-	goto	l3701
-u3500:
+	goto	u3591
+	goto	u3590
+u3591:
+	goto	l3994
+u3590:
 	line	38
 	
-l3699:	
+l3992:	
 	comf	(___awtofl@c),f
 	comf	(___awtofl@c+1),f
 	incf	(___awtofl@c),f
@@ -12477,7 +13650,7 @@ l3699:
 	incf	(___awtofl@sign),f
 	line	41
 	
-l3701:	
+l3994:	
 	movf	(___awtofl@c),w
 	movwf	(___flpack@arg)
 	movf	(___awtofl@c+1),w
@@ -12490,7 +13663,6 @@ l3701:
 	movwf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___awtofl+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___awtofl+2)
@@ -12501,12 +13673,480 @@ l3701:
 
 	line	42
 	
-l812:	
+l801:	
 	return
 	opt stack 0
 GLOBAL	__end_of___awtofl
 	__end_of___awtofl:
 	signat	___awtofl,4220
+	global	_lcd_init
+
+;; *************** function _lcd_init *****************
+;; Defined at:
+;;		line 484 in file "../../../lib/lcd44780.c"
+;; Parameters:    Size  Location     Type
+;;  fourbitmode     1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  fourbitmode     1    0[BANK0 ] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0
+;; Tracked objects:
+;;		On entry : B00/100
+;;		On exit  : B00/0
+;;		Unchanged: 800/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       3       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       3       0       0       0
+;;Total ram usage:        3 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_main
+;; This function uses a non-reentrant model
+;;
+psect	text30,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/lcd44780.c"
+	line	484
+global __ptext30
+__ptext30:	;psect for function _lcd_init
+psect	text30
+	file	"../../../lib/lcd44780.c"
+	line	484
+	global	__size_of_lcd_init
+	__size_of_lcd_init	equ	__end_of_lcd_init-_lcd_init
+	
+_lcd_init:	
+;incstack = 0
+	opt	stack 6
+; Regs used in _lcd_init: [wreg+status,2+status,0]
+;lcd_init@fourbitmode stored from wreg
+	bcf	status, 5	;RP0=0, select bank0
+	movwf	(lcd_init@fourbitmode)
+	line	486
+	
+l4554:	
+;lcd44780.c: 486: LCD_ctrl = 0;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	clrf	(_LCD_ctrl)^0180h
+	line	487
+	
+l4556:	
+;lcd44780.c: 487: LCD_function = (fourbitmode ? 0x00 : 0x10);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	((lcd_init@fourbitmode)),w
+	btfss	status,2
+	goto	u4211
+	goto	u4210
+u4211:
+	goto	l4560
+u4210:
+	
+l4558:	
+	movlw	010h
+	movwf	(_lcd_init$321)
+	clrf	(_lcd_init$321+1)
+	goto	l4562
+	
+l4560:	
+	clrf	(_lcd_init$321)
+	clrf	(_lcd_init$321+1)
+	
+l4562:	
+	movf	(_lcd_init$321),w
+	movwf	(_LCD_function)
+	line	489
+	
+l4564:	
+;lcd44780.c: 489: LCD_lines = 0;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	clrf	(_LCD_lines)^0180h
+	line	491
+	
+l4566:	
+;lcd44780.c: 491: LCD_mode = 0;
+	clrf	(_LCD_mode)^0180h
+	line	493
+	
+l4568:	
+;lcd44780.c: 493: TRISB &= ~0b0100;
+	bcf	status, 6	;RP1=0, select bank1
+	bcf	(134)^080h+(2/8),(2)&7	;volatile
+	line	494
+	
+l4570:	
+;lcd44780.c: 494: PORTB &= ~0b0100;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	(6)+(2/8),(2)&7	;volatile
+	line	499
+	
+l4572:	
+;lcd44780.c: 499: TRISB &= ~0b1000;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	(134)^080h+(3/8),(3)&7	;volatile
+	line	500
+	
+l4574:	
+;lcd44780.c: 500: PORTB &= ~0b1000;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	(6)+(3/8),(3)&7	;volatile
+	line	502
+	
+l4576:	
+;lcd44780.c: 502: PORTB &= ~0b11110000;
+	movlw	low(0Fh)
+	andwf	(6),f	;volatile
+	line	512
+	
+l373:	
+	return
+	opt stack 0
+GLOBAL	__end_of_lcd_init
+	__end_of_lcd_init:
+	signat	_lcd_init,4216
+	global	_lcd_begin
+
+;; *************** function _lcd_begin *****************
+;; Defined at:
+;;		line 411 in file "../../../lib/lcd44780.c"
+;; Parameters:    Size  Location     Type
+;;  lines           1    wreg     unsigned char 
+;;  dotsize         1    3[BANK0 ] unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  lines           1    6[BANK0 ] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0, pclath, cstack
+;; Tracked objects:
+;;		On entry : B00/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       1       0       0       0
+;;      Locals:         0       1       0       0       0
+;;      Temps:          0       2       0       0       0
+;;      Totals:         0       4       0       0       0
+;;Total ram usage:        4 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    4
+;; This function calls:
+;;		_lcd_command
+;;		_lcd_write4bits
+;; This function is called by:
+;;		_main
+;; This function uses a non-reentrant model
+;;
+psect	text31,local,class=CODE,delta=2,merge=1
+	line	411
+global __ptext31
+__ptext31:	;psect for function _lcd_begin
+psect	text31
+	file	"../../../lib/lcd44780.c"
+	line	411
+	global	__size_of_lcd_begin
+	__size_of_lcd_begin	equ	__end_of_lcd_begin-_lcd_begin
+	
+_lcd_begin:	
+;incstack = 0
+	opt	stack 3
+; Regs used in _lcd_begin: [wreg+status,2+status,0+pclath+cstack]
+;lcd_begin@lines stored from wreg
+	movwf	(lcd_begin@lines)
+	line	412
+	
+l4578:	
+;lcd44780.c: 412: if(lines > 1)
+	movlw	low(02h)
+	subwf	(lcd_begin@lines),w
+	skipc
+	goto	u4221
+	goto	u4220
+u4221:
+	goto	l4582
+u4220:
+	line	413
+	
+l4580:	
+;lcd44780.c: 413: LCD_function |= 0x08;
+	bsf	(_LCD_function)+(3/8),(3)&7
+	line	416
+	
+l4582:	
+;lcd44780.c: 416: LCD_lines = lines;
+	movf	(lcd_begin@lines),w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_LCD_lines)^0180h
+	line	420
+	
+l4584:	
+;lcd44780.c: 420: if((dotsize != 0) && (lines == 1))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	((lcd_begin@dotsize)),w
+	btfsc	status,2
+	goto	u4231
+	goto	u4230
+u4231:
+	goto	l4590
+u4230:
+	
+l4586:	
+		decf	((lcd_begin@lines)),w
+	btfss	status,2
+	goto	u4241
+	goto	u4240
+u4241:
+	goto	l4590
+u4240:
+	line	421
+	
+l4588:	
+;lcd44780.c: 421: LCD_function |= 0x04;
+	bsf	(_LCD_function)+(2/8),(2)&7
+	line	423
+	
+l4590:	
+;lcd44780.c: 423: _delay((unsigned long)((15)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	98
+movwf	((??_lcd_begin+0)+0+1),f
+	movlw	101
+movwf	((??_lcd_begin+0)+0),f
+u4407:
+	decfsz	((??_lcd_begin+0)+0),f
+	goto	u4407
+	decfsz	((??_lcd_begin+0)+0+1),f
+	goto	u4407
+	nop2
+opt asmopt_on
+
+	line	426
+	
+l4592:	
+;lcd44780.c: 426: PORTB &= ~0b0100;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(6)+(2/8),(2)&7	;volatile
+	line	427
+	
+l4594:	
+;lcd44780.c: 427: PORTB &= ~0b1000;
+	bcf	(6)+(3/8),(3)&7	;volatile
+	line	430
+	
+l4596:	
+;lcd44780.c: 430: if(!(LCD_function & 0x10)) {
+	btfsc	(_LCD_function),(4)&7
+	goto	u4251
+	goto	u4250
+u4251:
+	goto	l4608
+u4250:
+	line	434
+	
+l4598:	
+;lcd44780.c: 434: lcd_write4bits(0x03);
+	movlw	low(03h)
+	fcall	_lcd_write4bits
+	line	435
+	
+l4600:	
+;lcd44780.c: 435: _delay((unsigned long)((5)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	33
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_lcd_begin+0)+0+1),f
+	movlw	118
+movwf	((??_lcd_begin+0)+0),f
+u4417:
+	decfsz	((??_lcd_begin+0)+0),f
+	goto	u4417
+	decfsz	((??_lcd_begin+0)+0+1),f
+	goto	u4417
+	nop
+opt asmopt_on
+
+	line	437
+	
+l4602:	
+;lcd44780.c: 437: lcd_write4bits(0x03);
+	movlw	low(03h)
+	fcall	_lcd_write4bits
+	line	438
+;lcd44780.c: 438: _delay((unsigned long)((150)*(20000000/4000000.0)));
+	opt asmopt_off
+movlw	249
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	(??_lcd_begin+0)+0,f
+u4427:
+decfsz	(??_lcd_begin+0)+0,f
+	goto	u4427
+	nop2	;nop
+opt asmopt_on
+
+	line	440
+	
+l4604:	
+;lcd44780.c: 440: lcd_write4bits(0x03);
+	movlw	low(03h)
+	fcall	_lcd_write4bits
+	line	441
+	
+l4606:	
+;lcd44780.c: 441: _delay((unsigned long)((150)*(20000000/4000000.0)));
+	opt asmopt_off
+movlw	249
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	(??_lcd_begin+0)+0,f
+u4437:
+decfsz	(??_lcd_begin+0)+0,f
+	goto	u4437
+	nop2	;nop
+opt asmopt_on
+
+	line	443
+;lcd44780.c: 443: lcd_write4bits(0x02);
+	movlw	low(02h)
+	fcall	_lcd_write4bits
+	line	444
+;lcd44780.c: 444: }
+	goto	l4616
+	line	450
+	
+l4608:	
+;lcd44780.c: 446: else {
+;lcd44780.c: 450: lcd_command(0x20 | LCD_function);
+	movf	(_LCD_function),w
+	iorlw	020h
+	fcall	_lcd_command
+	line	451
+	
+l4610:	
+;lcd44780.c: 451: _delay((unsigned long)((5)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	33
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_lcd_begin+0)+0+1),f
+	movlw	118
+movwf	((??_lcd_begin+0)+0),f
+u4447:
+	decfsz	((??_lcd_begin+0)+0),f
+	goto	u4447
+	decfsz	((??_lcd_begin+0)+0+1),f
+	goto	u4447
+	nop
+opt asmopt_on
+
+	line	454
+	
+l4612:	
+;lcd44780.c: 454: lcd_command(0x20 | LCD_function);
+	movf	(_LCD_function),w
+	iorlw	020h
+	fcall	_lcd_command
+	line	455
+;lcd44780.c: 455: _delay((unsigned long)((5)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	33
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_lcd_begin+0)+0+1),f
+	movlw	118
+movwf	((??_lcd_begin+0)+0),f
+u4457:
+	decfsz	((??_lcd_begin+0)+0),f
+	goto	u4457
+	decfsz	((??_lcd_begin+0)+0+1),f
+	goto	u4457
+	nop
+opt asmopt_on
+
+	line	459
+	
+l4614:	
+;lcd44780.c: 459: lcd_command(0x20 | LCD_function);
+	movf	(_LCD_function),w
+	iorlw	020h
+	fcall	_lcd_command
+	line	463
+	
+l4616:	
+;lcd44780.c: 460: }
+;lcd44780.c: 463: lcd_command(0x20 | LCD_function);
+	movf	(_LCD_function),w
+	iorlw	020h
+	fcall	_lcd_command
+	line	466
+;lcd44780.c: 466: LCD_ctrl = 0x04 | 0x00 | 0x00;
+	movlw	low(04h)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_LCD_ctrl)^0180h
+	line	467
+	
+l4618:	
+;lcd44780.c: 467: lcd_command(0x08 | LCD_ctrl);
+	movf	(_LCD_ctrl)^0180h,w
+	iorlw	08h
+	fcall	_lcd_command
+	line	470
+	
+l4620:	
+;lcd44780.c: 470: lcd_command(0x01);
+	movlw	low(01h)
+	fcall	_lcd_command
+	line	471
+;lcd44780.c: 471: _delay((unsigned long)((2)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	13
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_lcd_begin+0)+0+1),f
+	movlw	251
+movwf	((??_lcd_begin+0)+0),f
+u4467:
+	decfsz	((??_lcd_begin+0)+0),f
+	goto	u4467
+	decfsz	((??_lcd_begin+0)+0+1),f
+	goto	u4467
+	nop2
+opt asmopt_on
+
+	line	474
+;lcd44780.c: 474: LCD_mode = 0x02 | 0x00;
+	movlw	low(02h)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_LCD_mode)^0180h
+	line	476
+	
+l4622:	
+;lcd44780.c: 476: lcd_command(0x04 | LCD_mode);
+	movf	(_LCD_mode)^0180h,w
+	iorlw	04h
+	fcall	_lcd_command
+	line	477
+	
+l366:	
+	return
+	opt stack 0
+GLOBAL	__end_of_lcd_begin
+	__end_of_lcd_begin:
+	signat	_lcd_begin,8312
 	global	_calibrate
 
 ;; *************** function _calibrate *****************
@@ -12515,14 +14155,14 @@ GLOBAL	__end_of___awtofl
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  i               1   51[BANK0 ] unsigned char 
+;;  i               1   58[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
+;;		On entry : 0/0
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
@@ -12531,16 +14171,16 @@ GLOBAL	__end_of___awtofl
 ;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    7
+;; Hardware stack levels required when called:    6
 ;; This function calls:
 ;;		___lwtofl
 ;;		_delay10ms
 ;;		_lcd_clear
 ;;		_lcd_gotoxy
-;;		_lcd_putch
+;;		_lcd_send
 ;;		_measure_freq
 ;;		_put_str
-;;		_uart_puts
+;;		_ser_puts
 ;; This function is called by:
 ;;		_main
 ;; This function uses a non-reentrant model
@@ -12558,30 +14198,37 @@ psect	text32
 	
 _calibrate:	
 ;incstack = 0
-	opt	stack 0
+	opt	stack 1
 ; Regs used in _calibrate: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	29
 	
-l4187:	
-;measure.c: 26: unsigned char i;
+l4646:	
+;measure.c: 26: uint8_t i;
 ;measure.c: 29: lcd_clear();
 	fcall	_lcd_clear
 	line	31
 	
-l4189:	
+l4648:	
 ;measure.c: 31: lcd_gotoxy(0, 0);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0)
 	fcall	_lcd_gotoxy
 	line	32
 	
-l4191:	
+l4650:	
 ;measure.c: 32: put_str("Calibrating");
-	movlw	(low((((STR_19)-__stringbase)|8000h)))&0ffh
+	movlw	low(((STR_23)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(put_str@s)
+	movlw	high(((STR_23)|8000h))
+	movwf	((put_str@s))+1
 	fcall	_put_str
 	line	34
 	
-l4193:	
+l4652:	
 ;measure.c: 34: lcd_gotoxy(0, 1);
 	clrf	(lcd_gotoxy@row)
 	incf	(lcd_gotoxy@row),f
@@ -12589,24 +14236,32 @@ l4193:
 	fcall	_lcd_gotoxy
 	line	35
 	
-l4195:	
-;measure.c: 35: uart_puts("\r\n");
-	movlw	(low((((STR_20)-__stringbase)|8000h)))&0ffh
-	fcall	_uart_puts
+l4654:	
+;measure.c: 35: ser_puts("\r\n");
+	movlw	low(((STR_24)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(ser_puts@s)
+	movlw	high(((STR_24)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
 	line	36
 	
-l4197:	
+l4656:	
 ;measure.c: 36: put_str("please wait...");
-	movlw	(low((((STR_21)-__stringbase)|8000h)))&0ffh
+	movlw	low(((STR_25)|8000h))
+	movwf	(put_str@s)
+	movlw	high(((STR_25)|8000h))
+	movwf	((put_str@s))+1
 	fcall	_put_str
 	line	39
 	
-l4199:	
+l4658:	
 ;measure.c: 39: PORTC &= ~(1 << 5);
 	bcf	(7)+(5/8),(5)&7	;volatile
 	line	41
 	
-l4201:	
+l4660:	
 ;measure.c: 41: F1 = (double)measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
@@ -12615,30 +14270,35 @@ l4201:
 	movwf	(___lwtofl@c)
 	fcall	___lwtofl
 	movf	(3+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+3)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+2)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+2)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+1)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1)^0180h
 
 	line	42
-	
-l4203:	
 ;measure.c: 42: delay10ms(50);
 	movlw	low(032h)
 	fcall	_delay10ms
 	line	44
 	
-l4205:	
+l4662:	
 ;measure.c: 44: F1 = (double)measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
@@ -12647,30 +14307,38 @@ l4205:
 	movwf	(___lwtofl@c)
 	fcall	___lwtofl
 	movf	(3+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+3)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+3)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(2+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+2)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+2)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(1+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1+1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1+1)^0180h
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(0+(?___lwtofl)),w
-	bsf	status, 5	;RP0=1, select bank1
-	movwf	(_F1)^080h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_F1)^0180h
 
 	line	45
 	
-l4207:	
+l4664:	
 ;measure.c: 45: PORTC |= (1 << 5);
 	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	bsf	(7)+(5/8),(5)&7	;volatile
 	line	47
 	
-l4209:	
+l4666:	
 ;measure.c: 47: F2 = (double)measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
@@ -12702,14 +14370,12 @@ l4209:
 	movwf	(_F2)^0180h
 
 	line	48
-	
-l4211:	
 ;measure.c: 48: delay10ms(50);
 	movlw	low(032h)
 	fcall	_delay10ms
 	line	50
 	
-l4213:	
+l4668:	
 ;measure.c: 50: F2 = (double)measure_freq();
 	fcall	_measure_freq
 	movf	(1+(?_measure_freq)),w
@@ -12742,242 +14408,280 @@ l4213:
 
 	line	51
 	
-l4215:	
+l4670:	
 ;measure.c: 51: PORTC &= ~(1 << 5);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	bcf	(7)+(5/8),(5)&7	;volatile
-	line	55
+	line	54
 	
-l4217:	
-;measure.c: 55: lcd_gotoxy(11, 0);
+l4672:	
+;measure.c: 54: lcd_gotoxy(11, 0);
 	clrf	(lcd_gotoxy@row)
 	movlw	low(0Bh)
 	fcall	_lcd_gotoxy
-	line	57
+	line	55
 	
-l4219:	
-;measure.c: 57: for(i = 0; i < 6; i++) {
+l4674:	
+;measure.c: 55: for(i = 0; i < 6; i++) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(calibrate@i)
-	line	58
+	line	56
 	
-l4225:	
-;measure.c: 58: lcd_putch('=');
+l4680:	
+;measure.c: 56: lcd_send(('='), 1);
+	clrf	(lcd_send@mode)
+	incf	(lcd_send@mode),f
 	movlw	low(03Dh)
-	movwf	(lcd_putch@value)
-	fcall	_lcd_putch
-	line	60
-;measure.c: 60: delay10ms(28);
+	fcall	_lcd_send
+	line	58
+;measure.c: 58: delay10ms(28);
 	movlw	low(01Ch)
 	fcall	_delay10ms
-	line	57
+	line	55
 	
-l4227:	
+l4682:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	incf	(calibrate@i),f
 	
-l4229:	
+l4684:	
 	movlw	low(06h)
 	subwf	(calibrate@i),w
 	skipc
-	goto	u4001
-	goto	u4000
-u4001:
-	goto	l4225
-u4000:
-	line	63
+	goto	u4261
+	goto	u4260
+u4261:
+	goto	l4680
+u4260:
+	line	61
 	
-l4231:	
-;measure.c: 61: }
-;measure.c: 63: uart_puts("\r\n");
-	movlw	(low((((STR_22)-__stringbase)|8000h)))&0ffh
-	fcall	_uart_puts
-	line	64
+l4686:	
+;measure.c: 59: }
+;measure.c: 61: ser_puts("\r\n");
+	movlw	low(((STR_26)|8000h))
+	movwf	(ser_puts@s)
+	movlw	high(((STR_26)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	62
 	
-l468:	
+l455:	
 	return
 	opt stack 0
 GLOBAL	__end_of_calibrate
 	__end_of_calibrate:
 	signat	_calibrate,88
-	global	_uart_puts
+	global	_put_str
 
-;; *************** function _uart_puts *****************
+;; *************** function _put_str *****************
 ;; Defined at:
-;;		line 112 in file "../../../lib/uart.c"
+;;		line 221 in file "../../../src/print.c"
 ;; Parameters:    Size  Location     Type
-;;  s               1    wreg     PTR const unsigned char 
-;;		 -> STR_22(3), STR_20(3), STR_14(6), STR_9(3), 
+;;  s               2    3[BANK0 ] PTR const unsigned char 
+;;		 -> STR_37(13), STR_28(10), STR_25(15), STR_23(12), 
 ;; Auto vars:     Size  Location     Type
-;;  s               1    3[COMMON] PTR const unsigned char 
-;;		 -> STR_22(3), STR_20(3), STR_14(6), STR_9(3), 
+;;  i               2    8[BANK0 ] int 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 300/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       2       0       0       0
+;;      Locals:         0       2       0       0       0
+;;      Temps:          0       3       0       0       0
+;;      Totals:         0       7       0       0       0
+;;Total ram usage:        7 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    4
+;; This function calls:
+;;		_output_putch
+;; This function is called by:
+;;		_calibrate
+;;		_measure_capacitance
+;;		_measure_inductance
+;; This function uses a non-reentrant model
+;;
+psect	text33,local,class=CODE,delta=2,merge=1
+	file	"../../../src/print.c"
+	line	221
+global __ptext33
+__ptext33:	;psect for function _put_str
+psect	text33
+	file	"../../../src/print.c"
+	line	221
+	global	__size_of_put_str
+	__size_of_put_str	equ	__end_of_put_str-_put_str
+	
+_put_str:	
+;incstack = 0
+	opt	stack 2
+; Regs used in _put_str: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	224
+	
+l4400:	
+;print.c: 222: int i;
+;print.c: 224: for(i = 0; s[i]; i++) {
+	clrf	(put_str@i)
+	clrf	(put_str@i+1)
+	goto	l4406
+	line	225
+	
+l4402:	
+;print.c: 225: output_putch(s[i]);
+	movf	(put_str@i),w
+	addwf	(put_str@s),w
+	movwf	(??_put_str+1)+0
+	movf	(put_str@s+1),w
+	movwf	(??_put_str+0)+0
+	skipnc
+	incf	(??_put_str+0)+0,f
+	btfss	(put_str@i),7
+	goto	u4080
+	decf	(??_put_str+0)+0,f
+u4080:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(??_put_str+0)+0,w
+	movwf	0+((??_put_str+1)+0)+1
+	movf	1+(??_put_str+1)+0,w
+	movwf	btemp+1
+	movf	0+(??_put_str+1)+0,w
+	movwf	fsr0
+	fcall	stringtab
+	fcall	_output_putch
+	line	224
+	
+l4404:	
+	bcf	status, 5	;RP0=0, select bank0
+	incf	(put_str@i),f
+	skipnz
+	incf	(put_str@i+1),f
+	
+l4406:	
+	movf	(put_str@i),w
+	addwf	(put_str@s),w
+	movwf	(??_put_str+1)+0
+	movf	(put_str@s+1),w
+	movwf	(??_put_str+0)+0
+	skipnc
+	incf	(??_put_str+0)+0,f
+	btfss	(put_str@i),7
+	goto	u4090
+	decf	(??_put_str+0)+0,f
+u4090:
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movf	(??_put_str+0)+0,w
+	movwf	0+((??_put_str+1)+0)+1
+	movf	1+(??_put_str+1)+0,w
+	movwf	btemp+1
+	movf	0+(??_put_str+1)+0,w
+	movwf	fsr0
+	fcall	stringtab
+	xorlw	0
+	skipz
+	goto	u4101
+	goto	u4100
+u4101:
+	goto	l4402
+u4100:
+	line	227
+	
+l45:	
+	return
+	opt stack 0
+GLOBAL	__end_of_put_str
+	__end_of_put_str:
+	signat	_put_str,4216
+	global	_output_putch
+
+;; *************** function _output_putch *****************
+;; Defined at:
+;;		line 208 in file "../../../src/print.c"
+;; Parameters:    Size  Location     Type
+;;  c               1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  c               1    2[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
+;;		On entry : 300/0
+;;		On exit  : B00/900
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
+;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    2
+;; Hardware stack levels required when called:    3
 ;; This function calls:
-;;		_uart_putch
+;;		_lcd_send
+;;		_ser_putch
 ;; This function is called by:
-;;		_print_unit
-;;		_main
-;;		_calibrate
-;; This function uses a non-reentrant model
-;;
-psect	text33,local,class=CODE,delta=2,merge=1
-	file	"../../../lib/uart.c"
-	line	112
-global __ptext33
-__ptext33:	;psect for function _uart_puts
-psect	text33
-	file	"../../../lib/uart.c"
-	line	112
-	global	__size_of_uart_puts
-	__size_of_uart_puts	equ	__end_of_uart_puts-_uart_puts
-	
-_uart_puts:	
-;incstack = 0
-	opt	stack 5
-; Regs used in _uart_puts: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;uart_puts@s stored from wreg
-	movwf	(uart_puts@s)
-	line	113
-	
-l2771:	
-;uart.c: 113: while(*s) uart_putch(*s++);
-	goto	l2777
-	
-l2773:	
-	movf	(uart_puts@s),w
-	movwf	fsr0
-	fcall	stringdir
-	fcall	_uart_putch
-	
-l2775:	
-	incf	(uart_puts@s),f
-	
-l2777:	
-	movf	(uart_puts@s),w
-	movwf	fsr0
-	fcall	stringdir
-	xorlw	0
-	skipz
-	goto	u2391
-	goto	u2390
-u2391:
-	goto	l2773
-u2390:
-	line	114
-	
-l569:	
-	return
-	opt stack 0
-GLOBAL	__end_of_uart_puts
-	__end_of_uart_puts:
-	signat	_uart_puts,4216
-	global	_uart_putch
-
-;; *************** function _uart_putch *****************
-;; Defined at:
-;;		line 23 in file "../../../lib/uart.c"
-;; Parameters:    Size  Location     Type
-;;  byte            1    wreg     unsigned char 
-;; Auto vars:     Size  Location     Type
-;;  byte            1    2[COMMON] unsigned char 
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg
-;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 300/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_uart_puts
+;;		_put_str
 ;; This function uses a non-reentrant model
 ;;
 psect	text34,local,class=CODE,delta=2,merge=1
-	line	23
+	line	208
 global __ptext34
-__ptext34:	;psect for function _uart_putch
+__ptext34:	;psect for function _output_putch
 psect	text34
-	file	"../../../lib/uart.c"
-	line	23
-	global	__size_of_uart_putch
-	__size_of_uart_putch	equ	__end_of_uart_putch-_uart_putch
+	file	"../../../src/print.c"
+	line	208
+	global	__size_of_output_putch
+	__size_of_output_putch	equ	__end_of_output_putch-_output_putch
 	
-_uart_putch:	
+_output_putch:	
 ;incstack = 0
-	opt	stack 5
-; Regs used in _uart_putch: [wreg]
-;uart_putch@byte stored from wreg
-	movwf	(uart_putch@byte)
-	line	25
+	opt	stack 2
+; Regs used in _output_putch: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+;output_putch@c stored from wreg
+	movwf	(output_putch@c)
+	line	210
 	
-l2605:	
-	line	28
-;uart.c: 25: while(!TXIF) {
+l4290:	
+;print.c: 210: lcd_send((c), 1);
+	clrf	(lcd_send@mode)
+	incf	(lcd_send@mode),f
+	movf	(output_putch@c),w
+	fcall	_lcd_send
+	line	213
 	
-l528:	
-	line	25
+l4292:	
+;print.c: 213: ser_putch(c);
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	btfss	(100/8),(100)&7	;volatile
-	goto	u2161
-	goto	u2160
-u2161:
-	goto	l528
-u2160:
-	line	29
+	movf	(output_putch@c),w
+	fcall	_ser_putch
+	line	215
 	
-l2607:	
-;uart.c: 28: }
-;uart.c: 29: TXREG = (unsigned char)byte;
-	movf	(uart_putch@byte),w
-	movwf	(25)	;volatile
-	line	30
-	
-l531:	
+l39:	
 	return
 	opt stack 0
-GLOBAL	__end_of_uart_putch
-	__end_of_uart_putch:
-	signat	_uart_putch,4216
+GLOBAL	__end_of_output_putch
+	__end_of_output_putch:
+	signat	_output_putch,4216
 	global	_measure_freq
 
 ;; *************** function _measure_freq *****************
 ;; Defined at:
-;;		line 71 in file "../../../lib/../src/measure.c"
+;;		line 68 in file "../../../lib/../src/measure.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  count           2   45[BANK0 ] unsigned short 
+;;  count           2   52[BANK0 ] unsigned int 
 ;; Return value:  Size  Location     Type
-;;                  2   41[BANK0 ] unsigned short 
+;;                  2   48[BANK0 ] unsigned short 
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
@@ -12991,11 +14695,13 @@ GLOBAL	__end_of_uart_putch
 ;;      Totals:         0       6       0       0       0
 ;;Total ram usage:        6 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    6
+;; Hardware stack levels required when called:    5
 ;; This function calls:
+;;		_buffer_init
+;;		_buffer_puts
 ;;		_format_number
 ;;		_lcd_gotoxy
-;;		_put_str
+;;		_print_buffer
 ;;		_timer0_read_ps
 ;; This function is called by:
 ;;		_calibrate
@@ -13005,79 +14711,114 @@ GLOBAL	__end_of_uart_putch
 ;;
 psect	text35,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/../src/measure.c"
-	line	71
+	line	68
 global __ptext35
 __ptext35:	;psect for function _measure_freq
 psect	text35
 	file	"../../../lib/../src/measure.c"
-	line	71
+	line	68
 	global	__size_of_measure_freq
 	__size_of_measure_freq	equ	__end_of_measure_freq-_measure_freq
 	
 _measure_freq:	
 ;incstack = 0
-	opt	stack 0
+	opt	stack 1
 ; Regs used in _measure_freq: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
-	line	74
+	line	71
 	
-l4023:	
-;measure.c: 72: unsigned short int count;
-;measure.c: 74: TMR0IF = 0;
-	bcf	(90/8),(90)&7	;volatile
-	line	78
-;measure.c: 78: TRISA &= ~0b00010000;
+l4432:	
+;measure.c: 69: uint16_t count;
+;measure.c: 71: INTCON &= ~0b100;
+	bcf	(11)+(2/8),(2)&7	;volatile
+	line	75
+;measure.c: 75: TRISA &= ~0b00010000;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bcf	(133)^080h+(4/8),(4)&7	;volatile
-	line	80
+	line	77
 	
-l4025:	
-;measure.c: 80: _delay((unsigned long)((20)*(20000000/4000.0)));
+l4434:	
+;measure.c: 77: _delay((unsigned long)((20)*(20000000/4000.0)));
 	opt asmopt_off
 movlw	130
 	bcf	status, 5	;RP0=0, select bank0
 movwf	((??_measure_freq+0)+0+1),f
 	movlw	221
 movwf	((??_measure_freq+0)+0),f
-u4177:
+u4477:
 	decfsz	((??_measure_freq+0)+0),f
-	goto	u4177
+	goto	u4477
 	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4177
+	goto	u4477
 	nop2
 opt asmopt_on
 
-	line	83
+	line	80
 	
-l4027:	
-;measure.c: 83: TMR0 = 0x00;
+l4436:	
+;measure.c: 80: TMR0 = 0x00;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	clrf	(1)	;volatile
 	line	85
 	
-l4029:	
-;measure.c: 85: RC3 = ((1) == 0);
-	bcf	(59/8),(59)&7	;volatile
+l4438:	
+;measure.c: 85: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4487:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4487
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4487
+	nop
+opt asmopt_on
+
+	line	86
+	
+l4440:	
+;measure.c: 86: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4497:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4497
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4497
+	nop
+opt asmopt_on
+
+	line	87
+	
+l4442:	
+;measure.c: 87: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4507:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4507
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4507
+	nop
+opt asmopt_on
+
 	line	88
 	
-l4031:	
-;measure.c: 88: _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	65
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4187:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4187
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4187
-	nop
-opt asmopt_on
-
-	
-l4033:	
+l4444:	
+;measure.c: 88: _delay((unsigned long)((10)*(20000000/4000.0)));
 	opt asmopt_off
 movlw	65
 	bcf	status, 5	;RP0=0, select bank0
@@ -13085,69 +14826,18 @@ movlw	65
 movwf	((??_measure_freq+0)+0+1),f
 	movlw	238
 movwf	((??_measure_freq+0)+0),f
-u4197:
+u4517:
 	decfsz	((??_measure_freq+0)+0),f
-	goto	u4197
+	goto	u4517
 	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4197
-	nop
-opt asmopt_on
-
-	
-l4035:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4207:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4207
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4207
-	nop
-opt asmopt_on
-
-	
-l4037:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4217:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4217
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4217
-	nop
-opt asmopt_on
-
-	
-l4039:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4227:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4227
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4227
+	goto	u4517
 	nop
 opt asmopt_on
 
 	line	89
 	
-l4041:	
-;measure.c: 89: _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0))); _delay((unsigned long)((10)*(20000000/4000.0)));
+l4446:	
+;measure.c: 89: _delay((unsigned long)((10)*(20000000/4000.0)));
 	opt asmopt_off
 movlw	65
 	bcf	status, 5	;RP0=0, select bank0
@@ -13155,16 +14845,18 @@ movlw	65
 movwf	((??_measure_freq+0)+0+1),f
 	movlw	238
 movwf	((??_measure_freq+0)+0),f
-u4237:
+u4527:
 	decfsz	((??_measure_freq+0)+0),f
-	goto	u4237
+	goto	u4527
 	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4237
+	goto	u4527
 	nop
 opt asmopt_on
 
+	line	90
 	
-l4043:	
+l4448:	
+;measure.c: 90: _delay((unsigned long)((10)*(20000000/4000.0)));
 	opt asmopt_off
 movlw	65
 	bcf	status, 5	;RP0=0, select bank0
@@ -13172,105 +14864,134 @@ movlw	65
 movwf	((??_measure_freq+0)+0+1),f
 	movlw	238
 movwf	((??_measure_freq+0)+0),f
-u4247:
+u4537:
 	decfsz	((??_measure_freq+0)+0),f
-	goto	u4247
+	goto	u4537
 	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4247
-	nop
-opt asmopt_on
-
-	
-l4045:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4257:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4257
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4257
-	nop
-opt asmopt_on
-
-	
-l4047:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4267:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4267
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4267
-	nop
-opt asmopt_on
-
-	
-l4049:	
-	opt asmopt_off
-movlw	65
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-movwf	((??_measure_freq+0)+0+1),f
-	movlw	238
-movwf	((??_measure_freq+0)+0),f
-u4277:
-	decfsz	((??_measure_freq+0)+0),f
-	goto	u4277
-	decfsz	((??_measure_freq+0)+0+1),f
-	goto	u4277
+	goto	u4537
 	nop
 opt asmopt_on
 
 	line	91
 	
-l4051:	
-;measure.c: 91: RC3 = ((0) == 0);
+l4450:	
+;measure.c: 91: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bsf	(59/8),(59)&7	;volatile
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4547:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4547
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4547
+	nop
+opt asmopt_on
+
+	line	92
+	
+l4452:	
+;measure.c: 92: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4557:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4557
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4557
+	nop
+opt asmopt_on
+
+	line	93
+	
+l4454:	
+;measure.c: 93: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4567:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4567
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4567
+	nop
+opt asmopt_on
+
 	line	94
 	
-l4053:	
-;measure.c: 94: TRISA |= 0b00010000;
-	bsf	status, 5	;RP0=1, select bank1
-	bsf	(133)^080h+(4/8),(4)&7	;volatile
-	line	97
+l4456:	
+;measure.c: 94: _delay((unsigned long)((10)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	65
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_measure_freq+0)+0+1),f
+	movlw	238
+movwf	((??_measure_freq+0)+0),f
+u4577:
+	decfsz	((??_measure_freq+0)+0),f
+	goto	u4577
+	decfsz	((??_measure_freq+0)+0+1),f
+	goto	u4577
+	nop
+opt asmopt_on
+
+	line	99
 	
-l4055:	
-;measure.c: 97: count = timer0_read_ps();
+l4458:	
+;measure.c: 99: TRISA |= 0b00010000;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	bsf	(133)^080h+(4/8),(4)&7	;volatile
+	line	102
+	
+l4460:	
+;measure.c: 102: count = timer0_read_ps();
 	fcall	_timer0_read_ps
 	movf	(1+(?_timer0_read_ps)),w
 	movwf	(measure_freq@count+1)
 	movf	(0+(?_timer0_read_ps)),w
 	movwf	(measure_freq@count)
-	line	100
+	line	105
 	
-l4057:	
-;measure.c: 100: lcd_gotoxy(0, 1);
+l4462:	
+;measure.c: 105: lcd_gotoxy(0, 1);
 	clrf	(lcd_gotoxy@row)
 	incf	(lcd_gotoxy@row),f
 	movlw	low(0)
 	fcall	_lcd_gotoxy
-	line	101
+	line	107
 	
-l4059:	
-;measure.c: 101: put_str("Freq=");
-	movlw	(low((((STR_23)-__stringbase)|8000h)))&0ffh
-	fcall	_put_str
-	line	102
+l4464:	
+;measure.c: 107: buffer_init();
+	fcall	_buffer_init
+	line	108
 	
-l4061:	
-;measure.c: 102: format_number( count, 10, 5);
+l4466:	
+;measure.c: 108: buffer_puts("Freq=");
+	movlw	low(((STR_27)|8000h))
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(buffer_puts@x)
+	movlw	high(((STR_27)|8000h))
+	movwf	((buffer_puts@x))+1
+	fcall	_buffer_puts
+	line	109
+	
+l4468:	
+;measure.c: 109: format_number(count, 10, 5);
 	movf	(measure_freq@count+1),w
 	movwf	(format_number@n+1)
 	movf	(measure_freq@count),w
@@ -13280,17 +15001,22 @@ l4061:
 	movlw	low(05h)
 	movwf	(format_number@pad)
 	fcall	_format_number
-	line	105
+	line	110
 	
-l4063:	
-;measure.c: 105: return count;
+l4470:	
+;measure.c: 110: print_buffer();
+	fcall	_print_buffer
+	line	112
+	
+l4472:	
+;measure.c: 112: return count;
 	movf	(measure_freq@count+1),w
 	movwf	(?_measure_freq+1)
 	movf	(measure_freq@count),w
 	movwf	(?_measure_freq)
-	line	106
+	line	113
 	
-l471:	
+l458:	
 	return
 	opt stack 0
 GLOBAL	__end_of_measure_freq
@@ -13300,14 +15026,14 @@ GLOBAL	__end_of_measure_freq
 
 ;; *************** function _timer0_read_ps *****************
 ;; Defined at:
-;;		line 45 in file "../../../lib/timer.c"
+;;		line 64 in file "../../../lib/timer.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
-;;  count           2    1[BANK0 ] unsigned short 
-;;  prev            1    0[BANK0 ] unsigned char 
+;;  count           2    5[BANK0 ] unsigned int 
+;;  prev            1    4[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  2    2[COMMON] unsigned short 
+;;                  2    4[COMMON] unsigned short 
 ;; Registers used:
 ;;		wreg, status,2, status,0, btemp+1
 ;; Tracked objects:
@@ -13317,8 +15043,8 @@ GLOBAL	__end_of_measure_freq
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         2       0       0       0       0
 ;;      Locals:         0       3       0       0       0
-;;      Temps:          4       0       0       0       0
-;;      Totals:         6       3       0       0       0
+;;      Temps:          0       4       0       0       0
+;;      Totals:         2       7       0       0       0
 ;;Total ram usage:        9 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -13330,12 +15056,12 @@ GLOBAL	__end_of_measure_freq
 ;;
 psect	text36,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/timer.c"
-	line	45
+	line	64
 global __ptext36
 __ptext36:	;psect for function _timer0_read_ps
 psect	text36
 	file	"../../../lib/timer.c"
-	line	45
+	line	64
 	global	__size_of_timer0_read_ps
 	__size_of_timer0_read_ps	equ	__end_of_timer0_read_ps-_timer0_read_ps
 	
@@ -13343,104 +15069,104 @@ _timer0_read_ps:
 ;incstack = 0
 	opt	stack 4
 ; Regs used in _timer0_read_ps: [wreg+status,2+status,0+btemp+1]
-	line	46
+	line	65
 	
-l3867:	
-;timer.c: 46: unsigned char prev = TMR0;
+l4304:	
+;timer.c: 65: uint8_t prev = TMR0;
 	bcf	status, 5	;RP0=0, select bank0
 	movf	(1),w	;volatile
 	movwf	(timer0_read_ps@prev)
-	line	47
+	line	66
 	
-l3869:	
-;timer.c: 47: unsigned short int count = 0;
+l4306:	
+;timer.c: 66: uint16_t count = 0;
 	clrf	(timer0_read_ps@count)
 	clrf	(timer0_read_ps@count+1)
-	line	49
+	line	68
 	
-l3871:	
-;timer.c: 49: OPTION_REG |= 0x20;
+l4308:	
+;timer.c: 68: OPTION_REG |= 0x20;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(129)^080h+(5/8),(5)&7	;volatile
-	line	53
+	line	72
 	
-l3873:	
-;timer.c: 53: OPTION_REG |= 0x10;
+l4310:	
+;timer.c: 72: OPTION_REG |= 0x10;
 	bsf	status, 5	;RP0=1, select bank1
 	bsf	(129)^080h+(4/8),(4)&7	;volatile
-	line	55
+	line	74
 	
-l3875:	
-;timer.c: 55: __nop();
+l4312:	
+;timer.c: 74: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
-	line	56
+	line	75
 	
-l3877:	
-;timer.c: 56: __nop();
+l4314:	
+;timer.c: 75: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
-	line	58
+	line	77
 	
-l3879:	
-;timer.c: 58: OPTION_REG &= ~0x10;
+l4316:	
+;timer.c: 77: OPTION_REG &= ~0x10;
 	bsf	status, 5	;RP0=1, select bank1
 	bcf	status, 6	;RP1=0, select bank1
 	bcf	(129)^080h+(4/8),(4)&7	;volatile
-	line	60
+	line	79
 	
-l3881:	
-;timer.c: 60: __nop();
+l4318:	
+;timer.c: 79: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
-	line	61
+	line	80
 	
-l3883:	
-;timer.c: 61: __nop();
+l4320:	
+;timer.c: 80: __nop();
 	opt	asmopt_off
 	nop
 	opt	asmopt_on
-	line	63
+	line	82
 	
-l3885:	
-;timer.c: 63: ++count;
+l4322:	
+;timer.c: 82: ++count;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	incf	(timer0_read_ps@count),f
 	skipnz
 	incf	(timer0_read_ps@count+1),f
-	line	66
+	line	85
 	
-l3887:	
-;timer.c: 66: } while(prev == TMR0 && count <= 255);
+l4324:	
+;timer.c: 85: } while(prev == TMR0 && count <= 255);
 	movf	(timer0_read_ps@prev),w
 	xorwf	(1),w	;volatile
 	skipz
-	goto	u3711
-	goto	u3710
-u3711:
-	goto	l3891
-u3710:
+	goto	u4001
+	goto	u4000
+u4001:
+	goto	l4328
+u4000:
 	
-l3889:	
+l4326:	
 	movlw	01h
 	subwf	(timer0_read_ps@count+1),w
 	movlw	0
 	skipnz
 	subwf	(timer0_read_ps@count),w
 	skipc
-	goto	u3721
-	goto	u3720
-u3721:
-	goto	l3873
-u3720:
-	line	68
+	goto	u4011
+	goto	u4010
+u4011:
+	goto	l4310
+u4010:
+	line	87
 	
-l3891:	
-;timer.c: 68: count = ((prev << 8) + (256 - count));
+l4328:	
+;timer.c: 87: count = ((prev << 8) + (256 - count));
 	movf	(timer0_read_ps@prev),w
 	movwf	(??_timer0_read_ps+0)+0
 	clrf	(??_timer0_read_ps+0)+0+1
@@ -13463,151 +15189,352 @@ l3891:
 	addlw	1
 	addlw	high(0100h)
 	movwf	1+(timer0_read_ps@count)
-	line	69
+	line	88
 	
-l3893:	
-;timer.c: 69: return count;
+l4330:	
+;timer.c: 88: return count;
 	movf	(timer0_read_ps@count+1),w
 	movwf	(?_timer0_read_ps+1)
 	movf	(timer0_read_ps@count),w
 	movwf	(?_timer0_read_ps)
-	line	70
+	line	89
 	
-l116:	
+l100:	
 	return
 	opt stack 0
 GLOBAL	__end_of_timer0_read_ps
 	__end_of_timer0_read_ps:
 	signat	_timer0_read_ps,90
-	global	_put_str
+	global	_print_buffer
 
-;; *************** function _put_str *****************
+;; *************** function _print_buffer *****************
 ;; Defined at:
-;;		line 511 in file "../../../src/print.c"
+;;		line 230 in file "../../../src/print.c"
 ;; Parameters:    Size  Location     Type
-;;  s               1    wreg     PTR const unsigned char 
-;;		 -> STR_25(13), STR_24(10), STR_23(6), STR_21(15), 
-;;		 -> STR_19(12), 
+;;		None
 ;; Auto vars:     Size  Location     Type
-;;  s               1    2[BANK0 ] PTR const unsigned char 
-;;		 -> STR_25(13), STR_24(10), STR_23(6), STR_21(15), 
-;;		 -> STR_19(12), 
-;;  i               2    0[BANK0 ] int 
+;;  i               1    5[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/0
+;;		On entry : 300/0
 ;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         0       3       0       0       0
+;;      Locals:         1       0       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         0       3       0       0       0
-;;Total ram usage:        3 bytes
+;;      Totals:         1       0       0       0       0
+;;Total ram usage:        1 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
+;; Hardware stack levels required when called:    3
 ;; This function calls:
-;;		_output_putch
+;;		_ser_putch
+;;		_ser_puts
 ;; This function is called by:
-;;		_calibrate
 ;;		_measure_freq
-;;		_measure_capacitance
-;;		_measure_inductance
 ;; This function uses a non-reentrant model
 ;;
 psect	text37,local,class=CODE,delta=2,merge=1
 	file	"../../../src/print.c"
-	line	511
+	line	230
 global __ptext37
-__ptext37:	;psect for function _put_str
+__ptext37:	;psect for function _print_buffer
 psect	text37
 	file	"../../../src/print.c"
-	line	511
-	global	__size_of_put_str
-	__size_of_put_str	equ	__end_of_put_str-_put_str
+	line	230
+	global	__size_of_print_buffer
+	__size_of_print_buffer	equ	__end_of_print_buffer-_print_buffer
 	
-_put_str:	
+_print_buffer:	
 ;incstack = 0
-	opt	stack 1
-; Regs used in _put_str: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-;put_str@s stored from wreg
+	opt	stack 2
+; Regs used in _print_buffer: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	232
+	
+l4294:	
+;print.c: 231: uint8_t i;
+;print.c: 232: for(i = 0; i < buffer.n; i++) {
+	clrf	(print_buffer@i)
+	goto	l4300
+	line	233
+	
+l4296:	
+;print.c: 233: ser_putch(buffer.x[i]);
+	movf	(print_buffer@i),w
+	addlw	low(_buffer|((0x1)<<8))&0ffh
+	movwf	fsr0
+	bsf	status, 7	;select IRP bank3
+	movf	indf,w
+	fcall	_ser_putch
+	line	232
+	
+l4298:	
+	incf	(print_buffer@i),f
+	
+l4300:	
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	swapf	0+(_buffer)^0180h+010h,w
+	andlw	(1<<4)-1
+	subwf	(print_buffer@i),w
+	skipc
+	goto	u3991
+	goto	u3990
+u3991:
+	goto	l4296
+u3990:
+	line	235
+	
+l4302:	
+;print.c: 234: }
+;print.c: 235: ser_puts("\r\n");
+	movlw	low(((STR_13)|8000h))
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	movwf	(put_str@s)
-	line	514
+	movwf	(ser_puts@s)
+	movlw	high(((STR_13)|8000h))
+	movwf	((ser_puts@s))+1
+	fcall	_ser_puts
+	line	236
 	
-l3859:	
-;print.c: 512: int i;
-;print.c: 514: for(i = 0; s[i]; i++) {
-	clrf	(put_str@i)
-	clrf	(put_str@i+1)
-	goto	l3865
-	line	515
-	
-l3861:	
-;print.c: 515: output_putch(s[i]);
-	movf	(put_str@i),w
-	addwf	(put_str@s),w
-	movwf	fsr0
-	fcall	stringdir
-	movwf	(output_putch@c)
-	fcall	_output_putch
-	line	514
-	
-l3863:	
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	incf	(put_str@i),f
-	skipnz
-	incf	(put_str@i+1),f
-	
-l3865:	
-	movf	(put_str@i),w
-	addwf	(put_str@s),w
-	movwf	fsr0
-	fcall	stringdir
-	xorlw	0
-	skipz
-	goto	u3701
-	goto	u3700
-u3701:
-	goto	l3861
-u3700:
-	line	517
-	
-l43:	
+l51:	
 	return
 	opt stack 0
-GLOBAL	__end_of_put_str
-	__end_of_put_str:
-	signat	_put_str,4216
+GLOBAL	__end_of_print_buffer
+	__end_of_print_buffer:
+	signat	_print_buffer,88
+	global	_ser_puts
+
+;; *************** function _ser_puts *****************
+;; Defined at:
+;;		line 65 in file "../../../lib/ser.c"
+;; Parameters:    Size  Location     Type
+;;  s               2    0[BANK0 ] PTR const unsigned char 
+;;		 -> STR_36(3), STR_35(5), STR_34(3), STR_33(8), 
+;;		 -> STR_32(6), STR_31(6), STR_30(6), STR_29(5), 
+;;		 -> STR_26(3), STR_24(3), STR_22(3), STR_17(3), 
+;;		 -> STR_16(16), STR_15(16), STR_13(3), STR_9(3), 
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 300/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       2       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       2       0       0       0
+;;Total ram usage:        2 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    2
+;; This function calls:
+;;		_ser_putch
+;; This function is called by:
+;;		_print_unit
+;;		_print_buffer
+;;		_main
+;;		_calibrate
+;;		_measure_capacitance
+;; This function uses a non-reentrant model
+;;
+psect	text38,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/ser.c"
+	line	65
+global __ptext38
+__ptext38:	;psect for function _ser_puts
+psect	text38
+	file	"../../../lib/ser.c"
+	line	65
+	global	__size_of_ser_puts
+	__size_of_ser_puts	equ	__end_of_ser_puts-_ser_puts
+	
+_ser_puts:	
+;incstack = 0
+	opt	stack 5
+; Regs used in _ser_puts: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	66
+	
+l4096:	
+;ser.c: 66: while(*s) ser_putch(*s++);
+	goto	l4102
+	
+l4098:	
+	movf	(ser_puts@s+1),w
+	movwf	btemp+1
+	movf	(ser_puts@s),w
+	movwf	fsr0
+	fcall	stringtab
+	fcall	_ser_putch
+	
+l4100:	
+	bcf	status, 5	;RP0=0, select bank0
+	incf	(ser_puts@s),f
+	skipnz
+	incf	(ser_puts@s+1),f
+	
+l4102:	
+	movf	(ser_puts@s+1),w
+	movwf	btemp+1
+	movf	(ser_puts@s),w
+	movwf	fsr0
+	fcall	stringtab
+	xorlw	0
+	skipz
+	goto	u3721
+	goto	u3720
+u3721:
+	goto	l4098
+u3720:
+	line	67
+	
+l542:	
+	return
+	opt stack 0
+GLOBAL	__end_of_ser_puts
+	__end_of_ser_puts:
+	signat	_ser_puts,4216
+	global	_ser_putch
+
+;; *************** function _ser_putch *****************
+;; Defined at:
+;;		line 55 in file "../../../lib/ser.c"
+;; Parameters:    Size  Location     Type
+;;  c               1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  c               1    4[COMMON] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : B00/900
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         1       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         1       0       0       0       0
+;;Total ram usage:        1 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_output_putch
+;;		_print_buffer
+;;		_measure_capacitance
+;;		_ser_puts
+;; This function uses a non-reentrant model
+;;
+psect	text39,local,class=CODE,delta=2,merge=1
+	line	55
+global __ptext39
+__ptext39:	;psect for function _ser_putch
+psect	text39
+	file	"../../../lib/ser.c"
+	line	55
+	global	__size_of_ser_putch
+	__size_of_ser_putch	equ	__end_of_ser_putch-_ser_putch
+	
+_ser_putch:	
+;incstack = 0
+	opt	stack 5
+; Regs used in _ser_putch: [wreg-fsr0h+status,2+status,0]
+;ser_putch@c stored from wreg
+	movwf	(ser_putch@c)
+	line	56
+	
+l3950:	
+;ser.c: 56: while(((txiptr + 1) & ((uint8_t)16 - 1)) == txoptr) continue;
+	
+l3952:	
+	movf	(_txiptr),w	;volatile
+	addlw	01h
+	andlw	0Fh
+	xorwf	(_txoptr),w	;volatile
+	skipnz
+	goto	u3541
+	goto	u3540
+u3541:
+	goto	l3952
+u3540:
+	
+l535:	
+	line	57
+;ser.c: 57: GIE = 0;
+	bcf	(95/8),(95)&7	;volatile
+	line	58
+	
+l3954:	
+;ser.c: 58: txfifo[txiptr] = c;
+	movf	(_txiptr),w
+	addlw	low(_txfifo|((0x1)<<8))&0ffh
+	movwf	fsr0
+	movf	(ser_putch@c),w
+	bsf	status, 7	;select IRP bank2
+	movwf	indf
+	line	59
+	
+l3956:	
+;ser.c: 59: txiptr = (txiptr + 1) & ((uint8_t)16 - 1);
+	incf	(_txiptr),f	;volatile
+	
+l3958:	
+	movlw	low(0Fh)
+	andwf	(_txiptr),f	;volatile
+	line	60
+	
+l3960:	
+;ser.c: 60: TXIE = 1;
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	status, 6	;RP1=0, select bank1
+	bsf	(1124/8)^080h,(1124)&7	;volatile
+	line	61
+	
+l3962:	
+;ser.c: 61: GIE = 1;
+	bsf	(95/8),(95)&7	;volatile
+	line	62
+	
+l536:	
+	return
+	opt stack 0
+GLOBAL	__end_of_ser_putch
+	__end_of_ser_putch:
+	signat	_ser_putch,4216
 	global	_lcd_gotoxy
 
 ;; *************** function _lcd_gotoxy *****************
 ;; Defined at:
-;;		line 154 in file "../../../lib/lcd44780.c"
+;;		line 135 in file "../../../lib/lcd44780.c"
 ;; Parameters:    Size  Location     Type
 ;;  col             1    wreg     unsigned char 
-;;  row             1    7[COMMON] unsigned char 
+;;  row             1    3[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  col             1    0[BANK0 ] unsigned char 
-;;  row_offsets     4    1[BANK0 ] unsigned char [4]
+;;  col             1    4[BANK0 ] unsigned char 
+;;  row_offsets     4    5[BANK0 ] unsigned char [4]
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/100
+;;		On entry : 300/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
+;;      Params:         0       1       0       0       0
 ;;      Locals:         0       5       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         1       5       0       0       0
+;;      Totals:         0       6       0       0       0
 ;;Total ram usage:        6 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    4
@@ -13616,7 +15543,7 @@ GLOBAL	__end_of_put_str
 ;; This function is called by:
 ;;		_print_unit
 ;;		_print_reading
-;;		_indicator
+;;		_print_indicator
 ;;		_main
 ;;		_calibrate
 ;;		_measure_freq
@@ -13624,101 +15551,99 @@ GLOBAL	__end_of_put_str
 ;;		_measure_inductance
 ;; This function uses a non-reentrant model
 ;;
-psect	text38,local,class=CODE,delta=2,merge=1
+psect	text40,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/lcd44780.c"
-	line	154
-global __ptext38
-__ptext38:	;psect for function _lcd_gotoxy
-psect	text38
+	line	135
+global __ptext40
+__ptext40:	;psect for function _lcd_gotoxy
+psect	text40
 	file	"../../../lib/lcd44780.c"
-	line	154
+	line	135
 	global	__size_of_lcd_gotoxy
 	__size_of_lcd_gotoxy	equ	__end_of_lcd_gotoxy-_lcd_gotoxy
 	
 _lcd_gotoxy:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 2
 ; Regs used in _lcd_gotoxy: [wreg-fsr0h+status,2+status,0+pclath+cstack]
 ;lcd_gotoxy@col stored from wreg
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_gotoxy@col)
-	line	156
+	line	137
 	
-l3803:	
-;lcd44780.c: 156: unsigned char row_offsets[] = {0x00, 0x40, 0x14, 0x54};
+l4234:	
+;lcd44780.c: 137: uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(lcd_gotoxy@F1126+3)^0180h,w
+	movf	(lcd_gotoxy@F1148+3)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_gotoxy@row_offsets+3)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(lcd_gotoxy@F1126+2)^0180h,w
+	movf	(lcd_gotoxy@F1148+2)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_gotoxy@row_offsets+2)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(lcd_gotoxy@F1126+1)^0180h,w
+	movf	(lcd_gotoxy@F1148+1)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_gotoxy@row_offsets+1)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
-	movf	(lcd_gotoxy@F1126)^0180h,w
+	movf	(lcd_gotoxy@F1148)^0180h,w
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_gotoxy@row_offsets)
 
-	line	165
+	line	146
 	
-l3805:	
-;lcd44780.c: 165: if(LCD_lines == 1) {
+l4236:	
+;lcd44780.c: 146: if(LCD_lines == 1) {
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 		decf	((_LCD_lines)^0180h),w
 	btfss	status,2
-	goto	u3631
-	goto	u3630
-u3631:
-	goto	l3809
-u3630:
-	line	166
+	goto	u3921
+	goto	u3920
+u3921:
+	goto	l4240
+u3920:
+	line	147
 	
-l3807:	
-;lcd44780.c: 166: row_offsets[1] = 0x14;
+l4238:	
+;lcd44780.c: 147: row_offsets[1] = 0x14;
 	movlw	low(014h)
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movwf	0+(lcd_gotoxy@row_offsets)+01h
-	line	167
-;lcd44780.c: 167: row_offsets[2] = 0x28;
+	line	148
+;lcd44780.c: 148: row_offsets[2] = 0x28;
 	movlw	low(028h)
 	movwf	0+(lcd_gotoxy@row_offsets)+02h
-	line	168
-;lcd44780.c: 168: row_offsets[3] = 0x3C;
+	line	149
+;lcd44780.c: 149: row_offsets[3] = 0x3C;
 	movlw	low(03Ch)
 	movwf	0+(lcd_gotoxy@row_offsets)+03h
-	line	175
+	line	156
 	
-l3809:	
-;lcd44780.c: 169: }
-;lcd44780.c: 175: lcd_command(0x80 | (col + row_offsets[row]));
+l4240:	
+;lcd44780.c: 150: }
+;lcd44780.c: 156: lcd_command(0x80 | (col + row_offsets[row]));
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(lcd_gotoxy@row),w
 	addlw	low(lcd_gotoxy@row_offsets|((0x0)<<8))&0ffh
 	movwf	fsr0
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
 	movf	(lcd_gotoxy@col),w
 	bcf	status, 7	;select IRP bank0
 	addwf	indf,w
 	iorlw	080h
 	fcall	_lcd_command
-	line	176
+	line	157
 	
-l331:	
+l314:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_gotoxy
@@ -13728,20 +15653,20 @@ GLOBAL	__end_of_lcd_gotoxy
 
 ;; *************** function _format_number *****************
 ;; Defined at:
-;;		line 14 in file "../../../lib/format.c"
+;;		line 15 in file "../../../lib/format.c"
 ;; Parameters:    Size  Location     Type
-;;  n               2    0[BANK0 ] unsigned short 
-;;  base            1    2[BANK0 ] unsigned char 
-;;  pad             1    3[BANK0 ] char 
+;;  n               2    7[BANK0 ] unsigned int 
+;;  base            1    9[BANK0 ] unsigned char 
+;;  pad             1   10[BANK0 ] char 
 ;; Auto vars:     Size  Location     Type
-;;  buf            32    4[BANK0 ] unsigned char [32]
-;;  i               1   40[BANK0 ] char 
-;;  di              1   39[BANK0 ] unsigned char 
-;;  padchar         1   36[BANK0 ] unsigned char 
+;;  buf            32   11[BANK0 ] unsigned char [32]
+;;  i               1   47[BANK0 ] char 
+;;  di              1   46[BANK0 ] unsigned char 
+;;  padchar         1   43[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
 ;; Tracked objects:
 ;;		On entry : 300/0
 ;;		On exit  : 300/0
@@ -13753,72 +15678,71 @@ GLOBAL	__end_of_lcd_gotoxy
 ;;      Totals:         1      41       0       0       0
 ;;Total ram usage:       42 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    5
+;; Hardware stack levels required when called:    2
 ;; This function calls:
 ;;		___lwdiv
 ;;		___lwmod
-;;		_format_putchar
-;;		_lcd_putch
-;;		_output_putch
+;;		_buffer_putch
 ;; This function is called by:
 ;;		_print_reading
+;;		_format_xint32
 ;;		_measure_freq
 ;; This function uses a non-reentrant model
 ;;
-psect	text39,local,class=CODE,delta=2,merge=1
+psect	text41,local,class=CODE,delta=2,merge=1
 	file	"../../../lib/format.c"
-	line	14
-global __ptext39
-__ptext39:	;psect for function _format_number
-psect	text39
+	line	15
+global __ptext41
+__ptext41:	;psect for function _format_number
+psect	text41
 	file	"../../../lib/format.c"
-	line	14
+	line	15
 	global	__size_of_format_number
 	__size_of_format_number	equ	__end_of_format_number-_format_number
 	
 _format_number:	
 ;incstack = 0
-	opt	stack 0
-; Regs used in _format_number: [wreg-fsr0h+status,2+status,0+pclath+cstack]
-	line	17
-	
-l3819:	
-;format.c: 15: char buf[8 * sizeof(long)];
-;format.c: 16: unsigned char di;
-;format.c: 17: signed char i = 0;
-	clrf	(format_number@i)
+	opt	stack 3
+; Regs used in _format_number: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
 	line	18
 	
-l3821:	
-;format.c: 18: char padchar = ' ';
+l4250:	
+;format.c: 16: char buf[8 * sizeof(long)];
+;format.c: 17: uint8_t di;
+;format.c: 18: int8_t i = 0;
+	clrf	(format_number@i)
+	line	19
+	
+l4252:	
+;format.c: 19: char padchar = ' ';
 	movlw	low(020h)
 	movwf	(format_number@padchar)
-	line	20
-	
-l3823:	
-;format.c: 20: if(pad < 0) {
-	btfss	(format_number@pad),7
-	goto	u3651
-	goto	u3650
-u3651:
-	goto	l3829
-u3650:
 	line	21
 	
-l3825:	
-;format.c: 21: pad = -pad;
-	comf	(format_number@pad),f
-	incf	(format_number@pad),f
+l4254:	
+;format.c: 21: if(pad < 0) {
+	btfss	(format_number@pad),7
+	goto	u3941
+	goto	u3940
+u3941:
+	goto	l4260
+u3940:
 	line	22
 	
-l3827:	
-;format.c: 22: padchar = '0';
+l4256:	
+;format.c: 22: pad = -pad;
+	comf	(format_number@pad),f
+	incf	(format_number@pad),f
+	line	23
+	
+l4258:	
+;format.c: 23: padchar = '0';
 	movlw	low(030h)
 	movwf	(format_number@padchar)
-	line	34
+	line	35
 	
-l3829:	
-;format.c: 34: di = n % base;
+l4260:	
+;format.c: 35: di = n % base;
 	movf	(format_number@base),w
 	movwf	(___lwmod@divisor)
 	clrf	(___lwmod@divisor+1)
@@ -13829,52 +15753,52 @@ l3829:
 	fcall	___lwmod
 	movf	(0+(?___lwmod)),w
 	movwf	(format_number@di)
-	line	35
+	line	36
 	
-l3831:	
-;format.c: 35: buf[i++] = (di < 10 ? (unsigned char)'0' + di : (unsigned char)'A' + di - 10);
+l4262:	
+;format.c: 36: buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 	movlw	low(0Ah)
 	subwf	(format_number@di),w
 	skipc
-	goto	u3661
-	goto	u3660
-u3661:
-	goto	l3835
-u3660:
+	goto	u3951
+	goto	u3950
+u3951:
+	goto	l4266
+u3950:
 	
-l3833:	
+l4264:	
 	movf	(format_number@di),w
-	movwf	(_format_number$169)
-	clrf	(_format_number$169+1)
+	movwf	(_format_number$158)
+	clrf	(_format_number$158+1)
 	movlw	037h
-	addwf	(_format_number$169),f
+	addwf	(_format_number$158),f
 	skipnc
-	incf	(_format_number$169+1),f
-	goto	l3837
+	incf	(_format_number$158+1),f
+	goto	l4268
 	
-l3835:	
+l4266:	
 	movf	(format_number@di),w
-	movwf	(_format_number$169)
-	clrf	(_format_number$169+1)
+	movwf	(_format_number$158)
+	clrf	(_format_number$158+1)
 	movlw	030h
-	addwf	(_format_number$169),f
+	addwf	(_format_number$158),f
 	skipnc
-	incf	(_format_number$169+1),f
+	incf	(_format_number$158+1),f
 	
-l3837:	
+l4268:	
 	movf	(format_number@i),w
 	addlw	low(format_number@buf|((0x0)<<8))&0ffh
 	movwf	fsr0
-	movf	(_format_number$169),w
+	movf	(_format_number$158),w
 	bcf	status, 7	;select IRP bank0
 	movwf	indf
 	
-l3839:	
+l4270:	
 	incf	(format_number@i),f
-	line	37
+	line	38
 	
-l3841:	
-;format.c: 37: n /= base;
+l4272:	
+;format.c: 38: n /= base;
 	movf	(format_number@base),w
 	movwf	(___lwdiv@divisor)
 	clrf	(___lwdiv@divisor+1)
@@ -13887,28 +15811,26 @@ l3841:
 	movwf	(format_number@n+1)
 	movf	(0+(?___lwdiv)),w
 	movwf	(format_number@n)
-	line	38
+	line	39
 	
-l3843:	
-;format.c: 38: } while(n > 0);
+l4274:	
+;format.c: 39: } while(n > 0);
 	movf	((format_number@n)),w
 iorwf	((format_number@n+1)),w
 	btfss	status,2
-	goto	u3671
-	goto	u3670
-u3671:
-	goto	l3829
-u3670:
-	goto	l3847
-	line	40
+	goto	u3961
+	goto	u3960
+u3961:
+	goto	l4260
+u3960:
+	goto	l4278
+	line	41
 	
-l3845:	
+l4276:	
 	movf	(format_number@padchar),w
-	movwf	(format_putchar@c)
-	movf	(_putchar_ptr),w
-	fcall	fptable
+	fcall	_buffer_putch
 	
-l3847:	
+l4278:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	movf	(format_number@i),w
@@ -13919,262 +15841,74 @@ l3847:
 	xorlw	80h
 	subwf	(??_format_number+0)+0
 	skipc
-	goto	u3681
-	goto	u3680
-u3681:
-	goto	l3845
-u3680:
-	line	42
+	goto	u3971
+	goto	u3970
+u3971:
+	goto	l4276
+u3970:
+	line	43
 	
-l3849:	
-;format.c: 42: for(; i > 0; i--) putchar_ptr((char)buf[(signed short int)i - 1]);
+l4280:	
+;format.c: 43: for(; i > 0; i--) {
 	movf	(format_number@i),w
 	xorlw	80h
 	addlw	-((01h)^80h)
 	skipnc
-	goto	u3691
-	goto	u3690
-u3691:
-	goto	l3853
-u3690:
-	goto	l149
+	goto	u3981
+	goto	u3980
+u3981:
+	goto	l4284
+u3980:
+	goto	l133
+	line	44
 	
-l3853:	
+l4284:	
+;format.c: 44: buffer_putch((char)buf[(int16_t)i - 1]);
 	movf	(format_number@i),w
 	addlw	0FFh
 	addlw	low(format_number@buf|((0x0)<<8))&0ffh
 	movwf	fsr0
 	bcf	status, 7	;select IRP bank0
 	movf	indf,w
-	movwf	(format_putchar@c)
-	movf	(_putchar_ptr),w
-	fcall	fptable
+	fcall	_buffer_putch
+	line	43
 	
-l3855:	
+l4286:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
 	decf	(format_number@i),f
-	goto	l3849
-	line	44
+	goto	l4280
+	line	47
 	
-l149:	
+l133:	
 	return
 	opt stack 0
 GLOBAL	__end_of_format_number
 	__end_of_format_number:
 	signat	_format_number,12408
-	global	_output_putch
-	global	_lcd_putch
-	global	_format_putchar
-
-;; *************** function _format_putchar *****************
-;; Defined at:
-;;		line 6 in file "../../../lib/format.c"
-;; Parameters:    Size  Location     Type
-;;  c               1    7[COMMON] unsigned char 
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		None
-;; Tracked objects:
-;;		On entry : 0/300
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    1
-;; This function calls:
-;;		Nothing
-;; This function is called by:
-;;		_format_number
-;;		_format_double
-;; This function uses a non-reentrant model
-;;
-psect	text40,local,class=CODE,delta=2,merge=1
-	line	6
-global __ptext40
-__ptext40:	;psect for function _format_putchar
-psect	text40
-	file	"../../../lib/format.c"
-	line	6
-	global	__size_of_format_putchar
-	__size_of_format_putchar	equ	__end_of_format_putchar-_format_putchar
-	
-_format_putchar:	
-;incstack = 0
-	opt	stack 3
-; Regs used in _format_putchar: []
-	line	7
-	
-l2577:	
-	line	8
-;format.c: 7: return;
-	
-l132:	
-	return
-	opt stack 0
-GLOBAL	__end_of_format_putchar
-	__end_of_format_putchar:
-	signat	_format_putchar,4216
-
-;; *************** function _lcd_putch *****************
-;; Defined at:
-;;		line 139 in file "../../../lib/lcd44780.c"
-;; Parameters:    Size  Location     Type
-;;  value           1    7[COMMON] unsigned char 
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    3
-;; This function calls:
-;;		_lcd_send
-;; This function is called by:
-;;		_output_putch
-;;		_main
-;;		_lcd_puts
-;;		_calibrate
-;;		_format_number
-;;		_format_double
-;; This function uses a non-reentrant model
-;;
-psect	text41,local,class=CODE,delta=2,merge=1
-	file	"../../../lib/lcd44780.c"
-	line	139
-global __ptext41
-__ptext41:	;psect for function _lcd_putch
-psect	text41
-	file	"../../../lib/lcd44780.c"
-	line	139
-	global	__size_of_lcd_putch
-	__size_of_lcd_putch	equ	__end_of_lcd_putch-_lcd_putch
-	
-_lcd_putch:	
-;incstack = 0
-	opt	stack 1
-; Regs used in _lcd_putch: [wreg+status,2+status,0+pclath+cstack]
-	line	140
-	
-l3527:	
-;lcd44780.c: 140: lcd_send((unsigned)value, 1);
-	clrf	(lcd_send@mode)
-	incf	(lcd_send@mode),f
-	movf	(lcd_putch@value),w
-	fcall	_lcd_send
-	line	141
-	
-l322:	
-	return
-	opt stack 0
-GLOBAL	__end_of_lcd_putch
-	__end_of_lcd_putch:
-	signat	_lcd_putch,4216
-
-;; *************** function _output_putch *****************
-;; Defined at:
-;;		line 498 in file "../../../src/print.c"
-;; Parameters:    Size  Location     Type
-;;  c               1    7[COMMON] unsigned char 
-;; Auto vars:     Size  Location     Type
-;;		None
-;; Return value:  Size  Location     Type
-;;		None               void
-;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
-;; Tracked objects:
-;;		On entry : 0/300
-;;		On exit  : 0/0
-;;		Unchanged: 0/0
-;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
-;;      Locals:         0       0       0       0       0
-;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
-;;Total ram usage:        1 bytes
-;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
-;; This function calls:
-;;		_lcd_putch
-;; This function is called by:
-;;		_put_str
-;;		_measure_capacitance
-;;		_format_number
-;;		_format_double
-;; This function uses a non-reentrant model
-;;
-psect	text42,local,class=CODE,delta=2,merge=1
-	file	"../../../src/print.c"
-	line	498
-global __ptext42
-__ptext42:	;psect for function _output_putch
-psect	text42
-	file	"../../../src/print.c"
-	line	498
-	global	__size_of_output_putch
-	__size_of_output_putch	equ	__end_of_output_putch-_output_putch
-	
-_output_putch:	
-;incstack = 0
-	opt	stack 1
-; Regs used in _output_putch: [wreg+status,2+status,0+pclath+cstack]
-	line	500
-	
-l3667:	
-;print.c: 500: lcd_putch(c);
-	movf	(output_putch@c),w
-	movwf	(lcd_putch@value)
-	fcall	_lcd_putch
-	line	505
-	
-l37:	
-	return
-	opt stack 0
-GLOBAL	__end_of_output_putch
-	__end_of_output_putch:
-	signat	_output_putch,4216
 	global	___lwmod
 
 ;; *************** function ___lwmod *****************
 ;; Defined at:
-;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c"
+;;		line 6 in file "/opt/microchip/xc8/v1.34/sources/common/lwmod.c"
 ;; Parameters:    Size  Location     Type
-;;  divisor         2    2[COMMON] unsigned int 
-;;  dividend        2    4[COMMON] unsigned int 
+;;  divisor         2    0[BANK0 ] unsigned int 
+;;  dividend        2    2[BANK0 ] unsigned int 
 ;; Auto vars:     Size  Location     Type
-;;  counter         1    6[COMMON] unsigned char 
+;;  counter         1    4[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  2    2[COMMON] unsigned int 
+;;                  2    0[BANK0 ] unsigned int 
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
 ;;		On entry : 300/0
 ;;		On exit  : 300/0
-;;		Unchanged: 300/0
+;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         4       0       0       0       0
+;;      Params:         0       4       0       0       0
 ;;      Locals:         1       0       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         5       0       0       0       0
+;;      Totals:         1       4       0       0       0
 ;;Total ram usage:        5 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -14185,13 +15919,13 @@ GLOBAL	__end_of_output_putch
 ;;		_format_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text43,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c"
+psect	text42,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwmod.c"
 	line	6
-global __ptext43
-__ptext43:	;psect for function ___lwmod
-psect	text43
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c"
+global __ptext42
+__ptext42:	;psect for function ___lwmod
+psect	text42
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwmod.c"
 	line	6
 	global	__size_of___lwmod
 	__size_of___lwmod	equ	__end_of___lwmod-___lwmod
@@ -14202,25 +15936,25 @@ ___lwmod:
 ; Regs used in ___lwmod: [wreg+status,2+status,0]
 	line	13
 	
-l2743:	
+l4164:	
 	movf	((___lwmod@divisor)),w
 iorwf	((___lwmod@divisor+1)),w
 	btfsc	status,2
-	goto	u2341
-	goto	u2340
-u2341:
-	goto	l2759
-u2340:
+	goto	u3801
+	goto	u3800
+u3801:
+	goto	l4180
+u3800:
 	line	14
 	
-l2745:	
+l4166:	
 	clrf	(___lwmod@counter)
 	incf	(___lwmod@counter),f
 	line	15
-	goto	l2749
+	goto	l4170
 	line	16
 	
-l2747:	
+l4168:	
 	clrc
 	rlf	(___lwmod@divisor),f
 	rlf	(___lwmod@divisor+1),f
@@ -14228,32 +15962,32 @@ l2747:
 	incf	(___lwmod@counter),f
 	line	15
 	
-l2749:	
+l4170:	
 	btfss	(___lwmod@divisor+1),(15)&7
-	goto	u2351
-	goto	u2350
-u2351:
-	goto	l2747
-u2350:
+	goto	u3811
+	goto	u3810
+u3811:
+	goto	l4168
+u3810:
 	line	20
 	
-l2751:	
+l4172:	
 	movf	(___lwmod@divisor+1),w
 	subwf	(___lwmod@dividend+1),w
 	skipz
-	goto	u2365
+	goto	u3825
 	movf	(___lwmod@divisor),w
 	subwf	(___lwmod@dividend),w
-u2365:
+u3825:
 	skipc
-	goto	u2361
-	goto	u2360
-u2361:
-	goto	l2755
-u2360:
+	goto	u3821
+	goto	u3820
+u3821:
+	goto	l4176
+u3820:
 	line	21
 	
-l2753:	
+l4174:	
 	movf	(___lwmod@divisor),w
 	subwf	(___lwmod@dividend),f
 	movf	(___lwmod@divisor+1),w
@@ -14262,29 +15996,29 @@ l2753:
 	subwf	(___lwmod@dividend+1),f
 	line	22
 	
-l2755:	
+l4176:	
 	clrc
 	rrf	(___lwmod@divisor+1),f
 	rrf	(___lwmod@divisor),f
 	line	23
 	
-l2757:	
+l4178:	
 	decfsz	(___lwmod@counter),f
-	goto	u2371
-	goto	u2370
-u2371:
-	goto	l2751
-u2370:
+	goto	u3831
+	goto	u3830
+u3831:
+	goto	l4172
+u3830:
 	line	25
 	
-l2759:	
+l4180:	
 	movf	(___lwmod@dividend+1),w
 	movwf	(?___lwmod+1)
 	movf	(___lwmod@dividend),w
 	movwf	(?___lwmod)
 	line	26
 	
-l1056:	
+l1045:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwmod
@@ -14294,26 +16028,26 @@ GLOBAL	__end_of___lwmod
 
 ;; *************** function ___lwdiv *****************
 ;; Defined at:
-;;		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c"
+;;		line 6 in file "/opt/microchip/xc8/v1.34/sources/common/lwdiv.c"
 ;; Parameters:    Size  Location     Type
-;;  divisor         2    2[COMMON] unsigned int 
-;;  dividend        2    4[COMMON] unsigned int 
+;;  divisor         2    0[BANK0 ] unsigned int 
+;;  dividend        2    2[BANK0 ] unsigned int 
 ;; Auto vars:     Size  Location     Type
-;;  quotient        2    6[COMMON] unsigned int 
-;;  counter         1    8[COMMON] unsigned char 
+;;  quotient        2    5[BANK0 ] unsigned int 
+;;  counter         1    4[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
-;;                  2    2[COMMON] unsigned int 
+;;                  2    0[BANK0 ] unsigned int 
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
 ;;		On entry : 300/0
 ;;		On exit  : 300/0
-;;		Unchanged: 300/0
+;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         4       0       0       0       0
-;;      Locals:         3       0       0       0       0
+;;      Params:         0       4       0       0       0
+;;      Locals:         0       3       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         7       0       0       0       0
+;;      Totals:         0       7       0       0       0
 ;;Total ram usage:        7 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -14324,13 +16058,13 @@ GLOBAL	__end_of___lwmod
 ;;		_format_number
 ;; This function uses a non-reentrant model
 ;;
-psect	text44,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c"
+psect	text43,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwdiv.c"
 	line	6
-global __ptext44
-__ptext44:	;psect for function ___lwdiv
-psect	text44
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c"
+global __ptext43
+__ptext43:	;psect for function ___lwdiv
+psect	text43
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwdiv.c"
 	line	6
 	global	__size_of___lwdiv
 	__size_of___lwdiv	equ	__end_of___lwdiv-___lwdiv
@@ -14341,30 +16075,30 @@ ___lwdiv:
 ; Regs used in ___lwdiv: [wreg+status,2+status,0]
 	line	14
 	
-l2717:	
+l4138:	
 	clrf	(___lwdiv@quotient)
 	clrf	(___lwdiv@quotient+1)
 	line	15
 	
-l2719:	
+l4140:	
 	movf	((___lwdiv@divisor)),w
 iorwf	((___lwdiv@divisor+1)),w
 	btfsc	status,2
-	goto	u2301
-	goto	u2300
-u2301:
-	goto	l2739
-u2300:
+	goto	u3761
+	goto	u3760
+u3761:
+	goto	l4160
+u3760:
 	line	16
 	
-l2721:	
+l4142:	
 	clrf	(___lwdiv@counter)
 	incf	(___lwdiv@counter),f
 	line	17
-	goto	l2725
+	goto	l4146
 	line	18
 	
-l2723:	
+l4144:	
 	clrc
 	rlf	(___lwdiv@divisor),f
 	rlf	(___lwdiv@divisor+1),f
@@ -14372,38 +16106,38 @@ l2723:
 	incf	(___lwdiv@counter),f
 	line	17
 	
-l2725:	
+l4146:	
 	btfss	(___lwdiv@divisor+1),(15)&7
-	goto	u2311
-	goto	u2310
-u2311:
-	goto	l2723
-u2310:
+	goto	u3771
+	goto	u3770
+u3771:
+	goto	l4144
+u3770:
 	line	22
 	
-l2727:	
+l4148:	
 	clrc
 	rlf	(___lwdiv@quotient),f
 	rlf	(___lwdiv@quotient+1),f
 	line	23
 	
-l2729:	
+l4150:	
 	movf	(___lwdiv@divisor+1),w
 	subwf	(___lwdiv@dividend+1),w
 	skipz
-	goto	u2325
+	goto	u3785
 	movf	(___lwdiv@divisor),w
 	subwf	(___lwdiv@dividend),w
-u2325:
+u3785:
 	skipc
-	goto	u2321
-	goto	u2320
-u2321:
-	goto	l2735
-u2320:
+	goto	u3781
+	goto	u3780
+u3781:
+	goto	l4156
+u3780:
 	line	24
 	
-l2731:	
+l4152:	
 	movf	(___lwdiv@divisor),w
 	subwf	(___lwdiv@dividend),f
 	movf	(___lwdiv@divisor+1),w
@@ -14412,43 +16146,266 @@ l2731:
 	subwf	(___lwdiv@dividend+1),f
 	line	25
 	
-l2733:	
+l4154:	
 	bsf	(___lwdiv@quotient)+(0/8),(0)&7
 	line	27
 	
-l2735:	
+l4156:	
 	clrc
 	rrf	(___lwdiv@divisor+1),f
 	rrf	(___lwdiv@divisor),f
 	line	28
 	
-l2737:	
+l4158:	
 	decfsz	(___lwdiv@counter),f
-	goto	u2331
-	goto	u2330
-u2331:
-	goto	l2727
-u2330:
+	goto	u3791
+	goto	u3790
+u3791:
+	goto	l4148
+u3790:
 	line	30
 	
-l2739:	
+l4160:	
 	movf	(___lwdiv@quotient+1),w
 	movwf	(?___lwdiv+1)
 	movf	(___lwdiv@quotient),w
 	movwf	(?___lwdiv)
 	line	31
 	
-l1046:	
+l1035:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwdiv
 	__end_of___lwdiv:
 	signat	___lwdiv,8314
-	global	_lcd_clear
+	global	_buffer_puts
 
-;; *************** function _lcd_clear *****************
+;; *************** function _buffer_puts *****************
 ;; Defined at:
-;;		line 306 in file "../../../lib/lcd44780.c"
+;;		line 57 in file "../../../lib/buffer.c"
+;; Parameters:    Size  Location     Type
+;;  x               2    3[BANK0 ] PTR const unsigned char 
+;;		 -> STR_27(6), 
+;; Auto vars:     Size  Location     Type
+;;		None
+;; Return value:  Size  Location     Type
+;;                  1    wreg      unsigned char 
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+;; Tracked objects:
+;;		On entry : 300/0
+;;		On exit  : 300/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       2       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       2       0       0       0
+;;Total ram usage:        2 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    2
+;; This function calls:
+;;		_buffer_putch
+;; This function is called by:
+;;		_measure_freq
+;; This function uses a non-reentrant model
+;;
+psect	text44,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/buffer.c"
+	line	57
+global __ptext44
+__ptext44:	;psect for function _buffer_puts
+psect	text44
+	file	"../../../lib/buffer.c"
+	line	57
+	global	__size_of_buffer_puts
+	__size_of_buffer_puts	equ	__end_of_buffer_puts-_buffer_puts
+	
+_buffer_puts:	
+;incstack = 0
+	opt	stack 3
+; Regs used in _buffer_puts: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+	line	58
+	
+l4376:	
+;buffer.c: 58: while(*x) {
+	goto	l4382
+	line	59
+	
+l4378:	
+;buffer.c: 59: buffer_putch(*x);
+	movf	(buffer_puts@x+1),w
+	movwf	btemp+1
+	movf	(buffer_puts@x),w
+	movwf	fsr0
+	fcall	stringtab
+	fcall	_buffer_putch
+	line	60
+	
+l4380:	
+;buffer.c: 60: ++x;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	incf	(buffer_puts@x),f
+	skipnz
+	incf	(buffer_puts@x+1),f
+	line	58
+	
+l4382:	
+	movf	(buffer_puts@x+1),w
+	movwf	btemp+1
+	movf	(buffer_puts@x),w
+	movwf	fsr0
+	fcall	stringtab
+	xorlw	0
+	skipz
+	goto	u4071
+	goto	u4070
+u4071:
+	goto	l4378
+u4070:
+	line	63
+	
+l398:	
+	return
+	opt stack 0
+GLOBAL	__end_of_buffer_puts
+	__end_of_buffer_puts:
+	signat	_buffer_puts,4217
+	global	_buffer_putch
+
+;; *************** function _buffer_putch *****************
+;; Defined at:
+;;		line 30 in file "../../../lib/buffer.c"
+;; Parameters:    Size  Location     Type
+;;  ch              1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  ch              1    4[COMMON] unsigned char 
+;; Return value:  Size  Location     Type
+;;                  1    wreg      unsigned char 
+;; Registers used:
+;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         1       0       0       0       0
+;;      Temps:          0       3       0       0       0
+;;      Totals:         1       3       0       0       0
+;;Total ram usage:        4 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    1
+;; This function calls:
+;;		Nothing
+;; This function is called by:
+;;		_format_number
+;;		_format_xint32
+;;		_format_double
+;;		_buffer_puts
+;; This function uses a non-reentrant model
+;;
+psect	text45,local,class=CODE,delta=2,merge=1
+	line	30
+global __ptext45
+__ptext45:	;psect for function _buffer_putch
+psect	text45
+	file	"../../../lib/buffer.c"
+	line	30
+	global	__size_of_buffer_putch
+	__size_of_buffer_putch	equ	__end_of_buffer_putch-_buffer_putch
+	
+_buffer_putch:	
+;incstack = 0
+	opt	stack 3
+; Regs used in _buffer_putch: [wreg-fsr0h+status,2+status,0+btemp+1]
+;buffer_putch@ch stored from wreg
+	movwf	(buffer_putch@ch)
+	line	31
+	
+l4104:	
+;buffer.c: 31: if(16 - buffer.n <= 0)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	swapf	0+(_buffer)^0180h+010h,w
+	andlw	(1<<4)-1
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	(??_buffer_putch+0)+0
+	movlw	0
+	movwf	(??_buffer_putch+1)+0+1
+	movf	(??_buffer_putch+0)+0,w
+	sublw	010h
+	movwf	(??_buffer_putch+1)+0
+	skipc
+	decf	(??_buffer_putch+1)+0+1,f
+	movf	1+(??_buffer_putch+1)+0,w
+	xorlw	80h
+	movwf	btemp+1
+	movlw	(0)^80h
+	subwf	btemp+1,w
+	skipz
+	goto	u3735
+	movlw	01h
+	subwf	0+(??_buffer_putch+1)+0,w
+u3735:
+
+	skipnc
+	goto	u3731
+	goto	u3730
+u3731:
+	goto	l4108
+u3730:
+	goto	l385
+	line	33
+	
+l4108:	
+;buffer.c: 33: buffer.x[buffer.n] = ch;
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	swapf	0+(_buffer)^0180h+010h,w
+	andlw	(1<<4)-1
+	addlw	low(_buffer|((0x1)<<8))&0ffh
+	movwf	fsr0
+	movf	(buffer_putch@ch),w
+	bsf	status, 7	;select IRP bank3
+	movwf	indf
+	line	34
+	
+l4110:	
+;buffer.c: 34: buffer.n++;
+	swapf	0+(_buffer)^0180h+010h,w
+	andlw	(1<<4)-1
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	movwf	((??_buffer_putch+0)+0)
+	incf	(??_buffer_putch+0)+0
+	swapf	((??_buffer_putch+0)+0),f
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movf	0+(_buffer)^0180h+010h,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	xorwf	((??_buffer_putch+0)+0),w
+	andlw	not (((1<<4)-1)<<4)
+	xorwf	((??_buffer_putch+0)+0),w
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	0+(_buffer)^0180h+010h
+	line	36
+	
+l385:	
+	return
+	opt stack 0
+GLOBAL	__end_of_buffer_putch
+	__end_of_buffer_putch:
+	signat	_buffer_putch,4217
+	global	_buffer_init
+
+;; *************** function _buffer_init *****************
+;; Defined at:
+;;		line 10 in file "../../../lib/buffer.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
@@ -14456,81 +16413,68 @@ GLOBAL	__end_of___lwdiv
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg, status,2, status,0, pclath, cstack
+;;		wreg, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 0/100
-;;		On exit  : 0/0
+;;		On entry : 0/0
+;;		On exit  : 300/300
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
 ;;      Locals:         0       0       0       0       0
-;;      Temps:          2       0       0       0       0
-;;      Totals:         2       0       0       0       0
-;;Total ram usage:        2 bytes
+;;      Temps:          0       0       0       0       0
+;;      Totals:         0       0       0       0       0
+;;Total ram usage:        0 bytes
 ;; Hardware stack levels used:    1
-;; Hardware stack levels required when called:    4
+;; Hardware stack levels required when called:    1
 ;; This function calls:
-;;		_lcd_command
+;;		Nothing
 ;; This function is called by:
-;;		_main
-;;		_calibrate
+;;		_measure_freq
 ;; This function uses a non-reentrant model
 ;;
-psect	text45,local,class=CODE,delta=2,merge=1
-	file	"../../../lib/lcd44780.c"
-	line	306
-global __ptext45
-__ptext45:	;psect for function _lcd_clear
-psect	text45
-	file	"../../../lib/lcd44780.c"
-	line	306
-	global	__size_of_lcd_clear
-	__size_of_lcd_clear	equ	__end_of_lcd_clear-_lcd_clear
+psect	text46,local,class=CODE,delta=2,merge=1
+	line	10
+global __ptext46
+__ptext46:	;psect for function _buffer_init
+psect	text46
+	file	"../../../lib/buffer.c"
+	line	10
+	global	__size_of_buffer_init
+	__size_of_buffer_init	equ	__end_of_buffer_init-_buffer_init
 	
-_lcd_clear:	
+_buffer_init:	
 ;incstack = 0
-	opt	stack 3
-; Regs used in _lcd_clear: [wreg+status,2+status,0+pclath+cstack]
-	line	307
+	opt	stack 4
+; Regs used in _buffer_init: [wreg+status,2+status,0]
+	line	11
 	
-l4019:	
-;lcd44780.c: 307: lcd_command(0x01);
-	movlw	low(01h)
-	fcall	_lcd_command
-	line	308
+l4374:	
+;buffer.c: 11: buffer.p = 0;
+	movlw	((0 & ((1<<4)-1))<<0)|not (((1<<4)-1)<<0)
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	andwf	0+(_buffer)^0180h+010h,f
+	line	12
+;buffer.c: 12: buffer.n = 0;
+	movlw	((0 & ((1<<4)-1))<<4)|not (((1<<4)-1)<<4)
+	andwf	0+(_buffer)^0180h+010h,f
+	line	13
 	
-l4021:	
-;lcd44780.c: 308: _delay((unsigned long)((2)*(20000000/4000.0)));
-	opt asmopt_off
-movlw	13
-movwf	((??_lcd_clear+0)+0+1),f
-	movlw	251
-movwf	((??_lcd_clear+0)+0),f
-u4287:
-	decfsz	((??_lcd_clear+0)+0),f
-	goto	u4287
-	decfsz	((??_lcd_clear+0)+0+1),f
-	goto	u4287
-	nop2
-opt asmopt_on
-
-	line	310
-	
-l358:	
+l378:	
 	return
 	opt stack 0
-GLOBAL	__end_of_lcd_clear
-	__end_of_lcd_clear:
-	signat	_lcd_clear,88
-	global	_lcd_command
+GLOBAL	__end_of_buffer_init
+	__end_of_buffer_init:
+	signat	_buffer_init,88
+	global	_lcd_clear
 
-;; *************** function _lcd_command *****************
+;; *************** function _lcd_clear *****************
 ;; Defined at:
-;;		line 146 in file "../../../lib/lcd44780.c"
+;;		line 287 in file "../../../lib/lcd44780.c"
 ;; Parameters:    Size  Location     Type
-;;  value           1    wreg     unsigned char 
+;;		None
 ;; Auto vars:     Size  Location     Type
-;;  value           1    6[COMMON] unsigned char 
+;;		None
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
@@ -14541,9 +16485,89 @@ GLOBAL	__end_of_lcd_clear
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
-;;      Locals:         1       0       0       0       0
+;;      Locals:         0       0       0       0       0
+;;      Temps:          0       2       0       0       0
+;;      Totals:         0       2       0       0       0
+;;Total ram usage:        2 bytes
+;; Hardware stack levels used:    1
+;; Hardware stack levels required when called:    4
+;; This function calls:
+;;		_lcd_command
+;; This function is called by:
+;;		_main
+;;		_calibrate
+;; This function uses a non-reentrant model
+;;
+psect	text47,local,class=CODE,delta=2,merge=1
+	file	"../../../lib/lcd44780.c"
+	line	287
+global __ptext47
+__ptext47:	;psect for function _lcd_clear
+psect	text47
+	file	"../../../lib/lcd44780.c"
+	line	287
+	global	__size_of_lcd_clear
+	__size_of_lcd_clear	equ	__end_of_lcd_clear-_lcd_clear
+	
+_lcd_clear:	
+;incstack = 0
+	opt	stack 3
+; Regs used in _lcd_clear: [wreg+status,2+status,0+pclath+cstack]
+	line	288
+	
+l4428:	
+;lcd44780.c: 288: lcd_command(0x01);
+	movlw	low(01h)
+	fcall	_lcd_command
+	line	289
+	
+l4430:	
+;lcd44780.c: 289: _delay((unsigned long)((2)*(20000000/4000.0)));
+	opt asmopt_off
+movlw	13
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+movwf	((??_lcd_clear+0)+0+1),f
+	movlw	251
+movwf	((??_lcd_clear+0)+0),f
+u4587:
+	decfsz	((??_lcd_clear+0)+0),f
+	goto	u4587
+	decfsz	((??_lcd_clear+0)+0+1),f
+	goto	u4587
+	nop2
+opt asmopt_on
+
+	line	291
+	
+l341:	
+	return
+	opt stack 0
+GLOBAL	__end_of_lcd_clear
+	__end_of_lcd_clear:
+	signat	_lcd_clear,88
+	global	_lcd_command
+
+;; *************** function _lcd_command *****************
+;; Defined at:
+;;		line 127 in file "../../../lib/lcd44780.c"
+;; Parameters:    Size  Location     Type
+;;  value           1    wreg     unsigned char 
+;; Auto vars:     Size  Location     Type
+;;  value           1    2[BANK0 ] unsigned char 
+;; Return value:  Size  Location     Type
+;;		None               void
+;; Registers used:
+;;		wreg, status,2, status,0, pclath, cstack
+;; Tracked objects:
+;;		On entry : 0/0
+;;		On exit  : 0/0
+;;		Unchanged: 0/0
+;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+;;      Params:         0       0       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         1       0       0       0       0
+;;      Totals:         0       1       0       0       0
 ;;Total ram usage:        1 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    3
@@ -14555,32 +16579,34 @@ GLOBAL	__end_of_lcd_clear
 ;;		_lcd_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text46,local,class=CODE,delta=2,merge=1
-	line	146
-global __ptext46
-__ptext46:	;psect for function _lcd_command
-psect	text46
+psect	text48,local,class=CODE,delta=2,merge=1
+	line	127
+global __ptext48
+__ptext48:	;psect for function _lcd_command
+psect	text48
 	file	"../../../lib/lcd44780.c"
-	line	146
+	line	127
 	global	__size_of_lcd_command
 	__size_of_lcd_command	equ	__end_of_lcd_command-_lcd_command
 	
 _lcd_command:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 2
 ; Regs used in _lcd_command: [wreg+status,2+status,0+pclath+cstack]
 ;lcd_command@value stored from wreg
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movwf	(lcd_command@value)
-	line	147
+	line	128
 	
-l3693:	
-;lcd44780.c: 147: lcd_send(value, 0);
+l4114:	
+;lcd44780.c: 128: lcd_send(value, 0);
 	clrf	(lcd_send@mode)
 	movf	(lcd_command@value),w
 	fcall	_lcd_send
-	line	148
+	line	129
 	
-l325:	
+l308:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_command
@@ -14590,84 +16616,95 @@ GLOBAL	__end_of_lcd_command
 
 ;; *************** function _lcd_send *****************
 ;; Defined at:
-;;		line 122 in file "../../../lib/lcd44780.c"
+;;		line 103 in file "../../../lib/lcd44780.c"
 ;; Parameters:    Size  Location     Type
 ;;  value           1    wreg     unsigned char 
-;;  mode            1    4[COMMON] unsigned char 
+;;  mode            1    0[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  value           1    5[COMMON] unsigned char 
+;;  value           1    1[BANK0 ] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
-;;		On entry : 0/100
+;;		On entry : 300/0
 ;;		On exit  : 0/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         1       0       0       0       0
-;;      Locals:         1       0       0       0       0
+;;      Params:         0       1       0       0       0
+;;      Locals:         0       1       0       0       0
 ;;      Temps:          0       0       0       0       0
-;;      Totals:         2       0       0       0       0
+;;      Totals:         0       2       0       0       0
 ;;Total ram usage:        2 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    2
 ;; This function calls:
 ;;		_lcd_write4bits
 ;; This function is called by:
-;;		_lcd_putch
+;;		_output_putch
 ;;		_lcd_command
+;;		_lcd_puts
+;;		_calibrate
 ;; This function uses a non-reentrant model
 ;;
-psect	text47,local,class=CODE,delta=2,merge=1
-	line	122
-global __ptext47
-__ptext47:	;psect for function _lcd_send
-psect	text47
+psect	text49,local,class=CODE,delta=2,merge=1
+	line	103
+global __ptext49
+__ptext49:	;psect for function _lcd_send
+psect	text49
 	file	"../../../lib/lcd44780.c"
-	line	122
+	line	103
 	global	__size_of_lcd_send
 	__size_of_lcd_send	equ	__end_of_lcd_send-_lcd_send
 	
 _lcd_send:	
 ;incstack = 0
-	opt	stack 1
+	opt	stack 3
 ; Regs used in _lcd_send: [wreg+status,2+status,0+pclath+cstack]
 ;lcd_send@value stored from wreg
 	movwf	(lcd_send@value)
-	line	123
+	line	104
 	
-l3497:	
-;lcd44780.c: 123: RB2 = mode;
-	btfsc	(lcd_send@mode),0
-	goto	u3071
-	goto	u3070
+l3944:	
+;lcd44780.c: 104: if(mode) {
+	movf	((lcd_send@mode)),w
+	btfsc	status,2
+	goto	u3531
+	goto	u3530
+u3531:
+	goto	l303
+u3530:
+	line	105
 	
-u3071:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(50/8),(50)&7	;volatile
-	goto	u3084
-u3070:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(50/8),(50)&7	;volatile
-u3084:
-	line	131
+l3946:	
+;lcd44780.c: 105: PORTB |= 0b0100;
+	bsf	(6)+(2/8),(2)&7	;volatile
+	line	106
+;lcd44780.c: 106: } else {
+	goto	l3948
 	
-l3499:	
-;lcd44780.c: 130: {
-;lcd44780.c: 131: lcd_write4bits(value >> 4);
+l303:	
+	line	107
+;lcd44780.c: 107: PORTB &= ~0b0100;
+	bcf	(6)+(2/8),(2)&7	;volatile
+	line	116
+	
+l3948:	
+;lcd44780.c: 108: }
+;lcd44780.c: 115: {
+;lcd44780.c: 116: lcd_write4bits(value >> 4);
 	swapf	(lcd_send@value),w
 	andlw	(0ffh shr 4) & 0ffh
 	fcall	_lcd_write4bits
-	line	132
-;lcd44780.c: 132: lcd_write4bits(value);
+	line	117
+;lcd44780.c: 117: lcd_write4bits(value);
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
 	movf	(lcd_send@value),w
 	fcall	_lcd_write4bits
-	line	134
+	line	119
 	
-l319:	
+l305:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_send
@@ -14677,15 +16714,15 @@ GLOBAL	__end_of_lcd_send
 
 ;; *************** function _lcd_write4bits *****************
 ;; Defined at:
-;;		line 57 in file "../../../lib/lcd44780.c"
+;;		line 34 in file "../../../lib/lcd44780.c"
 ;; Parameters:    Size  Location     Type
 ;;  value           1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
-;;  value           1    3[COMMON] unsigned char 
+;;  value           1    5[COMMON] unsigned char 
 ;; Return value:  Size  Location     Type
 ;;		None               void
 ;; Registers used:
-;;		wreg
+;;		wreg, status,2, status,0
 ;; Tracked objects:
 ;;		On entry : 0/0
 ;;		On exit  : 0/0
@@ -14705,131 +16742,70 @@ GLOBAL	__end_of_lcd_send
 ;;		_lcd_begin
 ;; This function uses a non-reentrant model
 ;;
-psect	text48,local,class=CODE,delta=2,merge=1
-	line	57
-global __ptext48
-__ptext48:	;psect for function _lcd_write4bits
-psect	text48
+psect	text50,local,class=CODE,delta=2,merge=1
+	line	34
+global __ptext50
+__ptext50:	;psect for function _lcd_write4bits
+psect	text50
 	file	"../../../lib/lcd44780.c"
-	line	57
+	line	34
 	global	__size_of_lcd_write4bits
 	__size_of_lcd_write4bits	equ	__end_of_lcd_write4bits-_lcd_write4bits
 	
 _lcd_write4bits:	
 ;incstack = 0
-	opt	stack 1
-; Regs used in _lcd_write4bits: [wreg]
+	opt	stack 3
+; Regs used in _lcd_write4bits: [wreg+status,2+status,0]
 ;lcd_write4bits@value stored from wreg
 	movwf	(lcd_write4bits@value)
-	line	62
+	line	39
 	
-l3491:	
-;lcd44780.c: 62: RB4 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u2991
-	goto	u2990
+l3720:	
+;lcd44780.c: 39: PORTB &= 0b00001111;
+	movlw	low(0Fh)
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	andwf	(6),f	;volatile
+	line	40
+;lcd44780.c: 40: PORTB |= value << 4;
+	swapf	(lcd_write4bits@value),w
+	andlw	(0ffh shl 4) & 0ffh
+	iorwf	(6),f	;volatile
+	line	55
 	
-u2991:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(52/8),(52)&7	;volatile
-	goto	u3004
-u2990:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(52/8),(52)&7	;volatile
-u3004:
-	line	63
-;lcd44780.c: 63: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	64
-;lcd44780.c: 64: RB5 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u3011
-	goto	u3010
+l3722:	
+;lcd44780.c: 55: PORTB |= 0b1000; _delay((unsigned long)((4)*(20000000/4000000.0))); PORTB &= ~0b1000; _delay((unsigned long)((100)*(20000000/4000000.0)));;
+	bsf	(6)+(3/8),(3)&7	;volatile
 	
-u3011:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(53/8),(53)&7	;volatile
-	goto	u3024
-u3010:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(53/8),(53)&7	;volatile
-u3024:
-	line	65
-;lcd44780.c: 65: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	66
-;lcd44780.c: 66: RB6 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u3031
-	goto	u3030
-	
-u3031:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(54/8),(54)&7	;volatile
-	goto	u3044
-u3030:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(54/8),(54)&7	;volatile
-u3044:
-	line	67
-;lcd44780.c: 67: value >>= 1;
-	clrc
-	rrf	(lcd_write4bits@value),f
-	line	68
-;lcd44780.c: 68: RB7 = value & 1;
-	btfsc	(lcd_write4bits@value),0
-	goto	u3051
-	goto	u3050
-	
-u3051:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(55/8),(55)&7	;volatile
-	goto	u3064
-u3050:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(55/8),(55)&7	;volatile
-u3064:
-	line	74
-;lcd44780.c: 74: RB3 = 1; _delay((unsigned long)((4)*(20000000/4000000.0))); RB3 = 0; _delay((unsigned long)((100)*(20000000/4000000.0)));;
-	bsf	(51/8),(51)&7	;volatile
-	
-l3493:	
+l3724:	
 	opt asmopt_off
 movlw	6
 movwf	(??_lcd_write4bits+0)+0,f
-u4297:
+u4597:
 decfsz	(??_lcd_write4bits+0)+0,f
-	goto	u4297
+	goto	u4597
 	nop
 opt asmopt_on
 
 	
-l3495:	
+l3726:	
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bcf	(51/8),(51)&7	;volatile
+	bcf	(6)+(3/8),(3)&7	;volatile
+	
+l3728:	
 	opt asmopt_off
 movlw	166
 movwf	(??_lcd_write4bits+0)+0,f
-u4307:
+u4607:
 decfsz	(??_lcd_write4bits+0)+0,f
-	goto	u4307
+	goto	u4607
 	nop
 opt asmopt_on
 
-	line	79
+	line	60
 	
-l316:	
+l300:	
 	return
 	opt stack 0
 GLOBAL	__end_of_lcd_write4bits
@@ -14839,7 +16815,7 @@ GLOBAL	__end_of_lcd_write4bits
 
 ;; *************** function _delay10ms *****************
 ;; Defined at:
-;;		line 55 in file "../../../src/LC-meter.c"
+;;		line 58 in file "../../../LC-meter.c"
 ;; Parameters:    Size  Location     Type
 ;;  period_10ms     1    wreg     unsigned char 
 ;; Auto vars:     Size  Location     Type
@@ -14867,14 +16843,14 @@ GLOBAL	__end_of_lcd_write4bits
 ;;		_calibrate
 ;; This function uses a non-reentrant model
 ;;
-psect	text49,local,class=CODE,delta=2,merge=1
-	file	"../../../src/LC-meter.c"
-	line	55
-global __ptext49
-__ptext49:	;psect for function _delay10ms
-psect	text49
-	file	"../../../src/LC-meter.c"
-	line	55
+psect	text51,local,class=CODE,delta=2,merge=1
+	file	"../../../LC-meter.c"
+	line	58
+global __ptext51
+__ptext51:	;psect for function _delay10ms
+psect	text51
+	file	"../../../LC-meter.c"
+	line	58
 	global	__size_of_delay10ms
 	__size_of_delay10ms	equ	__end_of_delay10ms-_delay10ms
 	
@@ -14882,9 +16858,9 @@ _delay10ms:
 ;incstack = 0
 	opt	stack 6
 ; Regs used in _delay10ms: [wreg]
-	line	59
+	line	62
 	
-l243:	
+l239:	
 	return
 	opt stack 0
 GLOBAL	__end_of_delay10ms
@@ -14894,13 +16870,13 @@ GLOBAL	__end_of_delay10ms
 
 ;; *************** function ___lwtofl *****************
 ;; Defined at:
-;;		line 28 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c"
+;;		line 28 in file "/opt/microchip/xc8/v1.34/sources/common/lwtofl.c"
 ;; Parameters:    Size  Location     Type
-;;  c               2   47[BANK0 ] unsigned int 
+;;  c               2   54[BANK0 ] unsigned int 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4   47[BANK0 ] unsigned int 
+;;                  4   54[BANK0 ] unsigned int 
 ;; Registers used:
 ;;		wreg, status,2, status,0, pclath, cstack
 ;; Tracked objects:
@@ -14923,13 +16899,13 @@ GLOBAL	__end_of_delay10ms
 ;;		_measure_inductance
 ;; This function uses a non-reentrant model
 ;;
-psect	text50,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c"
+psect	text52,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwtofl.c"
 	line	28
-global __ptext50
-__ptext50:	;psect for function ___lwtofl
-psect	text50
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwtofl.c"
+global __ptext52
+__ptext52:	;psect for function ___lwtofl
+psect	text52
+	file	"/opt/microchip/xc8/v1.34/sources/common/lwtofl.c"
 	line	28
 	global	__size_of___lwtofl
 	__size_of___lwtofl	equ	__end_of___lwtofl-___lwtofl
@@ -14940,7 +16916,7 @@ ___lwtofl:
 ; Regs used in ___lwtofl: [wreg+status,2+status,0+pclath+cstack]
 	line	30
 	
-l4067:	
+l4476:	
 	movf	(___lwtofl@c),w
 	movwf	(___flpack@arg)
 	movf	(___lwtofl@c+1),w
@@ -14952,7 +16928,6 @@ l4067:
 	clrf	(___flpack@sign)
 	fcall	___flpack
 	movf	(3+(?___flpack)),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	(?___lwtofl+3)
 	movf	(2+(?___flpack)),w
 	movwf	(?___lwtofl+2)
@@ -14963,7 +16938,7 @@ l4067:
 
 	line	31
 	
-l1061:	
+l1050:	
 	return
 	opt stack 0
 GLOBAL	__end_of___lwtofl
@@ -14973,26 +16948,26 @@ GLOBAL	__end_of___lwtofl
 
 ;; *************** function ___flpack *****************
 ;; Defined at:
-;;		line 63 in file "C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c"
+;;		line 63 in file "/opt/microchip/xc8/v1.34/sources/common/double.c"
 ;; Parameters:    Size  Location     Type
-;;  arg             4    2[COMMON] unsigned long 
-;;  exp             1    6[COMMON] unsigned char 
-;;  sign            1    7[COMMON] unsigned char 
+;;  arg             4    0[BANK0 ] unsigned long 
+;;  exp             1    4[BANK0 ] unsigned char 
+;;  sign            1    5[BANK0 ] unsigned char 
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  4    2[COMMON] unsigned char 
+;;                  4    0[BANK0 ] unsigned char 
 ;; Registers used:
 ;;		wreg, status,2, status,0
 ;; Tracked objects:
-;;		On entry : 200/100
-;;		On exit  : 200/0
+;;		On entry : 300/0
+;;		On exit  : 300/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-;;      Params:         6       0       0       0       0
+;;      Params:         0       6       0       0       0
 ;;      Locals:         0       0       0       0       0
 ;;      Temps:          0       4       0       0       0
-;;      Totals:         6       4       0       0       0
+;;      Totals:         0      10       0       0       0
 ;;Total ram usage:       10 bytes
 ;; Hardware stack levels used:    1
 ;; Hardware stack levels required when called:    1
@@ -15008,13 +16983,13 @@ GLOBAL	__end_of___lwtofl
 ;;		___lwtofl
 ;; This function uses a non-reentrant model
 ;;
-psect	text51,local,class=CODE,delta=2,merge=1
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c"
+psect	text53,local,class=CODE,delta=2,merge=1
+	file	"/opt/microchip/xc8/v1.34/sources/common/double.c"
 	line	63
-global __ptext51
-__ptext51:	;psect for function ___flpack
-psect	text51
-	file	"C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c"
+global __ptext53
+__ptext53:	;psect for function ___flpack
+psect	text53
+	file	"/opt/microchip/xc8/v1.34/sources/common/double.c"
 	line	63
 	global	__size_of___flpack
 	__size_of___flpack	equ	__end_of___flpack-___flpack
@@ -15025,37 +17000,37 @@ ___flpack:
 ; Regs used in ___flpack: [wreg+status,2+status,0]
 	line	65
 	
-l3501:	
+l3694:	
 	movf	((___flpack@exp)),w
 	btfsc	status,2
-	goto	u3091
-	goto	u3090
-u3091:
-	goto	l817
-u3090:
+	goto	u3011
+	goto	u3010
+u3011:
+	goto	l806
+u3010:
 	
-l3503:	
+l3696:	
 	movf	(___flpack@arg+3),w
 	iorwf	(___flpack@arg+2),w
 	iorwf	(___flpack@arg+1),w
 	iorwf	(___flpack@arg),w
 	skipz
-	goto	u3101
-	goto	u3100
-u3101:
-	goto	l3507
-u3100:
+	goto	u3021
+	goto	u3020
+u3021:
+	goto	l3700
+u3020:
 	
-l817:	
+l806:	
 	line	66
 	clrf	(?___flpack)
 	clrf	(?___flpack+1)
 	clrf	(?___flpack+2)
 	clrf	(?___flpack+3)
-	goto	l818
+	goto	l807
 	line	68
 	
-l3505:	
+l3698:	
 	incf	(___flpack@exp),f
 	line	69
 	clrc
@@ -15065,19 +17040,19 @@ l3505:
 	rrf	(___flpack@arg),f
 	line	67
 	
-l3507:	
+l3700:	
 	movlw	high highword(-33554432)
 	andwf	(___flpack@arg+3),w
 	btfss	status,2
-	goto	u3111
-	goto	u3110
-u3111:
-	goto	l3505
-u3110:
-	goto	l3511
+	goto	u3031
+	goto	u3030
+u3031:
+	goto	l3698
+u3030:
+	goto	l3704
 	line	72
 	
-l3509:	
+l3702:	
 	incf	(___flpack@exp),f
 	line	73
 	incf	(___flpack@arg),f
@@ -15095,19 +17070,19 @@ l3509:
 	rrf	(___flpack@arg),f
 	line	71
 	
-l3511:	
+l3704:	
 	movlw	high highword(-16777216)
 	andwf	(___flpack@arg+3),w
 	btfss	status,2
-	goto	u3121
-	goto	u3120
-u3121:
-	goto	l3509
-u3120:
-	goto	l3515
+	goto	u3041
+	goto	u3040
+u3041:
+	goto	l3702
+u3040:
+	goto	l3708
 	line	77
 	
-l3513:	
+l3706:	
 	decf	(___flpack@exp),f
 	line	78
 	clrc
@@ -15117,35 +17092,35 @@ l3513:
 	rlf	(___flpack@arg+3),f
 	line	76
 	
-l3515:	
+l3708:	
 	btfsc	(___flpack@arg+2),(23)&7
-	goto	u3131
-	goto	u3130
-u3131:
-	goto	l829
-u3130:
+	goto	u3051
+	goto	u3050
+u3051:
+	goto	l818
+u3050:
 	
-l3517:	
+l3710:	
 	movlw	low(02h)
 	subwf	(___flpack@exp),w
 	skipnc
-	goto	u3141
-	goto	u3140
-u3141:
-	goto	l3513
-u3140:
+	goto	u3061
+	goto	u3060
+u3061:
+	goto	l3706
+u3060:
 	
-l829:	
+l818:	
 	line	80
 	btfsc	(___flpack@exp),(0)&7
-	goto	u3151
-	goto	u3150
-u3151:
-	goto	l3521
-u3150:
+	goto	u3071
+	goto	u3070
+u3071:
+	goto	l3714
+u3070:
 	line	81
 	
-l3519:	
+l3712:	
 	movlw	0FFh
 	andwf	(___flpack@arg),f
 	movlw	0FFh
@@ -15156,12 +17131,11 @@ l3519:
 	andwf	(___flpack@arg+3),f
 	line	82
 	
-l3521:	
+l3714:	
 	clrc
 	rrf	(___flpack@exp),f
 	line	83
 	movf	(___flpack@exp),w
-	bcf	status, 5	;RP0=0, select bank0
 	movwf	((??___flpack+0)+0+3)
 	clrf	((??___flpack+0)+0+2)
 	clrf	((??___flpack+0)+0+1)
@@ -15176,52 +17150,52 @@ l3521:
 	iorwf	(___flpack@arg+3),f
 	line	84
 	
-l3523:	
+l3716:	
 	movf	((___flpack@sign)),w
 	btfsc	status,2
-	goto	u3161
-	goto	u3160
-u3161:
-	goto	l831
-u3160:
+	goto	u3081
+	goto	u3080
+u3081:
+	goto	l820
+u3080:
 	line	85
 	
-l3525:	
+l3718:	
 	bsf	(___flpack@arg)+(31/8),(31)&7
 	
-l831:	
+l820:	
 	line	86
 	line	87
 	
-l818:	
+l807:	
 	return
 	opt stack 0
 GLOBAL	__end_of___flpack
 	__end_of___flpack:
 	signat	___flpack,12412
-	global	_isr
+	global	_global_int
 
-;; *************** function _isr *****************
+;; *************** function _global_int *****************
 ;; Defined at:
-;;		line 76 in file "../../../src/LC-meter.c"
+;;		line 81 in file "../../../LC-meter.c"
 ;; Parameters:    Size  Location     Type
 ;;		None
 ;; Auto vars:     Size  Location     Type
 ;;		None
 ;; Return value:  Size  Location     Type
-;;                  2  255[None  ] int 
+;;		None               void
 ;; Registers used:
-;;		wreg, status,2, status,0
+;;		wreg, fsr0l, fsr0h, status,2, status,0
 ;; Tracked objects:
 ;;		On entry : 0/0
-;;		On exit  : 300/0
+;;		On exit  : 200/0
 ;;		Unchanged: 0/0
 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
 ;;      Params:         0       0       0       0       0
 ;;      Locals:         0       0       0       0       0
-;;      Temps:          2       0       0       0       0
-;;      Totals:         2       0       0       0       0
-;;Total ram usage:        2 bytes
+;;      Temps:          4       0       0       0       0
+;;      Totals:         4       0       0       0       0
+;;Total ram usage:        4 bytes
 ;; Hardware stack levels used:    1
 ;; This function calls:
 ;;		Nothing
@@ -15229,21 +17203,21 @@ GLOBAL	__end_of___flpack
 ;;		Interrupt level 1
 ;; This function uses a non-reentrant model
 ;;
-psect	text52,local,class=CODE,delta=2,merge=1
-	file	"../../../src/LC-meter.c"
-	line	76
-global __ptext52
-__ptext52:	;psect for function _isr
-psect	text52
-	file	"../../../src/LC-meter.c"
-	line	76
-	global	__size_of_isr
-	__size_of_isr	equ	__end_of_isr-_isr
+psect	text54,local,class=CODE,delta=2,merge=1
+	file	"../../../LC-meter.c"
+	line	81
+global __ptext54
+__ptext54:	;psect for function _global_int
+psect	text54
+	file	"../../../LC-meter.c"
+	line	81
+	global	__size_of_global_int
+	__size_of_global_int	equ	__end_of_global_int-_global_int
 	
-_isr:	
+_global_int:	
 ;incstack = 0
 	opt	stack 0
-; Regs used in _isr: [wreg+status,2+status,0]
+; Regs used in _global_int: [wreg-fsr0h+status,2+status,0]
 psect	intentry,class=CODE,delta=2
 global __pintentry
 __pintentry:
@@ -15253,145 +17227,120 @@ interrupt_function:
 	saved_w	set	btemp+0
 	movwf	saved_w
 	swapf	status,w
-	movwf	(??_isr+0)
+	movwf	(??_global_int+1)
+	movf	fsr0,w
+	movwf	(??_global_int+2)
 	movf	pclath,w
-	movwf	(??_isr+1)
-	ljmp	_isr
-psect	text52
-	line	78
+	movwf	(??_global_int+3)
+	ljmp	_global_int
+psect	text54
+	line	85
 	
-i1l3389:	
-;LC-meter.c: 78: if(TMR2IF) {
+i1l3580:	
+;LC-meter.c: 85: if(PIR1 & 0x02) {
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	btfss	(97/8),(97)&7	;volatile
-	goto	u292_21
-	goto	u292_20
-u292_21:
-	goto	i1l260
-u292_20:
-	line	80
+	btfss	(12),(1)&7	;volatile
+	goto	u285_21
+	goto	u285_20
+u285_21:
+	goto	i1l3598
+u285_20:
+	line	86
 	
-i1l3391:	
-;LC-meter.c: 80: bres += 256;
+i1l3582:	
+;LC-meter.c: 86: bres += 256;
 	movlw	(0100h >> 8)
 	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	addwf	(_bres+1)^0180h,f	;volatile
-	line	82
-;LC-meter.c: 82: if(bres >= 5000) {
+	line	87
+;LC-meter.c: 87: if(bres >= ((unsigned long)((double)((20000000) / 4) / 1000))) {
 	movlw	013h
 	subwf	(_bres+1)^0180h,w	;volatile
 	movlw	088h
 	skipnz
 	subwf	(_bres)^0180h,w	;volatile
 	skipc
-	goto	u293_21
-	goto	u293_20
-u293_21:
-	goto	i1l3409
-u293_20:
-	line	83
+	goto	u286_21
+	goto	u286_20
+u286_21:
+	goto	i1l3596
+u286_20:
+	line	88
 	
-i1l3393:	
-;LC-meter.c: 83: bres -= 5000;
+i1l3584:	
+;LC-meter.c: 88: bres -= ((unsigned long)((double)((20000000) / 4) / 1000));
 	movlw	088h
 	subwf	(_bres)^0180h,f	;volatile
 	movlw	013h
 	skipc
 	decf	(_bres+1)^0180h,f	;volatile
 	subwf	(_bres+1)^0180h,f	;volatile
-	line	84
+	line	89
 	
-i1l3395:	
-;LC-meter.c: 84: msecpart++;
+i1l3586:	
+;LC-meter.c: 89: msecpart++;
 	incf	(_msecpart)^0180h,f	;volatile
 	skipnz
 	incf	(_msecpart+1)^0180h,f	;volatile
-	line	85
-	
-i1l3397:	
-;LC-meter.c: 85: msecs++;
-	incf	(_msecs)^0180h,f	;volatile
-	skipnz
-	incf	(_msecs+1)^0180h,f	;volatile
-	skipnz
-	incf	(_msecs+2)^0180h,f	;volatile
-	skipnz
-	incf	(_msecs+3)^0180h,f	;volatile
-	line	87
-;LC-meter.c: 87: RC3 = (((blink > 200)) == 0);
-	movlw	0
-	bcf	status, 6	;RP1=0, select bank1
-	subwf	(_blink+1)^080h,w	;volatile
-	movlw	0C9h
-	skipnz
-	subwf	(_blink)^080h,w	;volatile
-	skipc
-	goto	u294_21
-	goto	u294_20
-	
-u294_21:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bsf	(59/8),(59)&7	;volatile
-	goto	u295_24
-u294_20:
-	bcf	status, 5	;RP0=0, select bank0
-	bcf	status, 6	;RP1=0, select bank0
-	bcf	(59/8),(59)&7	;volatile
-u295_24:
-	line	88
-;LC-meter.c: 88: if(blink >= 400)
-	movlw	01h
-	bsf	status, 5	;RP0=1, select bank1
-	subwf	(_blink+1)^080h,w	;volatile
-	movlw	090h
-	skipnz
-	subwf	(_blink)^080h,w	;volatile
-	skipc
-	goto	u296_21
-	goto	u296_20
-u296_21:
-	goto	i1l3401
-u296_20:
-	line	89
-	
-i1l3399:	
-;LC-meter.c: 89: blink -= 400;
-	movlw	090h
-	subwf	(_blink)^080h,f	;volatile
-	movlw	01h
-	skipc
-	decf	(_blink+1)^080h,f	;volatile
-	subwf	(_blink+1)^080h,f	;volatile
 	line	90
 	
-i1l3401:	
-;LC-meter.c: 90: ++blink;
-	incf	(_blink)^080h,f	;volatile
-	skipnz
-	incf	(_blink+1)^080h,f	;volatile
-	line	93
-	
-i1l3403:	
-;LC-meter.c: 93: if(msecpart >= 1000) {
+i1l3588:	
+;LC-meter.c: 90: PORTC &= ~0b00000100; PORTC |= (!!(msecpart >= 833)) << 2;;
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	bcf	(7)+(2/8),(2)&7	;volatile
 	movlw	03h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	subwf	(_msecpart+1)^0180h,w	;volatile
+	movlw	041h
+	skipnz
+	subwf	(_msecpart)^0180h,w	;volatile
+	skipnc
+	goto	u287_21
+	goto	u287_20
+u287_21:
+	movlw	1
+	goto	u288_20
+u287_20:
+	movlw	0
+u288_20:
+	movwf	(??_global_int+0)+0
+	movlw	(02h)-1
+u289_25:
+	clrc
+	rlf	(??_global_int+0)+0,f
+	addlw	-1
+	skipz
+	goto	u289_25
+	clrc
+	rlf	(??_global_int+0)+0,w
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	iorwf	(7),f	;volatile
+	line	92
+	
+i1l3590:	
+;LC-meter.c: 92: if(msecpart >= 1000) {
+	movlw	03h
+	bsf	status, 5	;RP0=1, select bank3
 	bsf	status, 6	;RP1=1, select bank3
 	subwf	(_msecpart+1)^0180h,w	;volatile
 	movlw	0E8h
 	skipnz
 	subwf	(_msecpart)^0180h,w	;volatile
 	skipc
-	goto	u297_21
-	goto	u297_20
-u297_21:
-	goto	i1l3409
-u297_20:
-	line	95
+	goto	u290_21
+	goto	u290_20
+u290_21:
+	goto	i1l3596
+u290_20:
+	line	94
 	
-i1l3405:	
-;LC-meter.c: 95: seconds++;
+i1l3592:	
+;LC-meter.c: 94: seconds++;
 	incf	(_seconds)^0180h,f	;volatile
 	skipnz
 	incf	(_seconds+1)^0180h,f	;volatile
@@ -15399,79 +17348,140 @@ i1l3405:
 	incf	(_seconds+2)^0180h,f	;volatile
 	skipnz
 	incf	(_seconds+3)^0180h,f	;volatile
-	line	96
+	line	95
 	
-i1l3407:	
-;LC-meter.c: 96: msecpart -= 1000;
+i1l3594:	
+;LC-meter.c: 95: msecpart -= 1000;
 	movlw	0E8h
 	subwf	(_msecpart)^0180h,f	;volatile
 	movlw	03h
 	skipc
 	decf	(_msecpart+1)^0180h,f	;volatile
 	subwf	(_msecpart+1)^0180h,f	;volatile
-	line	100
+	line	99
 	
-i1l3409:	
+i1l3596:	
+;LC-meter.c: 96: }
 ;LC-meter.c: 97: }
-;LC-meter.c: 98: }
-;LC-meter.c: 100: TMR2IF = 0;
+;LC-meter.c: 99: PIR1 &= ~0b10;
 	bcf	status, 5	;RP0=0, select bank0
 	bcf	status, 6	;RP1=0, select bank0
-	bcf	(97/8),(97)&7	;volatile
-	line	108
+	bcf	(12)+(1/8),(1)&7	;volatile
+	line	102
 	
-i1l260:	
-	movf	(??_isr+1),w
+i1l3598:	
+;LC-meter.c: 100: }
+;LC-meter.c: 102: if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; 
+	btfss	(101/8),(101)&7	;volatile
+	goto	u291_21
+	goto	u291_20
+u291_21:
+	goto	i1l3610
+u291_20:
+	
+i1l3600:	
+	movf	(_rxiptr),w
+	addlw	low(_rxfifo|((0x1)<<8))&0ffh
+	movwf	fsr0
+	movf	(26),w	;volatile
+	bsf	status, 7	;select IRP bank2
+	movwf	indf
+	
+i1l3602:	
+	movf	(_rxiptr),w	;volatile
+	addlw	01h
+	bsf	status, 5	;RP0=1, select bank3
+	bsf	status, 6	;RP1=1, select bank3
+	movwf	(_ser_tmp)^0180h
+	
+i1l3604:	
+	movlw	low(0Fh)
+	andwf	(_ser_tmp)^0180h,f
+	
+i1l3606:	
+	movf	(_ser_tmp)^0180h,w
+	xorwf	(_rxoptr)^0180h,w	;volatile
+	skipnz
+	goto	u292_21
+	goto	u292_20
+u292_21:
+	goto	i1l3610
+u292_20:
+	
+i1l3608:	
+	movf	(_ser_tmp)^0180h,w
+	movwf	(_rxiptr)	;volatile
+	
+i1l3610:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	status, 6	;RP1=0, select bank0
+	btfss	(100/8),(100)&7	;volatile
+	goto	u293_21
+	goto	u293_20
+u293_21:
+	goto	i1l259
+u293_20:
+	
+i1l3612:	
+	bsf	status, 5	;RP0=1, select bank1
+	btfss	(1124/8)^080h,(1124)&7	;volatile
+	goto	u294_21
+	goto	u294_20
+u294_21:
+	goto	i1l259
+u294_20:
+	
+i1l3614:	
+	movf	(_txoptr),w
+	addlw	low(_txfifo|((0x1)<<8))&0ffh
+	movwf	fsr0
+	bsf	status, 7	;select IRP bank2
+	movf	indf,w
+	bcf	status, 5	;RP0=0, select bank0
+	movwf	(25)	;volatile
+	
+i1l3616:	
+	incf	(_txoptr),f	;volatile
+	
+i1l3618:	
+	movlw	low(0Fh)
+	andwf	(_txoptr),f	;volatile
+	
+i1l3620:	
+	movf	(_txoptr),w	;volatile
+	xorwf	(_txiptr),w	;volatile
+	skipz
+	goto	u295_21
+	goto	u295_20
+u295_21:
+	goto	i1l258
+u295_20:
+	
+i1l3622:	
+	bsf	status, 5	;RP0=1, select bank1
+	bcf	(1124/8)^080h,(1124)&7	;volatile
+	
+i1l258:	
+	bcf	status, 5	;RP0=0, select bank0
+	bcf	(100/8),(100)&7	;volatile
+	line	107
+	
+i1l259:	
+	movf	(??_global_int+3),w
 	movwf	pclath
-	swapf	(??_isr+0)^0FFFFFF80h,w
+	movf	(??_global_int+2),w
+	movwf	fsr0
+	swapf	(??_global_int+1)^0FFFFFF80h,w
 	movwf	status
 	swapf	saved_w,f
 	swapf	saved_w,w
 	retfie
 	opt stack 0
-GLOBAL	__end_of_isr
-	__end_of_isr:
-	signat	_isr,90
+GLOBAL	__end_of_global_int
+	__end_of_global_int:
+	signat	_global_int,88
 global	___latbits
 ___latbits	equ	2
-	global	fptotal
-fptotal equ 6
-	file ""
-	line	#
-psect	functab,class=CODE,delta=2,reloc=256
-global __pfunctab
-__pfunctab:
-	global	fptable,__fptable
-__fptable:
-fptable:
-	movwf (btemp+1)&07Fh
-	movlw high(fptable)
-	movwf pclath
-	movf (btemp+1)&07Fh,w
-	addwf pc
-	global	fpbase
-fpbase:
-	goto fpbase	; Call via a null pointer and you will get stuck here.
-	file ""
-	line	#
-fp__output_putch:
-entry__output_putch:
-	global	entry__output_putch
-	ljmp	_output_putch
-	file ""
-	line	#
-fp__lcd_putch:
-entry__lcd_putch:
-	global	entry__lcd_putch
-	ljmp	_lcd_putch
-	file ""
-	line	#
-fp__format_putchar:
-	ljmp	_format_putchar
-	global __end_of__fptable
-	__end_of__fptable:
-	global __size_of__fptable
-	__size_of__fptable	equ	__end_of__fptable-__fptable
 	global	btemp
 	btemp set 07Eh
 
