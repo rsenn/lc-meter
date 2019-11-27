@@ -5,68 +5,44 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="lib" projectFiles="true">
-        <itemPath>../../../lib/buffer.h</itemPath>
-        <itemPath>../../../lib/comparator.h</itemPath>
-        <itemPath>../../../lib/const.h</itemPath>
-        <itemPath>../../../lib/delay.h</itemPath>
-        <itemPath>../../../lib/device.h</itemPath>
         <itemPath>../../../lib/format.h</itemPath>
-        <itemPath>../../../lib/hd44780.h</itemPath>
-        <itemPath>../../../lib/interrupt.h</itemPath>
-        <itemPath>../../../lib/lcd44780.h</itemPath>
         <itemPath>../../../lib/oscillator.h</itemPath>
-        <itemPath>../../../lib/pwm.h</itemPath>
-        <itemPath>../../../lib/timer.h</itemPath>
-        <itemPath>../../../lib/typedef.h</itemPath>
         <itemPath>../../../lib/ser.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="src" projectFiles="true">
+        <itemPath>../../../LC-meter.h</itemPath>
         <itemPath>../../../src/config-18f2550.h</itemPath>
         <itemPath>../../../src/config-bits.h</itemPath>
         <itemPath>../../../src/lcd44780-config.h</itemPath>
-        <itemPath>../../../src/measure.h</itemPath>
         <itemPath>../../../src/print.h</itemPath>
       </logicalFolder>
-      <itemPath>../../../LC-meter.h</itemPath>
-    </logicalFolder>
-    <logicalFolder name="LibraryFiles"
-                   displayName="Library Files"
-                   projectFiles="true">
-    </logicalFolder>
-    <logicalFolder name="LinkerScript"
-                   displayName="Linker Files"
-                   projectFiles="true">
-    </logicalFolder>
-    <logicalFolder name="ObjectFiles"
-                   displayName="Object Files"
-                   projectFiles="true">
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="f1" displayName="lib" projectFiles="true">
-        <itemPath>../../../lib/buffer.c</itemPath>
+      <logicalFolder name="f2" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/lcd44780.c</itemPath>
         <itemPath>../../../lib/comparator.c</itemPath>
         <itemPath>../../../lib/delay.c</itemPath>
         <itemPath>../../../lib/format.c</itemPath>
-        <itemPath>../../../lib/lcd44780.c</itemPath>
         <itemPath>../../../lib/timer.c</itemPath>
         <itemPath>../../../lib/ser.c</itemPath>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="src" projectFiles="true">
-        <itemPath>../../../src/measure.c</itemPath>
+      <logicalFolder name="f1" displayName="src" projectFiles="true">
         <itemPath>../../../src/print.c</itemPath>
+        <itemPath>../../../LC-meter.c</itemPath>
       </logicalFolder>
-      <itemPath>../../../LC-meter.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>../../../lib/interrupt.h</itemPath>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../..</Elem>
+    <Elem>../../../src</Elem>
+    <Elem>../../../lib</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -77,9 +53,9 @@
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
-        <languageToolchain>SDCC</languageToolchain>
-        <languageToolchainVersion>3.9.3</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchain>hi-tech-picc18</languageToolchain>
+        <languageToolchainVersion>9.66</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC18Fxxxx_DFP" vendor="Microchip" version="1.0.9"/>
@@ -108,6 +84,82 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <HI-TECH-COMP>
+        <property key="define-macros"
+                  value="__HTC=1;__18f2550=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;USE_TIMER1=1;USE_TIMER0=1"/>
+        <property key="extra-include-directories" value="..\..\..\lib;..\..\..\src"/>
+        <property key="identifier-length" value="31"/>
+        <property key="operation-mode" value="pro"/>
+        <property key="optimization-assembler" value="true"/>
+        <property key="optimization-assembler-files" value="false"/>
+        <property key="optimization-debug" value="false"/>
+        <property key="optimization-global" value="true"/>
+        <property key="optimization-level" value="9"/>
+        <property key="optimization-set" value="all"/>
+        <property key="optimization-speed" value="true"/>
+        <property key="preprocess-assembler" value="false"/>
+        <property key="undefine-macros" value=""/>
+        <property key="verbose" value="false"/>
+        <property key="warning-level" value="0"/>
+        <property key="what-to-do" value="ignore"/>
+        <property key="what-to-do-ex" value="ignore"/>
+      </HI-TECH-COMP>
+      <HI-TECH-LINK>
+        <property key="additional-options-callgraph" value="std"/>
+        <property key="additional-options-checksum" value=""/>
+        <property key="additional-options-code-offset" value=""/>
+        <property key="additional-options-command-line" value=""/>
+        <property key="additional-options-errata" value=""/>
+        <property key="additional-options-extend-address" value="false"/>
+        <property key="additional-options-trace-type" value=""/>
+        <property key="backup-reset-condition-flags" value="false"/>
+        <property key="calibrate-oscillator" value="true"/>
+        <property key="calibrate-oscillator-value" value=""/>
+        <property key="checksum-verification" value="false"/>
+        <property key="clear-bss" value="true"/>
+        <property key="code-model-external" value="wordwrite"/>
+        <property key="code-model-instruction-set" value="mips32r2"/>
+        <property key="code-model-pointer-size" value="16"/>
+        <property key="code-model-rom" value=""/>
+        <property key="create-html-files" value="false"/>
+        <property key="data-model-memory" value="large"/>
+        <property key="data-model-ram" value=""/>
+        <property key="data-model-size-of-double" value="32"/>
+        <property key="data-model-size-of-float" value="24"/>
+        <property key="data-model-strict" value="false"/>
+        <property key="display-class-usage" value="false"/>
+        <property key="display-hex-usage" value="false"/>
+        <property key="display-overall-usage" value="true"/>
+        <property key="display-psect-usage" value="false"/>
+        <property key="fill-flash-options-addr" value=""/>
+        <property key="fill-flash-options-const" value=""/>
+        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-inc-const" value="1"/>
+        <property key="fill-flash-options-increment" value=""/>
+        <property key="fill-flash-options-seq" value=""/>
+        <property key="fill-flash-options-what" value="0"/>
+        <property key="format-hex-file-for-download" value="false"/>
+        <property key="initialize-cp0" value="true"/>
+        <property key="initialize-data" value="true"/>
+        <property key="initialize-gprs" value="true"/>
+        <property key="initialize-heap" value="true"/>
+        <property key="initialize-stack" value="true"/>
+        <property key="keep-generated-startup.as" value="false"/>
+        <property key="link-in-c-library" value="true"/>
+        <property key="link-in-peripheral-library" value="false"/>
+        <property key="linker-interrupts-disable-usage" value="false"/>
+        <property key="linker-interrupts-number-of-vectors" value="multi"/>
+        <property key="linker-interrupts-table-location" value="boot"/>
+        <property key="linker-interrupts-vector-type" value="rom"/>
+        <property key="managed-stack" value="false"/>
+        <property key="nmi-handler" value="true"/>
+        <property key="optimal-performance" value="false"/>
+        <property key="program-the-device-with-default-config-words" value="false"/>
+        <property key="soft-reset-handler" value="true"/>
+        <property key="test-ram-on-startup" value="true"/>
+        <property key="unused-interrupt-vectors" value="-vec_reset,-vec_func"/>
+        <property key="warn-on-stack-overflow" value="true"/>
+      </HI-TECH-LINK>
       <PICkit3PlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="Freeze Peripherals" value="true"/>
@@ -150,55 +202,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
-      <sdcc-config>
-        <property key="V-show-commands-compiler" value="false"/>
-        <property key="Werror" value="false"/>
-        <property key="allow-unsafe-read" value="false"/>
-        <property key="calltree" value="false"/>
-        <property key="debug-ralloc" value="false"/>
-        <property key="debug-xtra14" value="false"/>
-        <property key="debug-xtra16" value="false"/>
-        <property key="denable-peeps" value="false"/>
-        <property key="extended" value="false"/>
-        <property key="gstack" value="false"/>
-        <property key="ivt-loc" value=""/>
-        <property key="no-c-code-in-asm" value="false"/>
-        <property key="no-crt" value="false"/>
-        <property key="no-extended-instr" value="false"/>
-        <property key="no-optimize-goto" value="false"/>
-        <property key="no-pcode-opt" value="false"/>
-        <property key="no-peep" value="false"/>
-        <property key="no-peep-return" value="false"/>
-        <property key="no-xinit-opt" value="false"/>
-        <property key="nodefaultlibs" value="false"/>
-        <property key="nogcse" value="false"/>
-        <property key="noinduction" value="false"/>
-        <property key="noinvariant" value="false"/>
-        <property key="nojtbound" value="false"/>
-        <property key="nolabelopt" value="false"/>
-        <property key="noloopreverse" value="false"/>
-        <property key="nolospre" value="false"/>
-        <property key="nooverlay" value="false"/>
-        <property key="obanksel" value="0"/>
-        <property key="opt-code-size" value="false"/>
-        <property key="opt-code-speed" value="false"/>
-        <property key="optimize-cmp" value="false"/>
-        <property key="optimize-df" value="false"/>
-        <property key="pcode-verbose" value="false"/>
-        <property key="peep-asm" value="false"/>
-        <property key="peep-return" value="false"/>
-        <property key="pno-banksel" value="false"/>
-        <property key="preplace-udata-with" value=""/>
-        <property key="pstack-model" value="small"/>
-        <property key="stack-loc" value=""/>
-        <property key="stack-size14" value=""/>
-        <property key="use-crt" value=""/>
-        <property key="use-non-free" value="true"/>
-        <property key="user-defines"
-                  value="__18f2550=1;PIC18=1;PIC18F2550=1;USE_HD44780_LCD=1;USE_TIMER0=1;USE_TIMER1=1;USE_TIMER2=1;USE_SER=1"/>
-        <property key="user-includes" value="..\..\..\lib;..\..\..\src;..\..\.."/>
-        <property key="verbose" value="false"/>
-      </sdcc-config>
     </conf>
   </confs>
 </configurationDescriptor>

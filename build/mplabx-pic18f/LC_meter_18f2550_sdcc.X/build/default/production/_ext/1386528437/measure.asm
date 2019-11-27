@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
@@ -103,7 +103,15 @@
 	extern	_F3
 	extern	_CCal
 	extern	_dvar
-	extern	_putchar_ptr
+	extern	_rxfifo
+	extern	_rxiptr
+	extern	_rxoptr
+	extern	_txfifo
+	extern	_txiptr
+	extern	_txoptr
+	extern	_ser_tmp
+	extern	_ser_brg
+	extern	_buffer
 	extern	_UFRM
 	extern	_UFRML
 	extern	_UFRMH
@@ -254,23 +262,27 @@
 	extern	_TOSU
 	extern	_delay10ms
 	extern	_delay_ms
-	extern	_uart_puts
+	extern	_ser_putch
+	extern	_ser_puts
 	extern	_lcd_clear
 	extern	_lcd_gotoxy
-	extern	_lcd_putch
+	extern	_lcd_send
 	extern	_put_str
-	extern	_output_putch
 	extern	_print_unit
 	extern	_print_reading
+	extern	_print_buffer
 	extern	_format_number
+	extern	_format_xint32
+	extern	_format_double
 	extern	_timer0_read_ps
+	extern	_buffer_init
+	extern	_buffer_puts
 	extern	___uint2fs
 	extern	___fslt
 	extern	___fsmul
 	extern	___fssub
 	extern	___fsdiv
 	extern	___fs2uint
-	extern	_uart_brg
 	extern	_logo_image
 
 ;--------------------------------------------------------
@@ -279,8 +291,11 @@
 STATUS	equ	0xfd8
 WREG	equ	0xfe8
 FSR0L	equ	0xfe9
+FSR0H	equ	0xfea
 FSR1L	equ	0xfe1
 FSR2L	equ	0xfd9
+INDF0	equ	0xfef
+POSTINC0	equ	0xfee
 POSTINC1	equ	0xfe6
 POSTDEC1	equ	0xfe5
 PREINC1	equ	0xfe4
@@ -303,6 +318,9 @@ r0x09	res	1
 r0x0a	res	1
 r0x0b	res	1
 
+udata_measure_0	udata
+_measure_capacitance_Cin_65536_79	res	4
+
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -310,7 +328,7 @@ r0x0b	res	1
 ; ; Starting pCode block
 S_measure__measure_inductance	code
 _measure_inductance:
-;	.line	196; ../../../src/measure.c	measure_inductance() {
+;	.line	197; ../../../src/measure.c	measure_inductance() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -321,7 +339,7 @@ _measure_inductance:
 	MOVFF	r0x05, POSTDEC1
 	MOVFF	r0x06, POSTDEC1
 	MOVFF	r0x07, POSTDEC1
-;	.line	203; ../../../src/measure.c	lcd_gotoxy(0, 0);
+;	.line	204; ../../../src/measure.c	lcd_gotoxy(0, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -329,10 +347,10 @@ _measure_inductance:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	204; ../../../src/measure.c	put_str("Inductivity ");
-	MOVLW	HIGH(___str_5)
+;	.line	205; ../../../src/measure.c	put_str("Inductivity ");
+	MOVLW	HIGH(___str_11)
 	MOVWF	r0x01
-	MOVLW	LOW(___str_5)
+	MOVLW	LOW(___str_11)
 	MOVWF	r0x00
 	CLRF	r0x02
 	MOVF	r0x02, W
@@ -344,11 +362,11 @@ _measure_inductance:
 	CALL	_put_str
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	206; ../../../src/measure.c	var = measure_freq();
+;	.line	207; ../../../src/measure.c	var = measure_freq();
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
-;	.line	208; ../../../src/measure.c	F3 = (double)var;
+;	.line	209; ../../../src/measure.c	F3 = (double)var;
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
@@ -362,7 +380,7 @@ _measure_inductance:
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
 	BANKSEL	(_F3 + 3)
-;	.line	209; ../../../src/measure.c	if(F3 > F1)
+;	.line	210; ../../../src/measure.c	if(F3 > F1)
 	MOVF	(_F3 + 3), W, B
 	MOVWF	POSTDEC1
 	BANKSEL	(_F3 + 2)
@@ -392,7 +410,7 @@ _measure_inductance:
 	ADDWF	FSR1L, F
 	MOVF	r0x00, W
 	BZ	_00149_DS_
-;	.line	210; ../../../src/measure.c	F3 = F1; // max freq is F1;
+;	.line	211; ../../../src/measure.c	F3 = F1; // max freq is F1;
 	MOVFF	_F1, _F3
 	MOVFF	(_F1 + 1), (_F3 + 1)
 	MOVFF	(_F1 + 2), (_F3 + 2)
@@ -531,7 +549,7 @@ _00149_DS_:
 	MOVLW	0x08
 	ADDWF	FSR1L, F
 	BANKSEL	(_F1 + 3)
-;	.line	214; ../../../src/measure.c	denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+;	.line	213; ../../../src/measure.c	denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
 	MOVF	(_F1 + 3), W, B
 	MOVWF	POSTDEC1
 	BANKSEL	(_F1 + 2)
@@ -720,7 +738,7 @@ _00149_DS_:
 	MOVFF	FSR0L, r0x07
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	216; ../../../src/measure.c	Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
+;	.line	214; ../../../src/measure.c	Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
 	MOVF	r0x07, W
 	MOVWF	POSTDEC1
 	MOVF	r0x06, W
@@ -767,7 +785,7 @@ _00149_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	218; ../../../src/measure.c	if(Lin > 999) {
+;	.line	216; ../../../src/measure.c	if(Lin > 999) {
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -791,7 +809,7 @@ _00149_DS_:
 	MOVF	r0x04, W
 	BTFSC	STATUS, 2
 	BRA	_00157_DS_
-;	.line	219; ../../../src/measure.c	if(Lin > (999e+03l)) {
+;	.line	217; ../../../src/measure.c	if(Lin > (999e+03l)) {
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -815,7 +833,7 @@ _00149_DS_:
 	MOVF	r0x04, W
 	BTFSC	STATUS, 2
 	BRA	_00154_DS_
-;	.line	220; ../../../src/measure.c	if(Lin > (999e+06l)) {
+;	.line	218; ../../../src/measure.c	if(Lin > (999e+06l)) {
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -838,7 +856,7 @@ _00149_DS_:
 	ADDWF	FSR1L, F
 	MOVF	r0x04, W
 	BZ	_00151_DS_
-;	.line	221; ../../../src/measure.c	Lin = Lin / (1e+09l);
+;	.line	219; ../../../src/measure.c	Lin = Lin / (1e+09l);
 	MOVLW	0x4e
 	MOVWF	POSTDEC1
 	MOVLW	0x6e
@@ -862,11 +880,11 @@ _00149_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	222; ../../../src/measure.c	unit = 0; // "H"
+;	.line	220; ../../../src/measure.c	unit = 0; // "H"
 	CLRF	r0x04
 	BRA	_00158_DS_
 _00151_DS_:
-;	.line	224; ../../../src/measure.c	Lin = Lin / (1e+06l);
+;	.line	222; ../../../src/measure.c	Lin = Lin / (1e+06l);
 	MOVLW	0x49
 	MOVWF	POSTDEC1
 	MOVLW	0x74
@@ -890,12 +908,12 @@ _00151_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	225; ../../../src/measure.c	unit = 1; // "mH"
+;	.line	223; ../../../src/measure.c	unit = 1; // "mH"
 	MOVLW	0x01
 	MOVWF	r0x04
 	BRA	_00158_DS_
 _00154_DS_:
-;	.line	228; ../../../src/measure.c	Lin = Lin / 1e+03l;
+;	.line	226; ../../../src/measure.c	Lin = Lin / 1e+03l;
 	MOVLW	0x44
 	MOVWF	POSTDEC1
 	MOVLW	0x7a
@@ -919,16 +937,16 @@ _00154_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	229; ../../../src/measure.c	unit = 2; // "uH"
+;	.line	227; ../../../src/measure.c	unit = 2; // "uH"
 	MOVLW	0x02
 	MOVWF	r0x04
 	BRA	_00158_DS_
 _00157_DS_:
-;	.line	232; ../../../src/measure.c	unit = 3; // "nH"
+;	.line	230; ../../../src/measure.c	unit = 3; // "nH"
 	MOVLW	0x03
 	MOVWF	r0x04
 _00158_DS_:
-;	.line	234; ../../../src/measure.c	Lin = Lin * 100; // scale to 2 decimal place
+;	.line	232; ../../../src/measure.c	Lin = Lin * 100; // scale to 2 decimal place
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -952,7 +970,7 @@ _00158_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	235; ../../../src/measure.c	var = (uint16_t)Lin;
+;	.line	233; ../../../src/measure.c	var = (uint16_t)Lin;
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -966,7 +984,7 @@ _00158_DS_:
 	MOVFF	PRODL, r0x01
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	237; ../../../src/measure.c	print_reading(var);
+;	.line	235; ../../../src/measure.c	print_reading(var);
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
@@ -974,12 +992,12 @@ _00158_DS_:
 	CALL	_print_reading
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	238; ../../../src/measure.c	print_unit(unit);
+;	.line	236; ../../../src/measure.c	print_unit(unit);
 	MOVF	r0x04, W
 	MOVWF	POSTDEC1
 	CALL	_print_unit
 	MOVF	POSTINC1, F
-;	.line	239; ../../../src/measure.c	}
+;	.line	237; ../../../src/measure.c	}
 	MOVFF	PREINC1, r0x07
 	MOVFF	PREINC1, r0x06
 	MOVFF	PREINC1, r0x05
@@ -994,7 +1012,7 @@ _00158_DS_:
 ; ; Starting pCode block
 S_measure__measure_capacitance	code
 _measure_capacitance:
-;	.line	118; ../../../src/measure.c	measure_capacitance() {
+;	.line	119; ../../../src/measure.c	measure_capacitance() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -1009,7 +1027,7 @@ _measure_capacitance:
 	MOVFF	r0x09, POSTDEC1
 	MOVFF	r0x0a, POSTDEC1
 	MOVFF	r0x0b, POSTDEC1
-;	.line	126; ../../../src/measure.c	lcd_gotoxy(0, 0);
+;	.line	127; ../../../src/measure.c	lcd_gotoxy(0, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -1017,7 +1035,7 @@ _measure_capacitance:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	127; ../../../src/measure.c	put_str("Capacity ");
+;	.line	128; ../../../src/measure.c	put_str("Capacity ");
 	MOVLW	HIGH(___str_4)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_4)
@@ -1032,11 +1050,11 @@ _measure_capacitance:
 	CALL	_put_str
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	129; ../../../src/measure.c	var = measure_freq();
+;	.line	130; ../../../src/measure.c	var = measure_freq();
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
-;	.line	131; ../../../src/measure.c	F3 = (double)var;
+;	.line	132; ../../../src/measure.c	F3 = (double)var;
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
@@ -1049,15 +1067,284 @@ _measure_capacitance:
 	MOVFF	FSR0L, (_F3 + 3)
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	154; ../../../src/measure.c	putchar_ptr = &output_putch;
-	MOVLW	LOW(_output_putch)
-	BANKSEL	_putchar_ptr
-	MOVWF	_putchar_ptr, B
-	MOVLW	HIGH(_output_putch)
-	BANKSEL	(_putchar_ptr + 1)
-	MOVWF	(_putchar_ptr + 1), B
+;	.line	135; ../../../src/measure.c	ser_puts("var=");
+	MOVLW	HIGH(___str_5)
+	MOVWF	r0x03
+	MOVLW	LOW(___str_5)
+	MOVWF	r0x02
+	CLRF	r0x04
+	MOVF	r0x04, W
+	MOVWF	POSTDEC1
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+;	.line	136; ../../../src/measure.c	format_xint32(var);
+	CLRF	r0x02
+	CLRF	r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	137; ../../../src/measure.c	ser_puts("\r\nF1=");
+	MOVLW	HIGH(___str_6)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_6)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_F1 + 3)
+;	.line	138; ../../../src/measure.c	format_double(F1);
+	MOVF	(_F1 + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F1 + 2)
+	MOVF	(_F1 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F1 + 1)
+	MOVF	(_F1 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_F1
+	MOVF	_F1, W, B
+	MOVWF	POSTDEC1
+	CALL	_format_double
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	139; ../../../src/measure.c	ser_putch(' ');
+	MOVLW	0x20
+	MOVWF	POSTDEC1
+	CALL	_ser_putch
+	MOVF	POSTINC1, F
+;	.line	140; ../../../src/measure.c	format_xint32(*(uint32_t*)&F1);
+	MOVLW	LOW(_F1)
+	MOVWF	r0x00
+	MOVLW	HIGH(_F1)
+	MOVWF	r0x01
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	POSTINC0, r0x00
+	MOVFF	POSTINC0, r0x01
+	MOVFF	POSTINC0, r0x02
+	MOVFF	INDF0, r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	141; ../../../src/measure.c	ser_puts("\r\nF2=");
+	MOVLW	HIGH(___str_7)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_7)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_F2 + 3)
+;	.line	142; ../../../src/measure.c	format_double(F2);
+	MOVF	(_F2 + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F2 + 2)
+	MOVF	(_F2 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F2 + 1)
+	MOVF	(_F2 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_F2
+	MOVF	_F2, W, B
+	MOVWF	POSTDEC1
+	CALL	_format_double
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	143; ../../../src/measure.c	ser_putch(' ');
+	MOVLW	0x20
+	MOVWF	POSTDEC1
+	CALL	_ser_putch
+	MOVF	POSTINC1, F
+;	.line	144; ../../../src/measure.c	format_xint32(*(uint32_t*)&F2);
+	MOVLW	LOW(_F2)
+	MOVWF	r0x00
+	MOVLW	HIGH(_F2)
+	MOVWF	r0x01
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	POSTINC0, r0x00
+	MOVFF	POSTINC0, r0x01
+	MOVFF	POSTINC0, r0x02
+	MOVFF	INDF0, r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	145; ../../../src/measure.c	ser_puts("\r\nF3=");
+	MOVLW	HIGH(___str_8)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_8)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
 	BANKSEL	(_F3 + 3)
-;	.line	156; ../../../src/measure.c	if(F3 > F1)
+;	.line	146; ../../../src/measure.c	format_double(F3);
+	MOVF	(_F3 + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F3 + 2)
+	MOVF	(_F3 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_F3 + 1)
+	MOVF	(_F3 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_F3
+	MOVF	_F3, W, B
+	MOVWF	POSTDEC1
+	CALL	_format_double
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	147; ../../../src/measure.c	ser_putch(' ');
+	MOVLW	0x20
+	MOVWF	POSTDEC1
+	CALL	_ser_putch
+	MOVF	POSTINC1, F
+;	.line	148; ../../../src/measure.c	format_xint32(*(uint32_t*)&F3);
+	MOVLW	LOW(_F3)
+	MOVWF	r0x00
+	MOVLW	HIGH(_F3)
+	MOVWF	r0x01
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	POSTINC0, r0x00
+	MOVFF	POSTINC0, r0x01
+	MOVFF	POSTINC0, r0x02
+	MOVFF	INDF0, r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	149; ../../../src/measure.c	ser_puts("\r\nCCal=");
+	MOVLW	HIGH(___str_9)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_9)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_CCal + 3)
+;	.line	150; ../../../src/measure.c	format_double(CCal);
+	MOVF	(_CCal + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_CCal + 2)
+	MOVF	(_CCal + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_CCal + 1)
+	MOVF	(_CCal + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_CCal
+	MOVF	_CCal, W, B
+	MOVWF	POSTDEC1
+	CALL	_format_double
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	151; ../../../src/measure.c	ser_putch(' ');
+	MOVLW	0x20
+	MOVWF	POSTDEC1
+	CALL	_ser_putch
+	MOVF	POSTINC1, F
+;	.line	152; ../../../src/measure.c	format_xint32(*(uint32_t*)&CCal);
+	MOVLW	LOW(_CCal)
+	MOVWF	r0x00
+	MOVLW	HIGH(_CCal)
+	MOVWF	r0x01
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	POSTINC0, r0x00
+	MOVFF	POSTINC0, r0x01
+	MOVFF	POSTINC0, r0x02
+	MOVFF	INDF0, r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	153; ../../../src/measure.c	ser_puts("\r\n");
+	MOVLW	HIGH(___str_1)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_1)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_F3 + 3)
+;	.line	157; ../../../src/measure.c	if(F3 > F1)
 	MOVF	(_F3 + 3), W, B
 	MOVWF	POSTDEC1
 	BANKSEL	(_F3 + 2)
@@ -1087,14 +1374,14 @@ _measure_capacitance:
 	ADDWF	FSR1L, F
 	MOVF	r0x00, W
 	BZ	_00133_DS_
-;	.line	157; ../../../src/measure.c	F3 = F1; // max freq is F1;
+;	.line	158; ../../../src/measure.c	F3 = F1; // max freq is F1;
 	MOVFF	_F1, _F3
 	MOVFF	(_F1 + 1), (_F3 + 1)
 	MOVFF	(_F1 + 2), (_F3 + 2)
 	MOVFF	(_F1 + 3), (_F3 + 3)
 _00133_DS_:
 	BANKSEL	(_F2 + 3)
-;	.line	159; ../../../src/measure.c	Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+;	.line	160; ../../../src/measure.c	Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
 	MOVF	(_F2 + 3), W, B
 	MOVWF	POSTDEC1
 	BANKSEL	(_F2 + 2)
@@ -1254,13 +1541,60 @@ _00133_DS_:
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	___fsmul
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVFF	PRODH, r0x02
-	MOVFF	FSR0L, r0x03
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVWF	_measure_capacitance_Cin_65536_79, B
+	MOVFF	PRODL, (_measure_capacitance_Cin_65536_79 + 1)
+	MOVFF	PRODH, (_measure_capacitance_Cin_65536_79 + 2)
+	MOVFF	FSR0L, (_measure_capacitance_Cin_65536_79 + 3)
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	169; ../../../src/measure.c	if(Cin > 999) {
+;	.line	164; ../../../src/measure.c	ser_puts("Cin=");
+	MOVLW	HIGH(___str_10)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_10)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	165; ../../../src/measure.c	format_double(Cin);
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
+	MOVWF	POSTDEC1
+	CALL	_format_double
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	166; ../../../src/measure.c	ser_putch(' ');
+	MOVLW	0x20
+	MOVWF	POSTDEC1
+	CALL	_ser_putch
+	MOVF	POSTINC1, F
+;	.line	167; ../../../src/measure.c	format_xint32(*(uint32_t*)&Cin);
+	MOVLW	LOW(_measure_capacitance_Cin_65536_79)
+	MOVWF	r0x00
+	MOVLW	HIGH(_measure_capacitance_Cin_65536_79)
+	MOVWF	r0x01
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	POSTINC0, r0x00
+	MOVFF	POSTINC0, r0x01
+	MOVFF	POSTINC0, r0x02
+	MOVFF	INDF0, r0x03
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -1268,6 +1602,37 @@ _00133_DS_:
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_xint32
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	168; ../../../src/measure.c	ser_puts("\r\n");
+	MOVLW	HIGH(___str_1)
+	MOVWF	r0x01
+	MOVLW	LOW(___str_1)
+	MOVWF	r0x00
+	CLRF	r0x02
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	170; ../../../src/measure.c	if(Cin > 999) {
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	MOVLW	0x44
 	MOVWF	POSTDEC1
@@ -1278,20 +1643,24 @@ _00133_DS_:
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	CALL	___fslt
-	MOVWF	r0x04
+	MOVWF	r0x00
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-	MOVF	r0x04, W
+	MOVF	r0x00, W
 	BTFSC	STATUS, 2
 	BRA	_00141_DS_
-;	.line	170; ../../../src/measure.c	if(Cin > (999e+03l)) {
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	171; ../../../src/measure.c	if(Cin > (999e+03l)) {
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	MOVLW	0x49
 	MOVWF	POSTDEC1
@@ -1302,20 +1671,24 @@ _00133_DS_:
 	MOVLW	0x80
 	MOVWF	POSTDEC1
 	CALL	___fslt
-	MOVWF	r0x04
+	MOVWF	r0x00
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-	MOVF	r0x04, W
+	MOVF	r0x00, W
 	BTFSC	STATUS, 2
 	BRA	_00138_DS_
-;	.line	171; ../../../src/measure.c	if(Cin > (999e+06l)) {
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	172; ../../../src/measure.c	if(Cin > (999e+06l)) {
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	MOVLW	0x4e
 	MOVWF	POSTDEC1
@@ -1326,12 +1699,12 @@ _00133_DS_:
 	MOVLW	0x1f
 	MOVWF	POSTDEC1
 	CALL	___fslt
-	MOVWF	r0x04
+	MOVWF	r0x00
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-	MOVF	r0x04, W
+	MOVF	r0x00, W
 	BZ	_00135_DS_
-;	.line	172; ../../../src/measure.c	Cin = Cin / (1e+09);
+;	.line	173; ../../../src/measure.c	Cin = Cin / (1e+09);
 	MOVLW	0x4e
 	MOVWF	POSTDEC1
 	MOVLW	0x6e
@@ -1340,27 +1713,32 @@ _00133_DS_:
 	MOVWF	POSTDEC1
 	MOVLW	0x28
 	MOVWF	POSTDEC1
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	CALL	___fsdiv
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVFF	PRODH, r0x02
-	MOVFF	FSR0L, r0x03
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVWF	_measure_capacitance_Cin_65536_79, B
+	MOVFF	PRODL, (_measure_capacitance_Cin_65536_79 + 1)
+	MOVFF	PRODH, (_measure_capacitance_Cin_65536_79 + 2)
+	MOVFF	FSR0L, (_measure_capacitance_Cin_65536_79 + 3)
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	173; ../../../src/measure.c	unit = 4; //"mF"
+;	.line	174; ../../../src/measure.c	unit = 4; //"mF"
 	MOVLW	0x04
-	MOVWF	r0x04
+	MOVWF	r0x00
 	BRA	_00142_DS_
 _00135_DS_:
-;	.line	175; ../../../src/measure.c	Cin = Cin / (1e+06);
+;	.line	176; ../../../src/measure.c	Cin = Cin / (1e+06);
 	MOVLW	0x49
 	MOVWF	POSTDEC1
 	MOVLW	0x74
@@ -1369,27 +1747,32 @@ _00135_DS_:
 	MOVWF	POSTDEC1
 	MOVLW	0x00
 	MOVWF	POSTDEC1
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	CALL	___fsdiv
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVFF	PRODH, r0x02
-	MOVFF	FSR0L, r0x03
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVWF	_measure_capacitance_Cin_65536_79, B
+	MOVFF	PRODL, (_measure_capacitance_Cin_65536_79 + 1)
+	MOVFF	PRODH, (_measure_capacitance_Cin_65536_79 + 2)
+	MOVFF	FSR0L, (_measure_capacitance_Cin_65536_79 + 3)
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	176; ../../../src/measure.c	unit = 5; //"uF"
+;	.line	177; ../../../src/measure.c	unit = 5; //"uF"
 	MOVLW	0x05
-	MOVWF	r0x04
+	MOVWF	r0x00
 	BRA	_00142_DS_
 _00138_DS_:
-;	.line	179; ../../../src/measure.c	Cin = Cin / 1e+03;
+;	.line	180; ../../../src/measure.c	Cin = Cin / 1e+03;
 	MOVLW	0x44
 	MOVWF	POSTDEC1
 	MOVLW	0x7a
@@ -1398,38 +1781,47 @@ _00138_DS_:
 	MOVWF	POSTDEC1
 	MOVLW	0x00
 	MOVWF	POSTDEC1
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	CALL	___fsdiv
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVFF	PRODH, r0x02
-	MOVFF	FSR0L, r0x03
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVWF	_measure_capacitance_Cin_65536_79, B
+	MOVFF	PRODL, (_measure_capacitance_Cin_65536_79 + 1)
+	MOVFF	PRODH, (_measure_capacitance_Cin_65536_79 + 2)
+	MOVFF	FSR0L, (_measure_capacitance_Cin_65536_79 + 3)
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	180; ../../../src/measure.c	unit = 6; //"nF"
+;	.line	181; ../../../src/measure.c	unit = 6; //"nF"
 	MOVLW	0x06
-	MOVWF	r0x04
+	MOVWF	r0x00
 	BRA	_00142_DS_
 _00141_DS_:
-;	.line	183; ../../../src/measure.c	unit = 7; //"pF"
+;	.line	184; ../../../src/measure.c	unit = 7; //"pF"
 	MOVLW	0x07
-	MOVWF	r0x04
+	MOVWF	r0x00
 _00142_DS_:
-;	.line	185; ../../../src/measure.c	Cin = Cin * 100; // scale to 2 decimal place
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	186; ../../../src/measure.c	Cin = Cin * 100; // scale to 2 decimal place
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x02, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x01, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
 	MOVWF	POSTDEC1
 	MOVLW	0x42
 	MOVWF	POSTDEC1
@@ -1440,40 +1832,45 @@ _00142_DS_:
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	CALL	___fsmul
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVFF	PRODH, r0x02
-	MOVFF	FSR0L, r0x03
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVWF	_measure_capacitance_Cin_65536_79, B
+	MOVFF	PRODL, (_measure_capacitance_Cin_65536_79 + 1)
+	MOVFF	PRODH, (_measure_capacitance_Cin_65536_79 + 2)
+	MOVFF	FSR0L, (_measure_capacitance_Cin_65536_79 + 3)
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	186; ../../../src/measure.c	var = (uint16_t)Cin;
-	MOVF	r0x03, W
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 3)
+;	.line	187; ../../../src/measure.c	var = (uint16_t)Cin;
+	MOVF	(_measure_capacitance_Cin_65536_79 + 3), W, B
 	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 2)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 2), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	(_measure_capacitance_Cin_65536_79 + 1)
+	MOVF	(_measure_capacitance_Cin_65536_79 + 1), W, B
+	MOVWF	POSTDEC1
+	BANKSEL	_measure_capacitance_Cin_65536_79
+	MOVF	_measure_capacitance_Cin_65536_79, W, B
+	MOVWF	POSTDEC1
+	CALL	___fs2uint
+	MOVWF	r0x01
+	MOVFF	PRODL, r0x02
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	189; ../../../src/measure.c	print_reading(var);
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
-	MOVWF	POSTDEC1
-	CALL	___fs2uint
-	MOVWF	r0x00
-	MOVFF	PRODL, r0x01
-	MOVLW	0x04
-	ADDWF	FSR1L, F
-;	.line	188; ../../../src/measure.c	print_reading(var);
-	MOVF	r0x01, W
-	MOVWF	POSTDEC1
-	MOVF	r0x00, W
-	MOVWF	POSTDEC1
 	CALL	_print_reading
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	189; ../../../src/measure.c	print_unit(unit);
-	MOVF	r0x04, W
+;	.line	190; ../../../src/measure.c	print_unit(unit);
+	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_print_unit
 	MOVF	POSTINC1, F
-;	.line	190; ../../../src/measure.c	}
+;	.line	191; ../../../src/measure.c	}
 	MOVFF	PREINC1, r0x0b
 	MOVFF	PREINC1, r0x0a
 	MOVFF	PREINC1, r0x09
@@ -1492,7 +1889,7 @@ _00142_DS_:
 ; ; Starting pCode block
 S_measure__measure_freq	code
 _measure_freq:
-;	.line	69; ../../../src/measure.c	measure_freq() {
+;	.line	68; ../../../src/measure.c	measure_freq() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -1500,11 +1897,11 @@ _measure_freq:
 	MOVFF	r0x02, POSTDEC1
 	MOVFF	r0x03, POSTDEC1
 	MOVFF	r0x04, POSTDEC1
-;	.line	72; ../../../src/measure.c	INTCON &= ~0b100; // TMR0IF = 0;
+;	.line	71; ../../../src/measure.c	INTCON &= ~0b100; // TMR0IF = 0;
 	BCF	_INTCON, 2
-;	.line	76; ../../../src/measure.c	TRISA &= ~0b00010000;
+;	.line	75; ../../../src/measure.c	TRISA &= ~0b00010000;
 	BCF	_TRISA, 4
-;	.line	78; ../../../src/measure.c	__delay_ms(20); // stablize oscillator
+;	.line	77; ../../../src/measure.c	__delay_ms(20); // stablize oscillator
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x14
@@ -1512,11 +1909,16 @@ _measure_freq:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	81; ../../../src/measure.c	TMR0 = 0x00;
+;	.line	80; ../../../src/measure.c	TMR0 = 0x00;
 	CLRF	_TMR0
-;	.line	83; ../../../src/measure.c	SET_LED(1);
-	BCF	_LATC, 1
-	BSF	_LATC, 1
+;	.line	85; ../../../src/measure.c	__delay_ms(10);
+	MOVLW	0x00
+	MOVWF	POSTDEC1
+	MOVLW	0x0a
+	MOVWF	POSTDEC1
+	CALL	_delay_ms
+	MOVF	POSTINC1, F
+	MOVF	POSTINC1, F
 ;	.line	86; ../../../src/measure.c	__delay_ms(10);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
@@ -1589,23 +1991,13 @@ _measure_freq:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	95; ../../../src/measure.c	__delay_ms(10);
-	MOVLW	0x00
-	MOVWF	POSTDEC1
-	MOVLW	0x0a
-	MOVWF	POSTDEC1
-	CALL	_delay_ms
-	MOVF	POSTINC1, F
-	MOVF	POSTINC1, F
-;	.line	97; ../../../src/measure.c	SET_LED(0);
-	BCF	_LATC, 1
-;	.line	100; ../../../src/measure.c	TRISA |= 0b00010000;
+;	.line	99; ../../../src/measure.c	TRISA |= 0b00010000;
 	BSF	_TRISA, 4
-;	.line	103; ../../../src/measure.c	count = timer0_read_ps();
+;	.line	102; ../../../src/measure.c	count = timer0_read_ps();
 	CALL	_timer0_read_ps
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
-;	.line	106; ../../../src/measure.c	lcd_gotoxy(0, 1);
+;	.line	105; ../../../src/measure.c	lcd_gotoxy(0, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -1613,7 +2005,9 @@ _measure_freq:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	107; ../../../src/measure.c	put_str("Freq=");
+;	.line	107; ../../../src/measure.c	buffer_init();
+	CALL	_buffer_init
+;	.line	108; ../../../src/measure.c	buffer_puts("Freq=");
 	MOVLW	HIGH(___str_3)
 	MOVWF	r0x03
 	MOVLW	LOW(___str_3)
@@ -1625,10 +2019,10 @@ _measure_freq:
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
-	CALL	_put_str
+	CALL	_buffer_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	108; ../../../src/measure.c	format_number(/*lcd_putch,*/ count, 10, 5);
+;	.line	109; ../../../src/measure.c	format_number(count, 10, 5);
 	MOVLW	0x05
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -1640,10 +2034,12 @@ _measure_freq:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	111; ../../../src/measure.c	return count;
+;	.line	110; ../../../src/measure.c	print_buffer();
+	CALL	_print_buffer
+;	.line	112; ../../../src/measure.c	return count;
 	MOVFF	r0x01, PRODL
 	MOVF	r0x00, W
-;	.line	112; ../../../src/measure.c	}
+;	.line	113; ../../../src/measure.c	}
 	MOVFF	PREINC1, r0x04
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
@@ -1655,15 +2051,15 @@ _measure_freq:
 ; ; Starting pCode block
 S_measure__calibrate	code
 _calibrate:
-;	.line	24; ../../../src/measure.c	calibrate() {
+;	.line	25; ../../../src/measure.c	calibrate() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	MOVFF	r0x01, POSTDEC1
 	MOVFF	r0x02, POSTDEC1
-;	.line	28; ../../../src/measure.c	lcd_clear();
+;	.line	29; ../../../src/measure.c	lcd_clear();
 	CALL	_lcd_clear
-;	.line	30; ../../../src/measure.c	lcd_gotoxy(0, 0);
+;	.line	31; ../../../src/measure.c	lcd_gotoxy(0, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -1671,7 +2067,7 @@ _calibrate:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	31; ../../../src/measure.c	put_str("Calibrating");
+;	.line	32; ../../../src/measure.c	put_str("Calibrating");
 	MOVLW	HIGH(___str_0)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_0)
@@ -1686,7 +2082,7 @@ _calibrate:
 	CALL	_put_str
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	33; ../../../src/measure.c	lcd_gotoxy(0, 1);
+;	.line	34; ../../../src/measure.c	lcd_gotoxy(0, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -1694,7 +2090,7 @@ _calibrate:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	34; ../../../src/measure.c	uart_puts("\r\n");
+;	.line	35; ../../../src/measure.c	ser_puts("\r\n");
 	MOVLW	HIGH(___str_1)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_1)
@@ -1706,10 +2102,10 @@ _calibrate:
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
-	CALL	_uart_puts
+	CALL	_ser_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	35; ../../../src/measure.c	put_str("please wait...");
+;	.line	36; ../../../src/measure.c	put_str("please wait...");
 	MOVLW	HIGH(___str_2)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_2)
@@ -1724,9 +2120,9 @@ _calibrate:
 	CALL	_put_str
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	38; ../../../src/measure.c	REMOVE_CCAL();
+;	.line	39; ../../../src/measure.c	REMOVE_CCAL();
 	BCF	_LATC, 2
-;	.line	40; ../../../src/measure.c	F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
+;	.line	41; ../../../src/measure.c	F1 = (double)measure_freq(); // dummy reading to stabilize oscillator
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
@@ -1742,12 +2138,12 @@ _calibrate:
 	MOVFF	FSR0L, (_F1 + 3)
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	41; ../../../src/measure.c	delay10ms(50);
+;	.line	42; ../../../src/measure.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	43; ../../../src/measure.c	F1 = (double)measure_freq();
+;	.line	44; ../../../src/measure.c	F1 = (double)measure_freq();
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
@@ -1763,9 +2159,9 @@ _calibrate:
 	MOVFF	FSR0L, (_F1 + 3)
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	44; ../../../src/measure.c	ADD_CCAL();
+;	.line	45; ../../../src/measure.c	ADD_CCAL();
 	BSF	_LATC, 2
-;	.line	46; ../../../src/measure.c	F2 = (double)measure_freq(); // dummy reading to stabilize oscillator
+;	.line	47; ../../../src/measure.c	F2 = (double)measure_freq(); // dummy reading to stabilize oscillator
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
@@ -1781,12 +2177,12 @@ _calibrate:
 	MOVFF	FSR0L, (_F2 + 3)
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	47; ../../../src/measure.c	delay10ms(50);
+;	.line	48; ../../../src/measure.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	49; ../../../src/measure.c	F2 = (double)measure_freq();
+;	.line	50; ../../../src/measure.c	F2 = (double)measure_freq();
 	CALL	_measure_freq
 	MOVWF	r0x00
 	MOVFF	PRODL, r0x01
@@ -1802,7 +2198,7 @@ _calibrate:
 	MOVFF	FSR0L, (_F2 + 3)
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	50; ../../../src/measure.c	REMOVE_CCAL();
+;	.line	51; ../../../src/measure.c	REMOVE_CCAL();
 	BCF	_LATC, 2
 ;	.line	54; ../../../src/measure.c	lcd_gotoxy(11, 0);
 	MOVLW	0x00
@@ -1812,25 +2208,28 @@ _calibrate:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	56; ../../../src/measure.c	for(i = 0; i < 6; i++) { // show progress bar
+;	.line	55; ../../../src/measure.c	for(i = 0; i < 6; i++) { // show progress bar
 	CLRF	r0x00
 _00106_DS_:
-;	.line	57; ../../../src/measure.c	lcd_putch('=');
+;	.line	56; ../../../src/measure.c	lcd_putch('=');
+	MOVLW	0x01
+	MOVWF	POSTDEC1
 	MOVLW	0x3d
 	MOVWF	POSTDEC1
-	CALL	_lcd_putch
+	CALL	_lcd_send
 	MOVF	POSTINC1, F
-;	.line	59; ../../../src/measure.c	delay10ms(28);
+	MOVF	POSTINC1, F
+;	.line	58; ../../../src/measure.c	delay10ms(28);
 	MOVLW	0x1c
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	56; ../../../src/measure.c	for(i = 0; i < 6; i++) { // show progress bar
+;	.line	55; ../../../src/measure.c	for(i = 0; i < 6; i++) { // show progress bar
 	INCF	r0x00, F
 	MOVLW	0x06
 	SUBWF	r0x00, W
 	BNC	_00106_DS_
-;	.line	62; ../../../src/measure.c	uart_puts("\r\n");
+;	.line	61; ../../../src/measure.c	ser_puts("\r\n");
 	MOVLW	HIGH(___str_1)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_1)
@@ -1842,10 +2241,10 @@ _00106_DS_:
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
-	CALL	_uart_puts
+	CALL	_ser_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	63; ../../../src/measure.c	}
+;	.line	62; ../../../src/measure.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -1870,14 +2269,32 @@ ___str_4:
 	DB	0x43, 0x61, 0x70, 0x61, 0x63, 0x69, 0x74, 0x79, 0x20, 0x00
 ; ; Starting pCode block
 ___str_5:
+	DB	0x76, 0x61, 0x72, 0x3d, 0x00
+; ; Starting pCode block
+___str_6:
+	DB	0x0d, 0x0a, 0x46, 0x31, 0x3d, 0x00
+; ; Starting pCode block
+___str_7:
+	DB	0x0d, 0x0a, 0x46, 0x32, 0x3d, 0x00
+; ; Starting pCode block
+___str_8:
+	DB	0x0d, 0x0a, 0x46, 0x33, 0x3d, 0x00
+; ; Starting pCode block
+___str_9:
+	DB	0x0d, 0x0a, 0x43, 0x43, 0x61, 0x6c, 0x3d, 0x00
+; ; Starting pCode block
+___str_10:
+	DB	0x43, 0x69, 0x6e, 0x3d, 0x00
+; ; Starting pCode block
+___str_11:
 	DB	0x49, 0x6e, 0x64, 0x75, 0x63, 0x74, 0x69, 0x76, 0x69, 0x74, 0x79, 0x20
 	DB	0x00
 
 
 ; Statistics:
-; code size:	 3406 (0x0d4e) bytes ( 2.60%)
-;           	 1703 (0x06a7) words
-; udata size:	    0 (0x0000) bytes ( 0.00%)
+; code size:	 4246 (0x1096) bytes ( 3.24%)
+;           	 2123 (0x084b) words
+; udata size:	    4 (0x0004) bytes ( 0.22%)
 ; access size:	   12 (0x000c) bytes
 
 
