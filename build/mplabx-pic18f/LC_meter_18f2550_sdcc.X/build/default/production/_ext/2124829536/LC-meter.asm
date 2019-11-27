@@ -1,31 +1,29 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
 	list	p=18f2550
 	radix	dec
-	__config 0x300001, 0x7c
-	__config 0x300006, 0x3b
 
 
 ;--------------------------------------------------------
 ; public variables in this module
 ;--------------------------------------------------------
+	global	_blink
 	global	_F3
 	global	_F2
 	global	_F1
 	global	_timer1of
+	global	_msecs
 	global	_delay10ms
 	global	_main
 	global	_testloop
 	global	_bres
 	global	_msecpart
 	global	_seconds
-	global	_msecs
 	global	_CCal
-	global	_blink
 	global	_isr
 
 ;--------------------------------------------------------
@@ -111,7 +109,14 @@
 	extern	_INTCONbits
 	extern	_STKPTRbits
 	extern	_dvar
-	extern	_putchar_ptr
+	extern	_rxfifo
+	extern	_rxiptr
+	extern	_rxoptr
+	extern	_txfifo
+	extern	_txiptr
+	extern	_txoptr
+	extern	_ser_tmp
+	extern	_ser_brg
 	extern	_UFRM
 	extern	_UFRML
 	extern	_UFRMH
@@ -264,19 +269,18 @@
 	extern	_lcd_begin
 	extern	_lcd_clear
 	extern	_lcd_gotoxy
-	extern	_lcd_putch
+	extern	_lcd_send
 	extern	_timer0_init
 	extern	_timer2_init
-	extern	_uart_init
-	extern	_uart_puts
+	extern	_ser_puts
+	extern	_ser_init
 	extern	_calibrate
 	extern	_measure_capacitance
 	extern	_measure_inductance
 	extern	_lcd_puts
-	extern	_indicator
+	extern	_print_indicator
 	extern	_format_number
 	extern	_format_double
-	extern	_uart_brg
 	extern	_logo_image
 
 ;--------------------------------------------------------
@@ -291,6 +295,7 @@ FSR0L	equ	0xfe9
 FSR0H	equ	0xfea
 FSR1L	equ	0xfe1
 FSR2L	equ	0xfd9
+INDF0	equ	0xfef
 POSTINC1	equ	0xfe6
 POSTDEC1	equ	0xfe5
 PREINC1	equ	0xfe4
@@ -299,9 +304,10 @@ PRODH	equ	0xff4
 
 
 	idata
+_mode	db	0xff
 _blink	db	0x00, 0x00
-_testloop_led_65536_83	db	0x00
-_testloop_prev_s_65536_83	db	0x00, 0x00
+_testloop_led_65536_86	db	0x00
+_testloop_prev_s_65536_86	db	0x00, 0x00
 
 
 ; Internal registers
@@ -314,25 +320,25 @@ r0x04	res	1
 r0x05	res	1
 
 udata_LC_meter_0	udata
-_timer1of	res	4
+_msecs	res	4
 
 udata_LC_meter_1	udata
-_F1	res	4
+_timer1of	res	4
 
 udata_LC_meter_2	udata
-_F2	res	4
+_F1	res	4
 
 udata_LC_meter_3	udata
-_F3	res	4
+_F2	res	4
 
 udata_LC_meter_4	udata
-_bres	res	2
+_F3	res	4
 
 udata_LC_meter_5	udata
-_msecpart	res	2
+_bres	res	2
 
 udata_LC_meter_6	udata
-_msecs	res	4
+_msecpart	res	2
 
 udata_LC_meter_7	udata
 _seconds	res	4
@@ -358,7 +364,7 @@ ivec_0x0_isr:
 S_LC_meter__main	code
 _main:
 	BANKSEL	_seconds
-;	.line	112; ../../../LC-meter.c	bres = msecpart = msecs = seconds = 0;
+;	.line	114; ../../../LC-meter.c	bres = msecpart = msecs = seconds = 0;
 	CLRF	_seconds, B
 	BANKSEL	(_seconds + 1)
 	CLRF	(_seconds + 1), B
@@ -382,8 +388,12 @@ _main:
 	CLRF	_bres, B
 	BANKSEL	(_bres + 1)
 	CLRF	(_bres + 1), B
+;	.line	115; ../../../LC-meter.c	mode = -1;
+	MOVLW	0xff
+	BANKSEL	_mode
+	MOVWF	_mode, B
 	BANKSEL	_CCal
-;	.line	114; ../../../LC-meter.c	CCal = C_CAL;
+;	.line	117; ../../../LC-meter.c	CCal = C_CAL;
 	CLRF	_CCal, B
 	BANKSEL	(_CCal + 1)
 	CLRF	(_CCal + 1), B
@@ -393,37 +403,35 @@ _main:
 	MOVLW	0x44
 	BANKSEL	(_CCal + 3)
 	MOVWF	(_CCal + 3), B
-;	.line	123; ../../../LC-meter.c	TRISA = 0b11001111;
+;	.line	127; ../../../LC-meter.c	TRISA = 0b11001111;
 	MOVLW	0xcf
 	MOVWF	_TRISA
-;	.line	126; ../../../LC-meter.c	timer0_init(PRESCALE_1_16 | TIMER0_FLAGS_EXTCLK);
-	MOVLW	0x44
+;	.line	130; ../../../LC-meter.c	timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
+	MOVLW	0x68
 	MOVWF	POSTDEC1
 	CALL	_timer0_init
 	MOVF	POSTINC1, F
-;	.line	142; ../../../LC-meter.c	INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
+;	.line	137; ../../../LC-meter.c	INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
 	BCF	_INTCON2, 7
-;	.line	148; ../../../LC-meter.c	INIT_LED();
-	BCF	_TRISC, 1
-;	.line	149; ../../../LC-meter.c	SET_LED(1);
-	BCF	_LATC, 1
-	BSF	_LATC, 1
-;	.line	152; ../../../LC-meter.c	SSPCON1 &= ~0b00100000; //  SSPEN = 0;
-	BCF	_SSPCON1, 5
-;	.line	160; ../../../LC-meter.c	timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+;	.line	145; ../../../LC-meter.c	TRISC = 0b10111011;
+	MOVLW	0xbb
+	MOVWF	_TRISC
+;	.line	149; ../../../LC-meter.c	INIT_LED();
+	BCF	_TRISC, 2
+;	.line	150; ../../../LC-meter.c	SET_LED(1);
+	BCF	_LATC, 2
+	BSF	_LATC, 2
+;	.line	152; ../../../LC-meter.c	timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 	MOVLW	0x80
 	MOVWF	POSTDEC1
 	CALL	_timer2_init
 	MOVF	POSTINC1, F
-;	.line	165; ../../../LC-meter.c	TRISC &= 0b10110101;
-	MOVLW	0xb5
-	ANDWF	_TRISC, F
-;	.line	177; ../../../LC-meter.c	lcd_init(true);
+;	.line	160; ../../../LC-meter.c	lcd_init(true);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	CALL	_lcd_init
 	MOVF	POSTINC1, F
-;	.line	178; ../../../LC-meter.c	lcd_begin(2, 1);
+;	.line	161; ../../../LC-meter.c	lcd_begin(2, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x02
@@ -431,53 +439,46 @@ _main:
 	CALL	_lcd_begin
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	181; ../../../LC-meter.c	LC_TRIS();
+;	.line	164; ../../../LC-meter.c	LC_TRIS();
 	BSF	_TRISC, 0
-;	.line	182; ../../../LC-meter.c	RELAY_TRIS();
+;	.line	165; ../../../LC-meter.c	RELAY_TRIS();
 	BCF	_TRISC, 5
-;	.line	184; ../../../LC-meter.c	REMOVE_CCAL();
+;	.line	167; ../../../LC-meter.c	REMOVE_CCAL();
 	BCF	_LATC, 2
-;	.line	185; ../../../LC-meter.c	delay10ms(50);
+;	.line	168; ../../../LC-meter.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	186; ../../../LC-meter.c	ADD_CCAL();
+;	.line	169; ../../../LC-meter.c	ADD_CCAL();
 	BSF	_LATC, 2
-;	.line	187; ../../../LC-meter.c	delay10ms(50);
+;	.line	170; ../../../LC-meter.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	188; ../../../LC-meter.c	REMOVE_CCAL();
+;	.line	171; ../../../LC-meter.c	REMOVE_CCAL();
 	BCF	_LATC, 2
-;	.line	189; ../../../LC-meter.c	delay10ms(50);
+;	.line	172; ../../../LC-meter.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	190; ../../../LC-meter.c	ADD_CCAL();
+;	.line	173; ../../../LC-meter.c	ADD_CCAL();
 	BSF	_LATC, 2
-;	.line	191; ../../../LC-meter.c	delay10ms(50);
+;	.line	174; ../../../LC-meter.c	delay10ms(50);
 	MOVLW	0x32
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	192; ../../../LC-meter.c	REMOVE_CCAL();
+;	.line	175; ../../../LC-meter.c	REMOVE_CCAL();
 	BCF	_LATC, 2
-;	.line	198; ../../../LC-meter.c	uart_init();
-	CALL	_uart_init
-;	.line	202; ../../../LC-meter.c	INTCON |= 0xc0; // PEIE = 1; GIE = 1;
+;	.line	178; ../../../LC-meter.c	ser_init();
+	CALL	_ser_init
+;	.line	185; ../../../LC-meter.c	INTCON |= 0xc0; // PEIE = 1; GIE = 1;
 	MOVLW	0xc0
 	IORWF	_INTCON, F
-;	.line	205; ../../../LC-meter.c	putchar_ptr = &lcd_putch;
-	MOVLW	LOW(_lcd_putch)
-	BANKSEL	_putchar_ptr
-	MOVWF	_putchar_ptr, B
-	MOVLW	HIGH(_lcd_putch)
-	BANKSEL	(_putchar_ptr + 1)
-	MOVWF	(_putchar_ptr + 1), B
-;	.line	212; ../../../LC-meter.c	lcd_gotoxy(0, 0);
+;	.line	191; ../../../LC-meter.c	lcd_gotoxy(0, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -485,7 +486,7 @@ _main:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	214; ../../../LC-meter.c	lcd_puts("LC-meter ");
+;	.line	193; ../../../LC-meter.c	lcd_puts("LC-meter ");
 	MOVLW	HIGH(___str_0)
 	MOVWF	r0x01
 	MOVLW	LOW(___str_0)
@@ -501,7 +502,7 @@ _main:
 	MOVLW	0x03
 	ADDWF	FSR1L, F
 	BANKSEL	(_CCal + 3)
-;	.line	215; ../../../LC-meter.c	format_double(/*&lcd_putch,*/ CCal);
+;	.line	194; ../../../LC-meter.c	format_double(/*&lcd_putch,*/ CCal);
 	MOVF	(_CCal + 3), W, B
 	MOVWF	POSTDEC1
 	BANKSEL	(_CCal + 2)
@@ -516,69 +517,129 @@ _main:
 	CALL	_format_double
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	221; ../../../LC-meter.c	delay10ms(200);
+;	.line	200; ../../../LC-meter.c	delay10ms(200);
 	MOVLW	0xc8
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	224; ../../../LC-meter.c	calibrate();
+;	.line	203; ../../../LC-meter.c	calibrate();
 	CALL	_calibrate
-;	.line	226; ../../../LC-meter.c	lcd_clear();
+;	.line	206; ../../../LC-meter.c	lcd_clear();
 	CALL	_lcd_clear
-_00152_DS_:
-;	.line	237; ../../../LC-meter.c	uart_puts("...\r\n");
-	MOVLW	HIGH(___str_1)
-	MOVWF	r0x01
-	MOVLW	LOW(___str_1)
+_00183_DS_:
+;	.line	215; ../../../LC-meter.c	char new_mode = LC_SELECT;
+	MOVF	_PORTC, W
+	ANDLW	0x01
 	MOVWF	r0x00
-	CLRF	r0x02
+	MOVF	r0x00, W
+	BSF	STATUS, 0
+	TSTFSZ	WREG
+	BCF	STATUS, 0
+	CLRF	r0x00
+	RLCF	r0x00, F
+	MOVF	r0x00, W
+	BSF	STATUS, 0
+	TSTFSZ	WREG
+	BCF	STATUS, 0
+	CLRF	r0x00
+	RLCF	r0x00, F
+;	.line	217; ../../../LC-meter.c	if(new_mode != mode) {
+	MOVF	r0x00, W
+	BANKSEL	_mode
+	XORWF	_mode, W, B
+	BZ	_00178_DS_
+_00218_DS_:
+	BANKSEL	_mode
+;	.line	218; ../../../LC-meter.c	ser_puts(mode ?  "- C (Unit: F) -" : "- L (Unit: H) -");
+	MOVF	_mode, W, B
+	BZ	_00187_DS_
+	MOVLW	LOW(___str_1)
+	MOVWF	r0x01
+	MOVLW	HIGH(___str_1)
+	MOVWF	r0x02
+	MOVLW	UPPER(___str_1)
+	MOVWF	r0x03
+	BRA	_00188_DS_
+_00187_DS_:
+	MOVLW	LOW(___str_2)
+	MOVWF	r0x01
+	MOVLW	HIGH(___str_2)
+	MOVWF	r0x02
+	MOVLW	UPPER(___str_2)
+	MOVWF	r0x03
+_00188_DS_:
+	MOVF	r0x03, W
+	MOVWF	r0x03
+	MOVF	r0x02, W
+	MOVWF	r0x02
+	MOVF	r0x01, W
+	MOVWF	r0x01
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
 	MOVF	r0x01, W
 	MOVWF	POSTDEC1
-	MOVF	r0x00, W
-	MOVWF	POSTDEC1
-	CALL	_uart_puts
+	CALL	_ser_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	238; ../../../LC-meter.c	if(PORTC & (1 << 4))
-	BTFSS	_PORTC, 4
-	BRA	_00149_DS_
-;	.line	239; ../../../LC-meter.c	measure_capacitance();
+;	.line	219; ../../../LC-meter.c	ser_puts("\r\n");
+	MOVLW	HIGH(___str_3)
+	MOVWF	r0x02
+	MOVLW	LOW(___str_3)
+	MOVWF	r0x01
+	CLRF	r0x03
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	CALL	_ser_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+;	.line	221; ../../../LC-meter.c	mode = new_mode;
+	MOVFF	r0x00, _mode
+_00178_DS_:
+	BANKSEL	_mode
+;	.line	224; ../../../LC-meter.c	if(mode)
+	MOVF	_mode, W, B
+	BZ	_00180_DS_
+;	.line	225; ../../../LC-meter.c	measure_capacitance();
 	CALL	_measure_capacitance
-	BRA	_00150_DS_
-_00149_DS_:
-;	.line	241; ../../../LC-meter.c	measure_inductance();
+	BRA	_00181_DS_
+_00180_DS_:
+;	.line	227; ../../../LC-meter.c	measure_inductance();
 	CALL	_measure_inductance
-_00150_DS_:
-;	.line	243; ../../../LC-meter.c	indicator(1);
+_00181_DS_:
+;	.line	229; ../../../LC-meter.c	print_indicator(1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
-	CALL	_indicator
+	CALL	_print_indicator
 	MOVF	POSTINC1, F
-;	.line	244; ../../../LC-meter.c	delay10ms(30);
+;	.line	230; ../../../LC-meter.c	delay10ms(30);
 	MOVLW	0x1e
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	245; ../../../LC-meter.c	indicator(0);
+;	.line	232; ../../../LC-meter.c	print_indicator(0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
-	CALL	_indicator
+	CALL	_print_indicator
 	MOVF	POSTINC1, F
-;	.line	246; ../../../LC-meter.c	delay10ms(20);
+;	.line	233; ../../../LC-meter.c	delay10ms(20);
 	MOVLW	0x14
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-	BRA	_00152_DS_
-;	.line	248; ../../../LC-meter.c	}
+	BRA	_00183_DS_
+;	.line	235; ../../../LC-meter.c	}
 	RETURN	
 
 ; ; Starting pCode block
 S_LC_meter__testloop	code
 _testloop:
-;	.line	251; ../../../LC-meter.c	testloop() {
+;	.line	238; ../../../LC-meter.c	testloop() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -587,23 +648,23 @@ _testloop:
 	MOVFF	r0x03, POSTDEC1
 	MOVFF	r0x04, POSTDEC1
 	MOVFF	r0x05, POSTDEC1
-;	.line	257; ../../../LC-meter.c	delay10ms(10);
+;	.line	244; ../../../LC-meter.c	delay10ms(10);
 	MOVLW	0x0a
 	MOVWF	POSTDEC1
 	CALL	_delay10ms
 	MOVF	POSTINC1, F
-;	.line	259; ../../../LC-meter.c	INTCON &= ~0x80; // GIE = 0;
+;	.line	246; ../../../LC-meter.c	INTCON &= ~0x80; // GIE = 0;
 	BCF	_INTCON, 7
 	BANKSEL	_seconds
-;	.line	260; ../../../LC-meter.c	s = seconds;
+;	.line	247; ../../../LC-meter.c	s = seconds;
 	MOVF	_seconds, W, B
 	MOVWF	r0x00
 	BANKSEL	(_seconds + 1)
 	MOVF	(_seconds + 1), W, B
 	MOVWF	r0x01
-;	.line	261; ../../../LC-meter.c	INTCON |= 0x80; // GIE = 1;
+;	.line	248; ../../../LC-meter.c	INTCON |= 0x80; // GIE = 1;
 	BSF	_INTCON, 7
-;	.line	271; ../../../LC-meter.c	lcd_gotoxy(10, 0);
+;	.line	258; ../../../LC-meter.c	lcd_gotoxy(10, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -611,10 +672,10 @@ _testloop:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	272; ../../../LC-meter.c	lcd_puts("      ");
-	MOVLW	HIGH(___str_2)
+;	.line	259; ../../../LC-meter.c	lcd_puts("      ");
+	MOVLW	HIGH(___str_4)
 	MOVWF	r0x03
-	MOVLW	LOW(___str_2)
+	MOVLW	LOW(___str_4)
 	MOVWF	r0x02
 	CLRF	r0x04
 	MOVF	r0x04, W
@@ -626,7 +687,7 @@ _testloop:
 	CALL	_lcd_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	273; ../../../LC-meter.c	lcd_gotoxy(10, 0);
+;	.line	260; ../../../LC-meter.c	lcd_gotoxy(10, 0);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -634,7 +695,7 @@ _testloop:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	275; ../../../LC-meter.c	format_number(/*lcd_putch,*/ s, 10, 5);
+;	.line	262; ../../../LC-meter.c	format_number(s, 10, 5);
 	MOVLW	0x05
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -646,7 +707,7 @@ _testloop:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	277; ../../../LC-meter.c	lcd_gotoxy(10, 1);
+;	.line	264; ../../../LC-meter.c	lcd_gotoxy(10, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -654,10 +715,10 @@ _testloop:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	278; ../../../LC-meter.c	lcd_puts("      ");
-	MOVLW	HIGH(___str_2)
+;	.line	265; ../../../LC-meter.c	lcd_puts("      ");
+	MOVLW	HIGH(___str_4)
 	MOVWF	r0x03
-	MOVLW	LOW(___str_2)
+	MOVLW	LOW(___str_4)
 	MOVWF	r0x02
 	CLRF	r0x04
 	MOVF	r0x04, W
@@ -669,7 +730,7 @@ _testloop:
 	CALL	_lcd_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	279; ../../../LC-meter.c	lcd_gotoxy(10, 1);
+;	.line	266; ../../../LC-meter.c	lcd_gotoxy(10, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x0a
@@ -677,7 +738,7 @@ _testloop:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	280; ../../../LC-meter.c	format_number(/*lcd_putch,*/ TIMER1_VALUE, 10, 5);
+;	.line	267; ../../../LC-meter.c	format_number(TIMER1_VALUE, 10, 5);
 	MOVFF	_TMR1H, r0x02
 	CLRF	r0x03
 	MOVF	r0x02, W
@@ -700,7 +761,7 @@ _testloop:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	282; ../../../LC-meter.c	lcd_gotoxy(0, 1);
+;	.line	269; ../../../LC-meter.c	lcd_gotoxy(0, 1);
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	MOVLW	0x00
@@ -708,7 +769,95 @@ _testloop:
 	CALL	_lcd_gotoxy
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	283; ../../../LC-meter.c	lcd_puts("     ");
+;	.line	270; ../../../LC-meter.c	lcd_puts("     ");
+	MOVLW	HIGH(___str_5)
+	MOVWF	r0x03
+	MOVLW	LOW(___str_5)
+	MOVWF	r0x02
+	CLRF	r0x04
+	MOVF	r0x04, W
+	MOVWF	POSTDEC1
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	CALL	_lcd_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+;	.line	271; ../../../LC-meter.c	lcd_gotoxy(0, 1);
+	MOVLW	0x01
+	MOVWF	POSTDEC1
+	MOVLW	0x00
+	MOVWF	POSTDEC1
+	CALL	_lcd_gotoxy
+	MOVF	POSTINC1, F
+	MOVF	POSTINC1, F
+;	.line	272; ../../../LC-meter.c	lcd_puts("RC4=");
+	MOVLW	HIGH(___str_6)
+	MOVWF	r0x03
+	MOVLW	LOW(___str_6)
+	MOVWF	r0x02
+	CLRF	r0x04
+	MOVF	r0x04, W
+	MOVWF	POSTDEC1
+	MOVF	r0x03, W
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	CALL	_lcd_puts
+	MOVLW	0x03
+	ADDWF	FSR1L, F
+;	.line	275; ../../../LC-meter.c	lcd_putch(LC_SELECT != 0 ? '1' : '0');
+	MOVF	_PORTC, W
+	ANDLW	0x01
+	MOVWF	r0x02
+	MOVF	r0x02, W
+	BSF	STATUS, 0
+	TSTFSZ	WREG
+	BCF	STATUS, 0
+	CLRF	r0x02
+	RLCF	r0x02, F
+	MOVF	r0x02, W
+	BNZ	_00227_DS_
+	MOVLW	0x31
+	MOVWF	r0x02
+	CLRF	r0x03
+	BRA	_00228_DS_
+_00227_DS_:
+	MOVLW	0x30
+	MOVWF	r0x02
+	CLRF	r0x03
+_00228_DS_:
+	MOVLW	0x01
+	MOVWF	POSTDEC1
+	MOVF	r0x02, W
+	MOVWF	POSTDEC1
+	CALL	_lcd_send
+	MOVF	POSTINC1, F
+	MOVF	POSTINC1, F
+;	.line	279; ../../../LC-meter.c	if(s != prev_s) {
+	MOVF	r0x00, W
+	BANKSEL	_testloop_prev_s_65536_86
+	XORWF	_testloop_prev_s_65536_86, W, B
+	BNZ	_00241_DS_
+	MOVF	r0x01, W
+	BANKSEL	(_testloop_prev_s_65536_86 + 1)
+	XORWF	(_testloop_prev_s_65536_86 + 1), W, B
+	BZ	_00225_DS_
+_00241_DS_:
+;	.line	281; ../../../LC-meter.c	format_number(s, 10, 0);
+	MOVLW	0x00
+	MOVWF	POSTDEC1
+	MOVLW	0x0a
+	MOVWF	POSTDEC1
+	MOVF	r0x01, W
+	MOVWF	POSTDEC1
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_format_number
+	MOVLW	0x04
+	ADDWF	FSR1L, F
+;	.line	283; ../../../LC-meter.c	ser_puts("\r\n");
 	MOVLW	HIGH(___str_3)
 	MOVWF	r0x03
 	MOVLW	LOW(___str_3)
@@ -720,72 +869,14 @@ _testloop:
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
-	CALL	_lcd_puts
+	CALL	_ser_puts
 	MOVLW	0x03
 	ADDWF	FSR1L, F
-;	.line	284; ../../../LC-meter.c	lcd_gotoxy(0, 1);
-	MOVLW	0x01
-	MOVWF	POSTDEC1
-	MOVLW	0x00
-	MOVWF	POSTDEC1
-	CALL	_lcd_gotoxy
-	MOVF	POSTINC1, F
-	MOVF	POSTINC1, F
-;	.line	285; ../../../LC-meter.c	lcd_puts("RC4=");
-	MOVLW	HIGH(___str_4)
-	MOVWF	r0x03
-	MOVLW	LOW(___str_4)
-	MOVWF	r0x02
-	CLRF	r0x04
-	MOVF	r0x04, W
-	MOVWF	POSTDEC1
-	MOVF	r0x03, W
-	MOVWF	POSTDEC1
-	MOVF	r0x02, W
-	MOVWF	POSTDEC1
-	CALL	_lcd_puts
-	MOVLW	0x03
-	ADDWF	FSR1L, F
-;	.line	287; ../../../LC-meter.c	lcd_putch(LC_SELECT != 0 ? '1' : '0');
-	MOVF	_LATC, W
-	ANDLW	0x01
-	MOVWF	r0x02
-	MOVF	r0x02, W
-	BSF	STATUS, 0
-	TSTFSZ	WREG
-	BCF	STATUS, 0
-	CLRF	r0x02
-	RLCF	r0x02, F
-	MOVF	r0x02, W
-	BNZ	_00187_DS_
-	MOVLW	0x31
-	MOVWF	r0x02
-	CLRF	r0x03
-	BRA	_00188_DS_
-_00187_DS_:
-	MOVLW	0x30
-	MOVWF	r0x02
-	CLRF	r0x03
-_00188_DS_:
-	MOVF	r0x02, W
-	MOVWF	POSTDEC1
-	CALL	_lcd_putch
-	MOVF	POSTINC1, F
-;	.line	291; ../../../LC-meter.c	if(s != prev_s) {
-	MOVF	r0x00, W
-	BANKSEL	_testloop_prev_s_65536_83
-	XORWF	_testloop_prev_s_65536_83, W, B
-	BNZ	_00201_DS_
-	MOVF	r0x01, W
-	BANKSEL	(_testloop_prev_s_65536_83 + 1)
-	XORWF	(_testloop_prev_s_65536_83 + 1), W, B
-	BZ	_00185_DS_
-_00201_DS_:
-;	.line	298; ../../../LC-meter.c	prev_s = s;
-	MOVFF	r0x00, _testloop_prev_s_65536_83
-	MOVFF	r0x01, (_testloop_prev_s_65536_83 + 1)
-_00185_DS_:
-;	.line	300; ../../../LC-meter.c	}
+;	.line	286; ../../../LC-meter.c	prev_s = s;
+	MOVFF	r0x00, _testloop_prev_s_65536_86
+	MOVFF	r0x01, (_testloop_prev_s_65536_86 + 1)
+_00225_DS_:
+;	.line	288; ../../../LC-meter.c	}
 	MOVFF	PREINC1, r0x05
 	MOVFF	PREINC1, r0x04
 	MOVFF	PREINC1, r0x03
@@ -798,7 +889,7 @@ _00185_DS_:
 ; ; Starting pCode block
 S_LC_meter__isr	code
 _isr:
-;	.line	75; ../../../LC-meter.c	INTERRUPT_FN() {
+;	.line	83; ../../../LC-meter.c	INTERRUPT_FN() {
 	MOVFF	STATUS, POSTDEC1
 	MOVFF	BSR, POSTDEC1
 	MOVWF	POSTDEC1
@@ -814,32 +905,36 @@ _isr:
 	MOVFF	r0x01, POSTDEC1
 	MOVFF	r0x02, POSTDEC1
 	MOVFF	r0x03, POSTDEC1
-;	.line	77; ../../../LC-meter.c	if(PIR1 & 0b10) {
+;	.line	85; ../../../LC-meter.c	if(PIR1 & 0x02) {
 	MOVFF	_PIR1, r0x00
 	BTFSS	r0x00, 1
-	BRA	_00118_DS_
+	BRA	_00115_DS_
 	BANKSEL	(_bres + 1)
-;	.line	79; ../../../LC-meter.c	bres += 256;
+;	.line	86; ../../../LC-meter.c	bres += 256;
 	INCF	(_bres + 1), F, B
-;	.line	81; ../../../LC-meter.c	if(bres >= 5000) {
+;	.line	87; ../../../LC-meter.c	if(bres >= CYCLES_FOR_MSEC) {
 	MOVLW	0x13
 	BANKSEL	(_bres + 1)
 	SUBWF	(_bres + 1), W, B
-	BNZ	_00137_DS_
+	BNZ	_00160_DS_
 	MOVLW	0x88
 	BANKSEL	_bres
 	SUBWF	_bres, W, B
-_00137_DS_:
+_00160_DS_:
 	BTFSS	STATUS, 0
-	BRA	_00115_DS_
-;	.line	82; ../../../LC-meter.c	bres -= 5000;
-	MOVLW	0x78
+	BRA	_00113_DS_
+;	.line	88; ../../../LC-meter.c	bres -= CYCLES_FOR_MSEC;
+	MOVFF	_bres, r0x00
+	MOVFF	(_bres + 1), r0x01
+	MOVF	r0x00, W
+	ADDLW	0x78
 	BANKSEL	_bres
-	ADDWF	_bres, F, B
+	MOVWF	_bres, B
 	MOVLW	0xec
+	ADDWFC	r0x01, W
 	BANKSEL	(_bres + 1)
-	ADDWFC	(_bres + 1), F, B
-;	.line	83; ../../../LC-meter.c	msecpart++;
+	MOVWF	(_bres + 1), B
+;	.line	89; ../../../LC-meter.c	msecpart++;
 	MOVFF	_msecpart, r0x00
 	MOVFF	(_msecpart + 1), r0x01
 	MOVF	r0x00, W
@@ -850,37 +945,23 @@ _00137_DS_:
 	ADDWFC	r0x01, W
 	BANKSEL	(_msecpart + 1)
 	MOVWF	(_msecpart + 1), B
-;	.line	84; ../../../LC-meter.c	msecs++;
-	MOVFF	_msecs, r0x00
-	MOVFF	(_msecs + 1), r0x01
-	MOVFF	(_msecs + 2), r0x02
-	MOVFF	(_msecs + 3), r0x03
+;	.line	90; ../../../LC-meter.c	SET_LED(msecpart >= 833);
+	BCF	_LATC, 2
+	MOVLW	0x03
+	BANKSEL	(_msecpart + 1)
+	SUBWF	(_msecpart + 1), W, B
+	BNZ	_00163_DS_
+	MOVLW	0x41
+	BANKSEL	_msecpart
+	SUBWF	_msecpart, W, B
+_00163_DS_:
+	BTG	STATUS, 0
+	CLRF	r0x00
+	RLCF	r0x00, F
 	MOVF	r0x00, W
-	ADDLW	0x01
-	BANKSEL	_msecs
-	MOVWF	_msecs, B
-	MOVLW	0x00
-	ADDWFC	r0x01, W
-	BANKSEL	(_msecs + 1)
-	MOVWF	(_msecs + 1), B
-	MOVLW	0x00
-	ADDWFC	r0x02, W
-	BANKSEL	(_msecs + 2)
-	MOVWF	(_msecs + 2), B
-	MOVLW	0x00
-	ADDWFC	r0x03, W
-	BANKSEL	(_msecs + 3)
-	MOVWF	(_msecs + 3), B
-;	.line	86; ../../../LC-meter.c	SET_LED((blink > 200));
-	BCF	_LATC, 1
-	MOVLW	0x00
-	BANKSEL	(_blink + 1)
-	SUBWF	(_blink + 1), W, B
-	BNZ	_00140_DS_
-	MOVLW	0xc9
-	BANKSEL	_blink
-	SUBWF	_blink, W, B
-_00140_DS_:
+	BSF	STATUS, 0
+	TSTFSZ	WREG
+	BCF	STATUS, 0
 	CLRF	r0x00
 	RLCF	r0x00, F
 	MOVF	r0x00, W
@@ -896,48 +977,24 @@ _00140_DS_:
 	CLRF	r0x00
 	RLCF	r0x00, F
 	RLNCF	r0x00, W
-	ANDLW	0xfe
+	RLNCF	WREG, W
+	ANDLW	0xfc
 	MOVWF	r0x01
 	MOVF	_LATC, W
 	MOVWF	r0x00
 	MOVF	r0x01, W
 	IORWF	r0x00, W
 	MOVWF	_LATC
-;	.line	87; ../../../LC-meter.c	if(blink >= 400)
-	MOVLW	0x01
-	BANKSEL	(_blink + 1)
-	SUBWF	(_blink + 1), W, B
-	BNZ	_00142_DS_
-	MOVLW	0x90
-	BANKSEL	_blink
-	SUBWF	_blink, W, B
-_00142_DS_:
-	BNC	_00111_DS_
-;	.line	88; ../../../LC-meter.c	blink -= 400;
-	MOVLW	0x70
-	BANKSEL	_blink
-	ADDWF	_blink, F, B
-	MOVLW	0xfe
-	BANKSEL	(_blink + 1)
-	ADDWFC	(_blink + 1), F, B
-_00111_DS_:
-	BANKSEL	_blink
-;	.line	89; ../../../LC-meter.c	++blink;
-	INCFSZ	_blink, F, B
-	BRA	_10183_DS_
-	BANKSEL	(_blink + 1)
-	INCF	(_blink + 1), F, B
-_10183_DS_:
 ;	.line	92; ../../../LC-meter.c	if(msecpart >= 1000) {
 	MOVLW	0x03
 	BANKSEL	(_msecpart + 1)
 	SUBWF	(_msecpart + 1), W, B
-	BNZ	_00143_DS_
+	BNZ	_00165_DS_
 	MOVLW	0xe8
 	BANKSEL	_msecpart
 	SUBWF	_msecpart, W, B
-_00143_DS_:
-	BNC	_00115_DS_
+_00165_DS_:
+	BNC	_00113_DS_
 ;	.line	94; ../../../LC-meter.c	seconds++;
 	MOVFF	_seconds, r0x00
 	MOVFF	(_seconds + 1), r0x01
@@ -966,10 +1023,66 @@ _00143_DS_:
 	MOVLW	0xfc
 	BANKSEL	(_msecpart + 1)
 	ADDWFC	(_msecpart + 1), F, B
-_00115_DS_:
+_00113_DS_:
 ;	.line	99; ../../../LC-meter.c	PIR1 &= ~0b10; // TMR2IF = 0
 	BCF	_PIR1, 1
-_00118_DS_:
+_00115_DS_:
+;	.line	102; ../../../LC-meter.c	ser_int();
+	BTFSS	_PIR1bits, 5
+	BRA	_00119_DS_
+	MOVLW	LOW(_rxfifo)
+	BANKSEL	_rxiptr
+	ADDWF	_rxiptr, W, B
+	MOVWF	r0x00
+	CLRF	r0x01
+	MOVLW	HIGH(_rxfifo)
+	ADDWFC	r0x01, F
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	_RCREG, INDF0
+	BANKSEL	_rxiptr
+	MOVF	_rxiptr, W, B
+	MOVWF	r0x00
+	INCF	r0x00, F
+	MOVLW	0x0f
+	ANDWF	r0x00, W
+	BANKSEL	_ser_tmp
+	MOVWF	_ser_tmp, B
+	BANKSEL	_ser_tmp
+	MOVF	_ser_tmp, W, B
+	BANKSEL	_rxoptr
+	XORWF	_rxoptr, W, B
+	BZ	_00119_DS_
+	MOVFF	_ser_tmp, _rxiptr
+_00119_DS_:
+	BTFSS	_PIR1bits, 4
+	BRA	_00125_DS_
+	BTFSS	_PIE1bits, 4
+	BRA	_00125_DS_
+	MOVLW	LOW(_txfifo)
+	BANKSEL	_txoptr
+	ADDWF	_txoptr, W, B
+	MOVWF	r0x00
+	CLRF	r0x01
+	MOVLW	HIGH(_txfifo)
+	ADDWFC	r0x01, F
+	MOVFF	r0x00, FSR0L
+	MOVFF	r0x01, FSR0H
+	MOVFF	INDF0, _TXREG
+	BANKSEL	_txoptr
+	INCF	_txoptr, F, B
+	MOVLW	0x0f
+	BANKSEL	_txoptr
+	ANDWF	_txoptr, F, B
+	BANKSEL	_txoptr
+	MOVF	_txoptr, W, B
+	BANKSEL	_txiptr
+	XORWF	_txiptr, W, B
+	BNZ	_00121_DS_
+	BCF	_PIE1bits, 4
+_00121_DS_:
+	BCF	_PIR1bits, 4
+_00125_DS_:
 ;	.line	107; ../../../LC-meter.c	}
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
@@ -990,10 +1103,10 @@ _00118_DS_:
 ; ; Starting pCode block
 S_LC_meter__delay10ms	code
 _delay10ms:
-;	.line	54; ../../../LC-meter.c	delay10ms(unsigned char period_10ms) {
+;	.line	58; ../../../LC-meter.c	delay10ms(unsigned char period_10ms) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-;	.line	58; ../../../LC-meter.c	}
+;	.line	62; ../../../LC-meter.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
@@ -1002,21 +1115,29 @@ ___str_0:
 	DB	0x4c, 0x43, 0x2d, 0x6d, 0x65, 0x74, 0x65, 0x72, 0x20, 0x00
 ; ; Starting pCode block
 ___str_1:
-	DB	0x2e, 0x2e, 0x2e, 0x0d, 0x0a, 0x00
+	DB	0x2d, 0x20, 0x43, 0x20, 0x28, 0x55, 0x6e, 0x69, 0x74, 0x3a, 0x20, 0x46
+	DB	0x29, 0x20, 0x2d, 0x00
 ; ; Starting pCode block
 ___str_2:
-	DB	0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+	DB	0x2d, 0x20, 0x4c, 0x20, 0x28, 0x55, 0x6e, 0x69, 0x74, 0x3a, 0x20, 0x48
+	DB	0x29, 0x20, 0x2d, 0x00
 ; ; Starting pCode block
 ___str_3:
-	DB	0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+	DB	0x0d, 0x0a, 0x00
 ; ; Starting pCode block
 ___str_4:
+	DB	0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+; ; Starting pCode block
+___str_5:
+	DB	0x20, 0x20, 0x20, 0x20, 0x20, 0x00
+; ; Starting pCode block
+___str_6:
 	DB	0x52, 0x43, 0x34, 0x3d, 0x00
 
 
 ; Statistics:
-; code size:	 1268 (0x04f4) bytes ( 0.97%)
-;           	  634 (0x027a) words
+; code size:	 1496 (0x05d8) bytes ( 1.14%)
+;           	  748 (0x02ec) words
 ; udata size:	   32 (0x0020) bytes ( 1.79%)
 ; access size:	    6 (0x0006) bytes
 

@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
@@ -11,7 +11,7 @@
 ;--------------------------------------------------------
 ; public variables in this module
 ;--------------------------------------------------------
-	global	_lcd_putch
+	global	_lcd_send
 	global	_lcd_gotoxy
 	global	_lcd_puts
 	global	_lcd_print_number
@@ -310,10 +310,10 @@ udata_lcd44780_3	udata
 _LCD_lines	res	1
 
 udata_lcd44780_4	udata
-_lcd_gotoxy_row_offsets_65536_69	res	4
+_lcd_gotoxy_row_offsets_65536_66	res	4
 
 udata_lcd44780_5	udata
-_lcd_print_number_buf_65536_75	res	32
+_lcd_print_number_buf_65536_72	res	32
 
 ;--------------------------------------------------------
 ; global & static initialisations
@@ -322,7 +322,7 @@ _lcd_print_number_buf_65536_75	res	32
 ; ; Starting pCode block
 S_lcd44780__lcd_init	code
 _lcd_init:
-;	.line	511; ../../../lib/lcd44780.c	lcd_init(char fourbitmode) {
+;	.line	484; ../../../lib/lcd44780.c	lcd_init(char fourbitmode) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -330,40 +330,40 @@ _lcd_init:
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
 	BANKSEL	_LCD_ctrl
-;	.line	513; ../../../lib/lcd44780.c	LCD_ctrl = 0;
+;	.line	486; ../../../lib/lcd44780.c	LCD_ctrl = 0;
 	CLRF	_LCD_ctrl, B
-;	.line	514; ../../../lib/lcd44780.c	LCD_function = (fourbitmode ? LCD_4BITMODE : LCD_8BITMODE);
+;	.line	487; ../../../lib/lcd44780.c	LCD_function = (fourbitmode ? LCD_4BITMODE : LCD_8BITMODE);
 	MOVF	r0x00, W
-	BZ	_00288_DS_
+	BZ	_00283_DS_
 	CLRF	r0x00
 	CLRF	r0x01
-	BRA	_00289_DS_
-_00288_DS_:
+	BRA	_00284_DS_
+_00283_DS_:
 	MOVLW	0x10
 	MOVWF	r0x00
 	CLRF	r0x01
-_00289_DS_:
+_00284_DS_:
 	MOVF	r0x00, W
 	BANKSEL	_LCD_function
 	MOVWF	_LCD_function, B
 	BANKSEL	_LCD_lines
-;	.line	516; ../../../lib/lcd44780.c	LCD_lines = 0;
+;	.line	489; ../../../lib/lcd44780.c	LCD_lines = 0;
 	CLRF	_LCD_lines, B
 	BANKSEL	_LCD_mode
-;	.line	518; ../../../lib/lcd44780.c	LCD_mode = 0;
+;	.line	491; ../../../lib/lcd44780.c	LCD_mode = 0;
 	CLRF	_LCD_mode, B
-;	.line	520; ../../../lib/lcd44780.c	RS_TRIS();
+;	.line	493; ../../../lib/lcd44780.c	RS_TRIS();
 	BCF	_TRISB, 2
-;	.line	521; ../../../lib/lcd44780.c	RS_LOW();
+;	.line	494; ../../../lib/lcd44780.c	RS_LOW();
 	BCF	_LATB, 2
-;	.line	526; ../../../lib/lcd44780.c	EN_TRIS();
+;	.line	499; ../../../lib/lcd44780.c	EN_TRIS();
 	BCF	_TRISB, 3
-;	.line	527; ../../../lib/lcd44780.c	EN_LOW();
+;	.line	500; ../../../lib/lcd44780.c	EN_LOW();
 	BCF	_LATB, 3
-;	.line	529; ../../../lib/lcd44780.c	DATA_TRIS();
+;	.line	502; ../../../lib/lcd44780.c	DATA_TRIS();
 	MOVLW	0x0f
 	ANDWF	_LATB, F
-;	.line	539; ../../../lib/lcd44780.c	}
+;	.line	512; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
@@ -372,7 +372,7 @@ _00289_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_begin	code
 _lcd_begin:
-;	.line	438; ../../../lib/lcd44780.c	lcd_begin(uint8_t lines, uint8_t dotsize) {
+;	.line	411; ../../../lib/lcd44780.c	lcd_begin(uint8_t lines, uint8_t dotsize) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -381,28 +381,28 @@ _lcd_begin:
 	MOVFF	PLUSW2, r0x00
 	MOVLW	0x03
 	MOVFF	PLUSW2, r0x01
-;	.line	439; ../../../lib/lcd44780.c	if(lines > 1)
+;	.line	412; ../../../lib/lcd44780.c	if(lines > 1)
 	MOVLW	0x02
 	SUBWF	r0x00, W
-	BNC	_00249_DS_
+	BNC	_00244_DS_
 	BANKSEL	_LCD_function
-;	.line	440; ../../../lib/lcd44780.c	LCD_function |= LCD_2LINE;
+;	.line	413; ../../../lib/lcd44780.c	LCD_function |= LCD_2LINE;
 	BSF	_LCD_function, 3, B
-_00249_DS_:
-;	.line	443; ../../../lib/lcd44780.c	LCD_lines = lines;
+_00244_DS_:
+;	.line	416; ../../../lib/lcd44780.c	LCD_lines = lines;
 	MOVFF	r0x00, _LCD_lines
-;	.line	447; ../../../lib/lcd44780.c	if((dotsize != 0) && (lines == 1))
+;	.line	420; ../../../lib/lcd44780.c	if((dotsize != 0) && (lines == 1))
 	MOVF	r0x01, W
-	BZ	_00251_DS_
+	BZ	_00246_DS_
 	MOVF	r0x00, W
 	XORLW	0x01
-	BNZ	_00251_DS_
-_00277_DS_:
+	BNZ	_00246_DS_
+_00272_DS_:
 	BANKSEL	_LCD_function
-;	.line	448; ../../../lib/lcd44780.c	LCD_function |= LCD_5x10DOTS;
+;	.line	421; ../../../lib/lcd44780.c	LCD_function |= LCD_5x10DOTS;
 	BSF	_LCD_function, 2, B
-_00251_DS_:
-;	.line	450; ../../../lib/lcd44780.c	delay_ms(15); // Wait more than 15 ms after VDD rises to 4.5V
+_00246_DS_:
+;	.line	423; ../../../lib/lcd44780.c	delay_ms(15); // Wait more than 15 ms after VDD rises to 4.5V
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x0f
@@ -410,20 +410,20 @@ _00251_DS_:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	453; ../../../lib/lcd44780.c	RS_LOW();
+;	.line	426; ../../../lib/lcd44780.c	RS_LOW();
 	BCF	_LATB, 2
-;	.line	454; ../../../lib/lcd44780.c	EN_LOW();
+;	.line	427; ../../../lib/lcd44780.c	EN_LOW();
 	BCF	_LATB, 3
-;	.line	457; ../../../lib/lcd44780.c	if(!(LCD_function & LCD_8BITMODE)) {
+;	.line	430; ../../../lib/lcd44780.c	if(!(LCD_function & LCD_8BITMODE)) {
 	MOVFF	_LCD_function, r0x00
 	BTFSC	r0x00, 4
-	BRA	_00254_DS_
-;	.line	461; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
+	BRA	_00249_DS_
+;	.line	434; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
 	MOVLW	0x03
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-;	.line	462; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
+;	.line	435; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x05
@@ -431,41 +431,41 @@ _00251_DS_:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	464; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
+;	.line	437; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
 	MOVLW	0x03
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-;	.line	465; ../../../lib/lcd44780.c	delay_us(150); // Wait more than 100 μs
+;	.line	438; ../../../lib/lcd44780.c	delay_us(150); // Wait more than 100 μs
 	MOVLW	0x96
 	MOVWF	POSTDEC1
 	CALL	_delay_us
 	MOVF	POSTINC1, F
-;	.line	467; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
+;	.line	440; ../../../lib/lcd44780.c	lcd_write4bits(0x03);
 	MOVLW	0x03
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-;	.line	468; ../../../lib/lcd44780.c	delay_us(150); // Wait more than 100 μs
+;	.line	441; ../../../lib/lcd44780.c	delay_us(150); // Wait more than 100 μs
 	MOVLW	0x96
 	MOVWF	POSTDEC1
 	CALL	_delay_us
 	MOVF	POSTINC1, F
-;	.line	470; ../../../lib/lcd44780.c	lcd_write4bits(0x02);
+;	.line	443; ../../../lib/lcd44780.c	lcd_write4bits(0x02);
 	MOVLW	0x02
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-	BRA	_00255_DS_
-_00254_DS_:
-;	.line	477; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
+	BRA	_00250_DS_
+_00249_DS_:
+;	.line	450; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
 	MOVFF	_LCD_function, r0x00
 	BSF	r0x00, 5
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	478; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
+;	.line	451; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x05
@@ -473,14 +473,14 @@ _00254_DS_:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	481; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
+;	.line	454; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
 	MOVFF	_LCD_function, r0x00
 	BSF	r0x00, 5
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	482; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
+;	.line	455; ../../../lib/lcd44780.c	delay_ms(5); // Wait for more than 4.1 ms
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x05
@@ -488,36 +488,36 @@ _00254_DS_:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	486; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
+;	.line	459; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
 	MOVFF	_LCD_function, r0x00
 	BSF	r0x00, 5
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-_00255_DS_:
-;	.line	490; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
+_00250_DS_:
+;	.line	463; ../../../lib/lcd44780.c	lcd_command(LCD_FUNCTIONSET | LCD_function);
 	MOVFF	_LCD_function, r0x00
 	BSF	r0x00, 5
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	493; ../../../lib/lcd44780.c	LCD_ctrl = LCD_DISPLAYON | LCD_CURSOROFF | LCD_BLINKOFF;
+;	.line	466; ../../../lib/lcd44780.c	LCD_ctrl = LCD_DISPLAYON | LCD_CURSOROFF | LCD_BLINKOFF;
 	MOVLW	0x04
 	BANKSEL	_LCD_ctrl
 	MOVWF	_LCD_ctrl, B
-;	.line	494; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+;	.line	467; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
 	MOVLW	0x0c
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	497; ../../../lib/lcd44780.c	lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor position to zero
+;	.line	470; ../../../lib/lcd44780.c	lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor position to zero
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	498; ../../../lib/lcd44780.c	delay_ms(2);
+;	.line	471; ../../../lib/lcd44780.c	delay_ms(2);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x02
@@ -525,16 +525,16 @@ _00255_DS_:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	501; ../../../lib/lcd44780.c	LCD_mode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
+;	.line	474; ../../../lib/lcd44780.c	LCD_mode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
 	MOVLW	0x02
 	BANKSEL	_LCD_mode
 	MOVWF	_LCD_mode, B
-;	.line	503; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
+;	.line	476; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
 	MOVLW	0x06
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	504; ../../../lib/lcd44780.c	}
+;	.line	477; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
@@ -543,21 +543,21 @@ _00255_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_autoscroll	code
 _lcd_autoscroll:
-;	.line	419; ../../../lib/lcd44780.c	lcd_autoscroll(void) {
+;	.line	392; ../../../lib/lcd44780.c	lcd_autoscroll(void) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	BANKSEL	_LCD_mode
-;	.line	420; ../../../lib/lcd44780.c	LCD_mode |= LCD_ENTRYSHIFTINCREMENT;
+;	.line	393; ../../../lib/lcd44780.c	LCD_mode |= LCD_ENTRYSHIFTINCREMENT;
 	BSF	_LCD_mode, 0, B
-;	.line	421; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
+;	.line	394; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
 	MOVFF	_LCD_mode, r0x00
 	BSF	r0x00, 2
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	422; ../../../lib/lcd44780.c	}
+;	.line	395; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -565,38 +565,16 @@ _lcd_autoscroll:
 ; ; Starting pCode block
 S_lcd44780__lcd_left_to_right	code
 _lcd_left_to_right:
-;	.line	399; ../../../lib/lcd44780.c	lcd_left_to_right(void) {
+;	.line	372; ../../../lib/lcd44780.c	lcd_left_to_right(void) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	BANKSEL	_LCD_mode
-;	.line	400; ../../../lib/lcd44780.c	LCD_mode |= LCD_ENTRYLEFT;
+;	.line	373; ../../../lib/lcd44780.c	LCD_mode |= LCD_ENTRYLEFT;
 	BSF	_LCD_mode, 1, B
-;	.line	401; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
+;	.line	374; ../../../lib/lcd44780.c	lcd_command(LCD_ENTRYMODESET | LCD_mode);
 	MOVFF	_LCD_mode, r0x00
 	BSF	r0x00, 2
-	MOVF	r0x00, W
-	MOVWF	POSTDEC1
-	CALL	_lcd_command
-	MOVF	POSTINC1, F
-;	.line	402; ../../../lib/lcd44780.c	}
-	MOVFF	PREINC1, r0x00
-	MOVFF	PREINC1, FSR2L
-	RETURN	
-
-; ; Starting pCode block
-S_lcd44780__lcd_blink	code
-_lcd_blink:
-;	.line	372; ../../../lib/lcd44780.c	lcd_blink() {
-	MOVFF	FSR2L, POSTDEC1
-	MOVFF	FSR1L, FSR2L
-	MOVFF	r0x00, POSTDEC1
-	BANKSEL	_LCD_ctrl
-;	.line	373; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_BLINKON;
-	BSF	_LCD_ctrl, 0, B
-;	.line	374; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
-	MOVFF	_LCD_ctrl, r0x00
-	BSF	r0x00, 3
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
@@ -607,23 +585,45 @@ _lcd_blink:
 	RETURN	
 
 ; ; Starting pCode block
-S_lcd44780__lcd_cursor	code
-_lcd_cursor:
-;	.line	353; ../../../lib/lcd44780.c	lcd_cursor() {
+S_lcd44780__lcd_blink	code
+_lcd_blink:
+;	.line	345; ../../../lib/lcd44780.c	lcd_blink() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	BANKSEL	_LCD_ctrl
-;	.line	354; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_CURSORON;
-	BSF	_LCD_ctrl, 1, B
-;	.line	355; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+;	.line	346; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_BLINKON;
+	BSF	_LCD_ctrl, 0, B
+;	.line	347; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
 	MOVFF	_LCD_ctrl, r0x00
 	BSF	r0x00, 3
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	356; ../../../lib/lcd44780.c	}
+;	.line	348; ../../../lib/lcd44780.c	}
+	MOVFF	PREINC1, r0x00
+	MOVFF	PREINC1, FSR2L
+	RETURN	
+
+; ; Starting pCode block
+S_lcd44780__lcd_cursor	code
+_lcd_cursor:
+;	.line	326; ../../../lib/lcd44780.c	lcd_cursor() {
+	MOVFF	FSR2L, POSTDEC1
+	MOVFF	FSR1L, FSR2L
+	MOVFF	r0x00, POSTDEC1
+	BANKSEL	_LCD_ctrl
+;	.line	327; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_CURSORON;
+	BSF	_LCD_ctrl, 1, B
+;	.line	328; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+	MOVFF	_LCD_ctrl, r0x00
+	BSF	r0x00, 3
+	MOVF	r0x00, W
+	MOVWF	POSTDEC1
+	CALL	_lcd_command
+	MOVF	POSTINC1, F
+;	.line	329; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -631,21 +631,21 @@ _lcd_cursor:
 ; ; Starting pCode block
 S_lcd44780__lcd_no_cursor	code
 _lcd_no_cursor:
-;	.line	344; ../../../lib/lcd44780.c	lcd_no_cursor() {
+;	.line	317; ../../../lib/lcd44780.c	lcd_no_cursor() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	BANKSEL	_LCD_ctrl
-;	.line	345; ../../../lib/lcd44780.c	LCD_ctrl &= ~LCD_CURSORON;
+;	.line	318; ../../../lib/lcd44780.c	LCD_ctrl &= ~LCD_CURSORON;
 	BCF	_LCD_ctrl, 1, B
-;	.line	346; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+;	.line	319; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
 	MOVFF	_LCD_ctrl, r0x00
 	BSF	r0x00, 3
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	347; ../../../lib/lcd44780.c	}
+;	.line	320; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -653,21 +653,21 @@ _lcd_no_cursor:
 ; ; Starting pCode block
 S_lcd44780__lcd_display	code
 _lcd_display:
-;	.line	334; ../../../lib/lcd44780.c	lcd_display() {
+;	.line	307; ../../../lib/lcd44780.c	lcd_display() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	BANKSEL	_LCD_ctrl
-;	.line	335; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_DISPLAYON;
+;	.line	308; ../../../lib/lcd44780.c	LCD_ctrl |= LCD_DISPLAYON;
 	BSF	_LCD_ctrl, 2, B
-;	.line	336; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+;	.line	309; ../../../lib/lcd44780.c	lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
 	MOVFF	_LCD_ctrl, r0x00
 	BSF	r0x00, 3
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	337; ../../../lib/lcd44780.c	}
+;	.line	310; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -675,15 +675,15 @@ _lcd_display:
 ; ; Starting pCode block
 S_lcd44780__lcd_clear	code
 _lcd_clear:
-;	.line	314; ../../../lib/lcd44780.c	lcd_clear() {
+;	.line	287; ../../../lib/lcd44780.c	lcd_clear() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-;	.line	315; ../../../lib/lcd44780.c	lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor position to zero
+;	.line	288; ../../../lib/lcd44780.c	lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor position to zero
 	MOVLW	0x01
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	316; ../../../lib/lcd44780.c	delay_ms(2);                   // Wait for more than 4.1 ms
+;	.line	289; ../../../lib/lcd44780.c	delay_ms(2);                   // Wait for more than 4.1 ms
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x02
@@ -691,22 +691,22 @@ _lcd_clear:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	318; ../../../lib/lcd44780.c	}
+;	.line	291; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
 ; ; Starting pCode block
 S_lcd44780__lcd_home	code
 _lcd_home:
-;	.line	303; ../../../lib/lcd44780.c	lcd_home() {
+;	.line	276; ../../../lib/lcd44780.c	lcd_home() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-;	.line	304; ../../../lib/lcd44780.c	lcd_command(LCD_RETURNHOME);
+;	.line	277; ../../../lib/lcd44780.c	lcd_command(LCD_RETURNHOME);
 	MOVLW	0x02
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	305; ../../../lib/lcd44780.c	delay_ms(2); // Wait for more than 4.1 ms
+;	.line	278; ../../../lib/lcd44780.c	delay_ms(2); // Wait for more than 4.1 ms
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVLW	0x02
@@ -714,14 +714,14 @@ _lcd_home:
 	CALL	_delay_ms
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	307; ../../../lib/lcd44780.c	}
+;	.line	280; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
 ; ; Starting pCode block
 S_lcd44780__lcd_print_number	code
 _lcd_print_number:
-;	.line	219; ../../../lib/lcd44780.c	lcd_print_number(uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
+;	.line	192; ../../../lib/lcd44780.c	lcd_print_number(uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -744,24 +744,24 @@ _lcd_print_number:
 	MOVFF	PLUSW2, r0x02
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
-;	.line	223; ../../../lib/lcd44780.c	char padchar = ' ';
+;	.line	196; ../../../lib/lcd44780.c	char padchar = ' ';
 	MOVLW	0x20
 	MOVWF	r0x04
-;	.line	225; ../../../lib/lcd44780.c	if(pad < 0) {
+;	.line	198; ../../../lib/lcd44780.c	if(pad < 0) {
 	BSF	STATUS, 0
 	BTFSS	r0x03, 7
 	BCF	STATUS, 0
-	BNC	_00169_DS_
-;	.line	226; ../../../lib/lcd44780.c	pad = -pad;
+	BNC	_00164_DS_
+;	.line	199; ../../../lib/lcd44780.c	pad = -pad;
 	NEGF	r0x03
-;	.line	227; ../../../lib/lcd44780.c	padchar = '0';
+;	.line	200; ../../../lib/lcd44780.c	padchar = '0';
 	MOVLW	0x30
 	MOVWF	r0x04
-_00169_DS_:
-;	.line	235; ../../../lib/lcd44780.c	do {
+_00164_DS_:
+;	.line	208; ../../../lib/lcd44780.c	do {
 	CLRF	r0x05
-_00153_DS_:
-;	.line	239; ../../../lib/lcd44780.c	di = n % base;
+_00148_DS_:
+;	.line	212; ../../../lib/lcd44780.c	di = n % base;
 	MOVFF	r0x02, r0x06
 	CLRF	r0x07
 	MOVF	r0x07, W
@@ -777,32 +777,32 @@ _00153_DS_:
 	MOVFF	PRODL, r0x09
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	240; ../../../lib/lcd44780.c	buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
+;	.line	213; ../../../lib/lcd44780.c	buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 	MOVFF	r0x05, r0x09
 	INCF	r0x05, F
 	CLRF	r0x0a
 	BTFSC	r0x09, 7
 	SETF	r0x0a
-	MOVLW	LOW(_lcd_print_number_buf_65536_75)
+	MOVLW	LOW(_lcd_print_number_buf_65536_72)
 	ADDWF	r0x09, F
-	MOVLW	HIGH(_lcd_print_number_buf_65536_75)
+	MOVLW	HIGH(_lcd_print_number_buf_65536_72)
 	ADDWFC	r0x0a, F
 	MOVLW	0x0a
 	SUBWF	r0x08, W
-	BC	_00165_DS_
+	BC	_00160_DS_
 	MOVLW	0x30
 	ADDWF	r0x08, W
 	MOVWF	r0x0b
-	BRA	_00166_DS_
-_00165_DS_:
+	BRA	_00161_DS_
+_00160_DS_:
 	MOVLW	0x37
 	ADDWF	r0x08, W
 	MOVWF	r0x0b
-_00166_DS_:
+_00161_DS_:
 	MOVFF	r0x09, FSR0L
 	MOVFF	r0x0a, FSR0H
 	MOVFF	r0x0b, INDF0
-;	.line	242; ../../../lib/lcd44780.c	n /= base;
+;	.line	215; ../../../lib/lcd44780.c	n /= base;
 	MOVF	r0x07, W
 	MOVWF	POSTDEC1
 	MOVF	r0x06, W
@@ -816,55 +816,61 @@ _00166_DS_:
 	MOVFF	PRODL, r0x01
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	243; ../../../lib/lcd44780.c	} while(n > 0);
+;	.line	216; ../../../lib/lcd44780.c	} while(n > 0);
 	MOVF	r0x00, W
 	IORWF	r0x01, W
 	BTFSS	STATUS, 2
-	BRA	_00153_DS_
-;	.line	245; ../../../lib/lcd44780.c	while(pad-- >= i) lcd_putch(padchar);
+	BRA	_00148_DS_
+;	.line	218; ../../../lib/lcd44780.c	while(pad-- >= i) lcd_putch(padchar);
 	MOVFF	r0x05, r0x00
 	MOVFF	r0x03, r0x01
-_00156_DS_:
+_00151_DS_:
 	MOVF	r0x01, W
 	ADDLW	0x80
 	MOVWF	PRODL
 	MOVF	r0x00, W
 	ADDLW	0x80
 	SUBWF	PRODL, W
-	BNC	_00161_DS_
+	BNC	_00156_DS_
 	DECF	r0x01, F
+	MOVLW	0x01
+	MOVWF	POSTDEC1
 	MOVF	r0x04, W
 	MOVWF	POSTDEC1
-	CALL	_lcd_putch
+	CALL	_lcd_send
 	MOVF	POSTINC1, F
-	BRA	_00156_DS_
-_00161_DS_:
-;	.line	247; ../../../lib/lcd44780.c	for(; i > 0; i--) lcd_putch((char)buf[(int16_t)i - 1]);
+	MOVF	POSTINC1, F
+	BRA	_00151_DS_
+_00156_DS_:
+;	.line	220; ../../../lib/lcd44780.c	for(; i > 0; i--) lcd_putch((char)buf[(int16_t)i - 1]);
 	MOVF	r0x00, W
 	ADDLW	0x80
 	ADDLW	0x7f
-	BNC	_00163_DS_
+	BNC	_00158_DS_
 	DECF	r0x00, W
 	MOVWF	r0x01
 	MOVFF	r0x01, r0x02
 	CLRF	r0x03
 	BTFSC	r0x01, 7
 	SETF	r0x03
-	MOVLW	LOW(_lcd_print_number_buf_65536_75)
+	MOVLW	LOW(_lcd_print_number_buf_65536_72)
 	ADDWF	r0x02, F
-	MOVLW	HIGH(_lcd_print_number_buf_65536_75)
+	MOVLW	HIGH(_lcd_print_number_buf_65536_72)
 	ADDWFC	r0x03, F
 	MOVFF	r0x02, FSR0L
 	MOVFF	r0x03, FSR0H
 	MOVFF	INDF0, r0x02
+	MOVLW	0x01
+	MOVWF	POSTDEC1
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
-	CALL	_lcd_putch
+	CALL	_lcd_send
+	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
 	MOVFF	r0x01, r0x00
-	BRA	_00161_DS_
-_00163_DS_:
-;	.line	249; ../../../lib/lcd44780.c	}
+	BRA	_00156_DS_
+_00158_DS_:
+;	.line	222; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x0b
 	MOVFF	PREINC1, r0x0a
 	MOVFF	PREINC1, r0x09
@@ -883,7 +889,7 @@ _00163_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_puts	code
 _lcd_puts:
-;	.line	190; ../../../lib/lcd44780.c	lcd_puts(const char* string) {
+;	.line	163; ../../../lib/lcd44780.c	lcd_puts(const char* string) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -899,9 +905,9 @@ _lcd_puts:
 	MOVFF	PLUSW2, r0x01
 	MOVLW	0x04
 	MOVFF	PLUSW2, r0x02
-;	.line	192; ../../../lib/lcd44780.c	for(i = 0; string[i]; i++) lcd_putch(string[i]);
+;	.line	165; ../../../lib/lcd44780.c	for(i = 0; string[i]; i++) lcd_putch(string[i]);
 	CLRF	r0x03
-_00144_DS_:
+_00139_DS_:
 	MOVF	r0x03, W
 	ADDWF	r0x00, W
 	MOVWF	r0x04
@@ -917,15 +923,18 @@ _00144_DS_:
 	CALL	__gptrget1
 	MOVWF	r0x04
 	MOVF	r0x04, W
-	BZ	_00146_DS_
+	BZ	_00141_DS_
+	MOVLW	0x01
+	MOVWF	POSTDEC1
 	MOVF	r0x04, W
 	MOVWF	POSTDEC1
-	CALL	_lcd_putch
+	CALL	_lcd_send
+	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
 	INCF	r0x03, F
-	BRA	_00144_DS_
-_00146_DS_:
-;	.line	193; ../../../lib/lcd44780.c	}
+	BRA	_00139_DS_
+_00141_DS_:
+;	.line	166; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x06
 	MOVFF	PREINC1, r0x05
 	MOVFF	PREINC1, r0x04
@@ -939,7 +948,7 @@ _00146_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_gotoxy	code
 _lcd_gotoxy:
-;	.line	162; ../../../lib/lcd44780.c	lcd_gotoxy(uint8_t col, uint8_t row) {
+;	.line	135; ../../../lib/lcd44780.c	lcd_gotoxy(uint8_t col, uint8_t row) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -949,41 +958,41 @@ _lcd_gotoxy:
 	MOVFF	PLUSW2, r0x00
 	MOVLW	0x03
 	MOVFF	PLUSW2, r0x01
-	BANKSEL	_lcd_gotoxy_row_offsets_65536_69
-;	.line	164; ../../../lib/lcd44780.c	uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
-	CLRF	_lcd_gotoxy_row_offsets_65536_69, B
+	BANKSEL	_lcd_gotoxy_row_offsets_65536_66
+;	.line	137; ../../../lib/lcd44780.c	uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
+	CLRF	_lcd_gotoxy_row_offsets_65536_66, B
 	MOVLW	0x40
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 1)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 1), B
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 1)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 1), B
 	MOVLW	0x14
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 2)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 2), B
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 2)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 2), B
 	MOVLW	0x54
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 3)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 3), B
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 3)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 3), B
 	BANKSEL	_LCD_lines
-;	.line	173; ../../../lib/lcd44780.c	if(LCD_lines == 1) {
+;	.line	146; ../../../lib/lcd44780.c	if(LCD_lines == 1) {
 	MOVF	_LCD_lines, W, B
 	XORLW	0x01
-	BNZ	_00129_DS_
-;	.line	174; ../../../lib/lcd44780.c	row_offsets[1] = 0x14;
+	BNZ	_00124_DS_
+;	.line	147; ../../../lib/lcd44780.c	row_offsets[1] = 0x14;
 	MOVLW	0x14
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 1)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 1), B
-;	.line	175; ../../../lib/lcd44780.c	row_offsets[2] = 0x28;
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 1)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 1), B
+;	.line	148; ../../../lib/lcd44780.c	row_offsets[2] = 0x28;
 	MOVLW	0x28
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 2)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 2), B
-;	.line	176; ../../../lib/lcd44780.c	row_offsets[3] = 0x3C;
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 2)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 2), B
+;	.line	149; ../../../lib/lcd44780.c	row_offsets[3] = 0x3C;
 	MOVLW	0x3c
-	BANKSEL	(_lcd_gotoxy_row_offsets_65536_69 + 3)
-	MOVWF	(_lcd_gotoxy_row_offsets_65536_69 + 3), B
-_00129_DS_:
-;	.line	183; ../../../lib/lcd44780.c	lcd_command(LCD_SETDDRAMADDR | (col + row_offsets[row]));
+	BANKSEL	(_lcd_gotoxy_row_offsets_65536_66 + 3)
+	MOVWF	(_lcd_gotoxy_row_offsets_65536_66 + 3), B
+_00124_DS_:
+;	.line	156; ../../../lib/lcd44780.c	lcd_command(LCD_SETDDRAMADDR | (col + row_offsets[row]));
 	CLRF	r0x02
-	MOVLW	LOW(_lcd_gotoxy_row_offsets_65536_69)
+	MOVLW	LOW(_lcd_gotoxy_row_offsets_65536_66)
 	ADDWF	r0x01, F
-	MOVLW	HIGH(_lcd_gotoxy_row_offsets_65536_69)
+	MOVLW	HIGH(_lcd_gotoxy_row_offsets_65536_66)
 	ADDWFC	r0x02, F
 	MOVFF	r0x01, FSR0L
 	MOVFF	r0x02, FSR0H
@@ -995,7 +1004,7 @@ _00129_DS_:
 	MOVWF	POSTDEC1
 	CALL	_lcd_command
 	MOVF	POSTINC1, F
-;	.line	184; ../../../lib/lcd44780.c	}
+;	.line	157; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -1005,13 +1014,13 @@ _00129_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_command	code
 _lcd_command:
-;	.line	154; ../../../lib/lcd44780.c	lcd_command(uint8_t value) {
+;	.line	127; ../../../lib/lcd44780.c	lcd_command(uint8_t value) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	155; ../../../lib/lcd44780.c	lcd_send(value, LOW);
+;	.line	128; ../../../lib/lcd44780.c	lcd_send(value, LOW);
 	MOVLW	0x00
 	MOVWF	POSTDEC1
 	MOVF	r0x00, W
@@ -1019,29 +1028,7 @@ _lcd_command:
 	CALL	_lcd_send
 	MOVF	POSTINC1, F
 	MOVF	POSTINC1, F
-;	.line	156; ../../../lib/lcd44780.c	}
-	MOVFF	PREINC1, r0x00
-	MOVFF	PREINC1, FSR2L
-	RETURN	
-
-; ; Starting pCode block
-S_lcd44780__lcd_putch	code
-_lcd_putch:
-;	.line	147; ../../../lib/lcd44780.c	lcd_putch(char value) {
-	MOVFF	FSR2L, POSTDEC1
-	MOVFF	FSR1L, FSR2L
-	MOVFF	r0x00, POSTDEC1
-	MOVLW	0x02
-	MOVFF	PLUSW2, r0x00
-;	.line	148; ../../../lib/lcd44780.c	lcd_send((unsigned)value, HIGH);
-	MOVLW	0x01
-	MOVWF	POSTDEC1
-	MOVF	r0x00, W
-	MOVWF	POSTDEC1
-	CALL	_lcd_send
-	MOVF	POSTINC1, F
-	MOVF	POSTINC1, F
-;	.line	149; ../../../lib/lcd44780.c	}
+;	.line	129; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
 	RETURN	
@@ -1049,7 +1036,7 @@ _lcd_putch:
 ; ; Starting pCode block
 S_lcd44780__lcd_send	code
 _lcd_send:
-;	.line	126; ../../../lib/lcd44780.c	lcd_send(uint8_t value, uint8_t mode) {
+;	.line	103; ../../../lib/lcd44780.c	lcd_send(uint8_t value, uint8_t mode) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -1058,17 +1045,17 @@ _lcd_send:
 	MOVFF	PLUSW2, r0x00
 	MOVLW	0x03
 	MOVFF	PLUSW2, r0x01
-;	.line	127; ../../../lib/lcd44780.c	if(mode) {
+;	.line	104; ../../../lib/lcd44780.c	if(mode) {
 	MOVF	r0x01, W
 	BZ	_00111_DS_
-;	.line	128; ../../../lib/lcd44780.c	RS_HIGH();
+;	.line	105; ../../../lib/lcd44780.c	RS_HIGH();
 	BSF	_LATB, 2
 	BRA	_00112_DS_
 _00111_DS_:
-;	.line	130; ../../../lib/lcd44780.c	RS_LOW();
+;	.line	107; ../../../lib/lcd44780.c	RS_LOW();
 	BCF	_LATB, 2
 _00112_DS_:
-;	.line	139; ../../../lib/lcd44780.c	lcd_write4bits(value >> 4); // Upper 4 bits first
+;	.line	116; ../../../lib/lcd44780.c	lcd_write4bits(value >> 4); // Upper 4 bits first
 	SWAPF	r0x00, W
 	ANDLW	0x0f
 	MOVWF	r0x01
@@ -1076,12 +1063,12 @@ _00112_DS_:
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-;	.line	140; ../../../lib/lcd44780.c	lcd_write4bits(value);      // Lower 4 bits second
+;	.line	117; ../../../lib/lcd44780.c	lcd_write4bits(value);      // Lower 4 bits second
 	MOVF	r0x00, W
 	MOVWF	POSTDEC1
 	CALL	_lcd_write4bits
 	MOVF	POSTINC1, F
-;	.line	142; ../../../lib/lcd44780.c	}
+;	.line	119; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
@@ -1090,17 +1077,17 @@ _00112_DS_:
 ; ; Starting pCode block
 S_lcd44780__lcd_write4bits	code
 _lcd_write4bits:
-;	.line	57; ../../../lib/lcd44780.c	lcd_write4bits(uint8_t value) {
+;	.line	34; ../../../lib/lcd44780.c	lcd_write4bits(uint8_t value) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
 	MOVFF	r0x01, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	62; ../../../lib/lcd44780.c	OUTB &= 0b00001111;
+;	.line	39; ../../../lib/lcd44780.c	OUTB &= 0b00001111;
 	MOVLW	0x0f
 	ANDWF	_LATB, F
-;	.line	63; ../../../lib/lcd44780.c	OUTB |= value << 4;
+;	.line	40; ../../../lib/lcd44780.c	OUTB |= value << 4;
 	SWAPF	r0x00, W
 	ANDLW	0xf0
 	MOVWF	r0x01
@@ -1108,7 +1095,7 @@ _lcd_write4bits:
 	MOVWF	r0x00
 	MOVF	r0x00, W
 	IORWF	_LATB, F
-;	.line	78; ../../../lib/lcd44780.c	lcd_pulse_enable();
+;	.line	55; ../../../lib/lcd44780.c	lcd_pulse_enable();
 	BSF	_LATB, 3
 	MOVLW	0x04
 	MOVWF	POSTDEC1
@@ -1119,7 +1106,7 @@ _lcd_write4bits:
 	MOVWF	POSTDEC1
 	CALL	_delay_us
 	MOVF	POSTINC1, F
-;	.line	83; ../../../lib/lcd44780.c	}
+;	.line	60; ../../../lib/lcd44780.c	}
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
 	MOVFF	PREINC1, FSR2L
@@ -1128,8 +1115,8 @@ _lcd_write4bits:
 
 
 ; Statistics:
-; code size:	 1640 (0x0668) bytes ( 1.25%)
-;           	  820 (0x0334) words
+; code size:	 1614 (0x064e) bytes ( 1.23%)
+;           	  807 (0x0327) words
 ; udata size:	   40 (0x0028) bytes ( 2.23%)
 ; access size:	   12 (0x000c) bytes
 

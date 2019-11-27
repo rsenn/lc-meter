@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
@@ -14,7 +14,6 @@
 	global	_format_number
 	global	_format_xint32
 	global	_format_double
-	global	_putchar_ptr
 	global	_format_float
 
 ;--------------------------------------------------------
@@ -99,6 +98,7 @@
 	extern	_INTCON2bits
 	extern	_INTCONbits
 	extern	_STKPTRbits
+	extern	_buffer
 	extern	_UFRM
 	extern	_UFRML
 	extern	_UFRMH
@@ -247,6 +247,7 @@
 	extern	_TOSL
 	extern	_TOSH
 	extern	_TOSU
+	extern	_buffer_putch
 	extern	_log10f
 	extern	_powf
 	extern	_floorf
@@ -265,13 +266,6 @@
 ;	Equates to used internal registers
 ;--------------------------------------------------------
 STATUS	equ	0xfd8
-PCL	equ	0xff9
-PCLATH	equ	0xffa
-PCLATU	equ	0xffb
-INTCON	equ	0xff2
-TOSL	equ	0xffd
-TOSH	equ	0xffe
-TOSU	equ	0xfff
 FSR0L	equ	0xfe9
 FSR0H	equ	0xfea
 FSR1L	equ	0xfe1
@@ -283,10 +277,6 @@ PREINC1	equ	0xfe4
 PLUSW2	equ	0xfdb
 PRODL	equ	0xff3
 PRODH	equ	0xff4
-
-
-	idata
-_putchar_ptr	db	LOW(_format_putchar), HIGH(_format_putchar), UPPER(_format_putchar)
 
 
 ; Internal registers
@@ -309,7 +299,7 @@ r0x0e	res	1
 r0x0f	res	1
 
 udata_format_0	udata
-_format_number_buf_65536_52	res	32
+_format_number_buf_65536_56	res	32
 
 ;--------------------------------------------------------
 ; global & static initialisations
@@ -318,7 +308,7 @@ _format_number_buf_65536_52	res	32
 ; ; Starting pCode block
 S_format__format_double	code
 _format_double:
-;	.line	74; ../../../lib/format.c	format_double(double num) {
+;	.line	77; ../../../lib/format.c	format_double(double num) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -345,7 +335,7 @@ _format_double:
 	MOVFF	PLUSW2, r0x02
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
-;	.line	75; ../../../lib/format.c	short m = (short)log10(num);
+;	.line	78; ../../../lib/format.c	short m = (short)log10(num);
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -374,8 +364,8 @@ _format_double:
 	MOVFF	PRODL, r0x05
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-_00205_DS_:
-;	.line	79; ../../../lib/format.c	while(num > 0 + DBL_EPSILON) {
+_00184_DS_:
+;	.line	82; ../../../lib/format.c	while(num > 0 + DBL_EPSILON) {
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -398,8 +388,8 @@ _00205_DS_:
 	ADDWF	FSR1L, F
 	MOVF	r0x06, W
 	BTFSC	STATUS, 2
-	BRA	_00208_DS_
-;	.line	80; ../../../lib/format.c	double weight = pow(10.0l, m);
+	BRA	_00187_DS_
+;	.line	83; ../../../lib/format.c	double weight = pow(10.0l, m);
 	MOVF	r0x05, W
 	MOVWF	POSTDEC1
 	MOVF	r0x04, W
@@ -434,7 +424,7 @@ _00205_DS_:
 	MOVFF	FSR0L, r0x09
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	81; ../../../lib/format.c	digit = (short)floor(num / weight);
+;	.line	84; ../../../lib/format.c	digit = (short)floor(num / weight);
 	MOVF	r0x09, W
 	MOVWF	POSTDEC1
 	MOVF	r0x08, W
@@ -486,7 +476,7 @@ _00205_DS_:
 	MOVFF	PRODL, r0x0b
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	82; ../../../lib/format.c	num -= (digit * weight);
+;	.line	85; ../../../lib/format.c	num -= (digit * weight);
 	MOVF	r0x0b, W
 	MOVWF	POSTDEC1
 	MOVF	r0x0a, W
@@ -544,62 +534,30 @@ _00205_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	83; ../../../lib/format.c	putchar_ptr((char)('0' + digit));
+;	.line	86; ../../../lib/format.c	buffer_putch((char)('0' + digit));
 	MOVLW	0x30
 	ADDWF	r0x0a, F
 	MOVF	r0x0a, W
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00223_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00223_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00223_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00223_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-;	.line	84; ../../../lib/format.c	if(m == 0)
+;	.line	87; ../../../lib/format.c	if(m == 0)
 	MOVF	r0x04, W
 	IORWF	r0x05, W
-	BNZ	_00204_DS_
-;	.line	85; ../../../lib/format.c	putchar_ptr('.');
+	BNZ	_00183_DS_
+;	.line	88; ../../../lib/format.c	buffer_putch('.');
 	MOVLW	0x2e
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00224_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00224_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00224_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00224_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-_00204_DS_:
-;	.line	86; ../../../lib/format.c	m--;
+_00183_DS_:
+;	.line	89; ../../../lib/format.c	m--;
 	MOVLW	0xff
 	ADDWF	r0x04, F
 	ADDWFC	r0x05, F
-	BRA	_00205_DS_
-_00208_DS_:
-;	.line	88; ../../../lib/format.c	}
+	BRA	_00184_DS_
+_00187_DS_:
+;	.line	91; ../../../lib/format.c	}
 	MOVFF	PREINC1, r0x0f
 	MOVFF	PREINC1, r0x0e
 	MOVFF	PREINC1, r0x0d
@@ -622,7 +580,7 @@ _00208_DS_:
 ; ; Starting pCode block
 S_format__format_float	code
 _format_float:
-;	.line	56; ../../../lib/format.c	format_float(/*putchar_fn* putchar_ptr,*/ float num) {
+;	.line	59; ../../../lib/format.c	format_float(/*putchar_fn* putchar_ptr,*/ float num) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -648,7 +606,7 @@ _format_float:
 	MOVFF	PLUSW2, r0x02
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
-;	.line	57; ../../../lib/format.c	short m = (int)log10(num);
+;	.line	60; ../../../lib/format.c	short m = (int)log10(num);
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -677,8 +635,8 @@ _format_float:
 	MOVFF	PRODL, r0x05
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-_00179_DS_:
-;	.line	61; ../../../lib/format.c	while(num > 0 + FLT_EPSILON) {
+_00174_DS_:
+;	.line	64; ../../../lib/format.c	while(num > 0 + FLT_EPSILON) {
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	MOVF	r0x02, W
@@ -701,8 +659,8 @@ _00179_DS_:
 	ADDWF	FSR1L, F
 	MOVF	r0x06, W
 	BTFSC	STATUS, 2
-	BRA	_00182_DS_
-;	.line	62; ../../../lib/format.c	float weight = pow(10.0l, m);
+	BRA	_00177_DS_
+;	.line	65; ../../../lib/format.c	float weight = pow(10.0l, m);
 	MOVF	r0x05, W
 	MOVWF	POSTDEC1
 	MOVF	r0x04, W
@@ -737,7 +695,7 @@ _00179_DS_:
 	MOVFF	FSR0L, r0x09
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	63; ../../../lib/format.c	digit = (char)floor(num / weight);
+;	.line	66; ../../../lib/format.c	digit = (char)floor(num / weight);
 	MOVF	r0x09, W
 	MOVWF	POSTDEC1
 	MOVF	r0x08, W
@@ -788,7 +746,7 @@ _00179_DS_:
 	MOVWF	r0x0a
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	64; ../../../lib/format.c	num -= (digit * weight);
+;	.line	67; ../../../lib/format.c	num -= (digit * weight);
 	MOVF	r0x0a, W
 	MOVWF	POSTDEC1
 	CALL	___uchar2fs
@@ -843,62 +801,30 @@ _00179_DS_:
 	MOVFF	FSR0L, r0x03
 	MOVLW	0x08
 	ADDWF	FSR1L, F
-;	.line	65; ../../../lib/format.c	putchar_ptr('0' + digit);
+;	.line	68; ../../../lib/format.c	buffer_putch('0' + digit);
 	MOVLW	0x30
 	ADDWF	r0x0a, F
 	MOVF	r0x0a, W
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00197_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00197_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00197_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00197_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-;	.line	66; ../../../lib/format.c	if(m == 0)
+;	.line	69; ../../../lib/format.c	if(m == 0)
 	MOVF	r0x04, W
 	IORWF	r0x05, W
-	BNZ	_00178_DS_
-;	.line	67; ../../../lib/format.c	putchar_ptr('.');
+	BNZ	_00173_DS_
+;	.line	70; ../../../lib/format.c	buffer_putch('.');
 	MOVLW	0x2e
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00198_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00198_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00198_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00198_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-_00178_DS_:
-;	.line	68; ../../../lib/format.c	m--;
+_00173_DS_:
+;	.line	71; ../../../lib/format.c	m--;
 	MOVLW	0xff
 	ADDWF	r0x04, F
 	ADDWFC	r0x05, F
-	BRA	_00179_DS_
-_00182_DS_:
-;	.line	70; ../../../lib/format.c	}
+	BRA	_00174_DS_
+_00177_DS_:
+;	.line	73; ../../../lib/format.c	}
 	MOVFF	PREINC1, r0x0e
 	MOVFF	PREINC1, r0x0d
 	MOVFF	PREINC1, r0x0c
@@ -920,7 +846,7 @@ _00182_DS_:
 ; ; Starting pCode block
 S_format__format_xint32	code
 _format_xint32:
-;	.line	48; ../../../lib/format.c	format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
+;	.line	51; ../../../lib/format.c	format_xint32(/*putchar_fn* putchar,*/ uint32_t x) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -939,49 +865,17 @@ _format_xint32:
 	MOVFF	PLUSW2, r0x02
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
-;	.line	49; ../../../lib/format.c	putchar_ptr('0');
+;	.line	52; ../../../lib/format.c	buffer_putch('0');
 	MOVLW	0x30
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00171_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00171_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00171_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00171_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-;	.line	50; ../../../lib/format.c	putchar_ptr('x');
+;	.line	53; ../../../lib/format.c	buffer_putch('x');
 	MOVLW	0x78
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00172_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00172_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00172_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00172_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-;	.line	51; ../../../lib/format.c	format_number((uint16_t)(x >> 16), 16, -4);
+;	.line	54; ../../../lib/format.c	format_number((uint16_t)(x >> 16), 16, -4);
 	MOVF	r0x02, W
 	MOVWF	r0x04
 	MOVF	r0x03, W
@@ -999,7 +893,7 @@ _00172_DS_:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	52; ../../../lib/format.c	format_number((uint16_t)(x & 0xffff), 16, -4);
+;	.line	55; ../../../lib/format.c	format_number((uint16_t)(x & 0xffff), 16, -4);
 	MOVLW	0xfc
 	MOVWF	POSTDEC1
 	MOVLW	0x10
@@ -1011,7 +905,7 @@ _00172_DS_:
 	CALL	_format_number
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	53; ../../../lib/format.c	}
+;	.line	56; ../../../lib/format.c	}
 	MOVFF	PREINC1, r0x07
 	MOVFF	PREINC1, r0x06
 	MOVFF	PREINC1, r0x05
@@ -1026,7 +920,7 @@ _00172_DS_:
 ; ; Starting pCode block
 S_format__format_number	code
 _format_number:
-;	.line	14; ../../../lib/format.c	format_number(/*putchar_fn* putchar_ptr,*/ uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
+;	.line	15; ../../../lib/format.c	format_number(uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -1049,24 +943,24 @@ _format_number:
 	MOVFF	PLUSW2, r0x02
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
-;	.line	18; ../../../lib/format.c	char padchar = ' ';
+;	.line	19; ../../../lib/format.c	char padchar = ' ';
 	MOVLW	0x20
 	MOVWF	r0x04
-;	.line	20; ../../../lib/format.c	if(pad < 0) {
+;	.line	21; ../../../lib/format.c	if(pad < 0) {
 	BSF	STATUS, 0
 	BTFSS	r0x03, 7
 	BCF	STATUS, 0
 	BNC	_00128_DS_
-;	.line	21; ../../../lib/format.c	pad = -pad;
+;	.line	22; ../../../lib/format.c	pad = -pad;
 	NEGF	r0x03
-;	.line	22; ../../../lib/format.c	padchar = '0';
+;	.line	23; ../../../lib/format.c	padchar = '0';
 	MOVLW	0x30
 	MOVWF	r0x04
 _00128_DS_:
-;	.line	30; ../../../lib/format.c	do {
+;	.line	31; ../../../lib/format.c	do {
 	CLRF	r0x05
 _00112_DS_:
-;	.line	34; ../../../lib/format.c	di = n % base;
+;	.line	35; ../../../lib/format.c	di = n % base;
 	MOVFF	r0x02, r0x06
 	CLRF	r0x07
 	MOVF	r0x07, W
@@ -1082,15 +976,15 @@ _00112_DS_:
 	MOVFF	PRODL, r0x09
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	35; ../../../lib/format.c	buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
+;	.line	36; ../../../lib/format.c	buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 	MOVFF	r0x05, r0x09
 	INCF	r0x05, F
 	CLRF	r0x0a
 	BTFSC	r0x09, 7
 	SETF	r0x0a
-	MOVLW	LOW(_format_number_buf_65536_52)
+	MOVLW	LOW(_format_number_buf_65536_56)
 	ADDWF	r0x09, F
-	MOVLW	HIGH(_format_number_buf_65536_52)
+	MOVLW	HIGH(_format_number_buf_65536_56)
 	ADDWFC	r0x0a, F
 	MOVLW	0x0a
 	SUBWF	r0x08, W
@@ -1107,7 +1001,7 @@ _00125_DS_:
 	MOVFF	r0x09, FSR0L
 	MOVFF	r0x0a, FSR0H
 	MOVFF	r0x0b, INDF0
-;	.line	37; ../../../lib/format.c	n /= base;
+;	.line	38; ../../../lib/format.c	n /= base;
 	MOVF	r0x07, W
 	MOVWF	POSTDEC1
 	MOVF	r0x06, W
@@ -1121,12 +1015,12 @@ _00125_DS_:
 	MOVFF	PRODL, r0x01
 	MOVLW	0x04
 	ADDWF	FSR1L, F
-;	.line	38; ../../../lib/format.c	} while(n > 0);
+;	.line	39; ../../../lib/format.c	} while(n > 0);
 	MOVF	r0x00, W
 	IORWF	r0x01, W
 	BTFSS	STATUS, 2
 	BRA	_00112_DS_
-;	.line	40; ../../../lib/format.c	while(pad-- > i) putchar_ptr(padchar);
+;	.line	41; ../../../lib/format.c	while(pad-- > i) buffer_putch(padchar);
 	MOVFF	r0x05, r0x00
 	MOVFF	r0x03, r0x01
 _00115_DS_:
@@ -1140,68 +1034,38 @@ _00115_DS_:
 	DECF	r0x01, F
 	MOVF	r0x04, W
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00162_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00162_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00162_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00162_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
 	BRA	_00115_DS_
 _00120_DS_:
-;	.line	42; ../../../lib/format.c	for(; i > 0; i--) putchar_ptr((char)buf[(int16_t)i - 1]);
+;	.line	43; ../../../lib/format.c	for(; i > 0; i--) {
 	MOVF	r0x00, W
 	ADDLW	0x80
 	ADDLW	0x7f
 	BNC	_00122_DS_
+;	.line	44; ../../../lib/format.c	buffer_putch((char)buf[(int16_t)i - 1]);
 	DECF	r0x00, W
 	MOVWF	r0x01
 	MOVFF	r0x01, r0x02
 	CLRF	r0x03
 	BTFSC	r0x01, 7
 	SETF	r0x03
-	MOVLW	LOW(_format_number_buf_65536_52)
+	MOVLW	LOW(_format_number_buf_65536_56)
 	ADDWF	r0x02, F
-	MOVLW	HIGH(_format_number_buf_65536_52)
+	MOVLW	HIGH(_format_number_buf_65536_56)
 	ADDWFC	r0x03, F
 	MOVFF	r0x02, FSR0L
 	MOVFF	r0x03, FSR0H
 	MOVFF	INDF0, r0x02
 	MOVF	r0x02, W
 	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00164_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00164_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00164_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	(_putchar_ptr + 2), PCLATU
-	MOVFF	(_putchar_ptr + 1), PCLATH
-	BANKSEL	_putchar_ptr
-	MOVF	_putchar_ptr, W, B
-	MOVWF	PCL
-_00164_DS_:
+	CALL	_buffer_putch
 	MOVF	POSTINC1, F
+;	.line	43; ../../../lib/format.c	for(; i > 0; i--) {
 	MOVFF	r0x01, r0x00
 	BRA	_00120_DS_
 _00122_DS_:
-;	.line	44; ../../../lib/format.c	}
+;	.line	47; ../../../lib/format.c	}
 	MOVFF	PREINC1, r0x0b
 	MOVFF	PREINC1, r0x0a
 	MOVFF	PREINC1, r0x09
@@ -1220,18 +1084,18 @@ _00122_DS_:
 ; ; Starting pCode block
 S_format__format_putchar	code
 _format_putchar:
-;	.line	6; ../../../lib/format.c	format_putchar(char c) {
+;	.line	7; ../../../lib/format.c	format_putchar(char c) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-;	.line	8; ../../../lib/format.c	}
+;	.line	9; ../../../lib/format.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
 
 
 ; Statistics:
-; code size:	 2152 (0x0868) bytes ( 1.64%)
-;           	 1076 (0x0434) words
+; code size:	 1880 (0x0758) bytes ( 1.43%)
+;           	  940 (0x03ac) words
 ; udata size:	   32 (0x0020) bytes ( 1.79%)
 ; access size:	   16 (0x0010) bytes
 

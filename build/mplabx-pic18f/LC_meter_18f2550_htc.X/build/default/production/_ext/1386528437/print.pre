@@ -2550,7 +2550,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 26
+# 25
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -2563,17 +2563,15 @@ char buffer_puts(const char* x);
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c);
-
-void lcd_puts(const char*);
+void output_putch(char c); void lcd_puts(const char*);
 void print_digit(unsigned char line, unsigned char column, unsigned char digit);
 void print_unit(unsigned char unit);
 void print_reading(unsigned short int measurement);
-void indicator(unsigned char indicate);
-
+void print_indicator(unsigned char indicate);
 void print_print_float(float number, unsigned char digits);
+void print_buffer(void);
 
-# 77 "../../../lib/ser.h"
+# 48 "../../../lib/ser.h"
 bit ser_isrx(void);
 unsigned char ser_getch(void);
 void ser_putch(char byte);
@@ -2593,55 +2591,53 @@ extern unsigned char ser_tmp;
 extern unsigned char ser_brg;
 
 # 6 "../../../lib/format.h"
-void format_number( unsigned short int n, unsigned char base, signed char pad);
+void format_number(unsigned short int n, unsigned char base, signed char pad);
+void format_xint32(unsigned long int x);
+void format_double(double num);
 
-void format_xint32( unsigned long int x);
-
-void format_double( double num);
-
-# 32 "../../../src/print.c"
+# 22 "../../../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
 
-# 39
+# 28
 }
 
-# 389
+# 100
 void
 print_digit(unsigned char line, unsigned char column, unsigned char digit) {
 
-# 408
+# 119
 }
 
 
 void
 print_unit(unsigned char unit) {
 
-# 430
+# 141
 }
 
 void
 print_reading(unsigned short int measurement) {
 
-# 469
+# 180
 }
 
 
 void
-indicator(unsigned char indicate) {
+print_indicator(unsigned char indicate) {
 
-# 494
+# 205
 }
 
 void
 output_putch(char c) {
 
-# 502
+# 213
 ser_putch(c);
 
 }
 
-# 509
+# 220
 void
 put_str(const char* s) {
 int i;
@@ -2649,4 +2645,13 @@ int i;
 for(i = 0; s[i]; i++) {
 output_putch(s[i]);
 }
+}
+
+void
+print_buffer(void) {
+unsigned char i;
+for(i = 0; i < buffer.n; i++) {
+ser_putch(buffer.x[i]);
+}
+ser_puts("\r\n");
 }

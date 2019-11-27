@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=gnumkdir -p
+MKDIR=mkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -68,6 +68,7 @@ OBJECTFILES=${OBJECTDIR}/_ext/1386521430/buffer.o ${OBJECTDIR}/_ext/1386521430/c
 
 # Source Files
 SOURCEFILES=../../../lib/buffer.c ../../../lib/comparator.c ../../../lib/delay.c ../../../lib/format.c ../../../lib/lcd44780.c ../../../lib/timer.c ../../../lib/ser.c ../../../src/measure.c ../../../src/print.c ../../../LC-meter.c
+
 
 
 CFLAGS=
@@ -223,7 +224,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

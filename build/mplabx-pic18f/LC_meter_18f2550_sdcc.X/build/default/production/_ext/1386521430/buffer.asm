@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
@@ -254,14 +254,7 @@
 ;	Equates to used internal registers
 ;--------------------------------------------------------
 STATUS	equ	0xfd8
-PCL	equ	0xff9
-PCLATH	equ	0xffa
-PCLATU	equ	0xffb
-INTCON	equ	0xff2
 WREG	equ	0xfe8
-TOSL	equ	0xffd
-TOSH	equ	0xffe
-TOSU	equ	0xfff
 FSR0L	equ	0xfe9
 FSR0H	equ	0xfea
 FSR1L	equ	0xfe1
@@ -289,7 +282,7 @@ r0x08	res	1
 r0x09	res	1
 
 udata_buffer_0	udata
-_buffer	res	19
+_buffer	res	17
 
 ;--------------------------------------------------------
 ; global & static initialisations
@@ -298,7 +291,7 @@ _buffer	res	19
 ; ; Starting pCode block
 S_buffer__buffer_puts	code
 _buffer_puts:
-;	.line	56; ../../../lib/buffer.c	buffer_puts(const char* x) {
+;	.line	57; ../../../lib/buffer.c	buffer_puts(const char* x) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -311,31 +304,31 @@ _buffer_puts:
 	MOVFF	PLUSW2, r0x01
 	MOVLW	0x04
 	MOVFF	PLUSW2, r0x02
-_00169_DS_:
-;	.line	57; ../../../lib/buffer.c	while(*x) {
+_00155_DS_:
+;	.line	58; ../../../lib/buffer.c	while(*x) {
 	MOVFF	r0x00, FSR0L
 	MOVFF	r0x01, PRODL
 	MOVF	r0x02, W
 	CALL	__gptrget1
 	MOVWF	r0x03
 	MOVF	r0x03, W
-	BZ	_00171_DS_
-;	.line	58; ../../../lib/buffer.c	buffer_putch(*x);
+	BZ	_00157_DS_
+;	.line	59; ../../../lib/buffer.c	buffer_putch(*x);
 	MOVF	r0x03, W
 	MOVWF	POSTDEC1
 	CALL	_buffer_putch
 	MOVF	POSTINC1, F
-;	.line	59; ../../../lib/buffer.c	++x;
+;	.line	60; ../../../lib/buffer.c	++x;
 	INCF	r0x00, F
-	BNC	_00169_DS_
+	BNC	_00155_DS_
 	INFSNZ	r0x01, F
 	INCF	r0x02, F
-_00183_DS_:
-	BRA	_00169_DS_
-_00171_DS_:
-;	.line	61; ../../../lib/buffer.c	return 0;
+_00169_DS_:
+	BRA	_00155_DS_
+_00157_DS_:
+;	.line	62; ../../../lib/buffer.c	return 0;
 	CLRF	WREG
-;	.line	62; ../../../lib/buffer.c	}
+;	.line	63; ../../../lib/buffer.c	}
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
@@ -346,7 +339,7 @@ _00171_DS_:
 ; ; Starting pCode block
 S_buffer__buffer_put	code
 _buffer_put:
-;	.line	33; ../../../lib/buffer.c	buffer_put(const char* buf, len_t len) {
+;	.line	39; ../../../lib/buffer.c	buffer_put(const char* buf, len_t len) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -368,7 +361,7 @@ _buffer_put:
 	MOVLW	0x05
 	MOVFF	PLUSW2, r0x03
 	BANKSEL	(_buffer + 16)
-;	.line	35; ../../../lib/buffer.c	if(len > BUFFER_SIZE - buffer.n) { // doesn't fit
+;	.line	41; ../../../lib/buffer.c	if(len > BUFFER_SIZE - buffer.n) // doesn't fit
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -387,23 +380,23 @@ _buffer_put:
 	MOVF	r0x07, W
 	ADDLW	0x80
 	SUBWF	PRODL, W
-	BNZ	_00163_DS_
+	BNZ	_00149_DS_
 	MOVF	r0x06, W
 	SUBWF	r0x04, W
-_00163_DS_:
-	BC	_00152_DS_
-;	.line	45; ../../../lib/buffer.c	return -1;
+_00149_DS_:
+	BC	_00138_DS_
+;	.line	42; ../../../lib/buffer.c	return -1;
 	SETF	WREG
-	BRA	_00148_DS_
-_00152_DS_:
-;	.line	47; ../../../lib/buffer.c	for(i = 0; i < len; i++) {
+	BRA	_00134_DS_
+_00138_DS_:
+;	.line	43; ../../../lib/buffer.c	for(i = 0; i < len; i++)
 	CLRF	r0x04
-_00146_DS_:
+_00132_DS_:
 	MOVF	r0x03, W
 	SUBWF	r0x04, W
-	BC	_00144_DS_
+	BC	_00130_DS_
 	BANKSEL	(_buffer + 16)
-;	.line	48; ../../../lib/buffer.c	buffer.x[buffer.n + i] = buf[i];
+;	.line	44; ../../../lib/buffer.c	buffer.x[buffer.n + i] = buf[i];
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -436,12 +429,12 @@ _00146_DS_:
 	MOVFF	r0x05, FSR0L
 	MOVFF	r0x06, FSR0H
 	MOVFF	r0x07, INDF0
-;	.line	47; ../../../lib/buffer.c	for(i = 0; i < len; i++) {
+;	.line	43; ../../../lib/buffer.c	for(i = 0; i < len; i++)
 	INCF	r0x04, F
-	BRA	_00146_DS_
-_00144_DS_:
+	BRA	_00132_DS_
+_00130_DS_:
 	BANKSEL	(_buffer + 16)
-;	.line	51; ../../../lib/buffer.c	buffer.n += len;
+;	.line	45; ../../../lib/buffer.c	buffer.n += len;
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -458,10 +451,10 @@ _00144_DS_:
 	IORWF	PRODH, W
 	BANKSEL	(_buffer + 16)
 	MOVWF	(_buffer + 16), B
-;	.line	52; ../../../lib/buffer.c	return 0;
+;	.line	46; ../../../lib/buffer.c	return 0;
 	CLRF	WREG
-_00148_DS_:
-;	.line	53; ../../../lib/buffer.c	}
+_00134_DS_:
+;	.line	47; ../../../lib/buffer.c	}
 	MOVFF	PREINC1, r0x09
 	MOVFF	PREINC1, r0x08
 	MOVFF	PREINC1, r0x07
@@ -478,7 +471,7 @@ _00148_DS_:
 ; ; Starting pCode block
 S_buffer__buffer_putch	code
 _buffer_putch:
-;	.line	23; ../../../lib/buffer.c	buffer_putch(char ch) {
+;	.line	30; ../../../lib/buffer.c	buffer_putch(char ch) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -487,7 +480,7 @@ _buffer_putch:
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
 	BANKSEL	(_buffer + 16)
-;	.line	24; ../../../lib/buffer.c	if(BUFFER_SIZE - buffer.n <= 0) {
+;	.line	31; ../../../lib/buffer.c	if(BUFFER_SIZE - buffer.n <= 0)
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -501,17 +494,17 @@ _buffer_putch:
 	MOVF	r0x02, W
 	ADDLW	0x80
 	ADDLW	0x80
-	BNZ	_00137_DS_
+	BNZ	_00123_DS_
 	MOVLW	0x01
 	SUBWF	r0x01, W
-_00137_DS_:
-	BC	_00130_DS_
-;	.line	25; ../../../lib/buffer.c	return 0;
+_00123_DS_:
+	BC	_00116_DS_
+;	.line	32; ../../../lib/buffer.c	return 0;
 	CLRF	WREG
-	BRA	_00131_DS_
-_00130_DS_:
+	BRA	_00117_DS_
+_00116_DS_:
 	BANKSEL	(_buffer + 16)
-;	.line	27; ../../../lib/buffer.c	buffer.x[buffer.n] = ch;
+;	.line	33; ../../../lib/buffer.c	buffer.x[buffer.n] = ch;
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -525,7 +518,7 @@ _00130_DS_:
 	MOVFF	r0x02, FSR0H
 	MOVFF	r0x00, INDF0
 	BANKSEL	(_buffer + 16)
-;	.line	28; ../../../lib/buffer.c	buffer.n++;
+;	.line	34; ../../../lib/buffer.c	buffer.n++;
 	MOVF	(_buffer + 16), W, B
 	SWAPF	WREG, W
 	ANDLW	0x0f
@@ -541,10 +534,10 @@ _00130_DS_:
 	IORWF	PRODH, W
 	BANKSEL	(_buffer + 16)
 	MOVWF	(_buffer + 16), B
-;	.line	29; ../../../lib/buffer.c	return 1;
+;	.line	35; ../../../lib/buffer.c	return 1;
 	MOVLW	0x01
-_00131_DS_:
-;	.line	30; ../../../lib/buffer.c	}
+_00117_DS_:
+;	.line	36; ../../../lib/buffer.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -554,78 +547,11 @@ _00131_DS_:
 ; ; Starting pCode block
 S_buffer__buffer_flush	code
 _buffer_flush:
-;	.line	14; ../../../lib/buffer.c	buffer_flush() {
+;	.line	21; ../../../lib/buffer.c	buffer_flush() {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-	MOVFF	r0x00, POSTDEC1
-	MOVFF	r0x01, POSTDEC1
-	MOVFF	r0x02, POSTDEC1
-	MOVFF	r0x03, POSTDEC1
-	MOVFF	r0x04, POSTDEC1
-_00110_DS_:
 	BANKSEL	(_buffer + 16)
-;	.line	15; ../../../lib/buffer.c	while(buffer.p < buffer.n) {
-	MOVF	(_buffer + 16), W, B
-	ANDLW	0x0f
-	MOVWF	r0x00
-	BANKSEL	(_buffer + 16)
-	MOVF	(_buffer + 16), W, B
-	SWAPF	WREG, W
-	ANDLW	0x0f
-	MOVWF	r0x01
-	MOVF	r0x01, W
-	SUBWF	r0x00, W
-	BC	_00112_DS_
-;	.line	16; ../../../lib/buffer.c	buffer.op(buffer.x[buffer.p++]);
-	MOVFF	(_buffer + 17), r0x00
-	MOVFF	(_buffer + 18), r0x01
-	MOVFF	(_buffer + 19), r0x02
-	BANKSEL	(_buffer + 16)
-	MOVF	(_buffer + 16), W, B
-	ANDLW	0x0f
-	MOVWF	r0x03
-	INCF	r0x03, W
-	MOVWF	r0x04
-	MOVF	r0x04, W
-	ANDLW	0x0f
-	MOVWF	PRODH
-	BANKSEL	(_buffer + 16)
-	MOVF	(_buffer + 16), W, B
-	ANDLW	0xf0
-	IORWF	PRODH, W
-	BANKSEL	(_buffer + 16)
-	MOVWF	(_buffer + 16), B
-	CLRF	r0x04
-	MOVLW	LOW(_buffer)
-	ADDWF	r0x03, F
-	MOVLW	HIGH(_buffer)
-	ADDWFC	r0x04, F
-	MOVFF	r0x03, FSR0L
-	MOVFF	r0x04, FSR0H
-	MOVFF	INDF0, r0x03
-	MOVF	r0x03, W
-	MOVWF	POSTDEC1
-	MOVFF	INTCON, POSTDEC1
-	BCF	INTCON, 7
-	PUSH	
-	MOVLW	LOW(_00124_DS_)
-	MOVWF	TOSL
-	MOVLW	HIGH(_00124_DS_)
-	MOVWF	TOSH
-	MOVLW	UPPER(_00124_DS_)
-	MOVWF	TOSU
-	BTFSC	PREINC1, 7
-	BSF	INTCON, 7
-	MOVFF	r0x02, PCLATU
-	MOVFF	r0x01, PCLATH
-	MOVF	r0x00, W
-	MOVWF	PCL
-_00124_DS_:
-	MOVF	POSTINC1, F
-	BRA	_00110_DS_
-_00112_DS_:
-	BANKSEL	(_buffer + 16)
-;	.line	18; ../../../lib/buffer.c	BUFFER_CLEAR();
+;	.line	25; ../../../lib/buffer.c	BUFFER_CLEAR();
 	MOVF	(_buffer + 16), W, B
 	ANDLW	0xf0
 	BANKSEL	(_buffer + 16)
@@ -635,67 +561,40 @@ _00112_DS_:
 	ANDLW	0x0f
 	BANKSEL	(_buffer + 16)
 	MOVWF	(_buffer + 16), B
-;	.line	19; ../../../lib/buffer.c	return 0;
+;	.line	26; ../../../lib/buffer.c	return 0;
 	CLRF	WREG
-;	.line	20; ../../../lib/buffer.c	}
-	MOVFF	PREINC1, r0x04
-	MOVFF	PREINC1, r0x03
-	MOVFF	PREINC1, r0x02
-	MOVFF	PREINC1, r0x01
-	MOVFF	PREINC1, r0x00
+;	.line	27; ../../../lib/buffer.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
 ; ; Starting pCode block
 S_buffer__buffer_init	code
 _buffer_init:
-;	.line	7; ../../../lib/buffer.c	buffer_init(putchar_p op) {
+;	.line	10; ../../../lib/buffer.c	buffer_init(void) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
-	MOVFF	r0x00, POSTDEC1
-	MOVFF	r0x01, POSTDEC1
-	MOVFF	r0x02, POSTDEC1
-	MOVLW	0x02
-	MOVFF	PLUSW2, r0x00
-	MOVLW	0x03
-	MOVFF	PLUSW2, r0x01
-	MOVLW	0x04
-	MOVFF	PLUSW2, r0x02
 	BANKSEL	(_buffer + 16)
-;	.line	8; ../../../lib/buffer.c	buffer.p = 0;
+;	.line	11; ../../../lib/buffer.c	buffer.p = 0;
 	MOVF	(_buffer + 16), W, B
 	ANDLW	0xf0
 	BANKSEL	(_buffer + 16)
 	MOVWF	(_buffer + 16), B
 	BANKSEL	(_buffer + 16)
-;	.line	9; ../../../lib/buffer.c	buffer.n = 0;
+;	.line	12; ../../../lib/buffer.c	buffer.n = 0;
 	MOVF	(_buffer + 16), W, B
 	ANDLW	0x0f
 	BANKSEL	(_buffer + 16)
 	MOVWF	(_buffer + 16), B
-;	.line	10; ../../../lib/buffer.c	buffer.op = op;
-	MOVF	r0x00, W
-	BANKSEL	(_buffer + 17)
-	MOVWF	(_buffer + 17), B
-	MOVF	r0x01, W
-	BANKSEL	(_buffer + 18)
-	MOVWF	(_buffer + 18), B
-	MOVF	r0x02, W
-	BANKSEL	(_buffer + 19)
-	MOVWF	(_buffer + 19), B
-;	.line	11; ../../../lib/buffer.c	}
-	MOVFF	PREINC1, r0x02
-	MOVFF	PREINC1, r0x01
-	MOVFF	PREINC1, r0x00
+;	.line	13; ../../../lib/buffer.c	}
 	MOVFF	PREINC1, FSR2L
 	RETURN	
 
 
 
 ; Statistics:
-; code size:	  854 (0x0356) bytes ( 0.65%)
-;           	  427 (0x01ab) words
-; udata size:	   19 (0x0013) bytes ( 1.06%)
+; code size:	  622 (0x026e) bytes ( 0.47%)
+;           	  311 (0x0137) words
+; udata size:	   17 (0x0011) bytes ( 0.95%)
 ; access size:	   10 (0x000a) bytes
 
 

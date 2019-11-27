@@ -2542,11 +2542,9 @@ extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 typedef char bool;
 
 # 6 "../../../lib/format.h"
-void format_number( unsigned short int n, unsigned char base, signed char pad);
-
-void format_xint32( unsigned long int x);
-
-void format_double( double num);
+void format_number(unsigned short int n, unsigned char base, signed char pad);
+void format_xint32(unsigned long int x);
+void format_double(double num);
 
 # 12 "../../../lib/buffer.h"
 typedef unsigned char len_t;
@@ -2557,7 +2555,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 26
+# 25
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -2604,7 +2602,7 @@ return;
 
 
 void
-format_number( unsigned short int n, unsigned char base, signed char pad ) {
+format_number(unsigned short int n, unsigned char base, signed char pad ) {
 char buf[8 * sizeof(long)];
 unsigned char di;
 signed char i = 0;
@@ -2627,8 +2625,10 @@ n /= base;
 
 while(pad-- > i) buffer_putch(padchar);
 
-for(; i > 0; i--) buffer_putch((char)buf[(signed short int)i - 1]);
+for(; i > 0; i--) {
+buffer_putch((char)buf[(signed short int)i - 1]);
 
+}
 }
 
 

@@ -1,6 +1,6 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.3 #11377 (MINGW64)
+; Version 3.9.0 #11195 (Linux)
 ;--------------------------------------------------------
 ; PIC16 port for the Microchip 16-bit core micros
 ;--------------------------------------------------------
@@ -276,7 +276,7 @@ r0x05	res	1
 ; ; Starting pCode block
 S_timer__timer2_init	code
 _timer2_init:
-;	.line	125; ../../../lib/timer.c	timer2_init(uint8_t ps_mode) {
+;	.line	130; ../../../lib/timer.c	timer2_init(uint8_t ps_mode) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -285,14 +285,14 @@ _timer2_init:
 	MOVFF	r0x03, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	126; ../../../lib/timer.c	uint8_t ps = ps_mode & PRESCALE_MASK;
+;	.line	131; ../../../lib/timer.c	uint8_t ps = ps_mode & PRESCALE_MASK;
 	MOVLW	0x0f
 	ANDWF	r0x00, W
 	MOVWF	r0x01
-;	.line	130; ../../../lib/timer.c	T2CON &= ~0b01111111;
+;	.line	135; ../../../lib/timer.c	T2CON &= ~0b01111111;
 	MOVLW	0x80
 	ANDWF	_T2CON, F
-;	.line	132; ../../../lib/timer.c	T2CON |= (postscaler & 0b1111) << 3;
+;	.line	137; ../../../lib/timer.c	T2CON |= (postscaler & 0b1111) << 3;
 	CLRF	r0x02
 	MOVLW	0x0f
 	ANDWF	r0x02, F
@@ -305,18 +305,18 @@ _timer2_init:
 	MOVF	r0x03, W
 	IORWF	r0x02, W
 	MOVWF	_T2CON
-;	.line	133; ../../../lib/timer.c	T2CON |= (ps & 0b11); // Set timer 2 prescaler to 1:1.
+;	.line	138; ../../../lib/timer.c	T2CON |= (ps & 0b11); // Set timer 2 prescaler to 1:1.
 	MOVLW	0x03
 	ANDWF	r0x01, F
 	MOVF	r0x01, W
 	IORWF	_T2CON, F
-;	.line	135; ../../../lib/timer.c	TIMER2_VALUE = 0;
+;	.line	140; ../../../lib/timer.c	TIMER2_VALUE = 0;
 	CLRF	_TMR2
-;	.line	137; ../../../lib/timer.c	T2CON |= 0b100; // TMR2ON = 1; // Enable timer 2.
+;	.line	142; ../../../lib/timer.c	T2CON |= 0b100; // TMR2ON = 1; // Enable timer 2.
 	BSF	_T2CON, 2
-;	.line	140; ../../../lib/timer.c	PIR1 &= ~0b10;
+;	.line	145; ../../../lib/timer.c	PIR1 &= ~0b10;
 	BCF	_PIR1, 1
-;	.line	141; ../../../lib/timer.c	PIE1 = (!!(ps_mode & TIMER2_FLAGS_INTR)) << 1;
+;	.line	146; ../../../lib/timer.c	PIE1 = (!!(ps_mode & TIMER2_FLAGS_INTR)) << 1;
 	MOVF	r0x00, W
 	ANDLW	0x80
 	RLNCF	WREG, W
@@ -336,7 +336,7 @@ _timer2_init:
 	RLNCF	r0x00, W
 	ANDLW	0xfe
 	MOVWF	_PIE1
-;	.line	142; ../../../lib/timer.c	}
+;	.line	147; ../../../lib/timer.c	}
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
@@ -347,7 +347,7 @@ _timer2_init:
 ; ; Starting pCode block
 S_timer__timer1_init	code
 _timer1_init:
-;	.line	92; ../../../lib/timer.c	timer1_init(uint8_t ps_mode) {
+;	.line	97; ../../../lib/timer.c	timer1_init(uint8_t ps_mode) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -355,10 +355,10 @@ _timer1_init:
 	MOVFF	r0x02, POSTDEC1
 	MOVLW	0x02
 	MOVFF	PLUSW2, r0x00
-;	.line	94; ../../../lib/timer.c	T1CON &= ~0b00111110;
+;	.line	99; ../../../lib/timer.c	T1CON &= ~0b00111110;
 	MOVLW	0xc1
 	ANDWF	_T1CON, F
-;	.line	96; ../../../lib/timer.c	T1CON |= (ps_mode & PRESCALE_MASK) << 4;
+;	.line	101; ../../../lib/timer.c	T1CON |= (ps_mode & PRESCALE_MASK) << 4;
 	MOVF	r0x00, W
 	MOVWF	r0x01
 	MOVLW	0x0f
@@ -371,7 +371,7 @@ _timer1_init:
 	MOVF	r0x02, W
 	IORWF	r0x01, W
 	MOVWF	_T1CON
-;	.line	98; ../../../lib/timer.c	T1CON |= (!!(ps_mode & TIMER1_FLAGS_EXTCLK)) << 1; // Internal clock source
+;	.line	103; ../../../lib/timer.c	T1CON |= (!!(ps_mode & TIMER1_FLAGS_EXTCLK)) << 1; // Internal clock source
 	MOVF	r0x00, W
 	ANDLW	0x40
 	BTFSS	STATUS, 2
@@ -397,11 +397,11 @@ _timer1_init:
 	MOVF	r0x02, W
 	IORWF	r0x01, W
 	MOVWF	_T1CON
-;	.line	100; ../../../lib/timer.c	if(T1CON & 0b00000010) {
+;	.line	105; ../../../lib/timer.c	if(T1CON & 0b00000010) {
 	MOVFF	_T1CON, r0x01
 	BTFSS	r0x01, 1
-	BRA	_00147_DS_
-;	.line	104; ../../../lib/timer.c	T1CON |= (!(ps_mode & TIMER1_FLAGS_SYNC)) << 2;
+	BRA	_00149_DS_
+;	.line	109; ../../../lib/timer.c	T1CON |= (!(ps_mode & TIMER1_FLAGS_SYNC)) << 2;
 	MOVF	r0x00, W
 	ANDLW	0x20
 	BTFSS	STATUS, 2
@@ -422,18 +422,18 @@ _timer1_init:
 	MOVF	r0x02, W
 	IORWF	r0x01, W
 	MOVWF	_T1CON
-_00147_DS_:
-;	.line	108; ../../../lib/timer.c	TMR1H = 0;
+_00149_DS_:
+;	.line	113; ../../../lib/timer.c	TMR1H = 0;
 	CLRF	_TMR1H
-;	.line	109; ../../../lib/timer.c	TMR1L = 0;
+;	.line	114; ../../../lib/timer.c	TMR1L = 0;
 	CLRF	_TMR1L
-;	.line	111; ../../../lib/timer.c	T1CON |= 0b1; // TMR1ON = 1;
+;	.line	116; ../../../lib/timer.c	T1CON |= 0b1; // TMR1ON = 1;
 	BSF	_T1CON, 0
-;	.line	113; ../../../lib/timer.c	PIR1 &= ~0b1; //  TMR1IF = 0;
+;	.line	118; ../../../lib/timer.c	PIR1 &= ~0b1; //  TMR1IF = 0;
 	BCF	_PIR1, 0
-;	.line	115; ../../../lib/timer.c	PIE1 &= ~0b1;
+;	.line	120; ../../../lib/timer.c	PIE1 &= ~0b1;
 	BCF	_PIE1, 0
-;	.line	116; ../../../lib/timer.c	PIE1 |= !!(ps_mode & TIMER1_FLAGS_INTR);
+;	.line	121; ../../../lib/timer.c	PIE1 |= !!(ps_mode & TIMER1_FLAGS_INTR);
 	MOVF	r0x00, W
 	ANDLW	0x80
 	RLNCF	WREG, W
@@ -455,7 +455,7 @@ _00147_DS_:
 	MOVF	r0x00, W
 	IORWF	r0x01, W
 	MOVWF	_PIE1
-;	.line	117; ../../../lib/timer.c	}
+;	.line	122; ../../../lib/timer.c	}
 	MOVFF	PREINC1, r0x02
 	MOVFF	PREINC1, r0x01
 	MOVFF	PREINC1, r0x00
@@ -465,7 +465,7 @@ _00147_DS_:
 ; ; Starting pCode block
 S_timer__timer0_read_ps	code
 _timer0_read_ps:
-;	.line	59; ../../../lib/timer.c	timer0_read_ps(void) {
+;	.line	64; ../../../lib/timer.c	timer0_read_ps(void) {
 	MOVFF	FSR2L, POSTDEC1
 	MOVFF	FSR1L, FSR2L
 	MOVFF	r0x00, POSTDEC1
@@ -474,38 +474,38 @@ _timer0_read_ps:
 	MOVFF	r0x03, POSTDEC1
 	MOVFF	r0x04, POSTDEC1
 	MOVFF	r0x05, POSTDEC1
-;	.line	60; ../../../lib/timer.c	uint8_t prev = TMR0;
+;	.line	65; ../../../lib/timer.c	uint8_t prev = TMR0;
 	MOVFF	_TMR0, r0x00
-;	.line	63; ../../../lib/timer.c	T0CON |= 0x20; // T0CS = 1;
+;	.line	68; ../../../lib/timer.c	T0CON |= 0x20; // T0CS = 1;
 	BSF	_T0CON, 5
-;	.line	65; ../../../lib/timer.c	do {
+;	.line	70; ../../../lib/timer.c	do {
 	CLRF	r0x01
 	CLRF	r0x02
-_00122_DS_:
-;	.line	67; ../../../lib/timer.c	T0CON |= 0x10; // T0SE = 1;
+_00124_DS_:
+;	.line	72; ../../../lib/timer.c	T0CON |= 0x10; // T0SE = 1;
 	BSF	_T0CON, 4
 	nop	
 	nop	
-;	.line	72; ../../../lib/timer.c	T0CON &= ~0x10; // T0SE = 0;
+;	.line	77; ../../../lib/timer.c	T0CON &= ~0x10; // T0SE = 0;
 	BCF	_T0CON, 4
 	nop	
 	nop	
-;	.line	77; ../../../lib/timer.c	++count;
+;	.line	82; ../../../lib/timer.c	++count;
 	INFSNZ	r0x01, F
 	INCF	r0x02, F
-;	.line	80; ../../../lib/timer.c	} while(prev == TMR0 && count <= 255);
+;	.line	85; ../../../lib/timer.c	} while(prev == TMR0 && count <= 255);
 	MOVF	r0x00, W
 	XORWF	_TMR0, W
-	BNZ	_00124_DS_
+	BNZ	_00126_DS_
 	MOVLW	0x01
 	SUBWF	r0x02, W
-	BNZ	_00141_DS_
+	BNZ	_00143_DS_
 	MOVLW	0x00
 	SUBWF	r0x01, W
-_00141_DS_:
-	BNC	_00122_DS_
-_00124_DS_:
-;	.line	82; ../../../lib/timer.c	count = ((prev << 8) + (256 - count));
+_00143_DS_:
+	BNC	_00124_DS_
+_00126_DS_:
+;	.line	87; ../../../lib/timer.c	count = ((prev << 8) + (256 - count));
 	CLRF	r0x03
 	MOVF	r0x00, W
 	MOVWF	r0x05
@@ -519,10 +519,10 @@ _00124_DS_:
 	ADDWF	r0x01, F
 	MOVF	r0x05, W
 	ADDWFC	r0x02, F
-;	.line	83; ../../../lib/timer.c	return count;
+;	.line	88; ../../../lib/timer.c	return count;
 	MOVFF	r0x02, PRODL
 	MOVF	r0x01, W
-;	.line	84; ../../../lib/timer.c	}
+;	.line	89; ../../../lib/timer.c	}
 	MOVFF	PREINC1, r0x05
 	MOVFF	PREINC1, r0x04
 	MOVFF	PREINC1, r0x03
@@ -553,7 +553,7 @@ _timer0_init:
 	CLRF	_TMR0
 ;	.line	33; ../../../lib/timer.c	T0CON |= (!!(ps_mode & TIMER0_FLAGS_EXTCLK)) ? 0x20 : 0x00;
 	MOVF	r0x00, W
-	ANDLW	0x40
+	ANDLW	0x20
 	BTFSS	STATUS, 2
 	MOVLW	0x01
 	MOVWF	r0x02
@@ -590,56 +590,76 @@ _00112_DS_:
 	MOVF	r0x02, W
 	IORWF	r0x04, W
 	MOVWF	_T0CON
-;	.line	39; ../../../lib/timer.c	T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
-	MOVF	r0x01, W
-	BZ	_00113_DS_
-	MOVLW	0xf7
+;	.line	39; ../../../lib/timer.c	T0CON |= (!!(ps_mode & TIMER0_FLAGS_8BIT)) ? 0x40 : 0x00;
+	MOVF	r0x00, W
+	ANDLW	0x40
+	BTFSS	STATUS, 2
+	MOVLW	0x01
 	MOVWF	r0x02
+	MOVF	r0x02, W
+	BZ	_00113_DS_
+	MOVLW	0x40
+	MOVWF	r0x02
+	CLRF	r0x03
 	BRA	_00114_DS_
 _00113_DS_:
+	CLRF	r0x02
+	CLRF	r0x03
+_00114_DS_:
+	MOVFF	_T0CON, r0x04
+	MOVF	r0x02, W
+	IORWF	r0x04, W
+	MOVWF	_T0CON
+;	.line	44; ../../../lib/timer.c	T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
+	MOVF	r0x01, W
+	BZ	_00115_DS_
+	MOVLW	0xf7
+	MOVWF	r0x02
+	BRA	_00116_DS_
+_00115_DS_:
 	MOVLW	0xff
 	MOVWF	r0x02
-_00114_DS_:
+_00116_DS_:
 	MOVF	_T0CON, W
 	MOVWF	r0x03
 	MOVF	r0x02, W
 	ANDWF	r0x03, W
 	MOVWF	_T0CON
-;	.line	41; ../../../lib/timer.c	T0CON &= ~0b111;
+;	.line	46; ../../../lib/timer.c	T0CON &= ~0b111;
 	MOVLW	0xf8
 	ANDWF	_T0CON, F
-;	.line	43; ../../../lib/timer.c	if(prescaler > 0) {
+;	.line	48; ../../../lib/timer.c	if(prescaler > 0) {
 	MOVF	r0x01, W
 	BZ	_00106_DS_
-;	.line	44; ../../../lib/timer.c	T0CON |= (prescaler - 1) & 0b111;
+;	.line	49; ../../../lib/timer.c	T0CON |= (prescaler - 1) & 0b111;
 	DECF	r0x01, F
 	MOVLW	0x07
 	ANDWF	r0x01, F
 	MOVF	r0x01, W
 	IORWF	_T0CON, F
 _00106_DS_:
-;	.line	54; ../../../lib/timer.c	INTCON &= ~0x40; // TMR0IF = 0;
+;	.line	59; ../../../lib/timer.c	INTCON &= ~0x40; // TMR0IF = 0;
 	BCF	_INTCON, 6
-;	.line	55; ../../../lib/timer.c	INTCON |= (!!(ps_mode & TIMER0_FLAGS_INTR)) ? 0x20 : 0x00;
+;	.line	60; ../../../lib/timer.c	INTCON |= (!!(ps_mode & TIMER0_FLAGS_INTR)) ? 0x20 : 0x00;
 	MOVF	r0x00, W
 	ANDLW	0x80
 	RLNCF	WREG, W
 	MOVWF	r0x00
 	MOVF	r0x00, W
-	BZ	_00115_DS_
+	BZ	_00117_DS_
 	MOVLW	0x20
 	MOVWF	r0x00
 	CLRF	r0x01
-	BRA	_00116_DS_
-_00115_DS_:
+	BRA	_00118_DS_
+_00117_DS_:
 	CLRF	r0x00
 	CLRF	r0x01
-_00116_DS_:
+_00118_DS_:
 	MOVFF	_INTCON, r0x02
 	MOVF	r0x00, W
 	IORWF	r0x02, W
 	MOVWF	_INTCON
-;	.line	56; ../../../lib/timer.c	}
+;	.line	61; ../../../lib/timer.c	}
 	MOVFF	PREINC1, r0x04
 	MOVFF	PREINC1, r0x03
 	MOVFF	PREINC1, r0x02
@@ -651,8 +671,8 @@ _00116_DS_:
 
 
 ; Statistics:
-; code size:	  714 (0x02ca) bytes ( 0.54%)
-;           	  357 (0x0165) words
+; code size:	  750 (0x02ee) bytes ( 0.57%)
+;           	  375 (0x0177) words
 ; udata size:	    0 (0x0000) bytes ( 0.00%)
 ; access size:	    6 (0x0006) bytes
 

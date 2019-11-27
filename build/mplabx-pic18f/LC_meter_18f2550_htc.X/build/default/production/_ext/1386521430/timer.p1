@@ -13,14 +13,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S227 . BDSTAT BDCNT BDADR ]
 "37 /opt/hitech/picc-18/9.66/include/usbregs18.h
 [v __USB_DESCRIPTOR `VS227 -> 64 `i e@1024 ]
-"1951 /opt/hitech/picc-18/9.66/include/pic18f2550.h
-[v _T2CON `Vuc 0 e@4042 ]
-"1993 /opt/hitech/picc-18/9.66/include/pic18f2550.h
-[v _TMR2 `Vuc 0 e@4044 ]
+"2213 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _TMR0 `Vui 0 e@4054 ]
+"2177 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _T0CON `Vuc 0 e@4053 ]
+"2426 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _INTCON `Vuc 0 e@4082 ]
+"1997 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _T1CON `Vuc 0 e@4045 ]
+"2033 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _TMR1H `Vuc 0 e@4047 ]
+"2029 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _TMR1L `Vuc 0 e@4046 ]
 "1208 /opt/hitech/picc-18/9.66/include/pic18f2550.h
 [v _PIR1 `Vuc 0 e@3998 ]
 "1186 /opt/hitech/picc-18/9.66/include/pic18f2550.h
 [v _PIE1 `Vuc 0 e@3997 ]
+"1951 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _T2CON `Vuc 0 e@4042 ]
+"1993 /opt/hitech/picc-18/9.66/include/pic18f2550.h
+[v _TMR2 `Vuc 0 e@4044 ]
 [; ;pic18f2550.h: 316: extern volatile unsigned char UFRML @ 0xF66;
 [; ;pic18f2550.h: 318: extern volatile bit FRM0 @ ((unsigned)&UFRML*8)+0;
 [; ;pic18f2550.h: 319: extern volatile bit FRM1 @ ((unsigned)&UFRML*8)+1;
@@ -1981,46 +1993,209 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;psupport.h: 175: extern volatile bit CKE_x @ ((unsigned)&SSPSTAT*8)+6;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;typedef.h: 52: typedef char bool;
-[; ;timer.h: 143: void timer2_init(unsigned char ps_mode);
+[; ;timer.h: 69: void timer0_init(unsigned char);
+[; ;timer.h: 76: unsigned short timer0_read_ps(void);
+[; ;timer.h: 106: void timer1_init(unsigned char ps_mode);
+[; ;timer.h: 144: void timer2_init(unsigned char ps_mode);
 [; ;timer.c: 15: extern volatile unsigned char T0CON @0xFD5;
-"125 ../../../lib/timer.c
+"27 ../../../lib/timer.c
+[v _timer0_init `(v 1 ef1`uc ]
+{
+[; ;timer.c: 26: void
+[; ;timer.c: 27: timer0_init(unsigned char ps_mode) {
+[e :U _timer0_init ]
+[v _ps_mode `uc 1 r1 ]
+[f ]
+"28
+[v _prescaler `uc 1 a ]
+[; ;timer.c: 28: unsigned char prescaler = ps_mode & 0b1111;
+[e = _prescaler -> & -> _ps_mode `i -> 15 `i `uc ]
+[; ;timer.c: 30: TMR0 = 0;
+"30
+[e = _TMR0 -> -> 0 `i `ui ]
+[; ;timer.c: 33: T0CON |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
+"33
+[e =| _T0CON -> ? ! ! != & -> _ps_mode `i -> 32 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 36: T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+"36
+[e =| _T0CON -> ? ! ! != & -> _ps_mode `i -> 16 `i -> 0 `i : -> 16 `i -> 0 `i `uc ]
+[; ;timer.c: 39: T0CON |= (!!(ps_mode & 0x40)) ? 0x40 : 0x00;
+"39
+[e =| _T0CON -> ? ! ! != & -> _ps_mode `i -> 64 `i -> 0 `i : -> 64 `i -> 0 `i `uc ]
+[; ;timer.c: 44: T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
+"44
+[e =& _T0CON -> ? ! ! != -> _prescaler `i -> -> -> 0 `i `uc `i : ~ -> 8 `i ~ -> 0 `i `uc ]
+[; ;timer.c: 46: T0CON &= ~0b111;
+"46
+[e =& _T0CON -> ~ -> 7 `i `uc ]
+[; ;timer.c: 48: if(prescaler > 0) {
+"48
+[e $ ! > -> _prescaler `i -> 0 `i 232  ]
+{
+[; ;timer.c: 49: T0CON |= (prescaler - 1) & 0b111;
+"49
+[e =| _T0CON -> & - -> _prescaler `i -> 1 `i -> 7 `i `uc ]
+"55
+}
+[e :U 232 ]
+[; ;timer.c: 55: }
+[; ;timer.c: 59: INTCON &= ~0x40;
+"59
+[e =& _INTCON -> ~ -> 64 `i `uc ]
+[; ;timer.c: 60: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
+"60
+[e =| _INTCON -> ? ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
+[; ;timer.c: 61: }
+"61
+[e :UE 231 ]
+}
+"64
+[v _timer0_read_ps `(us 1 ef ]
+{
+[; ;timer.c: 63: unsigned short
+[; ;timer.c: 64: timer0_read_ps(void) {
+[e :U _timer0_read_ps ]
+[f ]
+"65
+[v _prev `uc 1 a ]
+[; ;timer.c: 65: unsigned char prev = TMR0;
+[e = _prev -> _TMR0 `uc ]
+"66
+[v _count `us 1 a ]
+[; ;timer.c: 66: unsigned short int count = 0;
+[e = _count -> -> 0 `i `us ]
+[; ;timer.c: 68: T0CON |= 0x20;
+"68
+[e =| _T0CON -> -> 32 `i `uc ]
+[; ;timer.c: 70: do {
+"70
+[e :U 236 ]
+{
+[; ;timer.c: 72: T0CON |= 0x10;
+"72
+[e =| _T0CON -> -> 16 `i `uc ]
+[; ;timer.c: 74: asm(" nop");
+"74
+[;  nop ;#
+[; ;timer.c: 75: asm(" nop");
+"75
+[;  nop ;#
+[; ;timer.c: 77: T0CON &= ~0x10;
+"77
+[e =& _T0CON -> ~ -> 16 `i `uc ]
+[; ;timer.c: 79: asm(" nop");
+"79
+[;  nop ;#
+[; ;timer.c: 80: asm(" nop");
+"80
+[;  nop ;#
+[; ;timer.c: 82: ++count;
+"82
+[e =+ _count -> -> 1 `i `us ]
+"85
+}
+[; ;timer.c: 85: } while(prev == TMR0 && count <= 255);
+[e $ && == -> _prev `ui _TMR0 <= -> _count `ui -> -> 255 `i `ui 236  ]
+[e :U 235 ]
+[; ;timer.c: 87: count = ((prev << 8) + (256 - count));
+"87
+[e = _count -> + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui -> _count `ui `us ]
+[; ;timer.c: 88: return count;
+"88
+[e ) _count ]
+[e $UE 233  ]
+[; ;timer.c: 89: }
+"89
+[e :UE 233 ]
+}
+"97
+[v _timer1_init `(v 1 ef1`uc ]
+{
+[; ;timer.c: 96: void
+[; ;timer.c: 97: timer1_init(unsigned char ps_mode) {
+[e :U _timer1_init ]
+[v _ps_mode `uc 1 r1 ]
+[f ]
+[; ;timer.c: 99: T1CON &= ~0b00111110;
+"99
+[e =& _T1CON -> ~ -> 62 `i `uc ]
+[; ;timer.c: 101: T1CON |= (ps_mode & 0b1111) << 4;
+"101
+[e =| _T1CON -> << & -> _ps_mode `i -> 15 `i -> 4 `i `uc ]
+[; ;timer.c: 103: T1CON |= (!!(ps_mode & 0x40)) << 1;
+"103
+[e =| _T1CON -> << -> ! ! != & -> _ps_mode `i -> 64 `i -> 0 `i `i -> 1 `i `uc ]
+[; ;timer.c: 105: if(T1CON & 0b00000010) {
+"105
+[e $ ! != & -> _T1CON `i -> 2 `i -> 0 `i 238  ]
+{
+[; ;timer.c: 109: T1CON |= (!(ps_mode & 0x20)) << 2;
+"109
+[e =| _T1CON -> << -> ! != & -> _ps_mode `i -> 32 `i -> 0 `i `i -> 2 `i `uc ]
+"111
+}
+[e :U 238 ]
+[; ;timer.c: 111: }
+[; ;timer.c: 113: TMR1H = 0;
+"113
+[e = _TMR1H -> -> 0 `i `uc ]
+[; ;timer.c: 114: TMR1L = 0;
+"114
+[e = _TMR1L -> -> 0 `i `uc ]
+[; ;timer.c: 116: T1CON |= 0b1;
+"116
+[e =| _T1CON -> -> 1 `i `uc ]
+[; ;timer.c: 118: PIR1 &= ~0b1;
+"118
+[e =& _PIR1 -> ~ -> 1 `i `uc ]
+[; ;timer.c: 120: PIE1 &= ~0b1;
+"120
+[e =& _PIE1 -> ~ -> 1 `i `uc ]
+[; ;timer.c: 121: PIE1 |= !!(ps_mode & 0x80);
+"121
+[e =| _PIE1 -> -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i `uc ]
+[; ;timer.c: 122: }
+"122
+[e :UE 237 ]
+}
+"130
 [v _timer2_init `(v 1 ef1`uc ]
 {
-[; ;timer.c: 124: void
-[; ;timer.c: 125: timer2_init(unsigned char ps_mode) {
+[; ;timer.c: 129: void
+[; ;timer.c: 130: timer2_init(unsigned char ps_mode) {
 [e :U _timer2_init ]
 [v _ps_mode `uc 1 r1 ]
 [f ]
-"126
+"131
 [v _ps `uc 1 a ]
-[; ;timer.c: 126: unsigned char ps = ps_mode & 0b1111;
+[; ;timer.c: 131: unsigned char ps = ps_mode & 0b1111;
 [e = _ps -> & -> _ps_mode `i -> 15 `i `uc ]
-"127
-[v _postscaler `uc 1 a ]
-[; ;timer.c: 127: unsigned char postscaler = 0;
-[e = _postscaler -> -> 0 `i `uc ]
-[; ;timer.c: 130: T2CON &= ~0b01111111;
-"130
-[e =& _T2CON -> ~ -> 127 `i `uc ]
-[; ;timer.c: 132: T2CON |= (postscaler & 0b1111) << 3;
 "132
-[e =| _T2CON -> << & -> _postscaler `i -> 15 `i -> 3 `i `uc ]
-[; ;timer.c: 133: T2CON |= (ps & 0b11);
-"133
-[e =| _T2CON -> & -> _ps `i -> 3 `i `uc ]
-[; ;timer.c: 135: TMR2 = 0;
+[v _postscaler `uc 1 a ]
+[; ;timer.c: 132: unsigned char postscaler = 0;
+[e = _postscaler -> -> 0 `i `uc ]
+[; ;timer.c: 135: T2CON &= ~0b01111111;
 "135
-[e = _TMR2 -> -> 0 `i `uc ]
-[; ;timer.c: 137: T2CON |= 0b100;
+[e =& _T2CON -> ~ -> 127 `i `uc ]
+[; ;timer.c: 137: T2CON |= (postscaler & 0b1111) << 3;
 "137
-[e =| _T2CON -> -> 4 `i `uc ]
-[; ;timer.c: 140: PIR1 &= ~0b10;
+[e =| _T2CON -> << & -> _postscaler `i -> 15 `i -> 3 `i `uc ]
+[; ;timer.c: 138: T2CON |= (ps & 0b11);
+"138
+[e =| _T2CON -> & -> _ps `i -> 3 `i `uc ]
+[; ;timer.c: 140: TMR2 = 0;
 "140
-[e =& _PIR1 -> ~ -> 2 `i `uc ]
-[; ;timer.c: 141: PIE1 = (!!(ps_mode & 0x80)) << 1;
-"141
-[e = _PIE1 -> << -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i -> 1 `i `uc ]
-[; ;timer.c: 142: }
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;timer.c: 142: T2CON |= 0b100;
 "142
-[e :UE 231 ]
+[e =| _T2CON -> -> 4 `i `uc ]
+[; ;timer.c: 145: PIR1 &= ~0b10;
+"145
+[e =& _PIR1 -> ~ -> 2 `i `uc ]
+[; ;timer.c: 146: PIE1 = (!!(ps_mode & 0x80)) << 1;
+"146
+[e = _PIE1 -> << -> ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i `i -> 1 `i `uc ]
+[; ;timer.c: 147: }
+"147
+[e :UE 239 ]
 }
