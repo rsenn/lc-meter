@@ -6,13 +6,13 @@
 
 # Macros
 TOP=`pwd`
-CND_CONF=release
+CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=lcmeter16f876axc8.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_18f2550_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=LC_meter_18f2550_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=lcmeter18f2550xc8.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/lcmeter16f876axc8.x/bin
+makeDirectory ${TMPDIR}/lcmeter18f2550xc8.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/lcmeter16f876axc8.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/lcmeter18f2550xc8.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lcmeter16f876axc8.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/lcmeter18f2550xc8.x.tar *
 checkReturnCode
 
 # Cleanup
