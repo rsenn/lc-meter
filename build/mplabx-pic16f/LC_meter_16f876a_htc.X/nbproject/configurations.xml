@@ -28,6 +28,7 @@
         <itemPath>../../../lib/uart.c</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="src" projectFiles="true">
+        <itemPath>../../../src/measure.c</itemPath>
       </logicalFolder>
       <itemPath>../../../src/print.c</itemPath>
       <itemPath>../../../lib/format.c</itemPath>
@@ -88,7 +89,7 @@
         <property key="define-macros"
                   value="__HTC=1;USE_TIMER2=1;USE_SER=1;XTAL_FREQ=20000000;BAUD_RATE=38400;__16f876a=1;USE_TIMER0=1"/>
         <property key="extra-include-directories"
-                  value="../../mplab;.;../../../src;../../../lib"/>
+                  value="../../..;../../../src;../../../lib"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="pro"/>
         <property key="optimization-assembler" value="true"/>
