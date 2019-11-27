@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=LC_meter_16f876a_xc8.X
 
 # Active Configuration
-DEFAULTCONF=debug_pickit3
+DEFAULTCONF=default
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default debug_vsm release debug_pickit3 
+ALLCONFS=default 
 
 
 # build
@@ -46,18 +46,12 @@ ALLCONFS=default debug_vsm release debug_pickit3
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_vsm clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_pickit3 clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_vsm build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=release build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug_pickit3 build
 
 
 

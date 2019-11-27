@@ -24,14 +24,14 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=LC_meter_16f876a_htc.X
+PROJECTNAME=LC_meter_18f2450_htc.X
 
 # Active Configuration
-DEFAULTCONF=debug
+DEFAULTCONF=default
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=default debug 
+ALLCONFS=default 
 
 
 # build
@@ -46,14 +46,12 @@ ALLCONFS=default debug
 # clobber
 .clobber-impl: .clobber-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default clean
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug clean
 
 
 
 # all
 .all-impl: .all-pre .depcheck-impl
 	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=default build
-	    ${MAKE} SUBPROJECTS=${SUBPROJECTS} CONF=debug build
 
 
 
