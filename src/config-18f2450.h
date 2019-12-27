@@ -37,11 +37,16 @@ __CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
 #define OSC_HSPLL 0xFEFF
 #endif
 #elif defined(HI_TECH_C)
-//#include <pic18fregs.h>
-
 __CONFIG(__CONFIG1L, 0xFFFF);
 __CONFIG(__CONFIG1H, FOSC_HS & FCMEN_ON & IESO_OFF);
 __CONFIG(__CONFIG4L, XINST_OFF & STVREN_ON & DEBUG_ON & LVP_OFF);
+
+#elif defined(SDCC)
+#include <pic18fregs.h>
+
+__CONFIG(__CONFIG1L, 0xFFFF);
+__CONFIG(__CONFIG1H, _FOSC_HS_1H & _FCMEN_ON_1H & _IESO_OFF_1H);
+__CONFIG(__CONFIG4L, _XINST_OFF_4L & _STVREN_ON_4L & _DEBUG_ON_4L & _LVP_OFF_4L);
 #endif
 
 #endif // defined CONFIG_18F2450_H
