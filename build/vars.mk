@@ -32,6 +32,9 @@ CODE_OFFSET = 0x2000
 ifeq ($(CODE_OFFSET),0x0)
 CODE_OFFSET := 
 endif
+ifeq ($(CODE_OFFSET),0x0000)
+CODE_OFFSET := 
+endif
 ifeq ($(CODE_OFFSET),0)
 CODE_OFFSET := 
 endif
