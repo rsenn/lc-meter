@@ -2,9 +2,9 @@
 #define CONFIG_BITS_H 1
 
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
-#ifndef FOSC_HS
-#define FOSC_HS HS
-#endif
+//#ifndef FOSC_HS
+//#define FOSC_HS HS
+//#endif
 
 #ifndef WDTE_OFF
 #define WDTE_OFF WDTDIS
