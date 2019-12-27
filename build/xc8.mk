@@ -85,6 +85,9 @@ COMMON_FLAGS += -N127
 #COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
 COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib"
 
+ifeq ($(CODE_OFFSET),0x0000)
+CODE_OFFSET := 
+endif
 #ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),)
 LDFLAGS += --codeoffset=$(CODE_OFFSET)
