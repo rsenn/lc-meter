@@ -46,7 +46,7 @@ PROGRAM := LC_meter_HD44780
 endif
 
 ifneq ($(CODEOFFSET),0)
-BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_at$(CODEOFFSET)
+BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps$(if $(CODEOFFSET),_at$(CODEOFFSET))
 else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
