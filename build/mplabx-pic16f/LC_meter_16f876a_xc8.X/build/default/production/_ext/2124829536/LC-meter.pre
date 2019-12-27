@@ -1308,9 +1308,6 @@ typedef signed char int8_t;
 # 20
 typedef signed int int16_t;
 
-# 28
-typedef signed short long int int24_t;
-
 # 36
 typedef signed long int int32_t;
 
@@ -1319,9 +1316,6 @@ typedef unsigned char uint8_t;
 
 # 49
 typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
 
 # 63
 typedef unsigned long int uint32_t;
@@ -1332,8 +1326,8 @@ typedef signed char int_least8_t;
 # 78
 typedef signed int int_least16_t;
 
-# 90
-typedef signed short long int int_least24_t;
+# 86
+typedef signed long int int_least24_t;
 
 # 98
 typedef signed long int int_least32_t;
@@ -1344,8 +1338,8 @@ typedef unsigned char uint_least8_t;
 # 111
 typedef unsigned int uint_least16_t;
 
-# 121
-typedef unsigned short long int uint_least24_t;
+# 118
+typedef unsigned long int uint_least24_t;
 
 # 128
 typedef unsigned long int uint_least32_t;
@@ -1356,8 +1350,8 @@ typedef signed char int_fast8_t;
 # 144
 typedef signed int int_fast16_t;
 
-# 156
-typedef signed short long int int_fast24_t;
+# 152
+typedef signed long int int_fast24_t;
 
 # 164
 typedef signed long int int_fast32_t;
@@ -1368,8 +1362,8 @@ typedef unsigned char uint_fast8_t;
 # 177
 typedef unsigned int uint_fast16_t;
 
-# 187
-typedef unsigned short long int uint_fast24_t;
+# 184
+typedef unsigned long int uint_fast24_t;
 
 # 194
 typedef unsigned long int uint_fast32_t;
@@ -1573,17 +1567,15 @@ timer0_init(0b1000 | 0x20 | 0x40);
 # 139
 OPTION_REG &= ~0b100000;
 
+# 145
+TRISC = 0b10111011;
+
 
 
 TRISC &= ~0b00000100;
 PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
 
 timer2_init(0b000 | 0x80);
-
-
-
-
-TRISC = 0b10111011;
 
 # 160
 lcd_init(1);

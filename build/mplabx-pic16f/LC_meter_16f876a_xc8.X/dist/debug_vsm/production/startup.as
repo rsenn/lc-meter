@@ -12,9 +12,9 @@
 	; -DXPRJ_debug_vsm=debug_vsm --double=32 --float=32 \
 	; --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro \
 	; -D__XC=1 -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 \
-	; -DUSE_HD44780_LCD=1 -DUSE_SER=1 -DXTAL_FREQ=20000000 \
-	; -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I../../.. -I../../../src \
-	; -I../../../lib --warn=-3 --asmlist \
+	; -DUSE_HD44780_LCD=1 -DUSE_UART=1 -DXTAL_FREQ=20000000 \
+	; -DBAUD_RATE=38400 -D__16f876a=1 -P -N255 -I../../mplab -I. \
+	; -I../../../src -I../../../lib --warn=-3 --asmlist \
 	; --summary=default,-psect,-class,+mem,-hex,-file \
 	; --output=default,-inhx032 \
 	; --runtime=default,+clear,+init,+keep,-no_startup,+osccal,+oscval:0x3400,+resetbits,+download,+stackcall,+clib \
@@ -25,13 +25,14 @@
 	; --summarydir=dist/debug_vsm/production/memoryfile.xml \
 	; -odist/debug_vsm/production/LC_meter_16f876a_xc8.X.production.cof \
 	; build/debug_vsm/production/_ext/1386528437/print.p1 \
+	; build/debug_vsm/production/_ext/1386521430/ser.p1 \
 	; build/debug_vsm/production/_ext/1386521430/timer.p1 \
 	; build/debug_vsm/production/_ext/1386521430/format.p1 \
-	; build/debug_vsm/production/_ext/2124829536/LC-meter.p1 \
+	; build/debug_vsm/production/_ext/1386528437/LC-meter.p1 \
 	; build/debug_vsm/production/_ext/1386521430/lcd44780.p1 \
 	; build/debug_vsm/production/_ext/1386521430/buffer.p1 \
 	; build/debug_vsm/production/_ext/2037789166/measure.p1 \
-	; build/debug_vsm/production/_ext/1386521430/ser.p1
+	; build/debug_vsm/production/_ext/1386521430/uart.p1
 	;
 
 

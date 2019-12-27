@@ -999,27 +999,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
 [; ;stdint.h: 36: typedef signed long int int32_t;
 [; ;stdint.h: 43: typedef unsigned char uint8_t;
 [; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
 [; ;stdint.h: 63: typedef unsigned long int uint32_t;
 [; ;stdint.h: 71: typedef signed char int_least8_t;
 [; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 86: typedef signed long int int_least24_t;
 [; ;stdint.h: 98: typedef signed long int int_least32_t;
 [; ;stdint.h: 105: typedef unsigned char uint_least8_t;
 [; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 118: typedef unsigned long int uint_least24_t;
 [; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
 [; ;stdint.h: 137: typedef signed char int_fast8_t;
 [; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 152: typedef signed long int int_fast24_t;
 [; ;stdint.h: 164: typedef signed long int int_fast32_t;
 [; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
 [; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 184: typedef unsigned long int uint_fast24_t;
 [; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
 [; ;stdint.h: 200: typedef int32_t intmax_t;
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
@@ -1146,9 +1144,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `ui
 ]
 [; ;LC-meter.c: 75: volatile uint16_t blink = 0;
-[v F1169 `(v ~T0 @X0 1 tf ]
+[v F1167 `(v ~T0 @X0 1 tf ]
 "81
-[v _global_int `IF1169 ~T0 @X0 1 e ]
+[v _global_int `IF1167 ~T0 @X0 1 e ]
 {
 [; ;LC-meter.c: 80: void interrupt
 [; ;LC-meter.c: 81: global_int(void) {
@@ -1256,19 +1254,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LC-meter.c: 139: OPTION_REG &= ~0b100000;
 "139
 [e =& _OPTION_REG -> ~ -> 32 `i `uc ]
-[; ;LC-meter.c: 143: TRISC &= ~0b00000100;
-"143
+[; ;LC-meter.c: 145: TRISC = 0b10111011;
+"145
+[e = _TRISC -> -> 187 `i `uc ]
+[; ;LC-meter.c: 149: TRISC &= ~0b00000100;
+"149
 [e =& _TRISC -> ~ -> 4 `i `uc ]
-[; ;LC-meter.c: 144: PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
-"144
+[; ;LC-meter.c: 150: PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
+"150
 [e =& _PORTC -> ~ -> 4 `i `uc ]
 [e =| _PORTC -> << -> ! ! != -> 1 `i -> 0 `i `i -> 2 `i `uc ]
-[; ;LC-meter.c: 146: timer2_init(0b000 | 0x80);
-"146
+[; ;LC-meter.c: 152: timer2_init(0b000 | 0x80);
+"152
 [e ( _timer2_init (1 -> | -> 0 `i -> 128 `i `uc ]
-[; ;LC-meter.c: 151: TRISC = 0b10111011;
-"151
-[e = _TRISC -> -> 187 `i `uc ]
 [; ;LC-meter.c: 160: lcd_init(1);
 "160
 [e ( _lcd_init (1 -> -> 1 `i `uc ]
@@ -1402,13 +1400,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _testloop ]
 [f ]
 "240
-[v F1177 `uc ~T0 @X0 1 s led ]
-[i F1177
+[v F1175 `uc ~T0 @X0 1 s led ]
+[i F1175
 -> -> 0 `i `uc
 ]
 "241
-[v F1178 `ui ~T0 @X0 1 s prev_s ]
-[i F1178
+[v F1176 `ui ~T0 @X0 1 s prev_s ]
+[i F1176
 -> -> 0 `i `ui
 ]
 "242
@@ -1469,7 +1467,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _lcd_send (2 , -> ? != -> ! ! != & -> _PORTC `i -> 16 `i -> 0 `i `i -> 0 `i : -> 49 `ui -> 48 `ui `uc -> -> 1 `i `uc ]
 [; ;LC-meter.c: 279: if(s != prev_s) {
 "279
-[e $ ! != _s F1178 106  ]
+[e $ ! != _s F1176 106  ]
 {
 [; ;LC-meter.c: 281: format_number(s, 10, 0);
 "281
@@ -1479,7 +1477,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _ser_puts (1 :s 9C ]
 [; ;LC-meter.c: 286: prev_s = s;
 "286
-[e = F1178 _s ]
+[e = F1176 _s ]
 "287
 }
 [e :U 106 ]
