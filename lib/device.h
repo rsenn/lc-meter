@@ -1,5 +1,5 @@
-#ifndef DEVICE_H
-#define DEVICE_H
+#ifndef LIB_DEVICE_H
+#define LIB_DEVICE_H
 
 #if defined(__SDCC) || defined(SDCC)
 #ifndef SDCC
@@ -452,4 +452,4 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #endif
 
-#endif /* DEVICE_H */
+#endif /* LIB_DEVICE_H */
