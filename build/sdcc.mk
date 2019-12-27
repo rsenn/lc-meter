@@ -78,11 +78,13 @@ OBJECTS = $(SOURCES:%.c=$(OBJDIR)%.o)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.s)
 PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 
-#ifneq ($(CODE_OFFSET),0)
+ifneq ($(CODE_OFFSET),0x0000)
+ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),)
-LDFLAGS += --codeoffset=$(CODE_OFFSET)
+LDFLAGS += --code-loc=$$(($(CODE_OFFSET)))
 endif
-#endif
+endif
+endif
 #
 ifeq ($(OPT),speed)
 OPT_SPEED = --opt-code-speed

@@ -185,20 +185,6 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define CMCONbits CM1CON0bits
 #endif
 
-#if defined(__18f25k22) // || defined(__18f25k50)
-#define SPEN SPEN1
-
-#define TXEN TXEN1
-#define CREN CREN1
-#define RX9D RX9D1
-#define BRGH BRGH1
-#define RX9 RX91
-#define TX9 TX91
-#define OERR OERR1
-#define SYNC SYNC1
-
-//#define SSPEN SSPEN1
-#endif
 
 #if defined(PIC18) || defined(PIC12)
 #define TMR1CS T1CONbits.TMR1CS
@@ -398,23 +384,72 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #endif
 
 #if defined(__SDCC) || defined(SDCC)
-#define NOP() __asm nop __endasm
 
+#if defined(__18f25k22) // || defined(__18f25k50)
+#define SPEN SPEN1
+
+#define TXEN TXEN1
+#define CREN CREN1
+#define RX9D RX9D1
+#define BRGH BRGH1
+#define RX9 RX91
+#define TX9 TX91
+#define OERR OERR1
+#define SYNC SYNC1
+
+//#define SSPEN SSPEN1
+#endif
+
+#ifndef NOP
+#define NOP() __asm nop __endasm
+#endif
+
+#ifndef GIE
 #define GIE INTCONbits.GIE
+#endif // defined(GIE)
+#ifndef PEIE
 #define PEIE INTCONbits.PEIE
+#endif // defined(PEIE)
+#ifndef RCIF
 #define RCIF PIR1bits.RCIF
+#endif // defined(RCIF)
+#ifndef TXIF
 #define TXIF PIR1bits.TXIF
+#endif // defined(TXIF)
+#ifndef RCIE
 #define RCIE PIE1bits.RCIE
+#endif // defined(RCIE)
+#ifndef TXIE
 #define TXIE PIE1bits.TXIE
+#endif // defined(TXIE)
+#ifndef RCEN
 #define RCEN RCSTAbits.RCEN
+#endif // defined(RCEN)
+#ifndef RX9
 #define RX9 RCSTAbits.RX9
+#endif // defined(RX9)
+#ifndef OERR
 #define OERR RCSTAbits.OERR
+#endif // defined(OERR)
+#ifndef CREN
 #define CREN RCSTAbits.CREN
+#endif // defined(CREN)
+#ifndef SPEN
 #define SPEN RCSTAbits.SPEN
+#endif // defined(SPEN)
+#ifndef TXEN
 #define TXEN TXSTAbits.TXEN
+#endif // defined(TXEN)
+#ifndef TX9
 #define TX9 TXSTAbits.TX9
+#endif // defined(TX9)
+#ifndef BRGH
 #define BRGH TXSTAbits.BRGH
+#endif // defined(BRGH)
+#ifndef SYNC
 #define SYNC TXSTAbits.SYNC
+#endif // defined(SYNC)
+
 #endif
 
 #endif /* DEVICE_H */
