@@ -78,9 +78,9 @@ OBJECTS = $(SOURCES:%.c=$(OBJDIR)%.o)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.s)
 PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 
-#ifneq ($(CODEOFFSET),0)
-ifneq ($(CODEOFFSET),)
-LDFLAGS += --codeoffset=$(CODEOFFSET)
+#ifneq ($(CODE_OFFSET),0)
+ifneq ($(CODE_OFFSET),)
+LDFLAGS += --codeoffset=$(CODE_OFFSET)
 endif
 #endif
 #

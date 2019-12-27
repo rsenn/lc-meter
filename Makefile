@@ -21,6 +21,10 @@ ifeq ($(BAUD_RATES),)
 BAUD_RATES := 19200 38400
 endif
 
+ifeq ($(CODE_OFFSETS),)
+CODE_OFFSETS := 0x0000 0x0800 0x1000 0x2000
+endif
+
 ifeq ($(BUILD_TYPE),debug)
 DEBUG = 1
 else
@@ -43,6 +47,7 @@ COMPILERS := $(firstword $(strip $(COMPILERS)))
 XTAL_FREQS := $(firstword $(strip $(XTAL_FREQS)))
 BAUD_RATES := $(firstword $(strip $(BAUD_RATES)))
 CHIPS := $(firstword $(strip $(CHIPS)))
+CODE_OFFSETS := $(firstword $(strip $(CODE_OFFSETS)))
 #$(info BUILD_TYPES="$(BUILD_TYPES)" COMPILERS="$(COMPILERS)" XTAL_FREQS="$(XTAL_FREQS)" BAUD_RATES="$(BAUD_RATES)" CHIPS="$(CHIPS)" BUILD_TYPES="$(BUILD_TYPES)")
 endif
 
@@ -62,6 +67,15 @@ MAKE_LOOP := for CHIP in $(call get-list,CHIP); do $(MAKE_LOOP); done
 else
 ifneq ($(call get-list,CHIP),)
 MAKE_CMD += CHIP=$(call get-list,CHIP)
+endif
+endif
+
+ifneq ($(call is-list,CODE_OFFSET),)
+MAKE_CMD +=  CODE_OFFSET=$$CODE_OFFSET
+MAKE_LOOP := for CODE_OFFSET in $(call get-list,CODE_OFFSET); do $(MAKE_LOOP); done
+else
+ifneq ($(call get-list,CODE_OFFSET),)
+MAKE_CMD += CODE_OFFSET=$(call get-list,CODE_OFFSET)
 endif
 endif
 
