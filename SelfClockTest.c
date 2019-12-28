@@ -7,6 +7,14 @@
 #endif
 #include "config-bits.h"
 
+#if defined(HI_TECH_C)
+#warning HTC
+#elif defined(__XC)
+#warning XC
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF
+#endif
+CONFIG(FOSC_HS& WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_OFF& CP_OFF);
+
 #if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
@@ -18,9 +26,9 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
  */
 void
 delay10ms(unsigned char period_10ms) {
-  /*	short i,j = period_10ms;
+  	short i,j = period_10ms;
     for(i = 0; i < j; ++i)
-      __delay_ms(10);*/
+      delay_ms(10);
 }
 
 
@@ -60,9 +68,9 @@ main() {
 
   ser_init();
 
-  PEIE = 1;
+ /* PEIE = 1;
   GIE = 1;
-
+*/
 #ifdef _DEBUG
   delay10ms(5);
 #else
