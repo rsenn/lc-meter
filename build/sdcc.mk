@@ -81,7 +81,7 @@ PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 ifneq ($(CODE_OFFSET),0x0000)
 ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),)
-LDFLAGS += --code-loc=$$(($(CODE_OFFSET)))
+#LDFLAGS += --code-loc=$$(($(CODE_OFFSET)))
 endif
 endif
 endif
