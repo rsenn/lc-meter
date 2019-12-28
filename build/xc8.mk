@@ -6,6 +6,8 @@ VERSION_PATCH = 1
 COMPILER = xc8
 
 -include build/vars.mk
+-include build/targets.mk
+
 
 ifeq ($(PROGRAM),)
 PROGRAM := pictest
@@ -83,6 +85,10 @@ SOURCES = $($(PROGRAM)_SOURCES) $(COMMON_SOURCES)
 COMMON_FLAGS += $($(PROGRAM)_DEFS)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
+
+$(info SOURCES: $(SOURCES))
+$(info SelfClockTest_SOURCES: $(SelfClockTest_SOURCES))
+$(info PROGRAM: $(PROGRAM))
 
 COMMON_FLAGS += -g
 COMMON_FLAGS += -N127

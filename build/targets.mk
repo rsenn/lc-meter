@@ -1,4 +1,9 @@
-COMMON_SOURCES = format.c timer.c delay.c
+$(info targets.mk)
+
+COMMON_SOURCES = format.c timer.c delay.c 
+
+SelfClockTest_SOURCES = SelfClockTest.c ser.c
+SelfClockTest_DEFS = -DUSE_TIMER0=1 -DUSE_SER=1
 
 ifeq ($(subst 18f25k22,,$(BUILDDIR)),$(BUILDDIR))
 USE_SER = -DUSE_SER=1
@@ -80,3 +85,5 @@ ifeq ($(filter 10f% 12f%,$(chipl)),)
 serialtest_DEFS +=  -DUSE_HD44780_LCD=1 
 endif
 serialtest_DEFS += -DUART_BAUD=$(BAUD)
+
+
