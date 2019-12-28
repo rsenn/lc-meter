@@ -1,6 +1,6 @@
 $(info targets.mk)
 
-COMMON_SOURCES = format.c timer.c delay.c 
+COMMON_SOURCES = timer.c delay.c 
 
 SelfClockTest_SOURCES = SelfClockTest.c ser.c
 SelfClockTest_DEFS = -DUSE_TIMER0=1 -DUSE_SER=1
@@ -10,7 +10,7 @@ USE_SER = -DUSE_SER=1
 endif
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c ser.c ser.c
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c ser.c buffer.c
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c ser.c buffer.c format.c
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_HD44780_LCD=1
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER0=1
 #$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1 USE_TIMER2=1
