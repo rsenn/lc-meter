@@ -22,12 +22,12 @@ ifeq ($(CHIP),)
 CHIP := 16F876A
 endif
 
-ifeq ($(CODE_OFFSET),)
-CODE_OFFSET := 0x0
-endif
+#ifeq ($(CODE_OFFSET),)
+#CODE_OFFSET := 0x0
+#endif
 
-CODE_OFFSET := $(CODE_OFFSET:0x%=%)
-CODE_OFFSET = 0x2000
+#CODE_OFFSET := $(CODE_OFFSET:0x%=%)
+#CODE_OFFSET = 0x2000
 
 ifeq ($(CODE_OFFSET),0x0)
 CODE_OFFSET := 
@@ -56,7 +56,7 @@ ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
 endif
 
-ifneq ($(CODE_OFFSET),0)
+ifneq ($(CODE_OFFSET),)
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps$(if $(CODE_OFFSET),_at$(CODE_OFFSET))
 else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
