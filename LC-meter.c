@@ -118,8 +118,8 @@ main() {
 
   // setup comparator
 
-/*  CMCON &= 0b11111000;
-  CMCON |= 0b00000101;*/
+  /*  CMCON &= 0b11111000;
+    CMCON |= 0b00000101;*/
 
 #ifdef __16f876a
   CMCON = 0b00000101;
@@ -145,12 +145,10 @@ main() {
   TRISC = 0b10111011;
 #endif
 
-
   INIT_LED();
   SET_LED(1);
 
   timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
-
 
   // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
@@ -216,7 +214,7 @@ main() {
 
     if(new_mode != mode) {
 #ifdef USE_SER
-      ser_puts(mode ?  "- C (Unit: F) -" : "- L (Unit: H) -");
+      ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
       ser_puts("\r\n");
 #endif
       mode = new_mode;
@@ -229,7 +227,7 @@ main() {
 
     print_indicator(1);
     delay10ms(30);
-    
+
     print_indicator(0);
     delay10ms(20);
   }

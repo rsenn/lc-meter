@@ -11,7 +11,6 @@
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 
-
 #define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))
 
 /*
@@ -26,15 +25,14 @@ delay10ms(unsigned char period_10ms) {
 
 void main();
 
-
 void
 clockOut(int ntimes) {
-static int state;
-for(int i = 0; i < ntimes; i++) {
-  state = !state;
-  RC2 = state;
-  delay10ms(50);
-}
+  static int state;
+  for(int i = 0; i < ntimes; i++) {
+    state = !state;
+    RC2 = state;
+    delay10ms(50);
+  }
 }
 
 /**
@@ -45,35 +43,28 @@ main() {
   TRISA = 0b11001111;
   TRISC = 0b11110000;
 
-#ifdef __16f876a
-  CMCON = 0b00000101;
-#endif
-  TRISA = 0b11001111;
-  
+  // Two Common Reference Comparators with Outputs
+  // CM2:CM0 = 101
+  CMCONbits.CM = 0b101;
+
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | EDGE_HIGH_LOW | TIMER0_FLAGS_8BIT);
+
+  T0SE = 1;
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
   RBPU = 1;
 #else
-#if PIC18
-  INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
-#else
-  OPTION_REG &= ~0b100000;
-#endif
-#endif
-#if !NO_PORTC && !defined(__16f628)
-  //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
-  //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
-  TRISC = 0b10111011;
+  NOT_RBPU = 0;
 #endif
 
 #ifdef USE_SER
   ser_init();
 #endif
 
-  INTCON |= 0xc0; // PEIE = 1; GIE = 1;
+  PEIE = 1;
+  GIE = 1;
 
 #ifdef _DEBUG
   delay10ms(5);
@@ -87,9 +78,23 @@ main() {
    * Blink the print_indicator (-*-) sign after each measurement.
    */
   for(;;) {
-clockOut(10);
-
     ser_puts("...\n");
+
+    TMR0 = 0;
+
+    clockOut(10);
+
+    delay10ms(1);
+
+    unsigned short time_ps = timer0_read_ps();
+
+    ser_puts("PS: ");
+    ser_puthex(time_ps & 0xff);
+    ser_puts("\n");
+    ser_puts("TMR0: ");
+    ser_puthex(time_ps >> 8);
+    ser_puts("\n");
+
     delay10ms(100);
   }
 }

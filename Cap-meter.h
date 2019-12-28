@@ -27,17 +27,17 @@
 #define PI 3.14159265358979323846l
 
 #if PIC18F2550
-#define LC_SELECT OUTC0                // L or C select (from DPDT switch)
+#define LC_SELECT OUTC0              // L or C select (from DPDT switch)
 #define LC_TRIS() TRISC0 = INPUT     // as input
-#define ADD_CCAL() OUTC2 = HIGH        // relay on
-#define REMOVE_CCAL() OUTC2 = LOW      // relay off
+#define ADD_CCAL() OUTC2 = HIGH      // relay on
+#define REMOVE_CCAL() OUTC2 = LOW    // relay off
 #define RELAY_TRIS() TRISC2 = OUTPUT // as output to drive the relay coil
 
 #else
-#define LC_SELECT OUTC4                // L or C select (from DPDT switch)
+#define LC_SELECT OUTC4              // L or C select (from DPDT switch)
 #define LC_TRIS() TRISC4 = INPUT     // as input
-#define ADD_CCAL() OUTC5 = HIGH        // relay on
-#define REMOVE_CCAL() OUTC5 = LOW      // relay off
+#define ADD_CCAL() OUTC5 = HIGH      // relay on
+#define REMOVE_CCAL() OUTC5 = LOW    // relay off
 #define RELAY_TRIS() TRISC5 = OUTPUT // as output to drive the relay coil
 
 #endif
