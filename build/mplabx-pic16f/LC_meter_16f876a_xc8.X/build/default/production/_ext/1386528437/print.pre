@@ -1,18 +1,15 @@
 
 # 1 "../../../src/print.c"
 
-# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
-typedef unsigned char bool;
-
-# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1279,21 +1276,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
+# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
+# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1302,7 +1299,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -1386,10 +1383,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
-typedef bool BOOL;
+# 56 "../../../lib\typedef.h"
+typedef char BOOL;
 
-# 12 "../../../lib/buffer.h"
+# 12 "../../../lib\buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -1398,7 +1395,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 25
+# 26
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -1419,7 +1416,7 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 
-# 48 "../../../lib/lcd44780.h"
+# 48 "../../../lib\lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(uint8_t l, uint8_t ds);
 void lcd_no_autoscroll(void);
@@ -1444,7 +1441,7 @@ void lcd_gotoxy(uint8_t col, uint8_t row);
 
 void lcd_send(uint8_t value, uint8_t mode);
 
-# 48 "../../../lib/ser.h"
+# 48 "../../../lib\ser.h"
 bit ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
@@ -1463,7 +1460,7 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 6 "../../../lib/format.h"
+# 6 "../../../lib\format.h"
 void format_number(uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(uint32_t x);
 void format_double(double num);
