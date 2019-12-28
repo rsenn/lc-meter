@@ -84,24 +84,38 @@ xc8_driver() {
 	esac
 	shift
   done
-	  
+
+ case "$EXE" in
+	 xc8) INCDIR=$(which "$EXE" | sed 's,/bin.*,/include,' ) 
+		 type cygpath && INCDIR=$(cygpath -am "$INCDIR")  ;;
+	 *) 	 
   INCDIR="${EXE%/bin/*}/include"
+  ;;
+esac
 
   if ! type "$EXE" 2>/dev/null 1>/dev/null && [ -z "$EXE" -o ! -e "$EXE" ]; then
     return 1
   fi
+
+  echo "INCDIR='$INCDIR'" 1>&2
   
   
   if [ -n "$CFG" -a -e "$CFG" ]; then
     set -- @$CFG
   else  
-	set -- 	   -D{HI_TECH_C,__PICCPRO__,__PICC__}=1 \
+	set -- 	   -D{__PICCPRO__,__PICC__}=1 \
 		 -D__XC{,8}{,__}=1 \
 		 -p1 \
 		 --disambiguate=0 \
 		 --c++11 \
 		 -S "$INCDIR" \
 		 -F "$SYSINC"
+  case "$EXE" in
+  *xc8*) ;;
+  *picc*) 
+	set -- 	   -DHI_TECH_C=1 "$@" 
+	;;
+	esac
    fi
  (     
  set -e
