@@ -8,4 +8,4 @@
 ../../../lib/device.h  \
 ../../../lib/oscillator.h  \
 ../../../lib/typedef.h  \
-../../../src/lcd44780-config.h 
+../../../lib/lcd44780-config.h 

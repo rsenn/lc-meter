@@ -8,5 +8,5 @@
 ../../../lib/ser.h  \
 ../../../lib/device.h  \
 ../../../lib/typedef.h  \
-../../../src/lcd44780-config.h  \
+../../../lib/lcd44780-config.h  \
 ../../../lib/buffer.h 
