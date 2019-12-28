@@ -115,7 +115,15 @@ measure_freq() {
 
   return count;
 }
+#if USE_SER
+void
+buf_to_ser() {
+  ser_put(buffer.x, buffer.n);
+  BUFFER_CLEAR();
+}
+#endif
 
+	
 /*
  * Calculate capacitance from oscillating frequency (Thompson formula)
  */
@@ -137,23 +145,23 @@ measure_capacitance() {
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(var);
+  format_xint32(var); buf_to_ser();
   ser_puts("\r\nF1=");
-  format_double(F1);
+  format_double(F1); buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F1);
+  format_xint32(*(uint32_t*)&F1); buf_to_ser();
   ser_puts("\r\nF2=");
-  format_double(F2);
+  format_double(F2); buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F2);
+  format_xint32(*(uint32_t*)&F2); buf_to_ser();
   ser_puts("\r\nF3=");
-  format_double(F3);
+  format_double(F3); buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F3);
+  format_xint32(*(uint32_t*)&F3); buf_to_ser();
   ser_puts("\r\nCCal=");
-  format_double(CCal);
+  format_double(CCal); buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&CCal);
+  format_xint32(*(uint32_t*)&CCal); buf_to_ser();
   ser_puts("\r\n");
 #endif
 //  putchar_ptr = &output_putch;
