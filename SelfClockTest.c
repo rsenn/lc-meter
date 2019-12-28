@@ -47,30 +47,35 @@ clockOut(int ntimes) {
  */
 void
 main() {
+  // setup comparator
+  CMCON = 0b00000101;
   TRISA = 0b11001111;
-  TRISC = 0b10110000;
-
-  // Two Common Reference Comparators with Outputs
-  // CM2:CM0 = 101
-  CMCONbits.CM = 0b101;
-
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | EDGE_HIGH_LOW | TIMER0_FLAGS_8BIT);
+  T0CS = 1; // Transition on T0CKI pin
+  T0SE = 1; // Increment on high-to-low transition on T0CKI pin
+  PSA = 0;  // Prescaler is assigned to the Timer0 module
+  PS2 = 1;  // PS2:PS0 -> Prescaler Rate = divide by 256
+  PS1 = 1;
+  PS0 = 1;
 
-  T0SE = 1;
+#ifdef USE_SER
+  ser_init();
+#endif
+#if USE_UART
+  uart_init();
+#endif
+  TRISC &= ~0b01000000;
 
-  // others
-#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
-  RBPU = 1;
+  PEIE = 1;
+  GIE = 1;
+
+#if(_HTC_VER_MINOR_ >= 80) || defined(__XC__)
+  nRBPU = 1; // enable portB internal pullup
 #else
-  NOT_RBPU = 0;
+  RBPU = 0; // enable portB internal pullup
 #endif
 
-  ser_init();
 
- /* PEIE = 1;
-  GIE = 1;
-*/
 #ifdef _DEBUG
   delay10ms(5);
 #else
