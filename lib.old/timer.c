@@ -29,18 +29,29 @@ timer0_init(uint8_t ps_mode) {
 
   TIMER0_VALUE = 0;
 
+
+#ifdef PIC18
+  T0CON |= (!!(ps_mode & TIMER0_FLAGS_8BIT)) ? 0x40 : 0x00;
+#endif
+
+  // If a prescaler is to be assigned to the Timer0 module
+#ifndef PIC18
+  OPTION_REGbits.T0CS = !!(ps_mode & TIMER0_FLAGS_EXTCLK);
+  OPTION_REGbits.T0SE = !!(ps_mode & EDGE_HIGH_LOW);
+
+  if(prescaler > 0) {
+    OPTION_REGbits.PSA = prescaler > 0;
+    OPTION_REGbits.PS = prescaler - 1;
+  }
+#else
+
   // 0: Internal instruction cycle clock (CLKO) or 1: Transition on T0CKI pin
   T0CON |= (!!(ps_mode & TIMER0_FLAGS_EXTCLK)) ? 0x20 : 0x00;
 
   // T0CKI pin: Increment on 1->0 or on 0->1 transition
   T0CON |= (!!(ps_mode & EDGE_HIGH_LOW)) ? 0x10 : 0x00;
 
-#ifdef PIC18
-  T0CON |= (!!(ps_mode & TIMER0_FLAGS_8BIT)) ? 0x40 : 0x00;
-#endif
 
-  
-  // If a prescaler is to be assigned to the Timer0 module
   T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
 
   T0CON &= ~0b111;
@@ -55,6 +66,8 @@ timer0_init(uint8_t ps_mode) {
   }
   //  T0PS = prescaler - 1;
   //#endif
+#endif
+  
 
   INTCON &= ~0x40; // TMR0IF = 0;
   INTCON |= (!!(ps_mode & TIMER0_FLAGS_INTR)) ? 0x20 : 0x00;
