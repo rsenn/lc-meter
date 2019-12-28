@@ -1,18 +1,15 @@
 
 # 1 "../../../lib/buffer.c"
 
-# 12 "/opt/microchip/xc8/v1.34/include/stdbool.h"
-typedef unsigned char bool;
-
-# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1279,21 +1276,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
+# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
+# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1302,7 +1299,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -1387,7 +1384,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 # 56 "../../../lib/typedef.h"
-typedef bool BOOL;
+typedef char BOOL;
 
 # 12 "../../../lib/buffer.h"
 typedef uint8_t len_t;
@@ -1398,7 +1395,7 @@ unsigned p : 4;
 unsigned n : 4;
 } buffer_t;
 
-# 25
+# 26
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -1407,7 +1404,7 @@ char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 
-# 4 "/opt/microchip/xc8/v1.34/include/string.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\string.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
@@ -1480,13 +1477,12 @@ buffer_put(const char* buf, len_t len) {
 len_t i;
 if(len > 16 - buffer.n)
 return -1;
-for(i = 0; i < len; i++)
-buffer.x[buffer.n + i] = buf[i];
+for(i = 0; i < len; i++) buffer.x[buffer.n + i] = buf[i];
 buffer.n += len;
 return 0;
 }
 
-# 56
+# 55
 char
 buffer_puts(const char* x) {
 while(*x) {

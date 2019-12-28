@@ -215,9 +215,10 @@ main() {
     char new_mode = LC_SELECT;
 
     if(new_mode != mode) {
+#ifdef USE_SER
       ser_puts(mode ?  "- C (Unit: F) -" : "- L (Unit: H) -");
       ser_puts("\r\n");
-
+#endif
       mode = new_mode;
     }
 

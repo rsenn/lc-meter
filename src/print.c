@@ -136,7 +136,9 @@ print_unit(uint8_t unit) {
   lcd_gotoxy(16 - BUFFER_LEN(), 0);
 
   // buffer_flush();
+#ifdef USER_SER
   ser_puts("\r\n");
+#endif
 #endif // defined(USE_NOKIA5110_LCD)
 }
 
@@ -228,9 +230,11 @@ put_str(const char* s) {
 
 void
 print_buffer(void) {
+#ifdef USE_SER
   uint8_t i;
   for(i = 0; i < buffer.n; i++) {
     ser_putch(buffer.x[i]);
   }
   ser_puts("\r\n");
+#endif
 }
