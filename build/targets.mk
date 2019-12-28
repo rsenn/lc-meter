@@ -1,5 +1,8 @@
 COMMON_SOURCES = format.c timer.c delay.c
 
+ifneq ($(CHIP),18f25k22)
+USE_SER = -DUSE_SER=1
+endif
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c ser.c ser.c
 LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c ser.c buffer.c
@@ -8,12 +11,12 @@ $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER0=1
 #$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1 USE_TIMER2=1
 
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-#LC_meter_HD44780_DEFS +=  -DUSE_SER=1 
+#LC_meter_HD44780_DEFS +=  $(USE_SER) 
 
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_SER=1 USE_TIMER0=1
 
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-LC_meter_HD44780_DEFS += -DUSE_SER=1 
+LC_meter_HD44780_DEFS += $(USE_SER) 
 LC_meter_HD44780_DEFS +=  -DUSE_TIMER0=1
 #LC_meter_HD44780_DEFS +=  -DUSE_TIMER1=1
 #LC_meter_HD44780_DEFS +=  -DUSE_TIMER2=1
@@ -40,12 +43,12 @@ LC_meter_HD44780_DEFS += $(TIMER_DEFS)
 LC_meter_Nokia5110_SOURCES = LC-meter.c lcd5110.c print.c ser.c ser.c timer.c
 LC_meter_Nokia5110_DEFS = -DUSE_NOKIA5110_LCD=1
 LC_meter_Nokia5110_DEFS += $(TIMER_DEFS)
-LC_meter_Nokia5110_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
+LC_meter_Nokia5110_DEFS += $(USE_SER) -DUSE_TIMER0=1
 LC_meter_Nokia5110_DEFS += -DUSE_TIMER1=1 -DUSE_TIMER2=1
 LC_meter_Nokia5110_CCVER = 9.83
 
 LC_meter_julznc_SOURCES = display.c lcd3310.c main.c ser.c ser.c
-LC_meter_julznc_DEFS += -DNO_JULZNC=1   -DUSE_SER=1
+LC_meter_julznc_DEFS += -DNO_JULZNC=1   $(USE_SER)
 #LC_meter_julznc_CCVER = 9.71a
 
 Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c delay.c
@@ -53,7 +56,7 @@ Freq_meter_HD44780_SOURCES = Freq-meter.c lcd44780.c print.c ser.c delay.c
 Freq_meter_HD44780_DEFS += -DUSE_TIMER0=1
 #Freq_meter_HD44780_DEFS += -DUSE_TIMER1=1
 Freq_meter_HD44780_DEFS += -DUSE_TIMER2=1
-Freq_meter_HD44780_DEFS += -DUSE_SER=1 
+Freq_meter_HD44780_DEFS += $(USE_SER) 
 
 Freq_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 Freq_meter_HD44780_DEFS += $(TIMER_DEFS)
@@ -64,14 +67,14 @@ Freq_meter_Nokia5110_DEFS += $(TIMER_DEFS)
 
 Cap_meter_HD44780_SOURCES = Cap-meter.c lcd44780.c print.c ser.c
 #Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
-Cap_meter_HD44780_DEFS += -DUSE_SER=1 -DUSE_TIMER0=1
+Cap_meter_HD44780_DEFS += $(USE_SER) -DUSE_TIMER0=1
 
 Cap_meter_HD44780_DEFS += -DUART_BAUD=$(BAUD)
 Cap_meter_HD44780_DEFS += $(TIMER_DEFS)
 
 serialtest_SOURCES = serialtest.c ser.c lcd44780.c print.c
 ifeq ($(filter 10f%,$(chipl)),)
-serialtest_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER1=1 -DUSE_SER=1
+serialtest_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER1=1 $(USE_SER)
 endif
 ifeq ($(filter 10f% 12f%,$(chipl)),)
 serialtest_DEFS +=  -DUSE_HD44780_LCD=1 
