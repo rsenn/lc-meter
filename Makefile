@@ -9,21 +9,23 @@ COMPILERS = htc xc8
 endif
 
 ifeq ($(BUILD_TYPES),)
-BUILD_TYPES := debug release
+BUILD_TYPES := debug
+#BUILD_TYPES := debug release
 #BUILD_TYPE := release
 endif
 
 ifeq ($(XTAL_FREQS),)
-XTAL_FREQS := 16000000 20000000 24000000
+#XTAL_FREQS := 16000000 20000000 24000000
+XTAL_FREQS := 20000000
 endif
 
 ifeq ($(BAUD_RATES),)
-BAUD_RATES := 19200 38400
+BAUD_RATES := 38400
 endif
 
-ifeq ($(CODE_OFFSETS),)
-CODE_OFFSETS := 0x0000 0x0800 0x1000 0x2000
-endif
+# ifeq ($(CODE_OFFSETS),)
+# CODE_OFFSETS := 0x0000 0x0800 0x1000 0x2000
+# endif
 
 ifeq ($(BUILD_TYPE),debug)
 DEBUG = 1
