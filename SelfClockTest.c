@@ -27,13 +27,29 @@ delay10ms(unsigned char period_10ms) {
 void main();
 
 
+void
+clockOut(int ntimes) {
+static int state;
+for(int i = 0; i < ntimes; i++) {
+  state = !state;
+  RC2 = state;
+  delay10ms(50);
+}
+}
+
 /**
  * @brief      { function_description }
  */
 void
 main() {
   TRISA = 0b11001111;
+  TRISC = 0b11110000;
 
+#ifdef __16f876a
+  CMCON = 0b00000101;
+#endif
+  TRISA = 0b11001111;
+  
   // setup timer0 for frequency counter
   timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
 
@@ -71,7 +87,9 @@ main() {
    * Blink the print_indicator (-*-) sign after each measurement.
    */
   for(;;) {
+clockOut(10);
+
     ser_puts("...\n");
-    delay10ms(30);
+    delay10ms(100);
   }
 }
