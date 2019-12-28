@@ -23,7 +23,6 @@ delay10ms(unsigned char period_10ms) {
       __delay_ms(10);*/
 }
 
-void main();
 
 void
 clockOut(int ntimes) {
@@ -41,7 +40,7 @@ clockOut(int ntimes) {
 void
 main() {
   TRISA = 0b11001111;
-  TRISC = 0b11110000;
+  TRISC = 0b10110000;
 
   // Two Common Reference Comparators with Outputs
   // CM2:CM0 = 101
@@ -59,9 +58,7 @@ main() {
   NOT_RBPU = 0;
 #endif
 
-#ifdef USE_SER
   ser_init();
-#endif
 
   PEIE = 1;
   GIE = 1;
