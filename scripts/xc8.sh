@@ -58,11 +58,12 @@ xc8_driver() {
   while [ $# -gt 0 ]; do
 	case "$1" in
 	   @*) CFG="${1#@}"; shift ;;
-	   *.exe|*/xc8) EXE="$1"; shift ;;
+	   *.exe|*/xc8|xc8) EXE="$1"; shift ;;
 	   -C | -P | -Q | -S | \
 --asmlist | --chipinfo | --echo | --maxipic | --nodel | --nofallback | --pass1 | --pre | --proto | --scandep | --shroud | \
 --ASMLIST | --CHIPINFO | --ECHO | --MAXIPIC | --NODEL | --NOFALLBACK | --PASS1 | --PRE | --PROTO | --SCANDEP | --SHROUD) pushv CFLAGS "$1"; shift ;;
-	   -[Vv]) pushv CFLAGS -V ; shift ;;
+	   -v) VERBOSE=true; shift ;;
+	   -V) pushv CFLAGS -V ; shift ;;
 	  -I) pushv CPPFLAGS -I "$2"; shift 2 ;; -I*) pushv CPPFLAGS -I "${1#-I}"; shift ;;
 	  -D) pushv CPPFLAGS -D "$2"; shift 2 ;; -D*) pushv CPPFLAGS -D"${1#-D}"; shift ;;
 	  --OUTDIR=* | --outdir=*) OUTDIR=${1#*=}; shift ;;
@@ -86,7 +87,7 @@ xc8_driver() {
 	  
   INCDIR="${EXE%/bin/*}/include"
 
-  if [ -z "$EXE" -o ! -e "$EXE" ]; then
+  if ! type "$EXE" 2>/dev/null 1>/dev/null && [ -z "$EXE" -o ! -e "$EXE" ]; then
     return 1
   fi
   
@@ -102,18 +103,23 @@ xc8_driver() {
 		 -S "$INCDIR" \
 		 -F "$SYSINC"
    fi
-   SYS=$(uname -s)
-   case "$SYS" in
-	   Linux) EXEEXT=.elf ;;
-   esac
  (     
  set -e
-  A="cpp-xc8" \
-  exec_bin "$MYDIR/../cpp-xc8$EXEEXT" "$@" $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
+  A="${CPP_XC8}" \
+  exec_bin "$MYDIR/../${CPP_XC8}" "$@" $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
 	  
    A="xc8" exec_bin "$EXE" $CFLAGS --outdir="$OUTDIR" "$OUTDIR/${ARG##*/}" 
   )
  }
+
+ SYSTEM=$(uname -s)
+ ARCH=$(uname -m)
+ case "$SYSTEM:$ARCH" in
+    Linux:x86_64) CPP_XC8="wave-xc8-lin64" ;;
+    Linux:*) CPP_XC8="wave-xc8" ;;
+    *:*) CPP_XC8="cpp-xc8.exe" ;;
+ esac
+
  case $MYNAME in
    -*) ;;
    *) xc8_driver "$@" ; exit $? ;;
