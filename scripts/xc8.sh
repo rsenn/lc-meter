@@ -133,6 +133,7 @@ esac
     Linux:*) CPP_XC8="wave-xc8" ;;
     *:*) CPP_XC8="cpp-xc8.exe" ;;
  esac
+ [ -e "$MYDIR/../${CPP_XC8}"  -a '!' -x "$MYDIR/../${CPP_XC8}" ] && chmod +x "$MYDIR/../${CPP_XC8}" 
 
  case $MYNAME in
    -*) ;;
