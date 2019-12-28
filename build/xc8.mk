@@ -6,13 +6,12 @@ VERSION_PATCH = 1
 COMPILER = xc8
 
 -include build/vars.mk
--include build/targets.mk
 
 ifeq ($(PROGRAM),)
 PROGRAM := pictest
 endif
 
-define nl = 
+define nl =
 $(empty)
 $(empty)
 endef
@@ -22,20 +21,24 @@ endef
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
-#CCVER = v1.34
-CCVER = v1.43
+CCVER = v1.34
 
-PROGRAMFILES = C:/Program Files (x86)
+PROGRAMFILES ?= C:/Program Files (x86)
 
 OS = $(shell uname -o)
 
 #PICC = $(shell which picc 2>/dev/null)
+ifeq ($(OS),GNU/Linux)
+PICC = /opt/microchip/xc8/v1.34/bin/xc8
+endif
 
 ifeq ($(PICC),)
 ifeq ($(OS),GNU/Linux)
-CCDIR = /opt/microchip/xc8/$(CCVER)
+CCDIR = /opt/microchip/xc8/v1.34
 else
+#CCDIR = $(patsubst %/bin,%,$(dir $(PICC)))
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
+CCDIR := 
 endif
 endif
 
@@ -50,10 +53,14 @@ else
 COMPILER_NAME = picc
 endif
 
+ifneq ($(PICC),)
+
+else
 ifneq ($(CCDIR),)
 PICC = "$(CCDIR)/bin/$(COMPILER_NAME)"
 else
 PICC = $(COMPILER_NAME)
+endif
 endif
 
 ifeq ($(strip $(PICC)),)
@@ -68,13 +75,12 @@ LD = $(PICC)
 #RM = del /f
 DISTFILES = Makefile build/xc8.mk build/sdcc.mk
 
-OPT = speed
+OPT = space
 
 #DEFINES += HI_TECH_C=1
-DEFINES += MCHP_XC8=1
 
-SOURCES =  $(COMMON_SOURCES) $($(subst -,_,$(PROGRAM))_SOURCES)
-COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS) $(DEFINES:%=-D%)
+SOURCES = $($(PROGRAM)_SOURCES) $(COMMON_SOURCES)
+COMMON_FLAGS += $($(PROGRAM)_DEFS)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 
@@ -85,37 +91,33 @@ COMMON_FLAGS += -N127
 #COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
 COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib"
 
-ifeq ($(CODE_OFFSET),0x0000)
-CODE_OFFSET := 
-else
+ifneq ($(CODE_OFFSET),0)
+ifneq ($(CODE_OFFSET),0x0000)
 ifneq ($(CODE_OFFSET),)
 LDFLAGS += --codeoffset=$(CODE_OFFSET)
 endif
 endif
-
-OPTLEVEL := 3
+endif
 
 ifeq ($(OPT),speed)
-OPT_SPEED = ,-space,+speed,$(OPTLEVEL)
+OPT_SPEED = ,+speed,-space,9
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,-speed,+space,$(OPTLEVEL)
+OPT_SPEED = ,+speed,-space,9
 endif
 
-ifneq ($(BUILD_TYPE),debug)
-
-ifneq ($(DEBUGGER),)
-COMMON_FLAGS += --debugger=$(DEBUGGER)
-endif
-
+ifneq ($(DEBUG),1)
 COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
 #COMMON_FLAGS += -D__DEBUG=1
 else
-COMMON_FLAGS += --opt="default,+asm,+debug$(OPT_SPEED)"
+COMMON_FLAGS += -G --opt="default,+asm,+debug$(OPT_SPEED)"
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
 
-COMMON_FLAGS += --double=32 --float=32
+COMMON_FLAGS += --debugger=icd2
+
+
+COMMON_FLAGS += --double=32 --float=24
 
 COMMON_FLAGS += --warn=9
 COMMON_FLAGS += --asmlist
@@ -189,9 +191,9 @@ $(HEXFILE): $(P1OBJS)
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
 
 $(P1OBJS): $(OBJDIR)%.p1: %.c
-#	(cd obj; $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$< #; R=$$?; echo; exit $$R)
 	-mkdir -p $(OBJDIR)
-	@(cd obj; $(SHELL) ../scripts/xc8.sh $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),) $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
+#	(cd obj; $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$< #; R=$$?; echo; exit $$R)
+	(cd obj; $(SHELL) ../scripts/xc8.sh -v $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),) $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
 #	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
