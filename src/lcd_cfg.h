@@ -75,7 +75,7 @@ Contact information :
 #define DEFAULT_DISPLAY_CONFIG DISPLAY_CONFIG_4bit_2L_5x8
 #define DEFAULT_ENTRY_MODE ENTRY_MODE_INC_NO_SHIFT
 #define DEFAULT_VIEW_MODE VIEW_MODE_DispOn_BlkOff_CrsOff
-#define USE_BUSY_FLAG 0 /* 1 (true) or 0 (false) */
+#define USE_BUSY_FLAG 0 /* 1 (1) or 0 (false) */
 
 //-------------------------------
 // SET MCU TIMINGS
@@ -94,14 +94,14 @@ Contact information :
 //-------------------------------
 // SET FORMATTED OUTPUT OPTIONS
 //-------------------------------
-#define USE_FORMATTED_OUTPUT 1 /* 1 (true) or 0 (false) */
+#define USE_FORMATTED_OUTPUT 1 /* 1 (1) or 0 (false) */
 #define TAB_SPACE 4            /* 1 .. 255 */
 
 //-------------------------------
 // PROGRESS BAR OPTIONS
 //-------------------------------
-#define USE_PROGRESS_BAR 1             /* 1 (true) or 0 (false) */
-#define USE_REGRESS_BAR 1              /* 1 (true) or 0 (false) */
+#define USE_PROGRESS_BAR 1             /* 1 (1) or 0 (false) */
+#define USE_REGRESS_BAR 1              /* 1 (1) or 0 (false) */
 #define PROGRESS_BAR_LINE LCD_2nd_LINE /* Select lcd line: 1, 2, 3, 4, ... */
 #define PROGRESS_BAR_HEIGHT 8          /* in pixel: 1(min), 2, 3, 4, 5, 6, 7, 8(max) */
 #define PROGRESS_BAR_WIDTH 16          /* Number of chars in lcd line:  1, 2, .. , 8, 16, 20 */
