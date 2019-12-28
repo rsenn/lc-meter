@@ -125,6 +125,8 @@ main() {
   CMCON = 0b00000101;
 #endif
   TRISA = 0b11001111;
+  
+  TRISB &= 0b00001111;
 
   // setup timer0 for frequency counter
   timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
