@@ -52,10 +52,37 @@
 	"buffers":
 	[
 		{
-			"file": "htc-18f2455-debug.mk",
+			"file": "/opt/microchip/xc8/v1.34/include/pic16f876a.h",
 			"settings":
 			{
-				"buffer_size": 4098,
+				"buffer_size": 138112,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "LC-meter.c",
+			"settings":
+			{
+				"buffer_size": 5654,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 266 files for \"TRISB\" (case sensitive)\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/7segment.h:\n   71: #define DISPLAY_DATA_TRIS TRISB\n   82: #define BUTTON_TRIS TRISB0\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/julznc/lcd3310.h:\n   17: #define LCD_TRIS() TRISB &= 0x00\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/julznc/main.h:\n   25: #define lc_tris() TRISB0 = 1    // as input\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/ser.h:\n   44: #define SER_TX_TRIS TRISB2\n   46: #define SER_RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/softpwm.h:\n   20: #define SOFTPWM_TRIS TRISB\n\n/home/roman/Dokumente/Sources/lc-meter/Attic/softser.h:\n   47: #define SOFTSER_IN_TRIS TRISB0\n   49: #define SOFTSER_OUT_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/Cap-meter.c:\n   91:   TRISB = 0b00000001;\n\n/home/roman/Dokumente/Sources/lc-meter/Freq-meter.c:\n   66:   TRISB = 0x08;\n\n/home/roman/Dokumente/Sources/lc-meter/lib.old/lcd5110.h:\n   12: #define LCD_TRIS() TRISB &= 0x00\n\n/home/roman/Dokumente/Sources/lc-meter/lib.old/ser.h:\n   15: #define SER_TX_TRIS TRISB2\n   17: #define SER_RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib.old/uart.h:\n   79: #define TX_TRIS TRISB2\n   81: #define RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/7segment.h:\n   71: #define DISPLAY_DATA_TRIS TRISB\n   82: #define BUTTON_TRIS TRISB0\n\n/home/roman/Dokumente/Sources/lc-meter/lib/lcd44780-config.h:\n    4: #define RS_TRIS TRISB0\n    8: #define EN_TRIS TRISB1\n   17: #define RS_TRIS() TRISB &= ~0b0100\n   23: #define EN_TRIS() TRISB &= ~0b1000\n\n/home/roman/Dokumente/Sources/lc-meter/lib/lcd5110.h:\n   12: #define LCD_TRIS() TRISB &= 0x00\n\n/home/roman/Dokumente/Sources/lc-meter/lib/ports.h:\n   10: extern volatile unsigned char __at(0x086) TRISB;\n   24: extern volatile unsigned char __at(0xF93) TRISB;\n\n/home/roman/Dokumente/Sources/lc-meter/lib/ser.h:\n   15: #define SER_TX_TRIS TRISB2\n   17: #define SER_RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/softpwm.h:\n   20: #define SOFTPWM_TRIS TRISB\n\n/home/roman/Dokumente/Sources/lc-meter/lib/softser.h:\n   47: #define SOFTSER_IN_TRIS TRISB0\n   49: #define SOFTSER_OUT_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/uart.h:\n   78: #define TX_TRIS TRISB2\n   80: #define RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/serialtest.c:\n  142: // TRISB &= 0;\n\n/home/roman/Dokumente/Sources/lc-meter/src/lcd44780-config.h:\n    4: #define RS_TRIS TRISB0\n    8: #define EN_TRIS TRISB1\n   17: #define RS_TRIS() TRISB &= ~0b0100\n   23: #define EN_TRIS() TRISB &= ~0b1000\n\n/home/roman/Dokumente/Sources/lc-meter/lib/7segment.h:\n   71: #define DISPLAY_DATA_TRIS TRISB\n   82: #define BUTTON_TRIS TRISB0\n\n/home/roman/Dokumente/Sources/lc-meter/lib/lcd44780-config.h:\n    4: #define RS_TRIS TRISB0\n    8: #define EN_TRIS TRISB1\n   17: #define RS_TRIS() TRISB &= ~0b0100\n   23: #define EN_TRIS() TRISB &= ~0b1000\n\n/home/roman/Dokumente/Sources/lc-meter/lib/lcd5110.h:\n   12: #define LCD_TRIS() TRISB &= 0x00\n\n/home/roman/Dokumente/Sources/lc-meter/lib/ports.h:\n   10: extern volatile unsigned char __at(0x086) TRISB;\n   24: extern volatile unsigned char __at(0xF93) TRISB;\n\n/home/roman/Dokumente/Sources/lc-meter/lib/ser.h:\n   15: #define SER_TX_TRIS TRISB2\n   17: #define SER_RX_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/softpwm.h:\n   20: #define SOFTPWM_TRIS TRISB\n\n/home/roman/Dokumente/Sources/lc-meter/lib/softser.h:\n   47: #define SOFTSER_IN_TRIS TRISB0\n   49: #define SOFTSER_OUT_TRIS TRISB1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/uart.h:\n   78: #define TX_TRIS TRISB2\n   80: #define RX_TRIS TRISB1\n\n53 matches across 29 files\n",
+			"settings":
+			{
+				"buffer_size": 3646,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "lib/ser.h",
+			"settings":
+			{
+				"buffer_size": 2978,
 				"line_ending": "Unix"
 			}
 		},
@@ -262,10 +289,15 @@
 	"expanded_folders":
 	[
 		"/home/roman/Dokumente/Sources/lc-meter",
+		"/home/roman/Dokumente/Sources/lc-meter/lib",
+		"/home/roman/Dokumente/Sources/lc-meter/lib.old",
 		"/home/roman/Dokumente/Sources/lc-meter/src"
 	],
 	"file_history":
 	[
+		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.c",
+		"/home/roman/Dokumente/Sources/lc-meter/htc-18f2455-debug.mk",
+		"/home/roman/Dokumente/Sources/lc-meter/lib.old/timer.c",
 		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/device.h",
@@ -303,7 +335,6 @@
 		"/home/roman/Dokumente/Sources/lc-meter/lib/delay.h",
 		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.h",
-		"/home/roman/Dokumente/Sources/lc-meter/lib/timer.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lc-meter.code-workspace",
 		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f2520.h",
 		"/home/roman/Dokumente/Sources/lc-meter/src/config-18f25k50.h",
@@ -391,13 +422,11 @@
 		"/home/roman/lotto/helpers/url.moon",
 		"/home/enki/lotto/helpers/api.lua",
 		"/home/roman/lotto/test-parsigram.lua",
-		"/home/roman/lotto/applications/payment.moon",
-		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/application.lua",
-		"/home/enki/Documents/Sources/lapis-1.7.0-1/lapis/lapis/application.moon"
+		"/home/roman/lotto/applications/payment.moon"
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
@@ -425,6 +454,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"TRISB",
+			"T0CON",
+			"T0CIN",
+			"PS0",
 			"XTAL",
 			"PICLIB_PICLIB",
 			"HD44780_H",
@@ -484,16 +517,46 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "htc-18f2455-debug.mk",
+					"file": "/opt/microchip/xc8/v1.34/include/pic16f876a.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4098,
+						"buffer_size": 138112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53595,
+								53595
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C99/C99.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 25683.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "LC-meter.c",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 5654,
 						"regions":
 						{
 						},
@@ -506,29 +569,304 @@
 						],
 						"settings":
 						{
-							"auto_complete_triggers":
+							"syntax": "Packages/C99/C99.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3864.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3646,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										140,
+										145
+									],
+									[
+										173,
+										178
+									],
+									[
+										270,
+										275
+									],
+									[
+										370,
+										375
+									],
+									[
+										476,
+										481
+									],
+									[
+										510,
+										515
+									],
+									[
+										602,
+										607
+									],
+									[
+										696,
+										701
+									],
+									[
+										735,
+										740
+									],
+									[
+										804,
+										809
+									],
+									[
+										887,
+										892
+									],
+									[
+										986,
+										991
+									],
+									[
+										1082,
+										1087
+									],
+									[
+										1116,
+										1121
+									],
+									[
+										1202,
+										1207
+									],
+									[
+										1232,
+										1237
+									],
+									[
+										1328,
+										1333
+									],
+									[
+										1361,
+										1366
+									],
+									[
+										1454,
+										1459
+									],
+									[
+										1484,
+										1489
+									],
+									[
+										1516,
+										1521
+									],
+									[
+										1558,
+										1563
+									],
+									[
+										1656,
+										1661
+									],
+									[
+										1772,
+										1777
+									],
+									[
+										1828,
+										1833
+									],
+									[
+										1913,
+										1918
+									],
+									[
+										1947,
+										1952
+									],
+									[
+										2037,
+										2042
+									],
+									[
+										2129,
+										2134
+									],
+									[
+										2168,
+										2173
+									],
+									[
+										2250,
+										2255
+									],
+									[
+										2280,
+										2285
+									],
+									[
+										2351,
+										2356
+									],
+									[
+										2449,
+										2454
+									],
+									[
+										2479,
+										2484
+									],
+									[
+										2511,
+										2516
+									],
+									[
+										2553,
+										2558
+									],
+									[
+										2659,
+										2664
+									],
+									[
+										2692,
+										2697
+									],
+									[
+										2785,
+										2790
+									],
+									[
+										2815,
+										2820
+									],
+									[
+										2847,
+										2852
+									],
+									[
+										2889,
+										2894
+									],
+									[
+										2987,
+										2992
+									],
+									[
+										3103,
+										3108
+									],
+									[
+										3159,
+										3164
+									],
+									[
+										3244,
+										3249
+									],
+									[
+										3278,
+										3283
+									],
+									[
+										3368,
+										3373
+									],
+									[
+										3460,
+										3465
+									],
+									[
+										3499,
+										3504
+									],
+									[
+										3581,
+										3586
+									],
+									[
+										3611,
+										3616
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
 							[
-								{
-									"characters": "<",
-									"selector": "text.html"
-								},
-								{
-									"characters": ".#",
-									"selector": "text.html"
-								}
-							],
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.sublime-syntax",
+								3246,
+								3246
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1863.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
+					"file": "lib/ser.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2978,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C99/C99.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "Makefile",
 					"semi_transient": false,
 					"settings":
@@ -553,11 +891,11 @@
 						"translation.y": 897.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 5,
 					"file": "src/config-18f2550.h",
 					"semi_transient": false,
 					"settings":
@@ -575,13 +913,14 @@
 						],
 						"settings":
 						{
+							"color_scheme": "Packages/Rainglow/rainglow/Yule Contrast (rainglow).tmTheme",
 							"syntax": "Packages/C99/C99.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 690.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
