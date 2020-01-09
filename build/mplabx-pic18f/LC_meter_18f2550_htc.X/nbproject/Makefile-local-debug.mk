@@ -14,46 +14,23 @@
 # You can invoke make with the values of the macros:
 # $ makeMP_CC="/opt/microchip/mplabc30/v3.30c/bin/pic30-gcc" ...  
 #
-<<<<<<< HEAD
-SHELL=cmd.exe
-PATH_TO_IDE_BIN=C:/Program Files (x86)/Microchip/MPLABX/v5.20/mplab_platform/platform/../mplab_ide/modules/../../bin/
+PATH_TO_IDE_BIN=/opt/microchip/mplabx/v5.30/mplab_platform/platform/../mplab_ide/modules/../../bin/
 # Adding MPLAB X bin directory to path.
-PATH:=C:/Program Files (x86)/Microchip/MPLABX/v5.20/mplab_platform/platform/../mplab_ide/modules/../../bin/:$(PATH)
+PATH:=/opt/microchip/mplabx/v5.30/mplab_platform/platform/../mplab_ide/modules/../../bin/:$(PATH)
 # Path to java used to run MPLAB X when this makefile was created
-MP_JAVA_PATH="C:\Program Files (x86)\Microchip\MPLABX\v5.20\sys\java\jre1.8.0_181/bin/"
+MP_JAVA_PATH="/opt/microchip/mplabx/v5.30/sys/java/jre1.8.0_181/bin/"
 OS_CURRENT="$(shell uname -s)"
-MP_CC="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin\picc18.exe"
+MP_CC="/opt/hitech/picc-18/9.66/bin/picc18"
 # MP_CPPC is not defined
 # MP_BC is not defined
-MP_AS="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin\picc18.exe"
-MP_LD="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin\picc18.exe"
-MP_AR="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin\picc18.exe"
-DEP_GEN=${MP_JAVA_PATH}java -jar "C:/Program Files (x86)/Microchip/MPLABX/v5.20/mplab_platform/platform/../mplab_ide/modules/../../bin/extractobjectdependencies.jar"
-MP_CC_DIR="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin"
+MP_AS="/opt/hitech/picc-18/9.66/bin/picc18"
+MP_LD="/opt/hitech/picc-18/9.66/bin/picc18"
+MP_AR="/opt/hitech/picc-18/9.66/bin/picc18"
+DEP_GEN=${MP_JAVA_PATH}java -jar "/opt/microchip/mplabx/v5.30/mplab_platform/platform/../mplab_ide/modules/../../bin/extractobjectdependencies.jar"
+MP_CC_DIR="/opt/hitech/picc-18/9.66/bin"
 # MP_CPPC_DIR is not defined
 # MP_BC_DIR is not defined
-MP_AS_DIR="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin"
-MP_LD_DIR="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin"
-MP_AR_DIR="C:\Program Files (x86)\HI-TECH Software\PICC-18\PRO\9.66\bin"
-=======
-PATH_TO_IDE_BIN=/opt/microchip/mplabx/v5.25/mplab_platform/platform/../mplab_ide/modules/../../bin/
-# Adding MPLAB X bin directory to path.
-PATH:=/opt/microchip/mplabx/v5.25/mplab_platform/platform/../mplab_ide/modules/../../bin/:$(PATH)
-# Path to java used to run MPLAB X when this makefile was created
-MP_JAVA_PATH="/opt/microchip/mplabx/v5.25/sys/java/jre1.8.0_181/bin/"
-OS_CURRENT="$(shell uname -s)"
-MP_CC="/usr/hitech/picc-18/9.66/bin/picc18"
-# MP_CPPC is not defined
-# MP_BC is not defined
-MP_AS="/usr/hitech/picc-18/9.66/bin/picc18"
-MP_LD="/usr/hitech/picc-18/9.66/bin/picc18"
-MP_AR="/usr/hitech/picc-18/9.66/bin/picc18"
-DEP_GEN=${MP_JAVA_PATH}java -jar "/opt/microchip/mplabx/v5.25/mplab_platform/platform/../mplab_ide/modules/../../bin/extractobjectdependencies.jar"
-MP_CC_DIR="/usr/hitech/picc-18/9.66/bin"
-# MP_CPPC_DIR is not defined
-# MP_BC_DIR is not defined
-MP_AS_DIR="/usr/hitech/picc-18/9.66/bin"
-MP_LD_DIR="/usr/hitech/picc-18/9.66/bin"
-MP_AR_DIR="/usr/hitech/picc-18/9.66/bin"
->>>>>>> 99b714457c069b445c53330f7145e99fbfa604bd
+MP_AS_DIR="/opt/hitech/picc-18/9.66/bin"
+MP_LD_DIR="/opt/hitech/picc-18/9.66/bin"
+MP_AR_DIR="/opt/hitech/picc-18/9.66/bin"
 # MP_BC_DIR is not defined
