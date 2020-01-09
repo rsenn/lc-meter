@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=SelfClockTest_16f876a_xc8.X
 
 # Active Configuration
-DEFAULTCONF=debug
+DEFAULTCONF=default
 CONF=${DEFAULTCONF}
 
 # All Configurations

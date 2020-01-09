@@ -12,6 +12,8 @@
       <itemPath>../../../lib/buffer.h</itemPath>
       <itemPath>/home/roman/Dokumente/Sources/lc-meter/src/config-bits.h</itemPath>
       <itemPath>/home/roman/Dokumente/Sources/lc-meter/lib/timer.h</itemPath>
+      <itemPath>C:/Sources/lc-meter/lib/device.h</itemPath>
+      <itemPath>C:/Sources/lc-meter/lib/delay.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,7 +26,7 @@
       <itemPath>../../../lib/timer.c</itemPath>
       <itemPath>../../../lib/format.c</itemPath>
       <itemPath>../../../lib/buffer.c</itemPath>
-      <itemPath>/home/roman/Dokumente/Sources/lc-meter/SelfClockTest.c</itemPath>
+      <itemPath>C:/Sources/lc-meter/SelfClockTest.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -34,6 +36,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>/home/roman/Dokumente/Sources/lc-meter</Elem>
+    <Elem>C:/Sources/lc-meter</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -43,10 +46,10 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>VSMViewerPlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.34</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
@@ -199,9 +202,11 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
-      <XC8-CO>
-        <property key="coverage-enable" value=""/>
-      </XC8-CO>
+      <VSMViewerPlatformTool>
+        <property key="design.file" value="../../../proteus/SelfClockingTest.DSN"/>
+        <property key="target.ip.address" value="localhost"/>
+        <property key="target.ip.port" value="8001"/>
+      </VSMViewerPlatformTool>
       <XC8-config-global>
         <property key="advanced-elf" value="false"/>
         <property key="gcc-opt-driver-new" value="false"/>
@@ -225,7 +230,7 @@
         <platformTool>VSMViewerPlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.34</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
@@ -254,6 +259,10 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="../../../lib/buffer.c" ex="true" overriding="false">
+      </item>
+      <item path="../../../lib/format.c" ex="true" overriding="false">
+      </item>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
@@ -383,9 +392,6 @@
         <property key="target.ip.address" value="localhost"/>
         <property key="target.ip.port" value="8001"/>
       </VSMViewerPlatformTool>
-      <XC8-CO>
-        <property key="coverage-enable" value=""/>
-      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="false"/>
         <property key="gcc-opt-driver-new" value="false"/>
