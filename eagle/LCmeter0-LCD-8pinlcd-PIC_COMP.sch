@@ -13411,7 +13411,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pad name="3" x="-3.81" y="11.43" drill="0.8128" shape="long"/>
 <pad name="4" x="-3.81" y="8.89" drill="0.8128" shape="long"/>
 <pad name="5" x="-3.81" y="6.35" drill="0.8128" shape="long"/>
-<pad name="6" x="-3.81" y="3.81" drill="0.8128" shape="long"/>
+<pad name="6" x="-3.81" y="3.81" drill="0.8128" shape="long" rot="R180"/>
 <pad name="7" x="-3.81" y="1.27" drill="0.8128" shape="long"/>
 <pad name="8" x="-3.81" y="-1.27" drill="0.8128" shape="long"/>
 <pad name="9" x="-3.81" y="-3.81" drill="0.8128" shape="long"/>
@@ -13436,14 +13436,36 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pad name="28" x="3.81" y="16.51" drill="0.8128" shape="long"/>
 <text x="0" y="-16.891" size="1.016" layer="25" align="bottom-center">&gt;NAME</text>
 <text x="0" y="0" size="1.016" layer="27" rot="R270" align="center">&gt;VALUE</text>
-<text x="-3.175" y="17.145" size="0.4064" layer="48" align="top-left">1</text>
-<text x="-3.81" y="16.51" size="0.4064" layer="48" align="center">/MCLR</text>
-<text x="-3.81" y="13.97" size="0.4064" layer="48" align="center">RA0</text>
-<text x="-3.81" y="11.43" size="0.4064" layer="48" align="center">RA1</text>
-<text x="-3.81" y="8.89" size="0.4064" layer="48" align="center">RA2</text>
-<text x="-3.81" y="6.35" size="0.4064" layer="48" align="center">RA3</text>
-<text x="-3.81" y="3.81" size="0.4064" layer="48" align="center">RA4</text>
-<text x="-3.81" y="1.27" size="0.4064" layer="48" align="center">RA5</text>
+<text x="-0.7366" y="17.145" size="0.4064" layer="48" align="top-left">1</text>
+<text x="-1.3716" y="16.51" size="0.4064" layer="48" align="center">/MCLR</text>
+<text x="-1.3716" y="13.97" size="0.4064" layer="48" align="center">RA0</text>
+<text x="-1.3716" y="11.43" size="0.4064" layer="48" align="center">RA1</text>
+<text x="-1.3716" y="8.89" size="0.4064" layer="48" align="center">RA2</text>
+<text x="-1.3716" y="6.35" size="0.4064" layer="48" align="center">RA3</text>
+<text x="-1.3716" y="3.81" size="0.4064" layer="48" align="center">RA4</text>
+<text x="-1.3716" y="1.27" size="0.4064" layer="48" align="center">RA5</text>
+<text x="1.7018" y="17.145" size="0.4064" layer="48" align="top-left">1</text>
+<text x="1.0668" y="16.51" size="0.4064" layer="48" align="center">RB7</text>
+<text x="1.0668" y="13.97" size="0.4064" layer="48" align="center">RB6</text>
+<text x="1.0668" y="11.43" size="0.4064" layer="48" align="center">RB5</text>
+<text x="1.0668" y="8.89" size="0.4064" layer="48" align="center">Rb4</text>
+<text x="1.0668" y="6.35" size="0.4064" layer="48" align="center">RB3</text>
+<text x="1.0668" y="3.81" size="0.4064" layer="48" align="center">RB2</text>
+<text x="1.0668" y="1.27" size="0.4064" layer="48" align="center">RB1</text>
+<text x="1.0668" y="-1.1684" size="0.4064" layer="48" align="center">RB0</text>
+<text x="1.0668" y="-3.7084" size="0.4064" layer="48" align="center">VDD</text>
+<text x="1.0668" y="-6.2484" size="0.4064" layer="48" align="center">VSS</text>
+<text x="1.0668" y="-8.7884" size="0.4064" layer="48" align="center">RC7</text>
+<text x="1.0668" y="-11.3284" size="0.4064" layer="48" align="center">RC6</text>
+<text x="1.0668" y="-13.8684" size="0.4064" layer="48" align="center">RC5</text>
+<text x="1.0668" y="-16.4084" size="0.4064" layer="48" align="center">RC4</text>
+<text x="-1.3716" y="-1.1684" size="0.4064" layer="48" align="center">VSS2</text>
+<text x="-1.3716" y="-3.7084" size="0.4064" layer="48" align="center">CLKI</text>
+<text x="-1.3716" y="-6.2484" size="0.4064" layer="48" align="center">CLKO</text>
+<text x="-1.3716" y="-8.7884" size="0.4064" layer="48" align="center">RC0</text>
+<text x="-1.3716" y="-11.3284" size="0.4064" layer="48" align="center">RC1</text>
+<text x="-1.3716" y="-13.8684" size="0.4064" layer="48" align="center">RC2</text>
+<text x="-1.3716" y="-16.4084" size="0.4064" layer="48" align="center">RC3</text>
 </package>
 <package name="DIL28-3">
 <description>&lt;B&gt;Dual In Line&lt;/B&gt;&lt;p&gt;
@@ -13757,8 +13779,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP-COMP-B-A" device="/V"/>
 <part name="P+11" library="supply1" deviceset="VCC" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC" device=""/>
-<part name="R12" library="r" deviceset="R" device="0202/7" value="4.7kΩ"/>
-<part name="P+13" library="supply1" deviceset="VCC" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13861,8 +13881,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <instance part="P+12" gate="VCC" x="-27.94" y="-22.86" smashed="yes">
 <attribute name="VALUE" x="-27.94" y="-21.59" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="R12" gate="G$1" x="195.58" y="76.2"/>
-<instance part="P+13" gate="VCC" x="195.58" y="86.36"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -14155,11 +14173,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="P+12" gate="VCC" pin="VCC"/>
 <wire x1="-27.94" y1="-25.4" x2="-27.94" y2="-27.94" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<pinref part="P+13" gate="VCC" pin="VCC"/>
-<wire x1="195.58" y1="83.82" x2="195.58" y2="81.28" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="D4" class="0">
 <segment>
@@ -14256,9 +14269,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <wire x1="195.58" y1="17.78" x2="195.58" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="68.58" x2="246.38" y2="68.58" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="*MCLR/VPP"/>
-<pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="195.58" y1="71.12" x2="195.58" y2="68.58" width="0.1524" layer="91"/>
-<junction x="195.58" y="68.58"/>
 </segment>
 </net>
 <net name="RC5" class="0">

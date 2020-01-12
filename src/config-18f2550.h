@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F2550_H
 #define CONFIG_18F2550_H 1
 
-#if defined(MCHP_XC8)
+#if defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config FOSC = HS
 #pragma config PWRT = ON, BOR = ON, BORV = 3
@@ -46,7 +46,7 @@ __CONFIG(4, XINST_OFF  & STVREN_ON & DEBUG_ON & LVP_OFF);
 #define OERR RCSTAbits.OERR
 
 
-__CONFIG(__CONFIG1L, 0xFFFF);
+//__CONFIG(__CONFIG1L, 0xFFFF);
 __CONFIG(__CONFIG1H, FOSC_HS & FCMEN_ON & IESO_OFF);
 __CONFIG(__CONFIG4L, XINST_OFF  & STVREN_ON & DEBUG_ON & LVP_OFF);
 #endif

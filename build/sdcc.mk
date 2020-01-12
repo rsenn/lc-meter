@@ -7,6 +7,9 @@ COMPILER = sdcc
 -include build/vars.mk
 -include build/targets.mk
 
+TIMER_DEFS := -DUSE_TIMER0=1
+
+
 ifeq ($(PROGRAM),)
 PROGRAM := pictest
 endif
@@ -130,6 +133,8 @@ CFLAGS += -mpic16
 LIBS += -llibm18f.lib
 endif
 
+
+$(info LIBS: $(LIBS))
 CFLAGS += -p$(chipl)
 
 #LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file

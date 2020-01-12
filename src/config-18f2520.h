@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F2520_H
 #define CONFIG_18F2520_H 1
 
-#if defined(MCHP_XC8)
+#if defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config OSC = HSPLL
 #pragma config PWRT = ON, BOREN = ON, BORV = 3

@@ -109,4 +109,4 @@ is-list = $(if $(subst 1,,$(subst 0,,$(words $(call get-list,$(1))))),$(call get
 
 HEXFILE = $(BUILDDIR)$(PROGRAM)_$(BUILD_ID).hex
 
-TIMER_DEFS += -DUSE_TIMER0=1
+TIMER_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER2=1

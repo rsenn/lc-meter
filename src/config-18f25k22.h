@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F25K22_H
 #define CONFIG_18F25K22_H 1
 
-#ifdef MCHP_XC8
+#if defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config FOSC = HSHP
 #pragma config PWRTEN = OFF, BOREN = ON, BORV = 285

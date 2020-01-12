@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F25K50_H
 #define CONFIG_18F25K50_H 1
 
-#ifdef MCHP_XC8
+#if defined( MCHP_XC8 )  || defined(SDCC)
 
 #pragma config FOSC = INTOSCIO
 #pragma config nPWRTEN = ON, BOREN = ON, BORV = 285
