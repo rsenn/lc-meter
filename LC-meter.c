@@ -82,22 +82,22 @@ global_int(void) {
 #else
 INTERRUPT_FN() {
 #endif
-  if(PIR1 & 0x02) {
+ /* if(PIR1 & 0x02) {
     bres += 256;
     if(bres >= CYCLES_FOR_MSEC) {
       bres -= CYCLES_FOR_MSEC;
       msecpart++;
       SET_LED(msecpart >= 833);
-      /* if reached 1 second... */
+      // if reached 1 second... 
       if(msecpart >= 1000) {
-        /* ...update clock, etc */
+        // ...update clock, etc 
         seconds++;
         msecpart -= 1000;
       }
     }
     // Clear timer interrupt bit
     PIR1 &= ~0b10; // TMR2IF = 0
-  }
+  }*/
 #ifdef USE_SER
   ser_int();
 #endif
@@ -150,7 +150,7 @@ main() {
   INIT_LED();
   SET_LED(1);
 
-  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+ // timer2_init(PRESCALE_1_1 /*| TIMER2_FLAGS_INTR*/);
 
   // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
@@ -265,7 +265,7 @@ testloop() {
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
   lcd_gotoxy(10, 1);
-  format_number(TIMER1_VALUE, 10, 5);
+ //	 format_number(TIMER1_VALUE, 10, 5);
 
   lcd_gotoxy(0, 1);
   lcd_puts("     ");
