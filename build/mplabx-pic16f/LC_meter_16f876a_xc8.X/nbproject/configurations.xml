@@ -261,7 +261,7 @@
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__XC=1;__16f876a=1;USE_TIMER1=1;USE_TIMER2=1;USE_SER=1;USE_HD44780_LCD=1;XTAL_FREQ=20000000;BAUD_RATE=38400;USE_TIMER0=1;MCHP_XC8=1"/>
+                  value="__XC=1;__16f876a=1;USE_SER=1;USE_HD44780_LCD=1;_XTAL_FREQ=20000000;BAUD_RATE=38400;USE_TIMER0=1;MCHP_XC8=1;_DEBUG=1"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="../../../src;../../../lib;../../.."/>
@@ -274,11 +274,11 @@
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
         <property key="optimization-assembler" value="true"/>
         <property key="optimization-assembler-files" value="true"/>
-        <property key="optimization-debug" value="false"/>
+        <property key="optimization-debug" value="true"/>
         <property key="optimization-invariant-enable" value="false"/>
         <property key="optimization-invariant-value" value="16"/>
-        <property key="optimization-level" value="-O3"/>
-        <property key="optimization-speed" value="true"/>
+        <property key="optimization-level" value="-Os"/>
+        <property key="optimization-speed" value="false"/>
         <property key="optimization-stable-enable" value="false"/>
         <property key="pack-struct" value="true"/>
         <property key="preprocess-assembler" value="true"/>
@@ -289,7 +289,6 @@
         <property key="verbose" value="true"/>
         <property key="warning-level" value="-3"/>
         <property key="what-to-do" value="ignore"/>
-        <appendMe value="--double=32"/>
       </HI-TECH-COMP>
       <HI-TECH-LINK>
         <property key="additional-options-checksum" value=""/>
@@ -383,7 +382,7 @@
         <property key="advanced-elf" value="false"/>
         <property key="gcc-opt-driver-new" value="true"/>
         <property key="gcc-opt-std" value="-std=c90"/>
-        <property key="gcc-output-file-format" value="dwarf-3"/>
+        <property key="gcc-output-file-format" value="coff"/>
         <property key="omit-pack-options" value="false"/>
         <property key="output-file-format" value="+mcof,-elf"/>
         <property key="stack-size-high" value="auto"/>
