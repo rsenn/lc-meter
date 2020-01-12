@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=gnumkdir -p
+MKDIR=mkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -60,14 +60,15 @@ DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 SOURCEFILES_QUOTED_IF_SPACED=../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../lib/buffer.c C:/Sources/lc-meter/SelfClockTest.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1386521430/ser.p1.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d ${OBJECTDIR}/_ext/1386521430/format.p1.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1386521430/ser.p1 ${OBJECTDIR}/_ext/1386521430/timer.p1 ${OBJECTDIR}/_ext/1386521430/format.p1 ${OBJECTDIR}/_ext/1386521430/buffer.p1 ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1
 
 # Source Files
 SOURCEFILES=../../../lib/ser.c ../../../lib/timer.c ../../../lib/format.c ../../../lib/buffer.c C:/Sources/lc-meter/SelfClockTest.c
+
 
 
 CFLAGS=
@@ -97,7 +98,7 @@ ${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CN
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -105,7 +106,7 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -113,7 +114,7 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -121,24 +122,24 @@ ${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/buffer.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/318718102/SelfClockTest.p1: C\:/Sources/lc-meter/SelfClockTest.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/318718102" 
-	@${RM} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/318718102/SelfClockTest.p1 C:/Sources/lc-meter/SelfClockTest.c 
-	@-${MV} ${OBJECTDIR}/_ext/318718102/SelfClockTest.d ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/C\:/Sources/lc-meter/SelfClockTest.p1: C\:/Sources/lc-meter/SelfClockTest.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/C/:/Sources/lc-meter" 
+	@${RM} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d 
+	@${RM} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=none    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1 C:/Sources/lc-meter/SelfClockTest.c 
+	@-${MV} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.d ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -146,7 +147,7 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -154,7 +155,7 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -162,17 +163,17 @@ ${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/buffer.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/318718102/SelfClockTest.p1: C\:/Sources/lc-meter/SelfClockTest.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/318718102" 
-	@${RM} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/_ext/318718102/SelfClockTest.p1 C:/Sources/lc-meter/SelfClockTest.c 
-	@-${MV} ${OBJECTDIR}/_ext/318718102/SelfClockTest.d ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/318718102/SelfClockTest.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/C\:/Sources/lc-meter/SelfClockTest.p1: C\:/Sources/lc-meter/SelfClockTest.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/C/:/Sources/lc-meter" 
+	@${RM} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d 
+	@${RM} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib $(COMPARISON_BUILD)  --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s" --double=32     -o${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1 C:/Sources/lc-meter/SelfClockTest.c 
+	@-${MV} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.d ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/C:/Sources/lc-meter/SelfClockTest.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
@@ -187,13 +188,13 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=none  -DXPRJ_default=$(CND_CONF)  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=none  -DXPRJ_default=$(CND_CONF)    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)    --double=32 --float=24 --opt=+asm,+asmfile,+speed,-space,+debug --addrqual=ignore --mode=pro -D__XC=1 -D__16f876a=1 -DUSE_TIMER1=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_HD44780_LCD=1 -DXTAL_FREQ=20000000 -DBAUD_RATE=38400 -DUSE_TIMER0=1 -DMCHP_XC8=1 -P -N255 -I"../../../src" -I"../../../lib" -I"../../.." -v --warn=-3 --cci --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,+keep,-no_startup,-osccal,-resetbits,+download,+stackcall,+clib --output=+mcof,-elf --stack=hybrid:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/SelfClockTest_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 endif
 
@@ -213,7 +214,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif
