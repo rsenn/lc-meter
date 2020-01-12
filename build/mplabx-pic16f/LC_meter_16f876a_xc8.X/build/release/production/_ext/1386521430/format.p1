@@ -1,0 +1,410 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"30 ../../../lib/buffer.h
+[; ;../../../lib/buffer.h: 30: char buffer_putch(char ch);
+[v _buffer_putch `(uc ~T0 @X0 0 ef1`uc ]
+"44 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\math.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\math.h: 44: extern double log10(double);
+[v _log10 `(d ~T0 @X0 0 ef1`d ]
+"45
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\math.h: 45: extern double pow(double, double) ;
+[v _pow `(d ~T0 @X0 0 ef2`d`d ]
+"31
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\c90\math.h: 31: extern double floor(double);
+[v _floor `(d ~T0 @X0 0 ef1`d ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"218
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 218: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"280
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 280: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"342
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 342: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"362
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 362: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"440
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 440: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"496
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 496: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"536
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 536: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"543
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 543: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"550
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 550: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"557
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 557: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"632
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 632: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"639
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 639: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 710: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"717
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 717: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"787
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 787: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"794
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 794: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"801
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 801: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"808
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 808: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"866
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 866: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"961
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 961: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"968
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 968: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"975
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 975: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"982
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 982: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"989
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 989: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"996
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 996: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1054
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1054: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1061
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1061: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1157
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1157: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1227
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1227: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1277
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1277: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1339
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1339: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1401
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1401: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1457: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1497
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1497: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1531
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1531: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"1593
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1593: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1600
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1600: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1607: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"1776
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1776: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"1857
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1857: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"1864
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1864: __asm("CMCON equ 09Ch");
+[; <" CMCON equ 09Ch ;# ">
+"1934
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1934: __asm("CVRCON equ 09Dh");
+[; <" CVRCON equ 09Dh ;# ">
+"1999
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1999: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2006
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2006: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"2065
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2065: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"2072
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2072: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"2079
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2079: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"2086
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2086: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"2093
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2093: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"2138
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2138: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"7 ../../../lib/format.c
+[; ;../../../lib/format.c: 7: format_putchar(char c) {
+[v _format_putchar `(v ~T0 @X0 1 sf1`uc ]
+{
+[e :U _format_putchar ]
+[v _c `uc ~T0 @X0 1 r1 ]
+[f ]
+"8
+[; ;../../../lib/format.c: 8:   return;
+[e $UE 88  ]
+"9
+[; ;../../../lib/format.c: 9: }
+[e :UE 88 ]
+}
+"15
+[; ;../../../lib/format.c: 15: format_number(uint16_t n, uint8_t base, int8_t pad ) {
+[v _format_number `(v ~T0 @X0 1 ef3`ui`uc`c ]
+{
+[e :U _format_number ]
+[v _n `ui ~T0 @X0 1 r1 ]
+[v _base `uc ~T0 @X0 1 r2 ]
+[v _pad `c ~T0 @X0 1 r3 ]
+[f ]
+"16
+[; ;../../../lib/format.c: 16:   char buf[8 * sizeof(long)];
+[v _buf `uc ~T0 @X0 -> 32 `i a ]
+"17
+[; ;../../../lib/format.c: 17:   uint8_t di;
+[v _di `uc ~T0 @X0 1 a ]
+"18
+[; ;../../../lib/format.c: 18:   int8_t i = 0;
+[v _i `c ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `c ]
+"19
+[; ;../../../lib/format.c: 19:   char padchar = ' ';
+[v _padchar `uc ~T0 @X0 1 a ]
+[e = _padchar -> -> 32 `ui `uc ]
+"21
+[; ;../../../lib/format.c: 21:   if(pad < 0) {
+[e $ ! < -> _pad `i -> 0 `i 90  ]
+{
+"22
+[; ;../../../lib/format.c: 22:     pad = -pad;
+[e = _pad -> -U -> _pad `i `c ]
+"23
+[; ;../../../lib/format.c: 23:     padchar = '0';
+[e = _padchar -> -> 48 `ui `uc ]
+"24
+[; ;../../../lib/format.c: 24:   }
+}
+[e :U 90 ]
+"31
+[; ;../../../lib/format.c: 31:   do {
+[e :U 93 ]
+{
+"35
+[; ;../../../lib/format.c: 35:     di = n % base;
+[e = _di -> % _n -> _base `ui `uc ]
+"36
+[; ;../../../lib/format.c: 36:     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
+[e = *U + &U _buf * -> -> ++ _i -> -> 1 `i `c `uc `ux -> -> # *U &U _buf `ui `ux -> ? < -> _di `i -> 10 `i : + -> -> -> 48 `ui `uc `i -> _di `i - + -> -> -> 65 `ui `uc `i -> _di `i -> 10 `i `uc ]
+"38
+[; ;../../../lib/format.c: 38:     n /= base;
+[e =/ _n -> _base `ui ]
+"39
+[; ;../../../lib/format.c: 39:   } while(n > 0);
+}
+[e $ > _n -> -> 0 `i `ui 93  ]
+[e :U 92 ]
+"41
+[; ;../../../lib/format.c: 41:   while(pad-- > i) buffer_putch(padchar);
+[e $U 94  ]
+[e :U 95 ]
+[e ( _buffer_putch (1 _padchar ]
+[e :U 94 ]
+[e $ > -> -- _pad -> -> 1 `i `c `i -> _i `i 95  ]
+[e :U 96 ]
+"43
+[; ;../../../lib/format.c: 43:   for(; i > 0; i--) {
+{
+[e $ > -> _i `i -> 0 `i 97  ]
+[e $U 98  ]
+[e :U 97 ]
+{
+"44
+[; ;../../../lib/format.c: 44:     buffer_putch((char)buf[(int16_t)i - 1]);
+[e ( _buffer_putch (1 *U + &U _buf * -> -> - -> _i `i -> 1 `i `ui `ux -> -> # *U &U _buf `ui `ux ]
+"46
+[; ;../../../lib/format.c: 46:   }
+}
+[e -- _i -> -> 1 `i `c ]
+[e $ > -> _i `i -> 0 `i 97  ]
+[e :U 98 ]
+}
+"47
+[; ;../../../lib/format.c: 47: }
+[e :UE 89 ]
+}
+"51
+[; ;../../../lib/format.c: 51: format_xint32( uint32_t x) {
+[v _format_xint32 `(v ~T0 @X0 1 ef1`ul ]
+{
+[e :U _format_xint32 ]
+[v _x `ul ~T0 @X0 1 r1 ]
+[f ]
+"52
+[; ;../../../lib/format.c: 52:   buffer_putch('0');
+[e ( _buffer_putch (1 -> -> 48 `ui `uc ]
+"53
+[; ;../../../lib/format.c: 53:   buffer_putch('x');
+[e ( _buffer_putch (1 -> -> 120 `ui `uc ]
+"54
+[; ;../../../lib/format.c: 54:   format_number((uint16_t)(x >> 16), 16, -4);
+[e ( _format_number (3 , , -> >> _x -> 16 `i `ui -> -> 16 `i `uc -> -U -> 4 `i `c ]
+"55
+[; ;../../../lib/format.c: 55:   format_number((uint16_t)(x & 0xffff), 16, -4);
+[e ( _format_number (3 , , -> & _x -> -> 65535 `ui `ul `ui -> -> 16 `i `uc -> -U -> 4 `i `c ]
+"56
+[; ;../../../lib/format.c: 56: }
+[e :UE 100 ]
+}
+"59
+[; ;../../../lib/format.c: 59: format_float( float num) {
+[v _format_float `(v ~T0 @X0 1 ef1`f ]
+{
+[e :U _format_float ]
+[v _num `f ~T0 @X0 1 r1 ]
+[f ]
+"60
+[; ;../../../lib/format.c: 60:   short m = (int)log10(num);
+[v _m `s ~T0 @X0 1 a ]
+[e = _m -> -> ( _log10 (1 -> _num `d `i `s ]
+"61
+[; ;../../../lib/format.c: 61:   char digit;
+[v _digit `uc ~T0 @X0 1 a ]
+"64
+[; ;../../../lib/format.c: 64:   while(num > 0 + (3.05176e-05)) {
+[e $U 102  ]
+[e :U 103 ]
+{
+"65
+[; ;../../../lib/format.c: 65:     float weight = pow(10.0l, m);
+[v _weight `f ~T0 @X0 1 a ]
+[e = _weight -> ( _pow (2 , -> .10.0 `d -> _m `d `f ]
+"66
+[; ;../../../lib/format.c: 66:     digit = (char)floor(num / weight);
+[e = _digit -> ( _floor (1 -> / _num _weight `d `uc ]
+"67
+[; ;../../../lib/format.c: 67:     num -= (digit * weight);
+[e =- _num * -> -> _digit `i `f _weight ]
+"68
+[; ;../../../lib/format.c: 68:     buffer_putch('0' + digit);
+[e ( _buffer_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+"69
+[; ;../../../lib/format.c: 69:     if(m == 0)
+[e $ ! == -> _m `i -> 0 `i 105  ]
+"70
+[; ;../../../lib/format.c: 70:       buffer_putch('.');
+[e ( _buffer_putch (1 -> -> 46 `ui `uc ]
+[e :U 105 ]
+"71
+[; ;../../../lib/format.c: 71:     m--;
+[e -- _m -> -> 1 `i `s ]
+"72
+[; ;../../../lib/format.c: 72:   }
+}
+[e :U 102 ]
+"64
+[; ;../../../lib/format.c: 64:   while(num > 0 + (3.05176e-05)) {
+[e $ > -> _num `d + -> -> 0 `i `d .3.05176e-05 103  ]
+[e :U 104 ]
+"73
+[; ;../../../lib/format.c: 73: }
+[e :UE 101 ]
+}
+"77
+[; ;../../../lib/format.c: 77: format_double(double num) {
+[v _format_double `(v ~T0 @X0 1 ef1`d ]
+{
+[e :U _format_double ]
+[v _num `d ~T0 @X0 1 r1 ]
+[f ]
+"78
+[; ;../../../lib/format.c: 78:   short m = (short)log10(num);
+[v _m `s ~T0 @X0 1 a ]
+[e = _m -> ( _log10 (1 _num `s ]
+"79
+[; ;../../../lib/format.c: 79:   short digit;
+[v _digit `s ~T0 @X0 1 a ]
+"82
+[; ;../../../lib/format.c: 82:   while(num > 0 + (1.19209290e-07)) {
+[e $U 107  ]
+[e :U 108 ]
+{
+"83
+[; ;../../../lib/format.c: 83:     double weight = pow(10.0l, m);
+[v _weight `d ~T0 @X0 1 a ]
+[e = _weight ( _pow (2 , -> .10.0 `d -> _m `d ]
+"84
+[; ;../../../lib/format.c: 84:     digit = (short)floor(num / weight);
+[e = _digit -> ( _floor (1 / _num _weight `s ]
+"85
+[; ;../../../lib/format.c: 85:     num -= (digit * weight);
+[e =- _num * -> -> _digit `i `d _weight ]
+"86
+[; ;../../../lib/format.c: 86:     buffer_putch((char)('0' + digit));
+[e ( _buffer_putch (1 -> + -> 48 `ui -> _digit `ui `uc ]
+"87
+[; ;../../../lib/format.c: 87:     if(m == 0)
+[e $ ! == -> _m `i -> 0 `i 110  ]
+"88
+[; ;../../../lib/format.c: 88:       buffer_putch('.');
+[e ( _buffer_putch (1 -> -> 46 `ui `uc ]
+[e :U 110 ]
+"89
+[; ;../../../lib/format.c: 89:     m--;
+[e -- _m -> -> 1 `i `s ]
+"90
+[; ;../../../lib/format.c: 90:   }
+}
+[e :U 107 ]
+"82
+[; ;../../../lib/format.c: 82:   while(num > 0 + (1.19209290e-07)) {
+[e $ > _num + -> -> 0 `i `d .1.19209290e-07 108  ]
+[e :U 109 ]
+"91
+[; ;../../../lib/format.c: 91: }
+[e :UE 106 ]
+}

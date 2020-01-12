@@ -1,0 +1,693 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"278 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 278: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"65 ../../..\LC-meter.h
+[; ;../../..\LC-meter.h: 65: extern double F1, F2, F3, CCal;
+[v _F1 `d ~T0 @X0 0 e ]
+"7 ../../../src/measure.h
+[; ;../../../src/measure.h: 7: unsigned short measure_freq(void);
+[v _measure_freq `(us ~T0 @X0 0 ef ]
+"67 ../../..\LC-meter.h
+[; ;../../..\LC-meter.h: 67: void delay10ms(unsigned char period_10ms);
+[v _delay10ms `(v ~T0 @X0 0 ef1`uc ]
+"65
+[; ;../../..\LC-meter.h: 65: extern double F1, F2, F3, CCal;
+[v _F2 `d ~T0 @X0 0 e ]
+"52 ../../../lib\ser.h
+[; ;../../../lib\ser.h: 52: void ser_puts(const char* s);
+[v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
+"360 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 360: extern volatile unsigned char INTCON __attribute__((address(0x00B)));
+[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"1225
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1225: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+[v F761 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
+[v __delay `JF761 ~T0 @X0 0 e ]
+[p i __delay ]
+"59 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 59: extern volatile unsigned char TMR0 __attribute__((address(0x001)));
+[v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
+"76 ../../../lib\timer.h
+[; ;../../../lib\timer.h: 76: unsigned short timer0_read_ps(void);
+[v _timer0_read_ps `(us ~T0 @X0 0 ef ]
+"28 ../../../lib\buffer.h
+[; ;../../../lib\buffer.h: 28: void buffer_init(void);
+[v _buffer_init `(v ~T0 @X0 0 ef ]
+"32
+[; ;../../../lib\buffer.h: 32: char buffer_puts(const char* x);
+[v _buffer_puts `(uc ~T0 @X0 0 ef1`*Cuc ]
+"6 ../../../lib\format.h
+[; ;../../../lib\format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
+[v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
+"15 ../../../src/print.h
+[; ;../../../src/print.h: 15: void print_buffer(void);
+[v _print_buffer `(v ~T0 @X0 0 ef ]
+"51 ../../../lib\ser.h
+[; ;../../../lib\ser.h: 51: void ser_put(const char* s, unsigned n);
+[v _ser_put `(v ~T0 @X0 0 ef2`*Cuc`ui ]
+"14 ../../../lib\buffer.h
+[; ;../../../lib\buffer.h: 14: typedef struct {
+[s S88 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
+[n S88 . x p n ]
+"26
+[; ;../../../lib\buffer.h: 26: extern buffer_t buffer;
+[v _buffer `S88 ~T0 @X0 0 e ]
+"65 ../../..\LC-meter.h
+[; ;../../..\LC-meter.h: 65: extern double F1, F2, F3, CCal;
+[v _F3 `d ~T0 @X0 0 e ]
+"7 ../../../lib\format.h
+[; ;../../../lib\format.h: 7: void format_xint32(uint32_t x);
+[v _format_xint32 `(v ~T0 @X0 0 ef1`ul ]
+"8
+[; ;../../../lib\format.h: 8: void format_double(double num);
+[v _format_double `(v ~T0 @X0 0 ef1`d ]
+"50 ../../../lib\ser.h
+[; ;../../../lib\ser.h: 50: void ser_putch(char byte);
+[v _ser_putch `(v ~T0 @X0 0 ef1`uc ]
+"65 ../../..\LC-meter.h
+[; ;../../..\LC-meter.h: 65: extern double F1, F2, F3, CCal;
+[v _CCal `d ~T0 @X0 0 e ]
+"12 ../../../src/print.h
+[; ;../../../src/print.h: 12: void print_reading(uint16_t measurement);
+[v _print_reading `(v ~T0 @X0 0 ef1`ui ]
+"11
+[; ;../../../src/print.h: 11: void print_unit(uint8_t unit);
+[v _print_unit `(v ~T0 @X0 0 ef1`uc ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 54: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"61
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 61: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"68
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 68: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"75
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 75: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"161
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 161: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"168
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 168: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"218
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 218: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"280
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 280: __asm("PORTC equ 07h");
+[; <" PORTC equ 07h ;# ">
+"342
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 342: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"362
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 362: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"440
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 440: __asm("PIR1 equ 0Ch");
+[; <" PIR1 equ 0Ch ;# ">
+"496
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 496: __asm("PIR2 equ 0Dh");
+[; <" PIR2 equ 0Dh ;# ">
+"536
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 536: __asm("TMR1 equ 0Eh");
+[; <" TMR1 equ 0Eh ;# ">
+"543
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 543: __asm("TMR1L equ 0Eh");
+[; <" TMR1L equ 0Eh ;# ">
+"550
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 550: __asm("TMR1H equ 0Fh");
+[; <" TMR1H equ 0Fh ;# ">
+"557
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 557: __asm("T1CON equ 010h");
+[; <" T1CON equ 010h ;# ">
+"632
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 632: __asm("TMR2 equ 011h");
+[; <" TMR2 equ 011h ;# ">
+"639
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 639: __asm("T2CON equ 012h");
+[; <" T2CON equ 012h ;# ">
+"710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 710: __asm("SSPBUF equ 013h");
+[; <" SSPBUF equ 013h ;# ">
+"717
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 717: __asm("SSPCON equ 014h");
+[; <" SSPCON equ 014h ;# ">
+"787
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 787: __asm("CCPR1 equ 015h");
+[; <" CCPR1 equ 015h ;# ">
+"794
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 794: __asm("CCPR1L equ 015h");
+[; <" CCPR1L equ 015h ;# ">
+"801
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 801: __asm("CCPR1H equ 016h");
+[; <" CCPR1H equ 016h ;# ">
+"808
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 808: __asm("CCP1CON equ 017h");
+[; <" CCP1CON equ 017h ;# ">
+"866
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 866: __asm("RCSTA equ 018h");
+[; <" RCSTA equ 018h ;# ">
+"961
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 961: __asm("TXREG equ 019h");
+[; <" TXREG equ 019h ;# ">
+"968
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 968: __asm("RCREG equ 01Ah");
+[; <" RCREG equ 01Ah ;# ">
+"975
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 975: __asm("CCPR2 equ 01Bh");
+[; <" CCPR2 equ 01Bh ;# ">
+"982
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 982: __asm("CCPR2L equ 01Bh");
+[; <" CCPR2L equ 01Bh ;# ">
+"989
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 989: __asm("CCPR2H equ 01Ch");
+[; <" CCPR2H equ 01Ch ;# ">
+"996
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 996: __asm("CCP2CON equ 01Dh");
+[; <" CCP2CON equ 01Dh ;# ">
+"1054
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1054: __asm("ADRESH equ 01Eh");
+[; <" ADRESH equ 01Eh ;# ">
+"1061
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1061: __asm("ADCON0 equ 01Fh");
+[; <" ADCON0 equ 01Fh ;# ">
+"1157
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1157: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"1227
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1227: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"1277
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1277: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"1339
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1339: __asm("TRISC equ 087h");
+[; <" TRISC equ 087h ;# ">
+"1401
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1401: __asm("PIE1 equ 08Ch");
+[; <" PIE1 equ 08Ch ;# ">
+"1457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1457: __asm("PIE2 equ 08Dh");
+[; <" PIE2 equ 08Dh ;# ">
+"1497
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1497: __asm("PCON equ 08Eh");
+[; <" PCON equ 08Eh ;# ">
+"1531
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1531: __asm("SSPCON2 equ 091h");
+[; <" SSPCON2 equ 091h ;# ">
+"1593
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1593: __asm("PR2 equ 092h");
+[; <" PR2 equ 092h ;# ">
+"1600
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1600: __asm("SSPADD equ 093h");
+[; <" SSPADD equ 093h ;# ">
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1607: __asm("SSPSTAT equ 094h");
+[; <" SSPSTAT equ 094h ;# ">
+"1776
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1776: __asm("TXSTA equ 098h");
+[; <" TXSTA equ 098h ;# ">
+"1857
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1857: __asm("SPBRG equ 099h");
+[; <" SPBRG equ 099h ;# ">
+"1864
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1864: __asm("CMCON equ 09Ch");
+[; <" CMCON equ 09Ch ;# ">
+"1934
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1934: __asm("CVRCON equ 09Dh");
+[; <" CVRCON equ 09Dh ;# ">
+"1999
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 1999: __asm("ADRESL equ 09Eh");
+[; <" ADRESL equ 09Eh ;# ">
+"2006
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2006: __asm("ADCON1 equ 09Fh");
+[; <" ADCON1 equ 09Fh ;# ">
+"2065
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2065: __asm("EEDATA equ 010Ch");
+[; <" EEDATA equ 010Ch ;# ">
+"2072
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2072: __asm("EEADR equ 010Dh");
+[; <" EEADR equ 010Dh ;# ">
+"2079
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2079: __asm("EEDATH equ 010Eh");
+[; <" EEDATH equ 010Eh ;# ">
+"2086
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2086: __asm("EEADRH equ 010Fh");
+[; <" EEADRH equ 010Fh ;# ">
+"2093
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2093: __asm("EECON1 equ 018Ch");
+[; <" EECON1 equ 018Ch ;# ">
+"2138
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2138: __asm("EECON2 equ 018Dh");
+[; <" EECON2 equ 018Dh ;# ">
+"25 ../../../src/measure.c
+[; ;../../../src/measure.c: 25: calibrate() {
+[v _calibrate `(v ~T0 @X0 1 ef ]
+{
+[e :U _calibrate ]
+[f ]
+"26
+[; ;../../../src/measure.c: 26:   uint8_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"41
+[; ;../../../src/measure.c: 41:   PORTC &= ~(1 << 5);
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
+"43
+[; ;../../../src/measure.c: 43:   F1 = (double)measure_freq();
+[e = _F1 -> ( _measure_freq ..  `d ]
+"44
+[; ;../../../src/measure.c: 44:   delay10ms(50);
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+"46
+[; ;../../../src/measure.c: 46:   F1 = (double)measure_freq();
+[e = _F1 -> ( _measure_freq ..  `d ]
+"47
+[; ;../../../src/measure.c: 47:   PORTC |= (1 << 5);
+[e =| _PORTC -> << -> 1 `i -> 5 `i `Vuc ]
+"49
+[; ;../../../src/measure.c: 49:   F2 = (double)measure_freq();
+[e = _F2 -> ( _measure_freq ..  `d ]
+"50
+[; ;../../../src/measure.c: 50:   delay10ms(50);
+[e ( _delay10ms (1 -> -> 50 `i `uc ]
+"52
+[; ;../../../src/measure.c: 52:   F2 = (double)measure_freq();
+[e = _F2 -> ( _measure_freq ..  `d ]
+"53
+[; ;../../../src/measure.c: 53:   PORTC &= ~(1 << 5);
+[e =& _PORTC -> ~ << -> 1 `i -> 5 `i `Vuc ]
+"64
+[; ;../../../src/measure.c: 64:   ser_puts("\r\n");
+[e ( _ser_puts (1 :s 1C ]
+"66
+[; ;../../../src/measure.c: 66: }
+[e :UE 89 ]
+}
+"72
+[; ;../../../src/measure.c: 72: measure_freq() {
+[v _measure_freq `(us ~T0 @X0 1 ef ]
+{
+[e :U _measure_freq ]
+[f ]
+"73
+[; ;../../../src/measure.c: 73:   uint16_t count;
+[v _count `ui ~T0 @X0 1 a ]
+"75
+[; ;../../../src/measure.c: 75:   INTCON &= ~0b100;
+[e =& _INTCON -> ~ -> 4 `i `Vuc ]
+"79
+[; ;../../../src/measure.c: 79:   TRISA &= ~0b00010000;
+[e =& _TRISA -> ~ -> 16 `i `Vuc ]
+"81
+[; ;../../../src/measure.c: 81:   _delay((unsigned long)((20)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"84
+[; ;../../../src/measure.c: 84:   TMR0 = 0x00;
+[e = _TMR0 -> -> 0 `i `uc ]
+"89
+[; ;../../../src/measure.c: 89:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"90
+[; ;../../../src/measure.c: 90:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"91
+[; ;../../../src/measure.c: 91:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"92
+[; ;../../../src/measure.c: 92:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"93
+[; ;../../../src/measure.c: 93:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"94
+[; ;../../../src/measure.c: 94:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"95
+[; ;../../../src/measure.c: 95:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"96
+[; ;../../../src/measure.c: 96:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"97
+[; ;../../../src/measure.c: 97:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"98
+[; ;../../../src/measure.c: 98:   _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"103
+[; ;../../../src/measure.c: 103:   TRISA |= 0b00010000;
+[e =| _TRISA -> -> 16 `i `Vuc ]
+"106
+[; ;../../../src/measure.c: 106:   count = timer0_read_ps();
+[e = _count -> ( _timer0_read_ps ..  `ui ]
+"111
+[; ;../../../src/measure.c: 111:   buffer_init();
+[e ( _buffer_init ..  ]
+"112
+[; ;../../../src/measure.c: 112:   buffer_puts("Freq=");
+[e ( _buffer_puts (1 :s 2C ]
+"113
+[; ;../../../src/measure.c: 113:   format_number(count, 10, 5);
+[e ( _format_number (3 , , _count -> -> 10 `i `uc -> -> 5 `i `c ]
+"114
+[; ;../../../src/measure.c: 114:   print_buffer();
+[e ( _print_buffer ..  ]
+"116
+[; ;../../../src/measure.c: 116:   return count;
+[e ) -> _count `us ]
+[e $UE 90  ]
+"117
+[; ;../../../src/measure.c: 117: }
+[e :UE 90 ]
+}
+"120
+[; ;../../../src/measure.c: 120: buf_to_ser() {
+[v _buf_to_ser `(v ~T0 @X0 1 ef ]
+{
+[e :U _buf_to_ser ]
+[f ]
+"121
+[; ;../../../src/measure.c: 121:   ser_put(buffer.x, buffer.n);
+[e ( _ser_put (2 , -> &U . _buffer 0 `*Cuc -> . _buffer 2 `ui ]
+"122
+[; ;../../../src/measure.c: 122:   buffer.p = 0, buffer.n = 0, 0;
+[e ; ; = . _buffer 1 -> -> 0 `i `uc = . _buffer 2 -> -> 0 `i `uc -> 0 `i ]
+"123
+[; ;../../../src/measure.c: 123: }
+[e :UE 91 ]
+}
+"131
+[; ;../../../src/measure.c: 131: measure_capacitance() {
+[v _measure_capacitance `(v ~T0 @X0 1 ef ]
+{
+[e :U _measure_capacitance ]
+[f ]
+"132
+[; ;../../../src/measure.c: 132:   uint8_t unit;
+[v _unit `uc ~T0 @X0 1 a ]
+"133
+[; ;../../../src/measure.c: 133:   uint16_t var;
+[v _var `ui ~T0 @X0 1 a ]
+"135
+[; ;../../../src/measure.c: 135:   double Cin;
+[v _Cin `d ~T0 @X0 1 a ]
+"142
+[; ;../../../src/measure.c: 142:   var = measure_freq();
+[e = _var -> ( _measure_freq ..  `ui ]
+"144
+[; ;../../../src/measure.c: 144:   F3 = (double)var;
+[e = _F3 -> _var `d ]
+"147
+[; ;../../../src/measure.c: 147:   ser_puts("var=");
+[e ( _ser_puts (1 :s 3C ]
+"148
+[; ;../../../src/measure.c: 148:   format_xint32(var); buf_to_ser();
+[e ( _format_xint32 (1 -> _var `ul ]
+[e ( _buf_to_ser ..  ]
+"149
+[; ;../../../src/measure.c: 149:   ser_puts("\r\nF1=");
+[e ( _ser_puts (1 :s 4C ]
+"150
+[; ;../../../src/measure.c: 150:   format_double(F1); buf_to_ser();
+[e ( _format_double (1 _F1 ]
+[e ( _buf_to_ser ..  ]
+"151
+[; ;../../../src/measure.c: 151:   ser_putch(' ');
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+"152
+[; ;../../../src/measure.c: 152:   format_xint32(*(uint32_t*)&F1); buf_to_ser();
+[e ( _format_xint32 (1 *U -> &U _F1 `*ul ]
+[e ( _buf_to_ser ..  ]
+"153
+[; ;../../../src/measure.c: 153:   ser_puts("\r\nF2=");
+[e ( _ser_puts (1 :s 5C ]
+"154
+[; ;../../../src/measure.c: 154:   format_double(F2); buf_to_ser();
+[e ( _format_double (1 _F2 ]
+[e ( _buf_to_ser ..  ]
+"155
+[; ;../../../src/measure.c: 155:   ser_putch(' ');
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+"156
+[; ;../../../src/measure.c: 156:   format_xint32(*(uint32_t*)&F2); buf_to_ser();
+[e ( _format_xint32 (1 *U -> &U _F2 `*ul ]
+[e ( _buf_to_ser ..  ]
+"157
+[; ;../../../src/measure.c: 157:   ser_puts("\r\nF3=");
+[e ( _ser_puts (1 :s 6C ]
+"158
+[; ;../../../src/measure.c: 158:   format_double(F3); buf_to_ser();
+[e ( _format_double (1 _F3 ]
+[e ( _buf_to_ser ..  ]
+"159
+[; ;../../../src/measure.c: 159:   ser_putch(' ');
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+"160
+[; ;../../../src/measure.c: 160:   format_xint32(*(uint32_t*)&F3); buf_to_ser();
+[e ( _format_xint32 (1 *U -> &U _F3 `*ul ]
+[e ( _buf_to_ser ..  ]
+"161
+[; ;../../../src/measure.c: 161:   ser_puts("\r\nCCal=");
+[e ( _ser_puts (1 :s 7C ]
+"162
+[; ;../../../src/measure.c: 162:   format_double(CCal); buf_to_ser();
+[e ( _format_double (1 _CCal ]
+[e ( _buf_to_ser ..  ]
+"163
+[; ;../../../src/measure.c: 163:   ser_putch(' ');
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+"164
+[; ;../../../src/measure.c: 164:   format_xint32(*(uint32_t*)&CCal); buf_to_ser();
+[e ( _format_xint32 (1 *U -> &U _CCal `*ul ]
+[e ( _buf_to_ser ..  ]
+"165
+[; ;../../../src/measure.c: 165:   ser_puts("\r\n");
+[e ( _ser_puts (1 :s 8C ]
+"169
+[; ;../../../src/measure.c: 169:   if(F3 > F1)
+[e $ ! > _F3 _F1 93  ]
+"170
+[; ;../../../src/measure.c: 170:     F3 = F1;
+[e = _F3 _F1 ]
+[e :U 93 ]
+"172
+[; ;../../../src/measure.c: 172:   Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+[e = _Cin * * * _F2 _F2 - * _F1 _F1 * _F3 _F3 _CCal ]
+"176
+[; ;../../../src/measure.c: 176:   ser_puts("Cin=");
+[e ( _ser_puts (1 :s 9C ]
+"177
+[; ;../../../src/measure.c: 177:   format_double(Cin);
+[e ( _format_double (1 _Cin ]
+"178
+[; ;../../../src/measure.c: 178:   ser_putch(' ');
+[e ( _ser_putch (1 -> -> 32 `ui `uc ]
+"179
+[; ;../../../src/measure.c: 179:   format_xint32(*(uint32_t*)&Cin);
+[e ( _format_xint32 (1 *U -> &U _Cin `*ul ]
+"180
+[; ;../../../src/measure.c: 180:   ser_puts("\r\n");
+[e ( _ser_puts (1 :s 10C ]
+"182
+[; ;../../../src/measure.c: 182:   if(Cin > 999) {
+[e $ ! > _Cin -> -> 999 `i `d 94  ]
+{
+"183
+[; ;../../../src/measure.c: 183:     if(Cin > (999e+03l)) {
+[e $ ! > -> _Cin `d .999e+03 95  ]
+{
+"184
+[; ;../../../src/measure.c: 184:       if(Cin > (999e+06l)) {
+[e $ ! > -> _Cin `d .999e+06 96  ]
+{
+"185
+[; ;../../../src/measure.c: 185:         Cin = Cin / (1e+09);
+[e = _Cin / _Cin .1e+09 ]
+"186
+[; ;../../../src/measure.c: 186:         unit = 4;
+[e = _unit -> -> 4 `i `uc ]
+"187
+[; ;../../../src/measure.c: 187:       } else {
+}
+[e $U 97  ]
+[e :U 96 ]
+{
+"188
+[; ;../../../src/measure.c: 188:         Cin = Cin / (1e+06);
+[e = _Cin / _Cin .1e+06 ]
+"189
+[; ;../../../src/measure.c: 189:         unit = 5;
+[e = _unit -> -> 5 `i `uc ]
+"190
+[; ;../../../src/measure.c: 190:       }
+}
+[e :U 97 ]
+"191
+[; ;../../../src/measure.c: 191:     } else {
+}
+[e $U 98  ]
+[e :U 95 ]
+{
+"192
+[; ;../../../src/measure.c: 192:       Cin = Cin / 1e+03;
+[e = _Cin / _Cin .1e+03 ]
+"193
+[; ;../../../src/measure.c: 193:       unit = 6;
+[e = _unit -> -> 6 `i `uc ]
+"194
+[; ;../../../src/measure.c: 194:     }
+}
+[e :U 98 ]
+"195
+[; ;../../../src/measure.c: 195:   } else
+}
+[e $U 99  ]
+[e :U 94 ]
+"196
+[; ;../../../src/measure.c: 196:     unit = 7;
+[e = _unit -> -> 7 `i `uc ]
+[e :U 99 ]
+"198
+[; ;../../../src/measure.c: 198:   Cin = Cin * 100;
+[e = _Cin * _Cin -> -> 100 `i `d ]
+"199
+[; ;../../../src/measure.c: 199:   var = (uint16_t)Cin;
+[e = _var -> _Cin `ui ]
+"201
+[; ;../../../src/measure.c: 201:   print_reading(var);
+[e ( _print_reading (1 _var ]
+"202
+[; ;../../../src/measure.c: 202:   print_unit(unit);
+[e ( _print_unit (1 _unit ]
+"203
+[; ;../../../src/measure.c: 203: }
+[e :UE 92 ]
+}
+"209
+[; ;../../../src/measure.c: 209: measure_inductance() {
+[v _measure_inductance `(v ~T0 @X0 1 ef ]
+{
+[e :U _measure_inductance ]
+[f ]
+"210
+[; ;../../../src/measure.c: 210:   uint8_t unit;
+[v _unit `uc ~T0 @X0 1 a ]
+"211
+[; ;../../../src/measure.c: 211:   uint16_t var;
+[v _var `ui ~T0 @X0 1 a ]
+"213
+[; ;../../../src/measure.c: 213:   double Lin, numerator, denominator;
+[v _Lin `d ~T0 @X0 1 a ]
+[v _numerator `d ~T0 @X0 1 a ]
+[v _denominator `d ~T0 @X0 1 a ]
+"219
+[; ;../../../src/measure.c: 219:   var = measure_freq();
+[e = _var -> ( _measure_freq ..  `ui ]
+"221
+[; ;../../../src/measure.c: 221:   F3 = (double)var;
+[e = _F3 -> _var `d ]
+"222
+[; ;../../../src/measure.c: 222:   if(F3 > F1)
+[e $ ! > _F3 _F1 101  ]
+"223
+[; ;../../../src/measure.c: 223:     F3 = F1;
+[e = _F3 _F1 ]
+[e :U 101 ]
+"224
+[; ;../../../src/measure.c: 224:   numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
+[e = _numerator * * - * _F1 _F1 * _F3 _F3 - * _F1 _F1 - _F2 _F2 -> * -> 100 `i -> 100 `i `d ]
+"225
+[; ;../../../src/measure.c: 225:   denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
+[e = _denominator -> * * * * * * * * * -> -> 4 `i `d .3.14159265358979323846 .3.14159265358979323846 -> _F1 `d -> _F1 `d -> _F2 `d -> _F2 `d -> _F3 `d -> _F3 `d -> _CCal `d `d ]
+"226
+[; ;../../../src/measure.c: 226:   Lin = (numerator / denominator) * 1e+15l;
+[e = _Lin -> * -> / _numerator _denominator `d .1e+15 `d ]
+"228
+[; ;../../../src/measure.c: 228:   if(Lin > 999) {
+[e $ ! > _Lin -> -> 999 `i `d 102  ]
+{
+"229
+[; ;../../../src/measure.c: 229:     if(Lin > (999e+03l)) {
+[e $ ! > -> _Lin `d .999e+03 103  ]
+{
+"230
+[; ;../../../src/measure.c: 230:       if(Lin > (999e+06l)) {
+[e $ ! > -> _Lin `d .999e+06 104  ]
+{
+"231
+[; ;../../../src/measure.c: 231:         Lin = Lin / (1e+09l);
+[e = _Lin -> / -> _Lin `d .1e+09 `d ]
+"232
+[; ;../../../src/measure.c: 232:         unit = 0;
+[e = _unit -> -> 0 `i `uc ]
+"233
+[; ;../../../src/measure.c: 233:       } else {
+}
+[e $U 105  ]
+[e :U 104 ]
+{
+"234
+[; ;../../../src/measure.c: 234:         Lin = Lin / (1e+06l);
+[e = _Lin -> / -> _Lin `d .1e+06 `d ]
+"235
+[; ;../../../src/measure.c: 235:         unit = 1;
+[e = _unit -> -> 1 `i `uc ]
+"236
+[; ;../../../src/measure.c: 236:       }
+}
+[e :U 105 ]
+"237
+[; ;../../../src/measure.c: 237:     } else {
+}
+[e $U 106  ]
+[e :U 103 ]
+{
+"238
+[; ;../../../src/measure.c: 238:       Lin = Lin / 1e+03l;
+[e = _Lin -> / -> _Lin `d .1e+03 `d ]
+"239
+[; ;../../../src/measure.c: 239:       unit = 2;
+[e = _unit -> -> 2 `i `uc ]
+"240
+[; ;../../../src/measure.c: 240:     }
+}
+[e :U 106 ]
+"241
+[; ;../../../src/measure.c: 241:   } else
+}
+[e $U 107  ]
+[e :U 102 ]
+"242
+[; ;../../../src/measure.c: 242:     unit = 3;
+[e = _unit -> -> 3 `i `uc ]
+[e :U 107 ]
+"244
+[; ;../../../src/measure.c: 244:   Lin = Lin * 100;
+[e = _Lin * _Lin -> -> 100 `i `d ]
+"245
+[; ;../../../src/measure.c: 245:   var = (uint16_t)Lin;
+[e = _var -> _Lin `ui ]
+"247
+[; ;../../../src/measure.c: 247:   print_reading(var);
+[e ( _print_reading (1 _var ]
+"248
+[; ;../../../src/measure.c: 248:   print_unit(unit);
+[e ( _print_unit (1 _unit ]
+"249
+[; ;../../../src/measure.c: 249: }
+[e :UE 100 ]
+}
+[a 3C 118 97 114 61 0 ]
+[a 2C 70 114 101 113 61 0 ]
+[a 9C 67 105 110 61 0 ]
+[a 7C 13 10 67 67 97 108 61 0 ]
+[a 6C 13 10 70 51 61 0 ]
+[a 5C 13 10 70 50 61 0 ]
+[a 4C 13 10 70 49 61 0 ]
+[a 1C 13 10 0 ]
+[a 8C 13 10 0 ]
+[a 10C 13 10 0 ]
