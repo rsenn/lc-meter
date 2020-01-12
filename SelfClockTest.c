@@ -76,7 +76,7 @@ main() {
 #endif
 
 
-#ifdef _DEBUG
+#ifdef __DEBUG
   delay10ms(5);
 #else
   delay10ms(200);
