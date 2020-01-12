@@ -1,6 +1,7 @@
 #include <xc.h>
-#include <stdbool.h>
 #include <stdint.h>
+#line 56 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+typedef char BOOL;
 #line 65 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.h"
 extern double F1, F2, F3, CCal;
 
@@ -13,7 +14,7 @@ uint8_t loop_x, loop_b, loop_c;
 extern dvars dvar;
 #line 78 "/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h"
 void cycle_eater(void);
-#line 46 "/home/roman/Dokumente/Sources/lc-meter/lib/delay.h"
+#line 45 "/home/roman/Dokumente/Sources/lc-meter/lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
@@ -40,18 +41,14 @@ void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 
 void lcd_gotoxy(uint8_t col, uint8_t row);
-
+void lcd_putch(char value);
 void lcd_send(uint8_t value, uint8_t mode);
 #line 69 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer0_init(uint8_t);
 #line 76 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 unsigned short timer0_read_ps(void);
-#line 106 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
-void timer1_init(uint8_t ps_mode);
-#line 144 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
-void timer2_init(uint8_t ps_mode);
 #line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
-bit ser_isrx(void);
+char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
 void ser_put(const char* s, unsigned n);
@@ -131,52 +128,37 @@ uint32_t milliseconds();
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
 
 volatile uint16_t blink = 0;
-#line 80 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-void interrupt
-global_int(void) {
-if(PIR1 & 0x02) {
-bres += 256;
-if(bres >= ((unsigned long)((double)((20000000) / 4) / 1000))) {
-bres -= ((unsigned long)((double)((20000000) / 4) / 1000));
-msecpart++;
-LATC &= ~0b00000100; LATC |= (!!(msecpart >= 833)) << 2;;
-#line 92 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-if(msecpart >= 1000) {
-
-seconds++;
-msecpart -= 1000;
+#line 79 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+interrupt isr() {
+#line 97 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+if(PIR1bits.RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(PIR1bits.TXIF && PIE1bits.TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { PIE1bits.TXIE = 0; }; PIR1bits.TXIF = 0; };
+#line 102 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 }
-}
-
-PIR1 &= ~0b10; 
-}
-if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
 #line 107 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-}
-#line 112 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 void
 main() {
 bres = msecpart = msecs = seconds = 0;
 mode = -1;
 
 CCal = 1000;
-#line 127 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 122 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 TRISA = 0b11001111;
-#line 130 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+
+TRISB &= 0b00001111;
+#line 127 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 timer0_init(0b1000 | 0x20 | 0x40);
-#line 137 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 134 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 INTCON2 &= ~0b10000000; 
-#line 145 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-TRISC = 0b10111011;
-#line 149 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 142 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+TRISC = 0b10110011;
+PORTCbits.RC3 = 1;
+#line 146 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 TRISC &= ~0b00000100;
 LATC &= ~0b00000100; LATC |= (!!(1)) << 2;;
-
-timer2_init(0b000 | 0x80);
-#line 160 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-lcd_init(true);
+#line 156 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+lcd_init(1);
 lcd_begin(2, 1);
-#line 164 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 160 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 TRISC |= (1 << 4);
 TRISC &= ~(1 << 5);
 
@@ -189,31 +171,30 @@ delay10ms(50);
 LATC |= (1 << 5);
 delay10ms(50);
 LATC &= ~(1 << 5);
-#line 178 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 174 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 ser_init();
-#line 185 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 181 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 INTCON |= 0xc0; 
-#line 191 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 187 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 lcd_gotoxy(0, 0);
 lcd_puts("LC-meter ");
 format_double( CCal);
-#line 200 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 196 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 delay10ms(200);
-#line 203 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 199 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 calibrate();
-#line 206 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 202 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 lcd_clear();
-#line 214 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 210 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 for(;;) {
 char new_mode = (!!(PORTC & 0b10000));
 
 if(new_mode != mode) {
 ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
 ser_puts("\r\n");
-
 mode = new_mode;
 }
-
+#line 221 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 if(mode)
 measure_capacitance();
 else
@@ -239,30 +220,29 @@ delay10ms(10);
 INTCON &= ~0x80; 
 s = seconds;
 INTCON |= 0x80; 
-#line 258 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 255 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 lcd_gotoxy(10, 0);
 lcd_puts("      ");
 lcd_gotoxy(10, 0);
 format_number(s, 10, 5);
-#line 264 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 261 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 lcd_gotoxy(10, 1);
 lcd_puts("      ");
 lcd_gotoxy(10, 1);
-format_number(((TMR1H << 8) | TMR1L), 10, 5);
-
+#line 266 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 lcd_gotoxy(0, 1);
 lcd_puts("     ");
 lcd_gotoxy(0, 1);
 lcd_puts("RC4=");
-#line 275 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
-lcd_send(((!!(PORTC & 0b10000)) != 0 ? '1' : '0'), 1);
-#line 279 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 272 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+lcd_putch((!!(PORTC & 0b10000)) != 0 ? '1' : '0');
+#line 276 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 if(s != prev_s) {
 
 format_number(s, 10, 0);
 
 ser_puts("\r\n");
-#line 286 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
+#line 283 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.c"
 prev_s = s;
 }
 }
