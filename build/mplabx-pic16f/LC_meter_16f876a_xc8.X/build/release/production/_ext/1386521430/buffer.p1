@@ -1,0 +1,146 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"14 ../../../lib/buffer.h
+[; ;../../../lib/buffer.h: 14: typedef struct {
+[s S1 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
+[n S1 . x p n ]
+"4 ../../../lib/buffer.c
+[; ;../../../lib/buffer.c: 4: buffer_t buffer;
+[v _buffer `S1 ~T0 @X0 1 e ]
+"10
+[; ;../../../lib/buffer.c: 10: buffer_init(void) {
+[v _buffer_init `(v ~T0 @X0 1 ef ]
+{
+[e :U _buffer_init ]
+[f ]
+"11
+[; ;../../../lib/buffer.c: 11:   buffer.p = 0;
+[e = . _buffer 1 -> -> 0 `i `uc ]
+"12
+[; ;../../../lib/buffer.c: 12:   buffer.n = 0;
+[e = . _buffer 2 -> -> 0 `i `uc ]
+"13
+[; ;../../../lib/buffer.c: 13: }
+[e :UE 2 ]
+}
+"21
+[; ;../../../lib/buffer.c: 21: buffer_flush() {
+[v _buffer_flush `(uc ~T0 @X0 1 ef ]
+{
+[e :U _buffer_flush ]
+[f ]
+"25
+[; ;../../../lib/buffer.c: 25:   buffer.p = 0, buffer.n = 0, 0;
+[e ; ; = . _buffer 1 -> -> 0 `i `uc = . _buffer 2 -> -> 0 `i `uc -> 0 `i ]
+"26
+[; ;../../../lib/buffer.c: 26:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 3  ]
+"27
+[; ;../../../lib/buffer.c: 27: }
+[e :UE 3 ]
+}
+"30
+[; ;../../../lib/buffer.c: 30: buffer_putch(char ch) {
+[v _buffer_putch `(uc ~T0 @X0 1 ef1`uc ]
+{
+[e :U _buffer_putch ]
+[v _ch `uc ~T0 @X0 1 r1 ]
+[f ]
+"31
+[; ;../../../lib/buffer.c: 31:   if(16 - buffer.n <= 0)
+[e $ ! <= - -> 16 `i -> . _buffer 2 `i -> 0 `i 5  ]
+"32
+[; ;../../../lib/buffer.c: 32:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 4  ]
+[e :U 5 ]
+"33
+[; ;../../../lib/buffer.c: 33:   buffer.x[buffer.n] = ch;
+[e = *U + &U . _buffer 0 * -> . _buffer 2 `ux -> -> # *U &U . _buffer 0 `ui `ux _ch ]
+"34
+[; ;../../../lib/buffer.c: 34:   buffer.n++;
+[e ++ . _buffer 2 -> -> 1 `i `uc ]
+"35
+[; ;../../../lib/buffer.c: 35:   return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 4  ]
+"36
+[; ;../../../lib/buffer.c: 36: }
+[e :UE 4 ]
+}
+"39
+[; ;../../../lib/buffer.c: 39: buffer_put(const char* buf, len_t len) {
+[v _buffer_put `(uc ~T0 @X0 1 ef2`*Cuc`uc ]
+{
+[e :U _buffer_put ]
+[v _buf `*Cuc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
+[f ]
+"40
+[; ;../../../lib/buffer.c: 40:   len_t i;
+[v _i `uc ~T0 @X0 1 a ]
+"41
+[; ;../../../lib/buffer.c: 41:   if(len > 16 - buffer.n)
+[e $ ! > -> _len `i - -> 16 `i -> . _buffer 2 `i 7  ]
+"42
+[; ;../../../lib/buffer.c: 42:     return -1;
+[e ) -> -U -> 1 `i `uc ]
+[e $UE 6  ]
+[e :U 7 ]
+"43
+[; ;../../../lib/buffer.c: 43:   for(i = 0; i < len; i++) buffer.x[buffer.n + i] = buf[i];
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 11  ]
+[e :U 8 ]
+[e = *U + &U . _buffer 0 * -> -> + -> . _buffer 2 `i -> _i `i `ui `ux -> -> # *U &U . _buffer 0 `ui `ux *U + _buf * -> _i `ux -> -> # *U _buf `ui `ux ]
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 11 ]
+[e $ < -> _i `i -> _len `i 8  ]
+[e :U 9 ]
+}
+"44
+[; ;../../../lib/buffer.c: 44:   buffer.n += len;
+[e =+ . _buffer 2 -> _len `uc ]
+"45
+[; ;../../../lib/buffer.c: 45:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 6  ]
+"46
+[; ;../../../lib/buffer.c: 46: }
+[e :UE 6 ]
+}
+"56
+[; ;../../../lib/buffer.c: 56: buffer_puts(const char* x) {
+[v _buffer_puts `(uc ~T0 @X0 1 ef1`*Cuc ]
+{
+[e :U _buffer_puts ]
+[v _x `*Cuc ~T0 @X0 1 r1 ]
+[f ]
+"57
+[; ;../../../lib/buffer.c: 57:   while(*x) {
+[e $U 13  ]
+[e :U 14 ]
+{
+"58
+[; ;../../../lib/buffer.c: 58:     buffer_putch(*x);
+[e ( _buffer_putch (1 *U _x ]
+"59
+[; ;../../../lib/buffer.c: 59:     ++x;
+[e =+ _x * -> -> 1 `i `x -> -> # *U _x `i `x ]
+"60
+[; ;../../../lib/buffer.c: 60:   }
+}
+[e :U 13 ]
+"57
+[; ;../../../lib/buffer.c: 57:   while(*x) {
+[e $ != -> *U _x `i -> 0 `i 14  ]
+[e :U 15 ]
+"61
+[; ;../../../lib/buffer.c: 61:   return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 12  ]
+"62
+[; ;../../../lib/buffer.c: 62: }
+[e :UE 12 ]
+}
