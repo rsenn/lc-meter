@@ -16,7 +16,7 @@ VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
 PROGRAMFILES = C:/Program Files (x86)
 
-OS = $(shell uname -o)
+OS := $(shell uname -o)
 $(info OS: $(OS))
 $(info CHIP: $(CHIP))
 #CC = $(shell which picc 2>/dev/null)
