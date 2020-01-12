@@ -9,7 +9,7 @@ endif
 #CHIPS = 16f876a 18f252 
 #CHIPS += 10f206
 #CHIPS += 12f1840
-COMPILERS = htc xc8 sdcc
+COMPILERS ?= htc xc8 
 #CHIP = 16F876A
 
 ifeq ($(XTAL),)
