@@ -1,7 +1,6 @@
 #ifndef LC_METER_H
 #define LC_METER_H
 
-#include "lib/device.h"
 #include "lib/oscillator.h"
 #include "lib/typedef.h"
 #include "lib/const.h"

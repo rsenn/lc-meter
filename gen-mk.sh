@@ -17,7 +17,7 @@ for CHIP in 16f876a 18f2450 18f2520 18f2550 18f25k22 18f25k50; do
 				-DUSE_{SER,HD44780_LCD,TIMER0}=1 \
 				"$@" \
 				-I. -Ilib -Isrc \
-				lib/format.c lib/ser.c lib/lcd44780.c lib/timer.c src LC-meter.c \
+				lib/delay.c lib/buffer.c lib/format.c lib/ser.c lib/lcd44780.c lib/timer.c src LC-meter.c \
 				--create-bins \
 				--no-create-libs \
 				--$BUILD_TYPE \
