@@ -1,16 +1,17 @@
 #ifndef CONFIG_16F876A_H
 #define CONFIG_16F876A_H 1
 
-#ifdef __XC
+#if defined(__XC) || defined(MCHP_XC8) || defined(SDCC)
 
-#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF
-#ifdef DEBUG
-#pragma config DEBUG = ON
+#ifdef _DEBUG
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, DEBUG=ON
+#else
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, DEBUG = OFF
 #endif
 
 #elif defined(HI_TECH_C)
 
-#ifdef DEBUG
+#ifdef _DEBUG
 __CONFIG(FOSC_HS& WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_ON&CP_OFF);
 #else
 __CONFIG(FOSC_HS& WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_OFF& CP_OFF);
