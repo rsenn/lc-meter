@@ -142,7 +142,10 @@ main() {
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
   TRISC = 0b10110011;
 #endif
+
+#if !defined(__18f2550)
   RC3 = HIGH;
+#endif
 
   INIT_LED();
   SET_LED(1);

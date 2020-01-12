@@ -6,7 +6,6 @@
 #include "lib/const.h"
 
 #ifdef HI_TECH_C
-#include <htc.h> // Required to interface with delay routines
 //# include <pic.h>
 #ifndef nRBPU
 

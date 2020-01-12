@@ -31,7 +31,6 @@ __CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
 
 // 'C' source line config statements
 
-// c:#include <htc.h>
 
 #endif
 
