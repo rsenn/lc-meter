@@ -15,7 +15,7 @@
 #pragma config EBTRB = OFF
 #pragma config XINST = OFF
 //
-#elif defined(__XC)
+#elif 0
 
 __CONFIG(1, FOSC_HS & FCMEN_ON);
 __CONFIG(2, PWRT_ON & BOR_ON & BORV_3 & VREGEN_ON &WDT_OFF);
@@ -33,9 +33,6 @@ __CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
 //
 //
 
-#ifndef OSC_HSPLL
-#define OSC_HSPLL 0xFEFF
-#endif
 #elif defined(HI_TECH_C)
 __CONFIG(__CONFIG1L, 0xFFFF);
 __CONFIG(__CONFIG1H, FOSC_HS & FCMEN_ON & IESO_OFF);

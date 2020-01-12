@@ -153,6 +153,7 @@ COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s"
 
 CPPFLAGS += $(DEFINES:%=-D%)
 
+CPPFLAGS += -DHI_TECH_C=1
 _CPPFLAGS += \
 	-DVERSION_MAJOR=$(VERSION_MAJOR) \
 	-DVERSION_MINOR=$(VERSION_MINOR) \

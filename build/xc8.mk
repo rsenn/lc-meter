@@ -119,6 +119,7 @@ else
 COMMON_FLAGS += -G --opt="default,+asm,+debug$(OPT_SPEED)"
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
+COMMON_FLAGS +=  -DMCHP_XC8=1
 
 COMMON_FLAGS += --debugger=icd2
 
