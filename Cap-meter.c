@@ -6,37 +6,37 @@ Oscillator: HS, 4.0000 MHz external
 Written by: Rajendra Bhatt (www.embedded-lab.com)
 
 */
-#include "interrupt.h"
+#include "lib/interrupt.h"
 #include "Cap-meter.h"
 #include "config-bits.h"
 //#include "main.h"
-#include "delay.h"
+#include "lib/delay.h"
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+#include "lib/lcd44780.h"
 #endif
 
 #if USE_NOKIA5110_LCD
-#include "lcd5110.h"
+#include "lib/lcd5110.h"
 #endif
 
-#include "timer.h"
+#include "lib/timer.h"
 
 #ifdef USE_UART
-#include "uart.h"
+#include "lib/uart.h"
 #endif
 
 #if USE_SER
-#include "ser.h"
+#include "lib/ser.h"
 #endif
 
 #if USE_SOFTSER
-#include "softser.h"
+#include "lib/softser.h"
 #endif
 
 #include "print.h"
-#include "format.h"
-#include "buffer.h"
+#include "lib/format.h"
+#include "lib/buffer.h"
 
 #define Va OUTA0
 #define Switch OUTB0
