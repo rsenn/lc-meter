@@ -1,7 +1,7 @@
 #include "LC-meter.h"
 
-#include "oscillator.h"
-#include "interrupt.h"
+#include "lib/oscillator.h"
+#include "lib/interrupt.h"
 
 //#include "main.h"
 #include "delay.h"
@@ -76,12 +76,7 @@ volatile uint16_t blink = 0;
 
 /* Interrupt routine */
 
-#ifdef __XC
-void interrupt
-global_int(void) {
-#else
 INTERRUPT_FN() {
-#endif
  /* if(PIR1 & 0x02) {
     bres += 256;
     if(bres >= CYCLES_FOR_MSEC) {
