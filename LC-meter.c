@@ -1,3 +1,4 @@
+#include "lib/device.h"
 #include "LC-meter.h"
 
 #include "lib/oscillator.h"

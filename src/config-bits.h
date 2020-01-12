@@ -69,8 +69,6 @@
 #endif // defined __12f1840
 
 #ifdef __16f876a
-#include <pic16f876a.h>
-
 #include "config-16f876a.h"
 #endif // defined __16f876a
 
