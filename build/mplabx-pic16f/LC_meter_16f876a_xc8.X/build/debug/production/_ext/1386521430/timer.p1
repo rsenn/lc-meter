@@ -1,13 +1,61 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "55 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
-"1121
-[v _OPTION_REG `Vuc ~T0 @X0 0 e@129 ]
-"350
-[v _INTCON `Vuc ~T0 @X0 0 e@11 ]
+"2372
+[v _T0CS `Vb ~T0 @X0 0 e@1037 ]
+"2378
+[v _T0SE `Vb ~T0 @X0 0 e@1036 ]
+"2266
+[v _PSA `Vb ~T0 @X0 0 e@1035 ]
+"1127
+[s S48 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S48 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"1135
+[s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S49 . PS0 PS1 PS2 ]
+"1126
+[u S47 `S48 1 `S49 1 ]
+[n S47 . . . ]
+"1141
+[v _OPTION_REGbits `VS47 ~T0 @X0 0 e@129 ]
+"2396
+[v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
+"2374
+[v _T0IE `Vb ~T0 @X0 0 e@93 ]
 "28 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;typedef.h: 56: typedef char BOOL;
+[; ;timer.h: 69: void timer0_init(uint8_t);
+[; ;timer.h: 76: unsigned short timer0_read_ps(void);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
@@ -931,141 +979,107 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 184: extern unsigned char __resetbits;
 [; ;pic.h: 185: extern __bit __powerdown;
 [; ;pic.h: 186: extern __bit __timeout;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;typedef.h: 56: typedef char BOOL;
-[; ;timer.h: 69: void timer0_init(uint8_t);
-[; ;timer.h: 76: unsigned short timer0_read_ps(void);
-"27 ../../../lib/timer.c
+"28 ../../../lib/timer.c
 [v _timer0_init `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;timer.c: 26: void
-[; ;timer.c: 27: timer0_init(uint8_t ps_mode) {
+[; ;timer.c: 27: void
+[; ;timer.c: 28: timer0_init(uint8_t ps_mode) {
 [e :U _timer0_init ]
 [v _ps_mode `uc ~T0 @X0 1 r1 ]
 [f ]
-"28
+"29
 [v _prescaler `uc ~T0 @X0 1 a ]
-[; ;timer.c: 28: uint8_t prescaler = ps_mode & 0b1111;
+[; ;timer.c: 29: uint8_t prescaler = ps_mode & 0b1111;
 [e = _prescaler -> & -> _ps_mode `i -> 15 `i `uc ]
-[; ;timer.c: 30: TMR0 = 0;
-"30
+[; ;timer.c: 31: TMR0 = 0;
+"31
 [e = _TMR0 -> -> 0 `i `uc ]
-[; ;timer.c: 33: OPTION_REG |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
-"33
-[e =| _OPTION_REG -> ? ! ! != & -> _ps_mode `i -> 32 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
-[; ;timer.c: 36: OPTION_REG |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
-"36
-[e =| _OPTION_REG -> ? ! ! != & -> _ps_mode `i -> 16 `i -> 0 `i : -> 16 `i -> 0 `i `uc ]
-[; ;timer.c: 43: OPTION_REG &= (!!prescaler) ? ~0x08 : ~0x00;
-"43
-[e =& _OPTION_REG -> ? ! ! != -> _prescaler `i -> -> -> 0 `i `uc `i : ~ -> 8 `i ~ -> 0 `i `uc ]
-[; ;timer.c: 45: OPTION_REG &= ~0b111;
-"45
-[e =& _OPTION_REG -> ~ -> 7 `i `uc ]
-[; ;timer.c: 47: if(prescaler > 0) {
-"47
+[; ;timer.c: 41: T0CS = (ps_mode & 0x20) ? 1 : 0;
+"41
+[e = _T0CS -> ? != & -> _ps_mode `i -> 32 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+[; ;timer.c: 42: T0SE = (ps_mode & 0x10) ? 1 : 0;
+"42
+[e = _T0SE -> ? != & -> _ps_mode `i -> 16 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+[; ;timer.c: 44: if(prescaler > 0) {
+"44
 [e $ ! > -> _prescaler `i -> 0 `i 89  ]
 {
-[; ;timer.c: 48: OPTION_REG |= (prescaler - 1) & 0b111;
-"48
-[e =| _OPTION_REG -> & - -> _prescaler `i -> 1 `i -> 7 `i `uc ]
-"54
+[; ;timer.c: 45: PSA = prescaler > 0;
+"45
+[e = _PSA > -> _prescaler `i -> 0 `i ]
+[; ;timer.c: 46: OPTION_REGbits.PS = prescaler - 1;
+"46
+[e = . . _OPTION_REGbits 0 0 -> - -> _prescaler `i -> 1 `i `uc ]
+"47
 }
 [e :U 89 ]
-[; ;timer.c: 54: }
-[; ;timer.c: 58: INTCON &= ~0x40;
-"58
-[e =& _INTCON -> ~ -> 64 `i `uc ]
-[; ;timer.c: 59: INTCON |= (!!(ps_mode & 0x80)) ? 0x20 : 0x00;
-"59
-[e =| _INTCON -> ? ! ! != & -> _ps_mode `i -> 128 `i -> 0 `i : -> 32 `i -> 0 `i `uc ]
-[; ;timer.c: 60: }
-"60
+[; ;timer.c: 47: }
+[; ;timer.c: 75: TMR0IF = 0;
+"75
+[e = _TMR0IF -> -> 0 `i `b ]
+[; ;timer.c: 76: T0IE = (ps_mode & 0x80) ? 1 : 0;
+"76
+[e = _T0IE -> ? != & -> _ps_mode `i -> 128 `i -> 0 `i : -> 1 `i -> 0 `i `b ]
+[; ;timer.c: 77: }
+"77
 [e :UE 88 ]
 }
-"63
+"80
 [v _timer0_read_ps `(us ~T0 @X0 1 ef ]
 {
-[; ;timer.c: 62: unsigned short
-[; ;timer.c: 63: timer0_read_ps(void) {
+[; ;timer.c: 79: unsigned short
+[; ;timer.c: 80: timer0_read_ps(void) {
 [e :U _timer0_read_ps ]
 [f ]
-"64
+"81
 [v _prev `uc ~T0 @X0 1 a ]
-[; ;timer.c: 64: uint8_t prev = TMR0;
+[; ;timer.c: 81: uint8_t prev = TMR0;
 [e = _prev _TMR0 ]
-"65
+"82
 [v _count `ui ~T0 @X0 1 a ]
-[; ;timer.c: 65: uint16_t count = 0;
+[; ;timer.c: 82: uint16_t count = 0;
 [e = _count -> -> 0 `i `ui ]
-[; ;timer.c: 67: OPTION_REG |= 0x20;
-"67
-[e =| _OPTION_REG -> -> 32 `i `uc ]
-[; ;timer.c: 69: do {
-"69
+[; ;timer.c: 84: T0CS = 1;
+"84
+[e = _T0CS -> -> 1 `i `b ]
+[; ;timer.c: 86: do {
+"86
 [e :U 93 ]
 {
-[; ;timer.c: 71: OPTION_REG |= 0x10;
-"71
-[e =| _OPTION_REG -> -> 16 `i `uc ]
-[; ;timer.c: 73: __nop();
-"73
+[; ;timer.c: 88: T0SE = 1;
+"88
+[e = _T0SE -> -> 1 `i `b ]
+[; ;timer.c: 90: __nop();
+"90
 [e ( ___nop ..  ]
-[; ;timer.c: 74: __nop();
-"74
+[; ;timer.c: 91: __nop();
+"91
 [e ( ___nop ..  ]
-[; ;timer.c: 76: OPTION_REG &= ~0x10;
-"76
-[e =& _OPTION_REG -> ~ -> 16 `i `uc ]
-[; ;timer.c: 78: __nop();
-"78
+[; ;timer.c: 93: T0SE = 0;
+"93
+[e = _T0SE -> -> 0 `i `b ]
+[; ;timer.c: 95: __nop();
+"95
 [e ( ___nop ..  ]
-[; ;timer.c: 79: __nop();
-"79
+[; ;timer.c: 96: __nop();
+"96
 [e ( ___nop ..  ]
-[; ;timer.c: 81: ++count;
-"81
+[; ;timer.c: 98: ++count;
+"98
 [e =+ _count -> -> 1 `i `ui ]
-"84
+"101
 }
-[; ;timer.c: 84: } while(prev == TMR0 && count <= 255);
+[; ;timer.c: 101: } while(prev == TMR0 && count <= 255);
 [e $ && == -> _prev `i -> _TMR0 `i <= _count -> -> 255 `i `ui 93  ]
 [e :U 92 ]
-[; ;timer.c: 86: count = ((prev << 8) + (256 - count));
-"86
+[; ;timer.c: 103: count = ((prev << 8) + (256 - count));
+"103
 [e = _count + -> << -> _prev `i -> 8 `i `ui - -> -> 256 `i `ui _count ]
-[; ;timer.c: 87: return count;
-"87
+[; ;timer.c: 104: return count;
+"104
 [e ) -> _count `us ]
 [e $UE 90  ]
-[; ;timer.c: 88: }
-"88
+[; ;timer.c: 105: }
+"105
 [e :UE 90 ]
 }

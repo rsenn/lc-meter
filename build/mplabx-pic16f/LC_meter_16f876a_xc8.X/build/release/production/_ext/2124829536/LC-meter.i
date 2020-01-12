@@ -7,12 +7,12 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "../../../LC-meter.c" 2
-# 1 "../../../LC-meter.h" 1
+# 1 "../../../lib/device.h" 1
+# 116 "../../../lib/device.h"
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\htc.h" 1 3
 
 
 
-# 1 "../../../lib\\device.h" 1
-# 37 "../../../lib\\device.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -31,25 +31,7 @@ extern void __builtin_software_breakpoint(void);
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 1 3
-
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\htc.h" 1 3
-
-
-
-# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
-# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\htc.h" 2 3
-# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 2 3
-
-
-
-
-
-
-
-
+# 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic_chip_select.h" 1 3
 # 2623 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic_chip_select.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic16f876a.h" 1 3
@@ -1569,12 +1551,17 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 38 "../../../lib\\device.h" 2
+# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\htc.h" 2 3
+# 117 "../../../lib/device.h" 2
+# 2 "../../../LC-meter.c" 2
+# 1 "../../../LC-meter.h" 1
+
+
+
+# 1 "../../../lib/oscillator.h" 1
 # 5 "../../../LC-meter.h" 2
-# 1 "../../../lib\\oscillator.h" 1
-# 6 "../../../LC-meter.h" 2
-# 1 "../../../lib\\typedef.h" 1
-# 22 "../../../lib\\typedef.h"
+# 1 "../../../lib/typedef.h" 1
+# 22 "../../../lib/typedef.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 1 3
 # 13 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdint.h" 3
 typedef signed char int8_t;
@@ -1708,24 +1695,24 @@ typedef int16_t intptr_t;
 
 
 typedef uint16_t uintptr_t;
-# 23 "../../../lib\\typedef.h" 2
-# 56 "../../../lib\\typedef.h"
+# 23 "../../../lib/typedef.h" 2
+# 56 "../../../lib/typedef.h"
 typedef char BOOL;
+# 6 "../../../LC-meter.h" 2
+# 1 "../../../lib/const.h" 1
 # 7 "../../../LC-meter.h" 2
-# 1 "../../../lib\\const.h" 1
-# 8 "../../../LC-meter.h" 2
-# 65 "../../../LC-meter.h"
+# 63 "../../../LC-meter.h"
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
-# 2 "../../../LC-meter.c" 2
+# 3 "../../../LC-meter.c" 2
 
 
 # 1 "../../../lib/interrupt.h" 1
-# 5 "../../../LC-meter.c" 2
+# 6 "../../../LC-meter.c" 2
 
 
-# 1 "../../../lib\\delay.h" 1
+# 1 "../../../lib/delay.h" 1
 
 
 
@@ -1740,16 +1727,16 @@ typedef struct dvars {
 extern dvars dvar;
 # 78 "../../../lib/tsmdelay.h"
 void cycle_eater(void);
-# 7 "../../../lib\\delay.h" 2
-# 45 "../../../lib\\delay.h"
+# 7 "../../../lib/delay.h" 2
+# 48 "../../../lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
-# 8 "../../../LC-meter.c" 2
-# 17 "../../../LC-meter.c"
-# 1 "../../../lib\\timer.h" 1
-# 69 "../../../lib\\timer.h"
+# 9 "../../../LC-meter.c" 2
+# 18 "../../../LC-meter.c"
+# 1 "../../../lib/timer.h" 1
+# 69 "../../../lib/timer.h"
 void timer0_init(uint8_t);
 
 
@@ -1758,15 +1745,15 @@ void timer0_init(uint8_t);
 
 
 unsigned short timer0_read_ps(void);
-# 18 "../../../LC-meter.c" 2
+# 19 "../../../LC-meter.c" 2
 
 
 
 
 
 
-# 1 "../../../lib\\ser.h" 1
-# 48 "../../../lib\\ser.h"
+# 1 "../../../lib/ser.h" 1
+# 48 "../../../lib/ser.h"
 char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
@@ -1784,7 +1771,7 @@ extern volatile uint8_t txiptr, txoptr;
 extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
-# 25 "../../../LC-meter.c" 2
+# 26 "../../../LC-meter.c" 2
 
 
 
@@ -1800,7 +1787,7 @@ void calibrate(void);
 unsigned short measure_freq(void);
 void measure_capacitance(void);
 void measure_inductance(void);
-# 31 "../../../LC-meter.c" 2
+# 32 "../../../LC-meter.c" 2
 # 1 "../../../src\\print.h" 1
 
 
@@ -1817,8 +1804,8 @@ void print_reading(uint16_t measurement);
 void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
-# 32 "../../../LC-meter.c" 2
-# 1 "../../../lib\\format.h" 1
+# 33 "../../../LC-meter.c" 2
+# 1 "../../../lib/format.h" 1
 
 
 
@@ -1827,11 +1814,11 @@ void print_buffer(void);
 void format_number(uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(uint32_t x);
 void format_double(double num);
-# 33 "../../../LC-meter.c" 2
+# 34 "../../../LC-meter.c" 2
 
 
 # 1 "../../../src\\config-bits.h" 1
-# 74 "../../../src\\config-bits.h"
+# 72 "../../../src\\config-bits.h"
 # 1 "../../../src/config-16f876a.h" 1
 
 
@@ -1842,8 +1829,8 @@ void format_double(double num);
 
 
 #pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, DEBUG = OFF
-# 75 "../../../src\\config-bits.h" 2
-# 36 "../../../LC-meter.c" 2
+# 73 "../../../src\\config-bits.h" 2
+# 37 "../../../LC-meter.c" 2
 
 
 
@@ -1857,7 +1844,7 @@ volatile uint32_t seconds, msecs;
 volatile uint32_t timer1of;
 
 static char mode = -1;
-# 57 "../../../LC-meter.c"
+# 58 "../../../LC-meter.c"
 void
 delay10ms(unsigned char period_10ms) {
 
@@ -1881,7 +1868,7 @@ volatile uint16_t blink = 0;
 
 
 interrupt isr() {
-# 97 "../../../LC-meter.c"
+# 98 "../../../LC-meter.c"
   if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
 
 
@@ -1913,7 +1900,7 @@ main() {
 
 
   timer0_init(0b1000 | 0x20 | 0x40);
-# 136 "../../../LC-meter.c"
+# 137 "../../../LC-meter.c"
   OPTION_REG &= ~0b100000;
 
 
@@ -1922,11 +1909,14 @@ main() {
 
   TRISC = 0b10110011;
 
+
+
   RC3 = 1;
+
 
   TRISC &= ~0b00000100;
   PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
-# 160 "../../../LC-meter.c"
+# 164 "../../../LC-meter.c"
   TRISC |= (1 << 4);
   TRISC &= ~(1 << 5);
 
@@ -1949,12 +1939,12 @@ main() {
 
 
   INTCON |= 0xc0;
-# 196 "../../../LC-meter.c"
+# 200 "../../../LC-meter.c"
   delay10ms(200);
 
 
   calibrate();
-# 210 "../../../LC-meter.c"
+# 214 "../../../LC-meter.c"
   for(;;) {
     char new_mode = (!!(PORTC & 0b10000));
 
@@ -1991,7 +1981,7 @@ testloop() {
   INTCON &= ~0x80;
   s = seconds;
   INTCON |= 0x80;
-# 276 "../../../LC-meter.c"
+# 280 "../../../LC-meter.c"
   if(s != prev_s) {
 
     format_number(s, 10, 0);

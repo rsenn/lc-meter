@@ -3,7 +3,6 @@
  ../../../src/print.c  \
 ../../../lib/format.h  \
 ../../../src/print.h  \
-../../../lib/device.h  \
 ../../../lib/buffer.h  \
 ../../../lib/typedef.h  \
 ../../../lib/ser.h 

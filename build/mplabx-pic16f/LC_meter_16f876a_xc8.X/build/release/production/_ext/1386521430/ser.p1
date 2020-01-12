@@ -206,299 +206,299 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2138
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f876a.h: 2138: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"22 ../../../lib/ser.c
-[; ;../../../lib/ser.c: 22: uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
+"27 ../../../lib/ser.c
+[; ;../../../lib/ser.c: 27: uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
 [v _ser_brg `uc ~T0 @X0 1 e ]
 [i _ser_brg
 -> - -> / -> -> 20000000 `l `d * -> -> 16 `i `d -> -> 38400 `l `d `ui -> -> 1 `i `ui `uc
 ]
-"24
-[; ;../../../lib/ser.c: 24: uint8_t rxfifo[(uint8_t)16];
+"29
+[; ;../../../lib/ser.c: 29: uint8_t rxfifo[(uint8_t)16];
 [v _rxfifo `uc ~T0 @X0 -> 16 `i e ]
-"25
-[; ;../../../lib/ser.c: 25: volatile uint8_t rxiptr, rxoptr;
+"30
+[; ;../../../lib/ser.c: 30: volatile uint8_t rxiptr, rxoptr;
 [v _rxiptr `Vuc ~T0 @X0 1 e ]
 [v _rxoptr `Vuc ~T0 @X0 1 e ]
-"26
-[; ;../../../lib/ser.c: 26:           uint8_t txfifo[(uint8_t)16];
+"31
+[; ;../../../lib/ser.c: 31:           uint8_t txfifo[(uint8_t)16];
 [v _txfifo `uc ~T0 @X0 -> 16 `i e ]
-"27
-[; ;../../../lib/ser.c: 27: volatile uint8_t txiptr, txoptr;
+"32
+[; ;../../../lib/ser.c: 32: volatile uint8_t txiptr, txoptr;
 [v _txiptr `Vuc ~T0 @X0 1 e ]
 [v _txoptr `Vuc ~T0 @X0 1 e ]
-"28
-[; ;../../../lib/ser.c: 28: uint8_t ser_tmp;
+"33
+[; ;../../../lib/ser.c: 33: uint8_t ser_tmp;
 [v _ser_tmp `uc ~T0 @X0 1 e ]
-"31
-[; ;../../../lib/ser.c: 31: ser_isrx(void) {
+"36
+[; ;../../../lib/ser.c: 36: ser_isrx(void) {
 [v _ser_isrx `(uc ~T0 @X0 1 ef ]
 {
 [e :U _ser_isrx ]
 [f ]
-"32
-[; ;../../../lib/ser.c: 32:   if(OERR) {
+"37
+[; ;../../../lib/ser.c: 37:   if(OERR) {
 [e $ ! _OERR 88  ]
 {
-"33
-[; ;../../../lib/ser.c: 33:     CREN = 0;
+"38
+[; ;../../../lib/ser.c: 38:     CREN = 0;
 [e = _CREN -> -> 0 `i `b ]
-"34
-[; ;../../../lib/ser.c: 34:     CREN = 1;
+"39
+[; ;../../../lib/ser.c: 39:     CREN = 1;
 [e = _CREN -> -> 1 `i `b ]
-"35
-[; ;../../../lib/ser.c: 35:     return 0;
+"40
+[; ;../../../lib/ser.c: 40:     return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 87  ]
-"36
-[; ;../../../lib/ser.c: 36:   }
+"41
+[; ;../../../lib/ser.c: 41:   }
 }
 [e :U 88 ]
-"37
-[; ;../../../lib/ser.c: 37:   return (rxiptr != rxoptr);
+"42
+[; ;../../../lib/ser.c: 42:   return (rxiptr != rxoptr);
 [e ) -> -> != -> _rxiptr `i -> _rxoptr `i `i `uc ]
 [e $UE 87  ]
-"38
-[; ;../../../lib/ser.c: 38: }
+"43
+[; ;../../../lib/ser.c: 43: }
 [e :UE 87 ]
 }
-"41
-[; ;../../../lib/ser.c: 41: ser_getch(void) {
+"46
+[; ;../../../lib/ser.c: 46: ser_getch(void) {
 [v _ser_getch `(uc ~T0 @X0 1 ef ]
 {
 [e :U _ser_getch ]
 [f ]
-"42
-[; ;../../../lib/ser.c: 42:   uint8_t c;
+"47
+[; ;../../../lib/ser.c: 47:   uint8_t c;
 [v _c `uc ~T0 @X0 1 a ]
-"44
-[; ;../../../lib/ser.c: 44:   while(ser_isrx() == 0) continue;
+"49
+[; ;../../../lib/ser.c: 49:   while(ser_isrx() == 0) continue;
 [e $U 90  ]
 [e :U 91 ]
 [e $U 90  ]
 [e :U 90 ]
 [e $ == -> ( _ser_isrx ..  `i -> 0 `i 91  ]
 [e :U 92 ]
-"46
-[; ;../../../lib/ser.c: 46:   GIE = 0;
-[e = _GIE -> -> 0 `i `b ]
-"47
-[; ;../../../lib/ser.c: 47:   c = rxfifo[rxoptr];
-[e = _c *U + &U _rxfifo * -> _rxoptr `ux -> -> # *U &U _rxfifo `ui `ux ]
-"48
-[; ;../../../lib/ser.c: 48:   ++rxoptr;
-[e =+ _rxoptr -> -> 1 `i `Vuc ]
-"49
-[; ;../../../lib/ser.c: 49:   rxoptr &= ((uint8_t)16 - 1);
-[e =& _rxoptr -> - -> -> -> 16 `i `uc `i -> 1 `i `Vuc ]
-"50
-[; ;../../../lib/ser.c: 50:   GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
 "51
-[; ;../../../lib/ser.c: 51:   return c;
+[; ;../../../lib/ser.c: 51:   GIE = 0;
+[e = _GIE -> -> 0 `i `b ]
+"52
+[; ;../../../lib/ser.c: 52:   c = rxfifo[rxoptr];
+[e = _c *U + &U _rxfifo * -> _rxoptr `ux -> -> # *U &U _rxfifo `ui `ux ]
+"53
+[; ;../../../lib/ser.c: 53:   ++rxoptr;
+[e =+ _rxoptr -> -> 1 `i `Vuc ]
+"54
+[; ;../../../lib/ser.c: 54:   rxoptr &= ((uint8_t)16 - 1);
+[e =& _rxoptr -> - -> -> -> 16 `i `uc `i -> 1 `i `Vuc ]
+"55
+[; ;../../../lib/ser.c: 55:   GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"56
+[; ;../../../lib/ser.c: 56:   return c;
 [e ) _c ]
 [e $UE 89  ]
-"52
-[; ;../../../lib/ser.c: 52: }
+"57
+[; ;../../../lib/ser.c: 57: }
 [e :UE 89 ]
 }
-"55
-[; ;../../../lib/ser.c: 55: ser_putch(char c) {
+"60
+[; ;../../../lib/ser.c: 60: ser_putch(char c) {
 [v _ser_putch `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _ser_putch ]
 [v _c `uc ~T0 @X0 1 r1 ]
 [f ]
-"56
-[; ;../../../lib/ser.c: 56:   while(((txiptr + 1) & ((uint8_t)16 - 1)) == txoptr) continue;
+"61
+[; ;../../../lib/ser.c: 61:   while(((txiptr + 1) & ((uint8_t)16 - 1)) == txoptr) continue;
 [e $U 94  ]
 [e :U 95 ]
 [e $U 94  ]
 [e :U 94 ]
 [e $ == & + -> _txiptr `i -> 1 `i - -> -> -> 16 `i `uc `i -> 1 `i -> _txoptr `i 95  ]
 [e :U 96 ]
-"57
-[; ;../../../lib/ser.c: 57:   GIE = 0;
-[e = _GIE -> -> 0 `i `b ]
-"58
-[; ;../../../lib/ser.c: 58:   txfifo[txiptr] = c;
-[e = *U + &U _txfifo * -> _txiptr `ux -> -> # *U &U _txfifo `ui `ux -> _c `uc ]
-"59
-[; ;../../../lib/ser.c: 59:   txiptr = (txiptr + 1) & ((uint8_t)16 - 1);
-[e = _txiptr -> & + -> _txiptr `i -> 1 `i - -> -> -> 16 `i `uc `i -> 1 `i `uc ]
-"60
-[; ;../../../lib/ser.c: 60:   TXIE = 1;
-[e = _TXIE -> -> 1 `i `b ]
-"61
-[; ;../../../lib/ser.c: 61:   GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
 "62
-[; ;../../../lib/ser.c: 62: }
+[; ;../../../lib/ser.c: 62:   GIE = 0;
+[e = _GIE -> -> 0 `i `b ]
+"63
+[; ;../../../lib/ser.c: 63:   txfifo[txiptr] = c;
+[e = *U + &U _txfifo * -> _txiptr `ux -> -> # *U &U _txfifo `ui `ux -> _c `uc ]
+"64
+[; ;../../../lib/ser.c: 64:   txiptr = (txiptr + 1) & ((uint8_t)16 - 1);
+[e = _txiptr -> & + -> _txiptr `i -> 1 `i - -> -> -> 16 `i `uc `i -> 1 `i `uc ]
+"65
+[; ;../../../lib/ser.c: 65:   TXIE = 1;
+[e = _TXIE -> -> 1 `i `b ]
+"66
+[; ;../../../lib/ser.c: 66:   GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"67
+[; ;../../../lib/ser.c: 67: }
 [e :UE 93 ]
 }
-"65
-[; ;../../../lib/ser.c: 65: ser_puts(const char* s) {
+"70
+[; ;../../../lib/ser.c: 70: ser_puts(const char* s) {
 [v _ser_puts `(v ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _ser_puts ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"66
-[; ;../../../lib/ser.c: 66:   while(*s) ser_putch(*s++);
+"71
+[; ;../../../lib/ser.c: 71:   while(*s) ser_putch(*s++);
 [e $U 98  ]
 [e :U 99 ]
 [e ( _ser_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
 [e :U 98 ]
 [e $ != -> *U _s `i -> 0 `i 99  ]
 [e :U 100 ]
-"67
-[; ;../../../lib/ser.c: 67: }
+"72
+[; ;../../../lib/ser.c: 72: }
 [e :UE 97 ]
 }
-"69
-[; ;../../../lib/ser.c: 69: ser_put(const char* s, unsigned n) {
+"74
+[; ;../../../lib/ser.c: 74: ser_put(const char* s, unsigned n) {
 [v _ser_put `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {
 [e :U _ser_put ]
 [v _s `*Cuc ~T0 @X0 1 r1 ]
 [v _n `ui ~T0 @X0 1 r2 ]
 [f ]
-"70
-[; ;../../../lib/ser.c: 70:   while(n--) ser_putch(*s++);
+"75
+[; ;../../../lib/ser.c: 75:   while(n--) ser_putch(*s++);
 [e $U 102  ]
 [e :U 103 ]
 [e ( _ser_putch (1 *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x ]
 [e :U 102 ]
 [e $ != -- _n -> -> 1 `i `ui -> -> 0 `i `ui 103  ]
 [e :U 104 ]
-"71
-[; ;../../../lib/ser.c: 71: }
+"76
+[; ;../../../lib/ser.c: 76: }
 [e :UE 101 ]
 }
-"74
-[; ;../../../lib/ser.c: 74: ser_puts2(uint8_t* s) {
+"79
+[; ;../../../lib/ser.c: 79: ser_puts2(uint8_t* s) {
 [v _ser_puts2 `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _ser_puts2 ]
 [v _s `*uc ~T0 @X0 1 r1 ]
 [f ]
-"75
-[; ;../../../lib/ser.c: 75:   while(*s) ser_putch(*s++);
+"80
+[; ;../../../lib/ser.c: 80:   while(*s) ser_putch(*s++);
 [e $U 106  ]
 [e :U 107 ]
 [e ( _ser_putch (1 -> *U ++ _s * -> -> 1 `i `x -> -> # *U _s `i `x `uc ]
 [e :U 106 ]
 [e $ != -> *U _s `i -> 0 `i 107  ]
 [e :U 108 ]
-"76
-[; ;../../../lib/ser.c: 76: }
+"81
+[; ;../../../lib/ser.c: 81: }
 [e :UE 105 ]
 }
-"79
-[; ;../../../lib/ser.c: 79: ser_puthex(uint8_t v) {
+"84
+[; ;../../../lib/ser.c: 84: ser_puthex(uint8_t v) {
 [v _ser_puthex `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _ser_puthex ]
 [v _v `uc ~T0 @X0 1 r1 ]
 [f ]
-"80
-[; ;../../../lib/ser.c: 80:   uint8_t c;
+"85
+[; ;../../../lib/ser.c: 85:   uint8_t c;
 [v _c `uc ~T0 @X0 1 a ]
-"82
-[; ;../../../lib/ser.c: 82:   c = v >> 4;
+"87
+[; ;../../../lib/ser.c: 87:   c = v >> 4;
 [e = _c -> >> -> _v `i -> 4 `i `uc ]
-"83
-[; ;../../../lib/ser.c: 83:   if(c > 9) {
+"88
+[; ;../../../lib/ser.c: 88:   if(c > 9) {
 [e $ ! > -> _c `i -> 9 `i 110  ]
 {
-"84
-[; ;../../../lib/ser.c: 84:     ser_putch((char)('A' - 10 + c));
+"89
+[; ;../../../lib/ser.c: 89:     ser_putch((char)('A' - 10 + c));
 [e ( _ser_putch (1 -> + - -> 65 `ui -> -> 10 `i `ui -> _c `ui `uc ]
-"85
-[; ;../../../lib/ser.c: 85:   } else {
+"90
+[; ;../../../lib/ser.c: 90:   } else {
 }
 [e $U 111  ]
 [e :U 110 ]
 {
-"86
-[; ;../../../lib/ser.c: 86:     ser_putch((char)('0' + c));
+"91
+[; ;../../../lib/ser.c: 91:     ser_putch((char)('0' + c));
 [e ( _ser_putch (1 -> + -> 48 `ui -> _c `ui `uc ]
-"87
-[; ;../../../lib/ser.c: 87:   }
+"92
+[; ;../../../lib/ser.c: 92:   }
 }
 [e :U 111 ]
-"89
-[; ;../../../lib/ser.c: 89:   c = v & 0x0F;
+"94
+[; ;../../../lib/ser.c: 94:   c = v & 0x0F;
 [e = _c -> & -> _v `i -> 15 `i `uc ]
-"90
-[; ;../../../lib/ser.c: 90:   if(c > 9) {
+"95
+[; ;../../../lib/ser.c: 95:   if(c > 9) {
 [e $ ! > -> _c `i -> 9 `i 112  ]
 {
-"91
-[; ;../../../lib/ser.c: 91:     ser_putch((char)('A' - 10 + c));
+"96
+[; ;../../../lib/ser.c: 96:     ser_putch((char)('A' - 10 + c));
 [e ( _ser_putch (1 -> + - -> 65 `ui -> -> 10 `i `ui -> _c `ui `uc ]
-"92
-[; ;../../../lib/ser.c: 92:   } else {
+"97
+[; ;../../../lib/ser.c: 97:   } else {
 }
 [e $U 113  ]
 [e :U 112 ]
 {
-"93
-[; ;../../../lib/ser.c: 93:     ser_putch((char)('0' + c));
+"98
+[; ;../../../lib/ser.c: 98:     ser_putch((char)('0' + c));
 [e ( _ser_putch (1 -> + -> 48 `ui -> _c `ui `uc ]
-"94
-[; ;../../../lib/ser.c: 94:   }
+"99
+[; ;../../../lib/ser.c: 99:   }
 }
 [e :U 113 ]
-"95
-[; ;../../../lib/ser.c: 95: }
+"100
+[; ;../../../lib/ser.c: 100: }
 [e :UE 109 ]
 }
-"98
-[; ;../../../lib/ser.c: 98: ser_init(void) {
+"103
+[; ;../../../lib/ser.c: 103: ser_init(void) {
 [v _ser_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _ser_init ]
 [f ]
-"99
-[; ;../../../lib/ser.c: 99:   TRISC &= ~0x40;
+"104
+[; ;../../../lib/ser.c: 104:   TRISC &= ~0x40;
 [e =& _TRISC -> ~ -> 64 `i `Vuc ]
-"101
-[; ;../../../lib/ser.c: 101:   TRISC |= 0x80;
+"106
+[; ;../../../lib/ser.c: 106:   TRISC |= 0x80;
 [e =| _TRISC -> -> 128 `i `Vuc ]
-"103
-[; ;../../../lib/ser.c: 103:   BRGH = 1;
+"108
+[; ;../../../lib/ser.c: 108:   BRGH = 1;
 [e = _BRGH -> -> 1 `i `b ]
-"109
-[; ;../../../lib/ser.c: 109:   SPBRG = ser_brg;
+"114
+[; ;../../../lib/ser.c: 114:   SPBRG = ser_brg;
 [e = _SPBRG _ser_brg ]
-"112
-[; ;../../../lib/ser.c: 112:   TX9 = 0;
-[e = _TX9 -> -> 0 `i `b ]
-"113
-[; ;../../../lib/ser.c: 113:   RX9 = 0;
-[e = _RX9 -> -> 0 `i `b ]
-"115
-[; ;../../../lib/ser.c: 115:   SYNC = 0;
-[e = _SYNC -> -> 0 `i `b ]
-"116
-[; ;../../../lib/ser.c: 116:   SPEN = 1;
-[e = _SPEN -> -> 1 `i `b ]
 "117
-[; ;../../../lib/ser.c: 117:   CREN = 1;
-[e = _CREN -> -> 1 `i `b ]
+[; ;../../../lib/ser.c: 117:   TX9 = 0;
+[e = _TX9 -> -> 0 `i `b ]
 "118
-[; ;../../../lib/ser.c: 118:   TXIE = 0;
-[e = _TXIE -> -> 0 `i `b ]
+[; ;../../../lib/ser.c: 118:   RX9 = 0;
+[e = _RX9 -> -> 0 `i `b ]
 "120
-[; ;../../../lib/ser.c: 120:   TXEN = 1;
-[e = _TXEN -> -> 1 `i `b ]
+[; ;../../../lib/ser.c: 120:   SYNC = 0;
+[e = _SYNC -> -> 0 `i `b ]
 "121
-[; ;../../../lib/ser.c: 121:   PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
+[; ;../../../lib/ser.c: 121:   SPEN = 1;
+[e = _SPEN -> -> 1 `i `b ]
+"122
+[; ;../../../lib/ser.c: 122:   CREN = 1;
+[e = _CREN -> -> 1 `i `b ]
 "123
-[; ;../../../lib/ser.c: 123:   rxiptr = rxoptr = txiptr = txoptr = 0;
+[; ;../../../lib/ser.c: 123:   TXIE = 0;
+[e = _TXIE -> -> 0 `i `b ]
+"125
+[; ;../../../lib/ser.c: 125:   TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"126
+[; ;../../../lib/ser.c: 126:   PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"128
+[; ;../../../lib/ser.c: 128:   rxiptr = rxoptr = txiptr = txoptr = 0;
 [e = _rxiptr = _rxoptr = _txiptr = _txoptr -> -> 0 `i `uc ]
-"124
-[; ;../../../lib/ser.c: 124: }
+"129
+[; ;../../../lib/ser.c: 129: }
 [e :UE 114 ]
 }

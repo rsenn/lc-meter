@@ -39,7 +39,7 @@ FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.
 endif
 
 ifeq ($(COMPARE_BUILD), true)
-COMPARISON_BUILD=-mafrlcsj
+COMPARISON_BUILD=
 else
 COMPARISON_BUILD=
 endif
@@ -97,7 +97,7 @@ ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Mak
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ../../../lib/lcd44780.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ../../../lib/lcd44780.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/lcd44780.d ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -105,7 +105,7 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -113,7 +113,7 @@ ${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CN
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -121,7 +121,7 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -129,7 +129,7 @@ ${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/buffer.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -137,7 +137,7 @@ ${OBJECTDIR}/_ext/1386528437/print.p1: ../../../src/print.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/print.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/print.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386528437/print.p1 ../../../src/print.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386528437/print.p1 ../../../src/print.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386528437/print.d ${OBJECTDIR}/_ext/1386528437/print.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/print.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -145,7 +145,7 @@ ${OBJECTDIR}/_ext/1386528437/measure.p1: ../../../src/measure.c  nbproject/Makef
 	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/measure.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/measure.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386528437/measure.p1 ../../../src/measure.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386528437/measure.p1 ../../../src/measure.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386528437/measure.d ${OBJECTDIR}/_ext/1386528437/measure.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/measure.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -153,7 +153,7 @@ ${OBJECTDIR}/_ext/2124829536/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
 	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
 	@-${MV} ${OBJECTDIR}/_ext/2124829536/LC-meter.d ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -162,7 +162,7 @@ ${OBJECTDIR}/_ext/1386521430/lcd44780.p1: ../../../lib/lcd44780.c  nbproject/Mak
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ../../../lib/lcd44780.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/lcd44780.p1 ../../../lib/lcd44780.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/lcd44780.d ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/lcd44780.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -170,7 +170,7 @@ ${OBJECTDIR}/_ext/1386521430/format.p1: ../../../lib/format.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/format.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/format.p1 ../../../lib/format.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/format.d ${OBJECTDIR}/_ext/1386521430/format.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/format.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -178,7 +178,7 @@ ${OBJECTDIR}/_ext/1386521430/ser.p1: ../../../lib/ser.c  nbproject/Makefile-${CN
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/ser.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/ser.p1 ../../../lib/ser.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/ser.d ${OBJECTDIR}/_ext/1386521430/ser.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/ser.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -186,7 +186,7 @@ ${OBJECTDIR}/_ext/1386521430/timer.p1: ../../../lib/timer.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/timer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/timer.p1 ../../../lib/timer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/timer.d ${OBJECTDIR}/_ext/1386521430/timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -194,7 +194,7 @@ ${OBJECTDIR}/_ext/1386521430/buffer.p1: ../../../lib/buffer.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/1386521430" 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386521430/buffer.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386521430/buffer.p1 ../../../lib/buffer.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386521430/buffer.d ${OBJECTDIR}/_ext/1386521430/buffer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386521430/buffer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -202,7 +202,7 @@ ${OBJECTDIR}/_ext/1386528437/print.p1: ../../../src/print.c  nbproject/Makefile-
 	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/print.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/print.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386528437/print.p1 ../../../src/print.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386528437/print.p1 ../../../src/print.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386528437/print.d ${OBJECTDIR}/_ext/1386528437/print.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/print.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -210,7 +210,7 @@ ${OBJECTDIR}/_ext/1386528437/measure.p1: ../../../src/measure.c  nbproject/Makef
 	@${MKDIR} "${OBJECTDIR}/_ext/1386528437" 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/measure.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/1386528437/measure.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/1386528437/measure.p1 ../../../src/measure.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/1386528437/measure.p1 ../../../src/measure.c 
 	@-${MV} ${OBJECTDIR}/_ext/1386528437/measure.d ${OBJECTDIR}/_ext/1386528437/measure.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1386528437/measure.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -218,7 +218,7 @@ ${OBJECTDIR}/_ext/2124829536/LC-meter.p1: ../../../LC-meter.c  nbproject/Makefil
 	@${MKDIR} "${OBJECTDIR}/_ext/2124829536" 
 	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
 	@${RM} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -DXPRJ_release=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist -DXPRJ_release=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     -o${OBJECTDIR}/_ext/2124829536/LC-meter.p1 ../../../LC-meter.c 
 	@-${MV} ${OBJECTDIR}/_ext/2124829536/LC-meter.d ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/2124829536/LC-meter.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
@@ -231,23 +231,17 @@ else
 endif
 
 # ------------------------------------------------------------------------------------
-# Rules for buildStep: assembleWithPreprocess
-ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-else
-endif
-
-# ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_release=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -mrom=default,-1f00-1fff -mram=default,-0-0,-70-70,-80-80,-f0-f0,-100-100,-170-170,-180-180,-1e5-1f0  $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.map  -D__DEBUG=1  --debugger=pickit3  -DXPRJ_release=$(CND_CONF)  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     --rom=default,-1f00-1fff --ram=default,-0-0,-70-70,-80-80,-f0-f0,-100-100,-170-170,-180-180,-1e5-1f0  $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.hex 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.map  -DXPRJ_release=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1  -fno-short-double -fshort-float -Os -fasmfile -maddrqual=ignore -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -xassembler-with-cpp -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v -mwarn=3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--no-data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mdownload -mno-stackcall -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.map  -DXPRJ_release=$(CND_CONF)  --double=32 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=pro -D__16f876a=1 -DBAUD_RATE=38400 -DUSE_SER=1 -DUSE_TIMER0=1 -D_XTAL_FREQ=20000000 -DNDEBUG=1 -P -N255 -I"../../.." -I"../../../lib" -I"../../../src" -I"." -v --warn=3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,-init,-keep,-no_startup,-osccal,-resetbits,+download,-stackcall,+clib --output=-mcof,+elf --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/LC_meter_16f876a_xc8.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 endif
 

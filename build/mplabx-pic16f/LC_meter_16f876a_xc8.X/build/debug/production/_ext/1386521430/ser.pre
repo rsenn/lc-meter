@@ -1393,7 +1393,7 @@ typedef uint16_t uintptr_t;
 typedef char BOOL;
 
 # 48 "../../../lib/ser.h"
-bit ser_isrx(void);
+char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
 void ser_put(const char* s, unsigned n);
@@ -1411,7 +1411,7 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 22 "../../../lib/ser.c"
+# 27 "../../../lib/ser.c"
 uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
 
 uint8_t rxfifo[(uint8_t)16];
@@ -1420,7 +1420,7 @@ uint8_t txfifo[(uint8_t)16];
 volatile uint8_t txiptr, txoptr;
 uint8_t ser_tmp;
 
-bit
+char
 ser_isrx(void) {
 if(OERR) {
 CREN = 0;
@@ -1495,7 +1495,7 @@ TRISC |= 0x80;
 
 BRGH = 1;
 
-# 109
+# 114
 SPBRG = ser_brg;
 
 

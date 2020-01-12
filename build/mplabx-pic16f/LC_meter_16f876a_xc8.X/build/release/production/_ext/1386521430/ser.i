@@ -9,8 +9,7 @@
 # 1 "../../../lib/ser.c" 2
 
 
-# 1 "../../../lib/device.h" 1
-# 37 "../../../lib/device.h"
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1567,10 +1566,14 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 38 "../../../lib/device.h" 2
-# 4 "../../../lib/ser.c" 2
-# 1 "../../../lib/oscillator.h" 1
 # 5 "../../../lib/ser.c" 2
+
+
+
+# 1 "../../../lib/device.h" 1
+# 9 "../../../lib/ser.c" 2
+# 1 "../../../lib/oscillator.h" 1
+# 10 "../../../lib/ser.c" 2
 # 1 "../../../lib/ser.h" 1
 
 
@@ -1734,10 +1737,10 @@ extern volatile uint8_t txiptr, txoptr;
 extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
-# 6 "../../../lib/ser.c" 2
+# 11 "../../../lib/ser.c" 2
 # 1 "../../../lib/const.h" 1
-# 7 "../../../lib/ser.c" 2
-# 22 "../../../lib/ser.c"
+# 12 "../../../lib/ser.c" 2
+# 27 "../../../lib/ser.c"
 uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
 
 uint8_t rxfifo[(uint8_t)16];
