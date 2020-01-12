@@ -144,8 +144,9 @@ main() {
 #if !NO_PORTC && !defined(__16f628)
   //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */
   //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */
-  TRISC = 0b10111011;
+  TRISC = 0b10110011;
 #endif
+  RC3 = HIGH;
 
   INIT_LED();
   SET_LED(1);
