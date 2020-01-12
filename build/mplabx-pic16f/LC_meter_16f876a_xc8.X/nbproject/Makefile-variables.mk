@@ -4,13 +4,13 @@
 # NOCDDL
 #
 CND_BASEDIR=`pwd`
-# release configuration
-CND_ARTIFACT_DIR_release=dist/release/production
-CND_ARTIFACT_NAME_release=LC_meter_16f876a_xc8.X.production.hex
-CND_ARTIFACT_PATH_release=dist/release/production/LC_meter_16f876a_xc8.X.production.hex
-CND_PACKAGE_DIR_release=${CND_DISTDIR}/release/package
-CND_PACKAGE_NAME_release=lcmeter16f876axc8.x.tar
-CND_PACKAGE_PATH_release=${CND_DISTDIR}/release/package/lcmeter16f876axc8.x.tar
+# default configuration
+CND_ARTIFACT_DIR_default=dist/default/production
+CND_ARTIFACT_NAME_default=LC_meter_16f876a_xc8.X.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/LC_meter_16f876a_xc8.X.production.hex
+CND_PACKAGE_DIR_default=${CND_DISTDIR}/default/package
+CND_PACKAGE_NAME_default=lcmeter16f876axc8.x.tar
+CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/lcmeter16f876axc8.x.tar
 # debug configuration
 CND_ARTIFACT_DIR_debug=dist/debug/production
 CND_ARTIFACT_NAME_debug=LC_meter_16f876a_xc8.X.production.hex
