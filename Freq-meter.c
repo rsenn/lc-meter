@@ -5,20 +5,20 @@
 //---------------------------------------------
 
 #include "Freq-meter.h"
-#include "format.h"
-#include "buffer.h"
-#include "delay.h"
-#include "interrupt.h"
+#include "lib/format.h"
+#include "lib/buffer.h"
+#include "lib/delay.h"
+#include "lib/interrupt.h"
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+#include "lib/lcd44780.h"
 #endif
 #if USE_NOKIA5110_LCD
-#include "lcd5110.h"
+#include "lib/lcd5110.h"
 #endif
 
 #if USE_SER
-#include "ser.h"
+#include "lib/ser.h"
 #endif
 
 #include "config-bits.h"

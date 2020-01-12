@@ -1,9 +1,9 @@
-#include "oscillator.h"
-#include "interrupt.h"
-#include "delay.h"
-#include "timer.h"
+#include "lib/oscillator.h"
+#include "lib/interrupt.h"
+#include "lib/delay.h"
+#include "lib/timer.h"
 #if USE_SER
-#include "ser.h"
+#include "lib/ser.h"
 #endif
 #include "config-bits.h"
 
