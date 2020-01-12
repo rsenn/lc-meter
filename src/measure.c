@@ -1,3 +1,4 @@
+#include "lib/device.h"
 #include "oscillator.h"
 #include "LC-meter.h"
 #include "delay.h"
@@ -72,8 +73,8 @@ unsigned short
 measure_freq() {
   uint16_t count;
 
-  INTCON &= ~0b100; // TMR0IF = 0;
-
+  TMR0IF = 0;
+  
   // Enable RA4 output to T0CKI:
   // If pin is set as output, C1OUT will connnect to T0CKI
   TRISA &= ~0b00010000;
