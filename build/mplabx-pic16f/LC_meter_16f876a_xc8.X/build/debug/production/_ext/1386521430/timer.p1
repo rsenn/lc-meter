@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"55 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"55 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [v _TMR0 `Vuc ~T0 @X0 0 e@1 ]
 "2372
 [v _T0CS `Vb ~T0 @X0 0 e@1037 ]
@@ -22,7 +22,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
 "2374
 [v _T0IE `Vb ~T0 @X0 0 e@93 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h
+"28 /opt/microchip/xc8/v1.34/include/pic.h
 [v ___nop `(v ~T0 @X0 0 ef ]
 [p i ___nop ]
 [; ;stdint.h: 13: typedef signed char int8_t;
@@ -54,12 +54,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;typedef.h: 56: typedef char BOOL;
-[; ;timer.h: 69: void timer0_init(uint8_t);
+[; ;timer.h: 69: void timer0_init(unsigned char);
 [; ;timer.h: 76: unsigned short timer0_read_ps(void);
-[; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
+[; ;htc.h: 25: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f876a.h: 49: extern volatile unsigned char INDF @ 0x000;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h
+"51 /opt/microchip/xc8/v1.34/include/pic16f876a.h
 [; ;pic16f876a.h: 51: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f876a.h: 55: extern volatile unsigned char TMR0 @ 0x001;

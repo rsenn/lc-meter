@@ -4,6 +4,8 @@
 #include "lib/oscillator.h"
 #include "lib/typedef.h"
 #include "lib/const.h"
+#include "lib/device.h"
+#include "lib/delay.h"
 
 #ifdef HI_TECH_C
 //# include <pic.h>

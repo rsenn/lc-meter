@@ -1,15 +1,15 @@
 
 # 1 "../../../LC-meter.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
+# 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\xc8debug.h"
+# 13 "/opt/microchip/xc8/v1.34/include/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic16f876a.h"
+# 49 "/opt/microchip/xc8/v1.34/include/pic16f876a.h"
 extern volatile unsigned char INDF @ 0x000;
 
 asm("INDF equ 00h");
@@ -1276,21 +1276,21 @@ extern volatile __bit nW @ (((unsigned) &SSPSTAT)*8) + 2;
 extern volatile __bit nWRITE @ (((unsigned) &SSPSTAT)*8) + 2;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 27 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
 # 76
 extern unsigned int flash_read(unsigned short addr);
 
-# 41 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\eeprom_routines.h"
+# 41 "/opt/microchip/xc8/v1.34/include/eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 149 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic.h"
+# 149 "/opt/microchip/xc8/v1.34/include/pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 
@@ -1299,7 +1299,7 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -1392,11 +1392,6 @@ typedef uint16_t uintptr_t;
 # 56 "../../../lib/typedef.h"
 typedef char BOOL;
 
-# 63 "../../../LC-meter.h"
-extern double F1, F2, F3, CCal;
-
-void delay10ms(unsigned char period_10ms);
-
 # 50 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
@@ -1414,8 +1409,13 @@ void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
 
+# 65 "../../../LC-meter.h"
+extern double F1, F2, F3, CCal;
+
+void delay10ms(unsigned char period_10ms);
+
 # 69 "../../../lib/timer.h"
-void timer0_init(uint8_t);
+void timer0_init(unsigned char);
 
 # 76
 unsigned short timer0_read_ps(void);
@@ -1439,13 +1439,13 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 6 "../../../src\measure.h"
+# 6 "../../../src/measure.h"
 void calibrate(void);
 unsigned short measure_freq(void);
 void measure_capacitance(void);
 void measure_inductance(void);
 
-# 6 "../../../src\print.h"
+# 6 "../../../src/print.h"
 extern const char logo_image[504];
 
 void put_str(const char*);
@@ -1463,8 +1463,8 @@ void format_xint32(uint32_t x);
 void format_double(double num);
 
 
-# 7 "../../../src\config-16f876a.h"
-#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, DEBUG=ON
+# 7 "../../../src/config-16f876a.h"
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, WRT = OFF, DEBUG=ON
 
 # 44 "../../../LC-meter.c"
 volatile uint16_t bres;
@@ -1556,10 +1556,10 @@ ser_init();
 # 185
 INTCON |= 0xc0;
 
-# 198
-delay10ms(5);
+# 200
+delay10ms(200);
 
-# 203
+
 calibrate();
 
 # 214

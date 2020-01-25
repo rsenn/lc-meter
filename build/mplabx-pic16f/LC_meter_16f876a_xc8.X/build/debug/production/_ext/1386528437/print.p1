@@ -1,12 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"50 ../../../lib\ser.h
+"50 ../../../lib/ser.h
 [v _ser_putch `(v ~T0 @X0 0 ef1`uc ]
-"14 ../../../lib\buffer.h
+"14 ../../../lib/buffer.h
 [s S1 `uc -> 16 `i :4 `uc 1 :4 `uc 1 ]
 [n S1 . x p n ]
 "26
 [v _buffer `S1 ~T0 @X0 0 e ]
-"52 ../../../lib\ser.h
+"52 ../../../lib/ser.h
 [v _ser_puts `(v ~T0 @X0 0 ef1`*Cuc ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -36,19 +36,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;lib\typedef.h: 56: typedef char BOOL;
-[; ;lib\buffer.h: 12: typedef uint8_t len_t;
-[; ;lib\buffer.h: 14: typedef struct {
-[; ;lib\buffer.h: 15: char x[16];
-[; ;lib\buffer.h: 16: unsigned p : 4;
-[; ;lib\buffer.h: 17: unsigned n : 4;
-[; ;lib\buffer.h: 18: } buffer_t;
-[; ;lib\buffer.h: 26: extern buffer_t buffer;
-[; ;lib\buffer.h: 28: void buffer_init(void);
-[; ;lib\buffer.h: 29: char buffer_flush(void);
-[; ;lib\buffer.h: 30: char buffer_putch(char ch);
-[; ;lib\buffer.h: 31: char buffer_put(const char* x, len_t len);
-[; ;lib\buffer.h: 32: char buffer_puts(const char* x);
+[; ;typedef.h: 56: typedef char BOOL;
+[; ;buffer.h: 12: typedef uint8_t len_t;
+[; ;buffer.h: 14: typedef struct {
+[; ;buffer.h: 15: char x[16];
+[; ;buffer.h: 16: unsigned p : 4;
+[; ;buffer.h: 17: unsigned n : 4;
+[; ;buffer.h: 18: } buffer_t;
+[; ;buffer.h: 26: extern buffer_t buffer;
+[; ;buffer.h: 28: void buffer_init(void);
+[; ;buffer.h: 29: char buffer_flush(void);
+[; ;buffer.h: 30: char buffer_putch(char ch);
+[; ;buffer.h: 31: char buffer_put(const char* x, len_t len);
+[; ;buffer.h: 32: char buffer_puts(const char* x);
 [; ;print.h: 6: extern const char logo_image[504];
 [; ;print.h: 8: void put_str(const char*);
 [; ;print.h: 9: void output_putch(char c); void lcd_puts(const char*);
@@ -58,23 +58,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.h: 13: void print_indicator(uint8_t indicate);
 [; ;print.h: 14: void print_print_float(float number, uint8_t digits);
 [; ;print.h: 15: void print_buffer(void);
-[; ;lib\ser.h: 48: char ser_isrx(void);
-[; ;lib\ser.h: 49: uint8_t ser_getch(void);
-[; ;lib\ser.h: 50: void ser_putch(char byte);
-[; ;lib\ser.h: 51: void ser_put(const char* s, unsigned n);
-[; ;lib\ser.h: 52: void ser_puts(const char* s);
-[; ;lib\ser.h: 53: void ser_puts2(uint8_t* s);
-[; ;lib\ser.h: 54: void ser_puthex(uint8_t v);
-[; ;lib\ser.h: 55: void ser_init(void);
-[; ;lib\ser.h: 58: extern uint8_t rxfifo[(uint8_t)16];
-[; ;lib\ser.h: 59: extern volatile uint8_t rxiptr, rxoptr;
-[; ;lib\ser.h: 60: extern uint8_t txfifo[(uint8_t)16];
-[; ;lib\ser.h: 61: extern volatile uint8_t txiptr, txoptr;
-[; ;lib\ser.h: 62: extern uint8_t ser_tmp;
-[; ;lib\ser.h: 64: extern uint8_t ser_brg;
-[; ;lib\format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
-[; ;lib\format.h: 7: void format_xint32(uint32_t x);
-[; ;lib\format.h: 8: void format_double(double num);
+[; ;ser.h: 48: char ser_isrx(void);
+[; ;ser.h: 49: uint8_t ser_getch(void);
+[; ;ser.h: 50: void ser_putch(char byte);
+[; ;ser.h: 51: void ser_put(const char* s, unsigned n);
+[; ;ser.h: 52: void ser_puts(const char* s);
+[; ;ser.h: 53: void ser_puts2(uint8_t* s);
+[; ;ser.h: 54: void ser_puthex(uint8_t v);
+[; ;ser.h: 55: void ser_init(void);
+[; ;ser.h: 58: extern uint8_t rxfifo[(uint8_t)16];
+[; ;ser.h: 59: extern volatile uint8_t rxiptr, rxoptr;
+[; ;ser.h: 60: extern uint8_t txfifo[(uint8_t)16];
+[; ;ser.h: 61: extern volatile uint8_t txiptr, txoptr;
+[; ;ser.h: 62: extern uint8_t ser_tmp;
+[; ;ser.h: 64: extern uint8_t ser_brg;
+[; ;format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
+[; ;format.h: 7: void format_xint32(uint32_t x);
+[; ;format.h: 8: void format_double(double num);
 "23 ../../../src/print.c
 [v _lcd_put `(v ~T0 @X0 1 ef2`*Cuc`ui ]
 {

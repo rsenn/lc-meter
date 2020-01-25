@@ -1,7 +1,7 @@
 
 # 1 "../../../src/print.c"
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
+# 13 "/opt/microchip/xc8/v1.34/include/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -91,10 +91,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib\typedef.h"
+# 56 "../../../lib/typedef.h"
 typedef char BOOL;
 
-# 12 "../../../lib\buffer.h"
+# 12 "../../../lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -124,7 +124,7 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 
-# 48 "../../../lib\ser.h"
+# 48 "../../../lib/ser.h"
 char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
@@ -143,7 +143,7 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 6 "../../../lib\format.h"
+# 6 "../../../lib/format.h"
 void format_number(uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(uint32_t x);
 void format_double(double num);
