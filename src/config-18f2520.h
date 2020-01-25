@@ -14,6 +14,10 @@
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 #pragma config EBTRB = OFF
 
+#ifdef _DEBUG
+#pragma config DEBUG = ON
+#endif
+
 #elif defined(__XC)
 
 __CONFIG(1, OSC_HS & FCMEN_ON);
