@@ -14,6 +14,10 @@
 #pragma config EBTR0 = OFF, EBTR1 = OFF
 #pragma config EBTRB = OFF
 #pragma config XINST = OFF
+
+#ifdef _DEBUG
+#pragma config DEBUG = ON
+#endif
 //
 #elif 0
 

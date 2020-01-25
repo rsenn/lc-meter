@@ -23,6 +23,10 @@
 #pragma config STVREN = OFF // Stack Overflow/Underflow Reset Enable [ OFF | ON   ]
 #pragma config BORV = LO    // Brown-out Reset Voltage Selection [ HI | LO    ]
 
+#ifdef _DEBUG
+#pragma config DEBUG = ON
+#endif
+
 #elif defined(HI_TECH_C)
 
 __CONFIG(1, FOSC_INTOSC& WDTE_OFF& PWRTE_ON& MCLRE_OFF& BOREN_ON& CP_OFF& CPD_OFF& CLKOUTEN_OFF);

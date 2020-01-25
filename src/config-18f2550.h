@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F2550_H
 #define CONFIG_18F2550_H 1
 
-#if defined(MCHP_XC8) || defined(SDCC)
+#if defined(__XC) || defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config FOSC = HS
 #pragma config PWRT = ON, BOR = ON, BORV = 3
@@ -14,6 +14,10 @@
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 #pragma config EBTRB = OFF
 #pragma config XINST = OFF
+
+#ifdef _DEBUG
+#pragma config DEBUG = ON
+#endif
 //
 #elif defined(__XC)
 
