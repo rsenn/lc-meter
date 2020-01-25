@@ -4,15 +4,23 @@
 #if defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config FOSC = HSHP
+#pragma config PLLCFG = OFF         // Oscillator used directly
+#pragma config PRICLKEN = ON        // Primary clock enabled
+#pragma config FCMEN = OFF          // Fail-Safe Clock Monitor disabled
+#pragma config IESO = OFF           // Oscillator Switchover mode disabled
+
 #pragma config PWRTEN = OFF, BOREN = ON, BORV = 285
 #pragma config WDTEN = OFF
-#pragma config STVREN = OFF, LVP = ON
+#pragma config LVP = OFF     
+
+#pragma config STVREN = OFF
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
 #pragma config CPB = OFF, CPD = OFF
 #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
 #pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF
 #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF
 #pragma config EBTRB = OFF
+#pragma config MCLRE = EXTMCLR
 
 #ifdef _DEBUG
 #pragma config DEBUG = ON
