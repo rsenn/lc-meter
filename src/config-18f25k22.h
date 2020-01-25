@@ -1,7 +1,7 @@
 #ifndef CONFIG_18F25K22_H
 #define CONFIG_18F25K22_H 1
 
-#if defined(MCHP_XC8) || defined(SDCC)
+#if defined(__XC) || defined(MCHP_XC8) || defined(SDCC)
 
 #pragma config FOSC = HSHP
 #pragma config PLLCFG = OFF         // Oscillator used directly

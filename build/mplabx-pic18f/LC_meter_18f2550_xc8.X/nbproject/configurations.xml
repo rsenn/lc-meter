@@ -4,13 +4,16 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../../../lib/format.h</itemPath>
-      <itemPath>../../../lib/interrupt.h</itemPath>
-      <itemPath>../../../lib/oscillator.h</itemPath>
-      <itemPath>../../../lib/ser.h</itemPath>
-      <itemPath>../../../lib/typedef.h</itemPath>
-      <itemPath>../../../lib/lcd44780.h</itemPath>
-      <itemPath>../../../lib/buffer.h</itemPath>
+      <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/buffer.h</itemPath>
+        <itemPath>../../../lib/interrupt.h</itemPath>
+        <itemPath>../../../lib/format.h</itemPath>
+        <itemPath>../../../lib/lcd44780.h</itemPath>
+        <itemPath>../../../lib/oscillator.h</itemPath>
+        <itemPath>../../../lib/ser.h</itemPath>
+        <itemPath>../../../lib/typedef.h</itemPath>
+        <itemPath>/home/roman/Dokumente/Sources/lc-meter/lib/delay.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,12 +22,15 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="lib" projectFiles="true">
+        <itemPath>../../../lib/buffer.c</itemPath>
+        <itemPath>/home/roman/Dokumente/Sources/lc-meter/lib/delay.c</itemPath>
+        <itemPath>../../../lib/lcd44780.c</itemPath>
+        <itemPath>../../../lib/ser.c</itemPath>
+        <itemPath>../../../lib/timer.c</itemPath>
+        <itemPath>../../../lib/format.c</itemPath>
+      </logicalFolder>
       <itemPath>../../../src/print.c</itemPath>
-      <itemPath>../../../lib/ser.c</itemPath>
-      <itemPath>../../../lib/timer.c</itemPath>
-      <itemPath>../../../lib/format.c</itemPath>
-      <itemPath>../../../lib/lcd44780.c</itemPath>
-      <itemPath>../../../lib/buffer.c</itemPath>
       <itemPath>../../../LC-meter.c</itemPath>
       <itemPath>../../../src/measure.c</itemPath>
     </logicalFolder>
@@ -49,7 +55,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.34</languageToolchainVersion>
+        <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -153,7 +159,7 @@
         <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-c-library-gcc" value=""/>
-        <property key="link-in-peripheral-library" value="false"/>
+        <property key="link-in-peripheral-library" value="true"/>
         <property key="managed-stack" value="true"/>
         <property key="opt-xc8-linker-file" value="false"/>
         <property key="opt-xc8-linker-link_startup" value="false"/>
@@ -228,7 +234,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.34</languageToolchainVersion>
+        <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
@@ -332,7 +338,7 @@
         <property key="keep-generated-startup.as" value="true"/>
         <property key="link-in-c-library" value="true"/>
         <property key="link-in-c-library-gcc" value=""/>
-        <property key="link-in-peripheral-library" value="false"/>
+        <property key="link-in-peripheral-library" value="true"/>
         <property key="managed-stack" value="true"/>
         <property key="opt-xc8-linker-file" value="false"/>
         <property key="opt-xc8-linker-link_startup" value="false"/>

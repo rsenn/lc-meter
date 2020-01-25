@@ -79,7 +79,7 @@ measure_freq() {
   // If pin is set as output, C1OUT will connnect to T0CKI
   TRISA &= ~0b00010000;
 
-  __delay_ms(20); // stablize oscillator
+  delay_ms(20); // stablize oscillator
 
   // reset timer0 & prescaler
   TMR0 = 0x00;
@@ -87,16 +87,16 @@ measure_freq() {
 //  SET_LED(1);
 
   // Wait fixed period (100ms)
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
-  __delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
+  delay_ms(10);
 
 //  SET_LED(0);
 

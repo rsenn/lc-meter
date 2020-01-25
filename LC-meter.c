@@ -143,7 +143,7 @@ main() {
   TRISC = 0b10110011;
 #endif
 
-#if !defined(__18f2550)
+#if !defined(__18f2550) && !defined(__18f25k50)
   RC3 = HIGH;
 #endif
 
