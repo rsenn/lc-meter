@@ -125,8 +125,8 @@ lcd_str_width(const char* c) {
   //	return i;
   return ((i << 1) + i) << 1; // return i*6
 }
-#define CLK_IN(data, bitnum)                                                                      
-                     \
+#define CLK_IN(data, bitnum)                                                                                           \
+                                                                                                                       \
   NOP();                                                                                                               \
   LCD_CLK = 0;                                                                                                         \
   NOP();                                                                                                               \

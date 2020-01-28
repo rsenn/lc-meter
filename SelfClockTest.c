@@ -27,11 +27,9 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
  */
 void
 delay10ms(unsigned char period_10ms) {
-  	short i,j = period_10ms;
-    for(i = 0; i < j; ++i)
-      delay_ms(10);
+  short i, j = period_10ms;
+  for(i = 0; i < j; ++i) delay_ms(10);
 }
-
 
 void
 clockOut(int ntimes) {
@@ -75,7 +73,6 @@ main() {
 #else
   RBPU = 0; // enable portB internal pullup
 #endif
-
 
 #ifdef __DEBUG
   delay10ms(5);

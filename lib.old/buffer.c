@@ -40,8 +40,7 @@ buffer_put(const char* buf, len_t len) {
   len_t i;
   if(len > BUFFER_SIZE - buffer.n) // doesn't fit
     return -1;
-  for(i = 0; i < len; i++)
-    buffer.x[buffer.n + i] = buf[i];
+  for(i = 0; i < len; i++) buffer.x[buffer.n + i] = buf[i];
   buffer.n += len;
   return 0;
 }

@@ -8,7 +8,7 @@ format_putchar(char c) {
   return;
 }
 
-//putchar_fn* putchar_ptr = format_putchar;
+// putchar_fn* putchar_ptr = format_putchar;
 
 // -------------------------------------------------------------------------
 void
@@ -39,10 +39,10 @@ format_number(uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos*/) {
   } while(n > 0);
 
   while(pad-- > i) buffer_putch(padchar);
-  
+
   for(; i > 0; i--) {
-      buffer_putch((char)buf[(int16_t)i - 1]);
-    //buffer_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
+    buffer_putch((char)buf[(int16_t)i - 1]);
+    // buffer_putch((buf[i - 1] < 10 ?(char)'0' + buf[i - 1] : (char)'A' + buf[i - 1] - 10));
   }
 }
 

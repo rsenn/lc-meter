@@ -43,8 +43,7 @@ display_set(uint8_t index, uint8_t segs) {
 void
 display_number(int16_t n) {
   int8_t i;
-v 
-  for(i = DISPLAY_DIGITS - 1; i >= 0; --i) {
+  v for(i = DISPLAY_DIGITS - 1; i >= 0; --i) {
     display_set(i, display_digits[n & 0x0f]);
     n >>= 4;
   }

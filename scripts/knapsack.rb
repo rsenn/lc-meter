@@ -153,29 +153,29 @@ require 'optparse'
                                                                                                   "--[no-]verbose",
                                                                                                   "Run verbosely") do |
                                                                       v | options
-[:verbose] = v end opts.on("-x N,N", "--exclude", Array, "Values that mustn't occur") do | o | options
-[:exclude]
-    .concat o end opts.on("-e N,N", "--occur", Array, "Values that must occur") do | o | options
-[:expect]
-    .concat o end opts.on("-t N,N", "--target", Array, "Target value") do | t | options
-[:target]
-    .concat t end
+         [:verbose] = v end opts.on("-x N,N", "--exclude", Array, "Values that mustn't occur") do | o | options
+         [:exclude]
+             .concat o end opts.on("-e N,N", "--occur", Array, "Values that must occur") do | o | options
+         [:expect]
+             .concat o end opts.on("-t N,N", "--target", Array, "Target value") do | t | options
+         [:target]
+             .concat t end
 
 #No argument, shows at tail.This will print an options summary.
 #Try it and see !
-        opts
-    .on_tail("-h", "--help", "Show this message") do puts opts exit end
+                 opts
+             .on_tail("-h", "--help", "Show this message") do puts opts exit end
 
-        end.parse !
+                 end.parse !
 
-    p options file = ARGV.shift
+             p options file = ARGV.shift
 
-                         options
-[:target]
-    .concat ARGV
+                                  options
+         [:target]
+             .concat ARGV
 
-        targets = options
-[:target]
+                 targets = options
+         [:target]
 
     menu = Menu.new(file, targets.size > 0 ? targets.first : "", options[:expect], options[:exclude])
                rescue ArgumentError = > error puts "There was an error with your input!" puts "\t#{error.message}" end
@@ -183,16 +183,16 @@ require 'optparse'
 
                                               if targets.size ==
                                           0 then targets.push menu.get_target
-    .to_s end
+             .to_s end
 
                                               targets.map{ | a | a.to_f.round(2)}
-    .each do | t |
+             .each do | t |
 
                                       begin
 
                                           puts "target: #{t}" o = menu.calculate_combinations(t) t =
                                           (t + 0.1)
-    .round(1)
+             .round(1)
 
                                                   end until o != "" or
                                           targets.size > 1 if o != "" then puts o end

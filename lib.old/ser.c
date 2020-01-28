@@ -12,11 +12,11 @@
 #define HIGH_SPEED 1
 
 #ifndef SER_BRG
-# if HIGH_SPEED == 1
+#if HIGH_SPEED == 1
 #define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (16 * (double)(SER_BAUD))) - 1)
-# else
-#  define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(SER_BAUD))) - 1)
-# endif
+#else
+#define SER_BRG ((uint16_t)((double)(_XTAL_FREQ) / (64 * (double)(SER_BAUD))) - 1)
+#endif
 #endif
 
 uint8_t ser_brg = SER_BRG;
@@ -97,7 +97,7 @@ ser_puthex(uint8_t v) {
 void
 ser_init(void) {
   SER_TX_TRIS();
-  //SER_TX_PIN = LOW;
+  // SER_TX_PIN = LOW;
   SER_RX_TRIS();
 
   BRGH = HIGH_SPEED; // high speed

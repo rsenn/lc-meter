@@ -15,7 +15,6 @@
 //#define UART_BAUD 31250      /** Baudrate */
 #endif
 
-
 #define HIGH_SPEED 0
 
 #if OSC_4 == 5000000

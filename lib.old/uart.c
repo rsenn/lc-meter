@@ -59,7 +59,7 @@ uart_poll(uint8_t bauds) {
  */
 uint8_t
 uart_isr(void) {
-    if((PIR1 & 0b00100000)) {
+  if((PIR1 & 0b00100000)) {
     PIR1 &= ~0b00100000; //  RCIF = 0;
     return RCREG;
   }
@@ -72,15 +72,15 @@ uart_enable(void) {
   TX_TRIS();
   TX_SET(0);
   TXSTA |= 0b00100000; //  TXEN = 1;
-  RCSTA |= 0x80; // SPEN = 1;
-  PIE1 &= ~0b100000; //RCIE = 0;
+  RCSTA |= 0x80;       // SPEN = 1;
+  PIE1 &= ~0b100000;   // RCIE = 0;
 }
 
 void
 uart_disable(void) {
   TXSTA &= ~0b00100000; //  TXEN = 0;
   RCSTA &= ~0b10000000; // SPEN = 0;
-  PIE1 &= ~0b100000; //RCIE = 0;
+  PIE1 &= ~0b100000;    // RCIE = 0;
   RX_TRIS();
   TX_TRIS();
   TX_SET(0);
@@ -93,12 +93,10 @@ uart_init(void) {
   TX_TRIS();
   TX_SET(0);
   SPBRG = UART_BRG; // UART_BRG;
-  RCSTA |= 0x90 // CREN = 1;
+  RCSTA |= 0x90     // CREN = 1;
            | /*RX9D =*/(NINE == 1 ? 0b1 : 0);
   TXSTA |= /*
-  BRGH =  */ (HIGH_SPEED == 1)
-               ? 0b100
-               : 0b000;
+  BRGH =  */ (HIGH_SPEED == 1) ? 0b100 : 0b000;
   TXSTA |= (NINE == 1) ? 0b01000000 : 0;
   uart_enable();
 }

@@ -74,7 +74,7 @@ measure_freq() {
   uint16_t count;
 
   TMR0IF = 0;
-  
+
   // Enable RA4 output to T0CKI:
   // If pin is set as output, C1OUT will connnect to T0CKI
   TRISA &= ~0b00010000;
@@ -84,7 +84,7 @@ measure_freq() {
   // reset timer0 & prescaler
   TMR0 = 0x00;
 
-//  SET_LED(1);
+  //  SET_LED(1);
 
   // Wait fixed period (100ms)
   delay_ms(10);
@@ -98,7 +98,7 @@ measure_freq() {
   delay_ms(10);
   delay_ms(10);
 
-//  SET_LED(0);
+  //  SET_LED(0);
 
   // Disable RA4 output to T0CKI
   TRISA |= 0b00010000;
@@ -124,7 +124,6 @@ buf_to_ser() {
 }
 #endif
 
-	
 /*
  * Calculate capacitance from oscillating frequency (Thompson formula)
  */
@@ -146,26 +145,35 @@ measure_capacitance() {
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(var); buf_to_ser();
+  format_xint32(var);
+  buf_to_ser();
   ser_puts("\r\nF1=");
-  format_double(F1); buf_to_ser();
+  format_double(F1);
+  buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F1); buf_to_ser();
+  format_xint32(*(uint32_t*)&F1);
+  buf_to_ser();
   ser_puts("\r\nF2=");
-  format_double(F2); buf_to_ser();
+  format_double(F2);
+  buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F2); buf_to_ser();
+  format_xint32(*(uint32_t*)&F2);
+  buf_to_ser();
   ser_puts("\r\nF3=");
-  format_double(F3); buf_to_ser();
+  format_double(F3);
+  buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F3); buf_to_ser();
+  format_xint32(*(uint32_t*)&F3);
+  buf_to_ser();
   ser_puts("\r\nCCal=");
-  format_double(CCal); buf_to_ser();
+  format_double(CCal);
+  buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&CCal); buf_to_ser();
+  format_xint32(*(uint32_t*)&CCal);
+  buf_to_ser();
   ser_puts("\r\n");
 #endif
-//  putchar_ptr = &output_putch;
+  //  putchar_ptr = &output_putch;
 
   if(F3 > F1)
     F3 = F1; // max freq is F1;

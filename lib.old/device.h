@@ -155,8 +155,8 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 
 #endif
 
-#if defined(__18f252) || defined(__18f2520) || defined(__18f2450) || defined(__18f2455) || defined(__18f2550) || defined(__18f14k50) || defined(__18f25k22) ||      \
-    defined(__18f25k50)
+#if defined(__18f252) || defined(__18f2520) || defined(__18f2450) || defined(__18f2455) || defined(__18f2550) ||       \
+    defined(__18f14k50) || defined(__18f25k22) || defined(__18f25k50)
 #ifndef PIC18
 #define PIC18 1
 #endif
@@ -184,7 +184,6 @@ volatile bit nRBPU               @((unsigned)&OPTION_REG * 8) + 7;
 #define CMCON CM1CON0
 #define CMCONbits CM1CON0bits
 #endif
-
 
 #if defined(PIC18) || defined(PIC12)
 #define TMR1CS T1CONbits.TMR1CS

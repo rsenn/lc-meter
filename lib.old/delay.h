@@ -5,9 +5,8 @@
 #include "typedef.h"
 #include "tsmdelay.h"
 
-
 #if !(defined(HI_TECH_C) || defined(MCHP_XC8) || defined(__XC))
-/*#define _delay(C)                                                                                                      \
+/*#define _delay(C) \
   do {                                                                                                                 \
     if(C < 750)                                                                                                        \
       DELAY_SMALL_TCY(C);                                                                                              \

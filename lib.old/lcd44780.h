@@ -66,7 +66,7 @@ void lcd_print_float(float number, uint8_t digits);
 void lcd_puts(const char* string);
 // void lcd_printf(const char *fmt, ...);
 void lcd_gotoxy(uint8_t col, uint8_t row);
-//void lcd_putch(char value);
+// void lcd_putch(char value);
 void lcd_send(uint8_t value, uint8_t mode);
 
 #define LCDAUTOSCROLL

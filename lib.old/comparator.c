@@ -5,7 +5,7 @@
 void
 comparator_disable() {
 
-// Disable PORTA Comparators
+  // Disable PORTA Comparators
 
 #if NUM_COMPARATORS == 1
 

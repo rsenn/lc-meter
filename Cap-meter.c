@@ -42,7 +42,7 @@ Written by: Rajendra Bhatt (www.embedded-lab.com)
 #define Switch OUTB0
 
 buffer_t buffer = {0};
-//BUFFER_STATIC(lcd_putch);
+// BUFFER_STATIC(lcd_putch);
 
 char message1[] = "Capacitance";
 char message2[] = "Meter";

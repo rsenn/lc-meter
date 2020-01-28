@@ -253,9 +253,7 @@ lcd_scroll(uint8_t direction) {
   /* Scroll display */
   switch(direction) {
     /* To left */
-    case LEFT:
-      lcd_write(0x18u);
-      break;
+    case LEFT: lcd_write(0x18u); break;
 
     /* To right */
     case RIGHT: lcd_write(0x1Cu); break;
@@ -278,9 +276,7 @@ cursor_shift(uint8_t direction) {
   /* Shift cursor */
   switch(direction) {
     /* To left */
-    case LEFT:
-      lcd_write(0x10u);
-      break;
+    case LEFT: lcd_write(0x10u); break;
 
     /* To right */
     case RIGHT: lcd_write(0x14u); break;
@@ -302,9 +298,7 @@ lcd_goto(uint8_t line, uint8_t address) {
     case LCD_1st_LINE: lcd_write(0x80u | START_ADDRESS_1st_LINE | address); break;
     case LCD_2nd_LINE: lcd_write(0x80u | START_ADDRESS_2nd_LINE | address); break;
     case LCD_3rd_LINE: lcd_write(0x80u | START_ADDRESS_3rd_LINE | address); break;
-    case LCD_4th_LINE:
-      lcd_write(0x80u | START_ADDRESS_4th_LINE | address);
-      break;
+    case LCD_4th_LINE: lcd_write(0x80u | START_ADDRESS_4th_LINE | address); break;
     /* Set CGRAM address. */
     case CGRAM: lcd_write(0x40u | address); break;
 
