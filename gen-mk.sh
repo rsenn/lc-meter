@@ -9,7 +9,7 @@ case "$OS" in
 IFS="
  	"
 [ $# -gt 0 ] && SOURCES="$*" ||
-SOURCES='LC-meter.c lib/{adc,buffer,comparator,delay,format,random,ser,softpwm,softser,timer,uart}.? src/*.c'
+SOURCES='${PROGRAM_NAME}.c lib/{adc,buffer,comparator,delay,format,random,ser,softpwm,softser,timer,uart}.? src/*.c'
 #set -- --preproc="./cpp-xc8${EXEEXT}" 
 : ${CHIPS='16f876a 18f2450 18f2520 18f2550 18f25k22 18f25k50'}
 CHIPS='18f25k50 18f2550'
@@ -17,7 +17,7 @@ BUILD_TYPES='debug release'
 BUILD_TYPES='debug' 
 : ${MAKE_PROGRAMS:='make ninja nmake mplab'}
 : ${PROGRAM_NAME=${SOURCES%%.*}}
-: ${PROGRAMS:='blinktest pictest serialtest'}
+: ${PROGRAMS:='LC-meter pictest serialtest'}
 for PROGRAM in $PROGRAMS; do 
  (eval "SOURCES=\$(set -- $SOURCES; ls -d \$@)"
   echo "SOURCES='$SOURCES'" 1>&2
