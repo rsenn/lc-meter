@@ -1,23 +1,23 @@
 #include "lib/device.h"
-#include "oscillator.h"
-#include "LC-meter.h"
-#include "delay.h"
+#include "../lib/oscillator.h"
+#include "../LC-meter.h"
+#include "../lib/delay.h"
 
 #if USE_UART
-#include "uart.h"
+#include "../lib/uart.h"
 #endif
 #if USE_SER
-#include "ser.h"
+#include "../lib/ser.h"
 #endif
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+#include "../lib/lcd44780.h"
 #endif
 #include "measure.h"
 #include "print.h"
-#include "format.h"
-#include "timer.h"
-#include "buffer.h"
+#include "../lib/format.h"
+#include "../lib/timer.h"
+#include "../lib/buffer.h"
 
 /*
  * Calibrate by adding the calibration capacitor into the circuit (by relay)

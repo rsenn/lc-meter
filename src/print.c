@@ -1,22 +1,22 @@
-#include "buffer.h"
+#include "../lib/buffer.h"
 #include "print.h"
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+#include "../lib/lcd44780.h"
 #endif
 
 #if USE_NOKIA5110_LCD
-#include "lcd5110.h"
+#include "../lib/lcd5110.h"
 #endif
 
 #if USE_UART
-#include "uart.h"
+#include "../lib/uart.h"
 #endif
 #if USE_SER
-#include "ser.h"
+#include "../lib/ser.h"
 #endif
 
-#include "format.h"
+#include "../lib/format.h"
 #define print_print_number(a, b, c) format_number(a, b, c)
 
 void
@@ -28,7 +28,7 @@ lcd_put(const char* buf, unsigned n) {
 }
 
 #if USE_NOKIA5110_LCD
-#include "lcd5110.h"
+#include "../lib/lcd5110.h"
 
 const charlogo_image[504] = {
   0x00, 0x40, 0xC0, 0xC0, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -92,7 +92,7 @@ const char units[288] = { // 8units * (18*2)
   0, 0, 0, 0, 224, 224, 96, 96, 224, 192, 0, 0, 252, 252, 204, 204, 204, 12, 0, 0, 0, 0, 255, 255, 24, 24, 31, 7, 0, 0, 31, 31, 0, 0, 0, 0
 };
 #elif defined(USE_HD44780_LCD)
-#include "lcd44780.h"
+#include "../lib/lcd44780.h"
 #endif
 
 // -------------------------------------------------------------------------
