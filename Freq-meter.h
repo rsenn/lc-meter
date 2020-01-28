@@ -1,10 +1,10 @@
 #ifndef FREQ_METER_H
 #define FREQ_METER_H
 
-#include "device.h"
-#include "oscillator.h"
-#include "typedef.h"
-#include "const.h"
+#include "lib/device.h"
+#include "lib/oscillator.h"
+#include "lib/typedef.h"
+#include "lib/const.h"
 
 #define LED_PIN OUTC3
 #define LED_TRIS TRISC3

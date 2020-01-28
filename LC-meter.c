@@ -28,12 +28,12 @@
 #include "lib/softser.h"
 #endif
 
-#include "measure.h"
-#include "print.h"
+#include "src/measure.h"
+#include "src/print.h"
 #include "lib/format.h"
 //#include "lib/buffer.h"
 
-#include "config-bits.h"
+#include "src/config-bits.h"
 
 #if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;

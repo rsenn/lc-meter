@@ -1,7 +1,7 @@
 #ifndef MEASURE_H
 #define MEASURE_H
 
-#include "typedef.h"
+#include "../lib/typedef.h"
 
 void calibrate(void);
 unsigned short measure_freq(void);

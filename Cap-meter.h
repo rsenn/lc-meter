@@ -1,8 +1,8 @@
 #ifndef CAP_METER_H
 #define CAP_METER_H
 
-#include "device.h"
-#include "oscillator.h"
+#include "lib/device.h"
+#include "lib/oscillator.h"
 
 #ifdef HI_TECH_C
 //# include <pic.h>
@@ -18,8 +18,8 @@
 #define NOP() __asm("NOP")
 #endif
 
-#include "typedef.h"
-#include "const.h"
+#include "lib/typedef.h"
+#include "lib/const.h"
 
 #define C_CAL 1000      // pF
 #define GATE_PERIOD 100 // ms
