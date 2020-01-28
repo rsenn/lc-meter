@@ -33,7 +33,8 @@ output_putch(char c) {
 }
 
 uint32_t frequency;
-buffer_t buffer = BUFFER_STATIC(output_putch);
+
+static buffer_t buffer; // = {0}; //BUFFER_STATIC(output_putch);
 
 //__CONFIG(WDTDIS& PWRTEN& LVPDIS& XT);
 
@@ -64,7 +65,9 @@ void
 initialize() {
   TRISA = 0x00;
   TRISB = 0x08;
+#if HAVE_COMPARATOR
   CMCON = 0x07;
+#endif
 
   control = 0;
   PORTA = 0;

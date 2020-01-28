@@ -41,7 +41,8 @@ Written by: Rajendra Bhatt (www.embedded-lab.com)
 #define Va OUTA0
 #define Switch OUTB0
 
-buffer_t buffer = BUFFER_STATIC(lcd_putch);
+buffer_t buffer = {0};
+//BUFFER_STATIC(lcd_putch);
 
 char message1[] = "Capacitance";
 char message2[] = "Meter";

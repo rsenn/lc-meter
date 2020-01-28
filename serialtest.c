@@ -26,16 +26,16 @@ __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 #error Unknown compiler
 #endif
 
-static char
+/*static char
 output_putch(char c) {
   lcd_putch(c);
 #ifdef USE_SER
   ser_putch(c);
 #endif
   return 1;
-}
+}*/
 
-buffer_t buffer = BUFFER_STATIC(output_putch);
+static buffer_t buffer; // = BUFFER_STATIC(output_putch);
 
 void loop();
 void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad);
@@ -134,7 +134,7 @@ main() {
 
 #if !NO_PORTB
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
-  RBPU = 1;
+  nRBPU = 0;
 #else
   NOT_RBPU = 0; // enable portB internal pullup
 #endif
@@ -167,7 +167,7 @@ main() {
 
   lcd_gotoxy(0, 0);
 
-  lcd_print_number(SOFTSER_BRG, 16, -1);
+  lcd_print_number(UART_BAUD, 16, -1);
 #endif
 
 #if !NO_SSP

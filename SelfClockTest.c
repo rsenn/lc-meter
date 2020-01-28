@@ -1,3 +1,4 @@
+#include "lib/device.h"
 #include "lib/oscillator.h"
 #include "lib/interrupt.h"
 #include "lib/delay.h"
@@ -7,13 +8,13 @@
 #endif
 #include "src/config-bits.h"
 
-#if defined(HI_TECH_C)
-#warning HTC
-__CONFIG(FOSC_HS& WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_OFF& CP_OFF);
-#elif defined(__XC)
-#warning XC
-#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF
-#endif
+//#if defined(HI_TECH_C)
+//#warning HTC
+//__CONFIG(FOSC_HS & WDTE_OFF& PWRTE_ON& LVP_OFF& CPD_OFF& DEBUG_OFF& CP_OFF);
+//#elif defined(__XC)
+//#warning XC
+//#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF
+//#endif
 
 #if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
