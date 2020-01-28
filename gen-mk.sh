@@ -17,9 +17,9 @@ BUILD_TYPES='debug release'
 BUILD_TYPES='debug' 
 : ${MAKE_PROGRAMS:='make ninja nmake mplab'}
 : ${PROGRAM_NAME=${SOURCES%%.*}}
-: ${PROGRAMS:='LC-meter pictest serialtest'}
-for PROGRAM in $PROGRAMS; do 
- (eval "SOURCES=\$(set -- $SOURCES; ls -d \$@)"
+: ${PROGRAMS:='LC-meter Freq-meter Cap-meter'}
+for PROGRAM_NAME in $PROGRAMS; do 
+  (eval "SOURCES=\$(set -- $SOURCES; echo \$(ls -d \$@) 2>/dev/null)"
   echo "SOURCES='$SOURCES'" 1>&2
 
   for CHIP in $CHIPS;  do
