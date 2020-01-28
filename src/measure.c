@@ -1,4 +1,4 @@
-#include "lib/device.h"
+#include "../lib/device.h"
 #include "../lib/oscillator.h"
 #include "../LC-meter.h"
 #include "../lib/delay.h"
