@@ -45,7 +45,7 @@ for CHIP in $CHIPS;  do
           --no-create-libs \
           --$BUILD_TYPE \
           --chip=${CHIP} \
-          -o $PROGRAM_NAME-$CHIP-$BUILD_TYPE-$COMPILER$EXT >&genmakefile-$COMPILER-$BUILD_TYPE.log) 2>&10
+          -o $PROGRAM_NAME-$CHIP-$COMPILER-$BUILD_TYPE$EXT >&genmakefile-$COMPILER-$BUILD_TYPE.log) 2>&10
       done
 		done
 	done

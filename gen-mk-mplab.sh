@@ -33,7 +33,7 @@ for CHIP in $CHIPS;  do
 				--no-create-libs \
 				--$BUILD_TYPE \
 				--chip=${CHIP} \
-        -o build/mplab/$PROGRAM_NAME-$CHIP-$BUILD_TYPE-$COMPILER.mcp ">&genmakefile-$COMPILER-$BUILD_TYPE.log) 2>&10"
+        -o build/mplab/$PROGRAM_NAME-$CHIP-$COMPILER-$BUILD_TYPE.mcp ">&genmakefile-$COMPILER-$BUILD_TYPE.log) 2>&10"
 		done
 	done
 done
