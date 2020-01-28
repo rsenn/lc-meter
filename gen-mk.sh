@@ -9,7 +9,7 @@ case "$OS" in
 IFS="
  	"
 [ $# -gt 0 ] && SOURCES="$*" ||
-SOURCES='LC-meter.c lib/{adc,buffer,comparator,format,random,ser,softpwm,timer,uart}.? src/*.c'
+SOURCES='LC-meter.c lib/{adc,buffer,comparator,delay,format,random,ser,softpwm,softser,timer,uart}.? src/*.c'
 #set -- --preproc="./cpp-xc8${EXEEXT}" 
 : ${CHIPS='16f876a 18f2450 18f2520 18f2550 18f25k22 18f25k50'}
 CHIPS='18f25k50 18f2550'
