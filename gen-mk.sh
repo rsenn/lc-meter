@@ -1,4 +1,6 @@
 : ${OS:=`uname -o`}
+MYDIR=`dirname "$0"`
+cd "$MYDIR"
 
 exec 10>&2
 
@@ -12,7 +14,7 @@ IFS="
 SOURCES='${PROGRAM_NAME}.c lib/{adc,buffer,comparator,delay,format,random,ser,softpwm,softser,timer,uart}.? src/*.c'
 #set -- --preproc="./cpp-xc8${EXEEXT}" 
 : ${CHIPS='16f876a 18f2450 18f2520 18f2550 18f25k22 18f25k50'}
-CHIPS='18f25k50 18f2550'
+#CHIPS='18f25k50 18f2550'
 BUILD_TYPES='debug release'
 BUILD_TYPES='debug' 
 : ${MAKE_PROGRAMS:='make ninja nmake mplab'}
@@ -36,6 +38,7 @@ for PROGRAM_NAME in $PROGRAMS; do
             nmake) EXT=.jom ;;
             mplab) EXT=.mcp ;;
            esac
+           
           (set -x;
           genmakefile -t $COMPILER -m $MAKE_PROGRAM \
             $PREPROC \
