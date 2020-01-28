@@ -21,7 +21,7 @@
 #include "lib/ser.h"
 #endif
 
-#include "config-bits.h"
+#include "src/config-bits.h"
 
 static char
 output_putch(char c) {

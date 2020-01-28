@@ -1,7 +1,7 @@
 #include "LC-meter.h"
 #include "lib/const.h"
 #include "lib/delay.h"
-#include "print.h"
+#include "src/print.h"
 #include "lib/format.h"
 #include "lib/interrupt.h"
 #include "lib/lcd44780.h"
@@ -12,7 +12,7 @@
 #include "lib/buffer.h"
 #include <ctype.h>
 
-#include "config-bits.h"
+#include "src/config-bits.h"
 
 #if defined(__SDCC) || defined(SDCC)
 __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;

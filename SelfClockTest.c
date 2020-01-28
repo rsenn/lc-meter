@@ -5,7 +5,7 @@
 #if USE_SER
 #include "lib/ser.h"
 #endif
-#include "config-bits.h"
+#include "src/config-bits.h"
 
 #if defined(HI_TECH_C)
 #warning HTC

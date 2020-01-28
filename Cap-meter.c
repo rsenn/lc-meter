@@ -8,7 +8,7 @@ Written by: Rajendra Bhatt (www.embedded-lab.com)
 */
 #include "lib/interrupt.h"
 #include "Cap-meter.h"
-#include "config-bits.h"
+#include "src/config-bits.h"
 //#include "main.h"
 #include "lib/delay.h"
 
@@ -34,7 +34,7 @@ Written by: Rajendra Bhatt (www.embedded-lab.com)
 #include "lib/softser.h"
 #endif
 
-#include "print.h"
+#include "src/print.h"
 #include "lib/format.h"
 #include "lib/buffer.h"
 
