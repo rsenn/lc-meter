@@ -42,7 +42,6 @@ __CONFIG(7, EBTR0_OFF & EBTR1_OFF & EBTR2_OFF & EBTR3_OFF);
 #endif
 
 #elif defined(HI_TECH_C)
-//#include <pic18fregs.h>
 
 __CONFIG(1, FOSC_HS & FCMEN_ON & IESO_OFF);
 __CONFIG(4, XINST_OFF  & STVREN_ON & DEBUG_ON & LVP_OFF);

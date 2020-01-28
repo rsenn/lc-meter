@@ -35,7 +35,6 @@
 
 #include "typedef.h"
 #include "oscillator.h"
-//#include <delay.h>
 
 #ifdef __16f628a
 #define BANKSEL(x)
