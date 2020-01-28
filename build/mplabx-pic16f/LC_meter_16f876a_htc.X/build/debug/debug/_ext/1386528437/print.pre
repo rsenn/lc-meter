@@ -1,0 +1,215 @@
+
+# 1 "../../../src/print.c"
+
+# 13 "C:\Program Files (x86)\HI-TECH Software\PICC\9.83\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 27
+typedef signed short long int int24_t;
+
+# 34
+typedef signed long int int32_t;
+
+# 41
+typedef unsigned char uint8_t;
+
+# 47
+typedef unsigned int uint16_t;
+
+# 53
+typedef unsigned short long int uint24_t;
+
+# 59
+typedef unsigned long int uint32_t;
+
+# 67
+typedef signed char int_least8_t;
+
+# 74
+typedef signed int int_least16_t;
+
+# 81
+typedef signed short long int int_least24_t;
+
+# 88
+typedef signed long int int_least32_t;
+
+# 95
+typedef unsigned char uint_least8_t;
+
+# 101
+typedef unsigned int uint_least16_t;
+
+# 107
+typedef unsigned short long int uint_least24_t;
+
+# 113
+typedef unsigned long int uint_least32_t;
+
+# 122
+typedef signed char int_fast8_t;
+
+# 129
+typedef signed int int_fast16_t;
+
+# 136
+typedef signed short long int int_fast24_t;
+
+# 143
+typedef signed long int int_fast32_t;
+
+# 150
+typedef unsigned char uint_fast8_t;
+
+# 156
+typedef unsigned int uint_fast16_t;
+
+# 162
+typedef unsigned short long int uint_fast24_t;
+
+# 168
+typedef unsigned long int uint_fast32_t;
+
+# 174
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 52 "../../../lib\typedef.h"
+typedef char bool;
+
+# 56
+typedef char BOOL;
+
+# 12 "../../../lib\buffer.h"
+typedef uint8_t len_t;
+
+typedef struct {
+char x[16];
+unsigned p : 4;
+unsigned n : 4;
+} buffer_t;
+
+# 26
+extern buffer_t buffer;
+
+void buffer_init(void);
+char buffer_flush(void);
+char buffer_putch(char ch);
+char buffer_put(const char* x, len_t len);
+char buffer_puts(const char* x);
+
+# 6 "../../../src/print.h"
+extern const char logo_image[504];
+
+void put_str(const char*);
+void output_putch(char c); void lcd_puts(const char*);
+void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+void print_unit(uint8_t unit);
+void print_reading(uint16_t measurement);
+void print_indicator(uint8_t indicate);
+void print_print_float(float number, uint8_t digits);
+void print_buffer(void);
+
+# 48 "../../../lib\ser.h"
+char ser_isrx(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
+
+
+extern uint8_t rxfifo[(uint8_t)16];
+extern volatile uint8_t rxiptr, rxoptr;
+extern uint8_t txfifo[(uint8_t)16];
+extern volatile uint8_t txiptr, txoptr;
+extern uint8_t ser_tmp;
+
+extern uint8_t ser_brg;
+
+# 6 "../../../lib\format.h"
+void format_number(uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(uint32_t x);
+void format_double(double num);
+
+# 22 "../../../src/print.c"
+void
+lcd_put(const char* buf, unsigned n) {
+
+# 28
+}
+
+# 100
+void
+print_digit(uint8_t line, uint8_t column, uint8_t digit) {
+
+# 119
+}
+
+
+void
+print_unit(uint8_t unit) {
+
+# 143
+}
+
+void
+print_reading(uint16_t measurement) {
+
+# 182
+}
+
+
+void
+print_indicator(uint8_t indicate) {
+
+# 207
+}
+
+void
+output_putch(char c) {
+
+# 215
+ser_putch(c);
+
+}
+
+# 222
+void
+put_str(const char* s) {
+int i;
+
+for(i = 0; s[i]; i++) {
+output_putch(s[i]);
+}
+}
+
+void
+print_buffer(void) {
+
+uint8_t i;
+for(i = 0; i < buffer.n; i++) {
+ser_putch(buffer.x[i]);
+}
+ser_puts("\r\n");
+
+}
