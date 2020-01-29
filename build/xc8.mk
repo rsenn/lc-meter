@@ -95,7 +95,7 @@ COMMON_FLAGS += -N127
 
 #COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+clib"
 #COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
-COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib"
+COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib,+plib"
 
 ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),0x0000)
