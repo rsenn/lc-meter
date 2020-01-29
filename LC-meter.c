@@ -76,7 +76,7 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, 
 volatile uint16_t blink = 0;
 
 /* Interrupt routine */
-
+#if 0
 INTERRUPT_FN() {
   /* if(PIR1 & 0x02) {
      bres += 256;
@@ -101,7 +101,7 @@ INTERRUPT_FN() {
   // uart_isr();
 #endif
 }
-
+#endif
 /**
  * @brief      { function_description }
  */
