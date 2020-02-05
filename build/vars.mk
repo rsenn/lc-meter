@@ -6,7 +6,7 @@ CHIPS = 16f876a 18f2520 18f2550
 else
 CHIPS = 16f876a #18f2520 18f2550  18f25k50
 endif
-#CHIPS = 16f876a 18f252 
+CHIPS += 18f252 
 #CHIPS += 10f206
 #CHIPS += 12f1840
 COMPILERS ?= xc8
@@ -92,7 +92,7 @@ DEFINES += __$(chipl)=1
 
 
 ifeq ($(BUILD_TYPE),debug)
-DEFINES += __DEBUG=1 _DEBUG=1
+DEFINES += _DEBUG=1 _DEBUG=1
 else
 DEFINES += NDEBUG=1 __NDEBUG=1
 endif

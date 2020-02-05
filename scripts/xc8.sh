@@ -2,8 +2,6 @@
 MYDIR="${0%/*}"
 MYNAME="${0##*/}"; MYNAME="${MYNAME%.*}"
 
-
-BASE_CFG=$MYDIR/xc8-cpp.config
 IFS="
 "
 CPPFLAGS=
@@ -13,6 +11,28 @@ pushv()
 {
   eval "shift;$1=\"\${$1:+\"\$$1\${IFS}\"}\$*\""
 }
+pushv_unique()
+{
+  local __VARNAME=$1 __ARG IFS=${IFS%${IFS#?}};
+  shift;
+  for __ARG in "$@";
+  do
+    if eval "! isin \$__ARG \${$__VARNAME}"; then
+      pushv "$__VARNAME" "$__ARG";
+    else
+      return 1;
+    fi;
+  done
+}
+isin() {
+ (needle="$1";
+  while [ "$#" -gt 1 ]; do
+    shift;
+    test "$needle" = "$1" && exit 0;
+  done;
+  exit 1)
+}
+
 
 #exec_bin()
 #{
@@ -67,7 +87,7 @@ xc8_driver() {
 	   -v) VERBOSE=true; shift ;;
 	   -V) pushv CFLAGS -V ; shift ;;
 	  -I) pushv CPPFLAGS -I "$2"; shift 2 ;; -I*) pushv CPPFLAGS -I "${1#-I}"; shift ;;
-	  -D) pushv DEFINES -D "$2"; shift 2 ;; -D*) pushv DEFINES -D"${1#-D}"; shift ;;
+	  -D) pushv CPPFLAGS -D "$2"; shift 2 ;; -D*) pushv CPPFLAGS -D"${1#-D}"; shift ;;
 	  --OUTDIR=* | --outdir=*) OUTDIR=${1#*=}; shift ;;
 	  -*=*) pushv CFLAGS "$1"; shift ;;
 	  -*) pushv CFLAGS "$1"; shift ;;
@@ -77,7 +97,7 @@ xc8_driver() {
 
 #  XC8_CPP_CONFIG="$MYDIR/xc8-cpp.config"
 
-  set -- $CPPFLAGS $DEFINES
+  set -- $CPPFLAGS
   while [ $# -gt 1 ]; do
 	case "$1" in
 	  -D_XTAL_FREQ=*) pushv CFLAGS "$1" ;;
@@ -105,10 +125,8 @@ esac
   if [ -n "$CFG" -a -e "$CFG" ]; then
     set -- @$CFG
   else  
-	set -- 	   \
-		 -DMCHP_XC8=1 \
-		 -D__XC=1 \
-		 -D__XC8__=1 \
+	set -- 	   -D{__PICCPRO__,__PICC__}=1 \
+		 -D__XC{,8}{,__}=1 \
 		 -p1 \
 		 --disambiguate=0 \
 		 --c++11 \
@@ -117,27 +135,14 @@ esac
   case "$EXE" in
   *xc8*) ;;
   *picc*) 
-  set --     -DHI_TECH_C=1 "$@" 
+	set -- 	   -DHI_TECH_C=1 "$@" 
 	;;
 	esac
    fi
-#   set --   ${BASE_CFG:+--config-file="${BASE_CFG}"} "$@"
-   #set --   ${BASE_CFG:+"@${BASE_CFG}"} "$@"
-   set --   "$@" -I../lib -I../src
-
-   echo "CPPFLAGS: ${CPPFLAGS}" 1>&2
-   echo "DEFINES:" ${DEFINES} 1>&2
-
-   if [ -n "$CFG" ]; then
-     CFG2=$(echo "$CFG" | sed 's|cpp.config|cppflags.rsp|')
-     if [ ! -e "$CFG2" ]; then
-      unset CFG2
-    fi
-  fi
  (     
  set -e
   A="${CPP_XC8}" \
-  exec_bin "$MYDIR/../${CPP_XC8}" -D__XC=1 "$@"  $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
+  exec_bin "$MYDIR/../${CPP_XC8}" "$@" $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
 	  
    A="xc8" exec_bin "$EXE" $CFLAGS --outdir="$OUTDIR" "$OUTDIR/${ARG##*/}" 
   )

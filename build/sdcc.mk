@@ -98,7 +98,7 @@ endif
 
 ifeq ($(BUILD_TYPE),debug)
 COMMON_FLAGS += --debug
-#COMMON_FLAGS += -D__DEBUG=1
+#COMMON_FLAGS += -D_DEBUG=1
 else
 COMMON_FLAGS += 
 COMMON_FLAGS +=  -DNDEBUG=1

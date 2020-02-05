@@ -194,7 +194,7 @@ main() {
   format_double(/*&lcd_putch,*/ CCal);
 #endif
 
-#ifdef __DEBUG
+#ifdef _DEBUG
   delay10ms(5);
 #else
   delay10ms(200);

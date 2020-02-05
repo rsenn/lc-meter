@@ -74,7 +74,7 @@ main() {
   RBPU = 0; // enable portB internal pullup
 #endif
 
-#ifdef __DEBUG
+#ifdef _DEBUG
   delay10ms(5);
 #else
   delay10ms(200);
