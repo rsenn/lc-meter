@@ -1,0 +1,3 @@
+Inductance/Capacitance(L/C) meter using PIC16F876A and Nokia 3310 LCD
+
+http://projectproto.blogspot.com/2009/09/lc-meter-pic16f876a-n3310lcd.html

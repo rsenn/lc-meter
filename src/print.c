@@ -489,7 +489,7 @@ output_putch(char c) {
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
   lcd_putch(c);
 #endif
-#ifdef USE_SER
+#if USE_SER
   ser_putch(c);
 #endif
 }
@@ -508,7 +508,7 @@ put_str(const char* s) {
 
 void
 print_buffer(void) {
-#ifdef USE_SER
+#if USE_SER
   uint8_t i;
   for(i = 0; i < buffer.n; i++) {
     ser_putch(buffer.x[i]);

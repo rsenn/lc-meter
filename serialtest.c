@@ -29,7 +29,7 @@ __code unsigned int __at(_CONFIG) __configword = CONFIG_WORD;
 /*static char
 output_putch(char c) {
   lcd_putch(c);
-#ifdef USE_SER
+#if USE_SER
   ser_putch(c);
 #endif
   return 1;
@@ -52,7 +52,7 @@ volatile uint8_t led_state = 0;
 volatile uint16_t tmr1_overflows;
 
 INTERRUPT_FN() {
-#ifdef USE_SER
+#if USE_SER
   ser_int();
 #endif
 #if USE_UART
@@ -128,7 +128,7 @@ main() {
   uart_init();
 #endif
 
-#ifdef USE_SER
+#if USE_SER
   ser_init();
 #endif
 
@@ -195,7 +195,7 @@ main() {
 #if USE_UART
   uart_puts("XXXX\r\n");
 #endif
-#ifdef USE_SER
+#if USE_SER
   ser_puts("ZZZZ\r\n");
 #endif
 #ifdef USE_SOFTSER
@@ -222,7 +222,7 @@ loop() {
     uart_putch('\r');
     uart_putch('\n');
 #endif
-#ifdef USE_SER
+#if USE_SER
     put_number(ser_putch, seconds, 10, -5);
     ser_putch('\r');
     ser_putch('\n');
@@ -230,7 +230,7 @@ loop() {
     prev = seconds;
   }
 
-#ifdef USE_SER
+#if USE_SER
   //   while(SOFTSER_IN_PIN == LOW) {
   if(ser_isrx()) {
     c = ser_getch();

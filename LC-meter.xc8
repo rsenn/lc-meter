@@ -1,0 +1,19 @@
+--mode=pro
+--warn=3
+--chip=16f876a -m
+-N127
+--opt=default,space
+-g --debugger=pickit3
+--asmlist --html --summary
+--float=24 --double=24
+--runtime=+download
+--stack=compiled
+--objdir=obj/xc8-16f876a/debug_20mhz_38kbps
+--outdir=bin/xc8-16f876a
+--output=mcof
+--summary=psect,class,file
+--time
+-Ilib -Isrc -I.
+-DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_HD44780_LCD=1 -DUART_BAUD=38400 -D_XTAL_FREQ=20000000 -D_DEBUG=1
+lib/buffer.c lib/format.c lib/lcd44780.c lib/ser.c lib/timer.c
+src/measure.c src/print.c LC-meter.c

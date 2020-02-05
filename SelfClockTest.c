@@ -57,7 +57,7 @@ main() {
   PS1 = 1;
   PS0 = 1;
 
-#ifdef USE_SER
+#if USE_SER
   ser_init();
 #endif
 #if USE_UART

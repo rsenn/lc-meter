@@ -33,7 +33,7 @@ calibrate() {
   put_str("Calibrating");
 
   lcd_gotoxy(0, 1);
-#ifdef USE_SER
+#if USE_SER
   ser_puts("\r\n");
 #endif
   put_str("please wait...");
@@ -61,7 +61,7 @@ calibrate() {
     delay10ms(28);
   }
 #endif
-#ifdef USE_SER
+#if USE_SER
   ser_puts("\r\n");
 #endif
 }

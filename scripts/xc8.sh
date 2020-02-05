@@ -139,7 +139,7 @@ esac
   A="${CPP_XC8}" \
   exec_bin "$MYDIR/../${CPP_XC8}" -D__XC=1 "$@"  $CPPFLAGS -o "$OUTDIR/${ARG##*/}" "$ARG"
 	  
-   A="xc8" exec_bin "$EXE" $CFLAGS  ${CFG2:+@$CFG2} --outdir="$OUTDIR" "$OUTDIR/${ARG##*/}" 
+   A="xc8" exec_bin "$EXE" $CFLAGS --outdir="$OUTDIR" "$OUTDIR/${ARG##*/}" 
   )
  }
 

@@ -1,40 +1,37 @@
-#include "device.h"
+#include "lib/device.h"
 #include "LC-meter.h"
 
-#include "oscillator.h"
-#include "interrupt.h"
+#include "lib/oscillator.h"
+#include "lib/interrupt.h"
 
 //#include "main.h"
-#include "delay.h"
+#include "lib/delay.h"
 
 #if USE_HD44780_LCD
-#include "lcd44780.h"
+#include "lib/lcd44780.h"
 #endif
 
 #if USE_NOKIA5110_LCD
-#include "lcd5110.h"
+#include "lib/lcd5110.h"
 #endif
 
-#define TIMER2_PRESCALER PRESCALE_1_16
-#define TIMER2_POSTSCALER POSTSCALE_1_16
-
-#include "timer.h"
+#include "lib/timer.h"
 
 #ifdef USE_UART
-#include "uart.h"
+#include "lib/uart.h"
 #endif
 
 #if USE_SER
-#include "ser.h"
+#include "lib/ser.h"
 #endif
 #if USE_SOFTSER
-#include "softser.h"
+#include "lib/softser.h"
 #endif
 
 #include "measure.h"
 #include "print.h"
-#include "format.h"
-//#include "buffer.h"
+#include "lib/format.h"
+//#include "lib/buffer.h"
 
 #include "config-bits.h"
 
@@ -44,10 +41,8 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 #define CCP1_EDGE() (CCP1M0)
 
-volatile uint32_t bres;           // bresenham count
+volatile uint16_t bres;           // bresenham count
 volatile uint16_t msecpart;       // milliseconds modulo 1000
-volatile uint16_t led_cycle;       // led blinking cycle
-volatile uint16_t led_interval;       // led blinking interval
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
@@ -81,17 +76,14 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, 
 volatile uint16_t blink = 0;
 
 /* Interrupt routine */
+
 INTERRUPT_FN() {
-   if(TMR2IF) {
+  /* if(PIR1 & 0x02) {
      bres += 256;
      if(bres >= CYCLES_FOR_MSEC) {
        bres -= CYCLES_FOR_MSEC;
        msecpart++;
-       led_cycle++;
-
-       SET_LED(led_cycle >= 0 && led_cycle < led_interval/6);
-
-
+       SET_LED(msecpart >= 833);
        // if reached 1 second...
        if(msecpart >= 1000) {
          // ...update clock, etc
@@ -100,9 +92,9 @@ INTERRUPT_FN() {
        }
      }
      // Clear timer interrupt bit
-   TMR2IF=0;
-   }
-#if USE_SER
+     PIR1 &= ~0b10; // TMR2IF = 0
+   }*/
+#ifdef USE_SER
   ser_int();
 #endif
 #if USE_UART
@@ -120,9 +112,6 @@ main() {
 
   CCal = C_CAL;
 
-  led_cycle = 0;
-  led_interval = 500;
-
   // setup comparator
 
   /*  CMCON &= 0b11111000;
@@ -137,7 +126,6 @@ main() {
 
   // setup timer0 for frequency counter
   timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
-  timer2_init(TIMER2_PRESCALER | TIMER2_FLAGS_INTR);
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
@@ -155,14 +143,14 @@ main() {
   TRISC = 0b10110011;
 #endif
 
-#if !defined(__18f2550) && !defined(__18f25k50)
+#if !defined(__18f2550)
   RC3 = HIGH;
 #endif
 
   INIT_LED();
   SET_LED(1);
 
-  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
+  // timer2_init(PRESCALE_1_1 /*| TIMER2_FLAGS_INTR*/);
 
   // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
@@ -186,7 +174,7 @@ main() {
   delay10ms(50);
   REMOVE_CCAL();
 
-#if USE_SER
+#ifdef USE_SER
   ser_init();
 #endif
 #if USE_UART
@@ -227,15 +215,12 @@ main() {
     char new_mode = LC_SELECT;
 
     if(new_mode != mode) {
-#if USE_SER
+#ifdef USE_SER
       ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
       ser_puts("\r\n");
 #endif
       mode = new_mode;
     }
-
-       if(led_cycle >= led_interval)
-        led_cycle = 0;
 
     if(mode)
       measure_capacitance();

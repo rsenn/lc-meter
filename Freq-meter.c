@@ -26,7 +26,7 @@
 static char
 output_putch(char c) {
   lcd_putch(c);
-#ifdef USE_SER
+#if USE_SER
   ser_putch(c);
 #endif
   return 1;
