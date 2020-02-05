@@ -124,7 +124,7 @@ main() {
   TRISB &= 0b00001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT | TIMER0_FLAGS_INTR );
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT | TIMER0_FLAGS_INTR);
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
