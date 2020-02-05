@@ -89,7 +89,7 @@ INTERRUPT_FN() {
        msecpart++;
        led_cycle++;
 
-       SET_LED(cycle_led >= 0 && cycle_led < led_cycle/6);
+       SET_LED(led_cycle >= 0 && led_cycle < led_interval/6);
 
 
        // if reached 1 second...
