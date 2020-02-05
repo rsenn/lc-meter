@@ -76,9 +76,8 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, 
 volatile uint16_t blink = 0;
 
 /* Interrupt routine */
-#if 0
 INTERRUPT_FN() {
-  /* if(PIR1 & 0x02) {
+   if(T0IF) {
      bres += 256;
      if(bres >= CYCLES_FOR_MSEC) {
        bres -= CYCLES_FOR_MSEC;
@@ -92,8 +91,8 @@ INTERRUPT_FN() {
        }
      }
      // Clear timer interrupt bit
-     PIR1 &= ~0b10; // TMR2IF = 0
-   }*/
+   T0IF=0;
+   }
 #ifdef USE_SER
   ser_int();
 #endif
@@ -101,7 +100,7 @@ INTERRUPT_FN() {
   // uart_isr();
 #endif
 }
-#endif
+
 /**
  * @brief      { function_description }
  */
@@ -125,7 +124,7 @@ main() {
   TRISB &= 0b00001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT | TIMER0_FLAGS_INTR );
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
