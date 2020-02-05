@@ -44,7 +44,7 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 #define CCP1_EDGE() (CCP1M0)
 
-volatile uint16_t bres;           // bresenham count
+volatile uint32_t bres;           // bresenham count
 volatile uint16_t msecpart;       // milliseconds modulo 1000
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
