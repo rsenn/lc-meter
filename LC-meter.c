@@ -15,6 +15,9 @@
 #include "lib/lcd5110.h"
 #endif
 
+#define TIMER2_PRESCALER PRESCALE_1_16
+#define TIMER2_POSTSCALER POSTSCALE_1_16
+
 #include "lib/timer.h"
 
 #ifdef USE_UART
@@ -77,7 +80,7 @@ volatile uint16_t blink = 0;
 
 /* Interrupt routine */
 INTERRUPT_FN() {
-   if(T0IF) {
+   if(TMR2IF) {
      bres += 256;
      if(bres >= CYCLES_FOR_MSEC) {
        bres -= CYCLES_FOR_MSEC;
@@ -91,7 +94,7 @@ INTERRUPT_FN() {
        }
      }
      // Clear timer interrupt bit
-   T0IF=0;
+   TMR2IF=0;
    }
 #ifdef USE_SER
   ser_int();
@@ -124,7 +127,8 @@ main() {
   TRISB &= 0b00001111;
 
   // setup timer0 for frequency counter
-  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT | TIMER0_FLAGS_INTR);
+  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);
+  timer2_init(TIMER2_PRESCALER | TIMER2_FLAGS_INTR);
 
   // others
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)
@@ -149,7 +153,7 @@ main() {
   INIT_LED();
   SET_LED(1);
 
-  // timer2_init(PRESCALE_1_1 /*| TIMER2_FLAGS_INTR*/);
+  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);
 
   // initialize 5110 lcd
 #if USE_NOKIA5110_LCD
