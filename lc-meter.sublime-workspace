@@ -77,11 +77,54 @@
 			}
 		},
 		{
-			"file": "LC-meter-release.xc8",
+			"file": "lib/device.h",
 			"settings":
 			{
-				"buffer_size": 544,
+				"buffer_size": 14270,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "LC-meter.c",
+			"settings":
+			{
+				"buffer_size": 6091,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/xc8.sh",
+			"settings":
+			{
+				"buffer_size": 3445,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/xc8.mk",
+			"settings":
+			{
+				"buffer_size": 5449,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "build/common.mk",
+			"settings":
+			{
+				"buffer_size": 2202,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 41 files for \"__DEBUG\" (regex, case sensitive)\n\n/home/roman/Dokumente/Sources/lc-meter/build/xc8.mk:\n  122: #COMMON_FLAGS += -D__DEBUG=1\n\n/home/roman/Dokumente/Sources/lc-meter/lib/build/mplabx-pic12/libpicp-12f1840-xc8.X/nbproject/Makefile-default.mk:\n  100: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/7segment.p1 /home/roman/Dokumente/Sources/libpicp/7segment.c \n  108: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/adc.p1 /home/roman/Dokumente/Sources/libpicp/adc.c \n  116: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/buffer.p1 /home/roman/Dokumente/Sources/libpicp/buffer.c \n  124: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/comparator.p1 /home/roman/Dokumente/Sources/libpicp/comparator.c \n  132: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/delay.p1 /home/roman/Dokumente/Sources/libpicp/delay.c \n  140: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ds18b20.p1 /home/roman/Dokumente/Sources/libpicp/ds18b20.c \n  148: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/format.p1 /home/roman/Dokumente/Sources/libpicp/format.c \n  156: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd44780.p1 /home/roman/Dokumente/Sources/libpicp/lcd44780.c \n  164: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd5110.p1 /home/roman/Dokumente/Sources/libpicp/lcd5110.c \n  172: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ledsense.p1 /home/roman/Dokumente/Sources/libpicp/ledsense.c \n  180: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/pwm.p1 /home/roman/Dokumente/Sources/libpicp/pwm.c \n  188: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/random.p1 /home/roman/Dokumente/Sources/libpicp/random.c \n  196: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ser.p1 /home/roman/Dokumente/Sources/libpicp/ser.c \n  204: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softpwm.p1 /home/roman/Dokumente/Sources/libpicp/softpwm.c \n  212: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softser.p1 /home/roman/Dokumente/Sources/libpicp/softser.c \n  220: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/timer.p1 /home/roman/Dokumente/Sources/libpicp/timer.c \n  366: \t${MP_AR} $(MP_EXTRA_AR_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/libpicp-12f1840-xc8.X.map -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\" --OUTPUT=lpp       --ram=default,-160-16f  $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/libpicp-12f1840-xc8.X.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     \n\n/home/roman/Dokumente/Sources/lc-meter/lib/build/mplabx-pic16/libpicp-16f876a-htc.X/nbproject/Makefile-default.mk:\n  104: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/7segment.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  105: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/7segment.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  112: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/adc.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  113: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/adc.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  120: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  121: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/buffer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  128: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/comparator.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  129: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/comparator.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  136: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  137: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/delay.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  144: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/ds18b20.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  145: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/ds18b20.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  152: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/format.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  153: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/format.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  160: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  161: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/lcd44780.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  168: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/lcd5110.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  169: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/lcd5110.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  176: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/ledsense.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  177: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/ledsense.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  184: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/midi.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  185: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/midi.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  192: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/onewire.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  193: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/onewire.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  200: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/pwm.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  201: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/pwm.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  208: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/random.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  209: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/random.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  216: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/ser.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  217: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/ser.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  224: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/softpwm.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  225: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/softpwm.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  232: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/softser.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  233: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/softser.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  240: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/timer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  241: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/timer.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  248: \t${MP_CC} --pass1 /home/roman/Sources/libpicp/uart.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  249: \t@${MP_CC} --scandep  /home/roman/Sources/libpicp/uart.c $(MP_EXTRA_CC_PRE) -q --chip=$(MP_PROCESSOR_OPTION) -P  --outdir=\"${OBJECTDIR}/_ext/863579873\" -N31 --warn=0 --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3  --double=24 --float=24 --addrqual=ignore --mode=lite -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"\n  414: \t${MP_LD} $(MP_EXTRA_LD_PRE) -odist/${CND_CONF}/${IMAGE_TYPE}/libpicp-16f876a-htc.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  -mdist/${CND_CONF}/${IMAGE_TYPE}/libpicp-16f876a-htc.X.${IMAGE_TYPE}.map --summary=default,-psect,-class,+mem,-hex --chip=$(MP_PROCESSOR_OPTION) -P --runtime=default,+clear,+init,-keep,+osccal,-resetbits,-download,-stackcall,+clib --summary=default,-psect,-class,+mem,-hex --opt=default,+asm,-asmfile,-speed,+space,-debug,9 -D__DEBUG --debugger=pickit3 -N31 --warn=0  --double=24 --float=24 --addrqual=ignore --mode=lite --output=default,-inhx032 -g --asmlist \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\" ${OBJECTFILES_QUOTED_IF_SPACED}  \n\n/home/roman/Dokumente/Sources/lc-meter/lib/build/mplabx-pic16/libpicp-16f876a-xc8.X/nbproject/Makefile-default.mk:\n  100: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/7segment.p1 /home/roman/Dokumente/Sources/libpicp/7segment.c \n  108: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/adc.p1 /home/roman/Dokumente/Sources/libpicp/adc.c \n  116: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/buffer.p1 /home/roman/Dokumente/Sources/libpicp/buffer.c \n  124: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/comparator.p1 /home/roman/Dokumente/Sources/libpicp/comparator.c \n  132: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/delay.p1 /home/roman/Dokumente/Sources/libpicp/delay.c \n  140: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ds18b20.p1 /home/roman/Dokumente/Sources/libpicp/ds18b20.c \n  148: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/format.p1 /home/roman/Dokumente/Sources/libpicp/format.c \n  156: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd44780.p1 /home/roman/Dokumente/Sources/libpicp/lcd44780.c \n  164: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd5110.p1 /home/roman/Dokumente/Sources/libpicp/lcd5110.c \n  172: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ledsense.p1 /home/roman/Dokumente/Sources/libpicp/ledsense.c \n  180: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/pwm.p1 /home/roman/Dokumente/Sources/libpicp/pwm.c \n  188: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/random.p1 /home/roman/Dokumente/Sources/libpicp/random.c \n  196: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ser.p1 /home/roman/Dokumente/Sources/libpicp/ser.c \n  204: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softpwm.p1 /home/roman/Dokumente/Sources/libpicp/softpwm.c \n  212: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softser.p1 /home/roman/Dokumente/Sources/libpicp/softser.c \n  220: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/timer.p1 /home/roman/Dokumente/Sources/libpicp/timer.c \n  366: \t${MP_AR} $(MP_EXTRA_AR_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/libpicp-16f876a-xc8.X.map -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\" --OUTPUT=lpp      --rom=default,-1f00-1fff --ram=default,-0-0,-70-70,-80-80,-f0-f0,-100-100,-170-170,-180-180,-1e5-1f0  $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/libpicp-16f876a-xc8.X.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     \n\n/home/roman/Dokumente/Sources/lc-meter/lib/build/mplabx-pic18/libpicp-18f2550-c18.X/nbproject/Makefile-default.mk:\n  108: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/7segment.o   /home/roman/Dokumente/Sources/libpicp/7segment.c \n  116: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/adc.o   /home/roman/Dokumente/Sources/libpicp/adc.c \n  124: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/buffer.o   /home/roman/Dokumente/Sources/libpicp/buffer.c \n  132: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/comparator.o   /home/roman/Dokumente/Sources/libpicp/comparator.c \n  140: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/delay.o   /home/roman/Dokumente/Sources/libpicp/delay.c \n  148: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/ds18b20.o   /home/roman/Dokumente/Sources/libpicp/ds18b20.c \n  156: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/format.o   /home/roman/Dokumente/Sources/libpicp/format.c \n  164: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/lcd44780.o   /home/roman/Dokumente/Sources/libpicp/lcd44780.c \n  172: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/lcd5110.o   /home/roman/Dokumente/Sources/libpicp/lcd5110.c \n  180: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/ledsense.o   /home/roman/Dokumente/Sources/libpicp/ledsense.c \n  188: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/midi.o   /home/roman/Dokumente/Sources/libpicp/midi.c \n  196: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(M P_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/onewire.o   /home/roman/Dokumente/Sources/libpicp/onewire.c \n  204: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/pwm.o   /home/roman/Dokumente/Sources/libpicp/pwm.c \n  212: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/random.o   /home/roman/Dokumente/Sources/libpicp/random.c \n  220: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/ser.o   /home/roman/Dokumente/Sources/libpicp/ser.c \n  228: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/softpwm.o   /home/roman/Dokumente/Sources/libpicp/softpwm.c \n  236: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/softser.o   /home/roman/Dokumente/Sources/libpicp/softser.c \n  244: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/timer.o   /home/roman/Dokumente/Sources/libpicp/timer.c \n  252: \t${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -ms -oa-  -I ${MP_CC_DIR}/../h  -fo ${OBJECTDIR}/_ext/40321244/uart.o   /home/roman/Dokumente/Sources/libpicp/uart.c \n\n/home/roman/Dokumente/Sources/lc-meter/lib/build/mplabx-pic18/libpicp-18f2550-xc8.X/nbproject/Makefile-default.mk:\n  100: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/7segment.p1 /home/roman/Dokumente/Sources/libpicp/7segment.c \n  108: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/adc.p1 /home/roman/Dokumente/Sources/libpicp/adc.c \n  116: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/buffer.p1 /home/roman/Dokumente/Sources/libpicp/buffer.c \n  124: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/comparator.p1 /home/roman/Dokumente/Sources/libpicp/comparator.c \n  132: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/delay.p1 /home/roman/Dokumente/Sources/libpicp/delay.c \n  140: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ds18b20.p1 /home/roman/Dokumente/Sources/libpicp/ds18b20.c \n  148: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/format.p1 /home/roman/Dokumente/Sources/libpicp/format.c \n  156: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd44780.p1 /home/roman/Dokumente/Sources/libpicp/lcd44780.c \n  164: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/lcd5110.p1 /home/roman/Dokumente/Sources/libpicp/lcd5110.c \n  172: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ledsense.p1 /home/roman/Dokumente/Sources/libpicp/ledsense.c \n  180: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/onewire.p1 /home/roman/Dokumente/Sources/libpicp/onewire.c \n  188: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/pwm.p1 /home/roman/Dokumente/Sources/libpicp/pwm.c \n  196: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/random.p1 /home/roman/Dokumente/Sources/libpicp/random.c \n  204: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/ser.p1 /home/roman/Dokumente/Sources/libpicp/ser.c \n  212: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softpwm.p1 /home/roman/Dokumente/Sources/libpicp/softpwm.c \n  220: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/softser.p1 /home/roman/Dokumente/Sources/libpicp/softser.c \n  228: \t${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1  --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\"     -o${OBJECTDIR}/_ext/40321244/timer.p1 /home/roman/Dokumente/Sources/libpicp/timer.c \n  382: \t${MP_AR} $(MP_EXTRA_AR_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/libpicp-18f2550-xc8.X.map -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,-plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto \"--errformat=%f:%l: error: (%n) %s\" \"--warnformat=%f:%l: warning: (%n) %s\" \"--msgformat=%f:%l: advisory: (%n) %s\" --OUTPUT=lpp      --rom=default,-7dc0-7fff --ram=default,-3f4-3ff,-f9c-f9c,-fd4-fd4,-fdb-fdf,-fe3-fe7,-feb-fef,-ffd-fff  $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/libpicp-18f2550-xc8.X.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     \n\n111 matches across 6 files\n",
+			"settings":
+			{
+				"buffer_size": 64141,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
 			}
 		}
 	],
@@ -273,6 +316,7 @@
 	],
 	"file_history":
 	[
+		"/home/roman/Dokumente/Sources/lc-meter/LC-meter-release.xc8",
 		"/home/roman/Dokumente/Sources/lc-meter/LC-meter-debug.xc8",
 		"/home/roman/Dokumente/Sources/lc-meter/build/targets.mk",
 		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
@@ -399,8 +443,7 @@
 		"/home/roman/lotto/docker/backend/config.moon",
 		"/home/roman/lotto/test-parsigram.moon",
 		"/home/roman/lotto/applications/payment.lua",
-		"/home/roman/lotto/helpers/payment.moon",
-		"/home/roman/lotto/helpers/app.moon"
+		"/home/roman/lotto/helpers/payment.moon"
 	],
 	"find":
 	{
@@ -439,6 +482,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"__",
+			"__DEBUG",
+			"INCDIR",
+			"-I",
+			"define PIC18",
+			"#",
+			"OPTION_REG",
+			"18f252",
 			" 0b00100000",
 			"0b01000000",
 			"0b00010000",
@@ -543,6 +594,10 @@
 		"regex": true,
 		"replace_history":
 		[
+			"#  ",
+			"#   ",
+			"#  ",
+			" #",
 			"(1 << 5)",
 			"(1 << 6)",
 			"(1 << 4)",
@@ -567,7 +622,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -595,7 +650,7 @@
 						"translation.y": 459.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -624,7 +679,7 @@
 						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -640,8 +695,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								11,
+								11
 							]
 						],
 						"settings":
@@ -652,35 +707,640 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "LC-meter-release.xc8",
+					"file": "lib/device.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 544,
+						"buffer_size": 14270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								239,
-								239
+								509,
+								509
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 612.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "LC-meter.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6091,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								20
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "scripts/xc8.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								534,
+								534
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "build/xc8.mk",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5449,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2383,
+								2383
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1724.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "build/common.mk",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								155,
+								155
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 64141,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										137,
+										144
+									],
+									[
+										346,
+										353
+									],
+									[
+										1067,
+										1074
+									],
+									[
+										1778,
+										1785
+									],
+									[
+										2495,
+										2502
+									],
+									[
+										3220,
+										3227
+									],
+									[
+										3935,
+										3942
+									],
+									[
+										4654,
+										4661
+									],
+									[
+										5371,
+										5378
+									],
+									[
+										6092,
+										6099
+									],
+									[
+										6811,
+										6818
+									],
+									[
+										7532,
+										7539
+									],
+									[
+										8243,
+										8250
+									],
+									[
+										8960,
+										8967
+									],
+									[
+										9671,
+										9678
+									],
+									[
+										10390,
+										10397
+									],
+									[
+										11109,
+										11116
+									],
+									[
+										11871,
+										11878
+									],
+									[
+										13098,
+										13105
+									],
+									[
+										13619,
+										13626
+									],
+									[
+										14173,
+										14180
+									],
+									[
+										14689,
+										14696
+									],
+									[
+										15246,
+										15253
+									],
+									[
+										15765,
+										15772
+									],
+									[
+										16326,
+										16333
+									],
+									[
+										16849,
+										16856
+									],
+									[
+										17405,
+										17412
+									],
+									[
+										17923,
+										17930
+									],
+									[
+										18481,
+										18488
+									],
+									[
+										19001,
+										19008
+									],
+									[
+										19558,
+										19565
+									],
+									[
+										20077,
+										20084
+									],
+									[
+										20636,
+										20643
+									],
+									[
+										21157,
+										21164
+									],
+									[
+										21715,
+										21722
+									],
+									[
+										22235,
+										22242
+									],
+									[
+										22794,
+										22801
+									],
+									[
+										23315,
+										23322
+									],
+									[
+										23870,
+										23877
+									],
+									[
+										24387,
+										24394
+									],
+									[
+										24945,
+										24952
+									],
+									[
+										25465,
+										25472
+									],
+									[
+										26019,
+										26026
+									],
+									[
+										26535,
+										26542
+									],
+									[
+										27092,
+										27099
+									],
+									[
+										27611,
+										27618
+									],
+									[
+										28165,
+										28172
+									],
+									[
+										28681,
+										28688
+									],
+									[
+										29239,
+										29246
+									],
+									[
+										29759,
+										29766
+									],
+									[
+										30317,
+										30324
+									],
+									[
+										30837,
+										30844
+									],
+									[
+										31393,
+										31400
+									],
+									[
+										31911,
+										31918
+									],
+									[
+										32466,
+										32473
+									],
+									[
+										32983,
+										32990
+									],
+									[
+										33640,
+										33647
+									],
+									[
+										34121,
+										34128
+									],
+									[
+										34842,
+										34849
+									],
+									[
+										35553,
+										35560
+									],
+									[
+										36270,
+										36277
+									],
+									[
+										36995,
+										37002
+									],
+									[
+										37710,
+										37717
+									],
+									[
+										38429,
+										38436
+									],
+									[
+										39146,
+										39153
+									],
+									[
+										39867,
+										39874
+									],
+									[
+										40586,
+										40593
+									],
+									[
+										41307,
+										41314
+									],
+									[
+										42018,
+										42025
+									],
+									[
+										42735,
+										42742
+									],
+									[
+										43446,
+										43453
+									],
+									[
+										44165,
+										44172
+									],
+									[
+										44884,
+										44891
+									],
+									[
+										45646,
+										45653
+									],
+									[
+										46637,
+										46644
+									],
+									[
+										46859,
+										46866
+									],
+									[
+										47071,
+										47078
+									],
+									[
+										47289,
+										47296
+									],
+									[
+										47515,
+										47522
+									],
+									[
+										47731,
+										47738
+									],
+									[
+										47951,
+										47958
+									],
+									[
+										48169,
+										48176
+									],
+									[
+										48391,
+										48398
+									],
+									[
+										48611,
+										48618
+									],
+									[
+										48833,
+										48840
+									],
+									[
+										49047,
+										49054
+									],
+									[
+										49268,
+										49275
+									],
+									[
+										49480,
+										49487
+									],
+									[
+										49698,
+										49705
+									],
+									[
+										49910,
+										49917
+									],
+									[
+										50130,
+										50137
+									],
+									[
+										50350,
+										50357
+									],
+									[
+										50566,
+										50573
+									],
+									[
+										50941,
+										50948
+									],
+									[
+										51667,
+										51674
+									],
+									[
+										52383,
+										52390
+									],
+									[
+										53105,
+										53112
+									],
+									[
+										53835,
+										53842
+									],
+									[
+										54555,
+										54562
+									],
+									[
+										55279,
+										55286
+									],
+									[
+										56001,
+										56008
+									],
+									[
+										56727,
+										56734
+									],
+									[
+										57451,
+										57458
+									],
+									[
+										58177,
+										58184
+									],
+									[
+										58901,
+										58908
+									],
+									[
+										59617,
+										59624
+									],
+									[
+										60339,
+										60346
+									],
+									[
+										61055,
+										61062
+									],
+									[
+										61779,
+										61786
+									],
+									[
+										62503,
+										62510
+									],
+									[
+										63270,
+										63277
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								48181,
+								48181
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 6405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -743,12 +1403,32 @@
 		"selected_items":
 		[
 			[
-				"config-16",
-				"src/config-16f876a.h"
+				"common",
+				"build/common.mk"
+			],
+			[
+				"xc8.mk",
+				"build/xc8.mk"
+			],
+			[
+				"xc8.m",
+				"build/xc8.mk"
 			],
 			[
 				"xc8.sh",
 				"scripts/xc8.sh"
+			],
+			[
+				"LC-meter.c",
+				"LC-meter.c"
+			],
+			[
+				"device.h",
+				"lib/device.h"
+			],
+			[
+				"config-16",
+				"src/config-16f876a.h"
 			],
 			[
 				"timer.h",
@@ -777,10 +1457,6 @@
 			[
 				"LC-met",
 				"LC-meter.c"
-			],
-			[
-				"device.h",
-				"lib/device.h"
 			],
 			[
 				"oscil",
