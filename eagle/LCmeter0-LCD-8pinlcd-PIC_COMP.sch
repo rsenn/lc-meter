@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="2" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -13775,7 +13775,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
 <part name="U$1" library="sw" deviceset="PB-1P-1T" device=""/>
-<part name="P+10" library="supply1" deviceset="VCC" device=""/>
 <part name="IC1" library="mcu" deviceset="PIC16F876A-X/SP-COMP-B-A" device="/V"/>
 <part name="P+11" library="supply1" deviceset="VCC" device=""/>
 <part name="P+12" library="supply1" deviceset="VCC" device=""/>
@@ -13868,9 +13867,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <attribute name="VALUE" x="224.79" y="29.21" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="U$1" gate="G$1" x="154.94" y="-10.16"/>
-<instance part="P+10" gate="VCC" x="109.22" y="69.85" smashed="yes">
-<attribute name="VALUE" x="109.22" y="71.12" size="1.778" layer="96" align="bottom-center"/>
-</instance>
 <instance part="IC1" gate="G$1" x="86.36" y="17.78"/>
 <instance part="P+11" gate="VCC" x="93.98" y="63.5" smashed="yes">
 <attribute name="VALUE" x="93.98" y="64.77" size="1.778" layer="96" align="bottom-center"/>
@@ -13882,7 +13878,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
 <segment>
-<wire x1="190.5" y1="53.34" x2="106.426" y2="53.34" width="0.762" layer="92"/>
+<wire x1="190.5" y1="53.34" x2="116.586" y2="53.34" width="0.762" layer="92"/>
 <wire x1="190.5" y1="53.34" x2="190.5" y2="25.4" width="0.762" layer="92"/>
 <label x="160.655" y="54.61" size="1.778" layer="95"/>
 <wire x1="190.5" y1="53.34" x2="190.5" y2="63.5" width="0.762" layer="92"/>
@@ -14150,12 +14146,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <wire x1="154.94" y1="81.28" x2="154.94" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="111.76" y1="53.34" x2="109.22" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="55.88" x2="109.22" y2="67.31" width="0.1524" layer="91"/>
-<label x="109.22" y="60.96" size="1.778" layer="95" rot="R270"/>
-<pinref part="P+10" gate="VCC" pin="VCC"/>
-</segment>
-<segment>
 <pinref part="IC1" gate="G$1" pin="VDD"/>
 <pinref part="P+11" gate="VCC" pin="VCC"/>
 <wire x1="93.98" y1="60.96" x2="93.98" y2="40.64" width="0.1524" layer="91"/>
@@ -14404,13 +14394,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="IC1" gate="G$1" pin="RC6/TX"/>
 <wire x1="73.66" y1="-5.08" x2="73.66" y2="-12.7" width="0.1524" layer="91"/>
 <label x="73.66" y="-12.7" size="1.27" layer="95" rot="R270" xref="yes"/>
-</segment>
-</net>
-<net name="VSS" class="0">
-<segment>
-<wire x1="106.68" y1="53.34" x2="104.14" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="55.88" x2="104.14" y2="60.96" width="0.1524" layer="91"/>
-<label x="104.14" y="60.96" size="1.778" layer="95" rot="R270"/>
 </segment>
 </net>
 <net name="N$4" class="0">
