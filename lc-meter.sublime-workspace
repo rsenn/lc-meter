@@ -64,7 +64,16 @@
 			"file": "LC-meter.c",
 			"settings":
 			{
-				"buffer_size": 6101,
+				"buffer_size": 6092,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "LC-meter.h",
+			"settings":
+			{
+				"buffer_size": 2394,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -79,38 +88,81 @@
 			}
 		},
 		{
-			"file": "build/vars.mk",
+			"file": "LC-meter.xc8",
 			"settings":
 			{
-				"buffer_size": 3088,
+				"buffer_size": 520,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "build/xc8.mk",
+			"file": "src/config-16f876a.h",
 			"settings":
 			{
-				"buffer_size": 5916,
+				"buffer_size": 625,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lc-meter.sublime-project",
+			"settings":
+			{
+				"buffer_size": 1254,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/xc8-16f876a/buffer.lst",
+			"settings":
+			{
+				"buffer_size": 552464,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/xc8-16f876a/buffer.hex",
+			"settings":
+			{
+				"buffer_size": 30108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Package Control Messages\n========================\n\nGAS-x86 (or x64) highlighting scheme\n------------------------------------\n\n  [x86 Highlighting scheme - Install Message]\n      Hi, this is Calculuswhiz or Zach. Thanks for installing my highlighting scheme! I really appreciate it. If you notice any bugs, please let me know, or submit a pull request. For a quick demo, I have included some test files in the package. They are under the directory 'test/'. I have included a gdb disas log as well as some working programs. Check it out!\n  \n      If you have cool snippet ideas, please let me know as well!\n      \n      In case you missed it in the README, I do not have plans to support Intel syntax. Somebody's made one already, and it's not like you'd use both in the same file anyway. I mean, you *could*, but why would you?\n  \n      Thanks for installing!\n      Zach\n",
+			"settings":
+			{
+				"buffer_size": 870,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"file": "obj/xc8-16f876a/debug_20mhz_38kbps/lcd44780.p1",
+			"settings":
+			{
+				"buffer_size": 65426,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "obj/xc8-16f876a/debug_20mhz_38kbps/startup.lst",
+			"settings":
+			{
+				"buffer_size": 6381,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "scripts/xc8.sh",
 			"settings":
 			{
-				"buffer_size": 3524,
+				"buffer_size": 3507,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lc-meter.sublime-toks",
-			"settings":
-			{
-				"buffer_size": 58880,
-				"encoding": "Hexadecimal",
 				"line_ending": "Unix"
 			}
 		},
@@ -159,6 +211,10 @@
 		"selected_items":
 		[
 			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
 				"install pack",
 				"Package Control: Install Package"
 			],
@@ -176,10 +232,6 @@
 			],
 			[
 				"install",
-				"Package Control: Install Package"
-			],
-			[
-				"install pa",
 				"Package Control: Install Package"
 			],
 			[
@@ -311,9 +363,10 @@
 	},
 	"console":
 	{
-		"height": 425.0,
+		"height": 201.0,
 		"history":
 		[
+			"sublime.log_commands(False)",
 			"sublime.log_commands(True)",
 			"sublime.log_commands(False)",
 			"sublime.log_commands(True)"
@@ -330,11 +383,14 @@
 	},
 	"expanded_folders":
 	[
-		"/home/roman/Dokumente/Sources/lc-meter",
-		"/home/roman/Dokumente/Sources/lc-meter/build"
+		"/home/roman/Dokumente/Sources/lc-meter"
 	],
 	"file_history":
 	[
+		"/home/roman/Dokumente/Sources/lc-meter/build/vars.mk",
+		"/home/roman/Dokumente/Sources/lc-meter/build/xc8.mk",
+		"/home/roman/Dokumente/Sources/lc-meter/scripts/xc8.sh",
+		"/home/roman/Dokumente/Sources/lc-meter/lc-meter.sublime-toks",
 		"/home/roman/Dokumente/Sources/lc-meter/Makefile",
 		"/home/roman/Dokumente/Sources/lc-meter/src/config-16f876a.h",
 		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
@@ -400,7 +456,6 @@
 		"/home/roman/Dokumente/Sources/lc-meter/src/julznc/main.c",
 		"/home/roman/Dokumente/Sources/lc-meter/build/targets.mk",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/lcd5110.h",
-		"/home/roman/Dokumente/Sources/lc-meter/build/xc8.mk",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.c",
 		"/home/roman/Dokumente/Sources/lc-meter/lib/comparator.h",
 		"/home/roman/Dokumente/Sources/c-utils/dirlist.sublime-project",
@@ -459,10 +514,7 @@
 		"/home/roman/lotto/test-perfectmoney.moon",
 		"/home/roman/lotto/helpers/queue.moon",
 		"/home/roman/lotto/helpers/perfectmoneysci.moon",
-		"/home/roman/lotto/helpers/validate.moon",
-		"/home/roman/lotto/helpers/string.moon",
-		"/home/roman/lotto/app.moon",
-		"/home/enki/lotto/helpers/perfectmoney.lua"
+		"/home/roman/lotto/helpers/validate.moon"
 	],
 	"find":
 	{
@@ -501,6 +553,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			" 0b00100000",
+			"0b01000000",
+			"0b00010000",
+			"0b00000100",
+			"//\t\t\t\t",
+			"scan",
+			"[ \\\\]*$",
+			"\\s*$",
 			"CPPFLAGS",
 			"lib",
 			"TIMER0",
@@ -597,6 +657,13 @@
 		"regex": true,
 		"replace_history":
 		[
+			"(1 << 5)",
+			"(1 << 6)",
+			"(1 << 4)",
+			"(1 << 2)",
+			"",
+			" \\\\",
+			"",
 			"\"",
 			"PICLIB",
 			"PICLIB_HD44780_H",
@@ -614,7 +681,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -643,7 +710,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -652,7 +719,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6101,
+						"buffer_size": 6092,
 						"regions":
 						{
 						},
@@ -671,14 +738,42 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1071.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "LC-meter.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								967,
+								967
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "build/common.mk",
 					"semi_transient": false,
 					"settings":
@@ -704,75 +799,247 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "build/vars.mk",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3088,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2819,
-								2819
-							]
-						],
-						"settings":
-						{
-							"color_scheme": "Packages/Se7en Color Schemes/Themes/Se7en Dark.tmTheme",
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "build/xc8.mk",
+					"file": "LC-meter.xc8",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5916,
+						"buffer_size": 520,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5653,
-								5653
+								320,
+								320
 							]
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/Se7en Color Schemes/Themes/Se7en Dark.tmTheme",
-							"syntax": "Packages/Makefile/Makefile.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3405.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/config-16f876a.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 625,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								350,
+								350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
+					"file": "lc-meter.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1254,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								216,
+								216
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScriptNext - ES6 Syntax/JSON (JavaScriptNext).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bin/xc8-16f876a/buffer.lst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 552464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3236,
+								3236
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1066.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "bin/xc8-16f876a/buffer.hex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								902,
+								902
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								870,
+								870
+							]
+						],
+						"settings":
+						{
+							"auto_indent": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_width": 2,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "obj/xc8-16f876a/debug_20mhz_38kbps/lcd44780.p1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 65426,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								46,
+								46
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "obj/xc8-16f876a/debug_20mhz_38kbps/startup.lst",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6381,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2510,
+								2510
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 816.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
 					"file": "scripts/xc8.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3524,
+						"buffer_size": 3507,
 						"regions":
 						{
 						},
@@ -785,48 +1052,19 @@
 						],
 						"settings":
 						{
-							"color_scheme": "Packages/Se7en Color Schemes/Themes/Se7en Dark.tmTheme",
 							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1732.0,
+						"translation.y": 1794.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "lc-meter.sublime-toks",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 58880,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
+					"buffer": 13,
 					"file": "lib/timer.h",
 					"semi_transient": false,
 					"settings":
@@ -851,11 +1089,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 14,
 					"file": "lib/timer.c",
 					"semi_transient": false,
 					"settings":
@@ -882,11 +1120,11 @@
 						"translation.y": 1828.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 15,
 					"semi_transient": false,
 					"settings":
 					{
@@ -910,11 +1148,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 16,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 16,
 					"semi_transient": false,
 					"settings":
 					{
@@ -938,7 +1176,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 15,
 					"type": "text"
 				}
 			]
@@ -1001,16 +1239,20 @@
 		"selected_items":
 		[
 			[
+				"config-16",
+				"src/config-16f876a.h"
+			],
+			[
+				"xc8.sh",
+				"scripts/xc8.sh"
+			],
+			[
 				"timer.h",
 				"lib/timer.h"
 			],
 			[
 				"LC-m",
 				"LC-meter.c"
-			],
-			[
-				"xc8.sh",
-				"scripts/xc8.sh"
 			],
 			[
 				"Make",
