@@ -5,9 +5,9 @@ COMMON_SOURCES = timer.c delay.c
 SelfClockTest_SOURCES = SelfClockTest.c ser.c
 SelfClockTest_DEFS = -DUSE_TIMER0=1 -DUSE_SER=1
 
-ifeq ($(subst,,$(BUILDDIR)),$(BUILDDIR))
+#ifeq ($(subst,,$(BUILDDIR)),$(BUILDDIR))
 USE_SER = -DUSE_SER=1
-endif
+#endif
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c ser.c ser.c
 LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c ser.c buffer.c format.c
@@ -32,8 +32,9 @@ $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_SOFTSER=1 SOFTSER_BA
 LC_meter_HD44780_DEFS += -DUSE_SOFTSER=1 -DSOFTSER_BAUD=38400 
 endif
 
-$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1
-LC_meter_HD44780_DEFS += -DUSE_TIMER1=1
+# $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1
+# LC_meter_HD44780_DEFS += -DUSE_TIMER1=1
+
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER2=1
 LC_meter_HD44780_DEFS += -DUSE_TIMER2=1
 

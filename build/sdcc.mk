@@ -137,10 +137,10 @@ endif
 $(info LIBS: $(LIBS))
 CFLAGS += -p$(chipl)
 
-#LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file
+#LDFLAGS += --summary="default,-psect,-class,+mem,-hex,-file"
 #
-#LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib
-#LDFLAGS += --output=-mcof,+elf
+#LDFLAGS += --runtime="default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib"
+#LDFLAGS += --output="-mcof,+elf"
 #LDFLAGS += --stack=compiled
 #
 #

@@ -1,16 +1,18 @@
-COMPILER ?= htc
 DEBUG ?= 0
 
 -include build/vars.mk
 -include build/targets.mk
 
+COMPILER := xc8
+
 ifeq ($(COMPILERS),)
-COMPILERS = htc xc8
+#COMPILERS = htc xc8
+COMPILERS = xc8
 endif
 
 ifeq ($(BUILD_TYPES),)
-BUILD_TYPES := debug
-#BUILD_TYPES := debug release
+#BUILD_TYPES := debug
+BUILD_TYPES := debug release
 #BUILD_TYPE := release
 endif
 
@@ -32,8 +34,6 @@ DEBUG = 1
 else
 DEBUG = 0
 endif
-
-
 
 MAKE_CMD := $(MAKE) -f build/$$COMPILER.mk
 MAKE_LOOP := @MAKE@ || exit $$?

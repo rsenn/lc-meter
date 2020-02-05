@@ -31,12 +31,14 @@ OS = $(shell uname -o)
 
 #PICC = $(shell which picc 2>/dev/null)
 ifeq ($(OS),GNU/Linux)
-PICC = /opt/microchip/xc8/v1.34/bin/xc8
+#PICC := /opt/microchip/xc8/v1.34/bin/xc8
+PICC := $(lastword $(wildcard /opt/microchip/xc8/*/bin/xc8))
 endif
 
 ifeq ($(PICC),)
 ifeq ($(OS),GNU/Linux)
-CCDIR = /opt/microchip/xc8/v1.34
+CCDIR = $(dir $(dir $(PICC)))
+#/opt/microchip/xc8/v1.34
 else
 #CCDIR = $(patsubst %/bin,%,$(dir $(PICC)))
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
@@ -82,7 +84,6 @@ OPT = space
 #DEFINES += HI_TECH_C=1
 
 SOURCES = $($(PROGRAM)_SOURCES) $(COMMON_SOURCES)
-COMMON_FLAGS += $($(PROGRAM)_DEFS)
 P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
 
@@ -90,12 +91,15 @@ $(info SOURCES: $(SOURCES))
 $(info SelfClockTest_SOURCES: $(SelfClockTest_SOURCES))
 $(info PROGRAM: $(PROGRAM))
 
+RUNTIME := default -keep -no_startup -osccal -resetbits +download +clib
+#RUNTIME += +clear +init
+
 COMMON_FLAGS += -g
 COMMON_FLAGS += -N127
 
 #COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+clib"
 #COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
-COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib,+plib"
+COMMON_FLAGS += --runtime="$(subst $(SPACE),$(COMMA),$(RUNTIME))"
 
 ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),0x0000)
@@ -109,39 +113,38 @@ ifeq ($(OPT),speed)
 OPT_SPEED = ,+speed,-space,9
 endif
 ifeq ($(OPT),space)
-OPT_SPEED = ,+speed,-space,9
+OPT_SPEED = ,-speed,+space,9
 endif
 
 ifneq ($(DEBUG),1)
-COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
+#COMMON_FLAGS += --opt="default,+asm,-debug$(OPT_SPEED)"
+COMMON_FLAGS += --opt=space
 #COMMON_FLAGS += -D__DEBUG=1
-else
-COMMON_FLAGS += -G --opt="default,+asm,+debug$(OPT_SPEED)"
+else	
+COMMON_FLAGS += -G --opt=debug
 COMMON_FLAGS +=  -DNDEBUG=1
 endif
 COMMON_FLAGS +=  -DMCHP_XC8=1
 
-COMMON_FLAGS += --debugger=icd2
+COMMON_FLAGS += --debugger=pickit3
 
 
-COMMON_FLAGS += --double=32 --float=24
+COMMON_FLAGS += --double=32 --float=32
 
 COMMON_FLAGS += --warn=9
 COMMON_FLAGS += --asmlist
 
 COMMON_FLAGS += --mode=pro
 
-#COMMON_FLAGS += --errformat="Error   [%n] %f; %l.%c %s"
-#COMMON_FLAGS += --msgformat="Advisory[%n] %s"
-#COMMON_FLAGS += --warnformat="Warning [%n] %f; %l.%c %s"
-COMMON_FLAGS += #--errformat="\n\n%f:%l: error: (%n) %s"
-COMMON_FLAGS += --warnformat="%f:%l: warning: (%n) %s"
-COMMON_FLAGS += --msgformat="%f:%l: advisory: (%n) %s"
+# COMMON_FLAGS += #--errformat="\n\n%f:%l: error: (%n) %s"
+# COMMON_FLAGS += --warnformat="%f:%l: warning: (%n) %s"
+# COMMON_FLAGS += --msgformat="%f:%l: advisory: (%n) %s"
+
 #COMMON_FLAGS += -E1
 #COMMON_FLAGS += -P
 #COMMON_FLAGS += -V
 
-CPPFLAGS += $(DEFINES:%=-D%)
+CPPFLAGS += $(sort $(patsubst %,-D%,$(sort $(DEFINES))) $($(PROGRAM)_DEFS))
 
 _CPPFLAGS += \
 	-DVERSION_MAJOR=$(VERSION_MAJOR) \
@@ -150,10 +153,10 @@ _CPPFLAGS += \
 
 CFLAGS = -q --chip=$(chipl) $(COMMON_FLAGS)
 
-LDFLAGS += --summary=default,-psect,-class,+mem,-hex,-file
+LDFLAGS += --summary="default,-psect,-class,+mem,-hex,-file"
 
-LDFLAGS += --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,+download,+clib
-LDFLAGS += --output=-mcof,+elf
+LDFLAGS += --runtime="$(subst $(SPACE),$(COMMA),$(RUNTIME))"
+LDFLAGS += --output="-mcof,+elf"
 LDFLAGS += --stack=compiled
 
 
@@ -167,6 +170,36 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 #-include build/vars.mk
 
+define XC8_BASE_CONFIG
+-DMCHP_XC8=1
+-D__XC=1
+-D__XC8__=1
+-p
+1
+--disambiguate
+0
+--c++11
+-S
+$(patsubst %/bin/,%,$(dir $(PICC)))/include
+-F
+pic.h
+endef
+
+
+-include build/common.mk
+
+ifeq ($(COMPILER),xc8)
+#$(eval CPPFLAGS += $$(XC8_BASE_CONFIG))
+$(call write_config,$(CPPFLAGS:-I%=-I../%),CPPFLAGS_RSP,cppflags.rsp)
+$(call write_config,$(CPPFLAGS:-I%=-I../%) $(XC8_BASE_CONFIG),CPP_CONFIG,cpp.config)
+#CPPFLAGS := 
+endif
+
+$(info CPP_CONFIG: $(CPP_CONFIG))
+$(info CPPFLAGS: $(CPPFLAGS))
+$(info CFLAGS: $(CFLAGS))
+
+
 .PHONY: all dist prototypes
 #CPP_CONFIG = obj/xc8-cpp.config
 
@@ -174,7 +207,7 @@ all: $(BUILDDIR) $(OBJDIR) $(CPP_CONFIG) output
 
 ifneq ($(CPP_CONFIG),)
 $(CPP_CONFIG): build/xc8.mk
-	rm -f "$@"; set --  -DHI_TECH_C=1 -D__PICCPRO__=1 -D__PICC__=1 -D__XC=1 -D__XC__=1 -D__XC8=1 -D__XC8__=1 -p1 --c++11 --disambiguate=0 -S "$(CCDIR)/include"; for LINE; do case "$$LINE" in \
+	rm -f "$@"; set -- -DMCHP_XC8=1 -p1 --c++11 --disambiguate=0 -S "$(CCDIR)/include"; for LINE; do case "$$LINE" in \
 	 *\ *[\\/]*) LINE="\"$$LINE\"" ;; esac; echo "$$LINE"; done >"$@"
 endif
 
@@ -200,7 +233,8 @@ $(HEXFILE): $(P1OBJS)
 $(P1OBJS): $(OBJDIR)%.p1: %.c
 	-mkdir -p $(OBJDIR)
 #	(cd obj; $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$< #; R=$$?; echo; exit $$R)
-	(cd obj; $(SHELL) ../scripts/xc8.sh -v $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),) $(PICC) --pass1 $(CFLAGS) $(CPPFLAGS:-I%=-I../%) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
+	#$(filter -D%,$(CPPFLAGS))
+	(cd obj; $(SHELL) ../scripts/xc8.sh -v $(if $(CPP_CONFIG),@$(CPP_CONFIG:obj/%=%),$(CPPFLAGS:-I%=-I../%)) $(PICC) --pass1 $(CFLAGS) -D_XTAL_FREQ=$(XTAL) --outdir=$(OBJDIR:obj/%/=%)  ../$<)
 #	$(PICC) --pass1 $(CFLAGS) $(CPPFLAGS) -o$(<:%.c=$(BUILDDIR)%_$(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps_$(SOFTKBPS)skbps.p1) $<
 
 $(ASSRCS): $(OBJDIR)%.as: %.c
@@ -212,6 +246,3 @@ prototypes:
 ifneq ($(CCDIR),)
 prototypes: CPPFLAGS += -I'$(CCDIR)/include'
 endif
-
-
--include build/common.mk

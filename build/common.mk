@@ -1,6 +1,29 @@
 #serialport = $(wildcard /dev/ttyS0)
 #serialport =
 
+define NEWLINE
+
+
+endef
+
+SPACE := $(EMPTY) $(EMPTY)
+COMMA := ,
+
+#make_list = $(subst $(NEWLINE)$(NEWLINE),$(NEWLINE),$(subst $(SPACE),$(NEWLINE),$(1)))
+make_list = $(subst $(NEWLINE),$(SPACE),$(1))
+
+define set_var
+$(1) := $(2)
+endef
+
+define write_rsp
+$(file >$(OBJDIR)cppflags.rsp,$(call make_list,$(CPPFLAGS)))$(eval $(call set_var,CPPFLAGS,@$$(OBJDIR)cppflags.rsp))
+endef
+
+define write_config
+$(file >$(OBJDIR)$(3),$(call make_list,$(1)))$(eval $(call set_var,$(2),$$(OBJDIR)$(3)))
+endef
+
 C_RED = [1;31m
 C_OFF = [0m
 

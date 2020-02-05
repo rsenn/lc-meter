@@ -4,12 +4,12 @@
 ifeq ($(COMPILER),htc)
 CHIPS = 16f876a 18f2520 18f2550  
 else
-CHIPS = 16f876a 18f2520 18f2550  18f25k50
+CHIPS = 16f876a #18f2520 18f2550  18f25k50
 endif
 #CHIPS = 16f876a 18f252 
 #CHIPS += 10f206
 #CHIPS += 12f1840
-COMPILERS ?= htc xc8 
+COMPILERS ?= xc8
 #CHIP = 16F876A
 
 ifeq ($(XTAL),)
@@ -87,7 +87,8 @@ endif
 vpath lib src src/julznc $(OBJDIR) $(BUILDDIR)
 VPATH = lib src src/julznc $(OBJDIR) $(BUILDDIR)
 
-DEFINES = PIC$(chipu)=1 __$(chipl)=1
+#DEFINES += PIC$(chipu)=1
+DEFINES += __$(chipl)=1
 
 
 ifeq ($(BUILD_TYPE),debug)

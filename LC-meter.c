@@ -1,42 +1,42 @@
-#include "lib/device.h"
+#include "device.h"
 #include "LC-meter.h"
 
-#include "lib/oscillator.h"
-#include "lib/interrupt.h"
+#include "oscillator.h"
+#include "interrupt.h"
 
 //#include "main.h"
-#include "lib/delay.h"
+#include "delay.h"
 
 #if USE_HD44780_LCD
-#include "lib/lcd44780.h"
+#include "lcd44780.h"
 #endif
 
 #if USE_NOKIA5110_LCD
-#include "lib/lcd5110.h"
+#include "lcd5110.h"
 #endif
 
 #define TIMER2_PRESCALER PRESCALE_1_16
 #define TIMER2_POSTSCALER POSTSCALE_1_16
 
-#include "lib/timer.h"
+#include "timer.h"
 
 #ifdef USE_UART
-#include "lib/uart.h"
+#include "uart.h"
 #endif
 
 #if USE_SER
-#include "lib/ser.h"
+#include "ser.h"
 #endif
 #if USE_SOFTSER
-#include "lib/softser.h"
+#include "softser.h"
 #endif
 
-#include "src/measure.h"
-#include "src/print.h"
-#include "lib/format.h"
-//#include "lib/buffer.h"
+#include "measure.h"
+#include "print.h"
+#include "format.h"
+//#include "buffer.h"
 
-#include "src/config-bits.h"
+#include "config-bits.h"
 
 #if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
