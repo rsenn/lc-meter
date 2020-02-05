@@ -17,7 +17,7 @@
 --summary=psect,mem,class,file
 --time
 -Ilib -Isrc -I.
--DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_HD44780_LCD=1 -DUART_BAUD=38400 -D_XTAL_FREQ=20000000 -D_DEBUG=1
+-D__16f876a=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_HD44780_LCD=1 -DUART_BAUD=38400 -D_XTAL_FREQ=20000000 -D_DEBUG=1
 LC-meter.c
 lib/buffer.c lib/format.c lib/lcd44780.c lib/ser.c lib/timer.c
 src/measure.c src/print.c
