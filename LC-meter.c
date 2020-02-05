@@ -76,9 +76,8 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, 
 volatile uint16_t blink = 0;
 
 /* Interrupt routine */
-#if 0
 INTERRUPT_FN() {
-  /* if(PIR1 & 0x02) {
+   if(T0IF) {
      bres += 256;
      if(bres >= CYCLES_FOR_MSEC) {
        bres -= CYCLES_FOR_MSEC;
@@ -92,8 +91,8 @@ INTERRUPT_FN() {
        }
      }
      // Clear timer interrupt bit
-     PIR1 &= ~0b10; // TMR2IF = 0
-   }*/
+   T0IF=0;
+   }
 #ifdef USE_SER
   ser_int();
 #endif
@@ -101,7 +100,7 @@ INTERRUPT_FN() {
   // uart_isr();
 #endif
 }
-#endif
+
 /**
  * @brief      { function_description }
  */
