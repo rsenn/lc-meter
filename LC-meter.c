@@ -46,6 +46,8 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 volatile uint32_t bres;           // bresenham count
 volatile uint16_t msecpart;       // milliseconds modulo 1000
+volatile uint16_t led_cycle;       // led blinking cycle
+volatile uint16_t led_interval;       // led blinking interval
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
@@ -85,7 +87,11 @@ INTERRUPT_FN() {
      if(bres >= CYCLES_FOR_MSEC) {
        bres -= CYCLES_FOR_MSEC;
        msecpart++;
-       SET_LED(msecpart >= 833);
+       led_cycle++;
+
+       SET_LED(cycle_led >= 0 && cycle_led < led_cycle/6);
+
+
        // if reached 1 second...
        if(msecpart >= 1000) {
          // ...update clock, etc
@@ -113,6 +119,9 @@ main() {
   mode = -1;
 
   CCal = C_CAL;
+
+  led_cycle = 0;
+  led_interval = 500;
 
   // setup comparator
 
@@ -224,6 +233,9 @@ main() {
 #endif
       mode = new_mode;
     }
+
+       if(led_cycle >= led_interval)
+        led_cycle = 0;
 
     if(mode)
       measure_capacitance();
