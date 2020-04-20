@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="2" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="2" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -13082,6 +13082,28 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <text x="0" y="1.905" size="0.6096" layer="51" font="vector" align="center">VPP</text>
 <text x="-6.35" y="-1.905" size="0.8128" layer="25" align="top-left">&gt;NAME</text>
 </package>
+<package name="CONN-2P-V">
+<pad name="2" x="0" y="1.27" drill="1.2" diameter="1.9304" shape="octagon" rot="R270"/>
+<pad name="1" x="0" y="-1.27" drill="1.2" diameter="1.778" shape="square" rot="R270"/>
+<wire x1="-1.905" y1="-3.302" x2="1.905" y2="-3.302" width="0.127" layer="21"/>
+<wire x1="1.905" y1="-3.302" x2="1.905" y2="3.302" width="0.127" layer="21"/>
+<wire x1="1.905" y1="3.302" x2="-1.905" y2="3.302" width="0.127" layer="21"/>
+<wire x1="-1.905" y1="3.302" x2="-1.905" y2="-3.302" width="0.127" layer="21"/>
+<text x="-1.143" y="-2.413" size="0.508" layer="23" font="fixed" align="top-right">1</text>
+<text x="-1.778" y="3.683" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-1.778" y="-3.683" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
+</package>
+<package name="CONN-2P">
+<pad name="2" x="1.27" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R180"/>
+<pad name="1" x="-1.27" y="0" drill="1.2" diameter="1.9304" shape="square" rot="R180"/>
+<wire x1="-3.048" y1="-2.032" x2="-3.048" y2="2.032" width="0.127" layer="22"/>
+<wire x1="-3.048" y1="2.032" x2="3.048" y2="2.032" width="0.127" layer="22"/>
+<wire x1="3.048" y1="2.032" x2="3.048" y2="-2.032" width="0.127" layer="22"/>
+<wire x1="3.048" y1="-2.032" x2="-3.048" y2="-2.032" width="0.127" layer="22"/>
+<text x="-2.413" y="-1.143" size="0.508" layer="23" font="fixed" align="top-right">1</text>
+<text x="-2.794" y="2.286" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-2.794" y="-2.286" size="0.8128" layer="27" align="top-left">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="PIC-ICSP">
@@ -13127,6 +13149,19 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <text x="-5.08" y="8.89" size="1.778" layer="95" align="top-left">&gt;NAME</text>
 <text x="-5.08" y="-8.89" size="1.778" layer="96">&gt;VALUE</text>
 <text x="3.048" y="0" size="1.27" layer="97" font="fixed" rot="R270" align="center">PIC UART</text>
+</symbol>
+<symbol name="PINCONN-2P">
+<wire x1="-1.27" y1="3.81" x2="-1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="2.54" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="2.54" y2="3.81" width="0.254" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="-1.27" y2="3.81" width="0.254" layer="94"/>
+<pin name="2" x="-2.54" y="2.54" length="point"/>
+<pin name="1" x="-2.54" y="0" length="point"/>
+<wire x1="-2.54" y1="2.54" x2="-1.27" y2="2.54" width="0.127" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.127" layer="94"/>
+<text x="-1.27" y="-1.905" size="0.8128" layer="95" align="top-left">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -13205,6 +13240,31 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <connect gate="1" pin="TX" pad="1"/>
 <connect gate="1" pin="VDD" pad="4"/>
 <connect gate="1" pin="VSS" pad="3"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="CONN-2P" prefix="J">
+<gates>
+<gate name="G$1" symbol="PINCONN-2P" x="0" y="1.27"/>
+</gates>
+<devices>
+<device name="2P/H" package="CONN-2P">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2P/V" package="CONN-2P-V">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -13292,96 +13352,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <attribute name="MF" value="VISHAY SEMICONDUCTOR" constant="no"/>
 <attribute name="OC_FARNELL" value="1612435" constant="no"/>
 </technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="pinhead">
-<description>&lt;b&gt;Pin Header Connectors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="1X02">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<wire x1="-1.905" y1="1.27" x2="-0.635" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="1.27" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="0" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="-0.635" x2="-0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="-1.905" y1="1.27" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="-0.635" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-0.635" y1="-1.27" x2="-1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="0.635" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="1.27" x2="1.905" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="1.905" y1="1.27" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="0.635" x2="2.54" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-0.635" x2="1.905" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="1.905" y1="-1.27" x2="0.635" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="-1.27" x2="0" y2="-0.635" width="0.1524" layer="21"/>
-<pad name="1" x="-1.27" y="0" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="1.016" shape="long" rot="R90"/>
-<text x="-2.6162" y="1.8288" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.54" y="-3.175" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-1.524" y1="-0.254" x2="-1.016" y2="0.254" layer="51"/>
-<rectangle x1="1.016" y1="-0.254" x2="1.524" y2="0.254" layer="51"/>
-</package>
-<package name="1X02/90">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<wire x1="-2.54" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="21"/>
-<wire x1="0" y1="-1.905" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="-2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-1.905" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="6.985" x2="-1.27" y2="1.27" width="0.762" layer="21"/>
-<wire x1="0" y1="-1.905" x2="2.54" y2="-1.905" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="2.54" y1="0.635" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="6.985" x2="1.27" y2="1.27" width="0.762" layer="21"/>
-<pad name="1" x="-1.27" y="-3.81" drill="1.016" shape="long" rot="R90"/>
-<pad name="2" x="1.27" y="-3.81" drill="1.016" shape="long" rot="R90"/>
-<text x="-3.175" y="-3.81" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
-<text x="4.445" y="-3.81" size="1.27" layer="27" rot="R90">&gt;VALUE</text>
-<rectangle x1="-1.651" y1="0.635" x2="-0.889" y2="1.143" layer="21"/>
-<rectangle x1="0.889" y1="0.635" x2="1.651" y2="1.143" layer="21"/>
-<rectangle x1="-1.651" y1="-2.921" x2="-0.889" y2="-1.905" layer="21"/>
-<rectangle x1="0.889" y1="-2.921" x2="1.651" y2="-1.905" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="PINHD2">
-<wire x1="-6.35" y1="-2.54" x2="1.27" y2="-2.54" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="5.08" x2="-6.35" y2="5.08" width="0.4064" layer="94"/>
-<wire x1="-6.35" y1="5.08" x2="-6.35" y2="-2.54" width="0.4064" layer="94"/>
-<text x="-6.35" y="5.715" size="1.778" layer="95">&gt;NAME</text>
-<text x="-6.35" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="1" x="-2.54" y="2.54" visible="pad" length="short" direction="pas" function="dot"/>
-<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="PINHD-1X2" prefix="JP" uservalue="yes">
-<description>&lt;b&gt;PIN HEADER&lt;/b&gt;</description>
-<gates>
-<gate name="G$1" symbol="PINHD2" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="1X02">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="/90" package="1X02/90">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -13770,7 +13740,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="VCC" device=""/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="JP1" library="pinhead" deviceset="PINHD-1X2" device=""/>
+<part name="JP1" library="pinconn" deviceset="CONN-2P" device="2P/V"/>
 <part name="J2" library="pinconn" deviceset="PIC-UART" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
@@ -13997,12 +13967,11 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="GND11" gate="1" pin="GND"/>
 <wire x1="104.14" y1="-7.62" x2="104.14" y2="-16.51" width="0.1524" layer="91"/>
 <wire x1="104.14" y1="-7.62" x2="114.3" y2="-7.62" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="-7.62" x2="114.3" y2="-5.08" width="0.1524" layer="91"/>
-<pinref part="IC1" gate="G$1" pin="VSS_2"/>
-<wire x1="114.3" y1="-5.08" x2="114.3" y2="-3.81" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VSS"/>
 <wire x1="104.14" y1="-5.08" x2="104.14" y2="-7.62" width="0.1524" layer="91"/>
 <junction x="104.14" y="-7.62"/>
+<pinref part="IC1" gate="G$1" pin="VSS_2"/>
+<wire x1="114.3" y1="-5.08" x2="114.3" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="T1" gate="G$1" pin="E"/>
@@ -14038,8 +14007,8 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 </segment>
 <segment>
 <pinref part="GND13" gate="1" pin="GND"/>
-<pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="227.33" y1="-22.86" x2="227.33" y2="-20.32" width="0.1524" layer="91"/>
+<pinref part="JP1" gate="G$1" pin="1"/>
 <wire x1="227.33" y1="-20.32" x2="234.95" y2="-20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -14067,10 +14036,9 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="Q1" gate="G$1" pin="1"/>
 <wire x1="129.54" y1="-17.78" x2="129.54" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="-12.7" x2="132.08" y2="-12.7" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="-3.81" x2="129.54" y2="-5.08" width="0.1524" layer="91"/>
-<junction x="129.54" y="-12.7"/>
 <pinref part="IC1" gate="G$1" pin="OSC1"/>
 <wire x1="129.54" y1="-5.08" x2="129.54" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="129.54" y="-12.7"/>
 </segment>
 </net>
 <net name="OSC2" class="0">
@@ -14079,10 +14047,9 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="Q1" gate="G$1" pin="2"/>
 <wire x1="137.16" y1="-12.7" x2="139.7" y2="-12.7" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="-12.7" x2="139.7" y2="-17.78" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="-3.81" x2="139.7" y2="-5.08" width="0.1524" layer="91"/>
-<junction x="139.7" y="-12.7"/>
 <pinref part="IC1" gate="G$1" pin="OSC2"/>
 <wire x1="139.7" y1="-5.08" x2="139.7" y2="-12.7" width="0.1524" layer="91"/>
+<junction x="139.7" y="-12.7"/>
 </segment>
 </net>
 <net name="VCC" class="0">
@@ -14131,7 +14098,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <segment>
 <pinref part="P+8" gate="VCC" pin="VCC"/>
 <wire x1="227.33" y1="-17.78" x2="227.33" y2="-15.24" width="0.1524" layer="91"/>
-<pinref part="JP1" gate="G$1" pin="1"/>
+<pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="234.95" y1="-17.78" x2="227.33" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
