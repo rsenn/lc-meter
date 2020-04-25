@@ -46,8 +46,8 @@ uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 
 volatile uint32_t bres;           // bresenham count
 volatile uint16_t msecpart;       // milliseconds modulo 1000
-volatile uint16_t led_cycle;       // led blinking cycle
-volatile uint16_t led_interval;       // led blinking interval
+volatile uint16_t led_cycle;      // led blinking cycle
+volatile uint16_t led_interval;   // led blinking interval
 volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
@@ -82,26 +82,25 @@ volatile uint16_t blink = 0;
 
 /* Interrupt routine */
 INTERRUPT_FN() {
-   if(TMR2IF) {
-     bres += 256;
-     if(bres >= CYCLES_FOR_MSEC) {
-       bres -= CYCLES_FOR_MSEC;
-       msecpart++;
-       led_cycle++;
+  if(TMR2IF) {
+    bres += 256;
+    if(bres >= CYCLES_FOR_MSEC) {
+      bres -= CYCLES_FOR_MSEC;
+      msecpart++;
+      led_cycle++;
 
-       SET_LED(led_cycle >= 0 && led_cycle < led_interval/6);
+      SET_LED(led_cycle >= 0 && led_cycle < led_interval / 6);
 
-
-       // if reached 1 second...
-       if(msecpart >= 1000) {
-         // ...update clock, etc
-         seconds++;
-         msecpart -= 1000;
-       }
-     }
-     // Clear timer interrupt bit
-   TMR2IF=0;
-   }
+      // if reached 1 second...
+      if(msecpart >= 1000) {
+        // ...update clock, etc
+        seconds++;
+        msecpart -= 1000;
+      }
+    }
+    // Clear timer interrupt bit
+    TMR2IF = 0;
+  }
 #if USE_SER
   ser_int();
 #endif
@@ -234,8 +233,8 @@ main() {
       mode = new_mode;
     }
 
-       if(led_cycle >= led_interval)
-        led_cycle = 0;
+    if(led_cycle >= led_interval)
+      led_cycle = 0;
 
     if(mode)
       measure_capacitance();
