@@ -1389,32 +1389,32 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../src/../lib/typedef.h"
 typedef char BOOL;
 
-# 50 "../../../lib/tsmdelay.h"
+# 49 "../../../src/../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
-# 68
+# 67
 extern dvars dvar;
 
-# 78
+# 77
 void cycle_eater(void);
 
-# 48 "../../../lib/delay.h"
+# 47 "../../../src/../lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
 
-# 65 "../../../LC-meter.h"
+# 65 "../../../src/../LC-meter.h"
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
 
-# 48 "../../../lib/ser.h"
+# 48 "../../../src/../lib/ser.h"
 char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
@@ -1443,7 +1443,8 @@ void measure_inductance(void);
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c); void lcd_puts(const char*);
+void output_putch(char c);
+void lcd_puts(const char*);
 void print_digit(uint8_t line, uint8_t column, uint8_t digit);
 void print_unit(uint8_t unit);
 void print_reading(uint16_t measurement);
@@ -1451,18 +1452,24 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 
-# 6 "../../../lib/format.h"
+# 6 "../../../src/../lib/format.h"
 void format_number(uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(uint32_t x);
 void format_double(double num);
 
-# 69 "../../../lib/timer.h"
+# 68 "../../../src/../lib/timer.h"
 void timer0_init(unsigned char);
 
-# 76
+# 75
 unsigned short timer0_read_ps(void);
 
-# 12 "../../../lib/buffer.h"
+# 107
+void timer1_init(unsigned char ps_mode);
+
+# 145
+void timer2_init(uint8_t ps_mode);
+
+# 12 "../../../src/../lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -1558,7 +1565,7 @@ ser_put(buffer.x, buffer.n);
 buffer.p = 0, buffer.n = 0, 0;
 }
 
-# 131
+# 130
 void
 measure_capacitance() {
 uint8_t unit;
@@ -1566,30 +1573,39 @@ uint16_t var;
 
 double Cin;
 
-# 143
+# 142
 var = measure_freq();
 
 F3 = (double)var;
 
 
 ser_puts("var=");
-format_xint32(var); buf_to_ser();
+format_xint32(var);
+buf_to_ser();
 ser_puts("\r\nF1=");
-format_double(F1); buf_to_ser();
+format_double(F1);
+buf_to_ser();
 ser_putch(' ');
-format_xint32(*(uint32_t*)&F1); buf_to_ser();
+format_xint32(*(uint32_t*)&F1);
+buf_to_ser();
 ser_puts("\r\nF2=");
-format_double(F2); buf_to_ser();
+format_double(F2);
+buf_to_ser();
 ser_putch(' ');
-format_xint32(*(uint32_t*)&F2); buf_to_ser();
+format_xint32(*(uint32_t*)&F2);
+buf_to_ser();
 ser_puts("\r\nF3=");
-format_double(F3); buf_to_ser();
+format_double(F3);
+buf_to_ser();
 ser_putch(' ');
-format_xint32(*(uint32_t*)&F3); buf_to_ser();
+format_xint32(*(uint32_t*)&F3);
+buf_to_ser();
 ser_puts("\r\nCCal=");
-format_double(CCal); buf_to_ser();
+format_double(CCal);
+buf_to_ser();
 ser_putch(' ');
-format_xint32(*(uint32_t*)&CCal); buf_to_ser();
+format_xint32(*(uint32_t*)&CCal);
+buf_to_ser();
 ser_puts("\r\n");
 
 
@@ -1630,7 +1646,7 @@ print_reading(var);
 print_unit(unit);
 }
 
-# 209
+# 217
 void
 measure_inductance() {
 uint8_t unit;
@@ -1638,7 +1654,7 @@ uint16_t var;
 
 double Lin, numerator, denominator;
 
-# 220
+# 228
 var = measure_freq();
 
 F3 = (double)var;

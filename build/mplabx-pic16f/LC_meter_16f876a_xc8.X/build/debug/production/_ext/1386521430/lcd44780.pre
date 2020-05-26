@@ -91,21 +91,21 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../lib/typedef.h"
 typedef char BOOL;
 
-# 50 "../../../lib/tsmdelay.h"
+# 49 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
-# 68
+# 67
 extern dvars dvar;
 
-# 78
+# 77
 void cycle_eater(void);
 
-# 48 "../../../lib/delay.h"
+# 47 "../../../lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);

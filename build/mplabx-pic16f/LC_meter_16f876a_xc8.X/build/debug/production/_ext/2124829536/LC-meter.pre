@@ -1389,21 +1389,21 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../lib/typedef.h"
 typedef char BOOL;
 
-# 50 "../../../lib/tsmdelay.h"
+# 49 "../../../lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
 } dvars;
 
-# 68
+# 67
 extern dvars dvar;
 
-# 78
+# 77
 void cycle_eater(void);
 
-# 48 "../../../lib/delay.h"
+# 47 "../../../lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
@@ -1414,11 +1414,17 @@ extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
 
-# 69 "../../../lib/timer.h"
+# 68 "../../../lib/timer.h"
 void timer0_init(unsigned char);
 
-# 76
+# 75
 unsigned short timer0_read_ps(void);
+
+# 107
+void timer1_init(unsigned char ps_mode);
+
+# 145
+void timer2_init(uint8_t ps_mode);
 
 # 48 "../../../lib/ser.h"
 char ser_isrx(void);
@@ -1449,7 +1455,8 @@ void measure_inductance(void);
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c); void lcd_puts(const char*);
+void output_putch(char c);
+void lcd_puts(const char*);
 void print_digit(uint8_t line, uint8_t column, uint8_t digit);
 void print_unit(uint8_t unit);
 void print_reading(uint16_t measurement);
@@ -1464,21 +1471,23 @@ void format_double(double num);
 
 
 # 7 "../../../src/config-16f876a.h"
-#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = OFF, WDTE = OFF, WRT = OFF, DEBUG=ON
+#pragma config FOSC = HS, LVP = OFF, CPD = OFF, BOREN = ON, WDTE = OFF, WRT = OFF, DEBUG = ON
 
-# 44 "../../../LC-meter.c"
-volatile uint16_t bres;
+# 47 "../../../LC-meter.c"
+volatile uint32_t bres;
 volatile uint16_t msecpart;
+volatile uint16_t led_cycle;
+volatile uint16_t led_interval;
 volatile uint32_t seconds, msecs;
 volatile uint32_t timer1of;
 
 static char mode = -1;
 
-# 58
+# 63
 void
 delay10ms(unsigned char period_10ms) {
 
-# 63
+# 68
 }
 
 
@@ -1495,16 +1504,33 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
 volatile uint16_t blink = 0;
 
 
-
 interrupt isr() {
+if(TMR2IF) {
+bres += 256;
+if(bres >= ((unsigned long)((double)((20000000) / 4) / 1000))) {
+bres -= ((unsigned long)((double)((20000000) / 4) / 1000));
+msecpart++;
+led_cycle++;
 
-# 98
-if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
+PORTC &= ~(1 << 2); PORTC |= (!!(led_cycle >= 0 && led_cycle < led_interval / 6)) << 2;;
 
-# 103
+
+if(msecpart >= 1000) {
+
+seconds++;
+msecpart -= 1000;
+}
 }
 
-# 108
+TMR2IF = 0;
+}
+
+if(RCIF) { rxfifo[rxiptr] = RCREG; ser_tmp = (rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != rxoptr) rxiptr = ser_tmp; }; if(TXIF && TXIE) { TXREG = txfifo[txoptr]; ++txoptr; txoptr &= ((uint8_t)16 - 1); if(txoptr == txiptr) { TXIE = 0; }; TXIF = 0; };
+
+# 110
+}
+
+# 115
 void
 main() {
 bres = msecpart = msecs = seconds = 0;
@@ -1512,7 +1538,10 @@ mode = -1;
 
 CCal = 1000;
 
-# 121
+led_cycle = 0;
+led_interval = 500;
+
+# 131
 CMCON = 0b00000101;
 
 TRISA = 0b11001111;
@@ -1521,11 +1550,12 @@ TRISB &= 0b00001111;
 
 
 timer0_init(0b1000 | 0x20 | 0x40);
+timer2_init(0b100 | 0x80);
 
-# 137
+# 148
 OPTION_REG &= ~0b100000;
 
-# 143
+# 154
 TRISC = 0b10110011;
 
 
@@ -1533,10 +1563,12 @@ TRISC = 0b10110011;
 RC3 = 1;
 
 
-TRISC &= ~0b00000100;
-PORTC &= ~0b00000100; PORTC |= (!!(1)) << 2;;
+TRISC &= ~(1 << 2);
+PORTC &= ~(1 << 2); PORTC |= (!!(1)) << 2;;
 
-# 164
+timer2_init(0b000 | 0x80);
+
+# 175
 TRISC |= (1 << 4);
 TRISC &= ~(1 << 5);
 
@@ -1553,18 +1585,18 @@ PORTC &= ~(1 << 5);
 
 ser_init();
 
-# 185
+# 196
 INTCON |= 0xc0;
 
-# 200
-delay10ms(200);
-
-
-calibrate();
+# 209
+delay10ms(5);
 
 # 214
+calibrate();
+
+# 225
 for(;;) {
-char new_mode = (!!(PORTC & 0b10000));
+char new_mode = (!!(PORTC & (1 << 4)));
 
 if(new_mode != mode) {
 
@@ -1573,6 +1605,9 @@ ser_puts("\r\n");
 
 mode = new_mode;
 }
+
+if(led_cycle >= led_interval)
+led_cycle = 0;
 
 if(mode)
 measure_capacitance();
@@ -1600,7 +1635,7 @@ INTCON &= ~0x80;
 s = seconds;
 INTCON |= 0x80;
 
-# 280
+# 294
 if(s != prev_s) {
 
 format_number(s, 10, 0);
