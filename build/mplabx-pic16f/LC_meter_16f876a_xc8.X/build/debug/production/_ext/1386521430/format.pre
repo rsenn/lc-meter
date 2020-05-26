@@ -91,7 +91,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../lib/typedef.h"
 typedef char BOOL;
 
 # 6 "../../../lib/format.h"
@@ -145,7 +145,7 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 6 "../../../lib/format.c"
+# 10 "../../../lib/format.c"
 static void
 format_putchar(char c) {
 return;
@@ -166,10 +166,10 @@ pad = -pad;
 padchar = '0';
 }
 
-# 31
+# 35
 do {
 
-# 35
+# 39
 di = n % base;
 buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
 

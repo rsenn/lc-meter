@@ -91,14 +91,20 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../lib/typedef.h"
 typedef char BOOL;
 
-# 69 "../../../lib/timer.h"
+# 68 "../../../lib/timer.h"
 void timer0_init(unsigned char);
 
-# 76
+# 75
 unsigned short timer0_read_ps(void);
+
+# 107
+void timer1_init(unsigned char ps_mode);
+
+# 145
+void timer2_init(uint8_t ps_mode);
 
 # 25 "/opt/microchip/xc8/v1.34/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -1405,7 +1411,7 @@ uint8_t prescaler = ps_mode & 0b1111;
 
 TMR0 = 0;
 
-# 41
+# 40
 T0CS = (ps_mode & 0x20) ? 1 : 0;
 T0SE = (ps_mode & 0x10) ? 1 : 0;
 
@@ -1414,7 +1420,7 @@ PSA = prescaler > 0;
 OPTION_REGbits.PS = prescaler - 1;
 }
 
-# 75
+# 72
 TMR0IF = 0;
 T0IE = (ps_mode & 0x80) ? 1 : 0;
 }

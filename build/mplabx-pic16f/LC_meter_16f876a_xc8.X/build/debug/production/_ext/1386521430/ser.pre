@@ -1389,7 +1389,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../lib/typedef.h"
 typedef char BOOL;
 
 # 48 "../../../lib/ser.h"
@@ -1411,7 +1411,7 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 27 "../../../lib/ser.c"
+# 23 "../../../lib/ser.c"
 uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
 
 uint8_t rxfifo[(uint8_t)16];
@@ -1495,7 +1495,7 @@ TRISC |= 0x80;
 
 BRGH = 1;
 
-# 114
+# 110
 SPBRG = ser_brg;
 
 

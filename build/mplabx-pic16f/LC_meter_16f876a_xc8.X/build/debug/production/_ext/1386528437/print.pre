@@ -91,10 +91,10 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 56 "../../../lib/typedef.h"
+# 53 "../../../src/../lib/typedef.h"
 typedef char BOOL;
 
-# 12 "../../../lib/buffer.h"
+# 12 "../../../src/../lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -116,7 +116,8 @@ char buffer_puts(const char* x);
 extern const char logo_image[504];
 
 void put_str(const char*);
-void output_putch(char c); void lcd_puts(const char*);
+void output_putch(char c);
+void lcd_puts(const char*);
 void print_digit(uint8_t line, uint8_t column, uint8_t digit);
 void print_unit(uint8_t unit);
 void print_reading(uint16_t measurement);
@@ -124,7 +125,7 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 
-# 48 "../../../lib/ser.h"
+# 48 "../../../src/../lib/ser.h"
 char ser_isrx(void);
 uint8_t ser_getch(void);
 void ser_putch(char byte);
@@ -143,7 +144,7 @@ extern uint8_t ser_tmp;
 
 extern uint8_t ser_brg;
 
-# 6 "../../../lib/format.h"
+# 6 "../../../src/../lib/format.h"
 void format_number(uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(uint32_t x);
 void format_double(double num);
@@ -155,42 +156,42 @@ lcd_put(const char* buf, unsigned n) {
 # 28
 }
 
-# 100
+# 378
 void
 print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 
-# 119
+# 397
 }
 
 
 void
 print_unit(uint8_t unit) {
 
-# 143
+# 421
 }
 
 void
 print_reading(uint16_t measurement) {
 
-# 182
+# 460
 }
 
 
 void
 print_indicator(uint8_t indicate) {
 
-# 207
+# 485
 }
 
 void
 output_putch(char c) {
 
-# 215
+# 493
 ser_putch(c);
 
 }
 
-# 222
+# 500
 void
 put_str(const char* s) {
 int i;
