@@ -1,0 +1,1 @@
+ xc8-18f2550/release_20mhz_38kbps/measure.d  xc8-18f2550/release_20mhz_38kbps/measure.p1:  xc8-18f2550/release_20mhz_38kbps/measure.c

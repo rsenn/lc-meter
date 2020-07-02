@@ -1,0 +1,1 @@
+ xc8-16f876a/debug_20mhz_38kbps/ser.d  xc8-16f876a/debug_20mhz_38kbps/ser.p1:  xc8-16f876a/debug_20mhz_38kbps/ser.c

@@ -1,0 +1,1 @@
+ xc8-18f2550/release_20mhz_38kbps/delay.d  xc8-18f2550/release_20mhz_38kbps/delay.p1:  xc8-18f2550/release_20mhz_38kbps/delay.c

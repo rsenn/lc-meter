@@ -1,0 +1,1 @@
+ obj/xc8-18f252/debug_20mhz_38kbps/timer.d  obj/xc8-18f252/debug_20mhz_38kbps/timer.p1:  lib/timer.c lib/typedef.h lib/timer.h lib/device.h

@@ -1,0 +1,41 @@
+
+Psect Usage Map:
+
+ Psect      | Contents                         | Memory Range  | Size
+------------|----------------------------------|---------------|--------------
+ reset_vec  | Reset vector                     | 0000h - 0003h |    4 words  
+ intentry   | Interrupt context entry code     | 0004h - 000Bh |    8 words  
+ end_init   | Initialization code              | 000Ch - 000Eh |    3 words  
+ clrtext    | Memory clearing code             | 00BFh - 00C6h |    8 words  
+ text9      | Program and library code         | 00C7h - 00E2h |   28 words  
+ text5      | Program and library code         | 00E3h - 07DBh | 1785 words  
+ cinit      | Initialization code              | 07DCh - 07FFh |   36 words  
+ text1      | Program and library code         | 0810h - 0828h |   25 words  
+ text2      | Program and library code         | 0829h - 0863h |   59 words  
+ text12     | Program and library code         | 0864h - 099Bh |  312 words  
+ text11     | Program and library code         | 099Ch - 0FFFh | 1636 words  
+ text3      | Program and library code         | 12ABh - 1326h |  124 words  
+ text51     | Program and library code         | 1327h - 13BFh |  153 words  
+ maintext   | Program code for main() function | 13C0h - 14ABh |  236 words  
+ text30     | Program and library code         | 14ACh - 17FFh |  852 words  
+            |                                  |               |              
+ strings    | Strings and constant data        | 000Fh - 00B4h |  166 words  
+------------|----------------------------------|---------------|--------------
+ cstackCOMM | Stack in common memory           | 0071h - 007Ah |   10 bytes  
+ bssCOMMON  | RAM variables in common memory   | 007Bh - 007Dh |    3 bytes  
+            |                                  |               |              
+ cstackBANK | Stack in bank 0                  | 0020h - 006Fh |   80 bytes  
+            |                                  |               |              
+ cstackBANK | Stack in bank 1                  | 00A0h - 00D2h |   51 bytes  
+ bssBANK1   | BSS variables in bank 1          | 00D3h - 00E2h |   16 bytes  
+ nvBANK1    | Persistent variables in bank 1   | 00E3h - 00EBh |    9 bytes  
+ dataBANK1  | Data variables in bank 1         | 00ECh - 00ECh |    1 byte   
+            |                                  |               |              
+ bssBANK3   | BSS variables in bank 3          | 0190h - 01ACh |   29 bytes  
+ dataBANK3  | Data variables in bank 3         | 01ADh - 01B0h |    4 bytes  
+            |                                  |               |              
+ abs_s1     | Absolute RAM variables           | 007Eh - 007Fh |    2 bytes  
+------------|----------------------------------|---------------|--------------
+ config     |                                  | 2007h - 2007h |    1 word   
+------------|----------------------------------|---------------|--------------
+

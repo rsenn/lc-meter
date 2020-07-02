@@ -1,0 +1,1 @@
+ xc8-18f25k50/release_20mhz_38kbps/lcd44780.d  xc8-18f25k50/release_20mhz_38kbps/lcd44780.p1:  xc8-18f25k50/release_20mhz_38kbps/lcd44780.c
