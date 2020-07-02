@@ -1,129 +1,5 @@
 
-# 1 "src/print.c"
-
-# 13 "/opt/microchip/xc8/v1.45/include/stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 53 "src/../lib/typedef.h"
-typedef char BOOL;
-
-# 12 "src/../lib/buffer.h"
-typedef uint8_t len_t;
-
-typedef struct {
-char x[16];
-unsigned p : 4;
-unsigned n : 4;
-} buffer_t;
-
-# 26
-extern buffer_t buffer;
-
-void buffer_init(void);
-char buffer_flush(void);
-char buffer_putch(char ch);
-char buffer_put(const char* x, len_t len);
-char buffer_puts(const char* x);
-
-# 6 "src/print.h"
-extern const char logo_image[504];
-
-void put_str(const char*);
-void output_putch(char c);
-void lcd_puts(const char*);
-void print_digit(uint8_t line, uint8_t column, uint8_t digit);
-void print_unit(uint8_t unit);
-void print_reading(uint16_t measurement);
-void print_indicator(uint8_t indicate);
-void print_print_float(float number, uint8_t digits);
-void print_buffer(void);
+# 1 "xc8-18f252/debug_20mhz_38kbps/print.c"
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2975,65 +2851,189 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 48 "src/../lib/lcd44780.h"
-void lcd_init(char fourbitmode);
-void lcd_begin(uint8_t l, uint8_t ds);
-void lcd_no_autoscroll(void);
-void lcd_autoscroll(void);
-void lcd_right_to_left(void);
-void lcd_left_to_right(void);
-void lcd_scroll_print_right(void);
-void lcd_scroll_print_left(void);
-void lcd_blink();
-void lcd_no_blink();
-void lcd_cursor();
-void lcd_no_cursor();
-void lcd_display();
-void lcd_no_display();
-void lcd_clear();
-void lcd_home();
-void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-void lcd_print_float(float number, uint8_t digits);
-void lcd_puts(const char* string);
 
-void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
-void lcd_send(uint8_t value, uint8_t mode);
+# 18
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
-# 6 "src/../lib/format.h"
-void format_number(uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(uint32_t x);
-void format_double(double num);
 
-# 22 "src/print.c"
+
+# 42
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 135
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+
+# 155
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+
+
+# 163
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+
+# 165
+#pragma intrinsic(_delaywdt)
+extern __nonreentrant void _delaywdt(unsigned long);
+
+
+# 167
+#pragma intrinsic(_delay3)
+extern __nonreentrant void _delay3(unsigned char);
+
+# 13 "/opt/microchip/xc8/v1.45/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+
+# 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+typedef char BOOL;
+
+# 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
+typedef uint8_t len_t;
+
+typedef struct {
+char x[16];
+unsigned p : 4;
+unsigned n : 4;
+} buffer_t;
+
+# 26
+extern buffer_t buffer;
+
+void buffer_init(void);
+char buffer_flush(void);
+char buffer_putch(char ch);
+char buffer_put(const char* x, len_t len);
+char buffer_puts(const char* x);
+
+# 6 "/home/roman/Dokumente/Sources/lc-meter/src/print.h"
+extern const char logo_image[504];
+
+void put_str(const char*);
+void output_putch(char c);
+void lcd_puts(const char*);
+void print_digit(uint8_t line, uint8_t column, uint8_t digit);
+void print_unit(uint8_t unit);
+void print_reading(uint16_t measurement);
+void print_indicator(uint8_t indicate);
+void print_print_float(float number, uint8_t digits);
+void print_buffer(void);
+
+# 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
+typedef void(putch_t)(char);
+
+# 8
+void format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn,uint32_t x);
+void format_double(putch_t fn,double num);
+
+# 22 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
-
-uint8_t i;
-while(n--) lcd_putch(*buf++);
-
 }
 
 # 378
 void
 print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 
-# 394
-lcd_gotoxy(column, 0);
-lcd_putch('0' + digit);
-
+# 397
 }
 
-
+# 400
 void
 print_unit(uint8_t unit) {
-
-# 409
-static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
-lcd_gotoxy(14, 0);
-
-# 414
-lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
 
 # 421
 }
@@ -3041,36 +3041,18 @@ lcd_gotoxy(16 - (buffer.n - buffer.p), 0);
 void
 print_reading(uint16_t measurement) {
 
-# 451
-lcd_gotoxy(9, 0);
-lcd_puts("     ");
-lcd_gotoxy(9, 0);
-
-format_number(measurement / 100, 10, 0);
-
-format_number(measurement % 100, 10, 0);
-
-
+# 460
 }
 
-
+# 463
 void
 print_indicator(uint8_t indicate) {
 
-# 478
-lcd_gotoxy(0, 1);
-if(indicate) {
-lcd_puts("-*-");
-} else {
-lcd_puts("   ");
-}
-
+# 485
 }
 
 void
 output_putch(char c) {
-
-lcd_putch(c);
 
 # 495
 }

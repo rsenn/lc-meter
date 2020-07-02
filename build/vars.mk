@@ -67,6 +67,8 @@ else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c  timer.c
+LC_meter_HD44780_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER2=1
 
 ifeq ($(_DEBUG),1)
 BUILD_TYPE = debug

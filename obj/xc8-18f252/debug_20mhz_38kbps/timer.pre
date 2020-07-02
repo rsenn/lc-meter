@@ -1,110 +1,5 @@
 
-# 1 "lib/timer.c"
-
-# 13 "/opt/microchip/xc8/v1.45/include/stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 53 "lib/typedef.h"
-typedef char BOOL;
-
-# 68 "lib/timer.h"
-void timer0_init(unsigned char);
-
-# 75
-unsigned short timer0_read_ps(void);
-
-# 107
-void timer1_init(unsigned char ps_mode);
-
-# 145
-void timer2_init(uint8_t ps_mode);
+# 1 "xc8-18f252/debug_20mhz_38kbps/timer.c"
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2956,17 +2851,159 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 27 "lib/timer.c"
+
+# 18
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+
+
+
+# 42
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 135
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+
+# 155
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+
+
+# 163
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+
+# 165
+#pragma intrinsic(_delaywdt)
+extern __nonreentrant void _delaywdt(unsigned long);
+
+
+# 167
+#pragma intrinsic(_delay3)
+extern __nonreentrant void _delay3(unsigned char);
+
+# 13 "/opt/microchip/xc8/v1.45/include/stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+
+# 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+typedef char BOOL;
+
+# 72 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
+void timer0_init(unsigned char);
+
+# 79
+unsigned short timer0_read_ps(void);
+
+# 111
+void timer1_init(unsigned char ps_mode);
+
+# 149
+void timer2_init(uint8_t ps_mode);
+
+
+# 25 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c"
 void
 timer0_init(uint8_t ps_mode) {
 uint8_t prescaler = ps_mode & 0b1111;
 
+# 30
 TMR0 = 0;
-
-
 T0CON |= (!!(ps_mode & 0x40)) ? 0x40 : 0x00;
 
-# 50
+
+# 52
 T0CON |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
 
 
@@ -2980,13 +3017,14 @@ T0CON &= ~0b111;
 if(prescaler > 0) {
 T0CON |= (prescaler - 1) & 0b111;
 
-# 67
+
+# 69
 }
 
 
-
-
 INTCONbits.TMR0IF = 0;
+
+# 75
 INTCONbits.T0IE = (ps_mode & 0x80) ? 1 : 0;
 }
 
@@ -2994,18 +3032,18 @@ unsigned short
 timer0_read_ps(void) {
 uint8_t prev = TMR0;
 uint16_t count = 0;
-
 T0CONbits.T0CS = 1;
 
+# 85
 do {
 
 T0CONbits.T0SE = 1;
 
 __nop();
 __nop();
-
 T0CONbits.T0SE = 0;
 
+# 94
 __nop();
 __nop();
 
@@ -3018,7 +3056,7 @@ count = ((prev << 8) + (256 - count));
 return count;
 }
 
-# 142
+# 144
 void
 timer2_init(uint8_t ps_mode) {
 uint8_t ps = ps_mode & 0b1111;
@@ -3038,4 +3076,3 @@ T2CON |= 0b100;
 PIR1 &= ~0b10;
 PIE1 = (!!(ps_mode & 0x80)) << 1;
 }
-

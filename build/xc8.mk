@@ -6,8 +6,6 @@ VERSION_PATCH = 1
 COMPILER = xc8
 
 -include build/vars.mk
--include build/targets.mk
-
 
 ifeq ($(PROGRAM),)
 PROGRAM := pictest
@@ -23,7 +21,8 @@ endef
 
 VERSION = $(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_PATCH)
 
-CCVER = v1.34
+CCVER = v1.45
+#CCVER = v1.34
 
 PROGRAMFILES ?= C:/Program Files (x86)
 
@@ -31,12 +30,12 @@ OS = $(shell uname -o)
 
 #PICC = $(shell which picc 2>/dev/null)
 ifeq ($(OS),GNU/Linux)
-PICC = /opt/microchip/xc8/v1.34/bin/xc8
+PICC = /opt/microchip/xc8/$(CCVER)/bin/xc8
 endif
 
 ifeq ($(PICC),)
 ifeq ($(OS),GNU/Linux)
-CCDIR = /opt/microchip/xc8/v1.34
+CCDIR = /opt/microchip/xc8/$(CCVER)
 else
 #CCDIR = $(patsubst %/bin,%,$(dir $(PICC)))
 CCDIR = $(PROGRAMFILES)/Microchip/xc8/$(CCVER)
@@ -83,19 +82,16 @@ OPT = space
 
 SOURCES = $($(PROGRAM)_SOURCES) $(COMMON_SOURCES)
 COMMON_FLAGS += $($(PROGRAM)_DEFS)
-P1OBJS = $(SOURCES:%.c=$(OBJDIR)%.p1)
-ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.as)
-
-$(info SOURCES: $(SOURCES))
-$(info SelfClockTest_SOURCES: $(SelfClockTest_SOURCES))
-$(info PROGRAM: $(PROGRAM))
+DEPENDS := $(patsubst %.c,$(OBJDIR)%.dep,$(notdir $(SOURCES)))
+P1OBJS := $(patsubst %.c,$(OBJDIR)%.p1,$(notdir $(SOURCES)))
+ASSRCS := $(patsubst %.c,$(OBJDIR)%.as,$(notdir $(SOURCES)))
 
 COMMON_FLAGS += -g
 COMMON_FLAGS += -N127
 
 #COMMON_FLAGS += --runtime="default,+clear,+init,-keep,+osccal,+download,-resetbits,+clib"
 #COMMON_FLAGS += --runtime="default,-clear,+init,+keep,-osccal,+download,+resetbits,+clib"
-COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib,+plib"
+COMMON_FLAGS += --runtime="default,+init,+osccal,+download,+clib"
 
 ifneq ($(CODE_OFFSET),0)
 ifneq ($(CODE_OFFSET),0x0000)
@@ -140,6 +136,8 @@ COMMON_FLAGS += --msgformat="%f:%l: advisory: (%n) %s"
 #COMMON_FLAGS += -E1
 #COMMON_FLAGS += -P
 #COMMON_FLAGS += -V
+
+DEFINES += __XC=1
 
 CPPFLAGS += $(DEFINES:%=-D%)
 

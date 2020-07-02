@@ -1,5 +1,5 @@
 
-# 1 "src/measure.c"
+# 1 "xc8-18f252/debug_20mhz_38kbps/measure.c"
 
 # 26 "/opt/microchip/xc8/v1.45/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -2851,6 +2851,41 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+
+# 18
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+
+
+
+# 42
+#pragma intrinsic(__nop)
+extern void __nop(void);
+
+# 135
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+
+# 155
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+
+
+# 163
+#pragma intrinsic(_delay)
+extern __nonreentrant void _delay(unsigned long);
+
+
+# 165
+#pragma intrinsic(_delaywdt)
+extern __nonreentrant void _delaywdt(unsigned long);
+
+
+# 167
+#pragma intrinsic(_delay3)
+extern __nonreentrant void _delay3(unsigned char);
+
 # 13 "/opt/microchip/xc8/v1.45/include/stdint.h"
 typedef signed char int8_t;
 
@@ -2941,10 +2976,11 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 53 "src/../lib/typedef.h"
+
+# 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
 typedef char BOOL;
 
-# 49 "src/../lib/tsmdelay.h"
+# 49 "/home/roman/Dokumente/Sources/lc-meter/lib/tsmdelay.h"
 typedef struct dvars {
 uint8_t loop_x, loop_b, loop_c;
 } dvars;
@@ -2955,49 +2991,25 @@ extern dvars dvar;
 # 77
 void cycle_eater(void);
 
-# 47 "src/../lib/delay.h"
+
+# 47 "/home/roman/Dokumente/Sources/lc-meter/lib/delay.h"
 void Delay100TCYx(uint8_t);
 void Delay10KTCYx(uint8_t);
 void Delay10TCYx(uint8_t);
 void Delay1KTCYx(uint8_t);
 
-# 65 "src/../LC-meter.h"
+# 65 "/home/roman/Dokumente/Sources/lc-meter/LC-meter.h"
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
 
-# 48 "src/../lib/lcd44780.h"
-void lcd_init(char fourbitmode);
-void lcd_begin(uint8_t l, uint8_t ds);
-void lcd_no_autoscroll(void);
-void lcd_autoscroll(void);
-void lcd_right_to_left(void);
-void lcd_left_to_right(void);
-void lcd_scroll_print_right(void);
-void lcd_scroll_print_left(void);
-void lcd_blink();
-void lcd_no_blink();
-void lcd_cursor();
-void lcd_no_cursor();
-void lcd_display();
-void lcd_no_display();
-void lcd_clear();
-void lcd_home();
-void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-void lcd_print_float(float number, uint8_t digits);
-void lcd_puts(const char* string);
-
-void lcd_gotoxy(uint8_t col, uint8_t row);
-void lcd_putch(char value);
-void lcd_send(uint8_t value, uint8_t mode);
-
-# 6 "src/measure.h"
+# 6 "/home/roman/Dokumente/Sources/lc-meter/src/measure.h"
 void calibrate(void);
 unsigned short measure_freq(void);
 void measure_capacitance(void);
 void measure_inductance(void);
 
-# 6 "src/print.h"
+# 6 "/home/roman/Dokumente/Sources/lc-meter/src/print.h"
 extern const char logo_image[504];
 
 void put_str(const char*);
@@ -3010,24 +3022,27 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 
-# 6 "src/../lib/format.h"
-void format_number(uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(uint32_t x);
-void format_double(double num);
+# 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
+typedef void(putch_t)(char);
 
-# 68 "src/../lib/timer.h"
+# 8
+void format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn,uint32_t x);
+void format_double(putch_t fn,double num);
+
+# 72 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer0_init(unsigned char);
 
-# 75
+# 79
 unsigned short timer0_read_ps(void);
 
-# 107
+# 111
 void timer1_init(unsigned char ps_mode);
 
-# 145
+# 149
 void timer2_init(uint8_t ps_mode);
 
-# 12 "src/../lib/buffer.h"
+# 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -3045,23 +3060,12 @@ char buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 
-# 25 "src/measure.c"
+# 25 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 void
 calibrate() {
 uint8_t i;
 
-
-lcd_clear();
-
-lcd_gotoxy(0, 0);
-put_str("Calibrating");
-
-lcd_gotoxy(0, 1);
-
-# 39
-put_str("please wait...");
-
-
+# 42
 LATC &= ~(1 << 5);
 
 F1 = (double)measure_freq();
@@ -3075,14 +3079,6 @@ delay10ms(50);
 
 F2 = (double)measure_freq();
 LATC &= ~(1 << 5);
-
-
-lcd_gotoxy(11, 0);
-for(i = 0; i < 6; i++) {
-lcd_putch('=');
-
-delay10ms(28);
-}
 
 # 67
 }
@@ -3104,8 +3100,7 @@ _delay((unsigned long)((20)*(20000000/4000.0)));
 TMR0 = 0x00;
 
 
-
-
+# 90
 _delay((unsigned long)((10)*(20000000/4000.0)));
 _delay((unsigned long)((10)*(20000000/4000.0)));
 _delay((unsigned long)((10)*(20000000/4000.0)));
@@ -3118,19 +3113,16 @@ _delay((unsigned long)((10)*(20000000/4000.0)));
 _delay((unsigned long)((10)*(20000000/4000.0)));
 
 
-
-
+# 104
 TRISA |= 0b00010000;
 
 
 count = timer0_read_ps();
 
-
-lcd_gotoxy(0, 1);
-
+# 112
 buffer_init();
 buffer_puts("Freq=");
-format_number(count, 10, 5);
+format_number(&buffer_putch,count, 10, 5);
 print_buffer();
 
 return count;
@@ -3144,20 +3136,18 @@ uint16_t var;
 
 double Cin;
 
-
-
-lcd_gotoxy(0, 0);
-put_str("Capacity ");
-
+# 142
 var = measure_freq();
 
 F3 = (double)var;
+
 
 # 178
 if(F3 > F1)
 F3 = F1;
 
 Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+
 
 # 191
 if(Cin > 999) {
@@ -3191,10 +3181,7 @@ uint16_t var;
 
 double Lin, numerator, denominator;
 
-
-lcd_gotoxy(0, 0);
-put_str("Inductivity ");
-
+# 228
 var = measure_freq();
 
 F3 = (double)var;

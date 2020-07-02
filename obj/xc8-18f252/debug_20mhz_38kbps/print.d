@@ -1,1 +1,1 @@
- obj/xc8-18f252/debug_20mhz_38kbps/print.d  obj/xc8-18f252/debug_20mhz_38kbps/print.p1:  src/print.c src/../lib/buffer.h src/print.h src/../lib/lcd44780.h src/../lib/const.h src/../lib/format.h src/../lib/lcd44780-config.h src/../lib/typedef.h src/../lib/device.h
+ xc8-18f252/debug_20mhz_38kbps/print.d  xc8-18f252/debug_20mhz_38kbps/print.p1:  xc8-18f252/debug_20mhz_38kbps/print.c

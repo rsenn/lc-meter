@@ -111,7 +111,7 @@ measure_freq() {
 #endif
   buffer_init();
   buffer_puts("Freq=");
-  format_number(count, 10, 5);
+  format_number(&buffer_putch,count, 10, 5);
   print_buffer();
 
   return count;

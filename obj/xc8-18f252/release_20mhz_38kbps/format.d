@@ -1,1 +1,1 @@
- obj/xc8-18f252/release_20mhz_38kbps/format.d  obj/xc8-18f252/release_20mhz_38kbps/format.p1:  lib/format.c lib/typedef.h lib/buffer.h lib/format.h
+ xc8-18f252/release_20mhz_38kbps/format.d  xc8-18f252/release_20mhz_38kbps/format.p1:  xc8-18f252/release_20mhz_38kbps/format.c

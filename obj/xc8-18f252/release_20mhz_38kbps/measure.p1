@@ -1,22 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"62 src/../lib/lcd44780.h
-[v _lcd_clear `(v ~T0 @X0 0 ef ]
-"68
-[v _lcd_gotoxy `(v ~T0 @X0 0 ef2`uc`uc ]
-"8 src/print.h
-[v _put_str `(v ~T0 @X0 0 ef1`*Cuc ]
 "699 /opt/microchip/xc8/v1.45/include/pic18f252.h
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"65 src/../LC-meter.h
+"65 /home/roman/Dokumente/Sources/lc-meter/LC-meter.h
 [v _F1 `d ~T0 @X0 0 e ]
-"7 src/measure.h
+"7 /home/roman/Dokumente/Sources/lc-meter/src/measure.h
 [v _measure_freq `(us ~T0 @X0 0 ef ]
-"67 src/../LC-meter.h
+"67 /home/roman/Dokumente/Sources/lc-meter/LC-meter.h
 [v _delay10ms `(v ~T0 @X0 0 ef1`uc ]
 "65
 [v _F2 `d ~T0 @X0 0 e ]
-"69 src/../lib/lcd44780.h
-[v _lcd_putch `(v ~T0 @X0 0 ef1`uc ]
 "4527 /opt/microchip/xc8/v1.45/include/pic18f252.h
 [s S194 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S194 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -39,20 +31,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p i __delay ]
 "4068 /opt/microchip/xc8/v1.45/include/pic18f252.h
 [v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
-"75 src/../lib/timer.h
+"79 /home/roman/Dokumente/Sources/lc-meter/lib/timer.h
 [v _timer0_read_ps `(us ~T0 @X0 0 ef ]
-"28 src/../lib/buffer.h
+"28 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.h
 [v _buffer_init `(v ~T0 @X0 0 ef ]
 "32
 [v _buffer_puts `(uc ~T0 @X0 0 ef1`*Cuc ]
-"6 src/../lib/format.h
-[v _format_number `(v ~T0 @X0 0 ef3`ui`uc`c ]
-"16 src/print.h
+[v F2247 `(v ~T0 @X0 1 tf1`uc ]
+"8 /home/roman/Dokumente/Sources/lc-meter/lib/format.h
+[v _format_number `(v ~T0 @X0 0 ef4`*F2247`ui`uc`c ]
+"30 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.h
+[v _buffer_putch `(uc ~T0 @X0 0 ef1`uc ]
+"16 /home/roman/Dokumente/Sources/lc-meter/src/print.h
 [v _print_buffer `(v ~T0 @X0 0 ef ]
-"65 src/../LC-meter.h
+"65 /home/roman/Dokumente/Sources/lc-meter/LC-meter.h
 [v _F3 `d ~T0 @X0 0 e ]
 [v _CCal `d ~T0 @X0 0 e ]
-"13 src/print.h
+"13 /home/roman/Dokumente/Sources/lc-meter/src/print.h
 [v _print_reading `(v ~T0 @X0 0 ef1`ui ]
 "12
 [v _print_unit `(v ~T0 @X0 0 ef1`uc ]
@@ -2114,6 +2109,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic18.h: 18: __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+[; ;pic18.h: 19: __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+[; ;pic18.h: 43: extern void __nop(void);
+[; ;pic18.h: 135: __attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+[; ;pic18.h: 136: __attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+[; ;pic18.h: 137: __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+[; ;pic18.h: 155: unsigned char __t1rd16on(void);
+[; ;pic18.h: 156: unsigned char __t3rd16on(void);
+[; ;pic18.h: 164: extern __nonreentrant void _delay(unsigned long);
+[; ;pic18.h: 166: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic18.h: 168: extern __nonreentrant void _delay3(unsigned char);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -2154,28 +2160,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;delay.h: 50: void Delay1KTCYx(uint8_t);
 [; ;LC-meter.h: 65: extern double F1, F2, F3, CCal;
 [; ;LC-meter.h: 67: void delay10ms(unsigned char period_10ms);
-[; ;lcd44780.h: 48: void lcd_init(char fourbitmode);
-[; ;lcd44780.h: 49: void lcd_begin(uint8_t l, uint8_t ds);
-[; ;lcd44780.h: 50: void lcd_no_autoscroll(void);
-[; ;lcd44780.h: 51: void lcd_autoscroll(void);
-[; ;lcd44780.h: 52: void lcd_right_to_left(void);
-[; ;lcd44780.h: 53: void lcd_left_to_right(void);
-[; ;lcd44780.h: 54: void lcd_scroll_print_right(void);
-[; ;lcd44780.h: 55: void lcd_scroll_print_left(void);
-[; ;lcd44780.h: 56: void lcd_blink();
-[; ;lcd44780.h: 57: void lcd_no_blink();
-[; ;lcd44780.h: 58: void lcd_cursor();
-[; ;lcd44780.h: 59: void lcd_no_cursor();
-[; ;lcd44780.h: 60: void lcd_display();
-[; ;lcd44780.h: 61: void lcd_no_display();
-[; ;lcd44780.h: 62: void lcd_clear();
-[; ;lcd44780.h: 63: void lcd_home();
-[; ;lcd44780.h: 64: void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
-[; ;lcd44780.h: 65: void lcd_print_float(float number, uint8_t digits);
-[; ;lcd44780.h: 66: void lcd_puts(const char* string);
-[; ;lcd44780.h: 68: void lcd_gotoxy(uint8_t col, uint8_t row);
-[; ;lcd44780.h: 69: void lcd_putch(char value);
-[; ;lcd44780.h: 70: void lcd_send(uint8_t value, uint8_t mode);
 [; ;measure.h: 6: void calibrate(void);
 [; ;measure.h: 7: unsigned short measure_freq(void);
 [; ;measure.h: 8: void measure_capacitance(void);
@@ -2190,13 +2174,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;print.h: 14: void print_indicator(uint8_t indicate);
 [; ;print.h: 15: void print_print_float(float number, uint8_t digits);
 [; ;print.h: 16: void print_buffer(void);
-[; ;format.h: 6: void format_number(uint16_t n, uint8_t base, int8_t pad);
-[; ;format.h: 7: void format_xint32(uint32_t x);
-[; ;format.h: 8: void format_double(double num);
-[; ;timer.h: 68: void timer0_init(unsigned char);
-[; ;timer.h: 75: unsigned short timer0_read_ps(void);
-[; ;timer.h: 107: void timer1_init(unsigned char ps_mode);
-[; ;timer.h: 145: void timer2_init(uint8_t ps_mode);
+[; ;format.h: 5: typedef void(putch_t)(char);
+[; ;format.h: 8: void format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad);
+[; ;format.h: 9: void format_xint32(putch_t fn,uint32_t x);
+[; ;format.h: 10: void format_double(putch_t fn,double num);
+[; ;timer.h: 72: void timer0_init(unsigned char);
+[; ;timer.h: 79: unsigned short timer0_read_ps(void);
+[; ;timer.h: 111: void timer1_init(unsigned char ps_mode);
+[; ;timer.h: 149: void timer2_init(uint8_t ps_mode);
 [; ;buffer.h: 12: typedef uint8_t len_t;
 [; ;buffer.h: 14: typedef struct {
 [; ;buffer.h: 15: char x[16];
@@ -2209,7 +2194,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;buffer.h: 30: char buffer_putch(char ch);
 [; ;buffer.h: 31: char buffer_put(const char* x, len_t len);
 [; ;buffer.h: 32: char buffer_puts(const char* x);
-"26 src/measure.c
+"26 /home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
 [v _calibrate `(v ~T0 @X0 1 ef ]
 {
 [; ;measure.c: 25: void
@@ -2219,21 +2204,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "27
 [v _i `uc ~T0 @X0 1 a ]
 [; ;measure.c: 27: uint8_t i;
-[; ;measure.c: 30: lcd_clear();
-"30
-[e ( _lcd_clear ..  ]
-[; ;measure.c: 32: lcd_gotoxy(0, 0);
-"32
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;measure.c: 33: put_str("Calibrating");
-"33
-[e ( _put_str (1 :s 1C ]
-[; ;measure.c: 35: lcd_gotoxy(0, 1);
-"35
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;measure.c: 39: put_str("please wait...");
-"39
-[e ( _put_str (1 :s 2C ]
 [; ;measure.c: 42: LATC &= ~(1 << 5);
 "42
 [e =& _LATC -> ~ << -> 1 `i -> 5 `i `uc ]
@@ -2261,32 +2231,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 54: LATC &= ~(1 << 5);
 "54
 [e =& _LATC -> ~ << -> 1 `i -> 5 `i `uc ]
-[; ;measure.c: 57: lcd_gotoxy(11, 0);
-"57
-[e ( _lcd_gotoxy (2 , -> -> 11 `i `uc -> -> 0 `i `uc ]
-[; ;measure.c: 58: for(i = 0; i < 6; i++) {
-"58
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 6 `i 208  ]
-[e $U 209  ]
-[e :U 208 ]
-{
-[; ;measure.c: 59: lcd_putch('=');
-"59
-[e ( _lcd_putch (1 -> -> 61 `ui `uc ]
-[; ;measure.c: 61: delay10ms(28);
-"61
-[e ( _delay10ms (1 -> -> 28 `i `uc ]
-"62
-}
-"58
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 6 `i 208  ]
-[e :U 209 ]
-"62
-}
-[; ;measure.c: 62: }
 [; ;measure.c: 67: }
 "67
 [e :UE 207 ]
@@ -2349,28 +2293,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 107: count = timer0_read_ps();
 "107
 [e = _count -> ( _timer0_read_ps ..  `ui ]
-[; ;measure.c: 110: lcd_gotoxy(0, 1);
-"110
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
 [; ;measure.c: 112: buffer_init();
 "112
 [e ( _buffer_init ..  ]
 [; ;measure.c: 113: buffer_puts("Freq=");
 "113
-[e ( _buffer_puts (1 :s 3C ]
-[; ;measure.c: 114: format_number(count, 10, 5);
+[e ( _buffer_puts (1 :s 1C ]
+[; ;measure.c: 114: format_number(&buffer_putch,count, 10, 5);
 "114
-[e ( _format_number (3 , , _count -> -> 10 `i `uc -> -> 5 `i `c ]
+[e ( _format_number (4 , , , -> &U _buffer_putch `*F2247 _count -> -> 10 `i `uc -> -> 5 `i `c ]
 [; ;measure.c: 115: print_buffer();
 "115
 [e ( _print_buffer ..  ]
 [; ;measure.c: 117: return count;
 "117
 [e ) -> _count `us ]
-[e $UE 211  ]
+[e $UE 208  ]
 [; ;measure.c: 118: }
 "118
-[e :UE 211 ]
+[e :UE 208 ]
 }
 "131
 [v _measure_capacitance `(v ~T0 @X0 1 ef ]
@@ -2388,12 +2329,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 132: uint8_t unit;
 [; ;measure.c: 133: uint16_t var;
 [; ;measure.c: 135: double Cin;
-[; ;measure.c: 139: lcd_gotoxy(0, 0);
-"139
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;measure.c: 140: put_str("Capacity ");
-"140
-[e ( _put_str (1 :s 4C ]
 [; ;measure.c: 142: var = measure_freq();
 "142
 [e = _var -> ( _measure_freq ..  `ui ]
@@ -2402,25 +2337,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _F3 -> _var `d ]
 [; ;measure.c: 178: if(F3 > F1)
 "178
-[e $ ! > _F3 _F1 213  ]
+[e $ ! > _F3 _F1 210  ]
 [; ;measure.c: 179: F3 = F1;
 "179
 [e = _F3 _F1 ]
-[e :U 213 ]
+[e :U 210 ]
 [; ;measure.c: 181: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
 "181
 [e = _Cin * * * _F2 _F2 - * _F1 _F1 * _F3 _F3 _CCal ]
 [; ;measure.c: 191: if(Cin > 999) {
 "191
-[e $ ! > _Cin -> -> 999 `i `d 214  ]
+[e $ ! > _Cin -> -> 999 `i `d 211  ]
 {
 [; ;measure.c: 192: if(Cin > (999e+03l)) {
 "192
-[e $ ! > _Cin .999e+03 215  ]
+[e $ ! > _Cin .999e+03 212  ]
 {
 [; ;measure.c: 193: if(Cin > (999e+06l)) {
 "193
-[e $ ! > _Cin .999e+06 216  ]
+[e $ ! > _Cin .999e+06 213  ]
 {
 [; ;measure.c: 194: Cin = Cin / (1e+09);
 "194
@@ -2431,8 +2366,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "196
 }
 [; ;measure.c: 196: } else {
-[e $U 217  ]
-[e :U 216 ]
+[e $U 214  ]
+[e :U 213 ]
 {
 [; ;measure.c: 197: Cin = Cin / (1e+06);
 "197
@@ -2442,13 +2377,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _unit -> -> 5 `i `uc ]
 "199
 }
-[e :U 217 ]
+[e :U 214 ]
 "200
 }
 [; ;measure.c: 199: }
 [; ;measure.c: 200: } else {
-[e $U 218  ]
-[e :U 215 ]
+[e $U 215  ]
+[e :U 212 ]
 {
 [; ;measure.c: 201: Cin = Cin / 1e+03;
 "201
@@ -2458,17 +2393,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _unit -> -> 6 `i `uc ]
 "203
 }
-[e :U 218 ]
+[e :U 215 ]
 "204
 }
 [; ;measure.c: 203: }
 [; ;measure.c: 204: } else
-[e $U 219  ]
-[e :U 214 ]
+[e $U 216  ]
+[e :U 211 ]
 [; ;measure.c: 205: unit = 7;
 "205
 [e = _unit -> -> 7 `i `uc ]
-[e :U 219 ]
+[e :U 216 ]
 [; ;measure.c: 207: Cin = Cin * 100;
 "207
 [e = _Cin * _Cin -> -> 100 `i `d ]
@@ -2483,7 +2418,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _print_unit (1 _unit ]
 [; ;measure.c: 212: }
 "212
-[e :UE 212 ]
+[e :UE 209 ]
 }
 "218
 [v _measure_inductance `(v ~T0 @X0 1 ef ]
@@ -2503,12 +2438,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;measure.c: 219: uint8_t unit;
 [; ;measure.c: 220: uint16_t var;
 [; ;measure.c: 222: double Lin, numerator, denominator;
-[; ;measure.c: 225: lcd_gotoxy(0, 0);
-"225
-[e ( _lcd_gotoxy (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;measure.c: 226: put_str("Inductivity ");
-"226
-[e ( _put_str (1 :s 5C ]
 [; ;measure.c: 228: var = measure_freq();
 "228
 [e = _var -> ( _measure_freq ..  `ui ]
@@ -2517,11 +2446,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _F3 -> _var `d ]
 [; ;measure.c: 231: if(F3 > F1)
 "231
-[e $ ! > _F3 _F1 221  ]
+[e $ ! > _F3 _F1 218  ]
 [; ;measure.c: 232: F3 = F1;
 "232
 [e = _F3 _F1 ]
-[e :U 221 ]
+[e :U 218 ]
 [; ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 100);
 "233
 [e = _numerator * * - * _F1 _F1 * _F3 _F3 - * _F1 _F1 - _F2 _F2 -> * -> 100 `i -> 100 `i `d ]
@@ -2533,15 +2462,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _Lin * / _numerator _denominator .1e+15 ]
 [; ;measure.c: 237: if(Lin > 999) {
 "237
-[e $ ! > _Lin -> -> 999 `i `d 222  ]
+[e $ ! > _Lin -> -> 999 `i `d 219  ]
 {
 [; ;measure.c: 238: if(Lin > (999e+03l)) {
 "238
-[e $ ! > _Lin .999e+03 223  ]
+[e $ ! > _Lin .999e+03 220  ]
 {
 [; ;measure.c: 239: if(Lin > (999e+06l)) {
 "239
-[e $ ! > _Lin .999e+06 224  ]
+[e $ ! > _Lin .999e+06 221  ]
 {
 [; ;measure.c: 240: Lin = Lin / (1e+09l);
 "240
@@ -2552,8 +2481,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "242
 }
 [; ;measure.c: 242: } else {
-[e $U 225  ]
-[e :U 224 ]
+[e $U 222  ]
+[e :U 221 ]
 {
 [; ;measure.c: 243: Lin = Lin / (1e+06l);
 "243
@@ -2563,13 +2492,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _unit -> -> 1 `i `uc ]
 "245
 }
-[e :U 225 ]
+[e :U 222 ]
 "246
 }
 [; ;measure.c: 245: }
 [; ;measure.c: 246: } else {
-[e $U 226  ]
-[e :U 223 ]
+[e $U 223  ]
+[e :U 220 ]
 {
 [; ;measure.c: 247: Lin = Lin / 1e+03l;
 "247
@@ -2579,17 +2508,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _unit -> -> 2 `i `uc ]
 "249
 }
-[e :U 226 ]
+[e :U 223 ]
 "250
 }
 [; ;measure.c: 249: }
 [; ;measure.c: 250: } else
-[e $U 227  ]
-[e :U 222 ]
+[e $U 224  ]
+[e :U 219 ]
 [; ;measure.c: 251: unit = 3;
 "251
 [e = _unit -> -> 3 `i `uc ]
-[e :U 227 ]
+[e :U 224 ]
 [; ;measure.c: 253: Lin = Lin * 100;
 "253
 [e = _Lin * _Lin -> -> 100 `i `d ]
@@ -2604,10 +2533,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _print_unit (1 _unit ]
 [; ;measure.c: 258: }
 "258
-[e :UE 220 ]
+[e :UE 217 ]
 }
-[a 1C 67 97 108 105 98 114 97 116 105 110 103 0 ]
-[a 3C 70 114 101 113 61 0 ]
-[a 2C 112 108 101 97 115 101 32 119 97 105 116 46 46 46 0 ]
-[a 5C 73 110 100 117 99 116 105 118 105 116 121 32 0 ]
-[a 4C 67 97 112 97 99 105 116 121 32 0 ]
+[a 1C 70 114 101 113 61 0 ]
+
