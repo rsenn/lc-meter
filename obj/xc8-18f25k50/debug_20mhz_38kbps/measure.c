@@ -1,19 +1,27 @@
 #include <htc.h>
 #include <pic18_chip_select.h>
-#line 18 "/opt/microchip/xc8/v1.34/include/pic18.h"
-__attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+#line 18 "/opt/microchip/xc8/v1.45/include/pic18.h"
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 #include <errata.h>
 	
-#line 41 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 42 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
-#line 160 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 135 "/opt/microchip/xc8/v1.45/include/pic18.h"
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+#line 155 "/opt/microchip/xc8/v1.45/include/pic18.h"
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+#line 163 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
-#line 162 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 165 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delaywdt)
 extern __nonreentrant void _delaywdt(unsigned long);
-#line 164 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 167 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 #include <xc.h>
@@ -38,22 +46,6 @@ void Delay1KTCYx(uint8_t);
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
-#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
-char ser_isrx(void);
-uint8_t ser_getch(void);
-void ser_putch(char byte);
-void ser_put(const char* s, unsigned n);
-void ser_puts(const char* s);
-void ser_puts2(uint8_t* s);
-void ser_puthex(uint8_t v);
-void ser_init(void);
-#line 58 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
-extern uint8_t rxfifo[(uint8_t)16];
-extern volatile uint8_t rxiptr, rxoptr;
-extern uint8_t txfifo[(uint8_t)16];
-extern volatile uint8_t txiptr, txoptr;
-extern uint8_t ser_tmp;
-extern uint8_t ser_brg;
 #line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.h"
 void lcd_init(char fourbitmode);
 void lcd_begin(uint8_t l, uint8_t ds);
@@ -95,17 +87,19 @@ void print_reading(uint16_t measurement);
 void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
-#line 6 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-void format_number(uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(uint32_t x);
-void format_double(double num);
-#line 68 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
+#line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
+typedef void(putch_t)(char);
+
+void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn, uint32_t x);
+void format_double(putch_t fn, double num);
+#line 72 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer0_init(unsigned char);
-#line 75 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
+#line 79 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 unsigned short timer0_read_ps(void);
-#line 107 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
+#line 111 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer1_init(unsigned char ps_mode);
-#line 145 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
+#line 149 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer2_init(uint8_t ps_mode);
 #line 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
@@ -120,7 +114,8 @@ extern buffer_t buffer;
 
 void buffer_init(void);
 char buffer_flush(void);
-char buffer_putch(char ch);
+char buffer_putc(char ch);
+void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #line 25 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
@@ -134,9 +129,8 @@ lcd_gotoxy(0, 0);
   put_str("Calibrating");
   
 lcd_gotoxy(0, 1);
-  
-ser_puts("\r\n");
-  put_str("please wait...");
+  #line 39 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+put_str("please wait...");
   #line 42 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 LATC &= ~(1 << 5);
   
@@ -158,8 +152,7 @@ lcd_gotoxy(11, 0);
      
     delay10ms(28);
   }
-  #line 65 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-ser_puts("\r\n");
+#line 67 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 }
 #line 72 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 unsigned short
@@ -200,16 +193,10 @@ count = timer0_read_ps();
 lcd_gotoxy(0, 1);
   buffer_init();
   buffer_puts("Freq=");
-  format_number(count, 10, 5);
+  format_number(&buffer_putch,count, 10, 5);
   print_buffer();
   #line 117 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 return count;
-}
-
-void
-buf_to_ser() {
-  ser_put(buffer.x, buffer.n);
-  buffer.p = 0, buffer.n = 0, 0;
 }
 #line 130 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 void
@@ -225,49 +212,14 @@ lcd_gotoxy(0, 0);
   #line 144 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 F3 = (double)var;
   
-  
-ser_puts("var=");
-  format_xint32(var);
-  buf_to_ser();
-  ser_puts("\r\nF1=");
-  format_double(F1);
-  buf_to_ser();
-  ser_putch(' ');
-  format_xint32(*(uint32_t*)&F1);
-  buf_to_ser();
-  ser_puts("\r\nF2=");
-  format_double(F2);
-  buf_to_ser();
-  ser_putch(' ');
-  format_xint32(*(uint32_t*)&F2);
-  buf_to_ser();
-  ser_puts("\r\nF3=");
-  format_double(F3);
-  buf_to_ser();
-  ser_putch(' ');
-  format_xint32(*(uint32_t*)&F3);
-  buf_to_ser();
-  ser_puts("\r\nCCal=");
-  format_double(CCal);
-  buf_to_ser();
-  ser_putch(' ');
-  format_xint32(*(uint32_t*)&CCal);
-  buf_to_ser();
-  ser_puts("\r\n");
-  
   #line 178 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 if(F3 > F1)
     F3 = F1; 
   
 Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   
-  #line 185 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-ser_puts("Cin=");
-  format_double(Cin);
-  ser_putch(' ');
-  format_xint32(*(uint32_t*)&Cin);
-  ser_puts("\r\n");
-  if(Cin > 999) {
+  #line 191 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+if(Cin > 999) {
     if(Cin > (999e+03l)) {
       if(Cin > (999e+06l)) {
         Cin = Cin / (1e+09);
@@ -282,7 +234,7 @@ ser_puts("Cin=");
     }
   } else
     unit = 7; 
-  #line 207 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+  
 Cin = Cin * 100; 
   var = (uint16_t)Cin;
   

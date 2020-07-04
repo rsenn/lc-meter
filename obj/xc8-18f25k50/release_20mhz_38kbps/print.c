@@ -1,19 +1,27 @@
 #include <htc.h>
 #include <pic18_chip_select.h>
-#line 18 "/opt/microchip/xc8/v1.34/include/pic18.h"
-__attribute__((__unsupported__("The flash_write routine is no longer supported. Please use the peripheral library functions: WriteBytesFlash, WriteBlockFlash or WriteWordFlash"))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+#line 18 "/opt/microchip/xc8/v1.45/include/pic18.h"
+__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
+__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 #include <errata.h>
 	
-#line 41 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 42 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
-#line 160 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 135 "/opt/microchip/xc8/v1.45/include/pic18.h"
+__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
+__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
+__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
+#line 155 "/opt/microchip/xc8/v1.45/include/pic18.h"
+unsigned char __t1rd16on(void);
+unsigned char __t3rd16on(void);
+#line 163 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
-#line 162 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 165 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delaywdt)
 extern __nonreentrant void _delaywdt(unsigned long);
-#line 164 "/opt/microchip/xc8/v1.34/include/pic18.h"
+#line 167 "/opt/microchip/xc8/v1.45/include/pic18.h"
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 #include <stdint.h>
@@ -32,7 +40,8 @@ extern buffer_t buffer;
 
 void buffer_init(void);
 char buffer_flush(void);
-char buffer_putch(char ch);
+char buffer_putc(char ch);
+void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #line 6 "/home/roman/Dokumente/Sources/lc-meter/src/print.h"
@@ -72,26 +81,12 @@ void lcd_puts(const char* string);
 void lcd_gotoxy(uint8_t col, uint8_t row);
 void lcd_putch(char value);
 void lcd_send(uint8_t value, uint8_t mode);
-#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
-char ser_isrx(void);
-uint8_t ser_getch(void);
-void ser_putch(char byte);
-void ser_put(const char* s, unsigned n);
-void ser_puts(const char* s);
-void ser_puts2(uint8_t* s);
-void ser_puthex(uint8_t v);
-void ser_init(void);
-#line 58 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
-extern uint8_t rxfifo[(uint8_t)16];
-extern volatile uint8_t rxiptr, rxoptr;
-extern uint8_t txfifo[(uint8_t)16];
-extern volatile uint8_t txiptr, txoptr;
-extern uint8_t ser_tmp;
-extern uint8_t ser_brg;
-#line 6 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-void format_number(uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(uint32_t x);
-void format_double(double num);
+#line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
+typedef void(putch_t)(char);
+
+void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn, uint32_t x);
+void format_double(putch_t fn, double num);
 #line 22 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 void
 lcd_put(const char* buf, unsigned n) {
@@ -126,9 +121,9 @@ lcd_gotoxy(9, 0);
   lcd_puts("     ");
   lcd_gotoxy(9, 0);
   
-  format_number(measurement / 100, 10, 0);
+  format_number(&buffer_putch, measurement / 100, 10, 0);
   
-  format_number(measurement % 100, 10, 0);
+  format_number(&buffer_putch, measurement % 100, 10, 0);
 #line 460 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 }
 #line 463 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
@@ -147,8 +142,7 @@ void
 output_putch(char c) {
   
 lcd_putch(c);
-  #line 493 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
-ser_putch(c);
+#line 495 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 }
 #line 500 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 void
@@ -162,10 +156,5 @@ for(i = 0; s[i]; i++) {
 
 void
 print_buffer(void) {
-  
-uint8_t i;
-  for(i = 0; i < buffer.n; i++) {
-    ser_putch(buffer.x[i]);
-  }
-  ser_puts("\r\n");
+#line 518 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 }

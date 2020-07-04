@@ -6,10 +6,10 @@
 #include "lib/typedef.h"
 #include "lib/const.h"
 
-#define LED_PIN OUTC3
+#define LED_PIN LATC3
 #define LED_TRIS TRISC3
 
-#define INIT_LED() LED_TRIS = OUTPUT
-#define SET_LED(b) LED_PIN = ((b) == 0)
+#define INIT_LED() TRISC &= ~(1 << 3);
+#define SET_LED(b) do { if(b) LATC |= (1 << 3); else LATC &= ~(1 << 3); } while(0);
 
 #endif // defined(FREQ_METER_H)

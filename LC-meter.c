@@ -4,7 +4,7 @@
 #include "oscillator.h"
 #include "interrupt.h"
 
-//#include "main.h"
+//#include "main.h "
 #include "delay.h"
 
 #if USE_HD44780_LCD
@@ -23,6 +23,7 @@
 #ifdef USE_UART
 #include "uart.h"
 #endif
+
 
 #if USE_SER
 #include "ser.h"
@@ -202,7 +203,7 @@ main() {
   lcd_gotoxy(0, 0);
 #endif
   lcd_puts("LC-meter ");
-  format_double(/*&lcd_putch,*/ CCal);
+  format_double(&lcd_putch, CCal);
 #endif
 
 #ifdef _DEBUG
@@ -274,7 +275,7 @@ testloop() {
   lcd_puts("      ");
   lcd_gotoxy(10, 0);
 #endif
-  format_number(s, 10, 5);
+  format_number(&lcd_putch, s, 10, 5);
 
   lcd_gotoxy(10, 1);
   lcd_puts("      ");
@@ -293,7 +294,7 @@ testloop() {
 #endif
   if(s != prev_s) {
 #if USE_SER
-    format_number(s, 10, 0);
+    format_number(&ser_putch, s, 10, 0);
     // ser_putch(' ');    put_number(bres / 5000, 10, 0);
     ser_puts("\r\n");
 #endif

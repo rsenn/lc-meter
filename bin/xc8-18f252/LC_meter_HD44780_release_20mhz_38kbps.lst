@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 PRO Macro Assembler V1.45 build -152302408 
-                                                                                               Thu Jul  2 17:25:48 2020
+                                                                                               Thu Jul  2 17:31:56 2020
 
 Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 201711160504
      1                           	processor	18F252
@@ -339,22 +339,22 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    325                           
    326                           ; 3 bytes @ 0x3
    327  000083                     	ds	3
-   328  000086                     _measure_inductance$1180:
+   328  000086                     _measure_inductance$1281:
    329                           	opt stack 0
    330                           
    331                           ; 3 bytes @ 0x6
    332  000086                     	ds	3
-   333  000089                     _measure_inductance$1184:
+   333  000089                     _measure_inductance$1285:
    334                           	opt stack 0
    335                           
    336                           ; 3 bytes @ 0x9
    337  000089                     	ds	3
-   338  00008C                     _measure_inductance$1185:
+   338  00008C                     _measure_inductance$1286:
    339                           	opt stack 0
    340                           
    341                           ; 3 bytes @ 0xC
    342  00008C                     	ds	3
-   343  00008F                     _measure_inductance$1186:
+   343  00008F                     _measure_inductance$1287:
    344                           	opt stack 0
    345                           
    346                           ; 3 bytes @ 0xF
@@ -364,17 +364,17 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    350                           
    351                           ; 1 bytes @ 0x12
    352  000092                     	ds	1
-   353  000093                     _measure_inductance$1181:
+   353  000093                     _measure_inductance$1282:
    354                           	opt stack 0
    355                           
    356                           ; 3 bytes @ 0x13
    357  000093                     	ds	3
-   358  000096                     _measure_inductance$1182:
+   358  000096                     _measure_inductance$1283:
    359                           	opt stack 0
    360                           
    361                           ; 3 bytes @ 0x16
    362  000096                     	ds	3
-   363  000099                     _measure_inductance$1183:
+   363  000099                     _measure_inductance$1284:
    364                           	opt stack 0
    365                           
    366                           ; 3 bytes @ 0x19
@@ -694,17 +694,17 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    680                           
    681                           ; 2 bytes @ 0x41
    682  000042                     	ds	3
-   683  000045                     _measure_capacitance$1177:
+   683  000045                     _measure_capacitance$1278:
    684                           	opt stack 0
    685                           
    686                           ; 3 bytes @ 0x44
    687  000045                     	ds	3
-   688  000048                     _measure_capacitance$1178:
+   688  000048                     _measure_capacitance$1279:
    689                           	opt stack 0
    690                           
    691                           ; 3 bytes @ 0x47
    692  000048                     	ds	3
-   693  00004B                     _measure_capacitance$1179:
+   693  00004B                     _measure_capacitance$1280:
    694                           	opt stack 0
    695                           
    696                           ; 3 bytes @ 0x4A
@@ -908,7 +908,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    894                           
    895                           ;LC-meter.c: 214: calibrate();
    896  000FB6  EC39  F00A         	call	_calibrate	;wreg free
-   897  000FBA                     l2874:
+   897  000FBA                     l2969:
    898  000FBA  FFFF               	dw	65535	; assembler added errata NOP
    899  000FBC  0E01               	movlw	1
    900                           
@@ -919,11 +919,11 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    905                           
    906                           ;LC-meter.c: 228: if(new_mode != mode) {
    907  000FC4  186A               	xorwf	_mode,w,c
-   908  000FC6  E002               	bz	l2880
+   908  000FC6  E002               	bz	l2975
    909                           
    910                           ;LC-meter.c: 233: mode = new_mode;
    911  000FC8  C054  F06A         	movff	main@new_mode,_mode
-   912  000FCC                     l2880:
+   912  000FCC                     l2975:
    913                           
    914                           ;LC-meter.c: 234: }
    915                           ;LC-meter.c: 236: if(led_cycle >= led_interval)
@@ -931,26 +931,26 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    917  000FCE  5C5D               	subwf	_led_cycle,w,c	;volatile
    918  000FD0  5069               	movf	_led_interval+1,w,c	;volatile
    919  000FD2  585E               	subwfb	_led_cycle+1,w,c	;volatile
-   920  000FD4  E302               	bnc	l2884
+   920  000FD4  E302               	bnc	l2979
    921                           
    922                           ;LC-meter.c: 237: led_cycle = 0;
    923  000FD6  6A5D               	clrf	_led_cycle,c	;volatile
    924  000FD8  6A5E               	clrf	_led_cycle+1,c	;volatile
-   925  000FDA                     l2884:
+   925  000FDA                     l2979:
    926                           
    927                           ;LC-meter.c: 239: if(mode)
    928  000FDA  506A               	movf	_mode,w,c
-   929  000FDC  E003               	bz	l2888
+   929  000FDC  E003               	bz	l2983
    930                           
    931                           ;LC-meter.c: 240: measure_capacitance();
    932  000FDE  EC23  F005         	call	_measure_capacitance	;wreg free
-   933  000FE2  D002               	goto	l2890
-   934  000FE4                     l2888:
+   933  000FE2  D002               	goto	l2985
+   934  000FE4                     l2983:
    935                           
    936                           ;LC-meter.c: 241: else
    937                           ;LC-meter.c: 242: measure_inductance();
    938  000FE4  EC21  F003         	call	_measure_inductance	;wreg free
-   939  000FE8                     l2890:
+   939  000FE8                     l2985:
    940  000FE8  FFFF               	dw	65535	; assembler added errata NOP
    941                           
    942                           ;LC-meter.c: 244: print_indicator(1);
@@ -970,7 +970,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
    956  000FFE  EC07  F00C         	call	_delay10ms
    957                           
    958                           ;LC-meter.c: 249: }
-   959  001002  D7DB               	goto	l2874
+   959  001002  D7DB               	goto	l2969
    960  001004                     __end_of_main:
    961                           	opt stack 0
    962                           tblptru	equ	0xFF8
@@ -1132,63 +1132,63 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1118                           
   1119                           ;timer.c: 31: T0CON |= (!!(ps_mode & 0x40)) ? 0x40 : 0x00;
   1120  00134A  BC13               	btfsc	timer0_init@ps_mode,6,c
-  1121  00134C  D003               	goto	l2084
+  1121  00134C  D003               	goto	l2179
   1122  00134E  6A0A               	clrf	_timer0_init$500,c
   1123  001350  6A0B               	clrf	_timer0_init$500+1,c
-  1124  001352  D004               	goto	l2086
-  1125  001354                     l2084:
+  1124  001352  D004               	goto	l2181
+  1125  001354                     l2179:
   1126  001354  FFFF               	dw	65535	; assembler added errata NOP
   1127  001356  6A0B               	clrf	_timer0_init$500+1,c
   1128  001358  0E40               	movlw	64
   1129  00135A  6E0A               	movwf	_timer0_init$500,c
-  1130  00135C                     l2086:
+  1130  00135C                     l2181:
   1131  00135C  FFFF               	dw	65535	; assembler added errata NOP
   1132  00135E  500A               	movf	_timer0_init$500,w,c
   1133  001360  12D5               	iorwf	4053,f,c	;volatile
   1134                           
   1135                           ;timer.c: 52: T0CON |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
   1136  001362  BA13               	btfsc	timer0_init@ps_mode,5,c
-  1137  001364  D003               	goto	l2092
+  1137  001364  D003               	goto	l2187
   1138  001366  6A0C               	clrf	_timer0_init$501,c
   1139  001368  6A0D               	clrf	_timer0_init$501+1,c
-  1140  00136A  D004               	goto	l2094
-  1141  00136C                     l2092:
+  1140  00136A  D004               	goto	l2189
+  1141  00136C                     l2187:
   1142  00136C  FFFF               	dw	65535	; assembler added errata NOP
   1143  00136E  6A0D               	clrf	_timer0_init$501+1,c
   1144  001370  0E20               	movlw	32
   1145  001372  6E0C               	movwf	_timer0_init$501,c
-  1146  001374                     l2094:
+  1146  001374                     l2189:
   1147  001374  FFFF               	dw	65535	; assembler added errata NOP
   1148  001376  500C               	movf	_timer0_init$501,w,c
   1149  001378  12D5               	iorwf	4053,f,c	;volatile
   1150                           
   1151                           ;timer.c: 55: T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
   1152  00137A  B813               	btfsc	timer0_init@ps_mode,4,c
-  1153  00137C  D003               	goto	l2100
+  1153  00137C  D003               	goto	l2195
   1154  00137E  6A0E               	clrf	_timer0_init$502,c
   1155  001380  6A0F               	clrf	_timer0_init$502+1,c
-  1156  001382  D004               	goto	l2102
-  1157  001384                     l2100:
+  1156  001382  D004               	goto	l2197
+  1157  001384                     l2195:
   1158  001384  FFFF               	dw	65535	; assembler added errata NOP
   1159  001386  6A0F               	clrf	_timer0_init$502+1,c
   1160  001388  0E10               	movlw	16
   1161  00138A  6E0E               	movwf	_timer0_init$502,c
-  1162  00138C                     l2102:
+  1162  00138C                     l2197:
   1163  00138C  FFFF               	dw	65535	; assembler added errata NOP
   1164  00138E  500E               	movf	_timer0_init$502,w,c
   1165  001390  12D5               	iorwf	4053,f,c	;volatile
   1166                           
   1167                           ;timer.c: 58: T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
   1168  001392  5012               	movf	timer0_init@prescaler,w,c
-  1169  001394  E103               	bnz	l2108
+  1169  001394  E103               	bnz	l2203
   1170  001396  6810               	setf	_timer0_init$503,c
   1171  001398  6811               	setf	_timer0_init$503+1,c
-  1172  00139A  D003               	goto	l2110
-  1173  00139C                     l2108:
+  1172  00139A  D003               	goto	l2205
+  1173  00139C                     l2203:
   1174  00139C  6811               	setf	_timer0_init$503+1,c
   1175  00139E  0EF7               	movlw	247
   1176  0013A0  6E10               	movwf	_timer0_init$503,c
-  1177  0013A2                     l2110:
+  1177  0013A2                     l2205:
   1178  0013A2  FFFF               	dw	65535	; assembler added errata NOP
   1179  0013A4  5010               	movf	_timer0_init$503,w,c
   1180  0013A6  16D5               	andwf	4053,f,c	;volatile
@@ -1199,13 +1199,13 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1185                           
   1186                           ;timer.c: 62: if(prescaler > 0) {
   1187  0013AC  5012               	movf	timer0_init@prescaler,w,c
-  1188  0013AE  E003               	bz	l2116
+  1188  0013AE  E003               	bz	l2211
   1189                           
   1190                           ;timer.c: 63: T0CON |= (prescaler - 1) & 0b111;
   1191  0013B0  0412               	decf	timer0_init@prescaler,w,c
   1192  0013B2  0B07               	andlw	7
   1193  0013B4  12D5               	iorwf	4053,f,c	;volatile
-  1194  0013B6                     l2116:
+  1194  0013B6                     l2211:
   1195                           
   1196                           ;timer.c: 69: }
   1197                           ;timer.c: 72: INTCONbits.TMR0IF = 0;
@@ -1370,13 +1370,13 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1356  000678  C056  F00D         	movff	_F3+1,___ftge@ff2+1
   1357  00067C  C057  F00E         	movff	_F3+2,___ftge@ff2+2
   1358  000680  EC7D  F00A         	call	___ftge	;wreg free
-  1359  000684  E206               	bc	l2796
+  1359  000684  E206               	bc	l2891
   1360                           
   1361                           ;measure.c: 232: F3 = F1;
   1362  000686  C061  F055         	movff	_F1,_F3
   1363  00068A  C062  F056         	movff	_F1+1,_F3+1
   1364  00068E  C063  F057         	movff	_F1+2,_F3+2
-  1365  000692                     l2796:
+  1365  000692                     l2891:
   1366                           
   1367                           ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 
       +                          100);
@@ -1387,15 +1387,15 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1372  0006A2  C059  F030         	movff	_F2+1,___ftsub@f1+1
   1373  0006A6  C05A  F031         	movff	_F2+2,___ftsub@f1+2
   1374  0006AA  EC74  F00B         	call	___ftsub	;wreg free
-  1375  0006AE  C02F  F086         	movff	?___ftsub,_measure_inductance$1180
-  1376  0006B2  C030  F087         	movff	?___ftsub+1,_measure_inductance$1180+1
-  1377  0006B6  C031  F088         	movff	?___ftsub+2,_measure_inductance$1180+2
+  1375  0006AE  C02F  F086         	movff	?___ftsub,_measure_inductance$1281
+  1376  0006B2  C030  F087         	movff	?___ftsub+1,_measure_inductance$1281+1
+  1377  0006B6  C031  F088         	movff	?___ftsub+2,_measure_inductance$1281+2
   1378                           
   1379                           ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 
       +                          100);
-  1380  0006BA  C086  F032         	movff	_measure_inductance$1180,___ftsub@f2
-  1381  0006BE  C087  F033         	movff	_measure_inductance$1180+1,___ftsub@f2+1
-  1382  0006C2  C088  F034         	movff	_measure_inductance$1180+2,___ftsub@f2+2
+  1380  0006BA  C086  F032         	movff	_measure_inductance$1281,___ftsub@f2
+  1381  0006BE  C087  F033         	movff	_measure_inductance$1281+1,___ftsub@f2+1
+  1382  0006C2  C088  F034         	movff	_measure_inductance$1281+2,___ftsub@f2+2
   1383  0006C6  C061  F023         	movff	_F1,___ftmul@f2
   1384  0006CA  C062  F024         	movff	_F1+1,___ftmul@f2+1
   1385  0006CE  C063  F025         	movff	_F1+2,___ftmul@f2+2
@@ -1407,9 +1407,9 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1391  0006E6  C021  F030         	movff	?___ftmul+1,___ftsub@f1+1
   1392  0006EA  C022  F031         	movff	?___ftmul+2,___ftsub@f1+2
   1393  0006EE  EC74  F00B         	call	___ftsub	;wreg free
-  1394  0006F2  C02F  F093         	movff	?___ftsub,_measure_inductance$1181
-  1395  0006F6  C030  F094         	movff	?___ftsub+1,_measure_inductance$1181+1
-  1396  0006FA  C031  F095         	movff	?___ftsub+2,_measure_inductance$1181+2
+  1394  0006F2  C02F  F093         	movff	?___ftsub,_measure_inductance$1282
+  1395  0006F6  C030  F094         	movff	?___ftsub+1,_measure_inductance$1282+1
+  1396  0006FA  C031  F095         	movff	?___ftsub+2,_measure_inductance$1282+2
   1397                           
   1398                           ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 
       +                          100);
@@ -1434,28 +1434,28 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1417  000746  C021  F030         	movff	?___ftmul+1,___ftsub@f1+1
   1418  00074A  C022  F031         	movff	?___ftmul+2,___ftsub@f1+2
   1419  00074E  EC74  F00B         	call	___ftsub	;wreg free
-  1420  000752  C02F  F096         	movff	?___ftsub,_measure_inductance$1182
-  1421  000756  C030  F097         	movff	?___ftsub+1,_measure_inductance$1182+1
-  1422  00075A  C031  F098         	movff	?___ftsub+2,_measure_inductance$1182+2
+  1420  000752  C02F  F096         	movff	?___ftsub,_measure_inductance$1283
+  1421  000756  C030  F097         	movff	?___ftsub+1,_measure_inductance$1283+1
+  1422  00075A  C031  F098         	movff	?___ftsub+2,_measure_inductance$1283+2
   1423                           
   1424                           ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 
       +                          100);
-  1425  00075E  C093  F023         	movff	_measure_inductance$1181,___ftmul@f2
-  1426  000762  C094  F024         	movff	_measure_inductance$1181+1,___ftmul@f2+1
-  1427  000766  C095  F025         	movff	_measure_inductance$1181+2,___ftmul@f2+2
-  1428  00076A  C096  F020         	movff	_measure_inductance$1182,___ftmul@f1
-  1429  00076E  C097  F021         	movff	_measure_inductance$1182+1,___ftmul@f1+1
-  1430  000772  C098  F022         	movff	_measure_inductance$1182+2,___ftmul@f1+2
+  1425  00075E  C093  F023         	movff	_measure_inductance$1282,___ftmul@f2
+  1426  000762  C094  F024         	movff	_measure_inductance$1282+1,___ftmul@f2+1
+  1427  000766  C095  F025         	movff	_measure_inductance$1282+2,___ftmul@f2+2
+  1428  00076A  C096  F020         	movff	_measure_inductance$1283,___ftmul@f1
+  1429  00076E  C097  F021         	movff	_measure_inductance$1283+1,___ftmul@f1+1
+  1430  000772  C098  F022         	movff	_measure_inductance$1283+2,___ftmul@f1+2
   1431  000776  EC02  F008         	call	___ftmul	;wreg free
-  1432  00077A  C020  F099         	movff	?___ftmul,_measure_inductance$1183
-  1433  00077E  C021  F09A         	movff	?___ftmul+1,_measure_inductance$1183+1
-  1434  000782  C022  F09B         	movff	?___ftmul+2,_measure_inductance$1183+2
+  1432  00077A  C020  F099         	movff	?___ftmul,_measure_inductance$1284
+  1433  00077E  C021  F09A         	movff	?___ftmul+1,_measure_inductance$1284+1
+  1434  000782  C022  F09B         	movff	?___ftmul+2,_measure_inductance$1284+2
   1435                           
   1436                           ;measure.c: 233: numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (100 * 
       +                          100);
-  1437  000786  C099  F020         	movff	_measure_inductance$1183,___ftmul@f1
-  1438  00078A  C09A  F021         	movff	_measure_inductance$1183+1,___ftmul@f1+1
-  1439  00078E  C09B  F022         	movff	_measure_inductance$1183+2,___ftmul@f1+2
+  1437  000786  C099  F020         	movff	_measure_inductance$1284,___ftmul@f1
+  1438  00078A  C09A  F021         	movff	_measure_inductance$1284+1,___ftmul@f1+1
+  1439  00078E  C09B  F022         	movff	_measure_inductance$1284+2,___ftmul@f1+2
   1440  000792  0E40               	movlw	64
   1441  000794  6E23               	movwf	___ftmul@f2,c
   1442  000796  0E1C               	movlw	28
@@ -1476,80 +1476,80 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1456  0007BE  C062  F021         	movff	_F1+1,___ftmul@f1+1
   1457  0007C2  C063  F022         	movff	_F1+2,___ftmul@f1+2
   1458  0007C6  EC02  F008         	call	___ftmul	;wreg free
-  1459  0007CA  C020  F089         	movff	?___ftmul,_measure_inductance$1184
-  1460  0007CE  C021  F08A         	movff	?___ftmul+1,_measure_inductance$1184+1
-  1461  0007D2  C022  F08B         	movff	?___ftmul+2,_measure_inductance$1184+2
+  1459  0007CA  C020  F089         	movff	?___ftmul,_measure_inductance$1285
+  1460  0007CE  C021  F08A         	movff	?___ftmul+1,_measure_inductance$1285+1
+  1461  0007D2  C022  F08B         	movff	?___ftmul+2,_measure_inductance$1285+2
   1462                           
   1463                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
   1464  0007D6  C058  F023         	movff	_F2,___ftmul@f2
   1465  0007DA  C059  F024         	movff	_F2+1,___ftmul@f2+1
   1466  0007DE  C05A  F025         	movff	_F2+2,___ftmul@f2+2
-  1467  0007E2  C089  F020         	movff	_measure_inductance$1184,___ftmul@f1
-  1468  0007E6  C08A  F021         	movff	_measure_inductance$1184+1,___ftmul@f1+1
-  1469  0007EA  C08B  F022         	movff	_measure_inductance$1184+2,___ftmul@f1+2
+  1467  0007E2  C089  F020         	movff	_measure_inductance$1285,___ftmul@f1
+  1468  0007E6  C08A  F021         	movff	_measure_inductance$1285+1,___ftmul@f1+1
+  1469  0007EA  C08B  F022         	movff	_measure_inductance$1285+2,___ftmul@f1+2
   1470  0007EE  EC02  F008         	call	___ftmul	;wreg free
-  1471  0007F2  C020  F093         	movff	?___ftmul,_measure_inductance$1181
-  1472  0007F6  C021  F094         	movff	?___ftmul+1,_measure_inductance$1181+1
-  1473  0007FA  C022  F095         	movff	?___ftmul+2,_measure_inductance$1181+2
+  1471  0007F2  C020  F093         	movff	?___ftmul,_measure_inductance$1282
+  1472  0007F6  C021  F094         	movff	?___ftmul+1,_measure_inductance$1282+1
+  1473  0007FA  C022  F095         	movff	?___ftmul+2,_measure_inductance$1282+2
   1474                           
   1475                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
   1476  0007FE  C058  F023         	movff	_F2,___ftmul@f2
   1477  000802  C059  F024         	movff	_F2+1,___ftmul@f2+1
   1478  000806  C05A  F025         	movff	_F2+2,___ftmul@f2+2
-  1479  00080A  C093  F020         	movff	_measure_inductance$1181,___ftmul@f1
-  1480  00080E  C094  F021         	movff	_measure_inductance$1181+1,___ftmul@f1+1
-  1481  000812  C095  F022         	movff	_measure_inductance$1181+2,___ftmul@f1+2
+  1479  00080A  C093  F020         	movff	_measure_inductance$1282,___ftmul@f1
+  1480  00080E  C094  F021         	movff	_measure_inductance$1282+1,___ftmul@f1+1
+  1481  000812  C095  F022         	movff	_measure_inductance$1282+2,___ftmul@f1+2
   1482  000816  EC02  F008         	call	___ftmul	;wreg free
-  1483  00081A  C020  F096         	movff	?___ftmul,_measure_inductance$1182
-  1484  00081E  C021  F097         	movff	?___ftmul+1,_measure_inductance$1182+1
-  1485  000822  C022  F098         	movff	?___ftmul+2,_measure_inductance$1182+2
+  1483  00081A  C020  F096         	movff	?___ftmul,_measure_inductance$1283
+  1484  00081E  C021  F097         	movff	?___ftmul+1,_measure_inductance$1283+1
+  1485  000822  C022  F098         	movff	?___ftmul+2,_measure_inductance$1283+2
   1486                           
   1487                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
   1488  000826  C055  F023         	movff	_F3,___ftmul@f2
   1489  00082A  C056  F024         	movff	_F3+1,___ftmul@f2+1
   1490  00082E  C057  F025         	movff	_F3+2,___ftmul@f2+2
-  1491  000832  C096  F020         	movff	_measure_inductance$1182,___ftmul@f1
-  1492  000836  C097  F021         	movff	_measure_inductance$1182+1,___ftmul@f1+1
-  1493  00083A  C098  F022         	movff	_measure_inductance$1182+2,___ftmul@f1+2
+  1491  000832  C096  F020         	movff	_measure_inductance$1283,___ftmul@f1
+  1492  000836  C097  F021         	movff	_measure_inductance$1283+1,___ftmul@f1+1
+  1493  00083A  C098  F022         	movff	_measure_inductance$1283+2,___ftmul@f1+2
   1494  00083E  EC02  F008         	call	___ftmul	;wreg free
-  1495  000842  C020  F099         	movff	?___ftmul,_measure_inductance$1183
-  1496  000846  C021  F09A         	movff	?___ftmul+1,_measure_inductance$1183+1
-  1497  00084A  C022  F09B         	movff	?___ftmul+2,_measure_inductance$1183+2
+  1495  000842  C020  F099         	movff	?___ftmul,_measure_inductance$1284
+  1496  000846  C021  F09A         	movff	?___ftmul+1,_measure_inductance$1284+1
+  1497  00084A  C022  F09B         	movff	?___ftmul+2,_measure_inductance$1284+2
   1498                           
   1499                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
   1500  00084E  C055  F023         	movff	_F3,___ftmul@f2
   1501  000852  C056  F024         	movff	_F3+1,___ftmul@f2+1
   1502  000856  C057  F025         	movff	_F3+2,___ftmul@f2+2
-  1503  00085A  C099  F020         	movff	_measure_inductance$1183,___ftmul@f1
-  1504  00085E  C09A  F021         	movff	_measure_inductance$1183+1,___ftmul@f1+1
-  1505  000862  C09B  F022         	movff	_measure_inductance$1183+2,___ftmul@f1+2
+  1503  00085A  C099  F020         	movff	_measure_inductance$1284,___ftmul@f1
+  1504  00085E  C09A  F021         	movff	_measure_inductance$1284+1,___ftmul@f1+1
+  1505  000862  C09B  F022         	movff	_measure_inductance$1284+2,___ftmul@f1+2
   1506  000866  EC02  F008         	call	___ftmul	;wreg free
-  1507  00086A  C020  F08C         	movff	?___ftmul,_measure_inductance$1185
-  1508  00086E  C021  F08D         	movff	?___ftmul+1,_measure_inductance$1185+1
-  1509  000872  C022  F08E         	movff	?___ftmul+2,_measure_inductance$1185+2
+  1507  00086A  C020  F08C         	movff	?___ftmul,_measure_inductance$1286
+  1508  00086E  C021  F08D         	movff	?___ftmul+1,_measure_inductance$1286+1
+  1509  000872  C022  F08E         	movff	?___ftmul+2,_measure_inductance$1286+2
   1510                           
   1511                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
   1512  000876  C0BE  F023         	movff	_CCal,___ftmul@f2
   1513  00087A  C0BF  F024         	movff	_CCal+1,___ftmul@f2+1
   1514  00087E  C0C0  F025         	movff	_CCal+2,___ftmul@f2+2
-  1515  000882  C08C  F020         	movff	_measure_inductance$1185,___ftmul@f1
-  1516  000886  C08D  F021         	movff	_measure_inductance$1185+1,___ftmul@f1+1
-  1517  00088A  C08E  F022         	movff	_measure_inductance$1185+2,___ftmul@f1+2
+  1515  000882  C08C  F020         	movff	_measure_inductance$1286,___ftmul@f1
+  1516  000886  C08D  F021         	movff	_measure_inductance$1286+1,___ftmul@f1+1
+  1517  00088A  C08E  F022         	movff	_measure_inductance$1286+2,___ftmul@f1+2
   1518  00088E  EC02  F008         	call	___ftmul	;wreg free
-  1519  000892  C020  F08F         	movff	?___ftmul,_measure_inductance$1186
-  1520  000896  C021  F090         	movff	?___ftmul+1,_measure_inductance$1186+1
-  1521  00089A  C022  F091         	movff	?___ftmul+2,_measure_inductance$1186+2
+  1519  000892  C020  F08F         	movff	?___ftmul,_measure_inductance$1287
+  1520  000896  C021  F090         	movff	?___ftmul+1,_measure_inductance$1287+1
+  1521  00089A  C022  F091         	movff	?___ftmul+2,_measure_inductance$1287+2
   1522                           
   1523                           ;measure.c: 234: denominator = 4 * 3.14159265358979323846l * 3.14159265358979323846l * F
       +                          1 * F1 * F2 * F2 * F3 * F3 * CCal;
-  1524  00089E  C08F  F020         	movff	_measure_inductance$1186,___ftmul@f1
-  1525  0008A2  C090  F021         	movff	_measure_inductance$1186+1,___ftmul@f1+1
-  1526  0008A6  C091  F022         	movff	_measure_inductance$1186+2,___ftmul@f1+2
+  1524  00089E  C08F  F020         	movff	_measure_inductance$1287,___ftmul@f1
+  1525  0008A2  C090  F021         	movff	_measure_inductance$1287+1,___ftmul@f1+1
+  1526  0008A6  C091  F022         	movff	_measure_inductance$1287+2,___ftmul@f1+2
   1527  0008AA  0EEA               	movlw	234
   1528  0008AC  6E23               	movwf	___ftmul@f2,c
   1529  0008AE  0E1D               	movlw	29
@@ -1594,7 +1594,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1568  00091A  C09F  F00D         	movff	measure_inductance@Lin+1,___ftge@ff2+1
   1569  00091E  C0A0  F00E         	movff	measure_inductance@Lin+2,___ftge@ff2+2
   1570  000922  EC7D  F00A         	call	___ftge	;wreg free
-  1571  000926  E260               	bc	l2814
+  1571  000926  E260               	bc	l2909
   1572                           
   1573                           ;measure.c: 238: if(Lin > (999e+03l)) {
   1574  000928  0EE6               	movlw	230
@@ -1607,7 +1607,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1581  000938  C09F  F00D         	movff	measure_inductance@Lin+1,___ftge@ff2+1
   1582  00093C  C0A0  F00E         	movff	measure_inductance@Lin+2,___ftge@ff2+2
   1583  000940  EC7D  F00A         	call	___ftge	;wreg free
-  1584  000944  E23C               	bc	l2810
+  1584  000944  E23C               	bc	l2905
   1585                           
   1586                           ;measure.c: 239: if(Lin > (999e+06l)) {
   1587  000946  0E2E               	movlw	46
@@ -1620,7 +1620,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1594  000956  C09F  F00D         	movff	measure_inductance@Lin+1,___ftge@ff2+1
   1595  00095A  C0A0  F00E         	movff	measure_inductance@Lin+2,___ftge@ff2+2
   1596  00095E  EC7D  F00A         	call	___ftge	;wreg free
-  1597  000962  E217               	bc	l2806
+  1597  000962  E217               	bc	l2901
   1598                           
   1599                           ;measure.c: 240: Lin = Lin / (1e+09l);
   1600  000964  C09E  F011         	movff	measure_inductance@Lin,___ftdiv@f1
@@ -1642,8 +1642,8 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1616  00098E  6B92               	clrf	measure_inductance@unit& (0+255),b
   1617                           
   1618                           ;measure.c: 242: } else {
-  1619  000990  D02F               	goto	l2816
-  1620  000992                     l2806:
+  1619  000990  D02F               	goto	l2911
+  1620  000992                     l2901:
   1621                           
   1622                           ;measure.c: 243: Lin = Lin / (1e+06l);
   1623  000992  C09E  F011         	movff	measure_inductance@Lin,___ftdiv@f1
@@ -1663,7 +1663,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1637                           ;measure.c: 244: unit = 1;
   1638  0009BA  0E01               	movlw	1
   1639  0009BC  D016               	goto	L1
-  1640  0009BE                     l2810:
+  1640  0009BE                     l2905:
   1641                           
   1642                           ;measure.c: 247: Lin = Lin / 1e+03l;
   1643  0009BE  C09E  F011         	movff	measure_inductance@Lin,___ftdiv@f1
@@ -1682,7 +1682,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1656                           ;measure.c: 248: unit = 2;
   1657  0009E4  0E02               	movlw	2
   1658  0009E6  D001               	goto	L1
-  1659  0009E8                     l2814:
+  1659  0009E8                     l2909:
   1660                           
   1661                           ;measure.c: 251: unit = 3;
   1662  0009E8  0E03               	movlw	3
@@ -1690,7 +1690,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1664  0009EA  FFFF               	dw	65535	; assembler added errata NOP
   1665  0009EC  0100               	movlb	0	; () banked
   1666  0009EE  6F92               	movwf	measure_inductance@unit& (0+255),b
-  1667  0009F0                     l2816:
+  1667  0009F0                     l2911:
   1668  0009F0  FFFF               	dw	65535	; assembler added errata NOP
   1669                           
   1670                           ; BSR set to: 0
@@ -1811,13 +1811,13 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1785  000A7C  C056  F00D         	movff	_F3+1,___ftge@ff2+1
   1786  000A80  C057  F00E         	movff	_F3+2,___ftge@ff2+2
   1787  000A84  EC7D  F00A         	call	___ftge	;wreg free
-  1788  000A88  E206               	bc	l2762
+  1788  000A88  E206               	bc	l2857
   1789                           
   1790                           ;measure.c: 179: F3 = F1;
   1791  000A8A  C061  F055         	movff	_F1,_F3
   1792  000A8E  C062  F056         	movff	_F1+1,_F3+1
   1793  000A92  C063  F057         	movff	_F1+2,_F3+2
-  1794  000A96                     l2762:
+  1794  000A96                     l2857:
   1795                           
   1796                           ;measure.c: 181: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   1797  000A96  C055  F023         	movff	_F3,___ftmul@f2
@@ -1841,38 +1841,38 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1815  000ADE  C021  F030         	movff	?___ftmul+1,___ftsub@f1+1
   1816  000AE2  C022  F031         	movff	?___ftmul+2,___ftsub@f1+2
   1817  000AE6  EC74  F00B         	call	___ftsub	;wreg free
-  1818  000AEA  C02F  F045         	movff	?___ftsub,_measure_capacitance$1177
-  1819  000AEE  C030  F046         	movff	?___ftsub+1,_measure_capacitance$1177+1
-  1820  000AF2  C031  F047         	movff	?___ftsub+2,_measure_capacitance$1177+2
+  1818  000AEA  C02F  F045         	movff	?___ftsub,_measure_capacitance$1278
+  1819  000AEE  C030  F046         	movff	?___ftsub+1,_measure_capacitance$1278+1
+  1820  000AF2  C031  F047         	movff	?___ftsub+2,_measure_capacitance$1278+2
   1821                           
   1822                           ;measure.c: 181: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   1823  000AF6  C058  F023         	movff	_F2,___ftmul@f2
   1824  000AFA  C059  F024         	movff	_F2+1,___ftmul@f2+1
   1825  000AFE  C05A  F025         	movff	_F2+2,___ftmul@f2+2
-  1826  000B02  C045  F020         	movff	_measure_capacitance$1177,___ftmul@f1
-  1827  000B06  C046  F021         	movff	_measure_capacitance$1177+1,___ftmul@f1+1
-  1828  000B0A  C047  F022         	movff	_measure_capacitance$1177+2,___ftmul@f1+2
+  1826  000B02  C045  F020         	movff	_measure_capacitance$1278,___ftmul@f1
+  1827  000B06  C046  F021         	movff	_measure_capacitance$1278+1,___ftmul@f1+1
+  1828  000B0A  C047  F022         	movff	_measure_capacitance$1278+2,___ftmul@f1+2
   1829  000B0E  EC02  F008         	call	___ftmul	;wreg free
-  1830  000B12  C020  F048         	movff	?___ftmul,_measure_capacitance$1178
-  1831  000B16  C021  F049         	movff	?___ftmul+1,_measure_capacitance$1178+1
-  1832  000B1A  C022  F04A         	movff	?___ftmul+2,_measure_capacitance$1178+2
+  1830  000B12  C020  F048         	movff	?___ftmul,_measure_capacitance$1279
+  1831  000B16  C021  F049         	movff	?___ftmul+1,_measure_capacitance$1279+1
+  1832  000B1A  C022  F04A         	movff	?___ftmul+2,_measure_capacitance$1279+2
   1833                           
   1834                           ;measure.c: 181: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   1835  000B1E  C058  F023         	movff	_F2,___ftmul@f2
   1836  000B22  C059  F024         	movff	_F2+1,___ftmul@f2+1
   1837  000B26  C05A  F025         	movff	_F2+2,___ftmul@f2+2
-  1838  000B2A  C048  F020         	movff	_measure_capacitance$1178,___ftmul@f1
-  1839  000B2E  C049  F021         	movff	_measure_capacitance$1178+1,___ftmul@f1+1
-  1840  000B32  C04A  F022         	movff	_measure_capacitance$1178+2,___ftmul@f1+2
+  1838  000B2A  C048  F020         	movff	_measure_capacitance$1279,___ftmul@f1
+  1839  000B2E  C049  F021         	movff	_measure_capacitance$1279+1,___ftmul@f1+1
+  1840  000B32  C04A  F022         	movff	_measure_capacitance$1279+2,___ftmul@f1+2
   1841  000B36  EC02  F008         	call	___ftmul	;wreg free
-  1842  000B3A  C020  F04B         	movff	?___ftmul,_measure_capacitance$1179
-  1843  000B3E  C021  F04C         	movff	?___ftmul+1,_measure_capacitance$1179+1
-  1844  000B42  C022  F04D         	movff	?___ftmul+2,_measure_capacitance$1179+2
+  1842  000B3A  C020  F04B         	movff	?___ftmul,_measure_capacitance$1280
+  1843  000B3E  C021  F04C         	movff	?___ftmul+1,_measure_capacitance$1280+1
+  1844  000B42  C022  F04D         	movff	?___ftmul+2,_measure_capacitance$1280+2
   1845                           
   1846                           ;measure.c: 181: Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-  1847  000B46  C04B  F020         	movff	_measure_capacitance$1179,___ftmul@f1
-  1848  000B4A  C04C  F021         	movff	_measure_capacitance$1179+1,___ftmul@f1+1
-  1849  000B4E  C04D  F022         	movff	_measure_capacitance$1179+2,___ftmul@f1+2
+  1847  000B46  C04B  F020         	movff	_measure_capacitance$1280,___ftmul@f1
+  1848  000B4A  C04C  F021         	movff	_measure_capacitance$1280+1,___ftmul@f1+1
+  1849  000B4E  C04D  F022         	movff	_measure_capacitance$1280+2,___ftmul@f1+2
   1850  000B52  C0BE  F023         	movff	_CCal,___ftmul@f2
   1851  000B56  C0BF  F024         	movff	_CCal+1,___ftmul@f2+1
   1852  000B5A  C0C0  F025         	movff	_CCal+2,___ftmul@f2+2
@@ -1892,7 +1892,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1866  000B7E  C052  F00D         	movff	measure_capacitance@Cin+1,___ftge@ff2+1
   1867  000B82  C053  F00E         	movff	measure_capacitance@Cin+2,___ftge@ff2+2
   1868  000B86  EC7D  F00A         	call	___ftge	;wreg free
-  1869  000B8A  E25F               	bc	l2780
+  1869  000B8A  E25F               	bc	l2875
   1870                           
   1871                           ;measure.c: 192: if(Cin > (999e+03l)) {
   1872  000B8C  0EE6               	movlw	230
@@ -1905,7 +1905,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1879  000B9C  C052  F00D         	movff	measure_capacitance@Cin+1,___ftge@ff2+1
   1880  000BA0  C053  F00E         	movff	measure_capacitance@Cin+2,___ftge@ff2+2
   1881  000BA4  EC7D  F00A         	call	___ftge	;wreg free
-  1882  000BA8  E23B               	bc	l2776
+  1882  000BA8  E23B               	bc	l2871
   1883                           
   1884                           ;measure.c: 193: if(Cin > (999e+06l)) {
   1885  000BAA  0E2E               	movlw	46
@@ -1918,7 +1918,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1892  000BBA  C052  F00D         	movff	measure_capacitance@Cin+1,___ftge@ff2+1
   1893  000BBE  C053  F00E         	movff	measure_capacitance@Cin+2,___ftge@ff2+2
   1894  000BC2  EC7D  F00A         	call	___ftge	;wreg free
-  1895  000BC6  E216               	bc	l2772
+  1895  000BC6  E216               	bc	l2867
   1896                           
   1897                           ;measure.c: 194: Cin = Cin / (1e+09);
   1898  000BC8  C051  F011         	movff	measure_capacitance@Cin,___ftdiv@f1
@@ -1938,7 +1938,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1912                           ;measure.c: 195: unit = 4;
   1913  000BF0  0E04               	movlw	4
   1914  000BF2  D02C               	goto	L2
-  1915  000BF4                     l2772:
+  1915  000BF4                     l2867:
   1916                           
   1917                           ;measure.c: 197: Cin = Cin / (1e+06);
   1918  000BF4  C051  F011         	movff	measure_capacitance@Cin,___ftdiv@f1
@@ -1958,7 +1958,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1932                           ;measure.c: 198: unit = 5;
   1933  000C1C  0E05               	movlw	5
   1934  000C1E  D016               	goto	L2
-  1935  000C20                     l2776:
+  1935  000C20                     l2871:
   1936                           
   1937                           ;measure.c: 201: Cin = Cin / 1e+03;
   1938  000C20  C051  F011         	movff	measure_capacitance@Cin,___ftdiv@f1
@@ -1977,7 +1977,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   1951                           ;measure.c: 202: unit = 6;
   1952  000C46  0E06               	movlw	6
   1953  000C48  D001               	goto	L2
-  1954  000C4A                     l2780:
+  1954  000C4A                     l2875:
   1955                           
   1956                           ;measure.c: 205: unit = 7;
   1957  000C4A  0E07               	movlw	7
@@ -2186,15 +2186,15 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2160  0011C4  500D               	movf	??___fttol,w,c
   2161  0011C6  6E17               	movwf	___fttol@exp1,c
   2162  0011C8  5017               	movf	___fttol@exp1,w,c
-  2163  0011CA  E106               	bnz	l2698
+  2163  0011CA  E106               	bnz	l2793
   2164  0011CC                     u2580:
   2165  0011CC  FFFF               	dw	65535	; assembler added errata NOP
   2166  0011CE  6A09               	clrf	?___fttol,c
   2167  0011D0  6A0A               	clrf	?___fttol+1,c
   2168  0011D2  6A0B               	clrf	?___fttol+2,c
   2169  0011D4  6A0C               	clrf	?___fttol+3,c
-  2170  0011D6  D050               	goto	l634
-  2171  0011D8                     l2698:
+  2170  0011D6  D050               	goto	l729
+  2171  0011D8                     l2793:
   2172  0011D8  0E17               	movlw	23
   2173  0011DA  6E0D               	movwf	??___fttol& (0+255),c
   2174  0011DC  C009  F00E         	movff	___fttol@f1,??___fttol+1
@@ -2227,12 +2227,12 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2201  001214  0E8E               	movlw	142
   2202  001216  5E17               	subwf	___fttol@exp1,f,c
   2203  001218  AE17               	btfss	___fttol@exp1,7,c
-  2204  00121A  D00D               	goto	l2718
+  2204  00121A  D00D               	goto	l2813
   2205  00121C  5017               	movf	___fttol@exp1,w,c
   2206  00121E  0A80               	xorlw	128
   2207  001220  0F8F               	addlw	143
   2208  001222  E3D4               	bnc	u2580
-  2209  001224                     l2714:
+  2209  001224                     l2809:
   2210  001224  FFFF               	dw	65535	; assembler added errata NOP
   2211  001226  90D8               	bcf	status,0,c
   2212  001228  3216               	rrcf	___fttol@lval+3,f,c
@@ -2240,29 +2240,29 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2214  00122C  3214               	rrcf	___fttol@lval+1,f,c
   2215  00122E  3213               	rrcf	___fttol@lval,f,c
   2216  001230  3E17               	incfsz	___fttol@exp1,f,c
-  2217  001232  D7F8               	goto	l2714
+  2217  001232  D7F8               	goto	l2809
   2218  001234  D00E               	goto	u2630
-  2219  001236                     l2718:
+  2219  001236                     l2813:
   2220  001236  FFFF               	dw	65535	; assembler added errata NOP
   2221  001238  0E17               	movlw	23
   2222  00123A  6417               	cpfsgt	___fttol@exp1,c
-  2223  00123C  D007               	goto	l2724
+  2223  00123C  D007               	goto	l2819
   2224  00123E  D7C6               	goto	u2580
-  2225  001240                     l2722:
+  2225  001240                     l2817:
   2226  001240  90D8               	bcf	status,0,c
   2227  001242  3613               	rlcf	___fttol@lval,f,c
   2228  001244  3614               	rlcf	___fttol@lval+1,f,c
   2229  001246  3615               	rlcf	___fttol@lval+2,f,c
   2230  001248  3616               	rlcf	___fttol@lval+3,f,c
   2231  00124A  0617               	decf	___fttol@exp1,f,c
-  2232  00124C                     l2724:
+  2232  00124C                     l2819:
   2233  00124C  FFFF               	dw	65535	; assembler added errata NOP
   2234  00124E  5017               	movf	___fttol@exp1,w,c
-  2235  001250  E1F7               	bnz	l2722
+  2235  001250  E1F7               	bnz	l2817
   2236  001252                     u2630:
   2237  001252  FFFF               	dw	65535	; assembler added errata NOP
   2238  001254  5012               	movf	___fttol@sign1,w,c
-  2239  001256  E008               	bz	l2730
+  2239  001256  E008               	bz	l2825
   2240  001258  1E16               	comf	___fttol@lval+3,f,c
   2241  00125A  1E15               	comf	___fttol@lval+2,f,c
   2242  00125C  1E14               	comf	___fttol@lval+1,f,c
@@ -2271,12 +2271,12 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2245  001262  2214               	addwfc	___fttol@lval+1,f,c
   2246  001264  2215               	addwfc	___fttol@lval+2,f,c
   2247  001266  2216               	addwfc	___fttol@lval+3,f,c
-  2248  001268                     l2730:
+  2248  001268                     l2825:
   2249  001268  C013  F009         	movff	___fttol@lval,?___fttol
   2250  00126C  C014  F00A         	movff	___fttol@lval+1,?___fttol+1
   2251  001270  C015  F00B         	movff	___fttol@lval+2,?___fttol+2
   2252  001274  C016  F00C         	movff	___fttol@lval+3,?___fttol+3
-  2253  001278                     l634:
+  2253  001278                     l729:
   2254  001278  FFFF               	dw	65535	; assembler added errata NOP
   2255  00127A  0012               	return		;funcret
   2256  00127C  FFFF               	dw	65535	; errata NOP
@@ -2335,10 +2335,10 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2309  0016EA  5032               	movf	___ftsub@f2,w,c
   2310  0016EC  1033               	iorwf	___ftsub@f2+1,w,c
   2311  0016EE  1034               	iorwf	___ftsub@f2+2,w,c
-  2312  0016F0  E002               	bz	l2672
+  2312  0016F0  E002               	bz	l2767
   2313  0016F2  0E80               	movlw	128
   2314  0016F4  1A34               	xorwf	___ftsub@f2+2,f,c
-  2315  0016F6                     l2672:
+  2315  0016F6                     l2767:
   2316  0016F6  C02F  F011         	movff	___ftsub@f1,___ftadd@f1
   2317  0016FA  C030  F012         	movff	___ftsub@f1+1,___ftadd@f1+1
   2318  0016FE  C031  F013         	movff	___ftsub@f1+2,___ftadd@f1+2
@@ -2428,37 +2428,37 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2402  000CCE  E009               	bz	u2250
   2403  000CD0  501B               	movf	___ftadd@exp2,w,c
   2404  000CD2  5C1C               	subwf	___ftadd@exp1,w,c
-  2405  000CD4  E20D               	bc	l2488
+  2405  000CD4  E20D               	bc	l2583
   2406  000CD6  501C               	movf	___ftadd@exp1,w,c
   2407  000CD8  5C1B               	subwf	___ftadd@exp2,w,c
   2408  000CDA  6E17               	movwf	??___ftadd& (0+255),c
   2409  000CDC  0E18               	movlw	24
   2410  000CDE  6417               	cpfsgt	??___ftadd,c
-  2411  000CE0  D007               	goto	l2488
+  2411  000CE0  D007               	goto	l2583
   2412  000CE2                     u2250:
   2413  000CE2  C014  F011         	movff	___ftadd@f2,?___ftadd
   2414  000CE6  C015  F012         	movff	___ftadd@f2+1,?___ftadd+1
   2415  000CEA  C016  F013         	movff	___ftadd@f2+2,?___ftadd+2
-  2416  000CEE  D08F               	goto	l567
-  2417  000CF0                     l2488:
+  2416  000CEE  D08F               	goto	l662
+  2417  000CF0                     l2583:
   2418  000CF0  FFFF               	dw	65535	; assembler added errata NOP
   2419  000CF2  501B               	movf	___ftadd@exp2,w,c
   2420  000CF4  E009               	bz	u2280
   2421  000CF6  501C               	movf	___ftadd@exp1,w,c
   2422  000CF8  5C1B               	subwf	___ftadd@exp2,w,c
-  2423  000CFA  E20D               	bc	l2494
+  2423  000CFA  E20D               	bc	l2589
   2424  000CFC  501B               	movf	___ftadd@exp2,w,c
   2425  000CFE  5C1C               	subwf	___ftadd@exp1,w,c
   2426  000D00  6E17               	movwf	??___ftadd& (0+255),c
   2427  000D02  0E18               	movlw	24
   2428  000D04  6417               	cpfsgt	??___ftadd,c
-  2429  000D06  D007               	goto	l2494
+  2429  000D06  D007               	goto	l2589
   2430  000D08                     u2280:
   2431  000D08  C011  F011         	movff	___ftadd@f1,?___ftadd
   2432  000D0C  C012  F012         	movff	___ftadd@f1+1,?___ftadd+1
   2433  000D10  C013  F013         	movff	___ftadd@f1+2,?___ftadd+2
-  2434  000D14  D07C               	goto	l567
-  2435  000D16                     l2494:
+  2434  000D14  D07C               	goto	l662
+  2435  000D16                     l2589:
   2436  000D16  FFFF               	dw	65535	; assembler added errata NOP
   2437  000D18  0E06               	movlw	6
   2438  000D1A  6E1A               	movwf	___ftadd@sign,c
@@ -2472,7 +2472,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2446  000D2A  6A16               	clrf	___ftadd@f2+2,c
   2447  000D2C  501B               	movf	___ftadd@exp2,w,c
   2448  000D2E  5C1C               	subwf	___ftadd@exp1,w,c
-  2449  000D30  E21A               	bc	l2520
+  2449  000D30  E21A               	bc	l2615
   2450  000D32                     u2310:
   2451  000D32  FFFF               	dw	65535	; assembler added errata NOP
   2452  000D34  90D8               	bcf	status,0,c
@@ -2482,26 +2482,26 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2456  000D3C  061B               	decf	___ftadd@exp2,f,c
   2457  000D3E  501C               	movf	___ftadd@exp1,w,c
   2458  000D40  181B               	xorwf	___ftadd@exp2,w,c
-  2459  000D42  E00D               	bz	l2518
+  2459  000D42  E00D               	bz	l2613
   2460  000D44  061A               	decf	___ftadd@sign,f,c
   2461  000D46  C01A  F017         	movff	___ftadd@sign,??___ftadd
   2462  000D4A  0E07               	movlw	7
   2463  000D4C  1617               	andwf	??___ftadd,f,c
-  2464  000D4E  E007               	bz	l2518
+  2464  000D4E  E007               	bz	l2613
   2465  000D50  D7F0               	goto	u2310
-  2466  000D52                     l2516:
+  2466  000D52                     l2611:
   2467  000D52  FFFF               	dw	65535	; assembler added errata NOP
   2468  000D54  90D8               	bcf	status,0,c
   2469  000D56  3213               	rrcf	___ftadd@f1+2,f,c
   2470  000D58  3212               	rrcf	___ftadd@f1+1,f,c
   2471  000D5A  3211               	rrcf	___ftadd@f1,f,c
   2472  000D5C  2A1C               	incf	___ftadd@exp1,f,c
-  2473  000D5E                     l2518:
+  2473  000D5E                     l2613:
   2474  000D5E  501B               	movf	___ftadd@exp2,w,c
   2475  000D60  181C               	xorwf	___ftadd@exp1,w,c
   2476  000D62  E01C               	bz	u2380
-  2477  000D64  D7F6               	goto	l2516
-  2478  000D66                     l2520:
+  2477  000D64  D7F6               	goto	l2611
+  2478  000D66                     l2615:
   2479  000D66  501C               	movf	___ftadd@exp1,w,c
   2480  000D68  5C1B               	subwf	___ftadd@exp2,w,c
   2481  000D6A  E218               	bc	u2380
@@ -2514,26 +2514,26 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2488  000D76  061C               	decf	___ftadd@exp1,f,c
   2489  000D78  501C               	movf	___ftadd@exp1,w,c
   2490  000D7A  181B               	xorwf	___ftadd@exp2,w,c
-  2491  000D7C  E00C               	bz	l2530
+  2491  000D7C  E00C               	bz	l2625
   2492  000D7E  061A               	decf	___ftadd@sign,f,c
   2493  000D80  C01A  F017         	movff	___ftadd@sign,??___ftadd
   2494  000D84  0E07               	movlw	7
   2495  000D86  1617               	andwf	??___ftadd,f,c
-  2496  000D88  E006               	bz	l2530
+  2496  000D88  E006               	bz	l2625
   2497  000D8A  D7F0               	goto	u2350
-  2498  000D8C                     l2528:
+  2498  000D8C                     l2623:
   2499  000D8C  90D8               	bcf	status,0,c
   2500  000D8E  3216               	rrcf	___ftadd@f2+2,f,c
   2501  000D90  3215               	rrcf	___ftadd@f2+1,f,c
   2502  000D92  3214               	rrcf	___ftadd@f2,f,c
   2503  000D94  2A1B               	incf	___ftadd@exp2,f,c
-  2504  000D96                     l2530:
+  2504  000D96                     l2625:
   2505  000D96  501B               	movf	___ftadd@exp2,w,c
   2506  000D98  181C               	xorwf	___ftadd@exp1,w,c
-  2507  000D9A  E1F8               	bnz	l2528
+  2507  000D9A  E1F8               	bnz	l2623
   2508  000D9C                     u2380:
   2509  000D9C  AE1A               	btfss	___ftadd@sign,7,c
-  2510  000D9E  D007               	goto	l590
+  2510  000D9E  D007               	goto	l685
   2511  000DA0  1E11               	comf	___ftadd@f1,f,c
   2512  000DA2  1E12               	comf	___ftadd@f1+1,f,c
   2513  000DA4  1E13               	comf	___ftadd@f1+2,f,c
@@ -2541,10 +2541,10 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2515  000DA8  0E00               	movlw	0
   2516  000DAA  2212               	addwfc	___ftadd@f1+1,f,c
   2517  000DAC  2213               	addwfc	___ftadd@f1+2,f,c
-  2518  000DAE                     l590:
+  2518  000DAE                     l685:
   2519  000DAE  FFFF               	dw	65535	; assembler added errata NOP
   2520  000DB0  AC1A               	btfss	___ftadd@sign,6,c
-  2521  000DB2  D007               	goto	l591
+  2521  000DB2  D007               	goto	l686
   2522  000DB4  1E14               	comf	___ftadd@f2,f,c
   2523  000DB6  1E15               	comf	___ftadd@f2+1,f,c
   2524  000DB8  1E16               	comf	___ftadd@f2+2,f,c
@@ -2552,7 +2552,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2526  000DBC  0E00               	movlw	0
   2527  000DBE  2215               	addwfc	___ftadd@f2+1,f,c
   2528  000DC0  2216               	addwfc	___ftadd@f2+2,f,c
-  2529  000DC2                     l591:
+  2529  000DC2                     l686:
   2530  000DC2  FFFF               	dw	65535	; assembler added errata NOP
   2531  000DC4  6A1A               	clrf	___ftadd@sign,c
   2532  000DC6  5011               	movf	___ftadd@f1,w,c
@@ -2562,7 +2562,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2536  000DCE  5013               	movf	___ftadd@f1+2,w,c
   2537  000DD0  2216               	addwfc	___ftadd@f2+2,f,c
   2538  000DD2  AE16               	btfss	___ftadd@f2+2,7,c
-  2539  000DD4  D009               	goto	l2540
+  2539  000DD4  D009               	goto	l2635
   2540  000DD6  1E14               	comf	___ftadd@f2,f,c
   2541  000DD8  1E15               	comf	___ftadd@f2+1,f,c
   2542  000DDA  1E16               	comf	___ftadd@f2+2,f,c
@@ -2572,7 +2572,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2546  000DE2  2216               	addwfc	___ftadd@f2+2,f,c
   2547  000DE4  0E01               	movlw	1
   2548  000DE6  6E1A               	movwf	___ftadd@sign,c
-  2549  000DE8                     l2540:
+  2549  000DE8                     l2635:
   2550  000DE8  FFFF               	dw	65535	; assembler added errata NOP
   2551  000DEA  C014  F009         	movff	___ftadd@f2,___ftpack@arg
   2552  000DEE  C015  F00A         	movff	___ftadd@f2+1,___ftpack@arg+1
@@ -2583,7 +2583,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2557  000E02  C009  F011         	movff	?___ftpack,?___ftadd
   2558  000E06  C00A  F012         	movff	?___ftpack+1,?___ftadd+1
   2559  000E0A  C00B  F013         	movff	?___ftpack+2,?___ftadd+2
-  2560  000E0E                     l567:
+  2560  000E0E                     l662:
   2561  000E0E  FFFF               	dw	65535	; assembler added errata NOP
   2562  000E10  0012               	return		;funcret
   2563  000E12  FFFF               	dw	65535	; errata NOP
@@ -2653,9 +2653,9 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2627  001016  5026               	movf	??___ftmul,w,c
   2628  001018  6E29               	movwf	___ftmul@exp,c
   2629  00101A  5029               	movf	___ftmul@exp,w,c
-  2630  00101C  E101               	bnz	l2628
+  2630  00101C  E101               	bnz	l2723
   2631  00101E  D00C               	goto	u2500
-  2632  001020                     l2628:
+  2632  001020                     l2723:
   2633  001020  C025  F026         	movff	___ftmul@f2+2,??___ftmul
   2634  001024  6A27               	clrf	(??___ftmul+1)& (0+255),c
   2635  001026  6A28               	clrf	(??___ftmul+2)& (0+255),c
@@ -2667,14 +2667,14 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2641  001030  5026               	movf	??___ftmul,w,c
   2642  001032  6E2E               	movwf	___ftmul@sign,c
   2643  001034  502E               	movf	___ftmul@sign,w,c
-  2644  001036  E105               	bnz	l2632
+  2644  001036  E105               	bnz	l2727
   2645  001038                     u2500:
   2646  001038  FFFF               	dw	65535	; assembler added errata NOP
   2647  00103A  6A20               	clrf	?___ftmul,c
   2648  00103C  6A21               	clrf	?___ftmul+1,c
   2649  00103E  6A22               	clrf	?___ftmul+2,c
-  2650  001040  D04E               	goto	l613
-  2651  001042                     l2632:
+  2650  001040  D04E               	goto	l708
+  2651  001042                     l2727:
   2652  001042  502E               	movf	___ftmul@sign,w,c
   2653  001044  0F7B               	addlw	123
   2654  001046  2629               	addwf	___ftmul@exp,f,c
@@ -2692,17 +2692,17 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2666  001060  6A2C               	clrf	___ftmul@f3_as_product+2,c
   2667  001062  0E07               	movlw	7
   2668  001064  6E2D               	movwf	___ftmul@cntr,c
-  2669  001066                     l2646:
+  2669  001066                     l2741:
   2670  001066  FFFF               	dw	65535	; assembler added errata NOP
   2671  001068  A020               	btfss	___ftmul@f1,0,c
-  2672  00106A  D006               	goto	l2650
+  2672  00106A  D006               	goto	l2745
   2673  00106C  5023               	movf	___ftmul@f2,w,c
   2674  00106E  262A               	addwf	___ftmul@f3_as_product,f,c
   2675  001070  5024               	movf	___ftmul@f2+1,w,c
   2676  001072  222B               	addwfc	___ftmul@f3_as_product+1,f,c
   2677  001074  5025               	movf	___ftmul@f2+2,w,c
   2678  001076  222C               	addwfc	___ftmul@f3_as_product+2,f,c
-  2679  001078                     l2650:
+  2679  001078                     l2745:
   2680  001078  FFFF               	dw	65535	; assembler added errata NOP
   2681  00107A  90D8               	bcf	status,0,c
   2682  00107C  3222               	rrcf	___ftmul@f1+2,f,c
@@ -2713,20 +2713,20 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2687  001086  3624               	rlcf	___ftmul@f2+1,f,c
   2688  001088  3625               	rlcf	___ftmul@f2+2,f,c
   2689  00108A  2E2D               	decfsz	___ftmul@cntr,f,c
-  2690  00108C  D7EC               	goto	l2646
+  2690  00108C  D7EC               	goto	l2741
   2691  00108E  0E09               	movlw	9
   2692  001090  6E2D               	movwf	___ftmul@cntr,c
-  2693  001092                     l2656:
+  2693  001092                     l2751:
   2694  001092  FFFF               	dw	65535	; assembler added errata NOP
   2695  001094  A020               	btfss	___ftmul@f1,0,c
-  2696  001096  D006               	goto	l2660
+  2696  001096  D006               	goto	l2755
   2697  001098  5023               	movf	___ftmul@f2,w,c
   2698  00109A  262A               	addwf	___ftmul@f3_as_product,f,c
   2699  00109C  5024               	movf	___ftmul@f2+1,w,c
   2700  00109E  222B               	addwfc	___ftmul@f3_as_product+1,f,c
   2701  0010A0  5025               	movf	___ftmul@f2+2,w,c
   2702  0010A2  222C               	addwfc	___ftmul@f3_as_product+2,f,c
-  2703  0010A4                     l2660:
+  2703  0010A4                     l2755:
   2704  0010A4  FFFF               	dw	65535	; assembler added errata NOP
   2705  0010A6  90D8               	bcf	status,0,c
   2706  0010A8  3222               	rrcf	___ftmul@f1+2,f,c
@@ -2737,7 +2737,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2711  0010B2  322B               	rrcf	___ftmul@f3_as_product+1,f,c
   2712  0010B4  322A               	rrcf	___ftmul@f3_as_product,f,c
   2713  0010B6  2E2D               	decfsz	___ftmul@cntr,f,c
-  2714  0010B8  D7EC               	goto	l2656
+  2714  0010B8  D7EC               	goto	l2751
   2715  0010BA  C02A  F009         	movff	___ftmul@f3_as_product,___ftpack@arg
   2716  0010BE  C02B  F00A         	movff	___ftmul@f3_as_product+1,___ftpack@arg+1
   2717  0010C2  C02C  F00B         	movff	___ftmul@f3_as_product+2,___ftpack@arg+2
@@ -2747,7 +2747,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2721  0010D2  C009  F020         	movff	?___ftpack,?___ftmul
   2722  0010D6  C00A  F021         	movff	?___ftpack+1,?___ftmul+1
   2723  0010DA  C00B  F022         	movff	?___ftpack+2,?___ftmul+2
-  2724  0010DE                     l613:
+  2724  0010DE                     l708:
   2725  0010DE  FFFF               	dw	65535	; assembler added errata NOP
   2726  0010E0  0012               	return		;funcret
   2727  0010E2  FFFF               	dw	65535	; errata NOP
@@ -2804,7 +2804,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2778                           
   2779                           ;incstack = 0
   2780  0014FC  AE0B               	btfss	___ftge@ff1+2,7,c
-  2781  0014FE  D00D               	goto	l2680
+  2781  0014FE  D00D               	goto	l2775
   2782  001500  6A0F               	clrf	??___ftge& (0+255),c
   2783  001502  6A10               	clrf	(??___ftge+1)& (0+255),c
   2784  001504  0E80               	movlw	128
@@ -2818,10 +2818,10 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2792  001514  500B               	movf	___ftge@ff1+2,w,c
   2793  001516  5811               	subwfb	??___ftge+2,w,c
   2794  001518  6E0B               	movwf	___ftge@ff1+2,c
-  2795  00151A                     l2680:
+  2795  00151A                     l2775:
   2796  00151A  FFFF               	dw	65535	; assembler added errata NOP
   2797  00151C  AE0E               	btfss	___ftge@ff2+2,7,c
-  2798  00151E  D00D               	goto	l2684
+  2798  00151E  D00D               	goto	l2779
   2799  001520  6A0F               	clrf	??___ftge& (0+255),c
   2800  001522  6A10               	clrf	(??___ftge+1)& (0+255),c
   2801  001524  0E80               	movlw	128
@@ -2835,7 +2835,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2809  001534  500E               	movf	___ftge@ff2+2,w,c
   2810  001536  5811               	subwfb	??___ftge+2,w,c
   2811  001538  6E0E               	movwf	___ftge@ff2+2,c
-  2812  00153A                     l2684:
+  2812  00153A                     l2779:
   2813  00153A  FFFF               	dw	65535	; assembler added errata NOP
   2814  00153C  0E80               	movlw	128
   2815  00153E  1A0B               	xorwf	___ftge@ff1+2,f,c
@@ -2846,12 +2846,12 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2820  001548  580A               	subwfb	___ftge@ff1+1,w,c
   2821  00154A  500E               	movf	___ftge@ff2+2,w,c
   2822  00154C  580B               	subwfb	___ftge@ff1+2,w,c
-  2823  00154E  E202               	bc	l2690
+  2823  00154E  E202               	bc	l2785
   2824  001550  90D8               	bcf	status,0,c
-  2825  001552  D001               	goto	l607
-  2826  001554                     l2690:
+  2825  001552  D001               	goto	l702
+  2826  001554                     l2785:
   2827  001554  80D8               	bsf	status,0,c
-  2828  001556                     l607:
+  2828  001556                     l702:
   2829  001556  FFFF               	dw	65535	; assembler added errata NOP
   2830  001558  0012               	return		;funcret
   2831  00155A  FFFF               	dw	65535	; errata NOP
@@ -2921,9 +2921,9 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2895  001290  5017               	movf	??___ftdiv,w,c
   2896  001292  6E1E               	movwf	___ftdiv@exp,c
   2897  001294  501E               	movf	___ftdiv@exp,w,c
-  2898  001296  E101               	bnz	l2592
+  2898  001296  E101               	bnz	l2687
   2899  001298  D00C               	goto	u2450
-  2900  00129A                     l2592:
+  2900  00129A                     l2687:
   2901  00129A  C016  F017         	movff	___ftdiv@f2+2,??___ftdiv
   2902  00129E  6A18               	clrf	(??___ftdiv+1)& (0+255),c
   2903  0012A0  6A19               	clrf	(??___ftdiv+2)& (0+255),c
@@ -2935,14 +2935,14 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2909  0012AA  5017               	movf	??___ftdiv,w,c
   2910  0012AC  6E1F               	movwf	___ftdiv@sign,c
   2911  0012AE  501F               	movf	___ftdiv@sign,w,c
-  2912  0012B0  E105               	bnz	l599
+  2912  0012B0  E105               	bnz	l694
   2913  0012B2                     u2450:
   2914  0012B2  FFFF               	dw	65535	; assembler added errata NOP
   2915  0012B4  6A11               	clrf	?___ftdiv,c
   2916  0012B6  6A12               	clrf	?___ftdiv+1,c
   2917  0012B8  6A13               	clrf	?___ftdiv+2,c
-  2918  0012BA  D03D               	goto	l598
-  2919  0012BC                     l599:
+  2918  0012BA  D03D               	goto	l693
+  2919  0012BC                     l694:
   2920  0012BC  6A1B               	clrf	___ftdiv@f3,c
   2921  0012BE  6A1C               	clrf	___ftdiv@f3+1,c
   2922  0012C0  6A1D               	clrf	___ftdiv@f3+2,c
@@ -2960,7 +2960,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2934  0012DA  6A16               	clrf	___ftdiv@f2+2,c
   2935  0012DC  0E18               	movlw	24
   2936  0012DE  6E1A               	movwf	___ftdiv@cntr,c
-  2937  0012E0                     l2610:
+  2937  0012E0                     l2705:
   2938  0012E0  FFFF               	dw	65535	; assembler added errata NOP
   2939  0012E2  90D8               	bcf	status,0,c
   2940  0012E4  361B               	rlcf	___ftdiv@f3,f,c
@@ -2972,7 +2972,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2946  0012F0  5812               	subwfb	___ftdiv@f1+1,w,c
   2947  0012F2  5016               	movf	___ftdiv@f2+2,w,c
   2948  0012F4  5813               	subwfb	___ftdiv@f1+2,w,c
-  2949  0012F6  E307               	bnc	l601
+  2949  0012F6  E307               	bnc	l696
   2950  0012F8  5014               	movf	___ftdiv@f2,w,c
   2951  0012FA  5E11               	subwf	___ftdiv@f1,f,c
   2952  0012FC  5015               	movf	___ftdiv@f2+1,w,c
@@ -2980,13 +2980,13 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2954  001300  5016               	movf	___ftdiv@f2+2,w,c
   2955  001302  5A13               	subwfb	___ftdiv@f1+2,f,c
   2956  001304  801B               	bsf	___ftdiv@f3,0,c
-  2957  001306                     l601:
+  2957  001306                     l696:
   2958  001306  90D8               	bcf	status,0,c
   2959  001308  3611               	rlcf	___ftdiv@f1,f,c
   2960  00130A  3612               	rlcf	___ftdiv@f1+1,f,c
   2961  00130C  3613               	rlcf	___ftdiv@f1+2,f,c
   2962  00130E  2E1A               	decfsz	___ftdiv@cntr,f,c
-  2963  001310  D7E7               	goto	l2610
+  2963  001310  D7E7               	goto	l2705
   2964  001312  C01B  F009         	movff	___ftdiv@f3,___ftpack@arg
   2965  001316  C01C  F00A         	movff	___ftdiv@f3+1,___ftpack@arg+1
   2966  00131A  C01D  F00B         	movff	___ftdiv@f3+2,___ftpack@arg+2
@@ -2996,7 +2996,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   2970  00132A  C009  F011         	movff	?___ftpack,?___ftdiv
   2971  00132E  C00A  F012         	movff	?___ftpack+1,?___ftdiv+1
   2972  001332  C00B  F013         	movff	?___ftpack+2,?___ftdiv+2
-  2973  001336                     l598:
+  2973  001336                     l693:
   2974  001336  FFFF               	dw	65535	; assembler added errata NOP
   2975  001338  0012               	return		;funcret
   2976  00133A  FFFF               	dw	65535	; errata NOP
@@ -3577,7 +3577,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3551                           ; BSR set to: 0
   3552                           ;format.c: 25: if(pad < 0) {
   3553  0010EC  AE15               	btfss	format_number@pad,7,c
-  3554  0010EE  D003               	goto	l2450
+  3554  0010EE  D003               	goto	l2545
   3555                           
   3556                           ; BSR set to: 0
   3557                           ;format.c: 26: pad = -pad;
@@ -3587,7 +3587,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3561                           ;format.c: 27: padchar = '0';
   3562  0010F2  0E30               	movlw	48
   3563  0010F4  6E3A               	movwf	format_number@padchar,c
-  3564  0010F6                     l2450:
+  3564  0010F6                     l2545:
   3565  0010F6  FFFF               	dw	65535	; assembler added errata NOP
   3566                           
   3567                           ;format.c: 39: di = n % base;
@@ -3602,10 +3602,10 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3576                           ;format.c: 40: buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
   3577  00110E  0E09               	movlw	9
   3578  001110  643B               	cpfsgt	format_number@di,c
-  3579  001112  D002               	goto	l2456
+  3579  001112  D002               	goto	l2551
   3580  001114  0E37               	movlw	55
   3581  001116  D002               	goto	L3
-  3582  001118                     l2456:
+  3582  001118                     l2551:
   3583  001118  FFFF               	dw	65535	; assembler added errata NOP
   3584  00111A  0E30               	movlw	48
   3585  00111C                     L3:
@@ -3634,12 +3634,12 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3608                           ;format.c: 43: } while(n > 0);
   3609  001150  5012               	movf	format_number@n,w,c
   3610  001152  1013               	iorwf	format_number@n+1,w,c
-  3611  001154  E004               	bz	l2468
-  3612  001156  D7CF               	goto	l2450
-  3613  001158                     l2466:
+  3611  001154  E004               	bz	l2563
+  3612  001156  D7CF               	goto	l2545
+  3613  001158                     l2561:
   3614  001158  503A               	movf	format_number@padchar,w,c
   3615  00115A  EC29  F00B         	call	_buffer_putch
-  3616  00115E                     l2468:
+  3616  00115E                     l2563:
   3617  00115E  0615               	decf	format_number@pad,f,c
   3618  001160  2815               	incf	format_number@pad,w,c
   3619  001162  6E16               	movwf	??_format_number& (0+255),c
@@ -3649,7 +3649,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3623  00116A  5016               	movf	??_format_number,w,c
   3624  00116C  0A80               	xorlw	128
   3625  00116E  5C17               	subwf	(??_format_number+1)& (0+255),w,c
-  3626  001170  E3F3               	bnc	l2466
+  3626  001170  E3F3               	bnc	l2561
   3627  001172                     u2180:
   3628  001172  FFFF               	dw	65535	; assembler added errata NOP
   3629                           
@@ -3751,38 +3751,38 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3725                           ;incstack = 0
   3726  0016A2  500B               	movf	___lwmod@divisor,w,c
   3727  0016A4  100C               	iorwf	___lwmod@divisor+1,w,c
-  3728  0016A6  E01A               	bz	l747
+  3728  0016A6  E01A               	bz	l842
   3729  0016A8  0E01               	movlw	1
   3730  0016AA  6E0D               	movwf	___lwmod@counter,c
-  3731  0016AC  D005               	goto	l2406
-  3732  0016AE                     l2404:
+  3731  0016AC  D005               	goto	l2501
+  3732  0016AE                     l2499:
   3733  0016AE  FFFF               	dw	65535	; assembler added errata NOP
   3734  0016B0  90D8               	bcf	status,0,c
   3735  0016B2  360B               	rlcf	___lwmod@divisor,f,c
   3736  0016B4  360C               	rlcf	___lwmod@divisor+1,f,c
   3737  0016B6  2A0D               	incf	___lwmod@counter,f,c
-  3738  0016B8                     l2406:
+  3738  0016B8                     l2501:
   3739  0016B8  FFFF               	dw	65535	; assembler added errata NOP
   3740  0016BA  AE0C               	btfss	___lwmod@divisor+1,7,c
-  3741  0016BC  D7F8               	goto	l2404
+  3741  0016BC  D7F8               	goto	l2499
   3742  0016BE                     u2100:
   3743  0016BE  FFFF               	dw	65535	; assembler added errata NOP
   3744  0016C0  500B               	movf	___lwmod@divisor,w,c
   3745  0016C2  5C09               	subwf	___lwmod@dividend,w,c
   3746  0016C4  500C               	movf	___lwmod@divisor+1,w,c
   3747  0016C6  580A               	subwfb	___lwmod@dividend+1,w,c
-  3748  0016C8  E304               	bnc	l2412
+  3748  0016C8  E304               	bnc	l2507
   3749  0016CA  500B               	movf	___lwmod@divisor,w,c
   3750  0016CC  5E09               	subwf	___lwmod@dividend,f,c
   3751  0016CE  500C               	movf	___lwmod@divisor+1,w,c
   3752  0016D0  5A0A               	subwfb	___lwmod@dividend+1,f,c
-  3753  0016D2                     l2412:
+  3753  0016D2                     l2507:
   3754  0016D2  90D8               	bcf	status,0,c
   3755  0016D4  320C               	rrcf	___lwmod@divisor+1,f,c
   3756  0016D6  320B               	rrcf	___lwmod@divisor,f,c
   3757  0016D8  2E0D               	decfsz	___lwmod@counter,f,c
   3758  0016DA  D7F1               	goto	u2100
-  3759  0016DC                     l747:
+  3759  0016DC                     l842:
   3760  0016DC  C009  F009         	movff	___lwmod@dividend,?___lwmod
   3761  0016E0  C00A  F00A         	movff	___lwmod@dividend+1,?___lwmod+1
   3762  0016E4  0012               	return		;funcret
@@ -3850,20 +3850,20 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3824  001560  6A0F               	clrf	___lwdiv@quotient+1,c
   3825  001562  500B               	movf	___lwdiv@divisor,w,c
   3826  001564  100C               	iorwf	___lwdiv@divisor+1,w,c
-  3827  001566  E01E               	bz	l737
+  3827  001566  E01E               	bz	l832
   3828  001568  0E01               	movlw	1
   3829  00156A  6E0D               	movwf	___lwdiv@counter,c
-  3830  00156C  D005               	goto	l2386
-  3831  00156E                     l2384:
+  3830  00156C  D005               	goto	l2481
+  3831  00156E                     l2479:
   3832  00156E  FFFF               	dw	65535	; assembler added errata NOP
   3833  001570  90D8               	bcf	status,0,c
   3834  001572  360B               	rlcf	___lwdiv@divisor,f,c
   3835  001574  360C               	rlcf	___lwdiv@divisor+1,f,c
   3836  001576  2A0D               	incf	___lwdiv@counter,f,c
-  3837  001578                     l2386:
+  3837  001578                     l2481:
   3838  001578  FFFF               	dw	65535	; assembler added errata NOP
   3839  00157A  AE0C               	btfss	___lwdiv@divisor+1,7,c
-  3840  00157C  D7F8               	goto	l2384
+  3840  00157C  D7F8               	goto	l2479
   3841  00157E                     u2070:
   3842  00157E  FFFF               	dw	65535	; assembler added errata NOP
   3843  001580  90D8               	bcf	status,0,c
@@ -3873,19 +3873,19 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3847  001588  5C09               	subwf	___lwdiv@dividend,w,c
   3848  00158A  500C               	movf	___lwdiv@divisor+1,w,c
   3849  00158C  580A               	subwfb	___lwdiv@dividend+1,w,c
-  3850  00158E  E305               	bnc	l2396
+  3850  00158E  E305               	bnc	l2491
   3851  001590  500B               	movf	___lwdiv@divisor,w,c
   3852  001592  5E09               	subwf	___lwdiv@dividend,f,c
   3853  001594  500C               	movf	___lwdiv@divisor+1,w,c
   3854  001596  5A0A               	subwfb	___lwdiv@dividend+1,f,c
   3855  001598  800E               	bsf	___lwdiv@quotient,0,c
-  3856  00159A                     l2396:
+  3856  00159A                     l2491:
   3857  00159A  90D8               	bcf	status,0,c
   3858  00159C  320C               	rrcf	___lwdiv@divisor+1,f,c
   3859  00159E  320B               	rrcf	___lwdiv@divisor,f,c
   3860  0015A0  2E0D               	decfsz	___lwdiv@counter,f,c
   3861  0015A2  D7ED               	goto	u2070
-  3862  0015A4                     l737:
+  3862  0015A4                     l832:
   3863  0015A4  C00E  F009         	movff	___lwdiv@quotient,?___lwdiv
   3864  0015A8  C00F  F00A         	movff	___lwdiv@quotient+1,?___lwdiv+1
   3865  0015AC  0012               	return		;funcret
@@ -3951,8 +3951,8 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3925                           ;buffer.c: 57: while(*x) {
   3926                           
   3927                           ;incstack = 0
-  3928  001792  D00A               	goto	l2438
-  3929  001794                     l2434:
+  3928  001792  D00A               	goto	l2533
+  3929  001794                     l2529:
   3930                           
   3931                           ; BSR set to: 0
   3932                           ;buffer.c: 58: buffer_putch(*x);
@@ -3973,7 +3973,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3947                           ; BSR set to: 0
   3948                           ;buffer.c: 59: ++x;
   3949  0017A6  2A0C               	incf	buffer_puts@x,f,c
-  3950  0017A8                     l2438:
+  3950  0017A8                     l2533:
   3951  0017A8  FFFF               	dw	65535	; assembler added errata NOP
   3952                           
   3953                           ; BSR set to: 0
@@ -3989,7 +3989,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   3963  0017B2  0008               	tblrd		*
   3964  0017B4  FFFF               	dw	65535	; errata NOP
   3965  0017B6  50F5               	movf	tablat,w,c
-  3966  0017B8  E1ED               	bnz	l2434
+  3966  0017B8  E1ED               	bnz	l2529
   3967                           
   3968                           ; BSR set to: 0
   3969  0017BA  0012               	return		;funcret
@@ -4070,10 +4070,10 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4044  001668  BE0A               	btfsc	??_buffer_putch+1,7,c
   4045  00166A  D017               	goto	l162
   4046  00166C  500A               	movf	??_buffer_putch+1,w,c
-  4047  00166E  E102               	bnz	l2338
+  4047  00166E  E102               	bnz	l2433
   4048  001670  0409               	decf	??_buffer_putch,w,c
   4049  001672  E313               	bnc	l162
-  4050  001674                     l2338:
+  4050  001674                     l2433:
   4051                           
   4052                           ; BSR set to: 0
   4053                           ;buffer.c: 33: buffer.x[buffer.n] = ch;
@@ -4375,20 +4375,20 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4349  0013E0  5009               	movf	___ftpack@arg,w,c
   4350  0013E2  100A               	iorwf	___ftpack@arg+1,w,c
   4351  0013E4  100B               	iorwf	___ftpack@arg+2,w,c
-  4352  0013E6  E10A               	bnz	l2350
+  4352  0013E6  E10A               	bnz	l2445
   4353  0013E8                     u1990:
   4354  0013E8  6A09               	clrf	?___ftpack,c
   4355  0013EA  6A0A               	clrf	?___ftpack+1,c
   4356  0013EC  6A0B               	clrf	?___ftpack+2,c
-  4357  0013EE  D03E               	goto	l507
-  4358  0013F0                     l2348:
+  4357  0013EE  D03E               	goto	l602
+  4358  0013F0                     l2443:
   4359  0013F0  FFFF               	dw	65535	; assembler added errata NOP
   4360  0013F2  2A0C               	incf	___ftpack@exp,f,c
   4361  0013F4  90D8               	bcf	status,0,c
   4362  0013F6  320B               	rrcf	___ftpack@arg+2,f,c
   4363  0013F8  320A               	rrcf	___ftpack@arg+1,f,c
   4364  0013FA  3209               	rrcf	___ftpack@arg,f,c
-  4365  0013FC                     l2350:
+  4365  0013FC                     l2445:
   4366  0013FC  6A0E               	clrf	??___ftpack& (0+255),c
   4367  0013FE  6A0F               	clrf	(??___ftpack+1)& (0+255),c
   4368  001400  0EFE               	movlw	254
@@ -4397,9 +4397,9 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4371  001406  500E               	movf	??___ftpack,w,c
   4372  001408  100F               	iorwf	??___ftpack+1,w,c
   4373  00140A  1010               	iorwf	??___ftpack+2,w,c
-  4374  00140C  E00B               	bz	l2356
-  4375  00140E  D7F0               	goto	l2348
-  4376  001410                     l2352:
+  4374  00140C  E00B               	bz	l2451
+  4375  00140E  D7F0               	goto	l2443
+  4376  001410                     l2447:
   4377  001410  FFFF               	dw	65535	; assembler added errata NOP
   4378  001412  2A0C               	incf	___ftpack@exp,f,c
   4379  001414  2A09               	incf	___ftpack@arg,f,c
@@ -4410,7 +4410,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4384  00141E  320B               	rrcf	___ftpack@arg+2,f,c
   4385  001420  320A               	rrcf	___ftpack@arg+1,f,c
   4386  001422  3209               	rrcf	___ftpack@arg,f,c
-  4387  001424                     l2356:
+  4387  001424                     l2451:
   4388  001424  6A0E               	clrf	??___ftpack& (0+255),c
   4389  001426  6A0F               	clrf	(??___ftpack+1)& (0+255),c
   4390  001428  500B               	movf	___ftpack@arg+2,w,c
@@ -4418,21 +4418,21 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4392  00142C  500E               	movf	??___ftpack,w,c
   4393  00142E  100F               	iorwf	??___ftpack+1,w,c
   4394  001430  1010               	iorwf	??___ftpack+2,w,c
-  4395  001432  E007               	bz	l2360
-  4396  001434  D7ED               	goto	l2352
-  4397  001436                     l2358:
+  4395  001432  E007               	bz	l2455
+  4396  001434  D7ED               	goto	l2447
+  4397  001436                     l2453:
   4398  001436  FFFF               	dw	65535	; assembler added errata NOP
   4399  001438  060C               	decf	___ftpack@exp,f,c
   4400  00143A  90D8               	bcf	status,0,c
   4401  00143C  3609               	rlcf	___ftpack@arg,f,c
   4402  00143E  360A               	rlcf	___ftpack@arg+1,f,c
   4403  001440  360B               	rlcf	___ftpack@arg+2,f,c
-  4404  001442                     l2360:
+  4404  001442                     l2455:
   4405  001442  BE0A               	btfsc	___ftpack@arg+1,7,c
   4406  001444  D003               	goto	u2030
   4407  001446  0E02               	movlw	2
   4408  001448  600C               	cpfslt	___ftpack@exp,c
-  4409  00144A  D7F5               	goto	l2358
+  4409  00144A  D7F5               	goto	l2453
   4410  00144C                     u2030:
   4411  00144C  FFFF               	dw	65535	; assembler added errata NOP
   4412  00144E  A00C               	btfss	___ftpack@exp,0,c
@@ -4442,13 +4442,13 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4416  001456  500C               	movf	___ftpack@exp,w,c
   4417  001458  120B               	iorwf	___ftpack@arg+2,f,c
   4418  00145A  500D               	movf	___ftpack@sign,w,c
-  4419  00145C  E001               	bz	l2374
+  4419  00145C  E001               	bz	l2469
   4420  00145E  8E0B               	bsf	___ftpack@arg+2,7,c
-  4421  001460                     l2374:
+  4421  001460                     l2469:
   4422  001460  C009  F009         	movff	___ftpack@arg,?___ftpack
   4423  001464  C00A  F00A         	movff	___ftpack@arg+1,?___ftpack+1
   4424  001468  C00B  F00B         	movff	___ftpack@arg+2,?___ftpack+2
-  4425  00146C                     l507:
+  4425  00146C                     l602:
   4426  00146C  FFFF               	dw	65535	; assembler added errata NOP
   4427  00146E  0012               	return		;funcret
   4428  001470  FFFF               	dw	65535	; errata NOP
@@ -4530,7 +4530,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4504  000022  5C64               	subwf	_bres,w,c	;volatile
   4505  000024  0E13               	movlw	19
   4506  000026  5865               	subwfb	_bres+1,w,c	;volatile
-  4507  000028  E333               	bnc	i2l2252
+  4507  000028  E333               	bnc	i2l2347
   4508  00002A                     i2u188_40:
   4509                           
   4510                           ;LC-meter.c: 88: bres -= ((unsigned long)((double)((20000000) / 4) / 1000));
@@ -4582,7 +4582,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4555  000074  5C5F               	subwf	_msecpart,w,c	;volatile
   4556  000076  0E03               	movlw	3
   4557  000078  5860               	subwfb	_msecpart+1,w,c	;volatile
-  4558  00007A  E30A               	bnc	i2l2252
+  4558  00007A  E30A               	bnc	i2l2347
   4559                           
   4560                           ;LC-meter.c: 97: seconds++;
   4561  00007C  0100               	movlb	0	; () banked
@@ -4597,7 +4597,7 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4570  00008A  5E5F               	subwf	_msecpart,f,c	;volatile
   4571  00008C  0E03               	movlw	3
   4572  00008E  5A60               	subwfb	_msecpart+1,f,c	;volatile
-  4573  000090                     i2l2252:
+  4573  000090                     i2l2347:
   4574                           
   4575                           ;LC-meter.c: 99: }
   4576                           ;LC-meter.c: 100: }
@@ -4670,20 +4670,20 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4643  0015B4  6A06               	clrf	i2___lwdiv@quotient+1,c
   4644  0015B6  5003               	movf	i2___lwdiv@divisor,w,c
   4645  0015B8  1004               	iorwf	i2___lwdiv@divisor+1,w,c
-  4646  0015BA  E01E               	bz	i2l737
+  4646  0015BA  E01E               	bz	i2l832
   4647  0015BC  0E01               	movlw	1
   4648  0015BE  6E07               	movwf	i2___lwdiv@counter,c
-  4649  0015C0  D005               	goto	i2l2220
-  4650  0015C2                     i2l2218:
+  4649  0015C0  D005               	goto	i2l2315
+  4650  0015C2                     i2l2313:
   4651  0015C2  FFFF               	dw	65535	; assembler added errata NOP
   4652  0015C4  90D8               	bcf	status,0,c
   4653  0015C6  3603               	rlcf	i2___lwdiv@divisor,f,c
   4654  0015C8  3604               	rlcf	i2___lwdiv@divisor+1,f,c
   4655  0015CA  2A07               	incf	i2___lwdiv@counter,f,c
-  4656  0015CC                     i2l2220:
+  4656  0015CC                     i2l2315:
   4657  0015CC  FFFF               	dw	65535	; assembler added errata NOP
   4658  0015CE  AE04               	btfss	i2___lwdiv@divisor+1,7,c
-  4659  0015D0  D7F8               	goto	i2l2218
+  4659  0015D0  D7F8               	goto	i2l2313
   4660  0015D2                     i2u185_40:
   4661  0015D2  FFFF               	dw	65535	; assembler added errata NOP
   4662  0015D4  90D8               	bcf	status,0,c
@@ -4693,19 +4693,19 @@ Microchip Technology Omniscient Code Generator v1.45 (PRO mode) build 2017111605
   4666  0015DC  5C01               	subwf	i2___lwdiv@dividend,w,c
   4667  0015DE  5004               	movf	i2___lwdiv@divisor+1,w,c
   4668  0015E0  5802               	subwfb	i2___lwdiv@dividend+1,w,c
-  4669  0015E2  E305               	bnc	i2l2230
+  4669  0015E2  E305               	bnc	i2l2325
   4670  0015E4  5003               	movf	i2___lwdiv@divisor,w,c
   4671  0015E6  5E01               	subwf	i2___lwdiv@dividend,f,c
   4672  0015E8  5004               	movf	i2___lwdiv@divisor+1,w,c
   4673  0015EA  5A02               	subwfb	i2___lwdiv@dividend+1,f,c
   4674  0015EC  8005               	bsf	i2___lwdiv@quotient,0,c
-  4675  0015EE                     i2l2230:
+  4675  0015EE                     i2l2325:
   4676  0015EE  90D8               	bcf	status,0,c
   4677  0015F0  3204               	rrcf	i2___lwdiv@divisor+1,f,c
   4678  0015F2  3203               	rrcf	i2___lwdiv@divisor,f,c
   4679  0015F4  2E07               	decfsz	i2___lwdiv@counter,f,c
   4680  0015F6  D7ED               	goto	i2u185_40
-  4681  0015F8                     i2l737:
+  4681  0015F8                     i2l832:
   4682  0015F8  C005  F001         	movff	i2___lwdiv@quotient,?i2___lwdiv
   4683  0015FC  C006  F002         	movff	i2___lwdiv@quotient+1,?i2___lwdiv+1
   4684  001600  0012               	return		;funcret
@@ -4906,7 +4906,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 1     1      0   68002
+ (0) _main                                                 1     1      0   68842
                                              83 COMRAM     1     1      0
                           _calibrate
                           _delay10ms
@@ -4924,7 +4924,7 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (1) _print_indicator                                      1     1      0       0
  ---------------------------------------------------------------------------------
- (1) _measure_inductance                                  33    33      0   30707
+ (1) _measure_inductance                                  33    33      0   30987
                                               0 BANK0     33    33      0
                             ___ftdiv
                              ___ftge
@@ -4936,7 +4936,7 @@ Call Graph Tables:
                       _print_reading
                          _print_unit
  ---------------------------------------------------------------------------------
- (1) _measure_capacitance                                 15    15      0   30401
+ (1) _measure_capacitance                                 15    15      0   30681
                                              68 COMRAM    15    15      0
                             ___ftdiv
                              ___ftge
@@ -4979,12 +4979,12 @@ Call Graph Tables:
                                              16 COMRAM    15     9      6
                            ___ftpack
  ---------------------------------------------------------------------------------
- (1) _calibrate                                            1     1      0    6466
+ (1) _calibrate                                            1     1      0    6746
                            ___lwtoft
                           _delay10ms
                        _measure_freq
  ---------------------------------------------------------------------------------
- (2) _measure_freq                                         5     3      2    3002
+ (2) _measure_freq                                         5     3      2    3282
                                              60 COMRAM     5     3      2
                         _buffer_init
                         _buffer_puts
@@ -4997,16 +4997,16 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (3) _print_buffer                                         0     0      0       0
  ---------------------------------------------------------------------------------
- (3) _format_number                                       45    39      6    2584
+ (3) _format_number                                       45    39      6    2864
                                              15 COMRAM    45    39      6
                             ___lwdiv
                             ___lwmod
                        _buffer_putch *
  ---------------------------------------------------------------------------------
- (4) ___lwmod                                              5     1      4     412
+ (4) ___lwmod                                              5     1      4     552
                                               8 COMRAM     5     1      4
  ---------------------------------------------------------------------------------
- (4) ___lwdiv                                              7     3      4     531
+ (4) ___lwdiv                                              7     3      4     671
                                               8 COMRAM     7     3      4
  ---------------------------------------------------------------------------------
  (3) _buffer_puts                                          1     0      1     186
@@ -5197,7 +5197,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Thu Jul  2 17:25:48 2020
+Symbol Table                                                                                   Thu Jul  2 17:31:56 2020
 
                                                                     _F1 0061  
                                                                     _F2 0058  
@@ -5209,19 +5209,19 @@ Symbol Table                                                                    
                                                           ___ftadd@sign 001A  
                                                                    l201 11AE  
                                                                    l162 169A  
-                                                                   l601 1306  
-                                                                   l507 146C  
-                                                                   l613 10DE  
+                                                                   l602 146C  
                                                                    l286 1610  
-                                                                   l607 1556  
-                                                                   l634 1278  
-                                                                   l590 0DAE  
-                                                                   l591 0DC2  
-                                                                   l567 0E0E  
-                                                                   l737 15A4  
-                                                                   l747 16DC  
-                                                                   l598 1336  
-                                                                   l599 12BC  
+                                                                   l702 1556  
+                                                                   l708 10DE  
+                                                                   l662 0E0E  
+                                                                   l832 15A4  
+                                                                   l729 1278  
+                                                                   l842 16DC  
+                                                                   l693 1336  
+                                                                   l685 0DAE  
+                                                                   l694 12BC  
+                                                                   l686 0DC2  
+                                                                   l696 1306  
                                                           __CFG_CPD$OFF 000000  
                                                                    _isr 0008  
                                                           __CFG_BORV$27 000000  
@@ -5232,75 +5232,75 @@ Symbol Table                                                                    
                                                           ___ftdiv@cntr 001A  
                                                           ___ftdiv@sign 001F  
                                                           __CFG_WDT$OFF 000000  
-                                                                  l2100 1384  
-                                                                  l2110 13A2  
-                                                                  l2102 138C  
-                                                                  l2116 13B6  
-                                                                  l2108 139C  
-                                                                  l2412 16D2  
-                                                                  l2404 16AE  
-                                                                  l2092 136C  
-                                                                  l2084 1354  
-                                                                  l2350 13FC  
-                                                                  l2406 16B8  
-                                                                  l2094 1374  
-                                                                  l2086 135C  
-                                                                  l2360 1442  
-                                                                  l2352 1410  
-                                                                  l2520 0D66  
-                                                                  l2338 1674  
-                                                                  l2434 1794  
-                                                                  l2450 10F6  
-                                                                  l2610 12E0  
-                                                                  l2530 0D96  
-                                                                  l2356 1424  
-                                                                  l2348 13F0  
-                                                                  l2540 0DE8  
-                                                                  l2516 0D52  
-                                                                  l2374 1460  
-                                                                  l2358 1436  
-                                                                  l2438 17A8  
-                                                                  l2518 0D5E  
-                                                                  l2384 156E  
-                                                                  l2456 1118  
-                                                                  l2632 1042  
-                                                                  l2528 0D8C  
-                                                                  l2386 1578  
-                                                                  l2466 1158  
-                                                                  l2650 1078  
-                                                                  l2730 1268  
-                                                                  l2722 1240  
-                                                                  l2714 1224  
-                                                                  l2810 09BE  
-                                                                  l2396 159A  
-                                                                  l2468 115E  
-                                                                  l2660 10A4  
-                                                                  l2628 1020  
-                                                                  l2724 124C  
-                                                                  l2646 1066  
-                                                                  l2494 0D16  
-                                                                  l2718 1236  
-                                                                  l2806 0992  
-                                                                  l2814 09E8  
-                                                                  l2592 129A  
-                                                                  l2680 151A  
-                                                                  l2656 1092  
-                                                                  l2488 0CF0  
-                                                                  l2672 16F6  
-                                                                  l2816 09F0  
-                                                                  l2690 1554  
-                                                                  l2762 0A96  
-                                                                  l2684 153A  
-                                                                  l2772 0BF4  
-                                                                  l2780 0C4A  
-                                                                  l2776 0C20  
-                                                                  l2880 0FCC  
-                                                                  l2698 11D8  
-                                                                  l2890 0FE8  
-                                                                  l2874 0FBA  
-                                                                  l2796 0692  
-                                                                  l2884 0FDA  
-                                                                  l2888 0FE4  
+                                                                  l2211 13B6  
+                                                                  l2203 139C  
+                                                                  l2205 13A2  
+                                                                  l2501 16B8  
+                                                                  l2181 135C  
+                                                                  l2433 1674  
+                                                                  l2451 1424  
+                                                                  l2443 13F0  
+                                                                  l2507 16D2  
+                                                                  l2611 0D52  
+                                                                  l2195 1384  
+                                                                  l2187 136C  
+                                                                  l2179 1354  
+                                                                  l2453 1436  
+                                                                  l2445 13FC  
+                                                                  l2533 17A8  
+                                                                  l2613 0D5E  
+                                                                  l2197 138C  
+                                                                  l2189 1374  
+                                                                  l2455 1442  
+                                                                  l2447 1410  
+                                                                  l2551 1118  
+                                                                  l2623 0D8C  
+                                                                  l2615 0D66  
+                                                                  l2529 1794  
+                                                                  l2481 1578  
+                                                                  l2561 1158  
+                                                                  l2545 10F6  
+                                                                  l2705 12E0  
+                                                                  l2625 0D96  
+                                                                  l2491 159A  
+                                                                  l2563 115E  
+                                                                  l2723 1020  
+                                                                  l2635 0DE8  
+                                                                  l2469 1460  
+                                                                  l2741 1066  
+                                                                  l2813 1236  
+                                                                  l2901 0992  
+                                                                  l2479 156E  
+                                                                  l2751 1092  
+                                                                  l2727 1042  
+                                                                  l2583 0CF0  
+                                                                  l2911 09F0  
+                                                                  l2745 1078  
+                                                                  l2825 1268  
+                                                                  l2817 1240  
+                                                                  l2809 1224  
+                                                                  l2905 09BE  
+                                                                  l2499 16AE  
+                                                                  l2755 10A4  
+                                                                  l2819 124C  
+                                                                  l2589 0D16  
+                                                                  l2909 09E8  
+                                                                  l2687 129A  
+                                                                  l2775 151A  
+                                                                  l2767 16F6  
+                                                                  l2871 0C20  
+                                                                  l2785 1554  
+                                                                  l2793 11D8  
+                                                                  l2857 0A96  
+                                                                  l2779 153A  
+                                                                  l2867 0BF4  
+                                                                  l2875 0C4A  
+                                                                  l2891 0692  
+                                                                  l2983 0FE4  
+                                                                  l2975 0FCC  
+                                                                  l2985 0FE8  
+                                                                  l2969 0FBA  
+                                                                  l2979 0FDA  
                                                                   ?_isr 0001  
                                                                   STR_1 063A  
                                                                   u2100 16BE  
@@ -5389,7 +5389,7 @@ Symbol Table                                                                    
                                                                  _T2CON 000FCA  
                                                        __end_of___lwdiv 15B0  
                                                        __end_of___lwmod 16E8  
-                                                                 i2l737 15F8  
+                                                                 i2l832 15F8  
                                                                  _PORTC 000F82  
                                                                  _TRISA 000F92  
                                                                  _TRISB 000F93  
@@ -5429,10 +5429,10 @@ Symbol Table                                                                    
                                                 __size_of_format_number 00CE  
                                                        __CFG_CCP2MUX$ON 000000  
                                                       __end_of___ftpack 1472  
-                                                                i2l2220 15CC  
-                                                                i2l2230 15EE  
-                                                                i2l2218 15C2  
-                                                                i2l2252 0090  
+                                                                i2l2313 15C2  
+                                                                i2l2315 15CC  
+                                                                i2l2325 15EE  
+                                                                i2l2347 0090  
                                                                 _INTCON 000FF2  
                                                       __end_of___lwtoft 17E6  
                                                                 ___ftge 14FA  
@@ -5462,13 +5462,13 @@ Symbol Table                                                                    
                                                   __end_of_buffer_putch 16A0  
                                                       format_number@buf 0018  
                                                       format_number@pad 0015  
-                                               _measure_inductance$1180 0086  
-                                               _measure_inductance$1181 0093  
-                                               _measure_inductance$1182 0096  
-                                               _measure_inductance$1183 0099  
-                                               _measure_inductance$1184 0089  
-                                               _measure_inductance$1185 008C  
-                                               _measure_inductance$1186 008F  
+                                               _measure_inductance$1281 0086  
+                                               _measure_inductance$1282 0093  
+                                               _measure_inductance$1283 0096  
+                                               _measure_inductance$1284 0099  
+                                               _measure_inductance$1285 0089  
+                                               _measure_inductance$1286 008C  
+                                               _measure_inductance$1287 008F  
                                                       __end_ofexp@coeff 061F  
                                                       __end_oflog@coeff 063A  
                                                             __accesstop 0080  
@@ -5684,9 +5684,9 @@ Symbol Table                                                                    
                                                   delay10ms@period_10ms 0001  
                                                            _timer0_init 133C  
                                                            _timer2_init 175A  
-                                              _measure_capacitance$1177 0045  
-                                              _measure_capacitance$1178 0048  
-                                              _measure_capacitance$1179 004B  
+                                              _measure_capacitance$1280 004B  
+                                              _measure_capacitance$1278 0045  
+                                              _measure_capacitance$1279 0048  
                                                     timer0_init@ps_mode 0013  
                                                        ___lwmod@divisor 000B  
                                                        ___lwmod@counter 000D  

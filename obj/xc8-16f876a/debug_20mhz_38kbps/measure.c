@@ -35,6 +35,56 @@ void Delay1KTCYx(uint8_t);
 extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
+#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+
+char ser_isrx(void);
+unsigned char ser_rxsize(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
+
+uint8_t ser_rxat(unsigned char at);
+unsigned char ser_size(void);
+#line 68 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+extern uint8_t ser_brg;
+#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.h"
+void lcd_init(char fourbitmode);
+void lcd_begin(uint8_t l, uint8_t ds);
+void lcd_no_autoscroll(void);
+void lcd_autoscroll(void);
+void lcd_right_to_left(void);
+void lcd_left_to_right(void);
+void lcd_scroll_print_right(void);
+void lcd_scroll_print_left(void);
+void lcd_blink();
+void lcd_no_blink();
+void lcd_cursor();
+void lcd_no_cursor();
+void lcd_display();
+void lcd_no_display();
+void lcd_clear();
+void lcd_home();
+void lcd_print_number(uint16_t n, uint8_t base, int8_t pad);
+void lcd_print_float(float number, uint8_t digits);
+void lcd_puts(const char* string);
+
+void lcd_gotoxy(uint8_t col, uint8_t row);
+void lcd_putch(char value);
+void lcd_send(uint8_t value, uint8_t mode);
 #line 6 "/home/roman/Dokumente/Sources/lc-meter/src/measure.h"
 void calibrate(void);
 unsigned short measure_freq(void);
@@ -54,10 +104,10 @@ void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
 typedef void(putch_t)(char);
-#line 8 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-void format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(putch_t fn,uint32_t x);
-void format_double(putch_t fn,double num);
+
+void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn, uint32_t x);
+void format_double(putch_t fn, double num);
 #line 72 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer0_init(unsigned char);
 #line 79 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
@@ -79,13 +129,24 @@ extern buffer_t buffer;
 
 void buffer_init(void);
 char buffer_flush(void);
-char buffer_putch(char ch);
+char buffer_putc(char ch);
+void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #line 25 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 void
 calibrate() {
   uint8_t i;
+  #line 30 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+lcd_clear();
+  
+lcd_gotoxy(0, 0);
+  put_str("Calibrating");
+  
+lcd_gotoxy(0, 1);
+  
+ser_puts("\r\n");
+  put_str("please wait...");
   #line 42 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 PORTC &= ~(1 << 5);
   
@@ -100,7 +161,15 @@ F2 = (double)measure_freq();
   
 F2 = (double)measure_freq();
   PORTC &= ~(1 << 5);
-#line 67 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+  #line 57 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+lcd_gotoxy(11, 0);
+  for(i = 0; i < 6; i++) { 
+    lcd_putch('=');
+     
+    delay10ms(28);
+  }
+  #line 65 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+ser_puts("\r\n");
 }
 #line 72 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 unsigned short
@@ -137,13 +206,20 @@ TRISA |= 0b00010000;
   
   
 count = timer0_read_ps();
-  #line 112 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-buffer_init();
+  #line 110 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+lcd_gotoxy(0, 1);
+  buffer_init();
   buffer_puts("Freq=");
   format_number(&buffer_putch,count, 10, 5);
   print_buffer();
-  
+  #line 117 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 return count;
+}
+
+void
+buf_to_ser() {
+  ser_put(buffer.x, buffer.n);
+  buffer.p = 0, buffer.n = 0, 0;
 }
 #line 130 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 void
@@ -152,10 +228,42 @@ measure_capacitance() {
   uint16_t var;
   
 double Cin;
-  #line 142 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-var = measure_freq();
-  
+  #line 139 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+lcd_gotoxy(0, 0);
+  put_str("Capacity ");
+  var = measure_freq();
+  #line 144 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 F3 = (double)var;
+  
+  
+ser_puts("var=");
+  format_xint32(&ser_putch, var);
+  
+  ser_puts("\r\nF1=");
+  format_double(&ser_putch, F1);
+  
+  ser_putch(' ');
+  format_xint32(&ser_putch, *(uint32_t*)&F1);
+  
+  ser_puts("\r\nF2=");
+  format_double(&ser_putch, F2);
+  
+  ser_putch(' ');
+  format_xint32(&ser_putch, *(uint32_t*)&F2);
+  
+  ser_puts("\r\nF3=");
+  format_double(&ser_putch, F3);
+  
+  ser_putch(' ');
+  format_xint32(&ser_putch, *(uint32_t*)&F3);
+  
+  ser_puts("\r\nCCal=");
+  format_double(&ser_putch, CCal);
+  
+  ser_putch(' ');
+  format_xint32(&ser_putch, *(uint32_t*)&CCal);
+  
+  ser_puts("\r\n");
   
   #line 178 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 if(F3 > F1)
@@ -163,8 +271,13 @@ if(F3 > F1)
   
 Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   
-  #line 191 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-if(Cin > 999) {
+  #line 185 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+ser_puts("Cin=");
+  format_double(&ser_putch, Cin);
+  ser_putch(' ');
+  format_xint32(&ser_putch, *(uint32_t*)&Cin);
+  ser_puts("\r\n");
+  if(Cin > 999) {
     if(Cin > (999e+03l)) {
       if(Cin > (999e+06l)) {
         Cin = Cin / (1e+09);
@@ -179,7 +292,7 @@ if(Cin > 999) {
     }
   } else
     unit = 7; 
-  
+  #line 207 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 Cin = Cin * 100; 
   var = (uint16_t)Cin;
   
@@ -193,9 +306,11 @@ measure_inductance() {
   uint16_t var;
   
 double Lin, numerator, denominator;
-  #line 228 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
-var = measure_freq();
-  
+  #line 225 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
+lcd_gotoxy(0, 0);
+  put_str("Inductivity ");
+  var = measure_freq();
+  #line 230 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 F3 = (double)var;
   if(F3 > F1)
     F3 = F1; 

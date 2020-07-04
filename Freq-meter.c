@@ -127,7 +127,7 @@ main() {
 
     if(frequency != prev_frequency) {
 
-      format_number(/*&ser_putch,*/ frequency, 10, 0);
+      format_number(&ser_putch, frequency, 10, 0);
       ser_putch('\r');
       ser_putch('\n');
 

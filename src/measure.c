@@ -145,32 +145,32 @@ measure_capacitance() {
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
-  format_xint32(var);
-  buf_to_ser();
+  format_xint32(&ser_putch, var);
+  ////buf_to_ser();
   ser_puts("\r\nF1=");
-  format_double(F1);
-  buf_to_ser();
+  format_double(&ser_putch, F1);
+  ////buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F1);
-  buf_to_ser();
+  format_xint32(&ser_putch, *(uint32_t*)&F1);
+  ////buf_to_ser();
   ser_puts("\r\nF2=");
-  format_double(F2);
-  buf_to_ser();
+  format_double(&ser_putch, F2);
+  //buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F2);
-  buf_to_ser();
+  format_xint32(&ser_putch, *(uint32_t*)&F2);
+  //buf_to_ser();
   ser_puts("\r\nF3=");
-  format_double(F3);
-  buf_to_ser();
+  format_double(&ser_putch, F3);
+  //buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&F3);
-  buf_to_ser();
+  format_xint32(&ser_putch, *(uint32_t*)&F3);
+  //buf_to_ser();
   ser_puts("\r\nCCal=");
-  format_double(CCal);
-  buf_to_ser();
+  format_double(&ser_putch, CCal);
+  //buf_to_ser();
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&CCal);
-  buf_to_ser();
+  format_xint32(&ser_putch, *(uint32_t*)&CCal);
+  //buf_to_ser();
   ser_puts("\r\n");
 #endif
   //  putchar_ptr = &output_putch;
@@ -183,9 +183,9 @@ measure_capacitance() {
 
 #if USE_SER
   ser_puts("Cin=");
-  format_double(Cin);
+  format_double(&ser_putch, Cin);
   ser_putch(' ');
-  format_xint32(*(uint32_t*)&Cin);
+  format_xint32(&ser_putch, *(uint32_t*)&Cin);
   ser_puts("\r\n");
 #endif
   if(Cin > 999) {

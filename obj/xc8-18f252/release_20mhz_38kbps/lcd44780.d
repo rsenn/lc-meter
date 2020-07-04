@@ -1,1 +1,1 @@
- obj/xc8-18f252/release_20mhz_38kbps/lcd44780.d  obj/xc8-18f252/release_20mhz_38kbps/lcd44780.p1:  lib/lcd44780.c lib/typedef.h lib/device.h lib/oscillator.h lib/lcd44780.h lib/tsmdelay.h lib/delay.h lib/lcd44780-config.h lib/const.h
+ xc8-18f252/release_20mhz_38kbps/lcd44780.d  xc8-18f252/release_20mhz_38kbps/lcd44780.p1:  xc8-18f252/release_20mhz_38kbps/lcd44780.c

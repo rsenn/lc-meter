@@ -55,8 +55,9 @@ KBPS := $(shell echo "$(BAUD) / 1000" |bc -l | sed "s|0*$$|| ;; s|\.$$|| ;; s|\.
 ifeq ($(PROGRAMS),)
 #PROGRAMS := LC_meter_julznc #LC_meter_HD44780 Freq_meter_HD44780 serialtest
 #PROGRAMS := LC_meter_HD44780 Freq_meter_HD44780 Cap_meter_HD44780 serialtest LC_meter_julznc
-PROGRAMS := LC_meter_HD44780 #serialtest LC_meter_julznc
+PROGRAMS := LC_meter_HD44780 Cap_meter_HD44780 Freq_meter_HD44780
 endif
+
 ifeq ($(PROGRAM),)
 PROGRAM := LC_meter_HD44780
 endif
@@ -67,8 +68,16 @@ else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c  timer.c
-LC_meter_HD44780_DEFS += -DUSE_TIMER0=1 -DUSE_TIMER2=1
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
+LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1
+
+Cap_meter_HD44780_SOURCES = Cap-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
+Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
+
+
+Freq_meter_HD44780_SOURCES = Freq-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
+Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
+
 
 ifeq ($(_DEBUG),1)
 BUILD_TYPE = debug

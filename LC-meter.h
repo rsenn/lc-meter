@@ -26,7 +26,7 @@
 #define LC_SELECT (!!(PORTA & (1 << 5))) // L or C select (from DPDT switch)
 #define LC_TRIS() TRISA |= (1 << 5)      // as input
 #define ADD_CCAL() OUTA |= (1 << 6)      // relay on
-#define REMOVE_CCAL() OUTA &= ~(1 << 6)  // relay off
+#define REMOVE_CCAL() OUTA &= ~(1 << 6)  // relay offP
 #define RELAY_TRIS() TRISA &= ~(1 << 7)  // as output to drive the relay coil
 #elif PIC18F2550
 #define NO_PORTC 0

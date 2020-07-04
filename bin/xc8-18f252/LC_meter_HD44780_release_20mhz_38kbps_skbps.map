@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.45/dat/en_msgs.txt -cs \
   -h+bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.sym \
   --cmf=bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.cmf -z \
-  -Q18F252 -o/tmp/xcX7XXGBt \
+  -Q18F252 -o/tmp/xcXirwsLg \
   -Mbin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps_skbps.map -ver=XC8 \
   -ASTACK=0C1h-05ffh -pstack=STACK -ACODE=00h-03FFFhx2 -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXGTeZ63.obj \
+  /tmp/xcXBDU1ju.obj \
   bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXGTeZ63.obj
+/tmp/xcXBDU1ju.obj
                 text                               1814     1814        2      321       0
                 init                                 9A       9A        4        4       0
                 reset_vec                             0        0        6        0       0
@@ -502,7 +502,7 @@ ___rparam_used                                                          (abs)   
 ___sp                                                                   stack        000000
 __accesstop                                                             (abs)        000080
 __activetblptr                                                          (abs)        000002
-__cntErrataNOP_/tmp/xcXGTeZ63.obj                                       (abs)        000001
+__cntErrataNOP_/tmp/xcXBDU1ju.obj                                       (abs)        000001
 __cntErrataNOP_bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.obj (abs)        000078
 __end_of___ftadd                                                        text10       000E14
 __end_of___ftdiv                                                        text13       00133C
@@ -624,18 +624,18 @@ _led_cycle                                                              bssCOMRA
 _led_interval                                                           nvCOMRAM     000068
 _main                                                                   text0        000F16
 _measure_capacitance                                                    text5        000A46
-_measure_capacitance$1177                                               cstackCOMRAM 000045
-_measure_capacitance$1178                                               cstackCOMRAM 000048
-_measure_capacitance$1179                                               cstackCOMRAM 00004B
+_measure_capacitance$1278                                               cstackCOMRAM 000045
+_measure_capacitance$1279                                               cstackCOMRAM 000048
+_measure_capacitance$1280                                               cstackCOMRAM 00004B
 _measure_freq                                                           text15       000E14
 _measure_inductance                                                     text4        000642
-_measure_inductance$1180                                                cstackBANK0  000086
-_measure_inductance$1181                                                cstackBANK0  000093
-_measure_inductance$1182                                                cstackBANK0  000096
-_measure_inductance$1183                                                cstackBANK0  000099
-_measure_inductance$1184                                                cstackBANK0  000089
-_measure_inductance$1185                                                cstackBANK0  00008C
-_measure_inductance$1186                                                cstackBANK0  00008F
+_measure_inductance$1281                                                cstackBANK0  000086
+_measure_inductance$1282                                                cstackBANK0  000093
+_measure_inductance$1283                                                cstackBANK0  000096
+_measure_inductance$1284                                                cstackBANK0  000099
+_measure_inductance$1285                                                cstackBANK0  000089
+_measure_inductance$1286                                                cstackBANK0  00008C
+_measure_inductance$1287                                                cstackBANK0  00008F
 _mode                                                                   dataCOMRAM   00006A
 _msecpart                                                               bssCOMRAM    00005F
 _msecs                                                                  bssBANK0     0000B6

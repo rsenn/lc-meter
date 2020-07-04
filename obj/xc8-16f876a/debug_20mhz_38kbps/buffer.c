@@ -30,7 +30,8 @@ extern buffer_t buffer;
 
 void buffer_init(void);
 char buffer_flush(void);
-char buffer_putch(char ch);
+char buffer_putc(char ch);
+void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #include <string.h>
@@ -52,12 +53,17 @@ buffer.p = 0, buffer.n = 0, 0;
 }
 
 char
-buffer_putch(char ch) {
+buffer_putc(char ch) {
   if(16 - buffer.n <= 0)
     return 0;
   buffer.x[buffer.n] = ch;
   buffer.n++;
   return 1;
+}
+
+void
+buffer_putch(char ch) {
+  buffer_putc(ch);
 }
 
 char
@@ -69,7 +75,7 @@ buffer_put(const char* buf, len_t len) {
   buffer.n += len;
   return 0;
 }
-#line 55 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+#line 60 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
 char
 buffer_puts(const char* x) {
   while(*x) {
