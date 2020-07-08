@@ -8,17 +8,37 @@
 	"buffers":
 	[
 		{
+			"contents": "#include \"device.h\"\n#include \"LC-meter.h\"\n\n#include \"oscillator.h\"\n#include \"interrupt.h\"\n\n//#include \"main.h \"\n#include \"delay.h\"\n\n#if USE_HD44780_LCD\n#include \"lcd44780.h\"\n#endif\n\n#if USE_NOKIA5110_LCD\n#include \"lcd5110.h\"\n#endif\n\n#define TIMER2_PRESCALER PRESCALE_1_16\n#define TIMER2_POSTSCALER POSTSCALE_1_16\n\n#include \"timer.h\"\n\n#ifdef USE_UART\n#include \"uart.h\"\n#endif\n\n\n#if USE_SER\n#include \"ser.h\"\n#endif\n#if USE_SOFTSER\n#include \"softser.h\"\n#endif\n\n#include \"measure.h\"\n#include \"print.h\"\n#include \"format.h\"\n//#include \"buffer.h\"\n\n#include \"config-bits.h\"\n\n#if(defined(__SDCC) || defined(SDCC)) && !PIC18\nuint16_t __at(_CONFIG) __configword = CONFIG_WORD;\n#endif\n\n#define CCP1_EDGE() (CCP1M0)\n\nvolatile uint32_t bres;           // bresenham count\nvolatile uint16_t msecpart;       // milliseconds modulo 1000\nvolatile uint16_t led_cycle;      // led blinking cycle\nvolatile uint16_t led_interval;   // led blinking interval\nvolatile uint32_t seconds, msecs; // seconds and milliseconds counters\nvolatile uint32_t timer1of;       // timer 1 overflows\n\nstatic char mode = -1;\n//\n#define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))\n\n// volatile uint32_t ccp1t_lr, ccp1t[2];\n\n/*\n * Delay using milliseconds count\n */\nvoid\ndelay10ms(unsigned char period_10ms) {\n  /*\tshort i,j = period_10ms;\n    for(i = 0; i < j; ++i)\n      __delay_ms(10);*/\n}\n\n// buffer_t buffer = BUFFER_STATIC(output_putch);\n\ndouble F1, F2, F3, CCal;\nvoid main();\nvoid loop();\nvoid testloop();\nvoid initialize();\nuint32_t milliseconds();\n\nvoid put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad /*, int8_t pointpos */);\n\nvolatile uint16_t blink = 0;\n\n/* Interrupt routine */\nINTERRUPT_FN() {\n  if(TMR2IF) {\n    bres += 256;\n    if(bres >= CYCLES_FOR_MSEC) {\n      bres -= CYCLES_FOR_MSEC;\n      msecpart++;\n      led_cycle++;\n__configword\n      SET_LED(led_cycle >= 0 && led_cycle < led_interval / 6);\n\n      // if reached 1 second...\n      if(msecpart >= 1000) {\n        // ...update clock, etc\n        seconds++;\n        msecpart -= 1000;\n      }\n    }\n    // Clear timer interrupt bit\n    TMR2IF = 0;\n  }\n#if USE_SER\n  ser_int();\n#endif\n#if USE_UART\n  // uart_isr();\n#endif\n}\n\n/**\n * @brief      { function_description }\n */\nvoid\nmain() {\n  bres = msecpart = msecs = seconds = 0;\n  mode = -1;\n\n  CCal = C_CAL;\n\n  led_cycle = 0;\n  led_interval = 500;\n\n  // setup comparator\n\n  /*  CMCON &= 0b11111000;\n    CMCON |= 0b00000101;*/\n\n#ifdef __16f876a\n  CMCON = 0b00000101;\n#endif\n  TRISA = 0b11001111;\n\n  TRISB &= 0b00001111;\n\n  // setup timer0 for frequency counter\n  timer0_init(PRESCALE_1_256 | TIMER0_FLAGS_EXTCLK | TIMER0_FLAGS_8BIT);\n  timer2_init(TIMER2_PRESCALER | TIMER2_FLAGS_INTR);\n\n  // others\n#if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80) && !defined(__XC8__)\n  RBPU = 1;\n#else\n#if PIC18\n  INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup\n#else\n  OPTION_REG &= ~0b100000;\n#endif\n#endif\n#if !NO_PORTC && !defined(__16f628)\n  //  TRISC &= 0b11110101;  /* OUTC1 and OUTC3 -> outputs */\n  //  TRISC |= 0b00000101;  /* OUTC0 and OUTC2 -> inputs */\n  TRISC = 0b10110011;\n#endif\n\n#if !defined(__18f2550) && !defined(__18f25k50)\n  RC3 = HIGH;\n#endif\n\n  INIT_LED();\n  SET_LED(1);\n\n  timer2_init(PRESCALE_1_1 | TIMER2_FLAGS_INTR);\n\n  // initialize 5110 lcd\n#if USE_NOKIA5110_LCD\n  lcd_init();\n  lcd_clear();\n#elif USE_HD44780_LCD\n  lcd_init(1);\n  lcd_begin(2, 1);\n#endif\n\n  LC_TRIS();\n  RELAY_TRIS();\n\n  REMOVE_CCAL();\n  delay10ms(50);\n  ADD_CCAL();\n  delay10ms(50);\n  REMOVE_CCAL();\n  delay10ms(50);\n  ADD_CCAL();\n  delay10ms(50);\n  REMOVE_CCAL();\n\n#if USE_SER\n  ser_init();\n#endif\n#if USE_UART\n  uart_init();\n#endif\n  //  TRISC &= ~0b01000000;\n\n  INTCON |= 0xc0; // PEIE = 1; GIE = 1;\n\n#if USE_HD44780_LCD || USE_NOKIA5110_LCD\n#if USE_NOKIA5110_LCD\n  lcd_gotoxy(0, 0);\n#else\n  lcd_gotoxy(0, 0);\n#endif\n  lcd_puts(\"LC-meter \");\n  format_double(&lcd_putch, CCal);\n#endif\n\n#ifdef _DEBUG\n  delay10ms(5);\n#else\n  delay10ms(200);\n#endif\n\n  calibrate();\n\n#if USE_HD44780_LCD || USE_NOKIA5110_LCD\n  lcd_clear();\n#endif\n\n  /* main loop:\n   *\n   * Continuously measure capacity/inductance according to switch position.\n   * Blink the print_indicator (-*-) sign after each measurement.\n   */\n  for(;;) {\n    char new_mode = LC_SELECT;\n\n    if(new_mode != mode) {\n#if USE_SER\n      ser_puts(mode ? \"- C (Unit: F) -\" : \"- L (Unit: H) -\");\n      ser_puts(\"\\r\\n\");\n#endif\n      mode = new_mode;\n    }\n\n    if(led_cycle >= led_interval)\n      led_cycle = 0;\n\n    if(mode)\n      measure_capacitance();\n    else\n      measure_inductance();\n\n    print_indicator(1);\n    delay10ms(30);\n\n    print_indicator(0);\n    delay10ms(20);\n  }\n}\n\nvoid\ntestloop() {\n\n  static char led = 0;\n  static uint16_t prev_s = 0;\n  uint16_t s;\n\n  delay10ms(10);\n\n  INTCON &= ~0x80; // GIE = 0;\n  s = seconds;\n  INTCON |= 0x80; // GIE = 1;\n\n#ifdef USE_SOFTSER\n  softser_puts(\"XXXX\\r\\n\");\n#endif\n\n#if USE_HD44780_LCD || USE_NOKIA5110_LCD\n#if USE_NOKIA5110_LCD\n  lcd_gotoxy(0, 0);\n#else\n  lcd_gotoxy(10, 0);\n  lcd_puts(\"      \");\n  lcd_gotoxy(10, 0);\n#endif\n  format_number(&lcd_putch, s, 10, 5);\n\n  lcd_gotoxy(10, 1);\n  lcd_puts(\"      \");\n  lcd_gotoxy(10, 1);\n  //\t format_number(TIMER1_VALUE, 10, 5);\n\n  lcd_gotoxy(0, 1);\n  lcd_puts(\"     \");\n  lcd_gotoxy(0, 1);\n  lcd_puts(\"RC4=\");\n\n#ifdef USE_HD44780_LCD\n  lcd_putch(LC_SELECT != 0 ? '1' : '0');\n#endif\n//    print_print_number(measure_freq(), 16, 4);\n#endif\n  if(s != prev_s) {\n#if USE_SER\n    format_number(&ser_putch, s, 10, 0);\n    // ser_putch(' ');    put_number(bres / 5000, 10, 0);\n    ser_puts(\"\\r\\n\");\n#endif\n\n    prev_s = s;\n  }\n}\n\n/*\n * Get the milliseconds count\n */\n#define get_milliseconds(v)                                                                                            \\\n  do {                                                                                                                 \\\n    GIE = 0, v = msecs, GIE = 1;                                                                                       \\\n  } while(0);\n/*uint32_t\nmilliseconds() {\n  uint32_t ms;\n\n  GIE = 0;\n  ms = msecs;\n  GIE = 1;\n  return ms;\n}*/\n",
+			"file": "LC-meter.c",
+			"file_size": 6091,
+			"file_write_time": 132383093372209804,
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 6105,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "LC-meter.c",
+			"file": "MPLABXLog.xml.5",
 			"settings":
 			{
-				"buffer_size": 6091,
+				"buffer_size": 103,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/format.h",
+			"settings":
+			{
+				"buffer_size": 295,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/format.c",
+			"settings":
+			{
+				"buffer_size": 2061,
 				"line_ending": "Unix"
 			}
 		},
@@ -102,6 +122,8 @@
 	],
 	"file_history":
 	[
+		"/home/roman/Dokumente/Sources/openjscad/OctopusThickLegs.stl",
+		"/home/roman/Dokumente/Sources/openjscad/open-loom/small_24peg.stl",
 		"/home/roman/Dokumente/Sources/c-utils/cfg.sh"
 	],
 	"find":
@@ -137,15 +159,46 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "LC-meter.c",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6105,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1239,
+								1239
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C11/C11.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 983.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "MPLABXLog.xml.5",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 103,
 						"regions":
 						{
 						},
@@ -158,7 +211,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/XML/XML.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -168,20 +221,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "LC-meter.c",
+					"buffer": 2,
+					"file": "lib/format.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6091,
+						"buffer_size": 295,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1832,
-								1832
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/format.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2061,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2016,
+								2016
 							]
 						],
 						"settings":
@@ -191,14 +272,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1314.0,
+						"translation.y": 1020.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "Freq-meter.c",
 					"semi_transient": false,
 					"settings":
@@ -224,11 +305,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "Cap-meter.c",
 					"semi_transient": false,
 					"settings":
@@ -254,7 +335,7 @@
 						"translation.y": 2173.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -308,6 +389,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"format",
+				"lib/format.c"
+			],
+			[
+				"forma",
+				"lib/format.h"
+			],
 			[
 				"cap",
 				"Cap-meter.c"

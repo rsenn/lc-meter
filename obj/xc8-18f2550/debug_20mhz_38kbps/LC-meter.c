@@ -78,6 +78,32 @@ unsigned short timer0_read_ps(void);
 void timer1_init(unsigned char ps_mode);
 #line 149 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer2_init(uint8_t ps_mode);
+#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+
+char ser_isrx(void);
+unsigned char ser_rxsize(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
+
+uint8_t ser_rxat(unsigned char at);
+unsigned char ser_size(void);
+#line 68 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+extern uint8_t ser_brg;
 #line 6 "/home/roman/Dokumente/Sources/lc-meter/src/measure.h"
 void calibrate(void);
 unsigned short measure_freq(void);
@@ -172,6 +198,8 @@ if(msecpart >= 1000) {
     
     PIR1bits.TMR2IF = 0;
   }
+  
+if(PIR1bits.RCIF) { ser_rxfifo[ser_rxiptr] = RCREG; ser_tmp = (ser_rxiptr + 1) & ((uint8_t)16 - 1); if(ser_tmp != ser_rxoptr) ser_rxiptr = ser_tmp; }; if(PIR1bits.TXIF && PIE1bits.TXIE) { TXREG = ser_txfifo[ser_txoptr]; ++ser_txoptr; ser_txoptr &= ((uint8_t)16 - 1); if(ser_txoptr == ser_txiptr) { PIE1bits.TXIE = 0; }; PIR1bits.TXIF = 0; };
 #line 111 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 }
 #line 116 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
@@ -223,6 +251,8 @@ LATC &= ~(1 << 5);
   LATC |= (1 << 5);
   delay10ms(50);
   LATC &= ~(1 << 5);
+  #line 190 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
+ser_init();
   
   #line 197 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 INTCON |= 0xc0; 
@@ -242,10 +272,12 @@ for(;;) {
     char new_mode = (!!(PORTC & (1 << 4)));
     
 if(new_mode != mode) {
-      #line 234 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
-mode = new_mode;
+      
+ser_puts(mode ? "- C (Unit: F) -" : "- L (Unit: H) -");
+      ser_puts("\r\n");
+      mode = new_mode;
     }
-    
+    #line 237 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 if(led_cycle >= led_interval)
       led_cycle = 0;
     
@@ -293,6 +325,10 @@ lcd_gotoxy(0, 1);
 lcd_putch((!!(PORTC & (1 << 4))) != 0 ? '1' : '0');
   #line 295 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 if(s != prev_s) {
+    
+format_number(&ser_putch, s, 10, 0);
+    
+    ser_puts("\r\n");
     #line 302 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 prev_s = s;
   }

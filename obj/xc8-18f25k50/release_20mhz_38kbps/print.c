@@ -81,6 +81,32 @@ void lcd_puts(const char* string);
 void lcd_gotoxy(uint8_t col, uint8_t row);
 void lcd_putch(char value);
 void lcd_send(uint8_t value, uint8_t mode);
+#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+
+char ser_isrx(void);
+unsigned char ser_rxsize(void);
+uint8_t ser_getch(void);
+void ser_putch(char byte);
+void ser_put(const char* s, unsigned n);
+void ser_puts(const char* s);
+void ser_puts2(uint8_t* s);
+void ser_puthex(uint8_t v);
+void ser_init(void);
+
+uint8_t ser_rxat(unsigned char at);
+unsigned char ser_size(void);
+#line 68 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+extern uint8_t ser_rxfifo[(uint8_t)16];
+extern volatile uint8_t ser_rxiptr, ser_rxoptr;
+extern uint8_t ser_txfifo[(uint8_t)16];
+extern volatile uint8_t ser_txiptr, ser_txoptr;
+extern uint8_t ser_tmp;
+extern uint8_t ser_brg;
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
 typedef void(putch_t)(char);
 
@@ -142,7 +168,8 @@ void
 output_putch(char c) {
   
 lcd_putch(c);
-#line 495 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
+  #line 493 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
+ser_putch(c);
 }
 #line 500 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
 void
@@ -156,5 +183,10 @@ for(i = 0; s[i]; i++) {
 
 void
 print_buffer(void) {
-#line 518 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c"
+  
+uint8_t i;
+  for(i = 0; i < buffer.n; i++) {
+    ser_putch(buffer.x[i]);
+  }
+  ser_puts("\r\n");
 }
