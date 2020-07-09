@@ -3,28 +3,54 @@
 [d edition pro ]
 [d chip 18F252 ]
 [d frameptr 4065 ]
-"64 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"65 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _delay10ms delay10ms `(v  1 e 1 0 ]
-"84
+"85
 [v _isr isr `II(i  1 e 2 0 ]
-"116
+"117
 [v _main main `(v  1 e 1 0 ]
 "10 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
 [v _buffer_init buffer_init `(v  1 e 1 0 ]
 "30
-[v _buffer_putch buffer_putch `(uc  1 e 1 0 ]
-"56
+[v _buffer_putc buffer_putc `(uc  1 e 1 0 ]
+"39
+[v _buffer_putch buffer_putch `(v  1 e 1 0 ]
+"61
 [v _buffer_puts buffer_puts `(uc  1 e 1 0 ]
 "19 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
 [v _format_number format_number `(v  1 e 1 0 ]
+"55
+[v _format_xint32 format_xint32 `(v  1 e 1 0 ]
+"81
+[v _format_double format_double `(v  1 e 1 0 ]
 "34 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
 [v _lcd_write4bits lcd_write4bits `(v  1 s 1 lcd_write4bits ]
 "103
 [v _lcd_send lcd_send `(v  1 e 1 0 ]
 "127
 [v _lcd_command lcd_command `(v  1 s 1 lcd_command ]
+"135
+[v _lcd_gotoxy lcd_gotoxy `(v  1 e 1 0 ]
+"163
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
 "170
 [v _lcd_putch lcd_putch `(v  1 e 1 0 ]
+"292
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+"416
+[v _lcd_begin lcd_begin `(v  1 e 1 0 ]
+"489
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+"33 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_isrx ser_isrx `(uc  1 e 1 0 ]
+"71
+[v _ser_putch ser_putch `(v  1 e 1 0 ]
+"81
+[v _ser_puts ser_puts `(v  1 e 1 0 ]
+"85
+[v _ser_put ser_put `(v  1 e 1 0 ]
+"114
+[v _ser_init ser_init `(v  1 e 1 0 ]
 "26 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
 [v _timer0_init timer0_init `(v  1 e 1 0 ]
 "79
@@ -47,6 +73,8 @@
 [v _print_indicator print_indicator `(v  1 e 1 0 ]
 "488
 [v _output_putch output_putch `(v  1 e 1 0 ]
+"501
+[v _put_str put_str `(v  1 e 1 0 ]
 "510
 [v _print_buffer print_buffer `(v  1 e 1 0 ]
 "42 /opt/microchip/xc8/v1.45/sources/common/altoft.c
@@ -106,36 +134,54 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 /opt/microchip/xc8/v1.45/sources/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"47 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"48 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _bres bres `VEul  1 e 4 0 ]
-"48
-[v _msecpart msecpart `VEui  1 e 2 0 ]
 "49
-[v _led_cycle led_cycle `VEui  1 e 2 0 ]
+[v _msecpart msecpart `VEui  1 e 2 0 ]
 "50
-[v _led_interval led_interval `VEui  1 e 2 0 ]
+[v _led_cycle led_cycle `VEui  1 e 2 0 ]
 "51
+[v _led_interval led_interval `VEui  1 e 2 0 ]
+"52
 [v _seconds seconds `VEul  1 e 4 0 ]
 [v _msecs msecs `VEul  1 e 4 0 ]
-"52
+"53
 [v _timer1of timer1of `VEul  1 e 4 0 ]
-"54
+"55
 [v _mode mode `uc  1 s 1 mode ]
-"72
+"73
 [v _F1 F1 `d  1 e 3 0 ]
 [v _F2 F2 `d  1 e 3 0 ]
 [v _F3 F3 `d  1 e 3 0 ]
 [v _CCal CCal `d  1 e 3 0 ]
-"81
+"82
 [v _blink blink `VEui  1 e 2 0 ]
-[s S329 . 17 `[16]uc 1 x 16 0 `uc 1 p 1 16 :4:0 
+[s S419 . 17 `[16]uc 1 x 16 0 `uc 1 p 1 16 :4:0 
 `uc 1 n 1 16 :4:4 
 ]
 "4 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
-[v _buffer buffer `S329  1 e 17 0 ]
+[v _buffer buffer `S419  1 e 17 0 ]
+"15 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _LCD_function LCD_function `uc  1 s 1 LCD_function ]
+[v _LCD_ctrl LCD_ctrl `uc  1 s 1 LCD_ctrl ]
+[v _LCD_mode LCD_mode `uc  1 s 1 LCD_mode ]
+"17
+[v _LCD_lines LCD_lines `uc  1 s 1 LCD_lines ]
+"26 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_rxfifo ser_rxfifo `[16]uc  1 e 16 0 ]
+"27
+[v _ser_rxiptr ser_rxiptr `VEuc  1 e 1 0 ]
+[v _ser_rxoptr ser_rxoptr `VEuc  1 e 1 0 ]
+"28
+[v _ser_txfifo ser_txfifo `[16]uc  1 e 16 0 ]
+"29
+[v _ser_txoptr ser_txoptr `VEuc  1 e 1 0 ]
+[v _ser_txiptr ser_txiptr `VEuc  1 e 1 0 ]
+"30
+[v _ser_tmp ser_tmp `uc  1 e 1 0 ]
 "320 /opt/microchip/xc8/v1.45/include/pic18f252.h
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
-[s S64 . 1 `uc 1 RC0 1 0 :1:0 
+[s S101 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -145,7 +191,7 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "362
-[s S73 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S110 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -154,7 +200,7 @@
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S82 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S119 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -163,12 +209,14 @@
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S91 . 1 `uc 1 . 1 0 :1:0 
+[s S128 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S95 . 1 `S64 1 . 1 0 `S73 1 . 1 0 `S82 1 . 1 0 `S91 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES95  1 e 1 @3970 ]
+[u S132 . 1 `S101 1 . 1 0 `S110 1 . 1 0 `S119 1 . 1 0 `S128 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES132  1 e 1 @3970 ]
+"587
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
 "699
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "811
@@ -179,6 +227,21 @@
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "1489
 [v _PIE1 PIE1 `VEuc  1 e 1 @3997 ]
+[s S55 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1510
+[s S63 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+]
+[u S67 . 1 `S55 1 . 1 0 `S63 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES67  1 e 1 @3997 ]
 "1560
 [v _PIR1 PIR1 `VEuc  1 e 1 @3998 ]
 [s S21 . 1 `uc 1 TMR1IF 1 0 :1:0 
@@ -196,13 +259,78 @@
 ]
 [u S33 . 1 `S21 1 . 1 0 `S29 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES33  1 e 1 @3998 ]
+[s S763 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1964
+[s S772 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[s S776 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_RC8 1 0 :1:6 
+]
+[s S779 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S782 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S785 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 SRENA 1 0 :1:5 
+]
+[u S788 . 1 `S763 1 . 1 0 `S772 1 . 1 0 `S776 1 . 1 0 `S779 1 . 1 0 `S782 1 . 1 0 `S785 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES788  1 e 1 @4011 ]
+[s S866 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2190
+[s S875 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[s S879 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 NOT_TX8 1 0 :1:6 
+]
+[s S882 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S885 . 1 `uc 1 TX9D1 1 0 :1:0 
+`uc 1 TRMT1 1 0 :1:1 
+`uc 1 BRGH1 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 SYNC1 1 0 :1:4 
+`uc 1 TXEN1 1 0 :1:5 
+`uc 1 TX91 1 0 :1:6 
+`uc 1 CSRC1 1 0 :1:7 
+]
+[u S894 . 1 `S866 1 . 1 0 `S875 1 . 1 0 `S879 1 . 1 0 `S882 1 . 1 0 `S885 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES894  1 e 1 @4012 ]
+"2413
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"2425
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"2437
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3433
 [v _T2CON T2CON `VEuc  1 e 1 @4042 ]
 "3614
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
 "3998
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S463 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S649 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -210,19 +338,19 @@
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "4018
-[s S470 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S656 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S474 . 1 `S463 1 . 1 0 `S470 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES474  1 e 1 @4053 ]
+[u S660 . 1 `S649 1 . 1 0 `S656 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES660  1 e 1 @4053 ]
 "4068
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "4439
 [v _INTCON2 INTCON2 `VEuc  1 e 1 @4081 ]
 "4516
 [v _INTCON INTCON `VEuc  1 e 1 @4082 ]
-[s S206 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S332 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -232,7 +360,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "4553
-[s S215 . 1 `uc 1 . 1 0 :1:0 
+[s S341 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -241,28 +369,28 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S224 . 1 `uc 1 . 1 0 :6:0 
+[s S350 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S228 . 1 `S206 1 . 1 0 `S215 1 . 1 0 `S224 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES228  1 e 1 @4082 ]
-"116 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+[u S354 . 1 `S332 1 . 1 0 `S341 1 . 1 0 `S350 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES354  1 e 1 @4082 ]
+"117 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _main main `(v  1 e 1 0 ]
 {
-"226
-[v main@new_mode new_mode `uc  1 a 1 83 ]
-"250
+"227
+[v main@new_mode new_mode `uc  1 a 1 47 ]
+"251
 } 0
 "145 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
 [v _timer2_init timer2_init `(v  1 e 1 0 ]
 {
 [v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
 "146
-[v timer2_init@ps ps `uc  1 a 1 9 ]
+[v timer2_init@ps ps `uc  1 a 1 11 ]
 "145
 [v timer2_init@ps_mode ps_mode `uc  1 a 1 wreg ]
-[v timer2_init@ps_mode ps_mode `uc  1 a 1 11 ]
+[v timer2_init@ps_mode ps_mode `uc  1 a 1 13 ]
 "162
 } 0
 "26
@@ -270,16 +398,25 @@
 {
 [v timer0_init@ps_mode ps_mode `uc  1 a 1 wreg ]
 "27
-[v timer0_init@prescaler prescaler `uc  1 a 1 17 ]
+[v timer0_init@prescaler prescaler `uc  1 a 1 19 ]
 "26
 [v timer0_init@ps_mode ps_mode `uc  1 a 1 wreg ]
-[v timer0_init@ps_mode ps_mode `uc  1 a 1 18 ]
+[v timer0_init@ps_mode ps_mode `uc  1 a 1 20 ]
 "76
+} 0
+"114 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_init ser_init `(v  1 e 1 0 ]
+{
+"140
 } 0
 "464 /home/roman/Dokumente/Sources/lc-meter/src/print.c
 [v _print_indicator print_indicator `(v  1 e 1 0 ]
 {
-"485
+[v print_indicator@indicate indicate `uc  1 a 1 wreg ]
+[v print_indicator@indicate indicate `uc  1 a 1 wreg ]
+"478
+[v print_indicator@indicate indicate `uc  1 a 1 20 ]
+"484
 } 0
 "218 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _measure_inductance measure_inductance `(v  1 e 1 0 ]
@@ -298,11 +435,11 @@
 [v _measure_capacitance measure_capacitance `(v  1 e 1 0 ]
 {
 "135
-[v measure_capacitance@Cin Cin `d  1 a 3 80 ]
+[v measure_capacitance@Cin Cin `d  1 a 3 12 ]
 "133
-[v measure_capacitance@var var `ui  1 a 2 78 ]
+[v measure_capacitance@var var `ui  1 a 2 10 ]
 "132
-[v measure_capacitance@unit unit `uc  1 a 1 77 ]
+[v measure_capacitance@unit unit `uc  1 a 1 9 ]
 "212
 } 0
 "401 /home/roman/Dokumente/Sources/lc-meter/src/print.c
@@ -313,153 +450,379 @@
 "424
 [v _print_reading print_reading `(v  1 e 1 0 ]
 {
-[v print_reading@measurement measurement `ui  1 p 2 8 ]
+[v print_reading@measurement measurement `ui  1 p 2 62 ]
 "460
+} 0
+"163 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_puts lcd_puts `(v  1 e 1 0 ]
+{
+"164
+[v lcd_puts@i i `uc  1 a 1 13 ]
+"163
+[v lcd_puts@string string `*.31Cuc  1 p 1 11 ]
+"166
+} 0
+"55 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
+[v _format_xint32 format_xint32 `(v  1 e 1 0 ]
+{
+[v format_xint32@fn fn `*.37(v  1 p 2 62 ]
+[v format_xint32@x x `ul  1 p 4 64 ]
+"60
+} 0
+"81
+[v _format_double format_double `(v  1 e 1 0 ]
+{
+"87
+[v format_double@weight weight `d  1 a 3 39 ]
+"82
+[v format_double@m m `s  1 a 2 44 ]
+"83
+[v format_double@digit digit `s  1 a 2 42 ]
+"81
+[v format_double@fn fn `*.37(v  1 p 2 28 ]
+[v format_double@num num `d  1 p 3 30 ]
+"95
+} 0
+"5 /opt/microchip/xc8/v1.45/sources/common/pow.c
+[v _pow pow `(d  1 e 3 0 ]
+{
+"8
+[v pow@yi yi `ul  1 a 4 24 ]
+"7
+[v pow@sign sign `uc  1 a 1 23 ]
+"5
+[v pow@x x `d  1 p 3 11 ]
+[v pow@y y `d  1 p 3 14 ]
+"31
+} 0
+"12 /opt/microchip/xc8/v1.45/sources/common/exp.c
+[v _exp exp `(d  1 e 3 0 ]
+{
+"14
+[v exp@exponent exponent `i  1 a 2 8 ]
+"15
+[v exp@sign sign `uc  1 a 1 10 ]
+"12
+[v exp@x x `d  1 p 3 98 ]
+"17
+[v exp@coeff coeff `C[10]d  1 s 30 coeff ]
+"57
+} 0
+"277 /opt/microchip/xc8/v1.45/sources/common/frexp.c
+[v _ldexp ldexp `(d  1 e 3 0 ]
+{
+[v ldexp@value value `d  1 p 3 59 ]
+[v ldexp@newexp newexp `i  1 p 2 62 ]
+"307
+} 0
+"13 /opt/microchip/xc8/v1.45/sources/common/floor.c
+[v _floor floor `(d  1 e 3 0 ]
+{
+"15
+[v floor@i i `d  1 a 3 0 ]
+"16
+[v floor@expon expon `i  1 a 2 3 ]
+"13
+[v floor@x x `d  1 p 3 95 ]
+"30
 } 0
 "44 /opt/microchip/xc8/v1.45/sources/common/fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
 {
 "47
-[v ___fttol@lval lval `ul  1 a 4 18 ]
+[v ___fttol@lval lval `ul  1 a 4 80 ]
 "46
-[v ___fttol@exp1 exp1 `uc  1 a 1 22 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 17 ]
+[v ___fttol@exp1 exp1 `uc  1 a 1 84 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 79 ]
 "44
-[v ___fttol@f1 f1 `f  1 p 3 8 ]
+[v ___fttol@f1 f1 `f  1 p 3 70 ]
 "73
-} 0
-"20 /opt/microchip/xc8/v1.45/sources/common/ftsub.c
-[v ___ftsub __ftsub `(f  1 e 3 0 ]
-{
-[v ___ftsub@f1 f1 `f  1 p 3 46 ]
-[v ___ftsub@f2 f2 `f  1 p 3 49 ]
-"27
-} 0
-"86 /opt/microchip/xc8/v1.45/sources/common/ftadd.c
-[v ___ftadd __ftadd `(f  1 e 3 0 ]
-{
-"88
-[v ___ftadd@exp1 exp1 `uc  1 a 1 27 ]
-[v ___ftadd@exp2 exp2 `uc  1 a 1 26 ]
-[v ___ftadd@sign sign `uc  1 a 1 25 ]
-"86
-[v ___ftadd@f1 f1 `f  1 p 3 16 ]
-[v ___ftadd@f2 f2 `f  1 p 3 19 ]
-"148
-} 0
-"62 /opt/microchip/xc8/v1.45/sources/common/ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-{
-"65
-[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 41 ]
-"64
-[v ___ftmul@sign sign `uc  1 a 1 45 ]
-[v ___ftmul@cntr cntr `uc  1 a 1 44 ]
-[v ___ftmul@exp exp `uc  1 a 1 40 ]
-"62
-[v ___ftmul@f1 f1 `f  1 p 3 31 ]
-[v ___ftmul@f2 f2 `f  1 p 3 34 ]
-"157
 } 0
 "4 /opt/microchip/xc8/v1.45/sources/common/ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
 {
-[v ___ftge@ff1 ff1 `f  1 p 3 8 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 11 ]
+[v ___ftge@ff1 ff1 `f  1 p 3 10 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 13 ]
 "13
+} 0
+"42 /opt/microchip/xc8/v1.45/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 94 ]
+[v ___altoft@exp exp `uc  1 a 1 93 ]
+"42
+[v ___altoft@c c `l  1 p 4 85 ]
+"57
+} 0
+"20 /opt/microchip/xc8/v1.45/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+{
+[v ___ftsub@f1 f1 `f  1 p 3 49 ]
+[v ___ftsub@f2 f2 `f  1 p 3 52 ]
+"27
+} 0
+"15 /opt/microchip/xc8/v1.45/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+{
+[v ___ftneg@f1 f1 `f  1 p 3 10 ]
+"20
 } 0
 "54 /opt/microchip/xc8/v1.45/sources/common/ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 {
 "60
-[v ___ftdiv@f3 f3 `f  1 a 3 26 ]
+[v ___ftdiv@f3 f3 `f  1 a 3 28 ]
 "59
-[v ___ftdiv@sign sign `uc  1 a 1 30 ]
-[v ___ftdiv@exp exp `uc  1 a 1 29 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 25 ]
+[v ___ftdiv@sign sign `uc  1 a 1 32 ]
+[v ___ftdiv@exp exp `uc  1 a 1 31 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 27 ]
 "54
-[v ___ftdiv@f1 f1 `f  1 p 3 16 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 19 ]
+[v ___ftdiv@f1 f1 `f  1 p 3 18 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 21 ]
 "86
+} 0
+"35 /opt/microchip/xc8/v1.45/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+{
+"37
+[v ___lltoft@exp exp `uc  1 a 1 26 ]
+"35
+[v ___lltoft@c c `ul  1 p 4 18 ]
+"46
+} 0
+"39 /opt/microchip/xc8/v1.45/sources/common/log.c
+[v _log10 log10 `(d  1 e 3 0 ]
+{
+[v log10@x x `d  1 p 3 64 ]
+"42
+} 0
+"5
+[v _log log `(d  1 e 3 0 ]
+{
+"7
+[v log@exponent exponent `i  1 a 2 62 ]
+"5
+[v log@x x `d  1 p 3 59 ]
+"9
+[v log@coeff coeff `C[9]d  1 s 27 coeff ]
+"36
+} 0
+"254 /opt/microchip/xc8/v1.45/sources/common/frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+{
+[v frexp@value value `d  1 p 3 10 ]
+[v frexp@eptr eptr `*.30i  1 p 1 13 ]
+"274
+} 0
+"4 /opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+{
+"6
+[v eval_poly@res res `d  1 a 3 56 ]
+"4
+[v eval_poly@x x `d  1 p 3 49 ]
+[v eval_poly@d d `*.31Cd  1 p 1 52 ]
+[v eval_poly@n n `i  1 p 2 53 ]
+"12
+} 0
+"62 /opt/microchip/xc8/v1.45/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 44 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 48 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 47 ]
+[v ___ftmul@exp exp `uc  1 a 1 43 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 34 ]
+[v ___ftmul@f2 f2 `f  1 p 3 37 ]
+"157
+} 0
+"86 /opt/microchip/xc8/v1.45/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 33 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 32 ]
+[v ___ftadd@sign sign `uc  1 a 1 31 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 22 ]
+[v ___ftadd@f2 f2 `f  1 p 3 25 ]
+"148
+} 0
+"32 /opt/microchip/xc8/v1.45/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 21 ]
+"32
+[v ___awtoft@c c `i  1 p 2 18 ]
+"42
+} 0
+"489 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_init lcd_init `(v  1 e 1 0 ]
+{
+[v lcd_init@fourbitmode fourbitmode `uc  1 a 1 wreg ]
+[v lcd_init@fourbitmode fourbitmode `uc  1 a 1 wreg ]
+"491
+[v lcd_init@fourbitmode fourbitmode `uc  1 a 1 10 ]
+"517
+} 0
+"416
+[v _lcd_begin lcd_begin `(v  1 e 1 0 ]
+{
+[v lcd_begin@lines lines `uc  1 a 1 wreg ]
+[v lcd_begin@lines lines `uc  1 a 1 wreg ]
+[v lcd_begin@dotsize dotsize `uc  1 p 1 14 ]
+[v lcd_begin@lines lines `uc  1 a 1 16 ]
+"482
 } 0
 "26 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _calibrate calibrate `(v  1 e 1 0 ]
 {
-"67
+"27
+[v calibrate@i i `uc  1 a 1 70 ]
+"66
 } 0
-"73
+"501 /home/roman/Dokumente/Sources/lc-meter/src/print.c
+[v _put_str put_str `(v  1 e 1 0 ]
+{
+"502
+[v put_str@i i `i  1 a 2 14 ]
+"501
+[v put_str@s s `*.31Cuc  1 p 1 12 ]
+"507
+} 0
+"488
+[v _output_putch output_putch `(v  1 e 1 0 ]
+{
+[v output_putch@c c `uc  1 a 1 wreg ]
+[v output_putch@c c `uc  1 a 1 wreg ]
+"490
+[v output_putch@c c `uc  1 a 1 11 ]
+"494
+} 0
+"73 /home/roman/Dokumente/Sources/lc-meter/src/measure.c
 [v _measure_freq measure_freq `(us  1 e 2 0 ]
 {
 "74
-[v measure_freq@count count `ui  1 a 2 63 ]
+[v measure_freq@count count `ui  1 a 2 65 ]
 "118
 } 0
 "79 /home/roman/Dokumente/Sources/lc-meter/lib/timer.c
 [v _timer0_read_ps timer0_read_ps `(us  1 e 2 0 ]
 {
 "81
-[v timer0_read_ps@count count `ui  1 a 2 13 ]
+[v timer0_read_ps@count count `ui  1 a 2 15 ]
 "80
-[v timer0_read_ps@prev prev `uc  1 a 1 12 ]
+[v timer0_read_ps@prev prev `uc  1 a 1 14 ]
 "104
 } 0
 "510 /home/roman/Dokumente/Sources/lc-meter/src/print.c
 [v _print_buffer print_buffer `(v  1 e 1 0 ]
 {
-"518
+"512
+[v print_buffer@i i `uc  1 a 1 13 ]
+"517
+} 0
+"81 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_puts ser_puts `(v  1 e 1 0 ]
+{
+[v ser_puts@s s `*.31Cuc  1 p 1 11 ]
+"83
+} 0
+"135 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_gotoxy lcd_gotoxy `(v  1 e 1 0 ]
+{
+[v lcd_gotoxy@col col `uc  1 a 1 wreg ]
+"137
+[v lcd_gotoxy@row_offsets row_offsets `[4]uc  1 a 4 16 ]
+"135
+[v lcd_gotoxy@col col `uc  1 a 1 wreg ]
+[v lcd_gotoxy@row row `uc  1 p 1 14 ]
+[v lcd_gotoxy@F2326 F2326 `[4]uc  1 s 4 F2326 ]
+"137
+[v lcd_gotoxy@col col `uc  1 a 1 15 ]
+"157
 } 0
 "19 /home/roman/Dokumente/Sources/lc-meter/lib/format.c
 [v _format_number format_number `(v  1 e 1 0 ]
 {
 "20
-[v format_number@buf buf `[32]uc  1 a 32 23 ]
+[v format_number@buf buf `[32]uc  1 a 32 25 ]
 "22
-[v format_number@i i `c  1 a 1 59 ]
+[v format_number@i i `c  1 a 1 61 ]
 "21
-[v format_number@di di `uc  1 a 1 58 ]
+[v format_number@di di `uc  1 a 1 60 ]
 "23
-[v format_number@padchar padchar `uc  1 a 1 57 ]
+[v format_number@padchar padchar `uc  1 a 1 59 ]
 "19
-[v format_number@fn fn `*.37(v  1 p 2 15 ]
-[v format_number@n n `ui  1 p 2 17 ]
-[v format_number@base base `uc  1 p 1 19 ]
-[v format_number@pad pad `c  1 p 1 20 ]
+[v format_number@fn fn `*.37(v  1 p 2 17 ]
+[v format_number@n n `ui  1 p 2 19 ]
+[v format_number@base base `uc  1 p 1 21 ]
+[v format_number@pad pad `c  1 p 1 22 ]
 "51
+} 0
+"39 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
+[v _buffer_putch buffer_putch `(v  1 e 1 0 ]
+{
+[v buffer_putch@ch ch `uc  1 a 1 wreg ]
+[v buffer_putch@ch ch `uc  1 a 1 wreg ]
+[v buffer_putch@ch ch `uc  1 a 1 13 ]
+"41
+} 0
+"170 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_putch lcd_putch `(v  1 e 1 0 ]
+{
+[v lcd_putch@value value `uc  1 a 1 wreg ]
+[v lcd_putch@value value `uc  1 a 1 wreg ]
+[v lcd_putch@value value `uc  1 a 1 10 ]
+"172
+} 0
+"71 /home/roman/Dokumente/Sources/lc-meter/lib/ser.c
+[v _ser_putch ser_putch `(v  1 e 1 0 ]
+{
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 wreg ]
+[v ser_putch@c c `uc  1 a 1 10 ]
+"78
 } 0
 "8 /opt/microchip/xc8/v1.45/sources/common/lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwmod@counter counter `uc  1 a 1 12 ]
+[v ___lwmod@counter counter `uc  1 a 1 14 ]
 "8
-[v ___lwmod@dividend dividend `ui  1 p 2 8 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 10 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 10 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 12 ]
 "26
 } 0
 "8 /opt/microchip/xc8/v1.45/sources/common/lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "11
-[v ___lwdiv@quotient quotient `ui  1 a 2 13 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 15 ]
 "12
-[v ___lwdiv@counter counter `uc  1 a 1 12 ]
+[v ___lwdiv@counter counter `uc  1 a 1 14 ]
 "8
-[v ___lwdiv@dividend dividend `ui  1 p 2 8 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 10 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 10 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 12 ]
 "31
 } 0
-"56 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
+"61 /home/roman/Dokumente/Sources/lc-meter/lib/buffer.c
 [v _buffer_puts buffer_puts `(uc  1 e 1 0 ]
 {
-[v buffer_puts@x x `*.31Cuc  1 p 1 11 ]
-"62
+[v buffer_puts@x x `*.31Cuc  1 p 1 14 ]
+"67
 } 0
 "30
-[v _buffer_putch buffer_putch `(uc  1 e 1 0 ]
+[v _buffer_putc buffer_putc `(uc  1 e 1 0 ]
 {
-[v buffer_putch@ch ch `uc  1 a 1 wreg ]
-[v buffer_putch@ch ch `uc  1 a 1 wreg ]
-[v buffer_putch@ch ch `uc  1 a 1 10 ]
+[v buffer_putc@ch ch `uc  1 a 1 wreg ]
+[v buffer_putc@ch ch `uc  1 a 1 wreg ]
+[v buffer_putc@ch ch `uc  1 a 1 12 ]
 "36
 } 0
 "10
@@ -467,29 +830,60 @@
 {
 "13
 } 0
-"64 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"292 /home/roman/Dokumente/Sources/lc-meter/lib/lcd44780.c
+[v _lcd_clear lcd_clear `(v  1 e 1 0 ]
+{
+"296
+} 0
+"127
+[v _lcd_command lcd_command `(v  1 s 1 lcd_command ]
+{
+[v lcd_command@value value `uc  1 a 1 wreg ]
+[v lcd_command@value value `uc  1 a 1 wreg ]
+[v lcd_command@value value `uc  1 a 1 13 ]
+"129
+} 0
+"103
+[v _lcd_send lcd_send `(v  1 e 1 0 ]
+{
+[v lcd_send@value value `uc  1 a 1 wreg ]
+[v lcd_send@value value `uc  1 a 1 wreg ]
+[v lcd_send@mode mode `uc  1 p 1 11 ]
+[v lcd_send@value value `uc  1 a 1 12 ]
+"119
+} 0
+"34
+[v _lcd_write4bits lcd_write4bits `(v  1 s 1 lcd_write4bits ]
+{
+[v lcd_write4bits@value value `uc  1 a 1 wreg ]
+[v lcd_write4bits@value value `uc  1 a 1 wreg ]
+"39
+[v lcd_write4bits@value value `uc  1 a 1 10 ]
+"60
+} 0
+"65 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _delay10ms delay10ms `(v  1 e 1 0 ]
 {
-"68
+"69
 } 0
 "28 /opt/microchip/xc8/v1.45/sources/common/lwtoft.c
 [v ___lwtoft __lwtoft `(f  1 e 3 0 ]
 {
-[v ___lwtoft@c c `ui  1 p 2 65 ]
+[v ___lwtoft@c c `ui  1 p 2 67 ]
 "31
 } 0
 "62 /opt/microchip/xc8/v1.45/sources/common/float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 {
-[v ___ftpack@arg arg `um  1 p 3 8 ]
-[v ___ftpack@exp exp `uc  1 p 1 11 ]
-[v ___ftpack@sign sign `uc  1 p 1 12 ]
+[v ___ftpack@arg arg `um  1 p 3 10 ]
+[v ___ftpack@exp exp `uc  1 p 1 13 ]
+[v ___ftpack@sign sign `uc  1 p 1 14 ]
 "86
 } 0
-"84 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
+"85 /home/roman/Dokumente/Sources/lc-meter/LC-meter.c
 [v _isr isr `II(i  1 e 2 0 ]
 {
-"110
+"111
 } 0
 "8 /opt/microchip/xc8/v1.45/sources/common/lwdiv.c
 [v i2___lwdiv __lwdiv `(ui  1 e 2 0 ]

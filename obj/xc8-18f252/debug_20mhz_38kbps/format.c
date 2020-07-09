@@ -29,10 +29,10 @@ extern __nonreentrant void _delay3(unsigned char);
 typedef char BOOL;
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
 typedef void(putch_t)(char);
-#line 8 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-void format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad);
-void format_xint32(putch_t fn,uint32_t x);
-void format_double(putch_t fn,double num);
+
+void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
+void format_xint32(putch_t fn, uint32_t x);
+void format_double(putch_t fn, double num);
 #line 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
 
@@ -46,7 +46,8 @@ extern buffer_t buffer;
 
 void buffer_init(void);
 char buffer_flush(void);
-char buffer_putch(char ch);
+char buffer_putc(char ch);
+void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #include <math.h>
@@ -58,7 +59,7 @@ format_putchar(char c) {
 }
 #line 18 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
 void
-format_number(putch_t fn,uint16_t n, uint8_t base, int8_t pad ) {
+format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad ) {
   char buf[8 * sizeof(long)]; 
   uint8_t di;
   int8_t i = 0;
@@ -91,7 +92,7 @@ void
 format_xint32(putch_t fn, uint32_t x) {
   fn('0');
   fn('x');
-  format_number(fn,(uint16_t)(x >> 16), 16, -4);
+  format_number(fn, (uint16_t)(x >> 16), 16, -4);
   format_number(fn, (uint16_t)(x & 0xffff), 16, -4);
 }
 
@@ -113,7 +114,7 @@ while(num > 0 + FLT_EPSILON) {
 }
 #line 80 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
 void
-format_double(putch_t fn,double num) {
+format_double(putch_t fn, double num) {
   short m = (short)log10(num);
   short digit;
   
