@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.45/dat/en_msgs.txt -cs \
   -h+bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.sym \
   --cmf=bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.cmf -z \
-  -Q18F252 -o/tmp/xcXVWQQpx \
+  -Q18F252 -o/tmp/xcXgvSJ8J \
   -Mbin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps_skbps.map -ver=XC8 \
   -ASTACK=011Fh-05ffh -pstack=STACK -ACODE=00h-03FFFhx2 -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXyav8yO.obj \
+  /tmp/xcXGzRKZQ.obj \
   bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXyav8yO.obj
+/tmp/xcXGzRKZQ.obj
                 text                               2906     2906        2      375       0
                 init                                 F6       F6        4        4       0
                 reset_vec                             0        0        6        0       0
@@ -672,7 +672,7 @@ ___rparam_used                                                          (abs)   
 ___sp                                                                   stack        000000
 __accesstop                                                             (abs)        000080
 __activetblptr                                                          (abs)        000002
-__cntErrataNOP_/tmp/xcXyav8yO.obj                                       (abs)        000001
+__cntErrataNOP_/tmp/xcXGzRKZQ.obj                                       (abs)        000001
 __cntErrataNOP_bin/xc8-18f252/LC_meter_HD44780_release_20mhz_38kbps.obj (abs)        0000F6
 __end_of___altoft                                                       text18       00225A
 __end_of___awtoft                                                       text29       002600

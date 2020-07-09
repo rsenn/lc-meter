@@ -11,6 +11,10 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$/tmp/xcXrG1UpQ.obj
+reset_vec CODE 0 0 0 3 2
+end_init CODE 0 10 10 3 2
+config CONFIG 0 2007 2007 1 2
 $bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 cinit CODE 0 13 13 24 2
 text1 CODE 0 115F 115F 19 2
@@ -37,10 +41,6 @@ dataBANK3 BANK3 1 1DF 1DF 4 1
 functab ENTRY 0 37 37 F 2
 clrtext CODE 0 800 800 8 2
 bssCOMMON COMMON 1 77 77 4 1
-$/tmp/xcX2ZYYZU.obj
-reset_vec CODE 0 0 0 3 2
-end_init CODE 0 10 10 3 2
-config CONFIG 0 2007 2007 1 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -97,56 +97,56 @@ STRING 1800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-13 cinit CODE >1797:/tmp/xcXcjN8NU
-13 cinit CODE >1800:/tmp/xcXcjN8NU
-13 cinit CODE >1894:/tmp/xcXcjN8NU
-14 cinit CODE >1895:/tmp/xcXcjN8NU
+13 cinit CODE >1797:/tmp/xcXjYlI7X
+13 cinit CODE >1800:/tmp/xcXjYlI7X
+13 cinit CODE >1894:/tmp/xcXjYlI7X
+14 cinit CODE >1895:/tmp/xcXjYlI7X
 15 cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16 cinit CODE >1897:/tmp/xcXcjN8NU
-17 cinit CODE >1899:/tmp/xcXcjN8NU
+16 cinit CODE >1897:/tmp/xcXjYlI7X
+17 cinit CODE >1899:/tmp/xcXjYlI7X
 18 cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-19 cinit CODE >1901:/tmp/xcXcjN8NU
+19 cinit CODE >1901:/tmp/xcXjYlI7X
 1A cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1B cinit CODE >1903:/tmp/xcXcjN8NU
-1C cinit CODE >1907:/tmp/xcXcjN8NU
+1B cinit CODE >1903:/tmp/xcXjYlI7X
+1C cinit CODE >1907:/tmp/xcXjYlI7X
 1D cinit CODE >55:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1E cinit CODE >1909:/tmp/xcXcjN8NU
-1F cinit CODE >1929:/tmp/xcXcjN8NU
-20 cinit CODE >1928:/tmp/xcXcjN8NU
-21 cinit CODE >1930:/tmp/xcXcjN8NU
-22 cinit CODE >1931:/tmp/xcXcjN8NU
-23 cinit CODE >1932:/tmp/xcXcjN8NU
-28 cinit CODE >1936:/tmp/xcXcjN8NU
-29 cinit CODE >1935:/tmp/xcXcjN8NU
-2A cinit CODE >1937:/tmp/xcXcjN8NU
-2B cinit CODE >1938:/tmp/xcXcjN8NU
-2C cinit CODE >1939:/tmp/xcXcjN8NU
-2F cinit CODE >1942:/tmp/xcXcjN8NU
-30 cinit CODE >1943:/tmp/xcXcjN8NU
-31 cinit CODE >1944:/tmp/xcXcjN8NU
-32 cinit CODE >1945:/tmp/xcXcjN8NU
-33 cinit CODE >1951:/tmp/xcXcjN8NU
-33 cinit CODE >1953:/tmp/xcXcjN8NU
-34 cinit CODE >1954:/tmp/xcXcjN8NU
-37 functab ENTRY >16610:/tmp/xcXcjN8NU
-37 functab ENTRY >16612:/tmp/xcXcjN8NU
-37 functab ENTRY >16613:/tmp/xcXcjN8NU
-37 functab ENTRY >16614:/tmp/xcXcjN8NU
-38 functab ENTRY >16615:/tmp/xcXcjN8NU
-39 functab ENTRY >16616:/tmp/xcXcjN8NU
-3A functab ENTRY >16617:/tmp/xcXcjN8NU
-3B functab ENTRY >16618:/tmp/xcXcjN8NU
-3C functab ENTRY >16620:/tmp/xcXcjN8NU
-3C functab ENTRY >16621:/tmp/xcXcjN8NU
-3D functab ENTRY >16624:/tmp/xcXcjN8NU
-3D functab ENTRY >16625:/tmp/xcXcjN8NU
-3D functab ENTRY >16627:/tmp/xcXcjN8NU
-40 functab ENTRY >16630:/tmp/xcXcjN8NU
-40 functab ENTRY >16631:/tmp/xcXcjN8NU
-40 functab ENTRY >16633:/tmp/xcXcjN8NU
-43 functab ENTRY >16636:/tmp/xcXcjN8NU
-43 functab ENTRY >16637:/tmp/xcXcjN8NU
-43 functab ENTRY >16639:/tmp/xcXcjN8NU
+1E cinit CODE >1909:/tmp/xcXjYlI7X
+1F cinit CODE >1929:/tmp/xcXjYlI7X
+20 cinit CODE >1928:/tmp/xcXjYlI7X
+21 cinit CODE >1930:/tmp/xcXjYlI7X
+22 cinit CODE >1931:/tmp/xcXjYlI7X
+23 cinit CODE >1932:/tmp/xcXjYlI7X
+28 cinit CODE >1936:/tmp/xcXjYlI7X
+29 cinit CODE >1935:/tmp/xcXjYlI7X
+2A cinit CODE >1937:/tmp/xcXjYlI7X
+2B cinit CODE >1938:/tmp/xcXjYlI7X
+2C cinit CODE >1939:/tmp/xcXjYlI7X
+2F cinit CODE >1942:/tmp/xcXjYlI7X
+30 cinit CODE >1943:/tmp/xcXjYlI7X
+31 cinit CODE >1944:/tmp/xcXjYlI7X
+32 cinit CODE >1945:/tmp/xcXjYlI7X
+33 cinit CODE >1951:/tmp/xcXjYlI7X
+33 cinit CODE >1953:/tmp/xcXjYlI7X
+34 cinit CODE >1954:/tmp/xcXjYlI7X
+37 functab ENTRY >16610:/tmp/xcXjYlI7X
+37 functab ENTRY >16612:/tmp/xcXjYlI7X
+37 functab ENTRY >16613:/tmp/xcXjYlI7X
+37 functab ENTRY >16614:/tmp/xcXjYlI7X
+38 functab ENTRY >16615:/tmp/xcXjYlI7X
+39 functab ENTRY >16616:/tmp/xcXjYlI7X
+3A functab ENTRY >16617:/tmp/xcXjYlI7X
+3B functab ENTRY >16618:/tmp/xcXjYlI7X
+3C functab ENTRY >16620:/tmp/xcXjYlI7X
+3C functab ENTRY >16621:/tmp/xcXjYlI7X
+3D functab ENTRY >16624:/tmp/xcXjYlI7X
+3D functab ENTRY >16625:/tmp/xcXjYlI7X
+3D functab ENTRY >16627:/tmp/xcXjYlI7X
+40 functab ENTRY >16630:/tmp/xcXjYlI7X
+40 functab ENTRY >16631:/tmp/xcXjYlI7X
+40 functab ENTRY >16633:/tmp/xcXjYlI7X
+43 functab ENTRY >16636:/tmp/xcXjYlI7X
+43 functab ENTRY >16637:/tmp/xcXjYlI7X
+43 functab ENTRY >16639:/tmp/xcXjYlI7X
 4 intentry CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1232 text56 CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1232 text56 CODE >86:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
@@ -871,16 +871,16 @@ FDE text5 CODE >414:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
 13FC maintext CODE >248:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1402 maintext CODE >249:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1408 maintext CODE >250:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-800 clrtext CODE >1915:/tmp/xcXcjN8NU
-800 clrtext CODE >1916:/tmp/xcXcjN8NU
-801 clrtext CODE >1917:/tmp/xcXcjN8NU
-801 clrtext CODE >1918:/tmp/xcXcjN8NU
-802 clrtext CODE >1919:/tmp/xcXcjN8NU
-803 clrtext CODE >1920:/tmp/xcXcjN8NU
-804 clrtext CODE >1921:/tmp/xcXcjN8NU
-805 clrtext CODE >1922:/tmp/xcXcjN8NU
-806 clrtext CODE >1923:/tmp/xcXcjN8NU
-807 clrtext CODE >1924:/tmp/xcXcjN8NU
+800 clrtext CODE >1915:/tmp/xcXjYlI7X
+800 clrtext CODE >1916:/tmp/xcXjYlI7X
+801 clrtext CODE >1917:/tmp/xcXjYlI7X
+801 clrtext CODE >1918:/tmp/xcXjYlI7X
+802 clrtext CODE >1919:/tmp/xcXjYlI7X
+803 clrtext CODE >1920:/tmp/xcXjYlI7X
+804 clrtext CODE >1921:/tmp/xcXjYlI7X
+805 clrtext CODE >1922:/tmp/xcXjYlI7X
+806 clrtext CODE >1923:/tmp/xcXjYlI7X
+807 clrtext CODE >1924:/tmp/xcXjYlI7X
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -944,7 +944,7 @@ _TMR0 1 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _TMR2 11 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _TXIE 464 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _TXIF 64 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-___sp 0 0 STACK 2 stack /tmp/xcX2ZYYZU.obj
+___sp 0 0 STACK 2 stack /tmp/xcXrG1UpQ.obj
 _bres 1D6 0 BANK3 1 nvBANK3 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _main 25F6 0 CODE 0 maintext bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _mode E8 0 BANK1 1 dataBANK1 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
@@ -960,7 +960,7 @@ __size_of_buffer_putc 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz
 __size_of_buffer_puts 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 pow@x B9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 pow@y BC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-start 20 0 CODE 0 init /tmp/xcX2ZYYZU.obj
+start 20 0 CODE 0 init /tmp/xcXrG1UpQ.obj
 __pfunctab 6E 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __size_of___ftadd 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __size_of___ftdiv 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
@@ -999,12 +999,12 @@ __end_of_lcd_putch 2D54 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release
 lcd_init@fourbitmode 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __size_of_lcd_begin 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __size_of_lcd_clear 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-intlevel0 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
-intlevel1 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
-intlevel2 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
-intlevel3 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
-intlevel4 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
-intlevel5 6E 0 ENTRY 0 functab /tmp/xcX2ZYYZU.obj
+intlevel0 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
+intlevel1 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
+intlevel2 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
+intlevel3 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
+intlevel4 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
+intlevel5 6E 0 ENTRY 0 functab /tmp/xcXrG1UpQ.obj
 i1___lwdiv@quotient 74 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __size_of_lcd_putch 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
@@ -1106,7 +1106,7 @@ _buffer_putc 2F60 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz
 _buffer_puts 2D12 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 measure_inductance@numerator A6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _measure_freq 2996 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcX2ZYYZU.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXrG1UpQ.obj
 __end_of___ftpack C18 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -1206,7 +1206,7 @@ __Lintentry 8 0 CODE 0 intentry -
 __size_of_print_unit 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __stringtab 2000 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __end_of_measure_freq 2AE6 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcX2ZYYZU.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXrG1UpQ.obj
 buffer_putc@ch 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __end_of_timer2_init 22F0 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 __end_of_put_str 2B86 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
@@ -1306,8 +1306,8 @@ print_reading@measurement 56 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44
 lcd_begin@lines 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 ___lwtoft@c 5C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _print_reading 238E 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
-stackhi 0 0 ABS 0 - /tmp/xcX2ZYYZU.obj
-stacklo 0 0 ABS 0 - /tmp/xcX2ZYYZU.obj
+stackhi 0 0 ABS 0 - /tmp/xcXrG1UpQ.obj
+stacklo 0 0 ABS 0 - /tmp/xcXrG1UpQ.obj
 __end_of_calibrate 2996 0 CODE 0 text10 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 _seconds 1B8 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
 ?___lltoft 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_release_20mhz_38kbps.obj
