@@ -53,7 +53,7 @@ volatile uint32_t seconds, msecs; // seconds and milliseconds counters
 volatile uint32_t timer1of;       // timer 1 overflows
 
 static char mode = -1;
-
+//
 #define CYCLES_FOR_MSEC ((unsigned long)((double)OSC_4 / 1000))
 
 // volatile uint32_t ccp1t_lr, ccp1t[2];
@@ -155,7 +155,7 @@ main() {
   TRISC = 0b10110011;
 #endif
 
-#if !defined(__18f2550) && !defined(__18f25k50)
+#if !defined(__18f2550) && !defined(__18f25k50) && !defined(__18f2455)
   RC3 = HIGH;
 #endif
 
