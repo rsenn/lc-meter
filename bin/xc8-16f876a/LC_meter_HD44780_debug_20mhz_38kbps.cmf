@@ -11,36 +11,36 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/xcXemdYZ3.obj
+$/tmp/xcXOqRSQQ.obj
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 10 10 4 2
 $bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 cinit CODE 0 14 14 25 2
-text1 CODE 0 1191 1191 19 2
+text1 CODE 0 1173 1173 19 2
 text2 CODE 0 11C6 11C6 3B 2
-text3 CODE 0 1179 1179 18 2
+text3 CODE 0 115B 115B 18 2
 text4 CODE 0 1201 1201 7F 2
 text6 CODE 0 80A 80A 7F6 2
-text7 CODE 0 7CF 7CF 1E 2
-text11 CODE 0 48 48 787 2
-text29 CODE 0 11AA 11AA 1C 2
-text31 CODE 0 144E 144E 3B2 2
-text55 CODE 0 1280 1280 C1 2
-nvBANK1 BANK1 1 E1 E1 9 1
+text7 CODE 0 11A8 11A8 1E 2
+text11 CODE 0 48 48 7A3 2
+text30 CODE 0 118C 118C 1C 2
+text32 CODE 0 144E 144E 3B2 2
+text56 CODE 0 1280 1280 C1 2
+nvBANK1 BANK1 1 DD DD 9 1
 maintext CODE 0 1341 1341 10D 2
 cstackCOMMON COMMON 1 70 70 7 1
 cstackBANK0 BANK0 1 20 20 49 1
 cstackBANK1 BANK1 1 A0 A0 23 1
-cstackBANK3 BANK3 1 1C1 1C1 F 1
+cstackBANK3 BANK3 1 1C5 1C5 F 1
 intentry CODE 0 4 4 C 2
 bssBANK0 BANK0 1 69 69 2 1
-bssBANK1 BANK1 1 C3 C3 1E 1
-bssBANK3 BANK3 1 190 190 31 1
+bssBANK1 BANK1 1 C3 C3 1A 1
+bssBANK3 BANK3 1 190 190 35 1
 strings STRING 0 1000 1000 ED 2
 dataBANK0 BANK0 1 6B 6B 1 1
-dataBANK1 BANK1 1 EA EA 4 1
+dataBANK1 BANK1 1 E6 E6 4 1
 functab ENTRY 0 39 39 F 2
-clrtext CODE 0 7ED 7ED 8 2
+clrtext CODE 0 7EB 7EB 8 2
 bssCOMMON COMMON 1 77 77 4 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -49,25 +49,25 @@ bssCOMMON COMMON 1 77 77 4 1
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
 RAM 6C-6F 1
-RAM EE-EF 1
+RAM EA-EF 1
 RAM 110-16F 1
-RAM 1D0-1EF 1
+RAM 1D4-1EF 1
 BANK0 6C-6F 1
-BANK1 EE-EF 1
+BANK1 EA-EF 1
 BANK2 110-16F 1
-BANK3 1D0-1EF 1
+BANK3 1D4-1EF 1
 CONST 3-3 2
-CONST 7F5-809 2
-CONST 10ED-1178 2
+CONST 7F3-809 2
+CONST 10ED-115A 2
 CONST 1800-1FFF 2
 ENTRY 3-3 2
-ENTRY 7F5-809 2
-ENTRY 10ED-1178 2
+ENTRY 7F3-809 2
+ENTRY 10ED-115A 2
 ENTRY 1800-1FFF 2
 IDLOC 2000-2003 2
 CODE 3-3 2
-CODE 7F5-809 2
-CODE 10ED-1178 2
+CODE 7F3-809 2
+CODE 10ED-115A 2
 CODE 1800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -77,12 +77,12 @@ COMMON 7B-7D 1
 CONFIG 2007-2007 2
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 7F5-809 2
-STRCODE 10ED-1178 2
+STRCODE 7F3-809 2
+STRCODE 10ED-115A 2
 STRCODE 1800-1FFF 2
 STRING 3-3 2
-STRING 7F5-809 2
-STRING 10ED-1178 2
+STRING 7F3-809 2
+STRING 10ED-115A 2
 STRING 1800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -98,565 +98,568 @@ STRING 1800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-14 cinit CODE >1794:/tmp/xcXsnrAIE
-14 cinit CODE >1797:/tmp/xcXsnrAIE
-14 cinit CODE >1894:/tmp/xcXsnrAIE
+14 cinit CODE >1797:/tmp/xcX43cEfI
+14 cinit CODE >1800:/tmp/xcX43cEfI
+14 cinit CODE >1897:/tmp/xcX43cEfI
 15 cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16 cinit CODE >1896:/tmp/xcXsnrAIE
-17 cinit CODE >1898:/tmp/xcXsnrAIE
+16 cinit CODE >1899:/tmp/xcX43cEfI
+17 cinit CODE >1901:/tmp/xcX43cEfI
 18 cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-19 cinit CODE >1900:/tmp/xcXsnrAIE
+19 cinit CODE >1903:/tmp/xcX43cEfI
 1A cinit CODE >135:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1B cinit CODE >1902:/tmp/xcXsnrAIE
-1C cinit CODE >1906:/tmp/xcXsnrAIE
+1B cinit CODE >1905:/tmp/xcX43cEfI
+1C cinit CODE >1909:/tmp/xcX43cEfI
 1D cinit CODE >55:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1E cinit CODE >1908:/tmp/xcXsnrAIE
-1F cinit CODE >1928:/tmp/xcXsnrAIE
-20 cinit CODE >1927:/tmp/xcXsnrAIE
-21 cinit CODE >1929:/tmp/xcXsnrAIE
-22 cinit CODE >1930:/tmp/xcXsnrAIE
-23 cinit CODE >1931:/tmp/xcXsnrAIE
-28 cinit CODE >1935:/tmp/xcXsnrAIE
-29 cinit CODE >1934:/tmp/xcXsnrAIE
-2A cinit CODE >1936:/tmp/xcXsnrAIE
-2B cinit CODE >1937:/tmp/xcXsnrAIE
-2C cinit CODE >1938:/tmp/xcXsnrAIE
-2F cinit CODE >1941:/tmp/xcXsnrAIE
-30 cinit CODE >1942:/tmp/xcXsnrAIE
-31 cinit CODE >1945:/tmp/xcXsnrAIE
-32 cinit CODE >1946:/tmp/xcXsnrAIE
-33 cinit CODE >1947:/tmp/xcXsnrAIE
-34 cinit CODE >1948:/tmp/xcXsnrAIE
-35 cinit CODE >1954:/tmp/xcXsnrAIE
-35 cinit CODE >1956:/tmp/xcXsnrAIE
-36 cinit CODE >1957:/tmp/xcXsnrAIE
-39 functab ENTRY >15344:/tmp/xcXsnrAIE
-39 functab ENTRY >15346:/tmp/xcXsnrAIE
-39 functab ENTRY >15347:/tmp/xcXsnrAIE
-39 functab ENTRY >15348:/tmp/xcXsnrAIE
-3A functab ENTRY >15349:/tmp/xcXsnrAIE
-3B functab ENTRY >15350:/tmp/xcXsnrAIE
-3C functab ENTRY >15351:/tmp/xcXsnrAIE
-3D functab ENTRY >15352:/tmp/xcXsnrAIE
-3E functab ENTRY >15354:/tmp/xcXsnrAIE
-3E functab ENTRY >15355:/tmp/xcXsnrAIE
-3F functab ENTRY >15358:/tmp/xcXsnrAIE
-3F functab ENTRY >15359:/tmp/xcXsnrAIE
-3F functab ENTRY >15361:/tmp/xcXsnrAIE
-42 functab ENTRY >15364:/tmp/xcXsnrAIE
-42 functab ENTRY >15365:/tmp/xcXsnrAIE
-42 functab ENTRY >15367:/tmp/xcXsnrAIE
-45 functab ENTRY >15370:/tmp/xcXsnrAIE
-45 functab ENTRY >15371:/tmp/xcXsnrAIE
-45 functab ENTRY >15373:/tmp/xcXsnrAIE
+1E cinit CODE >1911:/tmp/xcX43cEfI
+1F cinit CODE >1931:/tmp/xcX43cEfI
+20 cinit CODE >1930:/tmp/xcX43cEfI
+21 cinit CODE >1932:/tmp/xcX43cEfI
+22 cinit CODE >1933:/tmp/xcX43cEfI
+23 cinit CODE >1934:/tmp/xcX43cEfI
+28 cinit CODE >1938:/tmp/xcX43cEfI
+29 cinit CODE >1937:/tmp/xcX43cEfI
+2A cinit CODE >1939:/tmp/xcX43cEfI
+2B cinit CODE >1940:/tmp/xcX43cEfI
+2C cinit CODE >1941:/tmp/xcX43cEfI
+2F cinit CODE >1944:/tmp/xcX43cEfI
+30 cinit CODE >1945:/tmp/xcX43cEfI
+31 cinit CODE >1948:/tmp/xcX43cEfI
+32 cinit CODE >1949:/tmp/xcX43cEfI
+33 cinit CODE >1950:/tmp/xcX43cEfI
+34 cinit CODE >1951:/tmp/xcX43cEfI
+35 cinit CODE >1957:/tmp/xcX43cEfI
+35 cinit CODE >1959:/tmp/xcX43cEfI
+36 cinit CODE >1960:/tmp/xcX43cEfI
+39 functab ENTRY >15589:/tmp/xcX43cEfI
+39 functab ENTRY >15591:/tmp/xcX43cEfI
+39 functab ENTRY >15592:/tmp/xcX43cEfI
+39 functab ENTRY >15593:/tmp/xcX43cEfI
+3A functab ENTRY >15594:/tmp/xcX43cEfI
+3B functab ENTRY >15595:/tmp/xcX43cEfI
+3C functab ENTRY >15596:/tmp/xcX43cEfI
+3D functab ENTRY >15597:/tmp/xcX43cEfI
+3E functab ENTRY >15599:/tmp/xcX43cEfI
+3E functab ENTRY >15600:/tmp/xcX43cEfI
+3F functab ENTRY >15603:/tmp/xcX43cEfI
+3F functab ENTRY >15604:/tmp/xcX43cEfI
+3F functab ENTRY >15606:/tmp/xcX43cEfI
+42 functab ENTRY >15609:/tmp/xcX43cEfI
+42 functab ENTRY >15610:/tmp/xcX43cEfI
+42 functab ENTRY >15612:/tmp/xcX43cEfI
+45 functab ENTRY >15615:/tmp/xcX43cEfI
+45 functab ENTRY >15616:/tmp/xcX43cEfI
+45 functab ENTRY >15618:/tmp/xcX43cEfI
 4 intentry CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1280 text55 CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1280 text55 CODE >86:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1282 text55 CODE >87:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1288 text55 CODE >88:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1296 text55 CODE >89:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12A4 text55 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12A7 text55 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12AA text55 CODE >93:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12CD text55 CODE >96:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12D5 text55 CODE >98:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12DC text55 CODE >99:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12E2 text55 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-12E4 text55 CODE >106:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-130D text55 CODE >111:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1317 text55 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1317 text55 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1319 text55 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-131D text55 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-131E text55 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-131E text55 CODE >19:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-131F text55 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1321 text55 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1324 text55 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1325 text55 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1328 text55 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1330 text55 CODE >24:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1336 text55 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1337 text55 CODE >27:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-133A text55 CODE >28:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-133C text55 CODE >30:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1340 text55 CODE >31:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-144E text31 CODE >26:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-144E text31 CODE >30:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-144F text31 CODE >32:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1458 text31 CODE >33:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-145A text31 CODE >35:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1462 text31 CODE >37:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1468 text31 CODE >38:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-146C text31 CODE >42:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-146D text31 CODE >44:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1482 text31 CODE >45:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1486 text31 CODE >47:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-149B text31 CODE >48:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-149D text31 CODE >50:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14B2 text31 CODE >51:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14B6 text31 CODE >53:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14CB text31 CODE >54:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14CD text31 CODE >57:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14D4 text31 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14D7 text31 CODE >59:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14DC text31 CODE >61:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14E0 text31 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14E7 text31 CODE >65:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14EB text31 CODE >73:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14EB text31 CODE >76:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14EC text31 CODE >80:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14EF text31 CODE >82:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14F9 text31 CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-14FC text31 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1507 text31 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1512 text31 CODE >92:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-151D text31 CODE >93:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1528 text31 CODE >94:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1533 text31 CODE >95:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-153E text31 CODE >96:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1549 text31 CODE >97:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1554 text31 CODE >98:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-155F text31 CODE >99:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-156A text31 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-156D text31 CODE >107:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1572 text31 CODE >110:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-157A text31 CODE >111:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-157D text31 CODE >112:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1581 text31 CODE >113:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-158D text31 CODE >114:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-158E text31 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1592 text31 CODE >118:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
-1593 text31 CODE >65:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1593 text31 CODE >69:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-1594 text31 CODE >501:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-1597 text31 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-15A4 text31 CODE >505:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-15AF text31 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-15B4 text31 CODE >292:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15B4 text31 CODE >293:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15B8 text31 CODE >294:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15C2 text31 CODE >296:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15C3 text31 CODE >10:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15C3 text31 CODE >11:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15C7 text31 CODE >12:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15C9 text31 CODE >13:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15CA text31 CODE >61:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15CD text31 CODE >62:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15D7 text31 CODE >63:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15E2 text31 CODE >64:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15E5 text31 CODE >62:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15E6 text31 CODE >170:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15E6 text31 CODE >171:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-15EB text31 CODE >39:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15EB text31 CODE >40:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-15ED text31 CODE >19:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15EE text31 CODE >23:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15EF text31 CODE >22:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F0 text31 CODE >23:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F1 text31 CODE >25:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F3 text31 CODE >27:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F4 text31 CODE >26:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F6 text31 CODE >27:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-15F7 text31 CODE >39:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1603 text31 CODE >40:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1617 text31 CODE >42:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1625 text31 CODE >43:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1629 text31 CODE >45:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1639 text31 CODE >47:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1648 text31 CODE >48:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-1654 text31 CODE >47:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-165A text31 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-165A text31 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-165C text31 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1660 text31 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1661 text31 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1661 text31 CODE >19:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1662 text31 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1664 text31 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1667 text31 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1668 text31 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-166B text31 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1673 text31 CODE >24:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1679 text31 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-167A text31 CODE >27:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-167D text31 CODE >28:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-167F text31 CODE >30:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1683 text31 CODE >31:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
-1684 text31 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1684 text31 CODE >13:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1688 text31 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1689 text31 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1689 text31 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-168A text31 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-168C text31 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-168F text31 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1690 text31 CODE >20:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-1698 text31 CODE >21:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-169E text31 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-16A1 text31 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-16A3 text31 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-16A7 text31 CODE >26:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
-16A8 text31 CODE >79:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16A8 text31 CODE >80:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16AB text31 CODE >81:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16AD text31 CODE >82:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16AF text31 CODE >100:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16B7 text31 CODE >87:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16B9 text31 CODE >89:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16BA text31 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16BB text31 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16BE text31 CODE >94:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16BF text31 CODE >95:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16C0 text31 CODE >97:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16C5 text31 CODE >100:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16C9 text31 CODE >102:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16DE text31 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16E1 text31 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-16E2 text31 CODE >488:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-16E3 text31 CODE >490:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-16E5 text31 CODE >493:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-16EC text31 CODE >416:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16ED text31 CODE >417:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16F0 text31 CODE >418:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16F1 text31 CODE >421:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16F4 text31 CODE >425:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16FB text31 CODE >426:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-16FC text31 CODE >428:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1706 text31 CODE >431:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1709 text31 CODE >432:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-170A text31 CODE >435:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-170C text31 CODE >439:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1710 text31 CODE >440:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-171B text31 CODE >442:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-171F text31 CODE >443:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1725 text31 CODE >445:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1729 text31 CODE >446:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-172F text31 CODE >448:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1733 text31 CODE >449:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1734 text31 CODE >455:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1739 text31 CODE >456:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1744 text31 CODE >459:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-174B text31 CODE >460:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1756 text31 CODE >464:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-175D text31 CODE >468:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1764 text31 CODE >471:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1768 text31 CODE >472:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-176C text31 CODE >475:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1770 text31 CODE >476:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-177A text31 CODE >479:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-177E text31 CODE >481:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1780 text31 CODE >127:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1783 text31 CODE >128:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1785 text31 CODE >34:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1788 text31 CODE >39:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-178A text31 CODE >40:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-178D text31 CODE >55:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-179F text31 CODE >60:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A0 text31 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A1 text31 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A4 text31 CODE >105:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A5 text31 CODE >106:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A6 text31 CODE >107:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17A7 text31 CODE >116:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17AC text31 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-17B0 text31 CODE >30:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-17B4 text31 CODE >31:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-17C5 text31 CODE >33:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-17D1 text31 CODE >34:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-17DF text31 CODE >36:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
-17E0 text31 CODE >510:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-17E0 text31 CODE >513:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-17E7 text31 CODE >514:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-17F2 text31 CODE >513:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-17F5 text31 CODE >516:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-11AA text29 CODE >489:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11AC text29 CODE >491:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11AE text29 CODE >492:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11B9 text29 CODE >493:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11BB text29 CODE >494:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11BC text29 CODE >498:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11BD text29 CODE >499:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11BF text29 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11C1 text29 CODE >505:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11C3 text29 CODE >507:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-11C5 text29 CODE >517:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-48 text11 CODE >81:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-4A text11 CODE >82:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-5F text11 CODE >86:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-71 text11 CODE >87:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-9B text11 CODE >88:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-C3 text11 CODE >89:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-F7 text11 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-103 text11 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-109 text11 CODE >92:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-113 text11 CODE >93:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-119 text11 CODE >86:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-11A text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-11A text11 CODE >63:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-127 text11 CODE >64:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-12B text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-138 text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-13C text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-13D text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-140 text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-143 text11 CODE >69:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-145 text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-147 text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-149 text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14A text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14B text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14C text11 CODE >74:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14D text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14E text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-14F text11 CODE >78:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-153 text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-15F text11 CODE >80:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-169 text11 CODE >81:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-16A text11 CODE >83:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-16E text11 CODE >84:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-170 text11 CODE >85:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-181 text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
-182 text11 CODE >5:/opt/microchip/xc8/v1.45/sources/common/pow.c
-182 text11 CODE >7:/opt/microchip/xc8/v1.45/sources/common/pow.c
-183 text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/pow.c
-188 text11 CODE >11:/opt/microchip/xc8/v1.45/sources/common/pow.c
-19B text11 CODE >14:/opt/microchip/xc8/v1.45/sources/common/pow.c
-1A0 text11 CODE >16:/opt/microchip/xc8/v1.45/sources/common/pow.c
-1A5 text11 CODE >17:/opt/microchip/xc8/v1.45/sources/common/pow.c
-1AB text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/pow.c
-1C0 text11 CODE >19:/opt/microchip/xc8/v1.45/sources/common/pow.c
-1DE text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/pow.c
-202 text11 CODE >22:/opt/microchip/xc8/v1.45/sources/common/pow.c
-207 text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/pow.c
-20C text11 CODE >25:/opt/microchip/xc8/v1.45/sources/common/pow.c
-225 text11 CODE >27:/opt/microchip/xc8/v1.45/sources/common/pow.c
-27D text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/pow.c
-280 text11 CODE >29:/opt/microchip/xc8/v1.45/sources/common/pow.c
-298 text11 CODE >35:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-298 text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-29A text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-29E text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-2A3 text11 CODE >43:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-2A4 text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-2A5 text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-2B5 text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
-2B6 text11 CODE >44:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2B6 text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2C0 text11 CODE >50:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2C5 text11 CODE >51:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2D2 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2D3 text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2D4 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2DA text11 CODE >55:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2DB text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2DC text11 CODE >55:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2DD text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2DF text11 CODE >57:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2E4 text11 CODE >60:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2E9 text11 CODE >61:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2EC text11 CODE >63:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2F0 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2F3 text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2F8 text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2F9 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2FA text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-2FD text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-308 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-310 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/fttol.c
-311 text11 CODE >12:/opt/microchip/xc8/v1.45/sources/common/exp.c
-311 text11 CODE >31:/opt/microchip/xc8/v1.45/sources/common/exp.c
-316 text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/exp.c
-31C text11 CODE >34:/opt/microchip/xc8/v1.45/sources/common/exp.c
-32F text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/exp.c
-335 text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/exp.c
-348 text11 CODE >40:/opt/microchip/xc8/v1.45/sources/common/exp.c
-34C text11 CODE >43:/opt/microchip/xc8/v1.45/sources/common/exp.c
-360 text11 CODE >44:/opt/microchip/xc8/v1.45/sources/common/exp.c
-363 text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/exp.c
-372 text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/exp.c
-387 text11 CODE >47:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3A3 text11 CODE >48:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3BF text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3E0 text11 CODE >50:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3E3 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3EC text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/exp.c
-3F0 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/exp.c
-403 text11 CODE >5:/opt/microchip/xc8/v1.45/sources/common/log.c
-403 text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/log.c
-413 text11 CODE >26:/opt/microchip/xc8/v1.45/sources/common/log.c
-417 text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/log.c
-41C text11 CODE >30:/opt/microchip/xc8/v1.45/sources/common/log.c
-420 text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/log.c
-44C text11 CODE >33:/opt/microchip/xc8/v1.45/sources/common/log.c
-450 text11 CODE >34:/opt/microchip/xc8/v1.45/sources/common/log.c
-464 text11 CODE >35:/opt/microchip/xc8/v1.45/sources/common/log.c
-48D text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/log.c
-48E text11 CODE >4:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-48E text11 CODE >8:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4A4 text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4A5 text11 CODE >9:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4A9 text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4E4 text11 CODE >9:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4E5 text11 CODE >11:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4EB text11 CODE >12:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
-4EC text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-4EC text11 CODE >90:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-4F6 text11 CODE >91:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-500 text11 CODE >92:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-50F text11 CODE >93:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-516 text11 CODE >94:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-525 text11 CODE >96:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-527 text11 CODE >97:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-528 text11 CODE >98:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-529 text11 CODE >99:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52A text11 CODE >100:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52B text11 CODE >101:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52C text11 CODE >102:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52D text11 CODE >103:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52E text11 CODE >104:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-52F text11 CODE >106:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-533 text11 CODE >110:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-537 text11 CODE >111:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-538 text11 CODE >112:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-542 text11 CODE >114:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-546 text11 CODE >115:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-547 text11 CODE >113:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-54C text11 CODE >117:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-550 text11 CODE >121:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-554 text11 CODE >122:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-555 text11 CODE >123:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-55F text11 CODE >125:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-563 text11 CODE >126:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-564 text11 CODE >124:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-568 text11 CODE >129:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-56A text11 CODE >131:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-56E text11 CODE >132:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-573 text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-575 text11 CODE >136:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-579 text11 CODE >137:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-57E text11 CODE >139:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-57F text11 CODE >140:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-58D text11 CODE >141:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-58F text11 CODE >142:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-593 text11 CODE >143:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-598 text11 CODE >144:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-59A text11 CODE >146:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-5AB text11 CODE >148:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
-5AC text11 CODE >62:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5AC text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5B9 text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5BD text11 CODE >69:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5CA text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5CE text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D1 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D3 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D5 text11 CODE >74:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D7 text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D8 text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5D9 text11 CODE >77:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5DA text11 CODE >78:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5DB text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5DE text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5DF text11 CODE >136:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5E1 text11 CODE >137:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5E8 text11 CODE >138:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5EC text11 CODE >139:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5F0 text11 CODE >140:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5F2 text11 CODE >143:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5F4 text11 CODE >145:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5F9 text11 CODE >146:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-5FD text11 CODE >147:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-601 text11 CODE >148:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-605 text11 CODE >149:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-607 text11 CODE >156:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-618 text11 CODE >157:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
-619 text11 CODE >62:/opt/microchip/xc8/v1.45/sources/common/float.c
-619 text11 CODE >64:/opt/microchip/xc8/v1.45/sources/common/float.c
-621 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/float.c
-625 text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/float.c
-626 text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/float.c
-62A text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/float.c
-62F text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/float.c
-630 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/float.c
-635 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/float.c
-639 text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/float.c
-63E text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/float.c
-642 text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/float.c
-643 text11 CODE >77:/opt/microchip/xc8/v1.45/sources/common/float.c
-647 text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/float.c
-649 text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/float.c
-64A text11 CODE >80:/opt/microchip/xc8/v1.45/sources/common/float.c
-64B text11 CODE >81:/opt/microchip/xc8/v1.45/sources/common/float.c
-64D text11 CODE >82:/opt/microchip/xc8/v1.45/sources/common/float.c
-657 text11 CODE >83:/opt/microchip/xc8/v1.45/sources/common/float.c
-659 text11 CODE >84:/opt/microchip/xc8/v1.45/sources/common/float.c
-65A text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/float.c
-65B text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-65B text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-65C text11 CODE >37:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-65E text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-663 text11 CODE >39:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-665 text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-675 text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
-676 text11 CODE >254:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-676 text11 CODE >256:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-67B text11 CODE >257:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-681 text11 CODE >258:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-685 text11 CODE >261:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-694 text11 CODE >262:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-6A0 text11 CODE >263:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-6AC text11 CODE >268:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-6B0 text11 CODE >269:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-6B1 text11 CODE >274:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-6B2 text11 CODE >15:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
-6B2 text11 CODE >17:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
-6B7 text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
-6B9 text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
-6BA text11 CODE >13:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6BA text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6C5 text11 CODE >19:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6C7 text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6D7 text11 CODE >21:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6DD text11 CODE >22:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6E1 text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/floor.c
-6E8 text11 CODE >26:/opt/microchip/xc8/v1.45/sources/common/floor.c
-700 text11 CODE >27:/opt/microchip/xc8/v1.45/sources/common/floor.c
-713 text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/floor.c
-726 text11 CODE >29:/opt/microchip/xc8/v1.45/sources/common/floor.c
-72C text11 CODE >30:/opt/microchip/xc8/v1.45/sources/common/floor.c
-72D text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-72D text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-72E text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-72F text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-730 text11 CODE >47:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-732 text11 CODE >48:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-73D text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-73F text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-743 text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-748 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-749 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-74A text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-75B text11 CODE >57:/opt/microchip/xc8/v1.45/sources/common/altoft.c
-75C text11 CODE >277:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-75C text11 CODE >279:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-761 text11 CODE >280:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-765 text11 CODE >282:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-772 text11 CODE >283:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-778 text11 CODE >287:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-77A text11 CODE >289:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-77E text11 CODE >291:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-789 text11 CODE >293:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-799 text11 CODE >294:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-79D text11 CODE >293:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-79F text11 CODE >294:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-7A2 text11 CODE >296:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-7A4 text11 CODE >300:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-7B2 text11 CODE >301:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-7BC text11 CODE >307:/opt/microchip/xc8/v1.45/sources/common/frexp.c
-7CF text7 CODE >401:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-7CF text7 CODE >410:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
-7D6 text7 CODE >414:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+1280 text56 CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1280 text56 CODE >86:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1282 text56 CODE >87:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1288 text56 CODE >88:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1296 text56 CODE >89:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12A4 text56 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12A7 text56 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12AA text56 CODE >93:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12CD text56 CODE >96:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12D5 text56 CODE >98:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12DC text56 CODE >99:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12E2 text56 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+12E4 text56 CODE >106:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+130D text56 CODE >111:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1317 text56 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1317 text56 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1319 text56 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+131D text56 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+131E text56 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+131E text56 CODE >19:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+131F text56 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1321 text56 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1324 text56 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1325 text56 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1328 text56 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1330 text56 CODE >24:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1336 text56 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1337 text56 CODE >27:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+133A text56 CODE >28:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+133C text56 CODE >30:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1340 text56 CODE >31:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+144E text32 CODE >26:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+144E text32 CODE >30:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+144F text32 CODE >32:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1458 text32 CODE >33:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+145A text32 CODE >35:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1462 text32 CODE >37:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1468 text32 CODE >38:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+146C text32 CODE >42:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+146D text32 CODE >44:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1482 text32 CODE >45:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1486 text32 CODE >47:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+149B text32 CODE >48:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+149D text32 CODE >50:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14B2 text32 CODE >51:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14B6 text32 CODE >53:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14CB text32 CODE >54:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14CD text32 CODE >57:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14D4 text32 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14D7 text32 CODE >59:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14DC text32 CODE >61:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14E0 text32 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14E7 text32 CODE >65:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14EB text32 CODE >73:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14EB text32 CODE >76:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14EC text32 CODE >80:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14EF text32 CODE >82:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14F9 text32 CODE >85:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+14FC text32 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1507 text32 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1512 text32 CODE >92:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+151D text32 CODE >93:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1528 text32 CODE >94:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1533 text32 CODE >95:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+153E text32 CODE >96:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1549 text32 CODE >97:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1554 text32 CODE >98:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+155F text32 CODE >99:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+156A text32 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+156D text32 CODE >107:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1572 text32 CODE >110:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+157A text32 CODE >111:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+157D text32 CODE >112:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1581 text32 CODE >113:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+158D text32 CODE >114:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+158E text32 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1592 text32 CODE >118:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
+1593 text32 CODE >65:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1593 text32 CODE >69:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
+1594 text32 CODE >501:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+1597 text32 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+15A4 text32 CODE >505:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+15AF text32 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+15B4 text32 CODE >292:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15B4 text32 CODE >293:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15B8 text32 CODE >294:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15C2 text32 CODE >296:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15C3 text32 CODE >10:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15C3 text32 CODE >11:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15C7 text32 CODE >12:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15C9 text32 CODE >13:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15CA text32 CODE >61:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15CD text32 CODE >62:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15D7 text32 CODE >63:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15E2 text32 CODE >64:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15E5 text32 CODE >62:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15E6 text32 CODE >170:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15E6 text32 CODE >171:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+15EB text32 CODE >39:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15EB text32 CODE >40:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+15ED text32 CODE >21:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15EE text32 CODE >25:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15EF text32 CODE >24:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F0 text32 CODE >25:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F1 text32 CODE >27:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F3 text32 CODE >29:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F4 text32 CODE >28:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F6 text32 CODE >29:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+15F7 text32 CODE >41:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1603 text32 CODE >42:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1617 text32 CODE >44:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1625 text32 CODE >45:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1629 text32 CODE >47:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1639 text32 CODE >49:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1648 text32 CODE >50:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+1654 text32 CODE >49:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+165A text32 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+165A text32 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+165C text32 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1660 text32 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1661 text32 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1661 text32 CODE >19:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1662 text32 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1664 text32 CODE >18:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1667 text32 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1668 text32 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+166B text32 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1673 text32 CODE >24:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1679 text32 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+167A text32 CODE >27:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+167D text32 CODE >28:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+167F text32 CODE >30:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1683 text32 CODE >31:/opt/microchip/xc8/v1.45/sources/common/lwdiv.c
+1684 text32 CODE >6:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1684 text32 CODE >13:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1688 text32 CODE >14:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1689 text32 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1689 text32 CODE >17:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+168A text32 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+168C text32 CODE >16:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+168F text32 CODE >15:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1690 text32 CODE >20:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+1698 text32 CODE >21:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+169E text32 CODE >22:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+16A1 text32 CODE >23:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+16A3 text32 CODE >25:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+16A7 text32 CODE >26:/opt/microchip/xc8/v1.45/sources/common/lwmod.c
+16A8 text32 CODE >79:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16A8 text32 CODE >80:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16AB text32 CODE >81:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16AD text32 CODE >82:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16AF text32 CODE >100:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16B7 text32 CODE >87:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16B9 text32 CODE >89:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16BA text32 CODE >90:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16BB text32 CODE >91:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16BE text32 CODE >94:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16BF text32 CODE >95:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16C0 text32 CODE >97:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16C5 text32 CODE >100:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16C9 text32 CODE >102:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16DE text32 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16E1 text32 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+16E2 text32 CODE >488:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+16E3 text32 CODE >490:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+16E5 text32 CODE >493:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+16EC text32 CODE >416:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16ED text32 CODE >417:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16F0 text32 CODE >418:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16F1 text32 CODE >421:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16F4 text32 CODE >425:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16FB text32 CODE >426:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+16FC text32 CODE >428:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1706 text32 CODE >431:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1709 text32 CODE >432:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+170A text32 CODE >435:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+170C text32 CODE >439:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1710 text32 CODE >440:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+171B text32 CODE >442:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+171F text32 CODE >443:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1725 text32 CODE >445:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1729 text32 CODE >446:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+172F text32 CODE >448:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1733 text32 CODE >449:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1734 text32 CODE >455:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1739 text32 CODE >456:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1744 text32 CODE >459:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+174B text32 CODE >460:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1756 text32 CODE >464:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+175D text32 CODE >468:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1764 text32 CODE >471:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1768 text32 CODE >472:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+176C text32 CODE >475:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1770 text32 CODE >476:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+177A text32 CODE >479:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+177E text32 CODE >481:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1780 text32 CODE >127:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1783 text32 CODE >128:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1785 text32 CODE >34:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1788 text32 CODE >39:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+178A text32 CODE >40:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+178D text32 CODE >55:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+179F text32 CODE >60:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A0 text32 CODE >103:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A1 text32 CODE >104:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A4 text32 CODE >105:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A5 text32 CODE >106:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A6 text32 CODE >107:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17A7 text32 CODE >116:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17AC text32 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+17B0 text32 CODE >30:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+17B4 text32 CODE >31:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+17C5 text32 CODE >33:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+17D1 text32 CODE >34:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+17DF text32 CODE >36:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c
+17E0 text32 CODE >510:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+17E0 text32 CODE >513:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+17E7 text32 CODE >514:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+17F2 text32 CODE >513:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+17F5 text32 CODE >516:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+118C text30 CODE >489:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+118E text30 CODE >491:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+1190 text30 CODE >492:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+119B text30 CODE >493:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+119D text30 CODE >494:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+119E text30 CODE >498:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+119F text30 CODE >499:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+11A1 text30 CODE >504:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+11A3 text30 CODE >505:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+11A5 text30 CODE >507:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+11A7 text30 CODE >517:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
+48 text11 CODE >64:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+4A text11 CODE >65:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+5F text11 CODE >69:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+71 text11 CODE >70:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+9B text11 CODE >71:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+D6 text11 CODE >72:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+103 text11 CODE >73:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+10F text11 CODE >74:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+115 text11 CODE >75:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+11F text11 CODE >76:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+125 text11 CODE >69:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+126 text11 CODE >5:/opt/microchip/xc8/v1.45/sources/common/pow.c
+126 text11 CODE >7:/opt/microchip/xc8/v1.45/sources/common/pow.c
+127 text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/pow.c
+12C text11 CODE >11:/opt/microchip/xc8/v1.45/sources/common/pow.c
+13F text11 CODE >14:/opt/microchip/xc8/v1.45/sources/common/pow.c
+144 text11 CODE >16:/opt/microchip/xc8/v1.45/sources/common/pow.c
+149 text11 CODE >17:/opt/microchip/xc8/v1.45/sources/common/pow.c
+14F text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/pow.c
+164 text11 CODE >19:/opt/microchip/xc8/v1.45/sources/common/pow.c
+182 text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/pow.c
+1A6 text11 CODE >22:/opt/microchip/xc8/v1.45/sources/common/pow.c
+1AB text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/pow.c
+1B0 text11 CODE >25:/opt/microchip/xc8/v1.45/sources/common/pow.c
+1C9 text11 CODE >27:/opt/microchip/xc8/v1.45/sources/common/pow.c
+221 text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/pow.c
+224 text11 CODE >29:/opt/microchip/xc8/v1.45/sources/common/pow.c
+23C text11 CODE >35:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+23C text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+23E text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+242 text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+247 text11 CODE >43:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+248 text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+249 text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+259 text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/lltoft.c
+25A text11 CODE >44:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+25A text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+264 text11 CODE >50:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+269 text11 CODE >51:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+276 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+277 text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+278 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+27E text11 CODE >55:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+27F text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+280 text11 CODE >55:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+281 text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+283 text11 CODE >57:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+288 text11 CODE >60:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+28D text11 CODE >61:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+290 text11 CODE >63:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+294 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+297 text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+29C text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+29D text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+29E text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+2A1 text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+2AC text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+2B4 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/fttol.c
+2B5 text11 CODE >12:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2B5 text11 CODE >31:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2BA text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2C0 text11 CODE >34:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2D3 text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2D9 text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2EC text11 CODE >40:/opt/microchip/xc8/v1.45/sources/common/exp.c
+2F0 text11 CODE >43:/opt/microchip/xc8/v1.45/sources/common/exp.c
+304 text11 CODE >44:/opt/microchip/xc8/v1.45/sources/common/exp.c
+307 text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/exp.c
+316 text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/exp.c
+32B text11 CODE >47:/opt/microchip/xc8/v1.45/sources/common/exp.c
+347 text11 CODE >48:/opt/microchip/xc8/v1.45/sources/common/exp.c
+363 text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/exp.c
+384 text11 CODE >50:/opt/microchip/xc8/v1.45/sources/common/exp.c
+387 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/exp.c
+390 text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/exp.c
+394 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/exp.c
+3A7 text11 CODE >5:/opt/microchip/xc8/v1.45/sources/common/log.c
+3A7 text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/log.c
+3B7 text11 CODE >26:/opt/microchip/xc8/v1.45/sources/common/log.c
+3BB text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/log.c
+3C0 text11 CODE >30:/opt/microchip/xc8/v1.45/sources/common/log.c
+3C4 text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/log.c
+3F0 text11 CODE >33:/opt/microchip/xc8/v1.45/sources/common/log.c
+3F4 text11 CODE >34:/opt/microchip/xc8/v1.45/sources/common/log.c
+408 text11 CODE >35:/opt/microchip/xc8/v1.45/sources/common/log.c
+431 text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/log.c
+432 text11 CODE >4:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+432 text11 CODE >8:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+448 text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+449 text11 CODE >9:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+44D text11 CODE >10:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+488 text11 CODE >9:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+489 text11 CODE >11:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+48F text11 CODE >12:/opt/microchip/xc8/v1.45/sources/common/evalpoly.c
+490 text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+490 text11 CODE >90:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+49A text11 CODE >91:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4A4 text11 CODE >92:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4B3 text11 CODE >93:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4BA text11 CODE >94:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4C9 text11 CODE >96:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4CB text11 CODE >97:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4CC text11 CODE >98:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4CD text11 CODE >99:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4CE text11 CODE >100:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4CF text11 CODE >101:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4D0 text11 CODE >102:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4D1 text11 CODE >103:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4D2 text11 CODE >104:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4D3 text11 CODE >106:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4D7 text11 CODE >110:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4DB text11 CODE >111:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4DC text11 CODE >112:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4E6 text11 CODE >114:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4EA text11 CODE >115:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4EB text11 CODE >113:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4F0 text11 CODE >117:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4F4 text11 CODE >121:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4F8 text11 CODE >122:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+4F9 text11 CODE >123:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+503 text11 CODE >125:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+507 text11 CODE >126:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+508 text11 CODE >124:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+50C text11 CODE >129:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+50E text11 CODE >131:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+512 text11 CODE >132:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+517 text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+519 text11 CODE >136:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+51D text11 CODE >137:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+522 text11 CODE >139:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+523 text11 CODE >140:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+531 text11 CODE >141:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+533 text11 CODE >142:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+537 text11 CODE >143:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+53C text11 CODE >144:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+53E text11 CODE >146:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+54F text11 CODE >148:/opt/microchip/xc8/v1.45/sources/common/ftadd.c
+550 text11 CODE >62:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+550 text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+55D text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+561 text11 CODE >69:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+56E text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+572 text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+575 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+577 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+579 text11 CODE >74:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+57B text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+57C text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+57D text11 CODE >77:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+57E text11 CODE >78:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+57F text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+582 text11 CODE >134:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+583 text11 CODE >136:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+585 text11 CODE >137:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+58C text11 CODE >138:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+590 text11 CODE >139:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+594 text11 CODE >140:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+596 text11 CODE >143:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+598 text11 CODE >145:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+59D text11 CODE >146:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5A1 text11 CODE >147:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5A5 text11 CODE >148:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5A9 text11 CODE >149:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5AB text11 CODE >156:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5BC text11 CODE >157:/opt/microchip/xc8/v1.45/sources/common/ftmul.c
+5BD text11 CODE >62:/opt/microchip/xc8/v1.45/sources/common/float.c
+5BD text11 CODE >64:/opt/microchip/xc8/v1.45/sources/common/float.c
+5C5 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/float.c
+5C9 text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/float.c
+5CA text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/float.c
+5CE text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/float.c
+5D3 text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/float.c
+5D4 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/float.c
+5D9 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/float.c
+5DD text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/float.c
+5E2 text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/float.c
+5E6 text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/float.c
+5E7 text11 CODE >77:/opt/microchip/xc8/v1.45/sources/common/float.c
+5EB text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/float.c
+5ED text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/float.c
+5EE text11 CODE >80:/opt/microchip/xc8/v1.45/sources/common/float.c
+5EF text11 CODE >81:/opt/microchip/xc8/v1.45/sources/common/float.c
+5F1 text11 CODE >82:/opt/microchip/xc8/v1.45/sources/common/float.c
+5FB text11 CODE >83:/opt/microchip/xc8/v1.45/sources/common/float.c
+5FD text11 CODE >84:/opt/microchip/xc8/v1.45/sources/common/float.c
+5FE text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/float.c
+5FF text11 CODE >32:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+5FF text11 CODE >36:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+600 text11 CODE >37:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+602 text11 CODE >38:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+607 text11 CODE >39:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+609 text11 CODE >41:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+619 text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/awtoft.c
+61A text11 CODE >254:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+61A text11 CODE >256:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+61F text11 CODE >257:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+625 text11 CODE >258:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+629 text11 CODE >261:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+638 text11 CODE >262:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+644 text11 CODE >263:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+650 text11 CODE >268:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+654 text11 CODE >269:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+655 text11 CODE >274:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+656 text11 CODE >15:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
+656 text11 CODE >17:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
+65B text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
+65D text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/ftneg.c
+65E text11 CODE >13:/opt/microchip/xc8/v1.45/sources/common/floor.c
+65E text11 CODE >18:/opt/microchip/xc8/v1.45/sources/common/floor.c
+669 text11 CODE >19:/opt/microchip/xc8/v1.45/sources/common/floor.c
+66B text11 CODE >20:/opt/microchip/xc8/v1.45/sources/common/floor.c
+67B text11 CODE >21:/opt/microchip/xc8/v1.45/sources/common/floor.c
+681 text11 CODE >22:/opt/microchip/xc8/v1.45/sources/common/floor.c
+685 text11 CODE >24:/opt/microchip/xc8/v1.45/sources/common/floor.c
+68C text11 CODE >26:/opt/microchip/xc8/v1.45/sources/common/floor.c
+6A4 text11 CODE >27:/opt/microchip/xc8/v1.45/sources/common/floor.c
+6B7 text11 CODE >28:/opt/microchip/xc8/v1.45/sources/common/floor.c
+6CA text11 CODE >29:/opt/microchip/xc8/v1.45/sources/common/floor.c
+6D0 text11 CODE >30:/opt/microchip/xc8/v1.45/sources/common/floor.c
+6D1 text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6D1 text11 CODE >63:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6DE text11 CODE >64:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6E2 text11 CODE >65:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6EF text11 CODE >66:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6F3 text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6F4 text11 CODE >67:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6F7 text11 CODE >68:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6FA text11 CODE >69:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6FC text11 CODE >70:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+6FE text11 CODE >71:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+700 text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+701 text11 CODE >72:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+702 text11 CODE >73:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+703 text11 CODE >74:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+704 text11 CODE >75:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+705 text11 CODE >76:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+706 text11 CODE >78:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+70A text11 CODE >79:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+716 text11 CODE >80:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+720 text11 CODE >81:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+721 text11 CODE >83:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+725 text11 CODE >84:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+727 text11 CODE >85:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+738 text11 CODE >86:/opt/microchip/xc8/v1.45/sources/common/ftdiv.c
+739 text11 CODE >27:/opt/microchip/xc8/v1.45/sources/common/lbtoft.c
+73B text11 CODE >29:/opt/microchip/xc8/v1.45/sources/common/lbtoft.c
+748 text11 CODE >30:/opt/microchip/xc8/v1.45/sources/common/lbtoft.c
+749 text11 CODE >42:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+749 text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+74A text11 CODE >45:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+74B text11 CODE >46:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+74C text11 CODE >47:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+74E text11 CODE >48:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+759 text11 CODE >49:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+75B text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+75F text11 CODE >53:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+764 text11 CODE >54:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+765 text11 CODE >52:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+766 text11 CODE >56:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+777 text11 CODE >57:/opt/microchip/xc8/v1.45/sources/common/altoft.c
+778 text11 CODE >277:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+778 text11 CODE >279:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+77D text11 CODE >280:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+781 text11 CODE >282:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+78E text11 CODE >283:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+794 text11 CODE >287:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+796 text11 CODE >289:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+79A text11 CODE >291:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7A5 text11 CODE >293:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7B5 text11 CODE >294:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7B9 text11 CODE >293:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7BB text11 CODE >294:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7BE text11 CODE >296:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7C0 text11 CODE >300:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7CE text11 CODE >301:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+7D8 text11 CODE >307:/opt/microchip/xc8/v1.45/sources/common/frexp.c
+11A8 text7 CODE >401:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+11A8 text7 CODE >410:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
+11AF text7 CODE >414:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
 80A text6 CODE >131:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
 80A text6 CODE >139:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
 80D text6 CODE >140:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
@@ -713,11 +716,11 @@ BC0 text6 CODE >75:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
 BC3 text6 CODE >76:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
 BC5 text6 CODE >77:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
 BC6 text6 CODE >78:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-BC7 text6 CODE >54:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-BC8 text6 CODE >55:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-BD0 text6 CODE >56:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-BD9 text6 CODE >57:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
-BE8 text6 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+BC7 text6 CODE >56:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+BC8 text6 CODE >57:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+BD0 text6 CODE >58:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+BD9 text6 CODE >59:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
+BE8 text6 CODE >60:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c
 BF4 text6 CODE >218:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
 BF4 text6 CODE >225:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
 BF7 text6 CODE >226:/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c
@@ -779,21 +782,21 @@ FF5 text6 CODE >156:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
 1244 text4 CODE >457:/home/roman/Dokumente/Sources/lc-meter/obj/../src/print.c
 125F text4 CODE >163:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
 1262 text4 CODE >165:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
-1179 text3 CODE >114:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1179 text3 CODE >115:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-117B text3 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-117C text3 CODE >119:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-117D text3 CODE >125:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-117F text3 CODE >128:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1180 text3 CODE >129:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1182 text3 CODE >131:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1184 text3 CODE >132:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1186 text3 CODE >133:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1187 text3 CODE >134:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1189 text3 CODE >136:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-118A text3 CODE >137:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-118B text3 CODE >139:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
-1190 text3 CODE >140:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+115B text3 CODE >114:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+115B text3 CODE >115:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+115D text3 CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+115E text3 CODE >119:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+115F text3 CODE >125:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1161 text3 CODE >128:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1162 text3 CODE >129:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1164 text3 CODE >131:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1166 text3 CODE >132:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1168 text3 CODE >133:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1169 text3 CODE >134:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+116B text3 CODE >136:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+116C text3 CODE >137:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+116D text3 CODE >139:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
+1172 text3 CODE >140:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c
 11C6 text2 CODE >26:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
 11C8 text2 CODE >27:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
 11CB text2 CODE >30:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
@@ -805,16 +808,16 @@ FF5 text6 CODE >156:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
 11F9 text2 CODE >49:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
 11FA text2 CODE >75:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
 1200 text2 CODE >76:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-1191 text1 CODE >145:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-1194 text1 CODE >146:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-1197 text1 CODE >150:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-1199 text1 CODE >152:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-119A text1 CODE >153:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-119D text1 CODE >155:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-119E text1 CODE >157:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-119F text1 CODE >160:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-11A0 text1 CODE >161:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
-11A9 text1 CODE >162:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1173 text1 CODE >145:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1176 text1 CODE >146:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1179 text1 CODE >150:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+117B text1 CODE >152:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+117C text1 CODE >153:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+117F text1 CODE >155:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1180 text1 CODE >157:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1181 text1 CODE >160:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+1182 text1 CODE >161:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
+118B text1 CODE >162:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/timer.c
 1341 maintext CODE >117:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1341 maintext CODE >118:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1358 maintext CODE >119:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
@@ -869,16 +872,16 @@ FF5 text6 CODE >156:/home/roman/Dokumente/Sources/lc-meter/obj/../lib/lcd44780.c
 1441 maintext CODE >248:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 1447 maintext CODE >249:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
 144D maintext CODE >250:/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c
-7ED clrtext CODE >1914:/tmp/xcXsnrAIE
-7ED clrtext CODE >1915:/tmp/xcXsnrAIE
-7EE clrtext CODE >1916:/tmp/xcXsnrAIE
-7EE clrtext CODE >1917:/tmp/xcXsnrAIE
-7EF clrtext CODE >1918:/tmp/xcXsnrAIE
-7F0 clrtext CODE >1919:/tmp/xcXsnrAIE
-7F1 clrtext CODE >1920:/tmp/xcXsnrAIE
-7F2 clrtext CODE >1921:/tmp/xcXsnrAIE
-7F3 clrtext CODE >1922:/tmp/xcXsnrAIE
-7F4 clrtext CODE >1923:/tmp/xcXsnrAIE
+7EB clrtext CODE >1917:/tmp/xcX43cEfI
+7EB clrtext CODE >1918:/tmp/xcX43cEfI
+7EC clrtext CODE >1919:/tmp/xcX43cEfI
+7EC clrtext CODE >1920:/tmp/xcX43cEfI
+7ED clrtext CODE >1921:/tmp/xcX43cEfI
+7EE clrtext CODE >1922:/tmp/xcX43cEfI
+7EF clrtext CODE >1923:/tmp/xcX43cEfI
+7F0 clrtext CODE >1924:/tmp/xcX43cEfI
+7F1 clrtext CODE >1925:/tmp/xcX43cEfI
+7F2 clrtext CODE >1926:/tmp/xcX43cEfI
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -895,18 +898,18 @@ ___latbits 2 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwmod@counter 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
 __LdataBANK1 0 0 ABS 0 dataBANK1 -
-_pow$1220 A6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_pow$1221 A9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_pow$1217 A6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_pow$1218 A9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hspace_0 1800 0 ABS 0 - -
-__Hspace_1 1D0 0 ABS 0 - -
+__Hspace_1 1D4 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __HidataBANK1 0 0 ABS 0 idataBANK1 -
-_led_interval E8 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_led_interval E4 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_gotoxy@row_offsets 2B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 frexp@eptr 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_led_cycle D7 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_led_cycle D3 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftdiv@exp 39 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_rxfifo 1A0 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_rxiptr 7A 0 COMMON 1 bssCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -916,12 +919,12 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __size_of_print_buffer 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_gotoxy@col 2A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_gotoxy@row 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-PL2 F7A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-PL4 2FF2 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-PL6 F90 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_F1 DE 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_F2 D2 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_F3 CF 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+PL2 FB2 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+PL4 2FF2 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+PL6 FC8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_F1 DA 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_F2 CE 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_F3 CB 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_txfifo 190 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_txiptr 77 0 COMMON 1 bssCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_txoptr 78 0 COMMON 1 bssCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -930,7 +933,7 @@ i1___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_d
 ?_log 56 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_pow A0 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hstrings 0 0 ABS 0 strings -
-_CCal E5 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_CCal E1 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PEIE 5E 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PIE1 8C 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PIR1 C 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -942,15 +945,16 @@ _TMR0 1 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TMR2 11 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TXIE 464 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TXIF 64 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___sp 0 0 STACK 2 stack /tmp/xcXemdYZ3.obj
-_bres E1 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___sp 0 0 STACK 2 stack /tmp/xcXOqRSQQ.obj
+_bres DD 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _main 2682 0 CODE 0 maintext bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _mode 6B 0 BANK0 1 dataBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 btemp 7E 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 exp@x 5D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_format_float 24C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 log@x 56 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@base 2D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_format_number 2CB4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_format_number 2CB4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftadd@f1 30 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftadd@f2 33 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_buffer_init 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -958,7 +962,7 @@ __size_of_buffer_putc 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_3
 __size_of_buffer_puts 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 pow@x A0 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 pow@y A3 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-start 20 0 CODE 0 init /tmp/xcXemdYZ3.obj
+start 20 0 CODE 0 init /tmp/xcXOqRSQQ.obj
 __pfunctab 72 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___ftadd 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___ftdiv 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -972,7 +976,7 @@ __size_of___lwmod 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbp
 __size_of_format_xint32 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_buffer_putch 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_lcd_write4bits 2F40 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_write4bits 2F40 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 pow@yi AD 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _OPTION_REGbits 81 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftdiv@f1 2F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -980,82 +984,79 @@ ___ftdiv@f2 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mh
 ___ftdiv@f3 36 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __LidataBANK1 0 0 ABS 0 idataBANK1 -
-__end_of_print_buffer 2FF2 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_LCD_ctrl DD 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_LCD_mode DC 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-format_double@fn B7 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_print_buffer 2FF2 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_LCD_ctrl D9 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_LCD_mode D8 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hpowerup 0 0 CODE 0 powerup -
 log@coeff 2048 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_print_unit F9E 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_print_unit 2350 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftge@ff1 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftge@ff2 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_lcd_gotoxy 2000 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_lcd_begin 2F00 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_lcd_clear 2B86 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_lcd_putch 2BD6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_begin 2F00 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_clear 2B86 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_putch 2BD6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_init@fourbitmode 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_begin 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_clear 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-intlevel0 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
-intlevel1 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
-intlevel2 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
-intlevel3 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
-intlevel4 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
-intlevel5 72 0 ENTRY 0 functab /tmp/xcXemdYZ3.obj
+intlevel0 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
+intlevel1 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
+intlevel2 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
+intlevel3 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
+intlevel4 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
+intlevel5 72 0 ENTRY 0 functab /tmp/xcXOqRSQQ.obj
 i1___lwdiv@quotient 74 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_putch 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __end_oflog@coeff 207E 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_buffer_putch 2BDA 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_buffer_putch 2BDA 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_timer0_read_ps 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_print_indicator 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 wtemp0 7E 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_begin@dotsize 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_format_xint32 17E8 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-?_floorf 20 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _timer0_init 238C 0 CODE 0 text2 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hfunctab 90 0 ENTRY 0 functab -
 measure_freq@count 5D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_timer2_init 2322 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_timer2_init 22E6 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 ___ftmul@f1 3C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftmul@f2 3F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_begin 2DD8 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_clear 2B68 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_begin 2DD8 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_clear 2B68 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftneg@f1 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_putch 2BCC 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_format_number$334 53 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-measure_capacitance@unit 1CA 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_putch 2BCC 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_format_number$335 53 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+measure_capacitance@unit 1CE 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___altoft 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_log10f 20 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___awtoft 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___altoft@c 31 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___altoft@c 48 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hpa_nodes0 0 0 ABS 0 pa_nodes0 -
 __end_of___ftge 1F56 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-lcd_gotoxy@F1165 EA 0 BANK1 1 dataBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_print_reading$1218 5B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_print_reading$1219 5D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+lcd_gotoxy@F1165 E6 0 BANK1 1 dataBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_print_reading$1215 5B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_print_reading$1216 5D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftsub@f1 4E 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftsub@f2 4B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___fttol@f1 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___fttol@f1 3B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_ofi1___lwdiv 2682 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_ofi1___lwdiv 2682 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_DEBUG$ON 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LnvBANK1 0 0 ABS 0 nvBANK1 -
 timer0_init@ps_mode 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_print_unit FDA 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_print_unit 238C 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwmod@divisor 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_ofi1___lwdiv 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___ftpack 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___ftadd B58 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___ftdiv 304 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___ftmul C32 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___ftneg D74 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___ftadd AA0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___ftdiv E72 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___ftmul B7A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___ftneg CBC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of___ftsub 1F90 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___fttol 622 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___lwdiv 2D08 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___lwmod 2D50 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-format_double@weight B4 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___fttol 56A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___lwdiv 2D08 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___lwmod 2D50 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _INTCON B 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _OPTION_REG 81 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_eval_poly 4B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1065,48 +1066,51 @@ __size_of_floor 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.
 __size_of_frexp 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_ldexp 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_write4bits@value 25 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_msecpart D9 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-i1___lwdiv 262E 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_msecpart D5 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+i1___lwdiv 262E 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__size_of___lbtoft 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___lltoft 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___lwtoft 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwmod@dividend 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 start_initialization 28 0 CODE 0 cinit bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_command 2F00 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_command 2F00 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 main@new_mode C2 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 pow@sign AC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_send@value 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___altoft E5A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___awtoft CB6 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+format_float@m BC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___altoft E92 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___awtoft BFE 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 print_buffer@i 2A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_ofPL2 F90 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_ofPL4 3000 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_ofPL6 F9E 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___altoft EB8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_ofPL2 FC8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_ofPL4 3000 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_ofPL6 FD6 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___altoft EF0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 print_indicator@indicate 2F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___awtoft CEC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-clear_ram0 FDA 0 CODE 0 clrtext bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___awtoft C34 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+clear_ram0 FD6 0 CODE 0 clrtext bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__pcstackBANK3 1C1 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___fttol@exp1 30 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___fttol@lval 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__pcstackBANK3 1C5 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___fttol@exp1 47 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___fttol@lval 43 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___lbtoft@c 30 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TMR0IF 5A 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TMR2IF 61 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_ser_putch 178E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_measure_inductance 1EFE 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lltoft@c 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___ftpack C32 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___ftpack B7A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_ser_putch 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_put_str 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftpack@arg 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftpack@exp 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_buffer_init 2B86 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_buffer_putc 2F60 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_buffer_puts 2B94 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_buffer_init 2B86 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_buffer_putc 2F60 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_buffer_puts 2B94 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 measure_inductance@numerator A0 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_freq 29D6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___int_sp 0 0 STACK 2 stack /tmp/xcXemdYZ3.obj
-__end_of___ftpack CB6 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_freq 29D6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___int_sp 0 0 STACK 2 stack /tmp/xcXOqRSQQ.obj
+__end_of___ftpack BFE 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1119,7 +1123,8 @@ __stringbase 200A 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mh
 ___lwdiv@counter 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hmaintext 0 0 ABS 0 maintext -
 _ser_putch 1764 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___lltoft 530 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___lbtoft E72 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___lltoft 478 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_init 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_puts 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_send 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1127,6 +1132,7 @@ __Hcommon 0 0 ABS 0 common -
 __Hconfig 0 0 CONFIG 0 config -
 __size_of_lcd_gotoxy 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwtoft 1F90 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+format_float@num 66 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -1138,12 +1144,13 @@ ___ftadd@exp2 3A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20
 ___ftadd@sign 39 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lstack 0 0 STACK 2 stack -
 __size_of__fptable 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___lbtoft E92 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _measure_inductance 17E8 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of___lltoft 56C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of___lltoft 4B4 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of___lwtoft 1FB4 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_capacitance$1206 1C1 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_capacitance$1207 1C4 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_capacitance$1208 1C7 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_capacitance$1201 1C5 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_capacitance$1202 1C8 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_capacitance$1203 1CB 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
 __Hinit 20 0 CODE 0 init -
@@ -1152,7 +1159,7 @@ __Hsfr1 0 0 ABS 0 sfr1 -
 __Hsfr2 0 0 ABS 0 sfr2 -
 __Hsfr3 0 0 ABS 0 sfr3 -
 __Htext 0 0 ABS 0 text -
-_LCD_lines DB 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_LCD_lines D7 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Labs1 0 0 ABS 0 abs1 -
 __Lcode 0 0 ABS 0 code -
 __Linit 20 0 CODE 0 init -
@@ -1161,7 +1168,7 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-__pnvBANK1 E1 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__pnvBANK1 DD 0 BANK1 1 nvBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 timer0_read_ps@prev 2A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftge 1EFE 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
@@ -1173,129 +1180,130 @@ _GIE 5F 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PSA 40B 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _RC3 3B 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __S0 1800 0 ABS 0 - -
-__S1 1D0 0 ABS 0 - -
+__S1 1D4 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_exp 622 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_isr 2500 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_log 806 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_pow 304 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_exp 56A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_isr 2500 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_log 74E 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_pow 24C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_measure_capacitance 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-format_double@num 66 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_measure_freq 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_exp$1222 60 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_buffer 1B0 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_exp$1219 60 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_buffer 1B4 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 entry__lcd_putch 84 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 saved_w 7E 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_lcd_write4bits 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 eval_poly@res 53 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___awtoft@c 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_floorf 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_exp 806 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_isr 262E 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_log 91C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_pow 530 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_exp 74E 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_isr 262E 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_log 864 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_pow 478 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_BOREN$ON 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_timer0_init 2402 0 CODE 0 text2 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_init 2354 0 CODE 0 text29 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_init 2318 0 CODE 0 text30 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _lcd_puts 24BE 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_send 2F40 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_send 2F40 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __HnvBANK1 0 0 ABS 0 nvBANK1 -
 __Lintentry 8 0 CODE 0 intentry -
 __size_of_print_unit 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __stringtab 2000 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_measure_freq 2B26 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcXemdYZ3.obj
+__end_of_measure_freq 2B26 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/xcXOqRSQQ.obj
 buffer_putc@ch 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_timer2_init 2354 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_put_str 2B68 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_timer2_init 2318 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_put_str 2B68 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __fptable 72 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pdataBANK0 6B 0 BANK0 1 dataBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__pdataBANK1 EA 0 BANK1 1 dataBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__pdataBANK1 E6 0 BANK1 1 dataBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of___ftge 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __LbssBANK3 0 0 ABS 0 bssBANK3 -
-__end_of_lcd_init 238C 0 CODE 0 text29 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_init 2350 0 CODE 0 text30 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_lcd_puts 2500 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_lcd_send 2F60 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_send 2F60 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 buffer_putch@ch 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-?___altoft 31 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+?___altoft 48 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___awtoft 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 timer0_read_ps@count 2B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 i1___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_timer0_read_ps 2D50 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_timer0_read_ps 2D50 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _RCSTAbits 18 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _log10f 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of__fptable 90 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-floor@expon 42 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+floor@expon 54 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _measure_capacitance 1014 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___altoft@exp 35 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___altoft@exp 4C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 calibrate@i 62 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_output_putch 2DC4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_output_putch 2DC4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_measure_freq 59 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 measure_inductance@denominator A3 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext10 178E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext11 90 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext12 304 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext13 806 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext14 622 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext15 EB8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext16 D74 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext17 CEC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext18 56C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext12 24C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext13 74E 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext14 56A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext15 EF0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext16 CBC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext17 C34 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext18 4B4 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext19 1EFE 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext20 E5A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext21 91C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext22 B58 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext20 E92 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext21 864 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext22 AA0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext23 1F56 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext24 9D8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext25 D64 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext26 234 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext27 CB6 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext28 530 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext29 2354 0 CODE 0 text29 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext30 2DD8 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext31 289C 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext32 2B28 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext33 2DC4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext34 29D6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext35 2D50 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext36 2FC0 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext37 172E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext38 1FB4 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext39 2BDA 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext40 2BD6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext41 2BCC 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext42 1764 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext43 2D08 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext44 2CB4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext45 2B94 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext46 2F60 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext47 2B86 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext48 2B68 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext49 2F00 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext50 2F40 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext51 2F0A 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext52 2B26 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext53 1F90 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext54 C32 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext55 2500 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext56 262E 0 CODE 0 text55 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___ftadd 9D8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___ftdiv 234 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___ftmul B58 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___ftneg D64 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext24 920 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext25 CAC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext26 DA2 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext27 BFE 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext28 478 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext29 E72 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext30 2318 0 CODE 0 text30 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext31 2DD8 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext32 289C 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext33 2B28 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext34 2DC4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext35 29D6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext36 2D50 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext37 2FC0 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext38 172E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext39 1FB4 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext40 2BDA 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext41 2BD6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext42 2BCC 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext43 1764 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext44 2D08 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext45 2CB4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext46 2B94 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext47 2F60 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext48 2B86 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext49 2B68 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext50 2F00 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext51 2F40 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext52 2F0A 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext53 2B26 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext54 1F90 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext55 B7A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext56 2500 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext57 262E 0 CODE 0 text56 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___ftadd 920 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___ftdiv DA2 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___ftmul AA0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___ftneg CAC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftsub 1F56 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___fttol 56C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___fttol 4B4 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_ser_init 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_ser_puts 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___lwdiv 2CB4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___lwmod 2D08 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___lwdiv 2CB4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___lwmod 2D08 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 output_putch@c 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pmaintext 2682 0 CODE 0 maintext bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 0 config -
 ?___ftpack 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_format_float$1211 B1 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_format_float$1212 B4 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwdiv@divisor 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 put_str@i 2A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1305,23 +1313,22 @@ print_reading@measurement 59 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44
 lcd_begin@lines 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwtoft@c 5F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _print_reading 242A 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-stackhi 0 0 ABS 0 - /tmp/xcXemdYZ3.obj
-stacklo 0 0 ABS 0 - /tmp/xcXemdYZ3.obj
-__end_of_calibrate 29D6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_seconds CB 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+stackhi 0 0 ABS 0 - /tmp/xcXOqRSQQ.obj
+stacklo 0 0 ABS 0 - /tmp/xcXOqRSQQ.obj
+__end_of_calibrate 29D6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+?___lbtoft 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_seconds C7 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___lltoft 2C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_eval_poly 9D8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_eval_poly 920 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_calibrate 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___lwtoft 5F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_tmp 79 0 COMMON 1 bssCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of__stringtab 200C 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_LVP$OFF 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_format_double 90 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_eval_poly 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-format_double@digit B8 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_output_putch 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-floor@i 3F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-floor@x 3C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+floor@i 51 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+floor@x 4E 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -1330,7 +1337,7 @@ ___ftmul@cntr 49 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20
 __pbssCOMMON 77 0 COMMON 1 bssCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftmul@sign 4A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 timer2_init@ps_mode 27 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_timer0_read_ps 2DC4 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_timer0_read_ps 2DC4 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __HcstackBANK3 0 0 ABS 0 cstackBANK3 -
@@ -1338,18 +1345,19 @@ format_xint32@fn 5D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug
 buffer_puts@x 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lend_init 20 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__end_of_lcd_command 2F0A 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_lcd_command 2F0A 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+format_float@weight B7 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 end_of_initialization 6A 0 CODE 0 cinit bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hintentry 20 0 CODE 0 intentry -
-_calibrate 289C 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_calibrate 289C 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 timer2_init@ps 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 fptable 72 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 fptotal 12 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_timer0_read_ps 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_ser_init 22F2 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_ser_init 22B6 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _ser_puts 172E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lstrings 0 0 ABS 0 strings -
-_eval_poly 91C 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_eval_poly 864 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ser_putch@c 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lwdiv@dividend 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___ftadd 30 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1357,57 +1365,58 @@ ___lwdiv@dividend 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debu
 ?___ftmul 3C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___ftneg 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___ftsub 4B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-?___fttol 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+?___fttol 3B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___lwdiv 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?___lwmod 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 entry__ser_putch 7E 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hreset_vec 6 0 CODE 0 reset_vec -
 ldexp@value 56 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_delay10ms 2B28 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_delay10ms 2B28 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __HbssBANK3 0 0 ABS 0 bssBANK3 -
-__end_of_output_putch 2DD8 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_output_putch 2DD8 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_delay10ms 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_ser_init 2322 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_ser_init 22E6 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_ser_puts 1764 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+format_float@fn BA 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___lltoft@exp 30 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext1 2322 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext1 22E6 0 CODE 0 text1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext2 238C 0 CODE 0 text2 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext3 22F2 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext3 22B6 0 CODE 0 text3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext4 2402 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext5 17E8 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext6 1014 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__ptext7 F9E 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__ptext7 2350 0 CODE 0 text7 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext8 242A 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __ptext9 24BE 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@di 57 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@fn 51 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_format_number 2BDA 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_buffer_init 2B94 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_buffer_putc 2FC0 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_buffer_puts 2BCC 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_format_number 2BDA 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_buffer_init 2B94 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_buffer_putc 2FC0 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_buffer_puts 2BCC 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_putch@value 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __end_of_measure_capacitance 172E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 i1___lwdiv@counter 76 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+format_float@digit BB 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ser_puts@s 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_delay10ms 2B26 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_delay10ms 2B26 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_measure_inductance 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 exp@sign 65 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __size_of_timer0_init 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_timer1of C3 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_timer1of 1B0 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 eval_poly@d 4E 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 eval_poly@n 4F 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 eval_poly@x 4B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-measure_capacitance@Cin 1CD 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-measure_capacitance@var 1CB 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+measure_capacitance@Cin 1D1 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+measure_capacitance@var 1CF 0 BANK3 1 cstackBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_FOSC$HS 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?i1___lwdiv 70 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@padchar 52 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_format_double$1217 B1 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_timer2_init 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftmul@exp 45 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of__initialization 6A 0 CODE 0 cinit bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1417,36 +1426,35 @@ format_number@j 55 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_
 format_number@n 2B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lfunctab 72 0 ENTRY 0 functab -
 frexp@value 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-?_floor 3C 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+?_floor 4E 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_frexp 24 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pidataBANK0 0 0 CODE 0 idataBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pidataBANK1 0 0 CODE 0 idataBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ?_ldexp 56 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Lclrtext 0 0 ABS 0 clrtext -
-___altoft@sign 36 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___altoft@sign 4D 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftpack@sign 28 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_puts@i 29 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _format_xint32 178E 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_print_reading 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_init$518 25 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_init$519 25 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 measure_inductance@Lin BE 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 measure_inductance@var BC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-format_double@m BA 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftdiv@cntr 35 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftdiv@sign 3A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 timer0_init@prescaler 25 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _TXSTAbits 98 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__size_of_format_double 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hend_init 28 0 CODE 0 end_init -
+_format_float 90 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_of_main 289C 0 CODE 0 maintext bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _CMCON 9C 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 log@exponent 59 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_floor E5A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_frexp D64 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_floor DA2 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_frexp CAC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PORTB 6 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _PORTC 7 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_ldexp F7A 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__end_of_ldexp FB2 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _RCREG 1A 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _SPBRG 99 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _T2CON 12 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1457,26 +1465,26 @@ _TXREG 19 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _main$159 C1 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_blink D5 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_blink D1 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 interrupt_function 8 0 CODE 0 intentry bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_floor D74 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_frexp CEC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_ldexp EB8 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_floor CBC 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_frexp C34 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_ldexp EF0 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ldexp@newexp 59 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_msecs C7 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_msecs C3 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_CPD$OFF 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1209 A6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1210 B3 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1211 B6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1212 B9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1213 A9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1214 AC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_measure_inductance$1215 AF 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_put_str 2B28 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1204 A6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1205 B3 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1206 B6 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1207 B9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1208 A9 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1209 AC 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_measure_inductance$1210 AF 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_put_str 2B28 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pintentry 8 0 CODE 0 intentry bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-___fttol@sign1 2B 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+___fttol@sign1 42 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 exp@coeff 200C 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_print_buffer 2FC0 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_print_buffer 2FC0 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@buf 31 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 format_number@pad 2E 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_exp 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1491,15 +1499,14 @@ _print_indicator 2402 0 CODE 0 text4 bin/xc8-16f876a/LC_meter_HD44780_debug_20mh
 __pbssBANK0 69 0 BANK0 1 bssBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pbssBANK1 C3 0 BANK1 1 bssBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pbssBANK3 190 0 BANK3 1 bssBANK3 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_lcd_write4bits 2F0A 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_lcd_write4bits 2F0A 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _LCD_function 69 0 BANK0 1 bssBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __CFG_WRT$OFF 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __end_ofexp@coeff 2048 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __pstrings 2000 0 STRING 0 strings bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-__end_of_format_double 234 0 CODE 0 text11 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 entry__buffer_putch 8A 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_send@mode 26 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
-_buffer_putch 2BD6 0 CODE 0 text31 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+_buffer_putch 2BD6 0 CODE 0 text32 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 __size_of_format_number 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 _lcd_gotoxy 1FB4 0 CODE 0 text6 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 measure_inductance@unit B2 0 BANK1 1 cstackBANK1 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
@@ -1507,6 +1514,7 @@ fpbase 7C 0 ENTRY 0 functab bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.
 __size_of_lcd_command 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 lcd_puts@string 2A 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 ___ftmul@f3_as_product 46 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
+__size_of_format_float 0 0 ABS 0 - bin/xc8-16f876a/LC_meter_HD44780_debug_20mhz_38kbps.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1532,21 +1540,22 @@ ___ftmul@f3_as_product 46 0 BANK0 1 cstackBANK0 bin/xc8-16f876a/LC_meter_HD44780
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 1191 2322 19 2
+text1 0 1173 22E6 19 2
 text2 0 11C6 238C 3B 2
-text3 0 1179 22F2 18 2
+text3 0 115B 22B6 18 2
 text4 0 1201 2402 7F 2
 text6 0 80A 1014 7F6 2
-text11 0 48 90 7AD 2
-text29 0 11AA 2354 1C 2
-text31 0 144E 289C 3B2 2
-text55 0 1280 2500 C1 2
+text7 0 11A8 2350 1E 2
+text11 0 48 90 7AB 2
+text30 0 118C 2318 1C 2
+text32 0 144E 289C 3B2 2
+text56 0 1280 2500 C1 2
 maintext 0 1341 2682 10D 2
 cstackCOMMON 1 70 70 B 1
 cstackBANK0 1 20 20 4C 1
-cstackBANK1 1 A0 A0 4E 1
+cstackBANK1 1 A0 A0 4A 1
 intentry 0 4 8 35 2
 reset_vec 0 0 0 3 2
-bssBANK3 1 190 190 40 1
+bssBANK3 1 190 190 44 1
 strings 0 1000 2000 ED 2
 functab 0 39 72 F 2

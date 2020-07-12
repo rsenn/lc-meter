@@ -241,25 +241,25 @@ ser_puts("var=");
   format_xint32(&ser_putch, var);
   
   ser_puts("\r\nF1=");
-  format_double(&ser_putch, F1);
+  format_float(&ser_putch, F1);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F1);
   
   ser_puts("\r\nF2=");
-  format_double(&ser_putch, F2);
+  format_float(&ser_putch, F2);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F2);
   
   ser_puts("\r\nF3=");
-  format_double(&ser_putch, F3);
+  format_float(&ser_putch, F3);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F3);
   
   ser_puts("\r\nCCal=");
-  format_double(&ser_putch, CCal);
+  format_float(&ser_putch, CCal);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&CCal);
@@ -274,7 +274,7 @@ Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   
   #line 185 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 ser_puts("Cin=");
-  format_double(&ser_putch, Cin);
+  format_float(&ser_putch, Cin);
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&Cin);
   ser_puts("\r\n");

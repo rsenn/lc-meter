@@ -77,7 +77,7 @@ DEFINES += __SDCC__=1
 
 SOURCES =  $(COMMON_SOURCES) $($(subst -,_,$(PROGRAM))_SOURCES)
 COMMON_FLAGS += $($(subst -,_,$(PROGRAM))_DEFS) $(DEFINES:%=-D%)
-OBJECTS = $(SOURCES:%.c=$(OBJDIR)%.o)
+OBJECTS = $(patsubst %,$(OBJDIR)%,$(notdir $(patsubst %.c,%.o,$(SOURCES))))
 ASSRCS = $(SOURCES:%.c=$(OBJDIR)%.s)
 PREPROCESSED = $(SOURCES:%.c=$(OBJDIR)%.e)
 
@@ -175,6 +175,9 @@ $(HEXFILE): $(OBJECTS)
 	#sed -i 's/^:02400E00\(....\)\(..\)/:02400E0072FF32/' $(HEXFILE)
 	@-(type cygpath 2>/dev/null >/dev/null && PATHTOOL="cygpath -w"; \
 	 test -f "$$PWD/$(HEXFILE)" && { echo; echo "Got HEX file: `$${PATHTOOL:-echo} $$PWD/$(HEXFILE)`"; })
+
+#$(OBJECTS): $(OBJDIR)%.o: lib/%.c
+#	$(SDCC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 
 $(OBJECTS): $(OBJDIR)%.o: %.c
 	$(SDCC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<

@@ -260,7 +260,7 @@ INTCON |= 0xc0;
   #line 203 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 lcd_gotoxy(0, 0);
   lcd_puts("LC-meter ");
-  format_double(&lcd_putch, CCal);
+  format_float(&lcd_putch, CCal);
   #line 210 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"
 delay10ms(5);
   #line 215 "/home/roman/Dokumente/Sources/lc-meter/obj/../LC-meter.c"

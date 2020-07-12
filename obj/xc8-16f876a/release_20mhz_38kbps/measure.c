@@ -103,11 +103,12 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-typedef void(putch_t)(char);
+typedef void(*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
 void format_double(putch_t fn, double num);
+void format_float(putch_t fn, float num);
 #line 72 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
 void timer0_init(unsigned char);
 #line 79 "/home/roman/Dokumente/Sources/lc-meter/lib/timer.h"
@@ -240,25 +241,25 @@ ser_puts("var=");
   format_xint32(&ser_putch, var);
   
   ser_puts("\r\nF1=");
-  format_double(&ser_putch, F1);
+  format_float(&ser_putch, F1);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F1);
   
   ser_puts("\r\nF2=");
-  format_double(&ser_putch, F2);
+  format_float(&ser_putch, F2);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F2);
   
   ser_puts("\r\nF3=");
-  format_double(&ser_putch, F3);
+  format_float(&ser_putch, F3);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F3);
   
   ser_puts("\r\nCCal=");
-  format_double(&ser_putch, CCal);
+  format_float(&ser_putch, CCal);
   
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&CCal);
@@ -273,7 +274,7 @@ Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
   
   #line 185 "/home/roman/Dokumente/Sources/lc-meter/obj/../src/measure.c"
 ser_puts("Cin=");
-  format_double(&ser_putch, Cin);
+  format_float(&ser_putch, Cin);
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&Cin);
   ser_puts("\r\n");
