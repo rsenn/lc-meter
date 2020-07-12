@@ -93,7 +93,7 @@ format_float(putch_t fn, float num) {
   
   
 while(num > 0 + FLT_EPSILON) {
-    float weight = powf(10.0l, m);
+    float weight = pow(10.0l, m);
     digit = (char)floorf(num / weight);
     num -= (digit * weight);
     fn('0' + digit);
@@ -110,7 +110,7 @@ format_double(putch_t fn, double num) {
   
   
 while(num > 0 + FLT_EPSILON) {
-    double weight = powf(10.0l, m);
+    double weight = pow(10.0l, m);
     digit = (short)floorf(num / weight);
     num -= (digit * weight);
     fn((char)('0' + digit));

@@ -203,7 +203,7 @@ main() {
   lcd_gotoxy(0, 0);
 #endif
   lcd_puts("LC-meter ");
-  format_double(&lcd_putch, CCal);
+  format_float(&lcd_putch, CCal);
 #endif
 
 #ifdef _DEBUG
