@@ -28,11 +28,12 @@ extern __nonreentrant void _delay3(unsigned char);
 #line 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
 typedef char BOOL;
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-typedef void(putch_t)(char);
+typedef void(*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
 void format_double(putch_t fn, double num);
+void format_float(putch_t fn, float num);
 #line 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
 
@@ -82,12 +83,11 @@ n /= base;
   
 while(pad-- > i) buffer_putch(padchar);
   
-for(; i > 0; i--) {
-    fn((char)buf[(int16_t)i - 1]);
+for(unsigned j = 0; j < i; j++)
+    (*fn)(buf[j]);
     
-  }
 }
-#line 54 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+#line 53 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
 void
 format_xint32(putch_t fn, uint32_t x) {
   fn('0');
@@ -98,13 +98,13 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10(num);
+  short m = (int)log10f(num);
   char digit;
   
   
 while(num > 0 + FLT_EPSILON) {
-    float weight = pow(10.0l, m);
-    digit = (char)floor(num / weight);
+    float weight = powf(10.0l, m);
+    digit = (char)floorf(num / weight);
     num -= (digit * weight);
     fn('0' + digit);
     if(m == 0)
@@ -115,13 +115,13 @@ while(num > 0 + FLT_EPSILON) {
 #line 80 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
 void
 format_double(putch_t fn, double num) {
-  short m = (short)log10(num);
+  short m = (short)log10f(num);
   short digit;
   
   
 while(num > 0 + FLT_EPSILON) {
-    double weight = pow(10.0l, m);
-    digit = (short)floor(num / weight);
+    double weight = powf(10.0l, m);
+    digit = (short)floorf(num / weight);
     num -= (digit * weight);
     fn((char)('0' + digit));
     if(m == 0)

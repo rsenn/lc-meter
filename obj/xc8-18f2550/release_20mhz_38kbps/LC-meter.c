@@ -122,11 +122,12 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 #line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
-typedef void(putch_t)(char);
+typedef void(*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
 void format_double(putch_t fn, double num);
+void format_float(putch_t fn, float num);
 #line 6 "/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h"
 #pragma config FOSC = HS
 #line 7 "/home/roman/Dokumente/Sources/lc-meter/src/config-18f2550.h"
