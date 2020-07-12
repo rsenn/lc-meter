@@ -136,7 +136,7 @@ main() {
       TMR2 = TimerValue; // Initialize Timer2
       Va = 1;            // apply voltage
       TMR2ON = 1;        // start timer
-      while(C2OUT) {
+      while(COUT) {
         if(OverRange)
           break;
       }
