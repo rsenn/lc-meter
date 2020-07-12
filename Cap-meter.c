@@ -80,11 +80,12 @@ reset() {
   TRISA = 0b00000100;
 #ifdef __18f25k50
   CMCON = 7;
-  #endif
+#else
+  CMCON = 5;
+#endif
   OUTA1 = 0;
   delay_ms(2000);
   TRISA = 0b00000110;
-  CMCON = 5;
 }
 
 void
@@ -104,7 +105,7 @@ main() {
   TMR2IF = 0; // Clear int bit
 
   // Configure Comparator module
-  CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)
+ // CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)
 
   lcd_init(TRUE);
 
