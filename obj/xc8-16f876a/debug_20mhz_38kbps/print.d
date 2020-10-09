@@ -1,1 +1,0 @@
- xc8-16f876a/debug_20mhz_38kbps/print.d  xc8-16f876a/debug_20mhz_38kbps/print.p1:  xc8-16f876a/debug_20mhz_38kbps/print.c

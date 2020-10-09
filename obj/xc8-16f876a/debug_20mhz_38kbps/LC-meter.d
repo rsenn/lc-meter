@@ -1,1 +1,0 @@
- xc8-16f876a/debug_20mhz_38kbps/LC-meter.d  xc8-16f876a/debug_20mhz_38kbps/LC-meter.p1:  xc8-16f876a/debug_20mhz_38kbps/LC-meter.c

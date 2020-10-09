@@ -5579,7 +5579,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <text x="-1.778" y="0.762" size="0.6096" layer="25" align="center-right">&gt;NAME</text>
 <text x="-1.778" y="-0.762" size="0.6096" layer="27" align="center-right">&gt;VALUE</text>
 </package>
-<package name="L-04/7-M">
+<package name="L-04/10-M">
 <pad name="2" x="-1.27" y="-3.81" drill="0.8" shape="octagon"/>
 <pad name="1" x="1.27" y="3.81" drill="0.8" shape="octagon"/>
 <wire x1="-1.27" y1="3.048" x2="0" y2="4.318" width="0.127" layer="21" curve="-90"/>
@@ -5610,7 +5610,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <wire x1="0" y1="0.127" x2="0" y2="-0.127" width="0.254" layer="21"/>
 <circle x="0" y="0.762" radius="0.508" width="0.0508" layer="51"/>
 </package>
-<package name="L-09R">
+<package name="L-8R">
 <pad name="P$1" x="-2.54" y="0" drill="1" shape="octagon"/>
 <pad name="P$2" x="2.54" y="0" drill="1" shape="octagon"/>
 <circle x="0" y="0" radius="3.8608" width="0.127" layer="21"/>
@@ -5685,7 +5685,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="04/7-M" package="L-04/7-M">
+<device name="04/7-M" package="L-04/10-M">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -5694,7 +5694,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="-09R" package="L-09R">
+<device name="-09R" package="L-8R">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>

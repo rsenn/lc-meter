@@ -1383,7 +1383,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <rectangle x1="-1.651" y1="-0.127" x2="-1.27" y2="0.127" layer="21" rot="R180"/>
 <rectangle x1="1.27" y1="-0.127" x2="1.651" y2="0.127" layer="21" rot="R180"/>
 </package>
-<package name="L-09R">
+<package name="L-8R">
 <pad name="P$1" x="-2.54" y="0" drill="1" shape="octagon"/>
 <pad name="P$2" x="2.54" y="0" drill="1" shape="octagon"/>
 <circle x="0" y="0" radius="3.8608" width="0.127" layer="21"/>
@@ -1487,7 +1487,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <wire x1="0.6985" y1="-1.651" x2="0" y2="-0.889" width="0.127" layer="21" curve="90"/>
 <wire x1="0" y1="-0.889" x2="-0.635" y2="-1.651" width="0.127" layer="21" curve="90"/>
 </package>
-<package name="L-04/7V">
+<package name="L-04/8V">
 <pad name="2" x="2.54" y="-5.08" drill="0.8" rot="R180"/>
 <pad name="1" x="0" y="2.54" drill="0.8" rot="R180"/>
 <wire x1="2.54" y1="1.778" x2="1.27" y2="3.048" width="0.127" layer="21" curve="90"/>
@@ -1510,7 +1510,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <text x="-0.508" y="-0.508" size="1.016" layer="25" align="center-right">&gt;NAME</text>
 <text x="-0.508" y="-2.032" size="0.8128" layer="27" align="center-right">&gt;VALUE</text>
 </package>
-<package name="L-04/7-M">
+<package name="L-04/10-M">
 <pad name="2" x="-1.27" y="-3.81" drill="0.8"/>
 <pad name="1" x="1.27" y="3.81" drill="0.8"/>
 <wire x1="-1.27" y1="3.048" x2="0" y2="4.318" width="0.127" layer="21" curve="-90"/>
@@ -2090,7 +2090,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="04/7" package="L-04/7V">
+<device name="04/7" package="L-04/8V">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -2099,7 +2099,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="04/7-M" package="L-04/7-M">
+<device name="04/7-M" package="L-04/10-M">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -2108,7 +2108,7 @@ Source: http://www.mew-europe.com/..  en_ds_61005_0023.pdf</description>
 <technology name=""/>
 </technologies>
 </device>
-<device name="-09R" package="L-09R">
+<device name="-09R" package="L-8R">
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>

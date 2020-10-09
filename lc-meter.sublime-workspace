@@ -8,54 +8,19 @@
 	"buffers":
 	[
 		{
+			"file": "LC-meter.h",
+			"settings":
+			{
+				"buffer_size": 2402,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "LC-meter.c",
 			"settings":
 			{
 				"buffer_size": 6116,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "MPLABXLog.xml.5",
-			"settings":
-			{
-				"buffer_size": 103,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/format.h",
-			"settings":
-			{
-				"buffer_size": 295,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lib/format.c",
-			"settings":
-			{
-				"buffer_size": 2061,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Freq-meter.c",
-			"settings":
-			{
-				"buffer_size": 3012,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "/*\nProject: Capacitance meter\nDescription : CapMeter based on RC time constant\nMCU: PIC16F28A\nOscillator: HS, 4.0000 MHz external\nWritten by: Rajendra Bhatt (www.embedded-lab.com)\n\n*/\n#include \"lib/interrupt.h\"\n#include \"Cap-meter.h\"\n#include \"src/config-bits.h\"\n//#include \"main.h\"\n#include \"lib/delay.h\"\n\n#if USE_HD44780_LCD\n#include \"lib/lcd44780.h\"\n#endif\n\n#if USE_NOKIA5110_LCD\n#include \"lib/lcd5110.h\"\n#endif\n\n#include \"lib/timer.h\"\n\n#ifdef USE_UART\n#include \"lib/uart.h\"\n#endif\n\n#if USE_SER\n#include \"lib/ser.h\"\n#endif\n\n#if USE_SOFTSER\n#include \"lib/softser.h\"\n#endif\n\n#include \"src/print.h\"\n#include \"lib/format.h\"\n#include \"lib/buffer.h\"\n\n#define Va OUTA0\n#define Switch OUTB0\n\nbuffer_t buffer = {0};\n// BUFFER_STATIC(lcd_putch);\n\nchar message1[] = \"Capacitance\";\nchar message2[] = \"Meter\";\n\nunsigned int T_Value, Num;\nunsigned short i, j, TimerValue, OverRange = 0;\nchar Capacitance[] = \"00.000 uF\";\n\n/* Interrupt routine */\nINTERRUPT_FN() {\n  if(TMR2IF) {\n    TMR2 = TimerValue;\n    Num++;\n    if(Num > 9999)\n      OverRange = 1; // Range is 99.99 uF\n    TMR2IF = 0;      // Clear TMR0 interrupt flag\n  }\n}\n\nvoid\nDisplay_Cap(unsigned int n) {\n  Capacitance[0] = n / 10000 + 48;\n  Capacitance[1] = (n / 1000) % 10 + 48;\n  Capacitance[3] = (n / 100) % 10 + 48;\n  Capacitance[4] = (n / 10) % 10 + 48;\n  Capacitance[5] = (T_Value * 10) / 153 + 48;\n  lcd_clear();\n  lcd_gotoxy(0, 0);\n  lcd_puts(\"C = \");\n  format_number(lcd_putch,Capacitance, 10, 0);\n}\n\nvoid\nreset() {\n  TRISA = 0b00000100;\n#ifdef __18f25k50\n  CMCON = 7;\n  #endif\n  OUTA1 = 0;\n  delay_ms(2000);\n  TRISA = 0b00000110;\n  CMCON = 5;\n}\n\nvoid\nmain() {\n\n  char cap_size;\n  TRISB = 0b00000001;\n  PORTB = 0;\n  TRISA = 0b00000110;\n  T0CS = 0;\n  GIE = 1;  // Enable global interrupt\n  PEIE = 1; // Enable peripheral interrupt\n\n  // Configure Timer2 module\n  TMR2IE = 1; // Enable Timer2 interrupt\n  T2CON = 0;  // Prescaler 1:1, and Timer2 is off initially\n  TMR2IF = 0; // Clear int bit\n\n  // Configure Comparator module\n  CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)\n\n  lcd_init(TRUE);\n\n  lcd_clear();\n  // Lcd_Cmd(_LCD_CURSOR_OFF);\n  lcd_gotoxy(0, 0);\n  lcd_puts(message1);\n  lcd_gotoxy(1, 0);\n  lcd_puts(message2);\n  delay_ms(2000);\n  lcd_clear();\n\n  lcd_home();\n  lcd_puts(\"C = \");\n  format_number(lcd_putch, Capacitance, 10, 0);\n\n  Va = 0;\n  TimerValue = 108; // 104 + 4 additional clock cycles delay on branching to ISR\n  while(1) {\n    if(!Switch) {\n      Num = 0;\n      OverRange = 0;\n      lcd_clear();\n      lcd_home();\n      lcd_puts(\"Testing.\");\n      lcd_gotoxy(0, 1);\n      lcd_puts(\"...\");\n      TMR2 = TimerValue; // Initialize Timer2\n      Va = 1;            // apply voltage\n      TMR2ON = 1;        // start timer\n      while(C2OUT) {\n        if(OverRange)\n          break;\n      }\n      TMR2ON = 0;                  // stop timer\n      T_Value = TMR2 - TimerValue; // T_Value is used for improved resolution\n      Va = 0;\n      //---------------------------------\n      if(!OverRange) {\n        Display_Cap(Num * 10);\n      } else {\n        OverRange = 0;\n        lcd_clear();\n        lcd_home();\n        lcd_puts(\"Out of Range!\");\n      }\n      reset();\n    }\n  }\n}\n",
-			"file": "Cap-meter.c",
-			"file_size": 3174,
-			"file_write_time": 132381849077909317,
-			"settings":
-			{
-				"buffer_size": 3174,
 				"line_ending": "Unix"
 			}
 		}
@@ -116,23 +81,42 @@
 	},
 	"expanded_folders":
 	[
-		"/home/roman/Dokumente/Sources/lc-meter"
+		"/home/roman/Dokumente/Sources/lc-meter",
+		"/home/roman/Dokumente/Sources/lc-meter/kicad",
+		"/home/roman/Dokumente/Sources/lc-meter/lib"
 	],
 	"file_history":
 	[
+		"/opt/microchip/xc8/v1.45/include/pic18f2520.h",
+		"/home/roman/Dokumente/Sources/lc-meter/Attic/pwm.c",
+		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.c",
+		"/home/roman/Dokumente/Sources/lc-meter/Freq-meter.c",
+		"/home/roman/Dokumente/Sources/lc-meter/Freq-meter.h",
+		"/opt/microchip/xc8/v1.45/include/pic18f25k22.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/device.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/delay.h",
+		"/home/roman/Dokumente/Sources/lc-meter/Cap-meter.c",
+		"/home/roman/Dokumente/Sources/lc-meter/LC-meter.h",
+		"/home/roman/Dokumente/Sources/lc-meter/Cap-meter.h",
+		"/home/roman/Dokumente/Sources/lc-meter/SelfClockTest.c",
+		"/home/roman/Dokumente/Sources/lc-meter/serialtest.c",
+		"/home/roman/Dokumente/Sources/lc-meter/MPLABXLog.xml.5",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/format.h",
+		"/home/roman/Dokumente/Sources/lc-meter/lib/format.c",
 		"/home/roman/Dokumente/Sources/openjscad/OctopusThickLegs.stl",
 		"/home/roman/Dokumente/Sources/openjscad/open-loom/small_24peg.stl",
 		"/home/roman/Dokumente/Sources/c-utils/cfg.sh"
 	],
 	"find":
 	{
-		"height": 48.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -140,11 +124,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"C2OUT",
+			" C2OUT",
+			"C2OUT",
+			"C[0-9]*OUT",
+			"C1OUT",
+			"C2OUT",
+			"C[0-9]*OUT",
+			"OUT",
+			"CM1CON0",
+			"CM[0-9]*CON",
+			"CM12CON",
+			"CM1",
+			"CM.1",
+			"CM.CON",
+			"CMCON",
+			"HAVE_COMPARATOR",
+			"CMCON"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
 		],
@@ -157,11 +158,39 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "LC-meter.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "LC-meter.c",
 					"semi_transient": false,
 					"settings":
@@ -173,167 +202,21 @@
 						"selection":
 						[
 							[
-								1438,
-								1438
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C11/C11.tmLanguage",
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1214.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "MPLABXLog.xml.5",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/XML/XML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "lib/format.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/format.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2061,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2016,
-								2016
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C11/C11.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1020.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Freq-meter.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3012,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								386,
-								386
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C11/C11.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "Cap-meter.c",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3174,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2,
-								2
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C11/C11.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2173.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -388,6 +271,18 @@
 		"selected_items":
 		[
 			[
+				"lc-me",
+				"LC-meter.c"
+			],
+			[
+				".c",
+				"Attic/pwm.c"
+			],
+			[
+				"device.h",
+				"lib/device.h"
+			],
+			[
 				"lc-meter",
 				"LC-meter.c"
 			],
@@ -410,10 +305,6 @@
 			[
 				"cap-me",
 				"Cap-meter.c"
-			],
-			[
-				"lc-me",
-				"LC-meter.c"
 			]
 		],
 		"width": 0.0
