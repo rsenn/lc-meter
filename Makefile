@@ -1,3 +1,7 @@
+LAYOUT_NAME = an-tronics
+
+LAYOUTS := $(patsubst eagle/%,%,$(shell grep -L -E '(layer="19"|<polygon.*layer="16")' eagle/*.brd))
+
 DEBUG ?= 0
 
 -include build/vars.mk
@@ -121,6 +125,18 @@ all clean program verify:
 	$(subst @MAKE@,(set -x; $(MAKE_CMD) PROGRAM=$(call get-list,PROGRAM) dirs $@),$(MAKE_LOOP))
 endif
 
+all :
+	@for x in $(LAYOUTS); do \
+	LAYOUT="$${x##*/}"; LAYOUT=$${LAYOUT%.brd}; \
+	 if [ "eagle/$$LAYOUT.brd" -nt "gerbers/$$x.TXT" -o Makefile -nt "gerbers/$$x.zip" ]; then \
+	echo "make project LAYOUT_NAME=$$LAYOUT" 1>&2 ; \
+	make project LAYOUT_NAME=$$LAYOUT || { R=$$?; echo "Abort: $$R" 1>&2; exit $$R; }  \
+	fi; \
+	done
+
+
+
+include build/gerbers.mk
 
 
 $(PROGRAMS):

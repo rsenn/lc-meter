@@ -14239,10 +14239,10 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="J3" library="pinconn" deviceset="PIC-ICSP" device="ICSP" value="PIC-ICSPICSP"/>
 <part name="P+1" library="supply1" deviceset="VCC" device=""/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="R8" library="r" deviceset="R-H" device="0202/5" value="100"/>
-<part name="R9" library="r" deviceset="R-H" device="0202/5" value="100"/>
+<part name="R8" library="r" deviceset="R-H" device="0202/5" value="100Ω"/>
+<part name="R9" library="r" deviceset="R-H" device="0202/5" value="100Ω"/>
 <part name="J1" library="pinconn" deviceset="HD44780-4BIT" device="-8PIN" value="HD44780"/>
-<part name="R11" library="r" deviceset="R-H" device="0202/5" value="1k"/>
+<part name="R11" library="r" deviceset="R-H" device="0202/5" value="1kΩ"/>
 <part name="LED" library="led" deviceset="TLLG4400" device="" value=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="VCC" device=""/>
