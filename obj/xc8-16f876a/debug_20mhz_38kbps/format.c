@@ -90,7 +90,7 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10f(num);
+  short m = (int)log10(num);
   char digit;
   
   

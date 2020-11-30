@@ -177,9 +177,9 @@ $(info DEPS: $(DEPS))
 
 #-include build/vars.mk
 
-.PHONY: all clean dist prototypes
+.PHONY: compile clean dist prototypes
 
-all: $(BUILDDIR) $(OBJDIR) $(DEPENDS) output
+compile: $(BUILDDIR) $(OBJDIR) $(DEPENDS) output
 
 output: $(HEXFILE) #$(COFFILE)
 	-mkdir -p $(BUILDDIR)

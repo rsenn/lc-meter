@@ -154,10 +154,10 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 #-include build/vars.mk
 
-.PHONY: all dist prototypes
+.PHONY: compile dist prototypes
 #CPP_CONFIG = obj/sdcc-cpp.config
 
-all: $(BUILDDIR) $(OBJDIR) $(CPP_CONFIG) output
+compile: $(BUILDDIR) $(OBJDIR) $(CPP_CONFIG) output
 
 output: $(HEXFILE) #$(COFFILE)
 	@for F in $(HEXFILE) $(COFFILE); do \

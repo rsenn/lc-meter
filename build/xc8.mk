@@ -165,10 +165,10 @@ COFFILE = $(subst .hex,.cof,$(HEXFILE))
 
 #-include build/vars.mk
 
-.PHONY: all dist prototypes
+.PHONY: compile dist prototypes
 #CPP_CONFIG = obj/xc8-cpp.config
 
-all: $(BUILDDIR) $(OBJDIR) $(CPP_CONFIG) output
+compile: $(BUILDDIR) $(OBJDIR) $(CPP_CONFIG) output
 
 ifneq ($(CPP_CONFIG),)
 $(CPP_CONFIG): build/xc8.mk

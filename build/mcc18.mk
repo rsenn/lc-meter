@@ -60,7 +60,7 @@ _CPPFLAGS += \
 #LDFLAGS += --output="default,-inhx032" --chip=$(chipl)
 
 
-all: $(BUILDDIR) LC_meter.hex
+compile: $(BUILDDIR) LC_meter.hex
 
 $(BUILDDIR):
 	mkdir -p $(BUILDDIR)
