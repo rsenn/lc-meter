@@ -16,9 +16,9 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 #include <xc.h>
 #include <stdint.h>
-#line 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+#line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
-#line 48 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+#line 48 "/home/roman/Projects/lc-meter/lib/ser.h"
 extern uint8_t ser_rxfifo[(uint8_t)16];
 extern volatile uint8_t ser_rxiptr, ser_rxoptr;
 extern uint8_t ser_txfifo[(uint8_t)16];
@@ -37,14 +37,14 @@ void ser_init(void);
 
 uint8_t ser_rxat(unsigned char at);
 unsigned char ser_size(void);
-#line 68 "/home/roman/Dokumente/Sources/lc-meter/lib/ser.h"
+#line 68 "/home/roman/Projects/lc-meter/lib/ser.h"
 extern uint8_t ser_rxfifo[(uint8_t)16];
 extern volatile uint8_t ser_rxiptr, ser_rxoptr;
 extern uint8_t ser_txfifo[(uint8_t)16];
 extern volatile uint8_t ser_txiptr, ser_txoptr;
 extern uint8_t ser_tmp;
 extern uint8_t ser_brg;
-#line 24 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/ser.c"
+#line 24 "/home/roman/Projects/lc-meter/obj/../lib/ser.c"
 uint8_t ser_brg = ((uint16_t)((double)(20000000) / (16 * (double)(38400))) - 1);
 
 uint8_t ser_rxfifo[(uint8_t)16];

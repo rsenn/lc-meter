@@ -25,9 +25,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 #include <stdint.h>
-#line 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+#line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
-#line 5 "/home/roman/Dokumente/Sources/lc-meter/lib/format.h"
+#line 5 "/home/roman/Projects/lc-meter/lib/format.h"
 typedef void(*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
@@ -36,7 +36,7 @@ void format_double(putch_t fn, double num);
 void format_float(putch_t fn, float num);
 #include <xc.h>
 #include <float.h>
-#line 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
+#line 12 "/home/roman/Projects/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -44,7 +44,7 @@ typedef struct {
   unsigned p : 4; 
   unsigned n : 4; 
 } buffer_t;
-#line 26 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
+#line 26 "/home/roman/Projects/lc-meter/lib/buffer.h"
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -55,12 +55,12 @@ char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #include <math.h>
 #include <float.h>
-#line 12 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+#line 12 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 static void
 format_putchar(char c) {
   return;
 }
-#line 20 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+#line 20 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad ) {
   char buf[8 * sizeof(long)]; 
@@ -73,10 +73,10 @@ if(pad < 0) {
     padchar = '0';
   }
   
-  #line 37 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+  #line 37 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 do {
     
-    #line 41 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+    #line 41 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 di = n % base;
     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10);
     
@@ -89,7 +89,7 @@ for(unsigned j = 0; j < i; j++)
     (*fn)(buf[j]);
     
 }
-#line 55 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+#line 55 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_xint32(putch_t fn, uint32_t x) {
   fn('0');
@@ -100,7 +100,7 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10(num);
+  short m = (int)log10f(num);
   char digit;
   
   
@@ -114,7 +114,7 @@ while(num > 0 + FLT_EPSILON) {
     m--;
   }
 }
-#line 82 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/format.c"
+#line 82 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_double(putch_t fn, double num) {
   short m = (short)log10f(num);

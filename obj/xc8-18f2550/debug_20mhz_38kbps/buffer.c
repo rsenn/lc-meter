@@ -25,9 +25,9 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 #include <stdint.h>
-#line 53 "/home/roman/Dokumente/Sources/lc-meter/lib/typedef.h"
+#line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
-#line 12 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
+#line 12 "/home/roman/Projects/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
 
 typedef struct {
@@ -35,7 +35,7 @@ typedef struct {
   unsigned p : 4; 
   unsigned n : 4; 
 } buffer_t;
-#line 26 "/home/roman/Dokumente/Sources/lc-meter/lib/buffer.h"
+#line 26 "/home/roman/Projects/lc-meter/lib/buffer.h"
 extern buffer_t buffer;
 
 void buffer_init(void);
@@ -45,19 +45,19 @@ void buffer_putch(char ch);
 char buffer_put(const char* x, len_t len);
 char buffer_puts(const char* x);
 #include <string.h>
-#line 4 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+#line 4 "/home/roman/Projects/lc-meter/obj/../lib/buffer.c"
 buffer_t buffer;
-#line 9 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+#line 9 "/home/roman/Projects/lc-meter/obj/../lib/buffer.c"
 void
 buffer_init(void) {
   buffer.p = 0;
   buffer.n = 0;
 }
-#line 20 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+#line 20 "/home/roman/Projects/lc-meter/obj/../lib/buffer.c"
 char
 buffer_flush() {
   
-  #line 25 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+  #line 25 "/home/roman/Projects/lc-meter/obj/../lib/buffer.c"
 buffer.p = 0, buffer.n = 0, 0;
   return 0;
 }
@@ -85,7 +85,7 @@ buffer_put(const char* buf, len_t len) {
   buffer.n += len;
   return 0;
 }
-#line 60 "/home/roman/Dokumente/Sources/lc-meter/obj/../lib/buffer.c"
+#line 60 "/home/roman/Projects/lc-meter/obj/../lib/buffer.c"
 char
 buffer_puts(const char* x) {
   while(*x) {

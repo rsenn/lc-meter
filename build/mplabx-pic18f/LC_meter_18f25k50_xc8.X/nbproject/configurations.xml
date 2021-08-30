@@ -75,14 +75,16 @@
         <targetDevice>PIC18F25K50</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>VSMViewerPlatformTool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.34</languageToolchainVersion>
+        <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.0.53"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -231,11 +233,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
-      <VSMViewerPlatformTool>
-        <property key="design.file" value=""/>
-        <property key="target.ip.address" value="localhost"/>
-        <property key="target.ip.port" value="8001"/>
-      </VSMViewerPlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
       </XC8-CO>
@@ -259,7 +256,7 @@
         <targetDevice>PIC18F25K50</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>VSMViewerPlatformTool</platformTool>
+        <platformTool></platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.45</languageToolchainVersion>
         <platform>2</platform>
@@ -267,6 +264,8 @@
       <packs>
         <pack name="PIC18F-K_DFP" vendor="Microchip" version="1.2.72"/>
       </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -444,11 +443,6 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PK3OBPlatformTool>
-      <VSMViewerPlatformTool>
-        <property key="design.file" value="../../../proteus/LCmeter18f25k50.pdsprj"/>
-        <property key="target.ip.address" value="localhost"/>
-        <property key="target.ip.port" value="8001"/>
-      </VSMViewerPlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
       </XC8-CO>
@@ -466,6 +460,14 @@
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
       <item path="main.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
       </item>
     </conf>
   </confs>
