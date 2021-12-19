@@ -4,12 +4,6 @@
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 152 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#line 154 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
 #line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
@@ -109,13 +103,13 @@ void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
 void format_double(putch_t fn, double num);
 void format_float(putch_t fn, float num);
-#line 72 "/home/roman/Projects/lc-meter/lib/timer.h"
-void timer0_init(unsigned char);
 #line 79 "/home/roman/Projects/lc-meter/lib/timer.h"
+void timer0_init(unsigned char);
+#line 86 "/home/roman/Projects/lc-meter/lib/timer.h"
 unsigned short timer0_read_ps(void);
-#line 111 "/home/roman/Projects/lc-meter/lib/timer.h"
+#line 118 "/home/roman/Projects/lc-meter/lib/timer.h"
 void timer1_init(unsigned char ps_mode);
-#line 149 "/home/roman/Projects/lc-meter/lib/timer.h"
+#line 156 "/home/roman/Projects/lc-meter/lib/timer.h"
 void timer2_init(uint8_t ps_mode);
 #line 12 "/home/roman/Projects/lc-meter/lib/buffer.h"
 typedef uint8_t len_t;
@@ -183,23 +177,23 @@ TMR0IF = 0;
   
 TRISA &= ~0b00010000;
   
-_delay((unsigned long)((20)*(20000000/4000.0))); 
+__delay_ms(20); 
   
   
 TMR0 = 0x00;
   
   
   #line 90 "/home/roman/Projects/lc-meter/obj/../src/measure.c"
-_delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
-  _delay((unsigned long)((10)*(20000000/4000.0)));
+__delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
+  __delay_ms(10);
   
   
   #line 104 "/home/roman/Projects/lc-meter/obj/../src/measure.c"

@@ -125,8 +125,8 @@ esac
   if [ -n "$CFG" -a -e "$CFG" ]; then
     set -- @$CFG
   else  
-	set -- 	   -D{__PICCPRO__,__PICC__}=1 \
-		 -D__XC{,8}{,__}=1 \
+	set -- 	   \
+		 -D__XC__=1 -D__XC=1 -D__XC8__=1  \
 		 -p1 \
 		 --disambiguate=0 \
 		 --c++11 \

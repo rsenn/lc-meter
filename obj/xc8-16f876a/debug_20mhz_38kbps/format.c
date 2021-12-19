@@ -4,12 +4,6 @@
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 152 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#line 154 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
 #line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
@@ -90,7 +84,7 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10f(num);
+  short m = (int)log10(num);
   char digit;
   
   
@@ -107,7 +101,7 @@ while(num > 0 + FLT_EPSILON) {
 #line 82 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_double(putch_t fn, double num) {
-  short m = (short)log10f(num);
+  short m = (short)log10(num);
   short digit;
   
   

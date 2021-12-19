@@ -70,13 +70,13 @@ void lcd_puts(const char* string);
 void lcd_gotoxy(uint8_t col, uint8_t row);
 void lcd_putch(char value);
 void lcd_send(uint8_t value, uint8_t mode);
-#line 72 "/home/roman/Projects/lc-meter/lib/timer.h"
-void timer0_init(unsigned char);
 #line 79 "/home/roman/Projects/lc-meter/lib/timer.h"
+void timer0_init(unsigned char);
+#line 86 "/home/roman/Projects/lc-meter/lib/timer.h"
 unsigned short timer0_read_ps(void);
-#line 111 "/home/roman/Projects/lc-meter/lib/timer.h"
+#line 118 "/home/roman/Projects/lc-meter/lib/timer.h"
 void timer1_init(unsigned char ps_mode);
-#line 149 "/home/roman/Projects/lc-meter/lib/timer.h"
+#line 156 "/home/roman/Projects/lc-meter/lib/timer.h"
 void timer2_init(uint8_t ps_mode);
 #line 48 "/home/roman/Projects/lc-meter/lib/ser.h"
 extern uint8_t ser_rxfifo[(uint8_t)16];
@@ -173,7 +173,7 @@ void put_number(void (*putchar)(char), uint16_t n, uint8_t base, int8_t pad );
 
 volatile uint16_t blink = 0;
 #line 85 "/home/roman/Projects/lc-meter/obj/../LC-meter.c"
-interrupt isr() {
+void __interrupt high_priority isr() {
   if(PIR1bits.TMR2IF) {
     bres += 256;
     if(bres >= ((unsigned long)((double)((20000000) / 4) / 1000))) {

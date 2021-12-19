@@ -93,22 +93,22 @@ ser_getch(void) {
   
 while(ser_isrx() == 0) continue;
   
-INTCONbits.GIE = 0;
+GIE = 0;
   c = ser_rxfifo[ser_rxoptr];
   ++ser_rxoptr;
   ser_rxoptr &= ((uint8_t)16 - 1);
-  INTCONbits.GIE = 1;
+  GIE = 1;
   return c;
 }
 
 void
 ser_putch(char c) {
   while(((ser_txiptr + 1) & ((uint8_t)16 - 1)) == ser_txoptr) continue;
-  INTCONbits.GIE = 0;
+  GIE = 0;
   ser_txfifo[ser_txiptr] = c;
   ser_txiptr = (ser_txiptr + 1) & ((uint8_t)16 - 1);
   PIE1bits.TXIE = 1;
-  INTCONbits.GIE = 1;
+  GIE = 1;
 }
 
 void

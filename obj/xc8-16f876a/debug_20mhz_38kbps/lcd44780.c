@@ -4,12 +4,6 @@
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 152 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#line 154 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
 #line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
@@ -70,7 +64,7 @@ PORTB &= 0b00001111;
   PORTB |= value << 4;
   
   #line 55 "/home/roman/Projects/lc-meter/obj/../lib/lcd44780.c"
-PORTB |= 0b1000; _delay((unsigned long)((4)*(20000000/4000000.0))); PORTB &= ~0b1000; _delay((unsigned long)((100)*(20000000/4000000.0)));;
+PORTB |= 0b1000; __delay_us(4); PORTB &= ~0b1000; __delay_us(100);;
 #line 60 "/home/roman/Projects/lc-meter/obj/../lib/lcd44780.c"
 }
 #line 102 "/home/roman/Projects/lc-meter/obj/../lib/lcd44780.c"
@@ -152,14 +146,14 @@ for(; i > 0; i--) lcd_putch((char)buf[(int16_t)i - 1]);
 void
 lcd_home() {
   lcd_command(0x02);
-  _delay((unsigned long)((2)*(20000000/4000.0))); 
+  __delay_ms(2); 
   
 }
 #line 291 "/home/roman/Projects/lc-meter/obj/../lib/lcd44780.c"
 void
 lcd_clear() {
   lcd_command(0x01); 
-  _delay((unsigned long)((2)*(20000000/4000.0))); 
+  __delay_ms(2); 
   
 }
 #line 311 "/home/roman/Projects/lc-meter/obj/../lib/lcd44780.c"
@@ -210,7 +204,7 @@ LCD_lines = lines;
 if((dotsize != 0) && (lines == 1))
     LCD_function |= 0x04;
   
-_delay((unsigned long)((15)*(20000000/4000.0))); 
+__delay_ms(15); 
    
   
 PORTB &= ~0b0100;
@@ -222,13 +216,13 @@ if(!(LCD_function & 0x10)) {
      
     
 lcd_write4bits(0x03);
-    _delay((unsigned long)((5)*(20000000/4000.0))); 
+    __delay_ms(5); 
      
     lcd_write4bits(0x03);
-    _delay((unsigned long)((150)*(20000000/4000000.0))); 
+    __delay_us(150); 
      
     lcd_write4bits(0x03);
-    _delay((unsigned long)((150)*(20000000/4000000.0))); 
+    __delay_us(150); 
      
     lcd_write4bits(0x02);
   }
@@ -238,11 +232,11 @@ lcd_write4bits(0x03);
      
     
 lcd_command(0x20 | LCD_function);
-    _delay((unsigned long)((5)*(20000000/4000.0))); 
+    __delay_ms(5); 
      
     
 lcd_command(0x20 | LCD_function);
-    _delay((unsigned long)((5)*(20000000/4000.0))); 
+    __delay_ms(5); 
     
      
     
@@ -258,7 +252,7 @@ LCD_ctrl = 0x04 | 0x00 | 0x00;
    
   
 lcd_command(0x01); 
-  _delay((unsigned long)((2)*(20000000/4000.0)));
+  __delay_ms(2);
    
   
 LCD_mode = 0x02 | 0x00;

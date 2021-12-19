@@ -100,7 +100,7 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10f(num);
+  short m = (int)log10(num);
   char digit;
   
   
@@ -117,7 +117,7 @@ while(num > 0 + FLT_EPSILON) {
 #line 82 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_double(putch_t fn, double num) {
-  short m = (short)log10f(num);
+  short m = (short)log10(num);
   short digit;
   
   

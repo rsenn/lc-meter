@@ -4,12 +4,6 @@
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 152 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delay)
-extern __nonreentrant void _delay(unsigned long);
-#line 154 "/opt/microchip/xc8/v1.45/include/pic.h"
-#pragma intrinsic(_delaywdt)
-extern __nonreentrant void _delaywdt(unsigned long);
 #line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
 extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
