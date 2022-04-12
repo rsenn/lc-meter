@@ -10,6 +10,14 @@ str_toupper ()
     echo "$@" | tr "[[:lower:]]" "[[:upper:]]"
 }
 
+get_warning_popup() {
+ (ID=$(xwininfo -name "Warning" 2>&1 | sed -n 's,.* id: \([^ ]*\).*,\1,p')
+  test -n "$ID" && echo "$ID")
+}
+
+close_warning_popup() {
+  xdotool windowraise ${1:-$(get_warning_popup)}; sleep 0.1; xdotool keydown Return
+}
 
 find_program() {
   V=$1
