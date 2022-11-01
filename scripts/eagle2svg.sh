@@ -5,8 +5,8 @@ MYDIR=$(dirname "$0")
 set_var() {
     eval "shift;$1=\"\$*\""
 }
-str_toupper ()
-{
+
+str_toupper () {
     echo "$@" | tr "[[:lower:]]" "[[:upper:]]"
 }
 
@@ -16,7 +16,7 @@ get_warning_popup() {
 }
 
 close_warning_popup() {
- (while :; do 
+ (while :; do
   id=${1:-$(get_warning_popup)}
   if [ -z "$id" ]; then sleep 0.1; continue; fi
   xdotool windowraise ${1:-$(get_warning_popup)}; sleep 0.1; xdotool keydown Return
@@ -166,7 +166,7 @@ eagle_to_pdf() {
   done
 
   kill $close_pid 2>/dev/null
-  wait $close_pid 
+  wait $close_pid
 
   sleep 0.1
 
@@ -198,7 +198,7 @@ type cygpath 2>/dev/null >/dev/null || cygpath() {
   done
 }
 
-eagle_print() {
+eagle_to_svg() {
 
   : ${RMTEMP:=rm}
 
@@ -221,6 +221,7 @@ EAGLE=${EAGLE//eagle.exe/eaglecon.exe}
       -d|--destdir) OUTDIR="$2"; shift 2 ;;
       -r|--ratsnest) RATSNEST="true"; shift ;;
       -k|--keep*) KEEP_TEMP="true"; shift ;;
+      -f|--force) FORCE="true"; shift ;;
       *) break ;;
     esac
   done
@@ -235,13 +236,19 @@ N=$#
   for ARG; do
    I=$((I+1))
    echo "Processing '$ARG' ($((I))/$((N)))" 1>&2
-   (SCH=${ARG%.*}
+    SCH=${ARG%.*}
     SCH=${ARG%.*}.sch
     if [ ! -e "${SCH}" ]; then
       SCH=${ARG%-[[:lower:]]*}.sch
     fi
     BRD=${ARG%.*}.brd
     BASE=$(basename "${BRD%.*}")
+    OUT_PDF=$(outfile "$BASE.pdf")
+    OUT_SVG=$(outfile "$BASE.svg")
+    if [ "$FORCE" != true -a "$OUT_PDF" -nt "$ARG" -a "$OUT_SVG" -nt "$ARG" ]; then
+      echo "$ARG already converted!" 1>&2
+      continue
+    fi
 
     OUT=`outfile "doc/pdf/$(basename "${BRD%.*}").pdf"`
 
@@ -318,11 +325,10 @@ N=$#
 #  exec_cmd PDFTOCAIRO -svg  "$FILE" "${FILE%.*}.svg" || exit $?
 #
 #  done)
-  ); done
+   done
 }
 
 gen_svg_title() {
-
 (FILE=${1}
  TITLE=${2:-$(basename "${1%.*}")}
  TITLE=${TITLE%-title*}
@@ -346,17 +352,18 @@ cat >$SVG <<EOF
 EOF
 realpath  "$SVG"|addprefix file:// | tee /dev/stderr | xclip -selection clipboard -in)
 }
-get_desc ()
-{
-    OUT=$(sed -n '/<description/ { s,<[^>]*>,,g ; p; q }' "$@");
-    html_dequote "$OUT"
+
+get_desc() {
+  GETDESC_EXPR='{ n; /<description/ { s,<[^>]*>,,g ; p; q } }'
+  OUT=$(sed -n "/<schematic/ $GETDESC_EXPR; /<board/ $GETDESC_EXPR" "$@");
+  html_dequote "$OUT"
 }
-html_dequote()
-{
+
+html_dequote() {
     echo "$*" | ${SED-sed} -e 's|&quot;|"|g' -e 's|&amp;|\&|g' -e 's|&lt;|<|g' -e 's|&gt;|>|g'
 }
-addprefix()
-{
+
+addprefix() {
     ( PREFIX="$1";
     DELIM="${IFS%${IFS#?}}";
     unset LIST;
@@ -368,4 +375,4 @@ addprefix()
 }
 
 
-eagle_print "$@"
+eagle_to_svg "$@"
