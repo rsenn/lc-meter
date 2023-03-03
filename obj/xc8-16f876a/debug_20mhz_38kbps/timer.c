@@ -1,13 +1,13 @@
 #include <htc.h>
 #include <pic_chip_select.h>
-#line 28 "/opt/microchip/xc8/v1.45/include/pic.h"
+#line 27 "/opt/microchip/xc8/v1.43/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
-extern __bank0 unsigned char __resetbits;
-extern __bank0 __bit __powerdown;
-extern __bank0 __bit __timeout;
+#line 192 "/opt/microchip/xc8/v1.43/include/pic.h"
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
 #include <stdint.h>
 #line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
@@ -26,10 +26,8 @@ timer0_init(uint8_t ps_mode) {
   uint8_t prescaler = ps_mode & 0b1111;
   #line 30 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 TMR0 = 0;
-  #line 36 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
-T0CON = 0;
   
-  #line 45 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 44 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0CS = (ps_mode & 0x20) ? 1 : 0;
   T0SE = (ps_mode & 0x10) ? 1 : 0;
   
@@ -37,10 +35,8 @@ if(prescaler > 0) {
      PSA = prescaler > 0;
      OPTION_REGbits.PS = prescaler - 1;
   }
-  #line 77 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
-T0CON |= 0x80;
    TMR0IF = 0;
-  
+  #line 81 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0IE = (ps_mode & 0x80) ? 1 : 0;
 }
 
@@ -49,7 +45,7 @@ timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
    T0CS = 1;
-  #line 90 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 91 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 do {
      
      T0SE = 1;
@@ -57,7 +53,7 @@ do {
 __nop();
     __nop();
      T0SE = 0;
-    #line 99 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+    #line 100 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 __nop();
     __nop();
     
@@ -69,7 +65,7 @@ __nop();
 count = ((prev << 8) + (256 - count));
   return count;
 }
-#line 149 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 150 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer2_init(uint8_t ps_mode) {
   uint8_t ps = ps_mode & 0b1111;
