@@ -237,11 +237,11 @@ N=$#
    I=$((I+1))
    echo "Processing '$ARG' ($((I))/$((N)))" 1>&2
     SCH=${ARG%.*}
-    SCH=${ARG%.*}.sch
+    SCH=${SCH%.brd}.sch
     if [ ! -e "${SCH}" ]; then
       SCH=${ARG%-[[:lower:]]*}.sch
     fi
-    BRD=${ARG%.*}.brd
+    BRD=${SCH%.sch}.brd
     BASE=$(basename "${BRD%.*}")
     OUT_PDF=$(outfile "$BASE.pdf")
     OUT_SVG=$(outfile "$BASE.svg")
