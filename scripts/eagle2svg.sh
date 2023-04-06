@@ -16,11 +16,7 @@ get_warning_popup() {
 }
 
 close_warning_popup() {
-<<<<<<< HEAD
- (while :; do 
-=======
  (while :; do
->>>>>>> 8d9a955c4be07c9a577f3827cee33f2c1b1c1b59
   id=${1:-$(get_warning_popup)}
   if [ -z "$id" ]; then sleep 0.1; continue; fi
   xdotool windowraise ${1:-$(get_warning_popup)}; sleep 0.1; xdotool keydown Return
@@ -170,11 +166,7 @@ eagle_to_pdf() {
   done
 
   kill $close_pid 2>/dev/null
-<<<<<<< HEAD
-  wait $close_pid 
-=======
   wait $close_pid
->>>>>>> 8d9a955c4be07c9a577f3827cee33f2c1b1c1b59
 
   sleep 0.1
 
@@ -306,12 +298,12 @@ N=$#
 
    (set -x;
    : rm -f "${BASE}-boards.svg"
-   python2 "$MYDIR"/svg_stack.py  --direction=h --margin=18pt \
+   ${PYTHON:-python} "$MYDIR"/svg_stack.py  --direction=h --margin=18pt \
      "${BRD%.*}"-{board,board-mirrored}.svg \
       >"$(outfile "${BASE}-boards.svg")"
 
    : rm -f "${BASE}.svg"
-   python2 "$MYDIR"/svg_stack.py  --direction=v --margin=9pt \
+   ${PYTHON:-python} "$MYDIR"/svg_stack.py  --direction=v --margin=9pt \
      $(test -e "${BASE}-title.svg" && outfile "${BASE}-title.svg") \
       "${SCH%.*}-schematic.svg" \
       "$(outfile "${BASE}-boards.svg")" \
