@@ -1,13 +1,13 @@
 #include <htc.h>
 #include <pic_chip_select.h>
-#line 28 "/opt/microchip/xc8/v1.45/include/pic.h"
+#line 27 "/opt/microchip/xc8/v1.43/include/pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 #include <eeprom_routines.h>
-#line 193 "/opt/microchip/xc8/v1.45/include/pic.h"
-extern __bank0 unsigned char __resetbits;
-extern __bank0 __bit __powerdown;
-extern __bank0 __bit __timeout;
+#line 192 "/opt/microchip/xc8/v1.43/include/pic.h"
+extern unsigned char __resetbits;
+extern __bit __powerdown;
+extern __bit __timeout;
 #include <stdint.h>
 #line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
