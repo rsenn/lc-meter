@@ -236,12 +236,10 @@ N=$#
   for ARG; do
    I=$((I+1))
    echo "Processing '$ARG' ($((I))/$((N)))" 1>&2
-    SCH=${ARG%.*}
-    SCH=${SCH%.brd}.sch
-    if [ ! -e "${SCH}" ]; then
-      SCH=${ARG%-[[:lower:]]*}.sch
-    fi
-    BRD=${SCH%.sch}.brd
+    case "$ARG" in 
+      *.brd) BRD=$ARG; SCH=${ARG%%.brd}.sch ;;
+      *.sch) SCH=$ARG; BRD=${ARG%%.sch}.brd ;;
+    esac
     BASE=$(basename "${BRD%.*}")
     OUT_PDF=$(outfile "$BASE.pdf")
     OUT_SVG=$(outfile "$BASE.svg")
