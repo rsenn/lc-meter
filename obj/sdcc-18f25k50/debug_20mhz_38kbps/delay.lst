@@ -1,0 +1,273 @@
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:36          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 4.2.0 #13081 (Linux)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC16 port for the Microchip 16-bit core micros
+                      00006 ;--------------------------------------------------------
+                      00007 
+                      00008         .ident "SDCC version 4.2.0 #13081 [pic16 port]"
+                      00009         .file   "lib/delay.c"
+                      00010         list    p=18f25k50
+                      00011         radix   dec
+                      00012 
+                      00013 
+                      00014 ;--------------------------------------------------------
+                      00015 ; public variables in this module
+                      00016 ;--------------------------------------------------------
+  0000                00017         global  _delay_us
+  0000                00018         global  _delay_ms
+                      00019 
+                      00020 ;--------------------------------------------------------
+                      00021 ; extern variables in this module
+                      00022 ;--------------------------------------------------------
+  0000                00023         extern  _dvar
+                      00024 
+                      00025 ;--------------------------------------------------------
+                      00026 ;       Equates to used internal registers
+                      00027 ;--------------------------------------------------------
+  00000FD8            00028 STATUS  equ     0xfd8
+  00000FE1            00029 FSR1L   equ     0xfe1
+  00000FD9            00030 FSR2L   equ     0xfd9
+  00000FE5            00031 POSTDEC1        equ     0xfe5
+  00000FE4            00032 PREINC1 equ     0xfe4
+  00000FDB            00033 PLUSW2  equ     0xfdb
+                      00034 
+                      00035 
+                      00036 ; Internal registers
+                      00037 .registers      udata_ovr       0x0000
+000000                00038 r0x00   res     1
+000001                00039 r0x01   res     1
+000002                00040 r0x02   res     1
+000003                00041 r0x03   res     1
+                      00042 
+                      00043 ;--------------------------------------------------------
+                      00044 ; global & static initialisations
+                      00045 ;--------------------------------------------------------
+                      00046 ; I code from now on!
+                      00047 ; ; Starting pCode block
+                      00048 S_delay__delay_ms       code
+000000                00049 _delay_ms:
+                      00050         .line   11; lib/delay.c delay_ms(unsigned int x) {
+000000 CFD9 FFE5      00051         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00052         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00053         MOVFF   r0x00, POSTDEC1
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:36          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00000C C??? F???      00054         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      00055         MOVFF   r0x02, POSTDEC1
+000014 C??? F???      00056         MOVFF   r0x03, POSTDEC1
+000018 0E02           00057         MOVLW   0x02
+00001A CFDB F000      00058         MOVFF   PLUSW2, r0x00
+00001E 0E03           00059         MOVLW   0x03
+000020 CFDB F000      00060         MOVFF   PLUSW2, r0x01
+                      00061         .line   12; lib/delay.c unsigned char i = 255;
+000024 0EFF           00062         MOVLW   0xff
+000026 6E??           00063         MOVWF   r0x02
+000028                00064 _00130_DS_:
+                      00065         .line   13; lib/delay.c for(x; x > 0; x--) {
+000028 50??           00066         MOVF    r0x00, W
+00002A 10??           00067         IORWF   r0x01, W
+00002C E0??           00068         BZ      _00132_DS_
+                      00069         .line   14; lib/delay.c while(i > 0) i--;
+00002E C??? F???      00070         MOVFF   r0x02, r0x03
+000032                00071 _00113_DS_:
+000032 50??           00072         MOVF    r0x03, W
+000034 E0??           00073         BZ      _00115_DS_
+000036 06??           00074         DECF    r0x03, F
+000038 D???           00075         BRA     _00113_DS_
+00003A                00076 _00115_DS_:
+                      00077         .line   16; lib/delay.c while(i > 0) i--;
+00003A 0EFF           00078         MOVLW   0xff
+00003C 6E??           00079         MOVWF   r0x03
+00003E                00080 _00116_DS_:
+00003E 50??           00081         MOVF    r0x03, W
+000040 E0??           00082         BZ      _00118_DS_
+000042 06??           00083         DECF    r0x03, F
+000044 D???           00084         BRA     _00116_DS_
+000046                00085 _00118_DS_:
+                      00086         .line   18; lib/delay.c while(i > 0) i--;
+000046 0EFF           00087         MOVLW   0xff
+000048 6E??           00088         MOVWF   r0x03
+00004A                00089 _00119_DS_:
+00004A 50??           00090         MOVF    r0x03, W
+00004C E0??           00091         BZ      _00121_DS_
+00004E 06??           00092         DECF    r0x03, F
+000050 D???           00093         BRA     _00119_DS_
+000052                00094 _00121_DS_:
+                      00095         .line   20; lib/delay.c while(i > 0) i--;
+000052 0EFF           00096         MOVLW   0xff
+000054 6E??           00097         MOVWF   r0x03
+000056                00098 _00122_DS_:
+000056 50??           00099         MOVF    r0x03, W
+000058 E0??           00100         BZ      _00124_DS_
+00005A 06??           00101         DECF    r0x03, F
+00005C D???           00102         BRA     _00122_DS_
+00005E                00103 _00124_DS_:
+                      00104         .line   22; lib/delay.c while(i > 0) i--;
+00005E 0E32           00105         MOVLW   0x32
+000060 6E??           00106         MOVWF   r0x03
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:36          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000062                00107 _00125_DS_:
+000062 50??           00108         MOVF    r0x03, W
+000064 E0??           00109         BZ      _00152_DS_
+000066 06??           00110         DECF    r0x03, F
+000068 D???           00111         BRA     _00125_DS_
+00006A                00112 _00152_DS_:
+00006A C??? F???      00113         MOVFF   r0x03, r0x02
+                      00114         .line   13; lib/delay.c for(x; x > 0; x--) {
+00006E 0EFF           00115         MOVLW   0xff
+000070 26??           00116         ADDWF   r0x00, F
+000072 22??           00117         ADDWFC  r0x01, F
+000074 D???           00118         BRA     _00130_DS_
+000076                00119 _00132_DS_:
+                      00120         .line   24; lib/delay.c }
+000076 CFE4 F000      00121         MOVFF   PREINC1, r0x03
+00007A CFE4 F000      00122         MOVFF   PREINC1, r0x02
+00007E CFE4 F000      00123         MOVFF   PREINC1, r0x01
+000082 CFE4 F000      00124         MOVFF   PREINC1, r0x00
+000086 CFE4 FFD9      00125         MOVFF   PREINC1, FSR2L
+00008A 0012           00126         RETURN  
+                      00127 
+                      00128 ; ; Starting pCode block
+                      00129 S_delay__delay_us       code
+000000                00130 _delay_us:
+                      00131         .line   5; lib/delay.c  delay_us(unsigned char x) {
+000000 CFD9 FFE5      00132         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00133         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00134         MOVFF   r0x00, POSTDEC1
+00000C 0E02           00135         MOVLW   0x02
+00000E CFDB F000      00136         MOVFF   PLUSW2, r0x00
+000012                00137 _00105_DS_:
+                      00138         .line   6; lib/delay.c  while(x > 0) x--;
+000012 50??           00139         MOVF    r0x00, W
+000014 E0??           00140         BZ      _00107_DS_
+000016 06??           00141         DECF    r0x00, F
+000018 D???           00142         BRA     _00105_DS_
+00001A                00143 _00107_DS_:
+00001A 0000           00144         nop     
+                      00145         .line   8; lib/delay.c  }
+00001C CFE4 F000      00146         MOVFF   PREINC1, r0x00
+000020 CFE4 FFD9      00147         MOVFF   PREINC1, FSR2L
+000024 0012           00148         RETURN  
+                      00149 
+                      00150 
+                      00151 
+                      00152 ; Statistics:
+                      00153 ; code size:      178 (0x00b2) bytes ( 0.14%)
+                      00154 ;                  89 (0x0059) words
+                      00155 ; udata size:       0 (0x0000) bytes ( 0.00%)
+                      00156 ; access size:      4 (0x0004) bytes
+                      00157 
+                      00158 
+                      00159         end
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:36          PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+FSR1L                             CONSTANT      00000FE1           4065
+FSR2L                             CONSTANT      00000FD9           4057
+PLUSW2                            CONSTANT      00000FDB           4059
+POSTDEC1                          CONSTANT      00000FE5           4069
+PREINC1                           CONSTANT      00000FE4           4068
+STATUS                            CONSTANT      00000FD8           4056
+_00105_DS_                        ADDRESS       00000012             18
+_00107_DS_                        ADDRESS       0000001A             26
+_00113_DS_                        ADDRESS       00000032             50
+_00115_DS_                        ADDRESS       0000003A             58
+_00116_DS_                        ADDRESS       0000003E             62
+_00118_DS_                        ADDRESS       00000046             70
+_00119_DS_                        ADDRESS       0000004A             74
+_00121_DS_                        ADDRESS       00000052             82
+_00122_DS_                        ADDRESS       00000056             86
+_00124_DS_                        ADDRESS       0000005E             94
+_00125_DS_                        ADDRESS       00000062             98
+_00130_DS_                        ADDRESS       00000028             40
+_00132_DS_                        ADDRESS       00000076            118
+_00152_DS_                        ADDRESS       0000006A            106
+__ACC_RAM_LOW_END                 CONSTANT      0000005F             95
+__ACC_RAM_LOW_START               CONSTANT      00000000              0
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      FFFFFFFF             -1
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000F00           3840
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000F00           3840
+__BANK_MASK                       CONSTANT      000000FF            255
+__BANK_SHIFT                      CONSTANT      00000008              8
+__BANK_SIZE                       CONSTANT      00000100            256
+__BANK_1                          CONSTANT      00000100            256
+__BANK_2                          CONSTANT      00000200            512
+__BANK_3                          CONSTANT      00000300            768
+__BANK_4                          CONSTANT      00000400           1024
+__BANK_5                          CONSTANT      00000500           1280
+__BANK_6                          CONSTANT      00000600           1536
+__BANK_7                          CONSTANT      00000700           1792
+__BANK_8                          CONSTANT      00000800           2048
+__BANK_9                          CONSTANT      00000900           2304
+__BANK_10                         CONSTANT      00000A00           2560
+__BANK_11                         CONSTANT      00000B00           2816
+__BANK_12                         CONSTANT      00000C00           3072
+__BANK_13                         CONSTANT      00000D00           3328
+__BANK_14                         CONSTANT      00000E00           3584
+__BANK_15                         CONSTANT      00000F00           3840
+__CODE_END                        CONSTANT      00007FFF          32767
+__CODE_START                      CONSTANT      00000000              0
+__COMMON_RAM_END                  CONSTANT      0000005F             95
+__COMMON_RAM_START                CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      0030000D        3145741
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:36          PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__CONFIG_START                    CONSTANT      00300000        3145728
+__EEPROM_END                      CONSTANT      00F000FF       15728895
+__EEPROM_START                    CONSTANT      00F00000       15728640
+__EXTENDED                        CONSTANT      00000001              1
+__GPUTILS_SVN_VERSION             CONSTANT      00000505           1285
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00200007        2097159
+__IDLOCS_START                    CONSTANT      00200000        2097152
+__NUM_BANKS                       CONSTANT      00000010             16
+__VECTOR_INT_HIGH                 CONSTANT      00000008              8
+__VECTOR_INT_LOW                  CONSTANT      00000018             24
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+__16_BIT                          CONSTANT      00000001              1
+__18F25K50                        CONSTANT      00000001              1
+_delay_ms                         GLOBAL        00000000              0
+_delay_us                         GLOBAL        00000000              0
+_dvar                             EXTERNAL      00000000              0
+r0x00                             STATIC        00000000              0
+r0x01                             STATIC        00000001              1
+r0x02                             STATIC        00000002              2
+r0x03                             STATIC        00000003              3
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

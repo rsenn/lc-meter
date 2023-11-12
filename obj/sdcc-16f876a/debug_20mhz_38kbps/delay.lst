@@ -1,0 +1,1115 @@
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 4.2.0 #13081 (Linux)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC port for the 14-bit core
+                      00006 ;--------------------------------------------------------
+                      00007         .file   "lib/delay.c"
+                      00008         list    p=16f876a
+                      00009         radix dec
+                      00010         include "p16f876a.inc"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Oct 21 2015
+                      00005 ;  MPASM PIC16F876A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2015 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00525         LIST
+                      00011 ;--------------------------------------------------------
+                      00012 ; external declarations
+                      00013 ;--------------------------------------------------------
+                      00014 
+  0000                00015         extern PSAVE
+  0000                00016         extern SSAVE
+  0000                00017         extern WSAVE
+  0000                00018         extern STK12
+  0000                00019         extern STK11
+  0000                00020         extern STK10
+  0000                00021         extern STK09
+  0000                00022         extern STK08
+  0000                00023         extern STK07
+  0000                00024         extern STK06
+  0000                00025         extern STK05
+  0000                00026         extern STK04
+  0000                00027         extern STK03
+  0000                00028         extern STK02
+  0000                00029         extern STK01
+  0000                00030         extern STK00
+                      00031 ;--------------------------------------------------------
+                      00032 ; global declarations
+                      00033 ;--------------------------------------------------------
+  0000                00034         global  _delay_ms
+  0000                00035         global  _delay_us
+                      00036 
+                      00037 ;--------------------------------------------------------
+                      00038 ; global definitions
+                      00039 ;--------------------------------------------------------
+                      00040 ;--------------------------------------------------------
+                      00041 ; absolute symbol definitions
+                      00042 ;--------------------------------------------------------
+                      00043 ;--------------------------------------------------------
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00044 ; compiler-defined variables
+                      00045 ;--------------------------------------------------------
+                      00046 UDL_delay_0     udata
+0000                  00047 r0x1004 res     1
+0001                  00048 r0x1001 res     1
+0002                  00049 r0x1000 res     1
+0003                  00050 r0x1002 res     1
+0004                  00051 r0x1003 res     1
+                      00052 ;--------------------------------------------------------
+                      00053 ; initialized data
+                      00054 ;--------------------------------------------------------
+                      00055 ;--------------------------------------------------------
+                      00056 ; initialized absolute data
+                      00057 ;--------------------------------------------------------
+                      00058 ;--------------------------------------------------------
+                      00059 ; overlayable items in internal ram 
+                      00060 ;--------------------------------------------------------
+                      00061 ;       udata_ovr
+                      00062 ;--------------------------------------------------------
+                      00063 ; code
+                      00064 ;--------------------------------------------------------
+                      00065 code_delay      code
+                      00066 ;***
+                      00067 ;  pBlock Stats: dbName = C
+                      00068 ;***
+                      00069 ;has an exit
+                      00070 ;5 compiler assigned registers:
+                      00071 ;   r0x1000
+                      00072 ;   STK00
+                      00073 ;   r0x1001
+                      00074 ;   r0x1002
+                      00075 ;   r0x1003
+                      00076 ;; Starting pCode block
+                      00077 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00078 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00079 ;; ***  genLabel  2805
+                      00080 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00081 ;;; ../../../../src/pic14/gen.c:2382:genFunction *{*
+                      00082 ;; ***  genFunction  2384 curr label offset=4previous max_key=3 
+                      00083 S_delay__delay_ms       code
+0000                  00084 _delay_ms:
+                      00085 ; 2 exit points
+                      00086 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00087 ;;; ../../../../src/pic14/gen.c:7609:genReceive *{*
+                      00088 ;; ***  genReceive  7610
+                      00089 ;;      708 register type nRegs=2
+                      00090 ;;; ../../../../src/pic14/gen.c:1929:assignResultValue *{*
+                      00091 ;; ***  assignResultValue  1931
+                      00092 ;;      line = 1933 result -=-, size=0, left AOP_REG=r0x1046, size=2, right -=-, size=0
+                      00093 ;; >>> ../../../../src/pic14/gen.c:1407:movwf
+                      00094 ;;      1126 rIdx = r0x1047 
+                      00095         .line   11; "lib/delay.c"       delay_ms(unsigned int x) {
+0000   0??? 0???      00096         BANKSEL r0x1000
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0002   00??           00097         MOVWF   r0x1000
+                      00098 ;; >>> ../../../../src/pic14/gen.c:1437:get_returnvalue
+                      00099 ;; ***  popRegFromIdx,1059  , rIdx=0x7f
+0003   08??           00100         MOVF    STK00,W
+                      00101 ;; >>> ../../../../src/pic14/gen.c:1407:movwf
+                      00102 ;;      1126 rIdx = r0x1046 
+0004   00??           00103         MOVWF   r0x1001
+                      00104 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00105 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00106 ;; ***  genAssign  7160
+                      00107 ;;      708 register type nRegs=1
+                      00108 ;;      line = 7169 result AOP_REG=r0x1048, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+                      00109 ;; ***  genAssign  7253
+                      00110 ;; >>> ../../../../src/pic14/gen.c:7260:genAssign
+                      00111         .line   12; "lib/delay.c"       unsigned char i = 255;
+0005   30FF           00112         MOVLW   0xff
+                      00113 ;; >>> ../../../../src/pic14/gen.c:7262:genAssign
+                      00114 ;;      1126 rIdx = r0x1048 
+0006   00??           00115         MOVWF   r0x1002
+                      00116 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00117 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00118 ;; ***  genLabel  2805
+                      00119 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00120 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00121 ;; ***  genIfx  6992
+                      00122 ;;      708 register type nRegs=2
+                      00123 ;; ***  pic14_toBoolean  1515
+                      00124 ;; ***  mov2w  1395  offset=1
+                      00125 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00126 ;;      1126 rIdx = r0x1047 
+0007                  00127 _00129_DS_:
+                      00128         .line   13; "lib/delay.c"       for(x; x > 0; x--) {
+0007   0??? 0???      00129         BANKSEL r0x1000
+0009   08??           00130         MOVF    r0x1000,W
+                      00131 ;; >>> ../../../../src/pic14/gen.c:1533:pic14_toBoolean
+                      00132 ;;      1126 rIdx = r0x1046 
+000A   04??           00133         IORWF   r0x1001,W
+                      00134 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+000B   1903           00135         BTFSC   STATUS,2
+                      00136 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00137 ;; ***  popGetLabel  key=20, label offset 11
+000C   2???           00138         GOTO    _00131_DS_
+                      00139 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00140 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00141 ;; ***  genAssign  7160
+                      00142 ;;      708 register type nRegs=1
+                      00143 ;;      708 register type nRegs=1
+                      00144 ;;      line = 7169 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_REG=r0x1048, size=1
+                      00145 ;; ***  genAssign  7253
+                      00146 ;;; ../../../../src/pic14/gen.c:1357:mov2w_op *{*
+                      00147 ;; ***  mov2w  1395  offset=0
+                      00148 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00149 ;;      1126 rIdx = r0x1048 
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00150         .line   14; "lib/delay.c"       while(i > 0) i--;
+000D   08??           00151         MOVF    r0x1002,W
+                      00152 ;; >>> ../../../../src/pic14/gen.c:7280:genAssign
+                      00153 ;;      1126 rIdx = r0x1049 
+000E   00??           00154         MOVWF   r0x1003
+                      00155 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00156 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00157 ;; ***  genLabel  2805
+                      00158 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00159 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00160 ;; ***  genIfx  6992
+                      00161 ;;      708 register type nRegs=1
+                      00162 ;; ***  pic14_toBoolean  1515
+                      00163 ;; ***  mov2w  1395  offset=0
+                      00164 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00165 ;;      1126 rIdx = r0x1049 
+000F                  00166 _00112_DS_:
+000F   0??? 0???      00167         BANKSEL r0x1003
+0011   08??           00168         MOVF    r0x1003,W
+                      00169 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+0012   1903           00170         BTFSC   STATUS,2
+                      00171 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00172 ;; ***  popGetLabel  key=3, label offset 11
+0013   2???           00173         GOTO    _00114_DS_
+                      00174 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00175 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00176 ;; ***  genDjnz  7569
+                      00177 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00178 ;; ***  genMinus  1123
+                      00179 ;;      708 register type nRegs=1
+                      00180 ;;      589
+                      00181 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00182 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00183 ;; ***  genAddLit  287
+                      00184 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00185 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00186 ;;      1126 rIdx = r0x1049 
+0014   03??           00187         DECF    r0x1003,F
+                      00188 ;; ***  addSign  1087
+                      00189 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00190 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00191 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00192 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00193 ;; ***  popGetLabel  key=1, label offset 11
+0015   2???           00194         GOTO    _00112_DS_
+                      00195 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00196 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00197 ;; ***  genLabel  2805
+                      00198 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00199 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00200 ;; ***  genAssign  7160
+                      00201 ;;      708 register type nRegs=1
+                      00202 ;;      line = 7169 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00203 ;; ***  genAssign  7253
+                      00204 ;; >>> ../../../../src/pic14/gen.c:7260:genAssign
+0016                  00205 _00114_DS_:
+                      00206         .line   16; "lib/delay.c"       while(i > 0) i--;
+0016   30FF           00207         MOVLW   0xff
+                      00208 ;; >>> ../../../../src/pic14/gen.c:7262:genAssign
+                      00209 ;;      1126 rIdx = r0x1049 
+0017   0??? 0???      00210         BANKSEL r0x1003
+0019   00??           00211         MOVWF   r0x1003
+                      00212 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00213 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00214 ;; ***  genLabel  2805
+                      00215 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00216 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00217 ;; ***  genIfx  6992
+                      00218 ;;      708 register type nRegs=1
+                      00219 ;; ***  pic14_toBoolean  1515
+                      00220 ;; ***  mov2w  1395  offset=0
+                      00221 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00222 ;;      1126 rIdx = r0x1049 
+001A                  00223 _00115_DS_:
+001A   0??? 0???      00224         BANKSEL r0x1003
+001C   08??           00225         MOVF    r0x1003,W
+                      00226 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+001D   1903           00227         BTFSC   STATUS,2
+                      00228 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00229 ;; ***  popGetLabel  key=6, label offset 11
+001E   2???           00230         GOTO    _00117_DS_
+                      00231 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00232 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00233 ;; ***  genDjnz  7569
+                      00234 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00235 ;; ***  genMinus  1123
+                      00236 ;;      708 register type nRegs=1
+                      00237 ;;      589
+                      00238 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00239 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00240 ;; ***  genAddLit  287
+                      00241 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00242 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00243 ;;      1126 rIdx = r0x1049 
+001F   03??           00244         DECF    r0x1003,F
+                      00245 ;; ***  addSign  1087
+                      00246 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00247 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00248 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00249 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00250 ;; ***  popGetLabel  key=4, label offset 11
+0020   2???           00251         GOTO    _00115_DS_
+                      00252 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00253 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00254 ;; ***  genLabel  2805
+                      00255 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00256 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00257 ;; ***  genAssign  7160
+                      00258 ;;      708 register type nRegs=1
+                      00259 ;;      line = 7169 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+                      00260 ;; ***  genAssign  7253
+                      00261 ;; >>> ../../../../src/pic14/gen.c:7260:genAssign
+0021                  00262 _00117_DS_:
+                      00263         .line   18; "lib/delay.c"       while(i > 0) i--;
+0021   30FF           00264         MOVLW   0xff
+                      00265 ;; >>> ../../../../src/pic14/gen.c:7262:genAssign
+                      00266 ;;      1126 rIdx = r0x1049 
+0022   0??? 0???      00267         BANKSEL r0x1003
+0024   00??           00268         MOVWF   r0x1003
+                      00269 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00270 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00271 ;; ***  genLabel  2805
+                      00272 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00273 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00274 ;; ***  genIfx  6992
+                      00275 ;;      708 register type nRegs=1
+                      00276 ;; ***  pic14_toBoolean  1515
+                      00277 ;; ***  mov2w  1395  offset=0
+                      00278 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00279 ;;      1126 rIdx = r0x1049 
+0025                  00280 _00118_DS_:
+0025   0??? 0???      00281         BANKSEL r0x1003
+0027   08??           00282         MOVF    r0x1003,W
+                      00283 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+0028   1903           00284         BTFSC   STATUS,2
+                      00285 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00286 ;; ***  popGetLabel  key=9, label offset 11
+0029   2???           00287         GOTO    _00120_DS_
+                      00288 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00289 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00290 ;; ***  genDjnz  7569
+                      00291 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00292 ;; ***  genMinus  1123
+                      00293 ;;      708 register type nRegs=1
+                      00294 ;;      589
+                      00295 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00296 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00297 ;; ***  genAddLit  287
+                      00298 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00299 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00300 ;;      1126 rIdx = r0x1049 
+002A   03??           00301         DECF    r0x1003,F
+                      00302 ;; ***  addSign  1087
+                      00303 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00304 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00305 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00306 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00307 ;; ***  popGetLabel  key=7, label offset 11
+002B   2???           00308         GOTO    _00118_DS_
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00309 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00310 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00311 ;; ***  genLabel  2805
+                      00312 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00313 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00314 ;; ***  genAssign  7160
+                      00315 ;;      708 register type nRegs=1
+                      00316 ;;      line = 7169 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_LIT=0xff, size=1
+                      00317 ;; ***  genAssign  7253
+                      00318 ;; >>> ../../../../src/pic14/gen.c:7260:genAssign
+002C                  00319 _00120_DS_:
+                      00320         .line   20; "lib/delay.c"       while(i > 0) i--;
+002C   30FF           00321         MOVLW   0xff
+                      00322 ;; >>> ../../../../src/pic14/gen.c:7262:genAssign
+                      00323 ;;      1126 rIdx = r0x1049 
+002D   0??? 0???      00324         BANKSEL r0x1003
+002F   00??           00325         MOVWF   r0x1003
+                      00326 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00327 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00328 ;; ***  genLabel  2805
+                      00329 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00330 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00331 ;; ***  genIfx  6992
+                      00332 ;;      708 register type nRegs=1
+                      00333 ;; ***  pic14_toBoolean  1515
+                      00334 ;; ***  mov2w  1395  offset=0
+                      00335 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00336 ;;      1126 rIdx = r0x1049 
+0030                  00337 _00121_DS_:
+0030   0??? 0???      00338         BANKSEL r0x1003
+0032   08??           00339         MOVF    r0x1003,W
+                      00340 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+0033   1903           00341         BTFSC   STATUS,2
+                      00342 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00343 ;; ***  popGetLabel  key=12, label offset 11
+0034   2???           00344         GOTO    _00123_DS_
+                      00345 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00346 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00347 ;; ***  genDjnz  7569
+                      00348 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00349 ;; ***  genMinus  1123
+                      00350 ;;      708 register type nRegs=1
+                      00351 ;;      589
+                      00352 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00353 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00354 ;; ***  genAddLit  287
+                      00355 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00356 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00357 ;;      1126 rIdx = r0x1049 
+0035   03??           00358         DECF    r0x1003,F
+                      00359 ;; ***  addSign  1087
+                      00360 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00361 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00362 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00363 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00364 ;; ***  popGetLabel  key=10, label offset 11
+0036   2???           00365         GOTO    _00121_DS_
+                      00366 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00367 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00368 ;; ***  genLabel  2805
+                      00369 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00370 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00371 ;; ***  genAssign  7160
+                      00372 ;;      708 register type nRegs=1
+                      00373 ;;      line = 7169 result AOP_REG=r0x1049, size=1, left -=-, size=0, right AOP_LIT=0x32, size=1
+                      00374 ;; ***  genAssign  7253
+                      00375 ;; >>> ../../../../src/pic14/gen.c:7260:genAssign
+0037                  00376 _00123_DS_:
+                      00377         .line   22; "lib/delay.c"       while(i > 0) i--;
+0037   3032           00378         MOVLW   0x32
+                      00379 ;; >>> ../../../../src/pic14/gen.c:7262:genAssign
+                      00380 ;;      1126 rIdx = r0x1049 
+0038   0??? 0???      00381         BANKSEL r0x1003
+003A   00??           00382         MOVWF   r0x1003
+                      00383 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00384 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00385 ;; ***  genLabel  2805
+                      00386 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00387 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00388 ;; ***  genIfx  6992
+                      00389 ;;      708 register type nRegs=1
+                      00390 ;; ***  pic14_toBoolean  1515
+                      00391 ;; ***  mov2w  1395  offset=0
+                      00392 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00393 ;;      1126 rIdx = r0x1049 
+003B                  00394 _00124_DS_:
+003B   0??? 0???      00395         BANKSEL r0x1003
+003D   08??           00396         MOVF    r0x1003,W
+                      00397 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+003E   1903           00398         BTFSC   STATUS,2
+                      00399 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00400 ;; ***  popGetLabel  key=40, label offset 11
+003F   2???           00401         GOTO    _00151_DS_
+                      00402 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00403 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00404 ;; ***  genDjnz  7569
+                      00405 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00406 ;; ***  genMinus  1123
+                      00407 ;;      708 register type nRegs=1
+                      00408 ;;      589
+                      00409 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00410 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00411 ;; ***  genAddLit  287
+                      00412 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00413 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00414 ;;      1126 rIdx = r0x1049 
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0040   03??           00415         DECF    r0x1003,F
+                      00416 ;; ***  addSign  1087
+                      00417 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00418 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00419 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00420 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00421 ;; ***  popGetLabel  key=13, label offset 11
+0041   2???           00422         GOTO    _00124_DS_
+                      00423 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00424 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00425 ;; ***  genLabel  2805
+                      00426 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00427 ;;; ../../../../src/pic14/gen.c:7159:genAssign *{*
+                      00428 ;; ***  genAssign  7160
+                      00429 ;;      708 register type nRegs=1
+                      00430 ;;      708 register type nRegs=1
+                      00431 ;;      line = 7169 result AOP_REG=r0x1048, size=1, left -=-, size=0, right AOP_REG=r0x1049, size=1
+                      00432 ;; ***  genAssign  7253
+                      00433 ;;; ../../../../src/pic14/gen.c:1357:mov2w_op *{*
+                      00434 ;; ***  mov2w  1395  offset=0
+                      00435 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+                      00436 ;;      1126 rIdx = r0x1049 
+0042                  00437 _00151_DS_:
+0042   0??? 0???      00438         BANKSEL r0x1003
+0044   08??           00439         MOVF    r0x1003,W
+                      00440 ;; >>> ../../../../src/pic14/gen.c:7280:genAssign
+                      00441 ;;      1126 rIdx = r0x1048 
+0045   00??           00442         MOVWF   r0x1002
+                      00443 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00444 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00445 ;; ***  genDjnz  7569
+                      00446 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00447 ;; ***  genMinus  1123
+                      00448 ;;      708 register type nRegs=2
+                      00449 ;;      589
+                      00450 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00451 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00452 ;; ***  genAddLit  287
+                      00453 ;; hi = ff      genAddLit  406
+                      00454 ;; >>> ../../../../src/pic14/genarith.c:418:genAddLit
+                      00455         .line   13; "lib/delay.c"       for(x; x > 0; x--) {
+0046   30FF           00456         MOVLW   0xff
+                      00457 ;; >>> ../../../../src/pic14/genarith.c:419:genAddLit
+                      00458 ;;      1126 rIdx = r0x1046 
+0047   07??           00459         ADDWF   r0x1001,F
+                      00460 ;; >>> ../../../../src/pic14/genarith.c:420:genAddLit
+0048   1C03           00461         BTFSS   STATUS,0
+                      00462 ;; >>> ../../../../src/pic14/genarith.c:421:genAddLit
+                      00463 ;;      1126 rIdx = r0x1047 
+0049   03??           00464         DECF    r0x1000,F
+                      00465 ;; ***  addSign  1087
+                      00466 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00467 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00468 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00469 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00470 ;; ***  popGetLabel  key=18, label offset 11
+004A   2???           00471         GOTO    _00129_DS_
+                      00472 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00473 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00474 ;; ***  genLabel  2805
+                      00475 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00476 ;;; ../../../../src/pic14/gen.c:2570:genEndFunction *{*
+                      00477 ;; ***  genEndFunction  2572
+004B                  00478 _00131_DS_:
+                      00479         .line   24; "lib/delay.c"       }
+004B   0008           00480         RETURN  
+                      00481 ; exit point of _delay_ms
+                      00482 
+                      00483 ;***
+                      00484 ;  pBlock Stats: dbName = C
+                      00485 ;***
+                      00486 ;has an exit
+                      00487 ;1 compiler assigned register :
+                      00488 ;   r0x1004
+                      00489 ;; Starting pCode block
+                      00490 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00491 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00492 ;; ***  genLabel  2805
+                      00493 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00494 ;;; ../../../../src/pic14/gen.c:2382:genFunction *{*
+                      00495 ;; ***  genFunction  2384 curr label offset=0previous max_key=0 
+                      00496 S_delay__delay_us       code
+0000                  00497 _delay_us:
+                      00498 ; 2 exit points
+                      00499 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00500 ;;; ../../../../src/pic14/gen.c:7609:genReceive *{*
+                      00501 ;; ***  genReceive  7610
+                      00502 ;;      708 register type nRegs=1
+                      00503 ;;; ../../../../src/pic14/gen.c:1929:assignResultValue *{*
+                      00504 ;; ***  assignResultValue  1931
+                      00505 ;;      line = 1933 result -=-, size=0, left AOP_REG=r0x1045, size=1, right -=-, size=0
+                      00506 ;; >>> ../../../../src/pic14/gen.c:1407:movwf
+                      00507 ;;      1126 rIdx = r0x1045 
+                      00508         .line   5; "lib/delay.c"        delay_us(unsigned char x) {
+0000   0??? 0???      00509         BANKSEL r0x1004
+0002   00??           00510         MOVWF   r0x1004
+                      00511 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00512 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00513 ;; ***  genLabel  2805
+                      00514 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00515 ;;; ../../../../src/pic14/gen.c:6991:genIfx *{*
+                      00516 ;; ***  genIfx  6992
+                      00517 ;;      708 register type nRegs=1
+                      00518 ;; ***  pic14_toBoolean  1515
+                      00519 ;; ***  mov2w  1395  offset=0
+                      00520 ;; >>> ../../../../src/pic14/gen.c:1400:mov2w
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00521 ;;      1126 rIdx = r0x1045 
+0003                  00522 _00105_DS_:
+                      00523         .line   6; "lib/delay.c"        while(x > 0) x--;
+0003   0??? 0???      00524         BANKSEL r0x1004
+0005   08??           00525         MOVF    r0x1004,W
+                      00526 ;; >>> ../../../../src/pic14/gen.c:7045:genIfx
+0006   1903           00527         BTFSC   STATUS,2
+                      00528 ;; >>> ../../../../src/pic14/gen.c:7046:genIfx
+                      00529 ;; ***  popGetLabel  key=3, label offset 4
+0007   2???           00530         GOTO    _00107_DS_
+                      00531 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00532 ;;; ../../../../src/pic14/gen.c:7568:genDjnz *{*
+                      00533 ;; ***  genDjnz  7569
+                      00534 ;;; ../../../../src/pic14/genarith.c:1122:genMinus *{*
+                      00535 ;; ***  genMinus  1123
+                      00536 ;;      708 register type nRegs=1
+                      00537 ;;      589
+                      00538 ;;      result AOP_REG, left AOP_REG, right AOP_LIT
+                      00539 ;;; ../../../../src/pic14/genarith.c:286:genAddLit *{*
+                      00540 ;; ***  genAddLit  287
+                      00541 ;;; ../../../../src/pic14/genarith.c:250:genAddLit2byte *{*
+                      00542 ;; >>> ../../../../src/pic14/genarith.c:259:genAddLit2byte
+                      00543 ;;      1126 rIdx = r0x1045 
+0008   03??           00544         DECF    r0x1004,F
+                      00545 ;; ***  addSign  1087
+                      00546 ;;; ../../../../src/pic14/genarith.c:1088:addSign *{*
+                      00547 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00548 ;;; ../../../../src/pic14/gen.c:2820:genGoto *{*
+                      00549 ;; >>> ../../../../src/pic14/gen.c:2822:genGoto
+                      00550 ;; ***  popGetLabel  key=1, label offset 4
+0009   2???           00551         GOTO    _00105_DS_
+                      00552 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00553 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00554 ;; ***  genLabel  2805
+                      00555 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00556 ;;; ../../../../src/pic14/gen.c:4884:pic14_genInline *{*
+                      00557 ;; ***  pic14_genInline  4885
+000A                  00558 _00107_DS_:
+000A   0000           00559         nop     
+                      00560 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00561 ;;; ../../../../src/pic14/gen.c:2802:genLabel *{*
+                      00562 ;; ***  genLabel  2805
+                      00563 ;;; ../../../../src/pic14/gen.c:2358:resultRemat *{*
+                      00564 ;;; ../../../../src/pic14/gen.c:2570:genEndFunction *{*
+                      00565 ;; ***  genEndFunction  2572
+                      00566         .line   8; "lib/delay.c"        }
+000B   0008           00567         RETURN  
+                      00568 ; exit point of _delay_us
+                      00569 ;;; ../../../../src/pic14/gen.c:7677:genpic14Code *{*
+                      00570 
+                      00571 
+                      00572 ;       code size estimation:
+                      00573 ;          59+   14 =    73 instructions (  174 byte)
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 12
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00574 
+                      00575         end
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 13
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+ACKDT                             CONSTANT      00000005              5
+ACKEN                             CONSTANT      00000004              4
+ACKSTAT                           CONSTANT      00000006              6
+ADCON0                            CONSTANT      0000001F             31
+ADCON1                            CONSTANT      0000009F            159
+ADCS0                             CONSTANT      00000006              6
+ADCS1                             CONSTANT      00000007              7
+ADCS2                             CONSTANT      00000006              6
+ADDEN                             CONSTANT      00000003              3
+ADFM                              CONSTANT      00000007              7
+ADIE                              CONSTANT      00000006              6
+ADIF                              CONSTANT      00000006              6
+ADON                              CONSTANT      00000000              0
+ADRESH                            CONSTANT      0000001E             30
+ADRESL                            CONSTANT      0000009E            158
+BCLIE                             CONSTANT      00000003              3
+BCLIF                             CONSTANT      00000003              3
+BF                                CONSTANT      00000000              0
+BRGH                              CONSTANT      00000002              2
+C                                 CONSTANT      00000000              0
+CCPR1                             CONSTANT      00000015             21
+CCPR1H                            CONSTANT      00000016             22
+CCPR1L                            CONSTANT      00000015             21
+CCPR2                             CONSTANT      0000001B             27
+CCPR2H                            CONSTANT      0000001C             28
+CCPR2L                            CONSTANT      0000001B             27
+CCP1CON                           CONSTANT      00000017             23
+CCP1IE                            CONSTANT      00000002              2
+CCP1IF                            CONSTANT      00000002              2
+CCP1M0                            CONSTANT      00000000              0
+CCP1M1                            CONSTANT      00000001              1
+CCP1M2                            CONSTANT      00000002              2
+CCP1M3                            CONSTANT      00000003              3
+CCP1X                             CONSTANT      00000005              5
+CCP1Y                             CONSTANT      00000004              4
+CCP2CON                           CONSTANT      0000001D             29
+CCP2IE                            CONSTANT      00000000              0
+CCP2IF                            CONSTANT      00000000              0
+CCP2M0                            CONSTANT      00000000              0
+CCP2M1                            CONSTANT      00000001              1
+CCP2M2                            CONSTANT      00000002              2
+CCP2M3                            CONSTANT      00000003              3
+CCP2X                             CONSTANT      00000005              5
+CCP2Y                             CONSTANT      00000004              4
+CHS0                              CONSTANT      00000003              3
+CHS1                              CONSTANT      00000004              4
+CHS2                              CONSTANT      00000005              5
+CIS                               CONSTANT      00000003              3
+CKE                               CONSTANT      00000006              6
+CKP                               CONSTANT      00000004              4
+CM0                               CONSTANT      00000000              0
+CMCON                             CONSTANT      0000009C            156
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 14
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+CMIE                              CONSTANT      00000006              6
+CMIF                              CONSTANT      00000006              6
+CM1                               CONSTANT      00000001              1
+CM2                               CONSTANT      00000002              2
+CREN                              CONSTANT      00000004              4
+CSRC                              CONSTANT      00000007              7
+CVR0                              CONSTANT      00000000              0
+CVRCON                            CONSTANT      0000009D            157
+CVREN                             CONSTANT      00000007              7
+CVROE                             CONSTANT      00000006              6
+CVRR                              CONSTANT      00000005              5
+CVR1                              CONSTANT      00000001              1
+CVR2                              CONSTANT      00000002              2
+CVR3                              CONSTANT      00000003              3
+C1INV                             CONSTANT      00000004              4
+C1OUT                             CONSTANT      00000006              6
+C2INV                             CONSTANT      00000005              5
+C2OUT                             CONSTANT      00000007              7
+D                                 CONSTANT      00000005              5
+DATA_ADDRESS                      CONSTANT      00000005              5
+DC                                CONSTANT      00000001              1
+D_A                               CONSTANT      00000005              5
+D_NOT_A                           CONSTANT      00000005              5
+EEADR                             CONSTANT      0000010D            269
+EEADRH                            CONSTANT      0000010F            271
+EECON1                            CONSTANT      0000018C            396
+EECON2                            CONSTANT      0000018D            397
+EEDATA                            CONSTANT      0000010C            268
+EEDATH                            CONSTANT      0000010E            270
+EEIE                              CONSTANT      00000004              4
+EEIF                              CONSTANT      00000004              4
+EEPGD                             CONSTANT      00000007              7
+F                                 CONSTANT      00000001              1
+FERR                              CONSTANT      00000002              2
+FSR                               CONSTANT      00000004              4
+GCEN                              CONSTANT      00000007              7
+GIE                               CONSTANT      00000007              7
+GO                                CONSTANT      00000002              2
+GO_DONE                           CONSTANT      00000002              2
+GO_NOT_DONE                       CONSTANT      00000002              2
+INDF                              CONSTANT      00000000              0
+INTCON                            CONSTANT      0000000B             11
+INTE                              CONSTANT      00000004              4
+INTEDG                            CONSTANT      00000006              6
+INTF                              CONSTANT      00000001              1
+IRP                               CONSTANT      00000007              7
+I2C_DATA                          CONSTANT      00000005              5
+I2C_READ                          CONSTANT      00000002              2
+I2C_START                         CONSTANT      00000003              3
+I2C_STOP                          CONSTANT      00000004              4
+NOT_A                             CONSTANT      00000005              5
+NOT_ADDRESS                       CONSTANT      00000005              5
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 15
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+NOT_BO                            CONSTANT      00000000              0
+NOT_BOR                           CONSTANT      00000000              0
+NOT_DONE                          CONSTANT      00000002              2
+NOT_PD                            CONSTANT      00000003              3
+NOT_POR                           CONSTANT      00000001              1
+NOT_RBPU                          CONSTANT      00000007              7
+NOT_RC8                           CONSTANT      00000006              6
+NOT_TO                            CONSTANT      00000004              4
+NOT_TX8                           CONSTANT      00000006              6
+NOT_T1SYNC                        CONSTANT      00000002              2
+NOT_W                             CONSTANT      00000002              2
+NOT_WRITE                         CONSTANT      00000002              2
+OERR                              CONSTANT      00000001              1
+OPTION_REG                        CONSTANT      00000081            129
+P                                 CONSTANT      00000004              4
+PCFG0                             CONSTANT      00000000              0
+PCFG1                             CONSTANT      00000001              1
+PCFG2                             CONSTANT      00000002              2
+PCFG3                             CONSTANT      00000003              3
+PCL                               CONSTANT      00000002              2
+PCLATH                            CONSTANT      0000000A             10
+PCON                              CONSTANT      0000008E            142
+PEIE                              CONSTANT      00000006              6
+PEN                               CONSTANT      00000002              2
+PIE1                              CONSTANT      0000008C            140
+PIE2                              CONSTANT      0000008D            141
+PIR1                              CONSTANT      0000000C             12
+PIR2                              CONSTANT      0000000D             13
+PORTA                             CONSTANT      00000005              5
+PORTB                             CONSTANT      00000006              6
+PORTC                             CONSTANT      00000007              7
+PR2                               CONSTANT      00000092            146
+PS0                               CONSTANT      00000000              0
+PSA                               CONSTANT      00000003              3
+PSAVE                             EXTERNAL      00000000              0
+PS1                               CONSTANT      00000001              1
+PS2                               CONSTANT      00000002              2
+R                                 CONSTANT      00000002              2
+RA0                               CONSTANT      00000000              0
+RA1                               CONSTANT      00000001              1
+RA2                               CONSTANT      00000002              2
+RA3                               CONSTANT      00000003              3
+RA4                               CONSTANT      00000004              4
+RA5                               CONSTANT      00000005              5
+RB0                               CONSTANT      00000000              0
+RBIE                              CONSTANT      00000003              3
+RBIF                              CONSTANT      00000000              0
+RB1                               CONSTANT      00000001              1
+RB2                               CONSTANT      00000002              2
+RB3                               CONSTANT      00000003              3
+RB4                               CONSTANT      00000004              4
+RB5                               CONSTANT      00000005              5
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 16
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+RB6                               CONSTANT      00000006              6
+RB7                               CONSTANT      00000007              7
+RC0                               CONSTANT      00000000              0
+RCD8                              CONSTANT      00000000              0
+RCEN                              CONSTANT      00000003              3
+RCIE                              CONSTANT      00000005              5
+RCIF                              CONSTANT      00000005              5
+RCREG                             CONSTANT      0000001A             26
+RCSTA                             CONSTANT      00000018             24
+RC1                               CONSTANT      00000001              1
+RC2                               CONSTANT      00000002              2
+RC3                               CONSTANT      00000003              3
+RC4                               CONSTANT      00000004              4
+RC5                               CONSTANT      00000005              5
+RC6                               CONSTANT      00000006              6
+RC7                               CONSTANT      00000007              7
+RC8_9                             CONSTANT      00000006              6
+RC9                               CONSTANT      00000006              6
+RD                                CONSTANT      00000000              0
+READ_WRITE                        CONSTANT      00000002              2
+RP0                               CONSTANT      00000005              5
+RP1                               CONSTANT      00000006              6
+RSEN                              CONSTANT      00000001              1
+RX9                               CONSTANT      00000006              6
+RX9D                              CONSTANT      00000000              0
+R_NOT_W                           CONSTANT      00000002              2
+R_W                               CONSTANT      00000002              2
+S                                 CONSTANT      00000003              3
+SEN                               CONSTANT      00000000              0
+SMP                               CONSTANT      00000007              7
+SPBRG                             CONSTANT      00000099            153
+SPEN                              CONSTANT      00000007              7
+SREN                              CONSTANT      00000005              5
+SSAVE                             EXTERNAL      00000000              0
+SSPADD                            CONSTANT      00000093            147
+SSPBUF                            CONSTANT      00000013             19
+SSPCON                            CONSTANT      00000014             20
+SSPCON2                           CONSTANT      00000091            145
+SSPEN                             CONSTANT      00000005              5
+SSPIE                             CONSTANT      00000003              3
+SSPIF                             CONSTANT      00000003              3
+SSPM0                             CONSTANT      00000000              0
+SSPM1                             CONSTANT      00000001              1
+SSPM2                             CONSTANT      00000002              2
+SSPM3                             CONSTANT      00000003              3
+SSPOV                             CONSTANT      00000006              6
+SSPSTAT                           CONSTANT      00000094            148
+STATUS                            CONSTANT      00000003              3
+STK00                             EXTERNAL      00000000              0
+STK01                             EXTERNAL      00000000              0
+STK02                             EXTERNAL      00000000              0
+STK03                             EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 17
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+STK04                             EXTERNAL      00000000              0
+STK05                             EXTERNAL      00000000              0
+STK06                             EXTERNAL      00000000              0
+STK07                             EXTERNAL      00000000              0
+STK08                             EXTERNAL      00000000              0
+STK09                             EXTERNAL      00000000              0
+STK10                             EXTERNAL      00000000              0
+STK11                             EXTERNAL      00000000              0
+STK12                             EXTERNAL      00000000              0
+SYNC                              CONSTANT      00000004              4
+T0CS                              CONSTANT      00000005              5
+T0IE                              CONSTANT      00000005              5
+T0IF                              CONSTANT      00000002              2
+T0SE                              CONSTANT      00000004              4
+TMR0                              CONSTANT      00000001              1
+TMR0IE                            CONSTANT      00000005              5
+TMR0IF                            CONSTANT      00000002              2
+TMR1                              CONSTANT      0000000E             14
+TMR1CS                            CONSTANT      00000001              1
+TMR1H                             CONSTANT      0000000F             15
+TMR1IE                            CONSTANT      00000000              0
+TMR1IF                            CONSTANT      00000000              0
+TMR1L                             CONSTANT      0000000E             14
+TMR1ON                            CONSTANT      00000000              0
+TMR2                              CONSTANT      00000011             17
+TMR2IE                            CONSTANT      00000001              1
+TMR2IF                            CONSTANT      00000001              1
+TMR2ON                            CONSTANT      00000002              2
+TOUTPS0                           CONSTANT      00000003              3
+TOUTPS1                           CONSTANT      00000004              4
+TOUTPS2                           CONSTANT      00000005              5
+TOUTPS3                           CONSTANT      00000006              6
+TRISA                             CONSTANT      00000085            133
+TRISA0                            CONSTANT      00000000              0
+TRISA1                            CONSTANT      00000001              1
+TRISA2                            CONSTANT      00000002              2
+TRISA3                            CONSTANT      00000003              3
+TRISA4                            CONSTANT      00000004              4
+TRISA5                            CONSTANT      00000005              5
+TRISB                             CONSTANT      00000086            134
+TRISB0                            CONSTANT      00000000              0
+TRISB1                            CONSTANT      00000001              1
+TRISB2                            CONSTANT      00000002              2
+TRISB3                            CONSTANT      00000003              3
+TRISB4                            CONSTANT      00000004              4
+TRISB5                            CONSTANT      00000005              5
+TRISB6                            CONSTANT      00000006              6
+TRISB7                            CONSTANT      00000007              7
+TRISC                             CONSTANT      00000087            135
+TRISC0                            CONSTANT      00000000              0
+TRISC1                            CONSTANT      00000001              1
+TRISC2                            CONSTANT      00000002              2
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 18
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+TRISC3                            CONSTANT      00000003              3
+TRISC4                            CONSTANT      00000004              4
+TRISC5                            CONSTANT      00000005              5
+TRISC6                            CONSTANT      00000006              6
+TRISC7                            CONSTANT      00000007              7
+TRMT                              CONSTANT      00000001              1
+TXD8                              CONSTANT      00000000              0
+TXEN                              CONSTANT      00000005              5
+TXIE                              CONSTANT      00000004              4
+TXIF                              CONSTANT      00000004              4
+TXREG                             CONSTANT      00000019             25
+TXSTA                             CONSTANT      00000098            152
+TX8_9                             CONSTANT      00000006              6
+TX9                               CONSTANT      00000006              6
+TX9D                              CONSTANT      00000000              0
+T1CKPS0                           CONSTANT      00000004              4
+T1CKPS1                           CONSTANT      00000005              5
+T1CON                             CONSTANT      00000010             16
+T1INSYNC                          CONSTANT      00000002              2
+T1OSCEN                           CONSTANT      00000003              3
+T1SYNC                            CONSTANT      00000002              2
+T2CKPS0                           CONSTANT      00000000              0
+T2CKPS1                           CONSTANT      00000001              1
+T2CON                             CONSTANT      00000012             18
+UA                                CONSTANT      00000001              1
+W                                 CONSTANT      00000000              0
+WCOL                              CONSTANT      00000007              7
+WR                                CONSTANT      00000001              1
+WREN                              CONSTANT      00000002              2
+WRERR                             CONSTANT      00000003              3
+WSAVE                             EXTERNAL      00000000              0
+Z                                 CONSTANT      00000002              2
+_00105_DS_                        ADDRESS       00000003              3
+_00107_DS_                        ADDRESS       0000000A             10
+_00112_DS_                        ADDRESS       0000000F             15
+_00114_DS_                        ADDRESS       00000016             22
+_00115_DS_                        ADDRESS       0000001A             26
+_00117_DS_                        ADDRESS       00000021             33
+_00118_DS_                        ADDRESS       00000025             37
+_00120_DS_                        ADDRESS       0000002C             44
+_00121_DS_                        ADDRESS       00000030             48
+_00123_DS_                        ADDRESS       00000037             55
+_00124_DS_                        ADDRESS       0000003B             59
+_00129_DS_                        ADDRESS       00000007              7
+_00131_DS_                        ADDRESS       0000004B             75
+_00151_DS_                        ADDRESS       00000042             66
+_BODEN_OFF                        CONSTANT      00003FBF          16319
+_BODEN_ON                         CONSTANT      00003FFF          16383
+_BOREN_OFF                        CONSTANT      00003FBF          16319
+_BOREN_ON                         CONSTANT      00003FFF          16383
+_CONFIG                           CONSTANT      00002007           8199
+_CPD_OFF                          CONSTANT      00003FFF          16383
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 19
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_CPD_ON                           CONSTANT      00003EFF          16127
+_CP_ALL                           CONSTANT      00001FFF           8191
+_CP_OFF                           CONSTANT      00003FFF          16383
+_CP_ON                            CONSTANT      00001FFF           8191
+_DEBUG_OFF                        CONSTANT      00003FFF          16383
+_DEBUG_ON                         CONSTANT      000037FF          14335
+_DEVID1                           CONSTANT      00002006           8198
+_FOSC_EXTRC                       CONSTANT      00003FFF          16383
+_FOSC_HS                          CONSTANT      00003FFE          16382
+_FOSC_LP                          CONSTANT      00003FFC          16380
+_FOSC_XT                          CONSTANT      00003FFD          16381
+_HS_OSC                           CONSTANT      00003FFE          16382
+_IDLOC0                           CONSTANT      00002000           8192
+_IDLOC1                           CONSTANT      00002001           8193
+_IDLOC2                           CONSTANT      00002002           8194
+_IDLOC3                           CONSTANT      00002003           8195
+_LP_OSC                           CONSTANT      00003FFC          16380
+_LVP_OFF                          CONSTANT      00003F7F          16255
+_LVP_ON                           CONSTANT      00003FFF          16383
+_PWRTE_OFF                        CONSTANT      00003FFF          16383
+_PWRTE_ON                         CONSTANT      00003FF7          16375
+_RC_OSC                           CONSTANT      00003FFF          16383
+_WDTE_OFF                         CONSTANT      00003FFB          16379
+_WDTE_ON                          CONSTANT      00003FFF          16383
+_WDT_OFF                          CONSTANT      00003FFB          16379
+_WDT_ON                           CONSTANT      00003FFF          16383
+_WRT_HALF                         CONSTANT      000039FF          14847
+_WRT_OFF                          CONSTANT      00003FFF          16383
+_WRT_1FOURTH                      CONSTANT      00003BFF          15359
+_WRT_256                          CONSTANT      00003DFF          15871
+_XT_OSC                           CONSTANT      00003FFD          16381
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ACTIVE_PAGE_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      FFFFFFFF             -1
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000180            384
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000180            384
+__BANK_MASK                       CONSTANT      0000007F            127
+__BANK_SHIFT                      CONSTANT      00000007              7
+__BANK_SIZE                       CONSTANT      00000080            128
+__BANK_1                          CONSTANT      00000080            128
+__BANK_2                          CONSTANT      00000100            256
+__BANK_3                          CONSTANT      00000180            384
+__CODE_END                        CONSTANT      00001FFF           8191
+__CODE_START                      CONSTANT      00000000              0
+__COMMON_RAM_END                  CONSTANT      0000007F            127
+__COMMON_RAM_START                CONSTANT      00000070            112
+__CONFIG_END                      CONSTANT      00002007           8199
+__CONFIG_START                    CONSTANT      00002007           8199
+__EEPROM_END                      CONSTANT      000021FF           8703
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-16f8   11/12/23  13:12:30          PAGE 20
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__EEPROM_START                    CONSTANT      00002100           8448
+__GPUTILS_SVN_VERSION             CONSTANT      00000505           1285
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00002003           8195
+__IDLOCS_START                    CONSTANT      00002000           8192
+__NUM_BANKS                       CONSTANT      00000004              4
+__NUM_PAGES                       CONSTANT      00000004              4
+__PAGE_0                          CONSTANT      00000000              0
+__PAGE_BITS                       CONSTANT      00001800           6144
+__PAGE_FIRST                      CONSTANT      00000000              0
+__PAGE_INV                        CONSTANT      FFFFFFFF             -1
+__PAGE_LAST                       CONSTANT      00001800           6144
+__PAGE_MASK                       CONSTANT      000007FF           2047
+__PAGE_SHIFT                      CONSTANT      0000000B             11
+__PAGE_SIZE                       CONSTANT      00000800           2048
+__PAGE_1                          CONSTANT      00000800           2048
+__PAGE_2                          CONSTANT      00001000           4096
+__PAGE_3                          CONSTANT      00001800           6144
+__VECTOR_INT                      CONSTANT      00000004              4
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+__14_BIT                          CONSTANT      00000001              1
+__16F876A                         CONSTANT      00000001              1
+_delay_ms                         GLOBAL        00000000              0
+_delay_us                         GLOBAL        00000000              0
+r0x1000                           STATIC        00000002              2
+r0x1001                           STATIC        00000001              1
+r0x1002                           STATIC        00000003              3
+r0x1003                           STATIC        00000004              4
+r0x1004                           STATIC        00000000              0
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

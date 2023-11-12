@@ -1,0 +1,1907 @@
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  1
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      00001 ;--------------------------------------------------------
+                      00002 ; File Created by SDCC : free open source ANSI-C Compiler
+                      00003 ; Version 4.2.0 #13081 (Linux)
+                      00004 ;--------------------------------------------------------
+                      00005 ; PIC16 port for the Microchip 16-bit core micros
+                      00006 ;--------------------------------------------------------
+                      00007         list    p=18f25k50
+                      00008         radix   dec
+                      00009 
+                      00010 
+                      00011 ;--------------------------------------------------------
+                      00012 ; public variables in this module
+                      00013 ;--------------------------------------------------------
+  0000                00014         global  _lcd_send
+  0000                00015         global  _lcd_gotoxy
+  0000                00016         global  _lcd_puts
+  0000                00017         global  _lcd_putch
+  0000                00018         global  _lcd_print_number
+  0000                00019         global  _lcd_home
+  0000                00020         global  _lcd_clear
+  0000                00021         global  _lcd_display
+  0000                00022         global  _lcd_no_cursor
+  0000                00023         global  _lcd_cursor
+  0000                00024         global  _lcd_blink
+  0000                00025         global  _lcd_left_to_right
+  0000                00026         global  _lcd_autoscroll
+  0000                00027         global  _lcd_begin
+  0000                00028         global  _lcd_init
+                      00029 
+                      00030 ;--------------------------------------------------------
+                      00031 ; extern variables in this module
+                      00032 ;--------------------------------------------------------
+  0000                00033         extern  __gptrget1
+  0000                00034         extern  _dvar
+  0000                00035         extern  _SRCON1bits
+  0000                00036         extern  _SRCON0bits
+  0000                00037         extern  _CCPTMRSbits
+  0000                00038         extern  _ANSELAbits
+  0000                00039         extern  _ANSELBbits
+  0000                00040         extern  _ANSELCbits
+  0000                00041         extern  _UCONbits
+  0000                00042         extern  _USTATbits
+  0000                00043         extern  _UCFGbits
+  0000                00044         extern  _UADDRbits
+  0000                00045         extern  _UIEbits
+  0000                00046         extern  _UIRbits
+  0000                00047         extern  _UEIEbits
+  0000                00048         extern  _UEIRbits
+  0000                00049         extern  _UFRMLbits
+  0000                00050         extern  _UFRMHbits
+  0000                00051         extern  _UEP0bits
+  0000                00052         extern  _UEP1bits
+  0000                00053         extern  _UEP2bits
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  2
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00054         extern  _UEP3bits
+  0000                00055         extern  _UEP4bits
+  0000                00056         extern  _UEP5bits
+  0000                00057         extern  _UEP6bits
+  0000                00058         extern  _UEP7bits
+  0000                00059         extern  _UEP8bits
+  0000                00060         extern  _UEP9bits
+  0000                00061         extern  _UEP10bits
+  0000                00062         extern  _UEP11bits
+  0000                00063         extern  _UEP12bits
+  0000                00064         extern  _UEP13bits
+  0000                00065         extern  _UEP14bits
+  0000                00066         extern  _UEP15bits
+  0000                00067         extern  _SLRCONbits
+  0000                00068         extern  _VREFCON2bits
+  0000                00069         extern  _VREFCON1bits
+  0000                00070         extern  _VREFCON0bits
+  0000                00071         extern  _PMD0bits
+  0000                00072         extern  _PMD1bits
+  0000                00073         extern  _PORTAbits
+  0000                00074         extern  _PORTBbits
+  0000                00075         extern  _PORTCbits
+  0000                00076         extern  _PORTEbits
+  0000                00077         extern  _WPUBbits
+  0000                00078         extern  _IOCBbits
+  0000                00079         extern  _IOCCbits
+  0000                00080         extern  _CTMUICONbits
+  0000                00081         extern  _LATAbits
+  0000                00082         extern  _LATBbits
+  0000                00083         extern  _LATCbits
+  0000                00084         extern  _CTMUCON1bits
+  0000                00085         extern  _CTMUCONLbits
+  0000                00086         extern  _CTMUCON0bits
+  0000                00087         extern  _CTMUCONHbits
+  0000                00088         extern  _DDRAbits
+  0000                00089         extern  _TRISAbits
+  0000                00090         extern  _DDRBbits
+  0000                00091         extern  _TRISBbits
+  0000                00092         extern  _DDRCbits
+  0000                00093         extern  _TRISCbits
+  0000                00094         extern  _CCP2CONbits
+  0000                00095         extern  _ECCP2CONbits
+  0000                00096         extern  _CM1CON0bits
+  0000                00097         extern  _CM2CON0bits
+  0000                00098         extern  _CM2CON1bits
+  0000                00099         extern  _OSCTUNEbits
+  0000                00100         extern  _HLVDCONbits
+  0000                00101         extern  _PIE1bits
+  0000                00102         extern  _PIR1bits
+  0000                00103         extern  _IPR1bits
+  0000                00104         extern  _PIE2bits
+  0000                00105         extern  _PIR2bits
+  0000                00106         extern  _IPR2bits
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  3
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00107         extern  _PIE3bits
+  0000                00108         extern  _PIR3bits
+  0000                00109         extern  _IPR3bits
+  0000                00110         extern  _EECON1bits
+  0000                00111         extern  _RCSTAbits
+  0000                00112         extern  _RCSTA1bits
+  0000                00113         extern  _TXSTAbits
+  0000                00114         extern  _TXSTA1bits
+  0000                00115         extern  _SPBRGbits
+  0000                00116         extern  _SPBRG1bits
+  0000                00117         extern  _SPBRGHbits
+  0000                00118         extern  _SPBRGH1bits
+  0000                00119         extern  _T3CONbits
+  0000                00120         extern  _T3GCONbits
+  0000                00121         extern  _ACTCONbits
+  0000                00122         extern  _STCONbits
+  0000                00123         extern  _ECCP1ASbits
+  0000                00124         extern  _ECCP1DELbits
+  0000                00125         extern  _PWM1CONbits
+  0000                00126         extern  _BAUDCONbits
+  0000                00127         extern  _BAUDCON1bits
+  0000                00128         extern  _PSTR1CONbits
+  0000                00129         extern  _T2CONbits
+  0000                00130         extern  _CCP1CONbits
+  0000                00131         extern  _ECCP1CONbits
+  0000                00132         extern  _ADCON2bits
+  0000                00133         extern  _ADCON1bits
+  0000                00134         extern  _ADCON0bits
+  0000                00135         extern  _SSP1CON2bits
+  0000                00136         extern  _SSPCON2bits
+  0000                00137         extern  _SSP1CON1bits
+  0000                00138         extern  _SSPCONbits
+  0000                00139         extern  _SSPCON1bits
+  0000                00140         extern  _SSP1STATbits
+  0000                00141         extern  _SSPSTATbits
+  0000                00142         extern  _SSP1ADDbits
+  0000                00143         extern  _SSPADDbits
+  0000                00144         extern  _SSP1MSKbits
+  0000                00145         extern  _SSPMSKbits
+  0000                00146         extern  _SSP1CON3bits
+  0000                00147         extern  _SSPCON3bits
+  0000                00148         extern  _T1GCONbits
+  0000                00149         extern  _T1CONbits
+  0000                00150         extern  _RCONbits
+  0000                00151         extern  _WDTCONbits
+  0000                00152         extern  _OSCCON2bits
+  0000                00153         extern  _OSCCONbits
+  0000                00154         extern  _T0CONbits
+  0000                00155         extern  _STATUSbits
+  0000                00156         extern  _INTCON3bits
+  0000                00157         extern  _INTCON2bits
+  0000                00158         extern  _INTCONbits
+  0000                00159         extern  _STKPTRbits
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  4
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00160         extern  _stdin
+  0000                00161         extern  _stdout
+  0000                00162         extern  _SRCON1
+  0000                00163         extern  _SRCON0
+  0000                00164         extern  _CCPTMRS
+  0000                00165         extern  _VREGCON
+  0000                00166         extern  _ANSELA
+  0000                00167         extern  _ANSELB
+  0000                00168         extern  _ANSELC
+  0000                00169         extern  _UCON
+  0000                00170         extern  _USTAT
+  0000                00171         extern  _UCFG
+  0000                00172         extern  _UADDR
+  0000                00173         extern  _UIE
+  0000                00174         extern  _UIR
+  0000                00175         extern  _UEIE
+  0000                00176         extern  _UEIR
+  0000                00177         extern  _UFRM
+  0000                00178         extern  _UFRML
+  0000                00179         extern  _UFRMH
+  0000                00180         extern  _UEP0
+  0000                00181         extern  _UEP1
+  0000                00182         extern  _UEP2
+  0000                00183         extern  _UEP3
+  0000                00184         extern  _UEP4
+  0000                00185         extern  _UEP5
+  0000                00186         extern  _UEP6
+  0000                00187         extern  _UEP7
+  0000                00188         extern  _UEP8
+  0000                00189         extern  _UEP9
+  0000                00190         extern  _UEP10
+  0000                00191         extern  _UEP11
+  0000                00192         extern  _UEP12
+  0000                00193         extern  _UEP13
+  0000                00194         extern  _UEP14
+  0000                00195         extern  _UEP15
+  0000                00196         extern  _SLRCON
+  0000                00197         extern  _VREFCON2
+  0000                00198         extern  _VREFCON1
+  0000                00199         extern  _VREFCON0
+  0000                00200         extern  _PMD0
+  0000                00201         extern  _PMD1
+  0000                00202         extern  _PORTA
+  0000                00203         extern  _PORTB
+  0000                00204         extern  _PORTC
+  0000                00205         extern  _PORTE
+  0000                00206         extern  _WPUB
+  0000                00207         extern  _IOCB
+  0000                00208         extern  _IOCC
+  0000                00209         extern  _CTMUICON
+  0000                00210         extern  _LATA
+  0000                00211         extern  _LATB
+  0000                00212         extern  _LATC
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  5
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00213         extern  _CTMUCON1
+  0000                00214         extern  _CTMUCONL
+  0000                00215         extern  _CTMUCON0
+  0000                00216         extern  _CTMUCONH
+  0000                00217         extern  _CCPR2
+  0000                00218         extern  _CCPR2L
+  0000                00219         extern  _CCPR2H
+  0000                00220         extern  _DDRA
+  0000                00221         extern  _TRISA
+  0000                00222         extern  _DDRB
+  0000                00223         extern  _TRISB
+  0000                00224         extern  _DDRC
+  0000                00225         extern  _TRISC
+  0000                00226         extern  _CCP2CON
+  0000                00227         extern  _ECCP2CON
+  0000                00228         extern  _CM1CON0
+  0000                00229         extern  _CM2CON0
+  0000                00230         extern  _CM2CON1
+  0000                00231         extern  _OSCTUNE
+  0000                00232         extern  _HLVDCON
+  0000                00233         extern  _PIE1
+  0000                00234         extern  _PIR1
+  0000                00235         extern  _IPR1
+  0000                00236         extern  _PIE2
+  0000                00237         extern  _PIR2
+  0000                00238         extern  _IPR2
+  0000                00239         extern  _PIE3
+  0000                00240         extern  _PIR3
+  0000                00241         extern  _IPR3
+  0000                00242         extern  _EECON1
+  0000                00243         extern  _EECON2
+  0000                00244         extern  _EEDATA
+  0000                00245         extern  _EEADR
+  0000                00246         extern  _RCSTA
+  0000                00247         extern  _RCSTA1
+  0000                00248         extern  _TXSTA
+  0000                00249         extern  _TXSTA1
+  0000                00250         extern  _TXREG
+  0000                00251         extern  _TXREG1
+  0000                00252         extern  _RCREG
+  0000                00253         extern  _RCREG1
+  0000                00254         extern  _SPBRG
+  0000                00255         extern  _SPBRG1
+  0000                00256         extern  _SPBRGH
+  0000                00257         extern  _SPBRGH1
+  0000                00258         extern  _T3CON
+  0000                00259         extern  _TMR3
+  0000                00260         extern  _TMR3L
+  0000                00261         extern  _TMR3H
+  0000                00262         extern  _T3GCON
+  0000                00263         extern  _ACTCON
+  0000                00264         extern  _STCON
+  0000                00265         extern  _ECCP1AS
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  6
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00266         extern  _ECCP1DEL
+  0000                00267         extern  _PWM1CON
+  0000                00268         extern  _BAUDCON
+  0000                00269         extern  _BAUDCON1
+  0000                00270         extern  _PSTR1CON
+  0000                00271         extern  _T2CON
+  0000                00272         extern  _PR2
+  0000                00273         extern  _TMR2
+  0000                00274         extern  _CCP1CON
+  0000                00275         extern  _ECCP1CON
+  0000                00276         extern  _CCPR1
+  0000                00277         extern  _CCPR1L
+  0000                00278         extern  _CCPR1H
+  0000                00279         extern  _ADCON2
+  0000                00280         extern  _ADCON1
+  0000                00281         extern  _ADCON0
+  0000                00282         extern  _ADRESL
+  0000                00283         extern  _ADRESH
+  0000                00284         extern  _SSP1CON2
+  0000                00285         extern  _SSPCON2
+  0000                00286         extern  _SSP1CON1
+  0000                00287         extern  _SSPCON
+  0000                00288         extern  _SSPCON1
+  0000                00289         extern  _SSP1STAT
+  0000                00290         extern  _SSPSTAT
+  0000                00291         extern  _SSP1ADD
+  0000                00292         extern  _SSPADD
+  0000                00293         extern  _SSP1BUF
+  0000                00294         extern  _SSPBUF
+  0000                00295         extern  _SSP1MSK
+  0000                00296         extern  _SSPMSK
+  0000                00297         extern  _SSP1CON3
+  0000                00298         extern  _SSPCON3
+  0000                00299         extern  _T1GCON
+  0000                00300         extern  _T1CON
+  0000                00301         extern  _TMR1
+  0000                00302         extern  _TMR1L
+  0000                00303         extern  _TMR1H
+  0000                00304         extern  _RCON
+  0000                00305         extern  _WDTCON
+  0000                00306         extern  _OSCCON2
+  0000                00307         extern  _OSCCON
+  0000                00308         extern  _T0CON
+  0000                00309         extern  _TMR0
+  0000                00310         extern  _TMR0L
+  0000                00311         extern  _TMR0H
+  0000                00312         extern  _STATUS
+  0000                00313         extern  _FSR2L
+  0000                00314         extern  _FSR2H
+  0000                00315         extern  _PLUSW2
+  0000                00316         extern  _PREINC2
+  0000                00317         extern  _POSTDEC2
+  0000                00318         extern  _POSTINC2
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  7
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  0000                00319         extern  _INDF2
+  0000                00320         extern  _BSR
+  0000                00321         extern  _FSR1L
+  0000                00322         extern  _FSR1H
+  0000                00323         extern  _PLUSW1
+  0000                00324         extern  _PREINC1
+  0000                00325         extern  _POSTDEC1
+  0000                00326         extern  _POSTINC1
+  0000                00327         extern  _INDF1
+  0000                00328         extern  _WREG
+  0000                00329         extern  _FSR0L
+  0000                00330         extern  _FSR0H
+  0000                00331         extern  _PLUSW0
+  0000                00332         extern  _PREINC0
+  0000                00333         extern  _POSTDEC0
+  0000                00334         extern  _POSTINC0
+  0000                00335         extern  _INDF0
+  0000                00336         extern  _INTCON3
+  0000                00337         extern  _INTCON2
+  0000                00338         extern  _INTCON
+  0000                00339         extern  _PROD
+  0000                00340         extern  _PRODL
+  0000                00341         extern  _PRODH
+  0000                00342         extern  _TABLAT
+  0000                00343         extern  _TBLPTR
+  0000                00344         extern  _TBLPTRL
+  0000                00345         extern  _TBLPTRH
+  0000                00346         extern  _TBLPTRU
+  0000                00347         extern  _PC
+  0000                00348         extern  _PCL
+  0000                00349         extern  _PCLATH
+  0000                00350         extern  _PCLATU
+  0000                00351         extern  _STKPTR
+  0000                00352         extern  _TOS
+  0000                00353         extern  _TOSL
+  0000                00354         extern  _TOSH
+  0000                00355         extern  _TOSU
+  0000                00356         extern  _delay_ms
+  0000                00357         extern  _delay_us
+  0000                00358         extern  __moduint
+  0000                00359         extern  __divuint
+                      00360 
+                      00361 ;--------------------------------------------------------
+                      00362 ;       Equates to used internal registers
+                      00363 ;--------------------------------------------------------
+  00000FD8            00364 STATUS  equ     0xfd8
+  00000FE8            00365 WREG    equ     0xfe8
+  00000FE9            00366 FSR0L   equ     0xfe9
+  00000FEA            00367 FSR0H   equ     0xfea
+  00000FE1            00368 FSR1L   equ     0xfe1
+  00000FD9            00369 FSR2L   equ     0xfd9
+  00000FEF            00370 INDF0   equ     0xfef
+  00000FE6            00371 POSTINC1        equ     0xfe6
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  8
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+  00000FE5            00372 POSTDEC1        equ     0xfe5
+  00000FE4            00373 PREINC1 equ     0xfe4
+  00000FDB            00374 PLUSW2  equ     0xfdb
+  00000FF3            00375 PRODL   equ     0xff3
+                      00376 
+                      00377 
+                      00378 ; Internal registers
+                      00379 .registers      udata_ovr       0x0000
+000000                00380 r0x00   res     1
+000001                00381 r0x01   res     1
+000002                00382 r0x02   res     1
+000003                00383 r0x03   res     1
+000004                00384 r0x04   res     1
+000005                00385 r0x05   res     1
+000006                00386 r0x06   res     1
+000007                00387 r0x07   res     1
+000008                00388 r0x08   res     1
+000009                00389 r0x09   res     1
+00000A                00390 r0x0a   res     1
+00000B                00391 r0x0b   res     1
+                      00392 
+                      00393 udata_lcd44780_0        udata
+000000                00394 _LCD_function   res     1
+                      00395 
+                      00396 udata_lcd44780_1        udata
+000000                00397 _LCD_ctrl       res     1
+                      00398 
+                      00399 udata_lcd44780_2        udata
+000000                00400 _LCD_mode       res     1
+                      00401 
+                      00402 udata_lcd44780_3        udata
+000000                00403 _LCD_lines      res     1
+                      00404 
+                      00405 udata_lcd44780_4        udata
+000000                00406 _lcd_gotoxy_row_offsets_65536_47        res     4
+                      00407 
+                      00408 udata_lcd44780_5        udata
+000000                00409 _lcd_print_number_buf_65536_55  res     32
+                      00410 
+                      00411 ;--------------------------------------------------------
+                      00412 ; global & static initialisations
+                      00413 ;--------------------------------------------------------
+                      00414 ; I code from now on!
+                      00415 ; ; Starting pCode block
+                      00416 S_lcd44780__lcd_init    code
+000000                00417 _lcd_init:
+                      00418 ;       .line   489; lib/lcd44780.c     lcd_init(char fourbitmode) {
+000000 CFD9 FFE5      00419         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00420         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00421         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00422         MOVFF   r0x01, POSTDEC1
+000010 0E02           00423         MOVLW   0x02
+000012 CFDB F000      00424         MOVFF   PLUSW2, r0x00
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE  9
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000016 010?           00425         BANKSEL _LCD_ctrl
+                      00426 ;       .line   491; lib/lcd44780.c     LCD_ctrl = 0;
+000018 6B??           00427         CLRF    _LCD_ctrl, B
+                      00428 ;       .line   492; lib/lcd44780.c     LCD_function = (fourbitmode ? LCD_4BITMODE : LCD_8BITMODE);
+00001A 50??           00429         MOVF    r0x00, W
+00001C E0??           00430         BZ      _00288_DS_
+00001E 6A??           00431         CLRF    r0x00
+000020 6A??           00432         CLRF    r0x01
+000022 D???           00433         BRA     _00289_DS_
+000024                00434 _00288_DS_:
+000024 0E10           00435         MOVLW   0x10
+000026 6E??           00436         MOVWF   r0x00
+000028 6A??           00437         CLRF    r0x01
+00002A                00438 _00289_DS_:
+00002A 50??           00439         MOVF    r0x00, W
+00002C 010?           00440         BANKSEL _LCD_function
+00002E 6F??           00441         MOVWF   _LCD_function, B
+000030 010?           00442         BANKSEL _LCD_lines
+                      00443 ;       .line   494; lib/lcd44780.c     LCD_lines = 0;
+000032 6B??           00444         CLRF    _LCD_lines, B
+000034 010?           00445         BANKSEL _LCD_mode
+                      00446 ;       .line   496; lib/lcd44780.c     LCD_mode = 0;
+000036 6B??           00447         CLRF    _LCD_mode, B
+                      00448 ;       .line   498; lib/lcd44780.c     RS_TRIS();
+000038 94??           00449         BCF     _TRISB, 2
+                      00450 ;       .line   499; lib/lcd44780.c     RS_LOW();
+00003A 94??           00451         BCF     _LATB, 2
+                      00452 ;       .line   504; lib/lcd44780.c     EN_TRIS();
+00003C 96??           00453         BCF     _TRISB, 3
+                      00454 ;       .line   505; lib/lcd44780.c     EN_LOW();
+00003E 96??           00455         BCF     _LATB, 3
+                      00456 ;       .line   507; lib/lcd44780.c     DATA_TRIS();
+000040 0E0F           00457         MOVLW   0x0f
+000042 16??           00458         ANDWF   _LATB, F
+                      00459 ;       .line   517; lib/lcd44780.c     }
+000044 CFE4 F000      00460         MOVFF   PREINC1, r0x01
+000048 CFE4 F000      00461         MOVFF   PREINC1, r0x00
+00004C CFE4 FFD9      00462         MOVFF   PREINC1, FSR2L
+000050 0012           00463         RETURN  
+                      00464 
+                      00465 ; ; Starting pCode block
+                      00466 S_lcd44780__lcd_begin   code
+000000                00467 _lcd_begin:
+                      00468 ;       .line   416; lib/lcd44780.c     lcd_begin(uint8_t lines, uint8_t dotsize) {
+000000 CFD9 FFE5      00469         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00470         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00471         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00472         MOVFF   r0x01, POSTDEC1
+000010 0E02           00473         MOVLW   0x02
+000012 CFDB F000      00474         MOVFF   PLUSW2, r0x00
+000016 0E03           00475         MOVLW   0x03
+000018 CFDB F000      00476         MOVFF   PLUSW2, r0x01
+                      00477 ;       .line   417; lib/lcd44780.c     if(lines > 1)
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 10
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00001C 0E02           00478         MOVLW   0x02
+00001E 5C??           00479         SUBWF   r0x00, W
+000020 E3??           00480         BNC     _00249_DS_
+000022 010?           00481         BANKSEL _LCD_function
+                      00482 ;       .line   418; lib/lcd44780.c     LCD_function |= LCD_2LINE;
+000024 87??           00483         BSF     _LCD_function, 3, B
+000026                00484 _00249_DS_:
+                      00485 ;       .line   421; lib/lcd44780.c     LCD_lines = lines;
+000026 C??? F???      00486         MOVFF   r0x00, _LCD_lines
+                      00487 ;       .line   425; lib/lcd44780.c     if((dotsize != 0) && (lines == 1))
+00002A 50??           00488         MOVF    r0x01, W
+00002C E0??           00489         BZ      _00251_DS_
+00002E 50??           00490         MOVF    r0x00, W
+000030 0A01           00491         XORLW   0x01
+000032 E1??           00492         BNZ     _00251_DS_
+000034                00493 _00277_DS_:
+000034 010?           00494         BANKSEL _LCD_function
+                      00495 ;       .line   426; lib/lcd44780.c     LCD_function |= LCD_5x10DOTS;
+000036 85??           00496         BSF     _LCD_function, 2, B
+000038                00497 _00251_DS_:
+                      00498 ;       .line   428; lib/lcd44780.c     delay_ms(15); // Wait more than 15 ms after VDD rises to 4.5V
+000038 0E00           00499         MOVLW   0x00
+00003A 6EE5           00500         MOVWF   POSTDEC1
+00003C 0E0F           00501         MOVLW   0x0f
+00003E 6EE5           00502         MOVWF   POSTDEC1
+000040 EC?? F0??      00503         CALL    _delay_ms
+000044 52E6           00504         MOVF    POSTINC1, F
+000046 52E6           00505         MOVF    POSTINC1, F
+                      00506 ;       .line   431; lib/lcd44780.c     RS_LOW();
+000048 94??           00507         BCF     _LATB, 2
+                      00508 ;       .line   432; lib/lcd44780.c     EN_LOW();
+00004A 96??           00509         BCF     _LATB, 3
+                      00510 ;       .line   435; lib/lcd44780.c     if(!(LCD_function & LCD_8BITMODE)) {
+00004C C??? F???      00511         MOVFF   _LCD_function, r0x00
+000050 B8??           00512         BTFSC   r0x00, 4
+000052 D???           00513         BRA     _00254_DS_
+                      00514 ;       .line   439; lib/lcd44780.c     lcd_write4bits(0x03);
+000054 0E03           00515         MOVLW   0x03
+000056 6EE5           00516         MOVWF   POSTDEC1
+000058 EC?? F0??      00517         CALL    _lcd_write4bits
+00005C 52E6           00518         MOVF    POSTINC1, F
+                      00519 ;       .line   440; lib/lcd44780.c     delay_ms(5); // Wait for more than 4.1 ms
+00005E 0E00           00520         MOVLW   0x00
+000060 6EE5           00521         MOVWF   POSTDEC1
+000062 0E05           00522         MOVLW   0x05
+000064 6EE5           00523         MOVWF   POSTDEC1
+000066 EC?? F0??      00524         CALL    _delay_ms
+00006A 52E6           00525         MOVF    POSTINC1, F
+00006C 52E6           00526         MOVF    POSTINC1, F
+                      00527 ;       .line   442; lib/lcd44780.c     lcd_write4bits(0x03);
+00006E 0E03           00528         MOVLW   0x03
+000070 6EE5           00529         MOVWF   POSTDEC1
+000072 EC?? F0??      00530         CALL    _lcd_write4bits
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 11
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000076 52E6           00531         MOVF    POSTINC1, F
+                      00532 ;       .line   443; lib/lcd44780.c     delay_us(150); // Wait more than 100 μs
+000078 0E96           00533         MOVLW   0x96
+00007A 6EE5           00534         MOVWF   POSTDEC1
+00007C EC?? F0??      00535         CALL    _delay_us
+000080 52E6           00536         MOVF    POSTINC1, F
+                      00537 ;       .line   445; lib/lcd44780.c     lcd_write4bits(0x03);
+000082 0E03           00538         MOVLW   0x03
+000084 6EE5           00539         MOVWF   POSTDEC1
+000086 EC?? F0??      00540         CALL    _lcd_write4bits
+00008A 52E6           00541         MOVF    POSTINC1, F
+                      00542 ;       .line   446; lib/lcd44780.c     delay_us(150); // Wait more than 100 μs
+00008C 0E96           00543         MOVLW   0x96
+00008E 6EE5           00544         MOVWF   POSTDEC1
+000090 EC?? F0??      00545         CALL    _delay_us
+000094 52E6           00546         MOVF    POSTINC1, F
+                      00547 ;       .line   448; lib/lcd44780.c     lcd_write4bits(0x02);
+000096 0E02           00548         MOVLW   0x02
+000098 6EE5           00549         MOVWF   POSTDEC1
+00009A EC?? F0??      00550         CALL    _lcd_write4bits
+00009E 52E6           00551         MOVF    POSTINC1, F
+0000A0 D???           00552         BRA     _00255_DS_
+0000A2                00553 _00254_DS_:
+                      00554 ;       .line   455; lib/lcd44780.c     lcd_command(LCD_FUNCTIONSET | LCD_function);
+0000A2 0E20           00555         MOVLW   0x20
+0000A4 010?           00556         BANKSEL _LCD_function
+0000A6 11??           00557         IORWF   _LCD_function, W, B
+0000A8 6E??           00558         MOVWF   r0x00
+0000AA 50??           00559         MOVF    r0x00, W
+0000AC 6EE5           00560         MOVWF   POSTDEC1
+0000AE EC?? F0??      00561         CALL    _lcd_command
+0000B2 52E6           00562         MOVF    POSTINC1, F
+                      00563 ;       .line   456; lib/lcd44780.c     delay_ms(5); // Wait for more than 4.1 ms
+0000B4 0E00           00564         MOVLW   0x00
+0000B6 6EE5           00565         MOVWF   POSTDEC1
+0000B8 0E05           00566         MOVLW   0x05
+0000BA 6EE5           00567         MOVWF   POSTDEC1
+0000BC EC?? F0??      00568         CALL    _delay_ms
+0000C0 52E6           00569         MOVF    POSTINC1, F
+0000C2 52E6           00570         MOVF    POSTINC1, F
+                      00571 ;       .line   459; lib/lcd44780.c     lcd_command(LCD_FUNCTIONSET | LCD_function);
+0000C4 0E20           00572         MOVLW   0x20
+0000C6 010?           00573         BANKSEL _LCD_function
+0000C8 11??           00574         IORWF   _LCD_function, W, B
+0000CA 6E??           00575         MOVWF   r0x00
+0000CC 50??           00576         MOVF    r0x00, W
+0000CE 6EE5           00577         MOVWF   POSTDEC1
+0000D0 EC?? F0??      00578         CALL    _lcd_command
+0000D4 52E6           00579         MOVF    POSTINC1, F
+                      00580 ;       .line   460; lib/lcd44780.c     delay_ms(5); // Wait for more than 4.1 ms
+0000D6 0E00           00581         MOVLW   0x00
+0000D8 6EE5           00582         MOVWF   POSTDEC1
+0000DA 0E05           00583         MOVLW   0x05
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 12
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0000DC 6EE5           00584         MOVWF   POSTDEC1
+0000DE EC?? F0??      00585         CALL    _delay_ms
+0000E2 52E6           00586         MOVF    POSTINC1, F
+0000E4 52E6           00587         MOVF    POSTINC1, F
+                      00588 ;       .line   464; lib/lcd44780.c     lcd_command(LCD_FUNCTIONSET | LCD_function);
+0000E6 0E20           00589         MOVLW   0x20
+0000E8 010?           00590         BANKSEL _LCD_function
+0000EA 11??           00591         IORWF   _LCD_function, W, B
+0000EC 6E??           00592         MOVWF   r0x00
+0000EE 50??           00593         MOVF    r0x00, W
+0000F0 6EE5           00594         MOVWF   POSTDEC1
+0000F2 EC?? F0??      00595         CALL    _lcd_command
+0000F6 52E6           00596         MOVF    POSTINC1, F
+0000F8                00597 _00255_DS_:
+                      00598 ;       .line   468; lib/lcd44780.c     lcd_command(LCD_FUNCTIONSET | LCD_function);
+0000F8 0E20           00599         MOVLW   0x20
+0000FA 010?           00600         BANKSEL _LCD_function
+0000FC 11??           00601         IORWF   _LCD_function, W, B
+0000FE 6E??           00602         MOVWF   r0x00
+000100 50??           00603         MOVF    r0x00, W
+000102 6EE5           00604         MOVWF   POSTDEC1
+000104 EC?? F0??      00605         CALL    _lcd_command
+000108 52E6           00606         MOVF    POSTINC1, F
+                      00607 ;       .line   471; lib/lcd44780.c     LCD_ctrl = LCD_DISPLAYON | LCD_CURSOROFF | LCD_BLINKOFF;
+00010A 0E04           00608         MOVLW   0x04
+00010C 010?           00609         BANKSEL _LCD_ctrl
+00010E 6F??           00610         MOVWF   _LCD_ctrl, B
+                      00611 ;       .line   472; lib/lcd44780.c     lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+000110 0E0C           00612         MOVLW   0x0c
+000112 6EE5           00613         MOVWF   POSTDEC1
+000114 EC?? F0??      00614         CALL    _lcd_command
+000118 52E6           00615         MOVF    POSTINC1, F
+                      00616 ;       .line   475; lib/lcd44780.c     lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor posi
+                            tion to zero
+00011A 0E01           00617         MOVLW   0x01
+00011C 6EE5           00618         MOVWF   POSTDEC1
+00011E EC?? F0??      00619         CALL    _lcd_command
+000122 52E6           00620         MOVF    POSTINC1, F
+                      00621 ;       .line   476; lib/lcd44780.c     delay_ms(2);
+000124 0E00           00622         MOVLW   0x00
+000126 6EE5           00623         MOVWF   POSTDEC1
+000128 0E02           00624         MOVLW   0x02
+00012A 6EE5           00625         MOVWF   POSTDEC1
+00012C EC?? F0??      00626         CALL    _delay_ms
+000130 52E6           00627         MOVF    POSTINC1, F
+000132 52E6           00628         MOVF    POSTINC1, F
+                      00629 ;       .line   479; lib/lcd44780.c     LCD_mode = LCD_ENTRYLEFT | LCD_ENTRYSHIFTDECREMENT;
+000134 0E02           00630         MOVLW   0x02
+000136 010?           00631         BANKSEL _LCD_mode
+000138 6F??           00632         MOVWF   _LCD_mode, B
+                      00633 ;       .line   481; lib/lcd44780.c     lcd_command(LCD_ENTRYMODESET | LCD_mode);
+00013A 0E06           00634         MOVLW   0x06
+00013C 6EE5           00635         MOVWF   POSTDEC1
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 13
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00013E EC?? F0??      00636         CALL    _lcd_command
+000142 52E6           00637         MOVF    POSTINC1, F
+                      00638 ;       .line   482; lib/lcd44780.c     }
+000144 CFE4 F000      00639         MOVFF   PREINC1, r0x01
+000148 CFE4 F000      00640         MOVFF   PREINC1, r0x00
+00014C CFE4 FFD9      00641         MOVFF   PREINC1, FSR2L
+000150 0012           00642         RETURN  
+                      00643 
+                      00644 ; ; Starting pCode block
+                      00645 S_lcd44780__lcd_autoscroll      code
+000000                00646 _lcd_autoscroll:
+                      00647 ;       .line   397; lib/lcd44780.c     lcd_autoscroll(void) {
+000000 CFD9 FFE5      00648         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00649         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00650         MOVFF   r0x00, POSTDEC1
+00000C 010?           00651         BANKSEL _LCD_mode
+                      00652 ;       .line   398; lib/lcd44780.c     LCD_mode |= LCD_ENTRYSHIFTINCREMENT;
+00000E 81??           00653         BSF     _LCD_mode, 0, B
+                      00654 ;       .line   399; lib/lcd44780.c     lcd_command(LCD_ENTRYMODESET | LCD_mode);
+000010 0E04           00655         MOVLW   0x04
+000012 010?           00656         BANKSEL _LCD_mode
+000014 11??           00657         IORWF   _LCD_mode, W, B
+000016 6E??           00658         MOVWF   r0x00
+000018 50??           00659         MOVF    r0x00, W
+00001A 6EE5           00660         MOVWF   POSTDEC1
+00001C EC?? F0??      00661         CALL    _lcd_command
+000020 52E6           00662         MOVF    POSTINC1, F
+                      00663 ;       .line   400; lib/lcd44780.c     }
+000022 CFE4 F000      00664         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00665         MOVFF   PREINC1, FSR2L
+00002A 0012           00666         RETURN  
+                      00667 
+                      00668 ; ; Starting pCode block
+                      00669 S_lcd44780__lcd_left_to_right   code
+000000                00670 _lcd_left_to_right:
+                      00671 ;       .line   377; lib/lcd44780.c     lcd_left_to_right(void) {
+000000 CFD9 FFE5      00672         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00673         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00674         MOVFF   r0x00, POSTDEC1
+00000C 010?           00675         BANKSEL _LCD_mode
+                      00676 ;       .line   378; lib/lcd44780.c     LCD_mode |= LCD_ENTRYLEFT;
+00000E 83??           00677         BSF     _LCD_mode, 1, B
+                      00678 ;       .line   379; lib/lcd44780.c     lcd_command(LCD_ENTRYMODESET | LCD_mode);
+000010 0E04           00679         MOVLW   0x04
+000012 010?           00680         BANKSEL _LCD_mode
+000014 11??           00681         IORWF   _LCD_mode, W, B
+000016 6E??           00682         MOVWF   r0x00
+000018 50??           00683         MOVF    r0x00, W
+00001A 6EE5           00684         MOVWF   POSTDEC1
+00001C EC?? F0??      00685         CALL    _lcd_command
+000020 52E6           00686         MOVF    POSTINC1, F
+                      00687 ;       .line   380; lib/lcd44780.c     }
+000022 CFE4 F000      00688         MOVFF   PREINC1, r0x00
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 14
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000026 CFE4 FFD9      00689         MOVFF   PREINC1, FSR2L
+00002A 0012           00690         RETURN  
+                      00691 
+                      00692 ; ; Starting pCode block
+                      00693 S_lcd44780__lcd_blink   code
+000000                00694 _lcd_blink:
+                      00695 ;       .line   350; lib/lcd44780.c     lcd_blink() {
+000000 CFD9 FFE5      00696         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00697         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00698         MOVFF   r0x00, POSTDEC1
+00000C 010?           00699         BANKSEL _LCD_ctrl
+                      00700 ;       .line   351; lib/lcd44780.c     LCD_ctrl |= LCD_BLINKON;
+00000E 81??           00701         BSF     _LCD_ctrl, 0, B
+                      00702 ;       .line   352; lib/lcd44780.c     lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+000010 0E08           00703         MOVLW   0x08
+000012 010?           00704         BANKSEL _LCD_ctrl
+000014 11??           00705         IORWF   _LCD_ctrl, W, B
+000016 6E??           00706         MOVWF   r0x00
+000018 50??           00707         MOVF    r0x00, W
+00001A 6EE5           00708         MOVWF   POSTDEC1
+00001C EC?? F0??      00709         CALL    _lcd_command
+000020 52E6           00710         MOVF    POSTINC1, F
+                      00711 ;       .line   353; lib/lcd44780.c     }
+000022 CFE4 F000      00712         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00713         MOVFF   PREINC1, FSR2L
+00002A 0012           00714         RETURN  
+                      00715 
+                      00716 ; ; Starting pCode block
+                      00717 S_lcd44780__lcd_cursor  code
+000000                00718 _lcd_cursor:
+                      00719 ;       .line   331; lib/lcd44780.c     lcd_cursor() {
+000000 CFD9 FFE5      00720         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00721         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00722         MOVFF   r0x00, POSTDEC1
+00000C 010?           00723         BANKSEL _LCD_ctrl
+                      00724 ;       .line   332; lib/lcd44780.c     LCD_ctrl |= LCD_CURSORON;
+00000E 83??           00725         BSF     _LCD_ctrl, 1, B
+                      00726 ;       .line   333; lib/lcd44780.c     lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+000010 0E08           00727         MOVLW   0x08
+000012 010?           00728         BANKSEL _LCD_ctrl
+000014 11??           00729         IORWF   _LCD_ctrl, W, B
+000016 6E??           00730         MOVWF   r0x00
+000018 50??           00731         MOVF    r0x00, W
+00001A 6EE5           00732         MOVWF   POSTDEC1
+00001C EC?? F0??      00733         CALL    _lcd_command
+000020 52E6           00734         MOVF    POSTINC1, F
+                      00735 ;       .line   334; lib/lcd44780.c     }
+000022 CFE4 F000      00736         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00737         MOVFF   PREINC1, FSR2L
+00002A 0012           00738         RETURN  
+                      00739 
+                      00740 ; ; Starting pCode block
+                      00741 S_lcd44780__lcd_no_cursor       code
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 15
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000000                00742 _lcd_no_cursor:
+                      00743 ;       .line   322; lib/lcd44780.c     lcd_no_cursor() {
+000000 CFD9 FFE5      00744         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00745         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00746         MOVFF   r0x00, POSTDEC1
+00000C 010?           00747         BANKSEL _LCD_ctrl
+                      00748 ;       .line   323; lib/lcd44780.c     LCD_ctrl &= ~LCD_CURSORON;
+00000E 93??           00749         BCF     _LCD_ctrl, 1, B
+                      00750 ;       .line   324; lib/lcd44780.c     lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+000010 0E08           00751         MOVLW   0x08
+000012 010?           00752         BANKSEL _LCD_ctrl
+000014 11??           00753         IORWF   _LCD_ctrl, W, B
+000016 6E??           00754         MOVWF   r0x00
+000018 50??           00755         MOVF    r0x00, W
+00001A 6EE5           00756         MOVWF   POSTDEC1
+00001C EC?? F0??      00757         CALL    _lcd_command
+000020 52E6           00758         MOVF    POSTINC1, F
+                      00759 ;       .line   325; lib/lcd44780.c     }
+000022 CFE4 F000      00760         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00761         MOVFF   PREINC1, FSR2L
+00002A 0012           00762         RETURN  
+                      00763 
+                      00764 ; ; Starting pCode block
+                      00765 S_lcd44780__lcd_display code
+000000                00766 _lcd_display:
+                      00767 ;       .line   312; lib/lcd44780.c     lcd_display() {
+000000 CFD9 FFE5      00768         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00769         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00770         MOVFF   r0x00, POSTDEC1
+00000C 010?           00771         BANKSEL _LCD_ctrl
+                      00772 ;       .line   313; lib/lcd44780.c     LCD_ctrl |= LCD_DISPLAYON;
+00000E 85??           00773         BSF     _LCD_ctrl, 2, B
+                      00774 ;       .line   314; lib/lcd44780.c     lcd_command(LCD_DISPLAYCONTROL | LCD_ctrl);
+000010 0E08           00775         MOVLW   0x08
+000012 010?           00776         BANKSEL _LCD_ctrl
+000014 11??           00777         IORWF   _LCD_ctrl, W, B
+000016 6E??           00778         MOVWF   r0x00
+000018 50??           00779         MOVF    r0x00, W
+00001A 6EE5           00780         MOVWF   POSTDEC1
+00001C EC?? F0??      00781         CALL    _lcd_command
+000020 52E6           00782         MOVF    POSTINC1, F
+                      00783 ;       .line   315; lib/lcd44780.c     }
+000022 CFE4 F000      00784         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      00785         MOVFF   PREINC1, FSR2L
+00002A 0012           00786         RETURN  
+                      00787 
+                      00788 ; ; Starting pCode block
+                      00789 S_lcd44780__lcd_clear   code
+000000                00790 _lcd_clear:
+                      00791 ;       .line   292; lib/lcd44780.c     lcd_clear() {
+000000 CFD9 FFE5      00792         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00793         MOVFF   FSR1L, FSR2L
+                      00794 ;       .line   293; lib/lcd44780.c     lcd_command(LCD_CLEARDISPLAY); // clear display, set cursor posi
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 16
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                            tion to zero
+000008 0E01           00795         MOVLW   0x01
+00000A 6EE5           00796         MOVWF   POSTDEC1
+00000C EC?? F0??      00797         CALL    _lcd_command
+000010 52E6           00798         MOVF    POSTINC1, F
+                      00799 ;       .line   294; lib/lcd44780.c     delay_ms(2);                   // Wait for more than 4.1 ms
+000012 0E00           00800         MOVLW   0x00
+000014 6EE5           00801         MOVWF   POSTDEC1
+000016 0E02           00802         MOVLW   0x02
+000018 6EE5           00803         MOVWF   POSTDEC1
+00001A EC?? F0??      00804         CALL    _delay_ms
+00001E 52E6           00805         MOVF    POSTINC1, F
+000020 52E6           00806         MOVF    POSTINC1, F
+                      00807 ;       .line   296; lib/lcd44780.c     }
+000022 CFE4 FFD9      00808         MOVFF   PREINC1, FSR2L
+000026 0012           00809         RETURN  
+                      00810 
+                      00811 ; ; Starting pCode block
+                      00812 S_lcd44780__lcd_home    code
+000000                00813 _lcd_home:
+                      00814 ;       .line   281; lib/lcd44780.c     lcd_home() {
+000000 CFD9 FFE5      00815         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00816         MOVFF   FSR1L, FSR2L
+                      00817 ;       .line   282; lib/lcd44780.c     lcd_command(LCD_RETURNHOME);
+000008 0E02           00818         MOVLW   0x02
+00000A 6EE5           00819         MOVWF   POSTDEC1
+00000C EC?? F0??      00820         CALL    _lcd_command
+000010 52E6           00821         MOVF    POSTINC1, F
+                      00822 ;       .line   283; lib/lcd44780.c     delay_ms(2); // Wait for more than 4.1 ms
+000012 0E00           00823         MOVLW   0x00
+000014 6EE5           00824         MOVWF   POSTDEC1
+000016 0E02           00825         MOVLW   0x02
+000018 6EE5           00826         MOVWF   POSTDEC1
+00001A EC?? F0??      00827         CALL    _delay_ms
+00001E 52E6           00828         MOVF    POSTINC1, F
+000020 52E6           00829         MOVF    POSTINC1, F
+                      00830 ;       .line   285; lib/lcd44780.c     }
+000022 CFE4 FFD9      00831         MOVFF   PREINC1, FSR2L
+000026 0012           00832         RETURN  
+                      00833 
+                      00834 ; ; Starting pCode block
+                      00835 S_lcd44780__lcd_print_number    code
+000000                00836 _lcd_print_number:
+                      00837 ;       .line   197; lib/lcd44780.c     lcd_print_number(uint16_t n, uint8_t base, int8_t pad /*, int8_t
+                             pointpos*/) {
+000000 CFD9 FFE5      00838         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      00839         MOVFF   FSR1L, FSR2L
+000008 C??? F???      00840         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      00841         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      00842         MOVFF   r0x02, POSTDEC1
+000014 C??? F???      00843         MOVFF   r0x03, POSTDEC1
+000018 C??? F???      00844         MOVFF   r0x04, POSTDEC1
+00001C C??? F???      00845         MOVFF   r0x05, POSTDEC1
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 17
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000020 C??? F???      00846         MOVFF   r0x06, POSTDEC1
+000024 C??? F???      00847         MOVFF   r0x07, POSTDEC1
+000028 C??? F???      00848         MOVFF   r0x08, POSTDEC1
+00002C C??? F???      00849         MOVFF   r0x09, POSTDEC1
+000030 C??? F???      00850         MOVFF   r0x0a, POSTDEC1
+000034 C??? F???      00851         MOVFF   r0x0b, POSTDEC1
+000038 0E02           00852         MOVLW   0x02
+00003A CFDB F000      00853         MOVFF   PLUSW2, r0x00
+00003E 0E03           00854         MOVLW   0x03
+000040 CFDB F000      00855         MOVFF   PLUSW2, r0x01
+000044 0E04           00856         MOVLW   0x04
+000046 CFDB F000      00857         MOVFF   PLUSW2, r0x02
+00004A 0E05           00858         MOVLW   0x05
+00004C CFDB F000      00859         MOVFF   PLUSW2, r0x03
+                      00860 ;       .line   201; lib/lcd44780.c     char padchar = ' ';
+000050 0E20           00861         MOVLW   0x20
+000052 6E??           00862         MOVWF   r0x04
+                      00863 ;       .line   203; lib/lcd44780.c     if(pad < 0) {
+000054 80D8           00864         BSF     STATUS, 0
+000056 AE??           00865         BTFSS   r0x03, 7
+000058 90D8           00866         BCF     STATUS, 0
+00005A E3??           00867         BNC     _00169_DS_
+                      00868 ;       .line   204; lib/lcd44780.c     pad = -pad;
+00005C 6C??           00869         NEGF    r0x03
+                      00870 ;       .line   205; lib/lcd44780.c     padchar = '0';
+00005E 0E30           00871         MOVLW   0x30
+000060 6E??           00872         MOVWF   r0x04
+000062                00873 _00169_DS_:
+                      00874 ;       .line   213; lib/lcd44780.c     do {
+000062 6A??           00875         CLRF    r0x05
+000064                00876 _00153_DS_:
+                      00877 ;       .line   217; lib/lcd44780.c     di = n % base;
+000064 C??? F???      00878         MOVFF   r0x02, r0x06
+000068 6A??           00879         CLRF    r0x07
+00006A 50??           00880         MOVF    r0x07, W
+00006C 6EE5           00881         MOVWF   POSTDEC1
+00006E 50??           00882         MOVF    r0x06, W
+000070 6EE5           00883         MOVWF   POSTDEC1
+000072 50??           00884         MOVF    r0x01, W
+000074 6EE5           00885         MOVWF   POSTDEC1
+000076 50??           00886         MOVF    r0x00, W
+000078 6EE5           00887         MOVWF   POSTDEC1
+00007A EC?? F0??      00888         CALL    __moduint
+00007E 6E??           00889         MOVWF   r0x08
+000080 CFF3 F000      00890         MOVFF   PRODL, r0x09
+000084 0E04           00891         MOVLW   0x04
+000086 26E1           00892         ADDWF   FSR1L, F
+                      00893 ;       .line   218; lib/lcd44780.c     buf[i++] = (di < 10 ? (uint8_t)'0' + di : (uint8_t)'A' + di - 10
+                            );
+000088 C??? F???      00894         MOVFF   r0x05, r0x09
+00008C 2A??           00895         INCF    r0x05, F
+00008E 6A??           00896         CLRF    r0x0a
+000090 BE??           00897         BTFSC   r0x09, 7
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 18
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000092 68??           00898         SETF    r0x0a
+000094 0E??           00899         MOVLW   LOW(_lcd_print_number_buf_65536_55)
+000096 26??           00900         ADDWF   r0x09, F
+000098 0E??           00901         MOVLW   HIGH(_lcd_print_number_buf_65536_55)
+00009A 22??           00902         ADDWFC  r0x0a, F
+00009C 0E0A           00903         MOVLW   0x0a
+00009E 5C??           00904         SUBWF   r0x08, W
+0000A0 E2??           00905         BC      _00165_DS_
+0000A2 0E30           00906         MOVLW   0x30
+0000A4 24??           00907         ADDWF   r0x08, W
+0000A6 6E??           00908         MOVWF   r0x0b
+0000A8 D???           00909         BRA     _00166_DS_
+0000AA                00910 _00165_DS_:
+0000AA 0E37           00911         MOVLW   0x37
+0000AC 24??           00912         ADDWF   r0x08, W
+0000AE 6E??           00913         MOVWF   r0x0b
+0000B0                00914 _00166_DS_:
+0000B0 C??? F???      00915         MOVFF   r0x09, FSR0L
+0000B4 C??? F???      00916         MOVFF   r0x0a, FSR0H
+0000B8 C??? F???      00917         MOVFF   r0x0b, INDF0
+                      00918 ;       .line   220; lib/lcd44780.c     n /= base;
+0000BC 50??           00919         MOVF    r0x07, W
+0000BE 6EE5           00920         MOVWF   POSTDEC1
+0000C0 50??           00921         MOVF    r0x06, W
+0000C2 6EE5           00922         MOVWF   POSTDEC1
+0000C4 50??           00923         MOVF    r0x01, W
+0000C6 6EE5           00924         MOVWF   POSTDEC1
+0000C8 50??           00925         MOVF    r0x00, W
+0000CA 6EE5           00926         MOVWF   POSTDEC1
+0000CC EC?? F0??      00927         CALL    __divuint
+0000D0 6E??           00928         MOVWF   r0x00
+0000D2 CFF3 F000      00929         MOVFF   PRODL, r0x01
+0000D6 0E04           00930         MOVLW   0x04
+0000D8 26E1           00931         ADDWF   FSR1L, F
+                      00932 ;       .line   221; lib/lcd44780.c     } while(n > 0);
+0000DA 50??           00933         MOVF    r0x00, W
+0000DC 10??           00934         IORWF   r0x01, W
+0000DE A4D8           00935         BTFSS   STATUS, 2
+0000E0 D???           00936         BRA     _00153_DS_
+                      00937 ;       .line   223; lib/lcd44780.c     while(pad-- >= i) lcd_putch(padchar);
+0000E2 C??? F???      00938         MOVFF   r0x05, r0x00
+0000E6 C??? F???      00939         MOVFF   r0x03, r0x01
+0000EA                00940 _00156_DS_:
+0000EA 50??           00941         MOVF    r0x01, W
+0000EC 0F80           00942         ADDLW   0x80
+0000EE 6EF3           00943         MOVWF   PRODL
+0000F0 50??           00944         MOVF    r0x00, W
+0000F2 0F80           00945         ADDLW   0x80
+0000F4 5CF3           00946         SUBWF   PRODL, W
+0000F6 E3??           00947         BNC     _00161_DS_
+0000F8 06??           00948         DECF    r0x01, F
+0000FA 50??           00949         MOVF    r0x04, W
+0000FC 6EE5           00950         MOVWF   POSTDEC1
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 19
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+0000FE EC?? F0??      00951         CALL    _lcd_putch
+000102 52E6           00952         MOVF    POSTINC1, F
+000104 D???           00953         BRA     _00156_DS_
+000106                00954 _00161_DS_:
+                      00955 ;       .line   225; lib/lcd44780.c     for(; i > 0; i--) lcd_putch((char)buf[(int16_t)i - 1]);
+000106 50??           00956         MOVF    r0x00, W
+000108 0F80           00957         ADDLW   0x80
+00010A 0F7F           00958         ADDLW   0x7f
+00010C E3??           00959         BNC     _00163_DS_
+00010E 04??           00960         DECF    r0x00, W
+000110 6E??           00961         MOVWF   r0x01
+000112 C??? F???      00962         MOVFF   r0x01, r0x02
+000116 6A??           00963         CLRF    r0x03
+000118 BE??           00964         BTFSC   r0x01, 7
+00011A 68??           00965         SETF    r0x03
+00011C 0E??           00966         MOVLW   LOW(_lcd_print_number_buf_65536_55)
+00011E 26??           00967         ADDWF   r0x02, F
+000120 0E??           00968         MOVLW   HIGH(_lcd_print_number_buf_65536_55)
+000122 22??           00969         ADDWFC  r0x03, F
+000124 C??? F???      00970         MOVFF   r0x02, FSR0L
+000128 C??? F???      00971         MOVFF   r0x03, FSR0H
+00012C CFEF F000      00972         MOVFF   INDF0, r0x02
+000130 50??           00973         MOVF    r0x02, W
+000132 6EE5           00974         MOVWF   POSTDEC1
+000134 EC?? F0??      00975         CALL    _lcd_putch
+000138 52E6           00976         MOVF    POSTINC1, F
+00013A C??? F???      00977         MOVFF   r0x01, r0x00
+00013E D???           00978         BRA     _00161_DS_
+000140                00979 _00163_DS_:
+                      00980 ;       .line   227; lib/lcd44780.c     }
+000140 CFE4 F000      00981         MOVFF   PREINC1, r0x0b
+000144 CFE4 F000      00982         MOVFF   PREINC1, r0x0a
+000148 CFE4 F000      00983         MOVFF   PREINC1, r0x09
+00014C CFE4 F000      00984         MOVFF   PREINC1, r0x08
+000150 CFE4 F000      00985         MOVFF   PREINC1, r0x07
+000154 CFE4 F000      00986         MOVFF   PREINC1, r0x06
+000158 CFE4 F000      00987         MOVFF   PREINC1, r0x05
+00015C CFE4 F000      00988         MOVFF   PREINC1, r0x04
+000160 CFE4 F000      00989         MOVFF   PREINC1, r0x03
+000164 CFE4 F000      00990         MOVFF   PREINC1, r0x02
+000168 CFE4 F000      00991         MOVFF   PREINC1, r0x01
+00016C CFE4 F000      00992         MOVFF   PREINC1, r0x00
+000170 CFE4 FFD9      00993         MOVFF   PREINC1, FSR2L
+000174 0012           00994         RETURN  
+                      00995 
+                      00996 ; ; Starting pCode block
+                      00997 S_lcd44780__lcd_putch   code
+000000                00998 _lcd_putch:
+                      00999 ;       .line   170; lib/lcd44780.c     lcd_putch(char value) {
+000000 CFD9 FFE5      01000         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01001         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01002         MOVFF   r0x00, POSTDEC1
+00000C 0E02           01003         MOVLW   0x02
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 20
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+00000E CFDB F000      01004         MOVFF   PLUSW2, r0x00
+                      01005 ;       .line   171; lib/lcd44780.c     lcd_send((unsigned char)value, HIGH);
+000012 0E01           01006         MOVLW   0x01
+000014 6EE5           01007         MOVWF   POSTDEC1
+000016 50??           01008         MOVF    r0x00, W
+000018 6EE5           01009         MOVWF   POSTDEC1
+00001A EC?? F0??      01010         CALL    _lcd_send
+00001E 52E6           01011         MOVF    POSTINC1, F
+000020 52E6           01012         MOVF    POSTINC1, F
+                      01013 ;       .line   172; lib/lcd44780.c     }
+000022 CFE4 F000      01014         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      01015         MOVFF   PREINC1, FSR2L
+00002A 0012           01016         RETURN  
+                      01017 
+                      01018 ; ; Starting pCode block
+                      01019 S_lcd44780__lcd_puts    code
+000000                01020 _lcd_puts:
+                      01021 ;       .line   163; lib/lcd44780.c     lcd_puts(const char* string) {
+000000 CFD9 FFE5      01022         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01023         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01024         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      01025         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      01026         MOVFF   r0x02, POSTDEC1
+000014 C??? F???      01027         MOVFF   r0x03, POSTDEC1
+000018 C??? F???      01028         MOVFF   r0x04, POSTDEC1
+00001C C??? F???      01029         MOVFF   r0x05, POSTDEC1
+000020 C??? F???      01030         MOVFF   r0x06, POSTDEC1
+000024 0E02           01031         MOVLW   0x02
+000026 CFDB F000      01032         MOVFF   PLUSW2, r0x00
+00002A 0E03           01033         MOVLW   0x03
+00002C CFDB F000      01034         MOVFF   PLUSW2, r0x01
+000030 0E04           01035         MOVLW   0x04
+000032 CFDB F000      01036         MOVFF   PLUSW2, r0x02
+                      01037 ;       .line   165; lib/lcd44780.c     for(i = 0; string[i]; i++) lcd_putch(string[i]);
+000036 6A??           01038         CLRF    r0x03
+000038                01039 _00139_DS_:
+000038 50??           01040         MOVF    r0x03, W
+00003A 24??           01041         ADDWF   r0x00, W
+00003C 6E??           01042         MOVWF   r0x04
+00003E 6AE8           01043         CLRF    WREG
+000040 20??           01044         ADDWFC  r0x01, W
+000042 6E??           01045         MOVWF   r0x05
+000044 6AE8           01046         CLRF    WREG
+000046 20??           01047         ADDWFC  r0x02, W
+000048 6E??           01048         MOVWF   r0x06
+00004A C??? F???      01049         MOVFF   r0x04, FSR0L
+00004E C??? F???      01050         MOVFF   r0x05, PRODL
+000052 50??           01051         MOVF    r0x06, W
+000054 EC?? F0??      01052         CALL    __gptrget1
+000058 6E??           01053         MOVWF   r0x04
+00005A 50??           01054         MOVF    r0x04, W
+00005C E0??           01055         BZ      _00141_DS_
+00005E 50??           01056         MOVF    r0x04, W
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 21
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000060 6EE5           01057         MOVWF   POSTDEC1
+000062 EC?? F0??      01058         CALL    _lcd_putch
+000066 52E6           01059         MOVF    POSTINC1, F
+000068 2A??           01060         INCF    r0x03, F
+00006A D???           01061         BRA     _00139_DS_
+00006C                01062 _00141_DS_:
+                      01063 ;       .line   166; lib/lcd44780.c     }
+00006C CFE4 F000      01064         MOVFF   PREINC1, r0x06
+000070 CFE4 F000      01065         MOVFF   PREINC1, r0x05
+000074 CFE4 F000      01066         MOVFF   PREINC1, r0x04
+000078 CFE4 F000      01067         MOVFF   PREINC1, r0x03
+00007C CFE4 F000      01068         MOVFF   PREINC1, r0x02
+000080 CFE4 F000      01069         MOVFF   PREINC1, r0x01
+000084 CFE4 F000      01070         MOVFF   PREINC1, r0x00
+000088 CFE4 FFD9      01071         MOVFF   PREINC1, FSR2L
+00008C 0012           01072         RETURN  
+                      01073 
+                      01074 ; ; Starting pCode block
+                      01075 S_lcd44780__lcd_gotoxy  code
+000000                01076 _lcd_gotoxy:
+                      01077 ;       .line   135; lib/lcd44780.c     lcd_gotoxy(uint8_t col, uint8_t row) {
+000000 CFD9 FFE5      01078         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01079         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01080         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      01081         MOVFF   r0x01, POSTDEC1
+000010 C??? F???      01082         MOVFF   r0x02, POSTDEC1
+000014 0E02           01083         MOVLW   0x02
+000016 CFDB F000      01084         MOVFF   PLUSW2, r0x00
+00001A 0E03           01085         MOVLW   0x03
+00001C CFDB F000      01086         MOVFF   PLUSW2, r0x01
+000020 010?           01087         BANKSEL _lcd_gotoxy_row_offsets_65536_47
+                      01088 ;       .line   137; lib/lcd44780.c     uint8_t row_offsets[] = {0x00, 0x40, 0x14, 0x54};
+000022 6B??           01089         CLRF    _lcd_gotoxy_row_offsets_65536_47, B
+000024 0E40           01090         MOVLW   0x40
+000026 010?           01091         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 1)
+000028 6F??           01092         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 1), B
+00002A 0E14           01093         MOVLW   0x14
+00002C 010?           01094         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 2)
+00002E 6F??           01095         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 2), B
+000030 0E54           01096         MOVLW   0x54
+000032 010?           01097         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 3)
+000034 6F??           01098         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 3), B
+000036 010?           01099         BANKSEL _LCD_lines
+                      01100 ;       .line   146; lib/lcd44780.c     if(LCD_lines == 1) {
+000038 51??           01101         MOVF    _LCD_lines, W, B
+00003A 0A01           01102         XORLW   0x01
+00003C E1??           01103         BNZ     _00124_DS_
+                      01104 ;       .line   147; lib/lcd44780.c     row_offsets[1] = 0x14;
+00003E 0E14           01105         MOVLW   0x14
+000040 010?           01106         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 1)
+000042 6F??           01107         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 1), B
+                      01108 ;       .line   148; lib/lcd44780.c     row_offsets[2] = 0x28;
+000044 0E28           01109         MOVLW   0x28
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 22
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+000046 010?           01110         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 2)
+000048 6F??           01111         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 2), B
+                      01112 ;       .line   149; lib/lcd44780.c     row_offsets[3] = 0x3C;
+00004A 0E3C           01113         MOVLW   0x3c
+00004C 010?           01114         BANKSEL (_lcd_gotoxy_row_offsets_65536_47 + 3)
+00004E 6F??           01115         MOVWF   (_lcd_gotoxy_row_offsets_65536_47 + 3), B
+000050                01116 _00124_DS_:
+                      01117 ;       .line   156; lib/lcd44780.c     lcd_command(LCD_SETDDRAMADDR | (col + row_offsets[row]));
+000050 6A??           01118         CLRF    r0x02
+000052 0E??           01119         MOVLW   LOW(_lcd_gotoxy_row_offsets_65536_47)
+000054 26??           01120         ADDWF   r0x01, F
+000056 0E??           01121         MOVLW   HIGH(_lcd_gotoxy_row_offsets_65536_47)
+000058 22??           01122         ADDWFC  r0x02, F
+00005A C??? F???      01123         MOVFF   r0x01, FSR0L
+00005E C??? F???      01124         MOVFF   r0x02, FSR0H
+000062 CFEF F000      01125         MOVFF   INDF0, r0x01
+000066 50??           01126         MOVF    r0x01, W
+000068 26??           01127         ADDWF   r0x00, F
+00006A 8E??           01128         BSF     r0x00, 7
+00006C 50??           01129         MOVF    r0x00, W
+00006E 6EE5           01130         MOVWF   POSTDEC1
+000070 EC?? F0??      01131         CALL    _lcd_command
+000074 52E6           01132         MOVF    POSTINC1, F
+                      01133 ;       .line   157; lib/lcd44780.c     }
+000076 CFE4 F000      01134         MOVFF   PREINC1, r0x02
+00007A CFE4 F000      01135         MOVFF   PREINC1, r0x01
+00007E CFE4 F000      01136         MOVFF   PREINC1, r0x00
+000082 CFE4 FFD9      01137         MOVFF   PREINC1, FSR2L
+000086 0012           01138         RETURN  
+                      01139 
+                      01140 ; ; Starting pCode block
+                      01141 S_lcd44780__lcd_command code
+000000                01142 _lcd_command:
+                      01143 ;       .line   127; lib/lcd44780.c     lcd_command(uint8_t value) {
+000000 CFD9 FFE5      01144         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01145         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01146         MOVFF   r0x00, POSTDEC1
+00000C 0E02           01147         MOVLW   0x02
+00000E CFDB F000      01148         MOVFF   PLUSW2, r0x00
+                      01149 ;       .line   128; lib/lcd44780.c     lcd_send(value, LOW);
+000012 0E00           01150         MOVLW   0x00
+000014 6EE5           01151         MOVWF   POSTDEC1
+000016 50??           01152         MOVF    r0x00, W
+000018 6EE5           01153         MOVWF   POSTDEC1
+00001A EC?? F0??      01154         CALL    _lcd_send
+00001E 52E6           01155         MOVF    POSTINC1, F
+000020 52E6           01156         MOVF    POSTINC1, F
+                      01157 ;       .line   129; lib/lcd44780.c     }
+000022 CFE4 F000      01158         MOVFF   PREINC1, r0x00
+000026 CFE4 FFD9      01159         MOVFF   PREINC1, FSR2L
+00002A 0012           01160         RETURN  
+                      01161 
+                      01162 ; ; Starting pCode block
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 23
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01163 S_lcd44780__lcd_send    code
+000000                01164 _lcd_send:
+                      01165 ;       .line   103; lib/lcd44780.c     lcd_send(uint8_t value, uint8_t mode) {
+000000 CFD9 FFE5      01166         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01167         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01168         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      01169         MOVFF   r0x01, POSTDEC1
+000010 0E02           01170         MOVLW   0x02
+000012 CFDB F000      01171         MOVFF   PLUSW2, r0x00
+000016 0E03           01172         MOVLW   0x03
+000018 CFDB F000      01173         MOVFF   PLUSW2, r0x01
+                      01174 ;       .line   104; lib/lcd44780.c     if(mode) {
+00001C 50??           01175         MOVF    r0x01, W
+00001E E0??           01176         BZ      _00111_DS_
+                      01177 ;       .line   105; lib/lcd44780.c     RS_HIGH();
+000020 84??           01178         BSF     _LATB, 2
+000022 D???           01179         BRA     _00112_DS_
+000024                01180 _00111_DS_:
+                      01181 ;       .line   107; lib/lcd44780.c     RS_LOW();
+000024 94??           01182         BCF     _LATB, 2
+000026                01183 _00112_DS_:
+                      01184 ;       .line   116; lib/lcd44780.c     lcd_write4bits(value >> 4); // Upper 4 bits first
+000026 38??           01185         SWAPF   r0x00, W
+000028 0B0F           01186         ANDLW   0x0f
+00002A 6E??           01187         MOVWF   r0x01
+00002C 50??           01188         MOVF    r0x01, W
+00002E 6EE5           01189         MOVWF   POSTDEC1
+000030 EC?? F0??      01190         CALL    _lcd_write4bits
+000034 52E6           01191         MOVF    POSTINC1, F
+                      01192 ;       .line   117; lib/lcd44780.c     lcd_write4bits(value);      // Lower 4 bits second
+000036 50??           01193         MOVF    r0x00, W
+000038 6EE5           01194         MOVWF   POSTDEC1
+00003A EC?? F0??      01195         CALL    _lcd_write4bits
+00003E 52E6           01196         MOVF    POSTINC1, F
+                      01197 ;       .line   119; lib/lcd44780.c     }
+000040 CFE4 F000      01198         MOVFF   PREINC1, r0x01
+000044 CFE4 F000      01199         MOVFF   PREINC1, r0x00
+000048 CFE4 FFD9      01200         MOVFF   PREINC1, FSR2L
+00004C 0012           01201         RETURN  
+                      01202 
+                      01203 ; ; Starting pCode block
+                      01204 S_lcd44780__lcd_write4bits      code
+000000                01205 _lcd_write4bits:
+                      01206 ;       .line   34; lib/lcd44780.c      lcd_write4bits(uint8_t value) {
+000000 CFD9 FFE5      01207         MOVFF   FSR2L, POSTDEC1
+000004 CFE1 FFD9      01208         MOVFF   FSR1L, FSR2L
+000008 C??? F???      01209         MOVFF   r0x00, POSTDEC1
+00000C C??? F???      01210         MOVFF   r0x01, POSTDEC1
+000010 0E02           01211         MOVLW   0x02
+000012 CFDB F000      01212         MOVFF   PLUSW2, r0x00
+                      01213 ;       .line   39; lib/lcd44780.c      OUTB &= 0b00001111;
+000016 0E0F           01214         MOVLW   0x0f
+000018 16??           01215         ANDWF   _LATB, F
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 24
+
+
+LOC    OBJECT CODE    LINE  SOURCE TEXT
+  VALUE
+
+                      01216 ;       .line   40; lib/lcd44780.c      OUTB |= value << 4;
+00001A 38??           01217         SWAPF   r0x00, W
+00001C 0BF0           01218         ANDLW   0xf0
+00001E 6E??           01219         MOVWF   r0x01
+000020 50??           01220         MOVF    r0x01, W
+000022 12??           01221         IORWF   _LATB, F
+                      01222 ;       .line   55; lib/lcd44780.c      lcd_pulse_enable();
+000024 86??           01223         BSF     _LATB, 3
+000026 0E04           01224         MOVLW   0x04
+000028 6EE5           01225         MOVWF   POSTDEC1
+00002A EC?? F0??      01226         CALL    _delay_us
+00002E 52E6           01227         MOVF    POSTINC1, F
+000030 96??           01228         BCF     _LATB, 3
+000032 0E64           01229         MOVLW   0x64
+000034 6EE5           01230         MOVWF   POSTDEC1
+000036 EC?? F0??      01231         CALL    _delay_us
+00003A 52E6           01232         MOVF    POSTINC1, F
+                      01233 ;       .line   60; lib/lcd44780.c      }
+00003C CFE4 F000      01234         MOVFF   PREINC1, r0x01
+000040 CFE4 F000      01235         MOVFF   PREINC1, r0x00
+000044 CFE4 FFD9      01236         MOVFF   PREINC1, FSR2L
+000048 0012           01237         RETURN  
+                      01238 
+                      01239 
+                      01240 
+                      01241 ; Statistics:
+                      01242 ; code size:     1656 (0x0678) bytes ( 1.26%)
+                      01243 ;                 828 (0x033c) words
+                      01244 ; udata size:      40 (0x0028) bytes ( 2.23%)
+                      01245 ; access size:     12 (0x000c) bytes
+                      01246 
+                      01247 
+                      01248         end
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 25
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+FSR0H                             CONSTANT      00000FEA           4074
+FSR0L                             CONSTANT      00000FE9           4073
+FSR1L                             CONSTANT      00000FE1           4065
+FSR2L                             CONSTANT      00000FD9           4057
+INDF0                             CONSTANT      00000FEF           4079
+PLUSW2                            CONSTANT      00000FDB           4059
+POSTDEC1                          CONSTANT      00000FE5           4069
+POSTINC1                          CONSTANT      00000FE6           4070
+PREINC1                           CONSTANT      00000FE4           4068
+PRODL                             CONSTANT      00000FF3           4083
+STATUS                            CONSTANT      00000FD8           4056
+WREG                              CONSTANT      00000FE8           4072
+_00111_DS_                        ADDRESS       00000024             36
+_00112_DS_                        ADDRESS       00000026             38
+_00124_DS_                        ADDRESS       00000050             80
+_00139_DS_                        ADDRESS       00000038             56
+_00141_DS_                        ADDRESS       0000006C            108
+_00153_DS_                        ADDRESS       00000064            100
+_00156_DS_                        ADDRESS       000000EA            234
+_00161_DS_                        ADDRESS       00000106            262
+_00163_DS_                        ADDRESS       00000140            320
+_00165_DS_                        ADDRESS       000000AA            170
+_00166_DS_                        ADDRESS       000000B0            176
+_00169_DS_                        ADDRESS       00000062             98
+_00249_DS_                        ADDRESS       00000026             38
+_00251_DS_                        ADDRESS       00000038             56
+_00254_DS_                        ADDRESS       000000A2            162
+_00255_DS_                        ADDRESS       000000F8            248
+_00277_DS_                        ADDRESS       00000034             52
+_00288_DS_                        ADDRESS       00000024             36
+_00289_DS_                        ADDRESS       0000002A             42
+_ACTCON                           EXTERNAL      00000000              0
+_ACTCONbits                       EXTERNAL      00000000              0
+_ADCON0                           EXTERNAL      00000000              0
+_ADCON0bits                       EXTERNAL      00000000              0
+_ADCON1                           EXTERNAL      00000000              0
+_ADCON1bits                       EXTERNAL      00000000              0
+_ADCON2                           EXTERNAL      00000000              0
+_ADCON2bits                       EXTERNAL      00000000              0
+_ADRESH                           EXTERNAL      00000000              0
+_ADRESL                           EXTERNAL      00000000              0
+_ANSELA                           EXTERNAL      00000000              0
+_ANSELAbits                       EXTERNAL      00000000              0
+_ANSELB                           EXTERNAL      00000000              0
+_ANSELBbits                       EXTERNAL      00000000              0
+_ANSELC                           EXTERNAL      00000000              0
+_ANSELCbits                       EXTERNAL      00000000              0
+_BAUDCON                          EXTERNAL      00000000              0
+_BAUDCONbits                      EXTERNAL      00000000              0
+_BAUDCON1                         EXTERNAL      00000000              0
+_BAUDCON1bits                     EXTERNAL      00000000              0
+_BSR                              EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 26
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_CCPR1                            EXTERNAL      00000000              0
+_CCPR1H                           EXTERNAL      00000000              0
+_CCPR1L                           EXTERNAL      00000000              0
+_CCPR2                            EXTERNAL      00000000              0
+_CCPR2H                           EXTERNAL      00000000              0
+_CCPR2L                           EXTERNAL      00000000              0
+_CCPTMRS                          EXTERNAL      00000000              0
+_CCPTMRSbits                      EXTERNAL      00000000              0
+_CCP1CON                          EXTERNAL      00000000              0
+_CCP1CONbits                      EXTERNAL      00000000              0
+_CCP2CON                          EXTERNAL      00000000              0
+_CCP2CONbits                      EXTERNAL      00000000              0
+_CM1CON0                          EXTERNAL      00000000              0
+_CM1CON0bits                      EXTERNAL      00000000              0
+_CM2CON0                          EXTERNAL      00000000              0
+_CM2CON0bits                      EXTERNAL      00000000              0
+_CM2CON1                          EXTERNAL      00000000              0
+_CM2CON1bits                      EXTERNAL      00000000              0
+_CTMUCON0                         EXTERNAL      00000000              0
+_CTMUCON0bits                     EXTERNAL      00000000              0
+_CTMUCONH                         EXTERNAL      00000000              0
+_CTMUCONHbits                     EXTERNAL      00000000              0
+_CTMUCONL                         EXTERNAL      00000000              0
+_CTMUCONLbits                     EXTERNAL      00000000              0
+_CTMUCON1                         EXTERNAL      00000000              0
+_CTMUCON1bits                     EXTERNAL      00000000              0
+_CTMUICON                         EXTERNAL      00000000              0
+_CTMUICONbits                     EXTERNAL      00000000              0
+_DDRA                             EXTERNAL      00000000              0
+_DDRAbits                         EXTERNAL      00000000              0
+_DDRB                             EXTERNAL      00000000              0
+_DDRBbits                         EXTERNAL      00000000              0
+_DDRC                             EXTERNAL      00000000              0
+_DDRCbits                         EXTERNAL      00000000              0
+_ECCP1AS                          EXTERNAL      00000000              0
+_ECCP1ASbits                      EXTERNAL      00000000              0
+_ECCP1CON                         EXTERNAL      00000000              0
+_ECCP1CONbits                     EXTERNAL      00000000              0
+_ECCP1DEL                         EXTERNAL      00000000              0
+_ECCP1DELbits                     EXTERNAL      00000000              0
+_ECCP2CON                         EXTERNAL      00000000              0
+_ECCP2CONbits                     EXTERNAL      00000000              0
+_EEADR                            EXTERNAL      00000000              0
+_EECON1                           EXTERNAL      00000000              0
+_EECON1bits                       EXTERNAL      00000000              0
+_EECON2                           EXTERNAL      00000000              0
+_EEDATA                           EXTERNAL      00000000              0
+_FSR0H                            EXTERNAL      00000000              0
+_FSR0L                            EXTERNAL      00000000              0
+_FSR1H                            EXTERNAL      00000000              0
+_FSR1L                            EXTERNAL      00000000              0
+_FSR2H                            EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 27
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_FSR2L                            EXTERNAL      00000000              0
+_HLVDCON                          EXTERNAL      00000000              0
+_HLVDCONbits                      EXTERNAL      00000000              0
+_INDF0                            EXTERNAL      00000000              0
+_INDF1                            EXTERNAL      00000000              0
+_INDF2                            EXTERNAL      00000000              0
+_INTCON                           EXTERNAL      00000000              0
+_INTCONbits                       EXTERNAL      00000000              0
+_INTCON2                          EXTERNAL      00000000              0
+_INTCON2bits                      EXTERNAL      00000000              0
+_INTCON3                          EXTERNAL      00000000              0
+_INTCON3bits                      EXTERNAL      00000000              0
+_IOCB                             EXTERNAL      00000000              0
+_IOCBbits                         EXTERNAL      00000000              0
+_IOCC                             EXTERNAL      00000000              0
+_IOCCbits                         EXTERNAL      00000000              0
+_IPR1                             EXTERNAL      00000000              0
+_IPR1bits                         EXTERNAL      00000000              0
+_IPR2                             EXTERNAL      00000000              0
+_IPR2bits                         EXTERNAL      00000000              0
+_IPR3                             EXTERNAL      00000000              0
+_IPR3bits                         EXTERNAL      00000000              0
+_LATA                             EXTERNAL      00000000              0
+_LATAbits                         EXTERNAL      00000000              0
+_LATB                             EXTERNAL      00000000              0
+_LATBbits                         EXTERNAL      00000000              0
+_LATC                             EXTERNAL      00000000              0
+_LATCbits                         EXTERNAL      00000000              0
+_LCD_ctrl                         STATIC        00000000              0
+_LCD_function                     STATIC        00000000              0
+_LCD_lines                        STATIC        00000000              0
+_LCD_mode                         STATIC        00000000              0
+_OSCCON                           EXTERNAL      00000000              0
+_OSCCONbits                       EXTERNAL      00000000              0
+_OSCCON2                          EXTERNAL      00000000              0
+_OSCCON2bits                      EXTERNAL      00000000              0
+_OSCTUNE                          EXTERNAL      00000000              0
+_OSCTUNEbits                      EXTERNAL      00000000              0
+_PC                               EXTERNAL      00000000              0
+_PCL                              EXTERNAL      00000000              0
+_PCLATH                           EXTERNAL      00000000              0
+_PCLATU                           EXTERNAL      00000000              0
+_PIE1                             EXTERNAL      00000000              0
+_PIE1bits                         EXTERNAL      00000000              0
+_PIE2                             EXTERNAL      00000000              0
+_PIE2bits                         EXTERNAL      00000000              0
+_PIE3                             EXTERNAL      00000000              0
+_PIE3bits                         EXTERNAL      00000000              0
+_PIR1                             EXTERNAL      00000000              0
+_PIR1bits                         EXTERNAL      00000000              0
+_PIR2                             EXTERNAL      00000000              0
+_PIR2bits                         EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 28
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_PIR3                             EXTERNAL      00000000              0
+_PIR3bits                         EXTERNAL      00000000              0
+_PLUSW0                           EXTERNAL      00000000              0
+_PLUSW1                           EXTERNAL      00000000              0
+_PLUSW2                           EXTERNAL      00000000              0
+_PMD0                             EXTERNAL      00000000              0
+_PMD0bits                         EXTERNAL      00000000              0
+_PMD1                             EXTERNAL      00000000              0
+_PMD1bits                         EXTERNAL      00000000              0
+_PORTA                            EXTERNAL      00000000              0
+_PORTAbits                        EXTERNAL      00000000              0
+_PORTB                            EXTERNAL      00000000              0
+_PORTBbits                        EXTERNAL      00000000              0
+_PORTC                            EXTERNAL      00000000              0
+_PORTCbits                        EXTERNAL      00000000              0
+_PORTE                            EXTERNAL      00000000              0
+_PORTEbits                        EXTERNAL      00000000              0
+_POSTDEC0                         EXTERNAL      00000000              0
+_POSTDEC1                         EXTERNAL      00000000              0
+_POSTDEC2                         EXTERNAL      00000000              0
+_POSTINC0                         EXTERNAL      00000000              0
+_POSTINC1                         EXTERNAL      00000000              0
+_POSTINC2                         EXTERNAL      00000000              0
+_PREINC0                          EXTERNAL      00000000              0
+_PREINC1                          EXTERNAL      00000000              0
+_PREINC2                          EXTERNAL      00000000              0
+_PROD                             EXTERNAL      00000000              0
+_PRODH                            EXTERNAL      00000000              0
+_PRODL                            EXTERNAL      00000000              0
+_PR2                              EXTERNAL      00000000              0
+_PSTR1CON                         EXTERNAL      00000000              0
+_PSTR1CONbits                     EXTERNAL      00000000              0
+_PWM1CON                          EXTERNAL      00000000              0
+_PWM1CONbits                      EXTERNAL      00000000              0
+_RCON                             EXTERNAL      00000000              0
+_RCONbits                         EXTERNAL      00000000              0
+_RCREG                            EXTERNAL      00000000              0
+_RCREG1                           EXTERNAL      00000000              0
+_RCSTA                            EXTERNAL      00000000              0
+_RCSTAbits                        EXTERNAL      00000000              0
+_RCSTA1                           EXTERNAL      00000000              0
+_RCSTA1bits                       EXTERNAL      00000000              0
+_SLRCON                           EXTERNAL      00000000              0
+_SLRCONbits                       EXTERNAL      00000000              0
+_SPBRG                            EXTERNAL      00000000              0
+_SPBRGH                           EXTERNAL      00000000              0
+_SPBRGHbits                       EXTERNAL      00000000              0
+_SPBRGH1                          EXTERNAL      00000000              0
+_SPBRGH1bits                      EXTERNAL      00000000              0
+_SPBRGbits                        EXTERNAL      00000000              0
+_SPBRG1                           EXTERNAL      00000000              0
+_SPBRG1bits                       EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 29
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_SRCON0                           EXTERNAL      00000000              0
+_SRCON0bits                       EXTERNAL      00000000              0
+_SRCON1                           EXTERNAL      00000000              0
+_SRCON1bits                       EXTERNAL      00000000              0
+_SSPADD                           EXTERNAL      00000000              0
+_SSPADDbits                       EXTERNAL      00000000              0
+_SSPBUF                           EXTERNAL      00000000              0
+_SSPCON                           EXTERNAL      00000000              0
+_SSPCONbits                       EXTERNAL      00000000              0
+_SSPCON1                          EXTERNAL      00000000              0
+_SSPCON1bits                      EXTERNAL      00000000              0
+_SSPCON2                          EXTERNAL      00000000              0
+_SSPCON2bits                      EXTERNAL      00000000              0
+_SSPCON3                          EXTERNAL      00000000              0
+_SSPCON3bits                      EXTERNAL      00000000              0
+_SSPMSK                           EXTERNAL      00000000              0
+_SSPMSKbits                       EXTERNAL      00000000              0
+_SSPSTAT                          EXTERNAL      00000000              0
+_SSPSTATbits                      EXTERNAL      00000000              0
+_SSP1ADD                          EXTERNAL      00000000              0
+_SSP1ADDbits                      EXTERNAL      00000000              0
+_SSP1BUF                          EXTERNAL      00000000              0
+_SSP1CON1                         EXTERNAL      00000000              0
+_SSP1CON1bits                     EXTERNAL      00000000              0
+_SSP1CON2                         EXTERNAL      00000000              0
+_SSP1CON2bits                     EXTERNAL      00000000              0
+_SSP1CON3                         EXTERNAL      00000000              0
+_SSP1CON3bits                     EXTERNAL      00000000              0
+_SSP1MSK                          EXTERNAL      00000000              0
+_SSP1MSKbits                      EXTERNAL      00000000              0
+_SSP1STAT                         EXTERNAL      00000000              0
+_SSP1STATbits                     EXTERNAL      00000000              0
+_STATUS                           EXTERNAL      00000000              0
+_STATUSbits                       EXTERNAL      00000000              0
+_STCON                            EXTERNAL      00000000              0
+_STCONbits                        EXTERNAL      00000000              0
+_STKPTR                           EXTERNAL      00000000              0
+_STKPTRbits                       EXTERNAL      00000000              0
+_T0CON                            EXTERNAL      00000000              0
+_T0CONbits                        EXTERNAL      00000000              0
+_TABLAT                           EXTERNAL      00000000              0
+_TBLPTR                           EXTERNAL      00000000              0
+_TBLPTRH                          EXTERNAL      00000000              0
+_TBLPTRL                          EXTERNAL      00000000              0
+_TBLPTRU                          EXTERNAL      00000000              0
+_TMR0                             EXTERNAL      00000000              0
+_TMR0H                            EXTERNAL      00000000              0
+_TMR0L                            EXTERNAL      00000000              0
+_TMR1                             EXTERNAL      00000000              0
+_TMR1H                            EXTERNAL      00000000              0
+_TMR1L                            EXTERNAL      00000000              0
+_TMR2                             EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 30
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_TMR3                             EXTERNAL      00000000              0
+_TMR3H                            EXTERNAL      00000000              0
+_TMR3L                            EXTERNAL      00000000              0
+_TOS                              EXTERNAL      00000000              0
+_TOSH                             EXTERNAL      00000000              0
+_TOSL                             EXTERNAL      00000000              0
+_TOSU                             EXTERNAL      00000000              0
+_TRISA                            EXTERNAL      00000000              0
+_TRISAbits                        EXTERNAL      00000000              0
+_TRISB                            EXTERNAL      00000000              0
+_TRISBbits                        EXTERNAL      00000000              0
+_TRISC                            EXTERNAL      00000000              0
+_TRISCbits                        EXTERNAL      00000000              0
+_TXREG                            EXTERNAL      00000000              0
+_TXREG1                           EXTERNAL      00000000              0
+_TXSTA                            EXTERNAL      00000000              0
+_TXSTAbits                        EXTERNAL      00000000              0
+_TXSTA1                           EXTERNAL      00000000              0
+_TXSTA1bits                       EXTERNAL      00000000              0
+_T1CON                            EXTERNAL      00000000              0
+_T1CONbits                        EXTERNAL      00000000              0
+_T1GCON                           EXTERNAL      00000000              0
+_T1GCONbits                       EXTERNAL      00000000              0
+_T2CON                            EXTERNAL      00000000              0
+_T2CONbits                        EXTERNAL      00000000              0
+_T3CON                            EXTERNAL      00000000              0
+_T3CONbits                        EXTERNAL      00000000              0
+_T3GCON                           EXTERNAL      00000000              0
+_T3GCONbits                       EXTERNAL      00000000              0
+_UADDR                            EXTERNAL      00000000              0
+_UADDRbits                        EXTERNAL      00000000              0
+_UCFG                             EXTERNAL      00000000              0
+_UCFGbits                         EXTERNAL      00000000              0
+_UCON                             EXTERNAL      00000000              0
+_UCONbits                         EXTERNAL      00000000              0
+_UEIE                             EXTERNAL      00000000              0
+_UEIEbits                         EXTERNAL      00000000              0
+_UEIR                             EXTERNAL      00000000              0
+_UEIRbits                         EXTERNAL      00000000              0
+_UEP0                             EXTERNAL      00000000              0
+_UEP0bits                         EXTERNAL      00000000              0
+_UEP1                             EXTERNAL      00000000              0
+_UEP1bits                         EXTERNAL      00000000              0
+_UEP2                             EXTERNAL      00000000              0
+_UEP2bits                         EXTERNAL      00000000              0
+_UEP3                             EXTERNAL      00000000              0
+_UEP3bits                         EXTERNAL      00000000              0
+_UEP4                             EXTERNAL      00000000              0
+_UEP4bits                         EXTERNAL      00000000              0
+_UEP5                             EXTERNAL      00000000              0
+_UEP5bits                         EXTERNAL      00000000              0
+_UEP6                             EXTERNAL      00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 31
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_UEP6bits                         EXTERNAL      00000000              0
+_UEP7                             EXTERNAL      00000000              0
+_UEP7bits                         EXTERNAL      00000000              0
+_UEP8                             EXTERNAL      00000000              0
+_UEP8bits                         EXTERNAL      00000000              0
+_UEP9                             EXTERNAL      00000000              0
+_UEP9bits                         EXTERNAL      00000000              0
+_UEP10                            EXTERNAL      00000000              0
+_UEP10bits                        EXTERNAL      00000000              0
+_UEP11                            EXTERNAL      00000000              0
+_UEP11bits                        EXTERNAL      00000000              0
+_UEP12                            EXTERNAL      00000000              0
+_UEP12bits                        EXTERNAL      00000000              0
+_UEP13                            EXTERNAL      00000000              0
+_UEP13bits                        EXTERNAL      00000000              0
+_UEP14                            EXTERNAL      00000000              0
+_UEP14bits                        EXTERNAL      00000000              0
+_UEP15                            EXTERNAL      00000000              0
+_UEP15bits                        EXTERNAL      00000000              0
+_UFRM                             EXTERNAL      00000000              0
+_UFRMH                            EXTERNAL      00000000              0
+_UFRMHbits                        EXTERNAL      00000000              0
+_UFRML                            EXTERNAL      00000000              0
+_UFRMLbits                        EXTERNAL      00000000              0
+_UIE                              EXTERNAL      00000000              0
+_UIEbits                          EXTERNAL      00000000              0
+_UIR                              EXTERNAL      00000000              0
+_UIRbits                          EXTERNAL      00000000              0
+_USTAT                            EXTERNAL      00000000              0
+_USTATbits                        EXTERNAL      00000000              0
+_VREFCON0                         EXTERNAL      00000000              0
+_VREFCON0bits                     EXTERNAL      00000000              0
+_VREFCON1                         EXTERNAL      00000000              0
+_VREFCON1bits                     EXTERNAL      00000000              0
+_VREFCON2                         EXTERNAL      00000000              0
+_VREFCON2bits                     EXTERNAL      00000000              0
+_VREGCON                          EXTERNAL      00000000              0
+_WDTCON                           EXTERNAL      00000000              0
+_WDTCONbits                       EXTERNAL      00000000              0
+_WPUB                             EXTERNAL      00000000              0
+_WPUBbits                         EXTERNAL      00000000              0
+_WREG                             EXTERNAL      00000000              0
+__ACC_RAM_LOW_END                 CONSTANT      0000005F             95
+__ACC_RAM_LOW_START               CONSTANT      00000000              0
+__ACTIVE_BANK_ADDR                VARIABLE      FFFFFFFF             -1
+__ASSUMED_BANK_ADDR               VARIABLE      FFFFFFFF             -1
+__BANK_0                          CONSTANT      00000000              0
+__BANK_BITS                       CONSTANT      00000F00           3840
+__BANK_FIRST                      CONSTANT      00000000              0
+__BANK_INV                        CONSTANT      FFFFFFFF             -1
+__BANK_LAST                       CONSTANT      00000F00           3840
+__BANK_MASK                       CONSTANT      000000FF            255
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 32
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+__BANK_SHIFT                      CONSTANT      00000008              8
+__BANK_SIZE                       CONSTANT      00000100            256
+__BANK_1                          CONSTANT      00000100            256
+__BANK_2                          CONSTANT      00000200            512
+__BANK_3                          CONSTANT      00000300            768
+__BANK_4                          CONSTANT      00000400           1024
+__BANK_5                          CONSTANT      00000500           1280
+__BANK_6                          CONSTANT      00000600           1536
+__BANK_7                          CONSTANT      00000700           1792
+__BANK_8                          CONSTANT      00000800           2048
+__BANK_9                          CONSTANT      00000900           2304
+__BANK_10                         CONSTANT      00000A00           2560
+__BANK_11                         CONSTANT      00000B00           2816
+__BANK_12                         CONSTANT      00000C00           3072
+__BANK_13                         CONSTANT      00000D00           3328
+__BANK_14                         CONSTANT      00000E00           3584
+__BANK_15                         CONSTANT      00000F00           3840
+__CODE_END                        CONSTANT      00007FFF          32767
+__CODE_START                      CONSTANT      00000000              0
+__COMMON_RAM_END                  CONSTANT      0000005F             95
+__COMMON_RAM_START                CONSTANT      00000000              0
+__CONFIG_END                      CONSTANT      0030000D        3145741
+__CONFIG_START                    CONSTANT      00300000        3145728
+__EEPROM_END                      CONSTANT      00F000FF       15728895
+__EEPROM_START                    CONSTANT      00F00000       15728640
+__EXTENDED                        CONSTANT      00000001              1
+__GPUTILS_SVN_VERSION             CONSTANT      00000505           1285
+__GPUTILS_VERSION_MAJOR           CONSTANT      00000001              1
+__GPUTILS_VERSION_MICRO           CONSTANT      00000000              0
+__GPUTILS_VERSION_MINOR           CONSTANT      00000005              5
+__IDLOCS_END                      CONSTANT      00200007        2097159
+__IDLOCS_START                    CONSTANT      00200000        2097152
+__NUM_BANKS                       CONSTANT      00000010             16
+__VECTOR_INT_HIGH                 CONSTANT      00000008              8
+__VECTOR_INT_LOW                  CONSTANT      00000018             24
+__VECTOR_RESET                    CONSTANT      00000000              0
+__WHILE_LOOP_COUNT_MAX            CONSTANT      000000FF            255
+__divuint                         EXTERNAL      00000000              0
+__gptrget1                        EXTERNAL      00000000              0
+__moduint                         EXTERNAL      00000000              0
+__16_BIT                          CONSTANT      00000001              1
+__18F25K50                        CONSTANT      00000001              1
+_delay_ms                         EXTERNAL      00000000              0
+_delay_us                         EXTERNAL      00000000              0
+_dvar                             EXTERNAL      00000000              0
+_lcd_autoscroll                   GLOBAL        00000000              0
+_lcd_begin                        GLOBAL        00000000              0
+_lcd_blink                        GLOBAL        00000000              0
+_lcd_clear                        GLOBAL        00000000              0
+_lcd_command                      ADDRESS       00000000              0
+_lcd_cursor                       GLOBAL        00000000              0
+_lcd_display                      GLOBAL        00000000              0
+gpasm-1.5.0 #1285 (Jul 12 2020) obj/sdcc-18f2   11/12/23  13:12:41          PAGE 33
+
+
+SYMBOL TABLE
+  LABEL                              TYPE        VALUE         VALUE          VALUE
+                                                 (hex)         (dec)          (text)
+
+_lcd_gotoxy                       GLOBAL        00000000              0
+_lcd_gotoxy_row_offsets_65536_47  STATIC        00000000              0
+_lcd_home                         GLOBAL        00000000              0
+_lcd_init                         GLOBAL        00000000              0
+_lcd_left_to_right                GLOBAL        00000000              0
+_lcd_no_cursor                    GLOBAL        00000000              0
+_lcd_print_number                 GLOBAL        00000000              0
+_lcd_print_number_buf_65536_55    STATIC        00000000              0
+_lcd_putch                        GLOBAL        00000000              0
+_lcd_puts                         GLOBAL        00000000              0
+_lcd_send                         GLOBAL        00000000              0
+_lcd_write4bits                   ADDRESS       00000000              0
+_stdin                            EXTERNAL      00000000              0
+_stdout                           EXTERNAL      00000000              0
+r0x00                             STATIC        00000000              0
+r0x01                             STATIC        00000001              1
+r0x02                             STATIC        00000002              2
+r0x03                             STATIC        00000003              3
+r0x04                             STATIC        00000004              4
+r0x05                             STATIC        00000005              5
+r0x06                             STATIC        00000006              6
+r0x07                             STATIC        00000007              7
+r0x08                             STATIC        00000008              8
+r0x09                             STATIC        00000009              9
+r0x0a                             STATIC        0000000A             10
+r0x0b                             STATIC        0000000B             11
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

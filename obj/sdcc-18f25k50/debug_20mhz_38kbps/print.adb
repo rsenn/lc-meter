@@ -1,0 +1,13 @@
+M:print
+S:Fprint$__str_0$0_0$0({2}DA2d,SC:U),D,0,0
+S:Fprint$__str_1$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_2$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_3$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_4$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_5$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_6$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_7$0_0$0({3}DA3d,SC:U),D,0,0
+S:Fprint$__str_8$0_0$0({6}DA6d,SC:U),D,0,0
+S:Fprint$__str_9$0_0$0({4}DA4d,SC:U),D,0,0
+S:Fprint$__str_10$0_0$0({4}DA4d,SC:U),D,0,0
+S:Fprint$__str_11$0_0$0({3}DA3d,SC:U),D,0,0
