@@ -76,9 +76,9 @@ ser_isrx(void) {
 unsigned char
 ser_rxsize(void) {
   unsigned char ret;
-  (INTCON &= 0x7f);;
+  INTCONbits.GIE = 0;
   ret = ser_rxiptr < ser_rxoptr ? (uint8_t)16 - ser_rxiptr + ser_rxoptr : ser_rxiptr - ser_rxoptr;
-  (INTCON |= 0x80);;
+  INTCONbits.GIE = 1;
   return ret;
 }
 

@@ -97,7 +97,7 @@ void print_indicator(uint8_t indicate);
 void print_print_float(float number, uint8_t digits);
 void print_buffer(void);
 #line 5 "/home/roman/Projects/lc-meter/lib/format.h"
-typedef void(*putch_t)(char);
+typedef void (*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
@@ -205,7 +205,7 @@ count = timer0_read_ps();
 lcd_gotoxy(0, 1);
   buffer_init();
   buffer_puts("Freq=");
-  format_number(&buffer_putch,count, 10, 5);
+  format_number(&buffer_putch, count, 10, 5);
   print_buffer();
   #line 117 "/home/roman/Projects/lc-meter/obj/../src/measure.c"
 return count;
