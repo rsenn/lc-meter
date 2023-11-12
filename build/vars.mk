@@ -6,7 +6,8 @@ CHIPS = 16f876a 18f2520 18f2550
 else
 CHIPS = 16f876a #18f2520 18f2550  18f25k50
 endif
-CHIPS += 18f2520 18f2550 18f25k22 18f25k50
+#CHIPS += 18f2520 18f25k22 
+CHIPS += 18f2550 18f25k50
 #CHIPS += 10f206
 #CHIPS += 12f1840
 COMPILERS ?= xc8
@@ -68,15 +69,22 @@ else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c logf.c log10f.c frexpf.c
+MATH_SOURCES = acosf.c asincosf.c asinf.c atan2f.c atanf.c ceilf.c cosf.c coshf.c cotf.c expf.c fabsf.c floorf.c frexpf.c ldexpf.c log10f.c logf.c modff.c powf.c sincosf.c sincoshf.c sinf.c sinhf.c sqrtf.c tancotf.c tanf.c tanhf.c
+
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1
 
 Cap_meter_HD44780_SOURCES = Cap-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
 
-
 Freq_meter_HD44780_SOURCES = Freq-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
+
+ifeq ($(COMPILER),xc8)
+LC_meter_HD44780_SOURCES += $(MATH_SOURCES)
+Cap_meter_HD44780_SOURCES += $(MATH_SOURCES)
+Freq_meter_HD44780_SOURCES += $(MATH_SOURCES)
+endif
 
 
 ifeq ($(_DEBUG),1)
@@ -92,7 +100,7 @@ BUILDDIR := bin/$(COMPILER)-$(chipl)/
 endif
 ifeq ($(OBJDIR),)
 #OBJDIR := obj/$(COMPILER)-$(chipl)/$(BUILD_ID)/$(PROGRAM)/
-OBJDIR := $(BUILDDIR:bin/%=obj/%)$(BUILD_ID)/
+OBJDIR := $(BUILDDIR:bin/%=obj/%)$(BUILD_ID)/$(PROGRAM)/
 endif
 
 vpath lib lib/math src src/julznc $(OBJDIR) $(BUILDDIR)
