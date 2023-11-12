@@ -24,7 +24,6 @@
 #include "uart.h"
 #endif
 
-
 #if USE_SER
 #include "ser.h"
 #endif
@@ -39,7 +38,7 @@
 
 #include "config-bits.h"
 
-#if (defined(__SDCC) || defined(SDCC)) && !PIC18
+#if(defined(__SDCC) || defined(SDCC)) && !PIC18
 uint16_t __at(_CONFIG) __configword = CONFIG_WORD;
 #endif
 

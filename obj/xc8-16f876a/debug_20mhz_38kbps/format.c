@@ -12,7 +12,7 @@ extern __bit __timeout;
 #line 53 "/home/roman/Projects/lc-meter/lib/typedef.h"
 typedef char BOOL;
 #line 5 "/home/roman/Projects/lc-meter/lib/format.h"
-typedef void(*putch_t)(char);
+typedef void (*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);
@@ -69,11 +69,10 @@ n /= base;
   
 while(pad-- > i) buffer_putch(padchar);
   
-for(unsigned j = 0; j < i; j++)
-    (*fn)(buf[j]);
-    
+for(unsigned j = 0; j < i; j++) (*fn)(buf[j]);
+  
 }
-#line 55 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
+#line 54 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_xint32(putch_t fn, uint32_t x) {
   fn('0');
@@ -84,7 +83,7 @@ format_xint32(putch_t fn, uint32_t x) {
 
 void
 format_float(putch_t fn, float num) {
-  short m = (int)log10(num);
+  short m = (int)log10f(num);
   char digit;
   
   
@@ -98,10 +97,10 @@ while(num > 0 + FLT_EPSILON) {
     m--;
   }
 }
-#line 82 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
+#line 81 "/home/roman/Projects/lc-meter/obj/../lib/format.c"
 void
 format_double(putch_t fn, double num) {
-  short m = (short)log10(num);
+  short m = (short)log10f(num);
   short digit;
   
   
