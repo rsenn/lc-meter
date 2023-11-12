@@ -23,37 +23,41 @@ void timer2_init(uint8_t ps_mode);
 #line 25 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer0_init(uint8_t ps_mode) {
-  uint8_t prescaler = ps_mode & 0b1111;
+  uint8_t prescaler = ps_mode & 0b1111u;
   #line 30 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 TMR0 = 0;
+  #line 40 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+OPTION_REG &= 0b11000000;
+   
   
-  #line 44 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 59 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0CS = (ps_mode & 0x20) ? 1 : 0;
-  T0SE = (ps_mode & 0x10) ? 1 : 0;
+  T0SE = (ps_mode & 0x10u) ? 1 : 0;
   
 if(prescaler > 0) {
      PSA = prescaler > 0;
      OPTION_REGbits.PS = prescaler - 1;
   }
-   TMR0IF = 0;
-  #line 81 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+   
+  #line 99 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0IE = (ps_mode & 0x80) ? 1 : 0;
 }
-
+#line 108 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 unsigned short
 timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
    T0CS = 1;
-  #line 91 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 116 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 do {
      
-     T0SE = 1;
+    T0SE = 1;
     
 __nop();
     __nop();
-     T0SE = 0;
-    #line 100 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+    
+T0SE = 0;
+    
 __nop();
     __nop();
     
@@ -61,15 +65,14 @@ __nop();
     
   
 } while(prev == TMR0 && count <= 255);
-  
-count = ((prev << 8) + (256 - count));
+  count = ((prev << 8) + (256 - count));
   return count;
 }
-#line 150 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 175 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer2_init(uint8_t ps_mode) {
-  uint8_t ps = ps_mode & 0b1111;
-  uint8_t postscaler = 0;
+  uint8_t ps = ps_mode & 0b1111u;
+  uint8_t postscaler = 0u;
   
   
 T2CON &= ~0b01111111;

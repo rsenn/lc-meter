@@ -92,7 +92,7 @@ extern volatile uint8_t ser_txiptr, ser_txoptr;
 extern uint8_t ser_tmp;
 extern uint8_t ser_brg;
 #line 5 "/home/roman/Projects/lc-meter/lib/format.h"
-typedef void(*putch_t)(char);
+typedef void (*putch_t)(char);
 
 void format_number(putch_t fn, uint16_t n, uint8_t base, int8_t pad);
 void format_xint32(putch_t fn, uint32_t x);

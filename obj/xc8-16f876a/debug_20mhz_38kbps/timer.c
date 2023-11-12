@@ -39,17 +39,16 @@ if(prescaler > 0) {
      OPTION_REGbits.PS = prescaler - 1;
   }
    
-   TMR0IF = 0;
-  #line 98 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 99 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0IE = (ps_mode & 0x80) ? 1 : 0;
 }
-#line 107 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 108 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 unsigned short
 timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
    T0CS = 1;
-  #line 115 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 116 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 do {
      
     T0SE = 1;
@@ -69,7 +68,7 @@ __nop();
   count = ((prev << 8) + (256 - count));
   return count;
 }
-#line 174 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 175 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer2_init(uint8_t ps_mode) {
   uint8_t ps = ps_mode & 0b1111u;

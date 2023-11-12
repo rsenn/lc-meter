@@ -68,7 +68,7 @@ else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c logf.c log10f.c frexpf.c
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1
 
 Cap_meter_HD44780_SOURCES = Cap-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
@@ -95,8 +95,8 @@ ifeq ($(OBJDIR),)
 OBJDIR := $(BUILDDIR:bin/%=obj/%)$(BUILD_ID)/
 endif
 
-vpath lib src src/julznc $(OBJDIR) $(BUILDDIR)
-VPATH = lib src src/julznc $(OBJDIR) $(BUILDDIR)
+vpath lib lib/math src src/julznc $(OBJDIR) $(BUILDDIR)
+VPATH = lib lib/math src src/julznc $(OBJDIR) $(BUILDDIR)
 
 #DEFINES += PIC$(chipu)=1
 DEFINES += __$(chipl)=1

@@ -39,19 +39,20 @@ void timer2_init(uint8_t ps_mode);
 #line 25 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer0_init(uint8_t ps_mode) {
-  uint8_t prescaler = ps_mode & 0b1111;
+  uint8_t prescaler = ps_mode & 0b1111u;
   #line 30 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 TMR0 = 0;
-  #line 37 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 42 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 T0CON = 0;
-  T0CON |= (!!(ps_mode & 0x40)) ? 0x40 : 0x00;
+  #line 51 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+T0CON |= (!!(ps_mode & 0x40)) ? 0x40 : 0x00;
   
   
-  #line 54 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
-T0CON |= (!!(ps_mode & 0x20)) ? 0x20 : 0x00;
+  #line 71 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+T0CON |= (!!(ps_mode & 0x20)) ? 0x20u : 0x00u;
   
   
-T0CON |= (!!(ps_mode & 0x10)) ? 0x10 : 0x00;
+T0CON |= (!!(ps_mode & 0x10u)) ? 0x10u : 0x00u;
   
   
 T0CON &= (!!prescaler) ? ~0x08 : ~0x00;
@@ -62,30 +63,32 @@ if(prescaler > 0) {
     T0CON |= (prescaler - 1) & 0b111;
     
     
-  #line 71 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 88 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 }
   
   
-  #line 77 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
-T0CON |= 0x80; 
-   INTCONbits.TMR0IF = 0;
-  INTCONbits.T0IE = (ps_mode & 0x80) ? 1 : 0;
+  #line 95 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+T0CON |= 0x80;
+   
+  #line 99 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+T0IE = (ps_mode & 0x80) ? 1 : 0;
 }
-#line 84 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 108 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 unsigned short
 timer0_read_ps(void) {
   uint8_t prev = TMR0;
   uint16_t count = 0;
    T0CONbits.T0CS = 1;
-  #line 91 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+  #line 116 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 do {
      
-     T0CONbits.T0SE = 1;
+    T0CONbits.T0SE = 1;
     
 __nop();
     __nop();
-     T0CONbits.T0SE = 0;
-    #line 100 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+    
+T0CONbits.T0SE = 0;
+    
 __nop();
     __nop();
     
@@ -93,15 +96,14 @@ __nop();
     
   
 } while(prev == TMR0 && count <= 255);
-  
-count = ((prev << 8) + (256 - count));
+  count = ((prev << 8) + (256 - count));
   return count;
 }
-#line 150 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
+#line 175 "/home/roman/Projects/lc-meter/obj/../lib/timer.c"
 void
 timer2_init(uint8_t ps_mode) {
-  uint8_t ps = ps_mode & 0b1111;
-  uint8_t postscaler = 0;
+  uint8_t ps = ps_mode & 0b1111u;
+  uint8_t postscaler = 0u;
   
   
 T2CON &= ~0b01111111;
