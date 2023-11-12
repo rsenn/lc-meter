@@ -72,7 +72,7 @@ Display_Cap(unsigned int n) {
   lcd_clear();
   lcd_gotoxy(0, 0);
   lcd_puts("C = ");
-  format_number(lcd_putch,Capacitance, 10, 0);
+  format_number(lcd_putch, Capacitance, 10, 0);
 }
 
 void
@@ -105,7 +105,7 @@ main() {
   TMR2IF = 0; // Clear int bit
 
   // Configure Comparator module
- // CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)
+  // CMCON = 5; // Independent comparator between OUTA1 (-) and OUTA2(+)
 
   lcd_init(TRUE);
 

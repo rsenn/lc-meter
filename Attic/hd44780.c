@@ -114,14 +114,16 @@ lcd_10us_delay(volatile uint32_t us) {
 }
 
 /*!	\brief	Initiate the transfer of data/commands to LCD. */
-static void lcd_strobe(void) { /* Low level function. */
+static void
+lcd_strobe(void) { /* Low level function. */
   SET(LCD_E_OUT, LCD_E);
   lcd_10us_delay(ENABLE_CYCLE_TIME);
   CLR(LCD_E_OUT, LCD_E); /* Enable strobe */
 }
 
 /*!	\brief	Send the msb nibble of the data / command to LCD. */
-static void lcd_high(uint8_t data) { /* Low level function. */
+static void
+lcd_high(uint8_t data) { /* Low level function. */
   if(data & LCD_D7_MASK)
     SET(LCD_D7_OUT, LCD_D7);
   else
@@ -141,7 +143,8 @@ static void lcd_high(uint8_t data) { /* Low level function. */
 }
 
 /*!	\brief	Send the lsb nibble of the data / command to LCD. */
-static void lcd_low(uint8_t data) { /* Low level function. */
+static void
+lcd_low(uint8_t data) { /* Low level function. */
   if(data & LCD_D3_MASK)
     SET(LCD_D7_OUT, LCD_D7);
   else
@@ -161,7 +164,8 @@ static void lcd_low(uint8_t data) { /* Low level function. */
 }
 
 /*!	\brief	Send data/commands to the display. */
-static void lcd_write(uint8_t data) { /* Low level function. */
+static void
+lcd_write(uint8_t data) { /* Low level function. */
 #if(USE_BUSY_FLAG)
   /* Write data/commands to LCD. */
   CLR(LCD_RW_OUT, LCD_RW);
@@ -181,7 +185,8 @@ static void lcd_write(uint8_t data) { /* Low level function. */
 }
 
 /*!	\brief	Initializing by instruction. 4-bit interface initialization. */
-static void lcd_config(uint8_t param) { /* Low level function. */
+static void
+lcd_config(uint8_t param) { /* Low level function. */
   /* Send commands to LCD. */
   CLR(LCD_RS_OUT, LCD_RS);
 #if(USE_BUSY_FLAG)

@@ -111,7 +111,7 @@ measure_freq() {
 #endif
   buffer_init();
   buffer_puts("Freq=");
-  format_number(&buffer_putch,count, 10, 5);
+  format_number(&buffer_putch, count, 10, 5);
   print_buffer();
 
   return count;
@@ -155,22 +155,22 @@ measure_capacitance() {
   ////buf_to_ser();
   ser_puts("\r\nF2=");
   format_float(&ser_putch, F2);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F2);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_puts("\r\nF3=");
   format_float(&ser_putch, F3);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F3);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_puts("\r\nCCal=");
   format_float(&ser_putch, CCal);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&CCal);
-  //buf_to_ser();
+  // buf_to_ser();
   ser_puts("\r\n");
 #endif
   //  putchar_ptr = &output_putch;
