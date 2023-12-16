@@ -69,7 +69,7 @@ else
 BUILD_ID := $(BUILD_TYPE)_$(MHZ)mhz_$(KBPS)kbps
 endif
 
-MATH_SOURCES = acosf.c asincosf.c asinf.c atan2f.c atanf.c ceilf.c cosf.c coshf.c cotf.c expf.c fabsf.c floorf.c frexpf.c ldexpf.c log10f.c logf.c modff.c powf.c sincosf.c sincoshf.c sinf.c sinhf.c sqrtf.c tancotf.c tanf.c tanhf.c
+MATH_SOURCES = frexpf.c log10f.c logf.c 
 
 LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1
