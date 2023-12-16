@@ -13088,7 +13088,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <wire x1="-1.016" y1="-1.27" x2="18.796" y2="-1.27" width="0.127" layer="21"/>
 <wire x1="18.796" y1="-1.27" x2="18.796" y2="1.27" width="0.127" layer="21"/>
 <wire x1="18.796" y1="1.27" x2="-1.016" y2="1.27" width="0.127" layer="21"/>
-<text x="-1.524" y="-1.27" size="0.8128" layer="20" rot="R90">1</text>
+<text x="-1.524" y="-1.27" size="0.8128" layer="48" rot="R90">1</text>
 <text x="-1.016" y="1.524" size="0.8128" layer="25" rot="R180" align="top-right">&gt;NAME</text>
 <text x="18.796" y="1.524" size="0.8128" layer="27" rot="R180" align="top-left">&gt;VALUE</text>
 <pad name="7" x="15.24" y="0" drill="0.9" diameter="1.4224" shape="octagon" rot="R180"/>
@@ -13121,7 +13121,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <wire x1="-1.397" y1="-1.397" x2="11.557" y2="-1.397" width="0.127" layer="21"/>
 <wire x1="11.557" y1="-1.397" x2="11.557" y2="1.397" width="0.127" layer="21"/>
 <wire x1="11.557" y1="1.397" x2="-1.397" y2="1.397" width="0.127" layer="21"/>
-<text x="-1.524" y="-1.524" size="1.27" layer="20" rot="R180">1</text>
+<text x="-1.524" y="-1.524" size="1.27" layer="48" rot="R180">1</text>
 <text x="-1.397" y="1.778" size="1.27" layer="25">&gt;NAME</text>
 <text x="11.557" y="-1.778" size="1.27" layer="27" rot="R180">&gt;VALUE</text>
 </package>
@@ -14455,7 +14455,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="R8" library="r" deviceset="R-H" device="0204/10" value="100Ω"/>
 <part name="R9" library="r" deviceset="R-H" device="0204/10" value="100Ω"/>
 <part name="J1" library="pinconn" deviceset="HD44780-4BIT" device="-8PIN" value="HD44780"/>
-<part name="R11" library="r" deviceset="R-H" device="0202/7" value="1kΩ"/>
+<part name="R11" library="r" deviceset="R-H" device="0204/10" value="1kΩ"/>
 <part name="LED" library="led" deviceset="TLLG4400" device="" value=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="P+8" library="supply1" deviceset="VCC" device=""/>
