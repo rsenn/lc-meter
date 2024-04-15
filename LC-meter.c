@@ -236,10 +236,12 @@ main() {
     if(led_cycle >= led_interval)
       led_cycle = 0;
 
+    uint16_t f = measure_freq();
+
     if(mode)
-      measure_capacitance();
+      measure_capacitance(f);
     else
-      measure_inductance();
+      measure_inductance(f);
 
     print_indicator(1);
     delay10ms(30);

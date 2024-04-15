@@ -69,7 +69,7 @@ calibrate() {
 /*
  * Measure frequency on comparator output via T0CKI
  */
-unsigned short
+uint16_t
 measure_freq() {
   uint16_t count;
 
@@ -128,9 +128,9 @@ buf_to_ser() {
  * Calculate capacitance from oscillating frequency (Thompson formula)
  */
 void
-measure_capacitance() {
+measure_capacitance(uint16_t var) {
   uint8_t unit;
-  uint16_t var;
+  //  uint16_t var;
 
   double Cin;
 
@@ -139,38 +139,30 @@ measure_capacitance() {
   lcd_gotoxy(0, 0);
   put_str("Capacity ");
 #endif
-  var = measure_freq();
+  //  var = measure_freq();
 
   F3 = (double)var;
+
 #if USE_SER
   //  putchar_ptr = &ser_putch;
   ser_puts("var=");
   format_xint32(&ser_putch, var);
-  ////buf_to_ser();
   ser_puts("\r\nF1=");
   format_float(&ser_putch, F1);
-  ////buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F1);
-  ////buf_to_ser();
   ser_puts("\r\nF2=");
   format_float(&ser_putch, F2);
-  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F2);
-  // buf_to_ser();
   ser_puts("\r\nF3=");
   format_float(&ser_putch, F3);
-  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&F3);
-  // buf_to_ser();
   ser_puts("\r\nCCal=");
   format_float(&ser_putch, CCal);
-  // buf_to_ser();
   ser_putch(' ');
   format_xint32(&ser_putch, *(uint32_t*)&CCal);
-  // buf_to_ser();
   ser_puts("\r\n");
 #endif
   //  putchar_ptr = &output_putch;
@@ -215,9 +207,9 @@ measure_capacitance() {
  * Calculate inductance from oscillating frequency (Thompson formula)
  */
 void
-measure_inductance() {
+measure_inductance(uint16_t var) {
   uint8_t unit;
-  uint16_t var;
+  // uint16_t var;
 
   double Lin, numerator, denominator;
 #if USE_HD44780_LCD || USE_NOKIA5110_LCD
@@ -225,7 +217,7 @@ measure_inductance() {
   lcd_gotoxy(0, 0);
   put_str("Inductivity ");
 #endif
-  var = measure_freq();
+  //  var = measure_freq();
 
   F3 = (double)var;
   if(F3 > F1)

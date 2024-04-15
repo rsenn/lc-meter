@@ -4,8 +4,8 @@
 #include "../lib/typedef.h"
 
 void calibrate(void);
-unsigned short measure_freq(void);
-void measure_capacitance(void);
-void measure_inductance(void);
+uint16_t measure_freq(void);
+void measure_capacitance(uint16_t);
+void measure_inductance(uint16_t);
 
 #endif // MEASURE_H
