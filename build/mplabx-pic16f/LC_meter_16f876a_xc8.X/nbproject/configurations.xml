@@ -67,16 +67,14 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.45</languageToolchainVersion>
+        <languageToolchainVersion>1.43</languageToolchainVersion>
         <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -104,10 +102,11 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__16f876a=1;BAUD_RATE=38400;USE_SER=1;USE_TIMER0=1;_XTAL_FREQ=20000000;_DEBUG=1"/>
+                  value="__16f876a=1;BAUD_RATE=38400;USE_SER=1;USE_TIMER0=1;_XTAL_FREQ=20000000;_DEBUG=1;__XC8__=1;USE_TIMER2=1"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="..\..\..;..\..\..\lib;..\..\..\src;."/>
@@ -152,8 +151,8 @@
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
-        <property key="data-model-size-of-double" value="32"/>
-        <property key="data-model-size-of-double-gcc" value="no-short-double"/>
+        <property key="data-model-size-of-double" value="24"/>
+        <property key="data-model-size-of-double-gcc" value="short-double"/>
         <property key="data-model-size-of-float" value="24"/>
         <property key="data-model-size-of-float-gcc" value="short-float"/>
         <property key="display-class-usage" value="false"/>
@@ -233,6 +232,7 @@
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="coff"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="+mcof,-elf"/>
         <property key="stack-size-high" value=""/>
         <property key="stack-size-low" value="auto"/>
@@ -247,16 +247,14 @@
         <targetDevice>PIC16F876A</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PICkit3PlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>1.45</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>1.43</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16Fxxx_DFP" vendor="Microchip" version="1.1.23"/>
       </packs>
-      <ScriptingSettings>
-      </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
@@ -284,10 +282,11 @@
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
+        <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>
         <property key="define-macros"
-                  value="__16f876a=1;BAUD_RATE=38400;USE_SER=1;USE_TIMER0=1;_XTAL_FREQ=20000000;NDEBUG=1"/>
+                  value="__16f876a=1;BAUD_RATE=38400;USE_SER=1;USE_TIMER0=1;_XTAL_FREQ=20000000;NDEBUG=1;USE_TIMER2=1"/>
         <property key="disable-optimizations" value="false"/>
         <property key="extra-include-directories"
                   value="..\..\..;..\..\..\lib;..\..\..\src;."/>
@@ -332,8 +331,8 @@
         <property key="code-model-rom" value=""/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
-        <property key="data-model-size-of-double" value="32"/>
-        <property key="data-model-size-of-double-gcc" value="no-short-double"/>
+        <property key="data-model-size-of-double" value="24"/>
+        <property key="data-model-size-of-double-gcc" value="short-double"/>
         <property key="data-model-size-of-float" value="24"/>
         <property key="data-model-size-of-float-gcc" value="short-float"/>
         <property key="display-class-usage" value="false"/>
@@ -404,12 +403,16 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="5.0"/>
       </PICkit3PlatformTool>
+      <XC8-CO>
+        <property key="coverage-enable" value=""/>
+      </XC8-CO>
       <XC8-config-global>
         <property key="advanced-elf" value="false"/>
         <property key="gcc-opt-driver-new" value="false"/>
         <property key="gcc-opt-std" value="--std=c89"/>
         <property key="gcc-output-file-format" value="dwarf-3"/>
         <property key="omit-pack-options" value="false"/>
+        <property key="omit-pack-options-new" value="1"/>
         <property key="output-file-format" value="-mcof,+elf"/>
         <property key="stack-size-high" value=""/>
         <property key="stack-size-low" value="auto"/>
