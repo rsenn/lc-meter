@@ -62,9 +62,8 @@ static char mode = -1;
  */
 void
 delay10ms(unsigned char period_10ms) {
-  /*	short i,j = period_10ms;
-    for(i = 0; i < j; ++i)
-      __delay_ms(10);*/
+  while(period_10ms--)
+    delay_ms(10);
 }
 
 // buffer_t buffer = BUFFER_STATIC(output_putch);
@@ -128,9 +127,14 @@ main() {
     CMCON |= 0b00000101;*/
 
 #ifdef __16f876a
+  // CMCON mode 0b101 = one independent comparator (C1 only) on the 16F876A:
+  //   C1(-) = RA0, C1(+) = RA3, C1OUT = RA4. RA1/RA2/RA5 are plain digital I/O.
+  // The schematic ties RA5 (labelled C2OUT) into the C1(-) node, so keep RA5
+  // tri-stated (TRISA5 = 1) to prevent the digital driver from fighting the
+  // analog bias network.
   CMCON = 0b00000101;
 #endif
-  TRISA = 0b11001111;
+  TRISA = 0b11101111;
 
   TRISB &= 0b00001111;
 

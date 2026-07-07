@@ -222,7 +222,7 @@ measure_inductance(uint16_t var) {
   F3 = (double)var;
   if(F3 > F1)
     F3 = F1; // max freq is F1;
-  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 - F2)) * (GATE_PERIOD * GATE_PERIOD);
+  numerator = ((F1 * F1) - (F3 * F3)) * ((F1 * F1) - (F2 * F2)) * (GATE_PERIOD * GATE_PERIOD);
   denominator = 4 * PI * PI * F1 * F1 * F2 * F2 * F3 * F3 * CCal;
   Lin = (numerator / denominator) * 1e+15l; // scale to nH { pF/1e+12 * nH/1e+09 * (s/1e+03)^2 }
 
