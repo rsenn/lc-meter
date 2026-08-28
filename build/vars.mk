@@ -80,11 +80,12 @@ Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUS
 Freq_meter_HD44780_SOURCES = Freq-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 Freq_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
 
-ifeq ($(COMPILER),xc8)
-LC_meter_HD44780_SOURCES += $(MATH_SOURCES)
-Cap_meter_HD44780_SOURCES += $(MATH_SOURCES)
-Freq_meter_HD44780_SOURCES += $(MATH_SOURCES)
-endif
+## MATH_SOURCES (frexpf.c log10f.c logf.c) used to be added to the xc8
+## build here, but those .c files don't exist anywhere in this repo (nor
+## under lib/math, despite vars.mk's own VPATH listing it) - XC8's own
+## runtime library already provides frexpf/log10f/logf, so compiling
+## them from nonexistent local sources was never necessary and broke
+## every xc8 build (`make: *** No rule to make target 'frexpf.c'`).
 
 
 ifeq ($(_DEBUG),1)

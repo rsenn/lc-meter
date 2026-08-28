@@ -1,6 +1,12 @@
 #ifndef CONFIG_BITS_H
 #define CONFIG_BITS_H 1
 
+// Opt this (top-level-program-only) translation unit in to emitting the
+// SDCC __config_word absolute section - see lib/device.h. config-bits.h
+// is included solely by main()-containing sources, never by lib/*.c, so
+// this can't cause the same symbol to be emitted twice at link time.
+#define DEVICE_EMIT_CONFIG_WORD 1
+
 #if(_HTC_VER_MINOR_ > 0 && _HTC_VER_MINOR_ < 80)
 //#ifndef FOSC_HS
 //#define FOSC_HS HS
