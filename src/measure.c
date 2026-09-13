@@ -19,6 +19,8 @@
 #include "../lib/timer.h"
 #include "../lib/buffer.h"
 
+double F1, F2, F3, CCal;
+
 /*
  * Calibrate by adding the calibration capacitor into the circuit (by relay)
  */
@@ -170,8 +172,8 @@ measure_capacitance(uint16_t var) {
   if(F3 > F1)
     F3 = F1; // max freq is F1;
 
-  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
-  //  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
+  //Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal;
+  Cin = F2 * F2 * (F1 * F1 - F3 * F3) * CCal / (F3 * F3 * (F1 * F1 - F2 * F2));
 
 #if USE_SER
   ser_puts("Cin=");

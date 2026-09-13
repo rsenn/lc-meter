@@ -62,7 +62,6 @@
 #endif
 
 //#define TIMER0_PRESCALER PRESCALE_1_32
-extern double F1, F2, F3, CCal;
 
 void delay10ms(unsigned char period_10ms);
 

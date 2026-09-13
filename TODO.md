@@ -226,6 +226,21 @@ build doesn't get that far.
       `format_double`, `lcd_print_float`, `ds18b20_temperature`,
       `adc.h`'s `ADVAL_V`), `#warning`-stubbing each until/unless they
       get a real fixed-point replacement.
+- [x] Added `lib/format.c`'s `format_fixed(putch_t, const qval_t*)` and
+      `format_float24(putch_t, const f24_t*)` — decimal (`"1234.5879"`)
+      printers for the `USE_FIXED`/`USE_FLOAT24` value types, gated
+      behind `#ifdef USE_FIXED`/`#ifdef USE_FLOAT24` respectively, no
+      `double`/`float`/libm involved (integer shifts + a 32-bit
+      multiply per digit, sharing a `format_q_dec(m, fb)` helper since
+      both `qval_t` and `f24_t` reduce to the same `m / 2^fb` shape).
+      Known limitations, not yet addressed: fixed at 6 fractional
+      digits (no way to request fewer/more); `format_float24` saturates
+      to `0xFFFFFFFF` rather than correctly printing an `f24_t` whose
+      magnitude needs more than 32 bits of integer part (`exp` more
+      than ~7 above the neutral point) — fine for lc-meter's actual
+      pF/mH display range, not a general-purpose float24-to-decimal
+      routine. Neither is wired into `src/measure.c`'s debug dump yet
+      (see the item above this one).
 - [x] Simulator round-trip: `tests/run_mdb_sim.sh` builds
       `test_float24.c` for real PIC16F876A hardware (XC8, debug
       symbols), then drives MPLAB X's `mdb` CLI against its built-in

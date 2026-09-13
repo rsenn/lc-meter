@@ -68,7 +68,6 @@ delay10ms(unsigned char period_10ms) {
 
 // buffer_t buffer = BUFFER_STATIC(output_putch);
 
-double F1, F2, F3, CCal;
 void main();
 void loop();
 void testloop();
