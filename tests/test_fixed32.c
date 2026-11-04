@@ -18,7 +18,7 @@
 #include "common.h"
 #endif
 
-#define F_MAX_SAFE 46340u /* sqrt(2^31): keeps F*F < 2^31 */
+#define F_MAX_SAFE 65535u /* full 16-bit counter range, see src/measure.c */
 
 /* (F1/Fx)^2 - 1, as an adaptively-scaled Q(fb) value - see
  * lib/fixedmath.h's fixed_div_u32 for why adaptive beats a fixed

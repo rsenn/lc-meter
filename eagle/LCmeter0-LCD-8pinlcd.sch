@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="4" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -12327,6 +12327,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <part name="J2" library="pinconn" deviceset="PIC-UART" device=""/>
 <part name="GND15" library="supply1" deviceset="GND" device=""/>
 <part name="P+9" library="supply1" deviceset="VCC" device=""/>
+<part name="GND16" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12439,6 +12440,7 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <instance part="P+9" gate="VCC" x="182.88" y="20.32" smashed="yes" rot="R90">
 <attribute name="VALUE" x="181.61" y="20.32" size="1.778" layer="96" rot="R90" align="bottom-center"/>
 </instance>
+<instance part="GND16" gate="1" x="-53.34" y="12.7"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -12613,6 +12615,16 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <pinref part="GND15" gate="1" pin="GND"/>
 <pinref part="J2" gate="1" pin="VSS"/>
 <wire x1="185.42" y1="17.78" x2="187.96" y2="17.78" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="S1" gate="G$1" pin="P1"/>
+<wire x1="-60.96" y1="22.86" x2="-53.34" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="22.86" x2="-53.34" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="17.78" x2="-49.53" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="X2" gate="-1" pin="S"/>
+<pinref part="GND16" gate="1" pin="GND"/>
+<wire x1="-53.34" y1="15.24" x2="-53.34" y2="17.78" width="0.1524" layer="91"/>
+<junction x="-53.34" y="17.78"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -12903,15 +12915,6 @@ Source: &lt;a href="http://www.farnell.com/datasheets/391098.pdf"&gt; Data sheet
 <wire x1="-60.96" y1="27.94" x2="-49.53" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="X2" gate="-2" pin="S"/>
 <pinref part="S1" gate="G$1" pin="P"/>
-</segment>
-</net>
-<net name="M-" class="0">
-<segment>
-<pinref part="S1" gate="G$1" pin="P1"/>
-<wire x1="-60.96" y1="22.86" x2="-53.34" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="22.86" x2="-53.34" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="17.78" x2="-49.53" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="X2" gate="-1" pin="S"/>
 </segment>
 </net>
 <net name="FREQ" class="0">

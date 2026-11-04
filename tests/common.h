@@ -24,7 +24,7 @@ typedef struct {
 static void
 gen_trial(trial_t *t) {
   double num, den;
-  t->F1 = 20000 + (rand() % 20000);
+  t->F1 = 20000 + (rand() % 45000); /* up to 65000 counts = 650 kHz, the full 16-bit range */
   t->F2 = t->F1 * (0.55 + (rand() % 3000) / 10000.0);
   t->F3 = t->F1 * (0.10 + (rand() % 9000) / 10000.0);
   if (t->F2 > t->F1)

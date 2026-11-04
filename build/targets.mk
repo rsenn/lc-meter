@@ -10,7 +10,7 @@ USE_SER = -DUSE_SER=1
 #endif
 
 #LC_meter_HD44780_SOURCES = LC-meter-HD44780.c lcd44780.c ser.c ser.c
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c lcd44780.c print.c ser.c buffer.c format.c
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c fixedmath.c lcd44780.c print.c ser.c buffer.c format.c
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_HD44780_LCD=1
 $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER0=1
 #$(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER1=1 USE_TIMER2=1
@@ -22,7 +22,7 @@ $(BUILDDIR)LC_meter_HD44780_$(BUILD_ID).hex: DEFINES += USE_TIMER0=1
 
 LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1
 LC_meter_HD44780_DEFS += $(USE_SER) 
-LC_meter_HD44780_DEFS +=  -DUSE_TIMER0=1
+LC_meter_HD44780_DEFS +=  -DUSE_TIMER0=1 -DUSE_FIXED=1
 #LC_meter_HD44780_DEFS +=  -DUSE_TIMER1=1
 #LC_meter_HD44780_DEFS +=  -DUSE_TIMER2=1
 

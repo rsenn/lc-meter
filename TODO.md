@@ -1,4 +1,87 @@
-# TODO — Thomson-formula fixed-point migration
+# TODO
+
+## Open tasks (2026-11-04) - everything still to do to get the LCF-meter running
+
+Nothing in this list has been checked on the real hardware yet. See
+`doc/FIXES.md` (what was fixed, bring-up guide) and `doc/LESSONS.md` (what was
+wrong and what was learned).
+
+### A. Hardware (blocking)
+
+- [ ] **Wire DUT- to GND on the real perfboard**: X2 pin 1 (net `M-`) and L/C
+      switch S1 pin 5 (pole-2 common) must go to ground. Without it the tank
+      has no ground return and the select line RC4 always reads high.
+- [ ] Review the perfboard photos in `~/Desktop/lc-meter/` against the netlist
+      (`doc/FIXES.md` §10 lists the nets to check). Review was started, not
+      finished. The PIC socket is empty in the photos; the top photos were not
+      traced pin by pin yet.
+- [ ] Continuity-check every net below with a meter before power-up (§10 step 1).
+- [ ] LCD: check contrast (V0) and R/W wiring of the 8-pin LCD module; the
+      schematic has no V0 and no R/W pin.
+- [ ] Decide on the optional hardware changes from `doc/FIXES.md` §3/§4
+      (R5 1k, R1 47k, C3/C4 ceramic, local bypass caps, 74HC14 buffer). They
+      are recommendations, not proven fixes.
+- [ ] RA2 is left floating (comparator mode 101 treats it as digital input).
+      Verify on the scope that C2 really uses RA3 as common reference.
+
+### B. EAGLE files
+
+- [ ] Open the five patched boards (`PIC_COMP`, `8pinlcd`, `alt`, `alt2`,
+      `3310-8pinlcd-PIC-COMP`), run `RATSNEST` and DRC, check the old `M-`
+      copper joins the GND copper, save. Backups of the pre-patch boards are
+      only in `/tmp/brdbak.*` (git has the committed versions).
+- [ ] Fix the 34 ERC consistency errors: Library -> Update all in the board and
+      the schematic editor (libraries in `eagle/*.lbr` match the schematic's
+      copy, the boards carry older ones). Run DRC afterwards: pad drills change.
+- [ ] `eagle/LCmeter0-LCD3310-8pinlcd-PIC-COMP.brd` and
+      `LCmeter0-LCD-mounted-PIC-COMP.brd` have no `.sch`; decide to delete or
+      recreate the schematic. The 3310 board uses J7 instead of X2.
+- [ ] Delete the EAGLE lock files `eagle/*.s#1`, `*.b#1` (untracked) once EAGLE is closed.
+- [ ] Commit the schematic/board changes (git shows all `.sch` modified).
+
+### C. Firmware / software
+
+- [ ] **Commit and push** the work: `LC-meter.c`, `src/measure.[ch]`,
+      `src/print.[ch]`, `build/{vars,targets,xc8}.mk`, `tests/`, docs.
+- [ ] **Submodule `lib`**: commit c11313c8 pins libpicp 86f23ee (2023), which
+      lacks the portability fixes and `fixedmath`. The working tree uses
+      `~/Sources/libpicp` 4eee869 plus uncommitted edits in `format.c`,
+      `format.h`, `timer.c`. Commit those in libpicp, push, then update the
+      gitlink in lc-meter. Check that 4eee869 exists upstream.
+- [ ] First run on hardware: confirm `TRISA`/`CMCON`/`OPTION_REG` values
+      (`doc/FIXES.md` §2.3/2.4), then scope RA5 (square wave) and RA4 (T0CKI).
+- [ ] Check `F1`/`F2`/`F3` against expected counts (about 100 ms gate; the
+      fixed-point path reports a range error above 46340 counts).
+- [ ] Calibrate and verify against known parts (100 pF, 10 nF, 100 uH choke).
+- [ ] Check the micro sign on the real LCD: default `LCD_MU` is 0xE4 (A00 ROM),
+      use `-DLCD_MU=0xB5` for the A02 ROM.
+- [x] Counts up to 65535 and inductance above 42.9 mH are handled (simulator-verified).
+- [ ] Display range: readings above 655.35 in a unit step up to the next unit
+      (913 nF shows as 0.91 uF). Consider a 3-digit mode if the resolution matters.
+- [ ] Comparator setup in `main()` exists only under `#ifdef __16f876a`.
+      PIC18 targets (18F2550, 18F25K50) need their own CMCON/CM1CON0 setup.
+- [ ] `Cap-meter.c` / `Freq-meter.c`: not reviewed for the TRISA/Timer0 issues.
+      `Cap-meter.c` still has the SDCC string-literal errors (lines ~75/123) and
+      `C2OUT` undefined on 18F2550/18F25K50 under SDCC.
+- [ ] SDCC on 16F876A: link fails (`STK13` missing in the pic14 runtime,
+      `muldiv_u32` has too many argument bytes). XC8 is the supported compiler.
+- [ ] Add named build programs for the variants (for example `LC_meter_serial`:
+      `USE_SER=1`, no LCD) instead of overriding `LC_meter_HD44780_DEFS=` by hand.
+- [ ] `double` build is 32-bit only (never 24-bit, user rule); it does not fit
+      the 16F876A. Keep fixed-point as default there.
+- [ ] Run `tests/run_mdb_display.sh lcd` and `... ser` after every change to
+      `measure.c`/`print.c`.
+- [ ] Document the SER debug output format in `README` (one line per reading).
+
+### D. Docs / skills
+
+- [x] `doc/FIXES.md` updated (bug table §8, change log §9, bring-up guide §10).
+- [x] `doc/LESSONS.md` written.
+- [x] `mcu-firmware-engineer` skill and its ChangeLog updated.
+
+---
+
+## Thomson-formula fixed-point migration (2026-08, done: see `USE_FIXED`)
 
 ## Background / findings (2026-08-28)
 

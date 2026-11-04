@@ -120,7 +120,11 @@ COMMON_FLAGS +=  -DMCHP_XC8=1
 COMMON_FLAGS += --debugger=icd2
 
 
-COMMON_FLAGS += --double=32 --float=24
+# 32-bit float/double only, never XC8's 24-bit format (precision matters most
+# for the Thomson maths). The float library is selected at LINK time, so the
+# same flags must reach the linker too - see LDFLAGS below.
+FLOAT_FLAGS = --double=32 --float=32
+COMMON_FLAGS += $(FLOAT_FLAGS)
 
 COMMON_FLAGS += --warn=9
 COMMON_FLAGS += --asmlist
@@ -156,7 +160,7 @@ LDFLAGS += --stack=compiled
 
 
 LDFLAGS += --output="default,-inhx032"
-LDFLAGS += --chip=$(chipl)
+LDFLAGS += --chip=$(chipl) $(FLOAT_FLAGS)
 LDFLAGS +=  --asmlist
 
 PM3CMD = "$$PROGRAMFILES"/Microchip/MPLAB\ IDE/Programmer\ Utilities/PM3Cmd/PM3Cmd

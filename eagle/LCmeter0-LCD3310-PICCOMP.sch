@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="4" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -14524,6 +14524,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <part name="P+6" library="supply1" deviceset="VCC" device=""/>
 <part name="C8" library="c" deviceset="C-H" device="050-020X044/V" value="220nF"/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
+<part name="GND14" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14624,6 +14625,7 @@ wire to board 2.54 mm (0.100") pitch header</description>
 </instance>
 <instance part="C8" gate="G$1" x="182.88" y="12.7" rot="R90"/>
 <instance part="GND10" gate="1" x="184.15" y="0"/>
+<instance part="GND14" gate="1" x="-53.34" y="5.08"/>
 </instances>
 <busses>
 <bus name="D[4..7],E,RS,VDD,VSS">
@@ -14663,7 +14665,6 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <net name="N$2" class="0">
 <segment>
 <pinref part="C1" gate="1" pin="1"/>
-<wire x1="-17.78" y1="15.24" x2="-17.78" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="C2" gate="1" pin="1"/>
 <wire x1="-17.78" y1="17.78" x2="-17.78" y2="22.86" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="22.86" x2="-10.16" y2="15.24" width="0.1524" layer="91"/>
@@ -14802,6 +14803,16 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <wire x1="185.42" y1="17.78" x2="185.42" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="5.08" x2="184.15" y2="5.08" width="0.1524" layer="91"/>
 <wire x1="184.15" y1="5.08" x2="184.15" y2="2.54" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="-60.96" y1="15.24" x2="-53.34" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="15.24" x2="-53.34" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-53.34" y1="10.16" x2="-50.8" y2="10.16" width="0.1524" layer="91"/>
+<pinref part="X2" gate="-1" pin="S"/>
+<pinref part="S1" gate="G$1" pin="P1"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="-53.34" y1="7.62" x2="-53.34" y2="10.16" width="0.1524" layer="91"/>
+<junction x="-53.34" y="10.16"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -15018,19 +15029,6 @@ wire to board 2.54 mm (0.100") pitch header</description>
 <wire x1="-60.96" y1="20.32" x2="-50.8" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="X2" gate="-2" pin="S"/>
 <pinref part="S1" gate="G$1" pin="P"/>
-<wire x1="-50.8" y1="20.32" x2="-49.53" y2="20.32" width="0.1524" layer="91"/>
-<junction x="-50.8" y="20.32"/>
-</segment>
-</net>
-<net name="M-" class="0">
-<segment>
-<wire x1="-60.96" y1="15.24" x2="-53.34" y2="15.24" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="15.24" x2="-53.34" y2="10.16" width="0.1524" layer="91"/>
-<wire x1="-53.34" y1="10.16" x2="-50.8" y2="10.16" width="0.1524" layer="91"/>
-<pinref part="X2" gate="-1" pin="S"/>
-<pinref part="S1" gate="G$1" pin="P1"/>
-<wire x1="-50.8" y1="10.16" x2="-49.53" y2="10.16" width="0.1524" layer="91"/>
-<junction x="-50.8" y="10.16"/>
 </segment>
 </net>
 <net name="FREQ" class="0">

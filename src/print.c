@@ -17,6 +17,15 @@
 #endif
 
 #include "../lib/format.h"
+
+/*
+ * Code of the micro sign in the display's character ROM: 0xE4 on the common
+ * A00 (Japanese) HD44780 ROM, 0xB5 on the A02 (European) one. Override with
+ * -DLCD_MU=0xB5 or -DLCD_MU="'u'" for a plain letter.
+ */
+#ifndef LCD_MU
+#define LCD_MU ((char)0xE4)
+#endif
 #define print_print_number(a, b, c) format_number(a, b, c)
 
 void
@@ -396,6 +405,29 @@ print_digit(uint8_t line, uint8_t column, uint8_t digit) {
 #endif // defined(USE_NOKIA5110_LCD)
 }
 
+#if defined(USE_HD44780_LCD) || USE_SER
+/* unit names, index as in measure.c: 0..3 = H mH uH nH, 4..7 = mF uF nF pF */
+static const char unit_names[8][2] = {{'H', ' '}, {'m', 'H'}, {'u', 'H'}, {'n', 'H'}, {'m', 'F'}, {'u', 'F'}, {'n', 'F'}, {'p', 'F'}};
+
+/* "ppp.ff" right-aligned, e.g. 105 -> "  1.05" */
+static void
+reading_text(char text[6], uint16_t measurement) {
+  uint16_t whole = measurement / 100;
+  uint8_t frac = measurement % 100;
+
+  text[5] = '0' + frac % 10;
+  text[4] = '0' + frac / 10;
+  text[3] = '.';
+  text[2] = '0' + whole % 10;
+  text[1] = whole >= 10 ? '0' + (whole / 10) % 10 : ' ';
+  text[0] = whole >= 100 ? '0' + whole / 100 : ' ';
+}
+#endif
+
+#if USE_SER
+static const char* serial_label = "";
+#endif
+
 // -------------------------------------------------------------------------
 void
 print_unit(uint8_t unit) {
@@ -406,22 +438,28 @@ print_unit(uint8_t unit) {
   lcd_gotoxy(60, 3);
   for(i = 18; i < 36; i++) lcd_send(units[unit * 36 + i], LCD_TDATA);
 #elif defined(USE_HD44780_LCD)
-  static const char* units[8] = {"H", "mH", "uH", "nH", "mF", "uF", "nF", "pF"};
-  lcd_gotoxy(14, 0);
-  //  buffer_puts(units[unit]);
-  /*lcd_gotoxy(14, 1);
-  lcd_puts(units[unit]);*/
-  lcd_gotoxy(16 - BUFFER_LEN(), 0);
+  const char* u = unit_names[unit & 7];
 
-  // buffer_flush();
-#ifdef USER_SER
+  lcd_gotoxy(14, 0);
+  lcd_putch(u[0] == 'u' ? LCD_MU : u[0]);
+  lcd_putch(u[1]);
+#endif // defined(USE_NOKIA5110_LCD)
+#if USE_SER
+  /* completes the line started by print_label() / print_reading() */
+  ser_putch(' ');
+  ser_putch(unit_names[unit & 7][0]);
+  if(unit_names[unit & 7][1] != ' ')
+    ser_putch(unit_names[unit & 7][1]);
   ser_puts("\r\n");
 #endif
-#endif // defined(USE_NOKIA5110_LCD)
 }
 
 void
 print_reading(uint16_t measurement) {
+#if defined(USE_HD44780_LCD) || USE_SER
+  char text[6];
+  uint8_t i;
+#endif
 
 // measurement divide by 100
 #if USE_NOKIA5110_LCD
@@ -447,16 +485,57 @@ print_reading(uint16_t measurement) {
   print_digit(3, 40, (measurement / 10) % 10);
   // hundredths digit
   print_digit(3, 50, measurement % 10);
-#elif defined(USE_HD44780_LCD)
-  lcd_gotoxy(9, 0);
-  lcd_puts("     ");
-  lcd_gotoxy(9, 0);
-  // putchar_ptr = &buffer_putch;
-  format_number(&buffer_putch, measurement / 100, 10, 0);
-  // buffer_putch('.');
-  format_number(&buffer_putch, measurement % 100, 10, 0);
-
 #endif // defined(USE_NOKIA5110_LCD)
+#if defined(USE_HD44780_LCD) || USE_SER
+  reading_text(text, measurement);
+#endif
+#ifdef USE_HD44780_LCD
+  lcd_gotoxy(8, 0);
+  for(i = 0; i < 6; i++) lcd_putch(text[i]);
+#endif
+#if USE_SER
+  ser_puts(serial_label);
+  ser_putch(' ');
+  for(i = 0; i < 6; i++)
+    if(text[i] != ' ')
+      ser_putch(text[i]);
+#endif
+}
+
+// -------------------------------------------------------------------------
+/* Measurement name in the left 8 columns of the top line */
+void
+print_label(const char* label) {
+#if USE_NOKIA5110_LCD
+  lcd_gotoxy(0, 0);
+  lcd_puts(label);
+#elif defined(USE_HD44780_LCD)
+  const char* l = label;
+  uint8_t i;
+  lcd_gotoxy(0, 0);
+  for(i = 0; i < 8; i++) lcd_putch(*l ? *l++ : ' ');
+#endif
+#if USE_SER
+  /* sent together with the reading, so debug output can't split the line */
+  serial_label = label;
+#endif
+}
+
+// -------------------------------------------------------------------------
+/* Measurement failed (counts out of range) */
+void
+print_error(void) {
+#if USE_NOKIA5110_LCD
+  lcd_gotoxy(0, 2);
+  lcd_puts("----");
+#elif defined(USE_HD44780_LCD)
+  lcd_gotoxy(8, 0);
+  lcd_puts("  ----  ");
+#endif
+#if USE_SER
+  ser_puts(serial_label);
+  ser_puts(" range error\r\n");
+#endif
 }
 
 // -------------------------------------------------------------------------

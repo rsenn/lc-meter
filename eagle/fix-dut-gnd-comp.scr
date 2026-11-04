@@ -1,0 +1,8 @@
+# Ground the DUT- terminal (net M-: X2-1 + S1.P1) with a GND flag.
+# For: LCmeter0-LCD-8pinlcd-PIC_COMP.sch, ...-PICCOMP.sch, LCmeter0-LCD3310-PICCOMP.sch
+# Run in the schematic editor (File > Execute Script). Answer Yes to the
+# "merge net segment" question, then run ERC.
+GRID MM;
+SET WIRE_BEND 2;
+NET (-53.34 10.16) (-53.34 7.62);
+ADD GND@supply1 R0 (-53.34 7.62);

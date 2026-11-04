@@ -126,14 +126,19 @@ main() {
     CMCON |= 0b00000101;*/
 
 #ifdef __16f876a
-  // CMCON mode 0b101 = one independent comparator (C1 only) on the 16F876A:
-  //   C1(-) = RA0, C1(+) = RA3, C1OUT = RA4. RA1/RA2/RA5 are plain digital I/O.
-  // The schematic ties RA5 (labelled C2OUT) into the C1(-) node, so keep RA5
-  // tri-stated (TRISA5 = 1) to prevent the digital driver from fighting the
-  // analog bias network.
+  // CMCON mode 0b101 = "two common reference comparators with outputs"
+  // (DS39582B fig. 12-1):
+  //   C1: VIN- = RA0, VIN+ = RA3, C1OUT -> RA4 (open collector, R5 pull-up),
+  //       RA4 doubles as the Timer0 clock input T0CKI
+  //   C2: VIN- = RA1, VIN+ = RA3 (common), C2OUT -> RA5 (push-pull)
+  // C2 is the oscillator: its output on RA5 is wired to the RA0 net, which
+  // closes the feedback loop through R1 (hysteresis to RA3) and R4/C4 (bias
+  // average to RA1). A comparator output only appears on its pin while the
+  // pin's TRISA bit is 0, so RA5 and RA4 MUST both be outputs, see TRISA.
   CMCON = 0b00000101;
 #endif
-  TRISA = 0b11101111;
+  // RA0-RA3 analog/digital inputs, RA4 = C1OUT (T0CKI), RA5 = C2OUT
+  TRISA = 0b11001111;
 
   TRISB &= 0b00001111;
 
@@ -148,7 +153,7 @@ main() {
 #if PIC18
   INTCON2 &= ~0b10000000; //   NOT_RBPU = 0; // enable portB internal pullup
 #else
-  OPTION_REG &= ~0b100000;
+  OPTION_REG &= ~0b10000000; // nRBPU = 0 (bit 5 would be T0CS, which must stay 1)
 #endif
 #endif
 #if !NO_PORTC && !defined(__16f628)
@@ -205,7 +210,12 @@ main() {
   lcd_gotoxy(0, 0);
 #endif
   lcd_puts("LC-meter ");
+#ifdef USE_FIXED
+  format_number(&lcd_putch, C_CAL, 10, 0);
+  lcd_puts("pF");
+#else
   format_float(&lcd_putch, CCal);
+#endif
 #endif
 
 #ifdef _DEBUG

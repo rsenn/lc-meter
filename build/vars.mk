@@ -71,8 +71,8 @@ endif
 
 MATH_SOURCES = frexpf.c log10f.c logf.c
 
-LC_meter_HD44780_SOURCES = LC-meter.c measure.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
-LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1
+LC_meter_HD44780_SOURCES = LC-meter.c measure.c fixedmath.c buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
+LC_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_FIXED=1
 
 Cap_meter_HD44780_SOURCES = Cap-meter.c  buffer.c format.c print.c timer.c lcd44780.c ser.c uart.c softser.c
 Cap_meter_HD44780_DEFS += -DUSE_HD44780_LCD=1 -DUSE_TIMER0=1 -DUSE_TIMER2=1 -DUSE_SER=1 -DUSE_SOFTSER=1 -DUSE_UART=1
